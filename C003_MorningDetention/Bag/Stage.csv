@@ -1,0 +1,5 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,Common_PlayerNotRestrained,(Open the bag.),You carefully open the teacher bag|and search to find something interesting.,10,0,0,
+10,0,0,Common_PlayerNotRestrained,(Close the bag.),You close teacher Yuki's bag.,0,0,0,
+10,0,0,PillInBagAvail,(Steal the sleeping pill.),You take the pill from the bag.,10,0,0,StealPill()
+10,0,0,EggInBagAvail,(Steal the vibrating egg.),"You take the remote controlled vibrating egg|from the bag, but you cannot find any remote.",10,0,0,StealEgg()

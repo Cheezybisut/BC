@@ -1,0 +1,102 @@
+var C003_MorningDetention_Sidney_CurrentStage = 0;
+var C003_MorningDetention_Sidney_Fighting = false;
+var C003_MorningDetention_Sidney_FightWon = false;
+var C003_MorningDetention_Sidney_FightLost = false;
+var C003_MorningDetention_Sidney_TickleDone = false;
+var C003_MorningDetention_Sidney_EggReady = false;
+var C003_MorningDetention_Sidney_EggInside = false;
+
+// Chapter 3 - Sidney Load
+function C003_MorningDetention_Sidney_Load() {
+
+	// Jump directly to stage 100 if the teacher was drugged but is not sleeping
+	if ((C003_MorningDetention_DetentionRoom_SleepTimer > 0) && (CurrentTime < C003_MorningDetention_DetentionRoom_SleepTimer) && (C003_MorningDetention_Sidney_CurrentStage < 100)) 
+		C003_MorningDetention_Sidney_CurrentStage = 100;
+
+	// Jump directly to stage 200 if the teacher was drugged and is sleeping
+	if ((C003_MorningDetention_DetentionRoom_SleepTimer > 0) && (CurrentTime >= C003_MorningDetention_DetentionRoom_SleepTimer) && (C003_MorningDetention_Sidney_CurrentStage < 200)) 
+		C003_MorningDetention_Sidney_CurrentStage = 200;
+	
+	// If Sidney isn't gone and the teacher woke up, there's a special dialog
+	if ((C003_MorningDetention_Yuki_CurrentStage >= 200) && (C003_MorningDetention_Sidney_CurrentStage != 160) && (C003_MorningDetention_Sidney_CurrentStage < 300) && (C003_MorningDetention_Yuki_CurrentStage != 230))
+		C003_MorningDetention_Sidney_CurrentStage = 150;
+
+	// Load the scene parameters
+	C003_MorningDetention_Sidney_EggReady = false;		
+	C003_MorningDetention_Sidney_Fighting = C003_MorningDetention_Intro_Fighting;
+	if (C001_BeforeClass_FightOutro_FightResult == 1) C003_MorningDetention_Sidney_FightLost = true;
+	if (C001_BeforeClass_FightOutro_FightResult == 2) C003_MorningDetention_Sidney_FightWon = true;
+	ActorLoad("Sidney", "DetentionRoom");
+	LoadInteractions();
+
+}
+
+// Chapter 3 - Sidney Run
+function C003_MorningDetention_Sidney_Run() {
+	BuildInteraction(C003_MorningDetention_Sidney_CurrentStage);
+}
+
+// Chapter 3 - Sidney Click
+function C003_MorningDetention_Sidney_Click() {	
+
+	// Regular interaction
+	ClickInteraction(C003_MorningDetention_Sidney_CurrentStage);
+	var ClickInv = GetClickedInventory();
+	
+	// Special code for when the user wants to unlock Sidney
+	if ((ClickInv == "CuffsKey") && (C003_MorningDetention_Sidney_CurrentStage < 300) && Common_PlayerNotRestrained) {
+		PlayerAddInventory("Cuffs", 1);
+		ActorChangeAttitude(2, 0);
+		OveridenIntroText = "As soon as you unlock her, she|thanks you, picks her stuff and leaves.";
+		C003_MorningDetention_Sidney_CurrentStage = 300;
+		C003_MorningDetention_DetentionRoom_SidneyGone = true;
+		CurrentTime = CurrentTime + 60000;
+	}
+
+	// Special code for when the user wants to use the vibrating egg on Sidney
+	if ((ClickInv == "VibratingEgg") && (C003_MorningDetention_Sidney_CurrentStage < 200) && Common_PlayerNotRestrained)
+		OveridenIntroText = "What the fuck is that pink thing?|Get it away before the teacher sees it.";
+
+	// Special code for when the user wants to use the vibrating egg on Sidney
+	if ((ClickInv == "SleepingPill") && (C003_MorningDetention_Sidney_CurrentStage < 200) && Common_PlayerNotRestrained)
+		OveridenIntroText = "Get that pill away sicko!|There's no way I'm taking it.";
+	
+	// Special code for when the user wants to use the vibrating egg on Sidney
+	if ((ClickInv == "VibratingEgg") && (C003_MorningDetention_Sidney_CurrentStage >= 200) && (C003_MorningDetention_Sidney_CurrentStage < 300) && Common_PlayerNotRestrained) {
+		OveridenIntroText = "What the fuck is that pink thing?|Don't you dare anything funky.";
+		C003_MorningDetention_Sidney_EggReady = true;
+	}
+	
+}
+
+// Chapter 3 - Sidney Strip
+function C003_MorningDetention_Sidney_Strip() {	
+	C003_MorningDetention_DetentionRoom_SidneyStrip = true;
+}
+
+// Chapter 3 - Sidney Dress
+function C003_MorningDetention_Sidney_Dress() {	
+	C003_MorningDetention_DetentionRoom_SidneyStrip = false;
+}
+
+// Chapter 3 - Sidney Unlock
+function C003_MorningDetention_Sidney_Unlock() {	
+	C003_MorningDetention_DetentionRoom_SidneyGone = true;
+}
+
+// Chapter 3 - Sidney Insert
+function C003_MorningDetention_Sidney_Insert() {	
+	C003_MorningDetention_Sidney_EggReady = false;
+	C003_MorningDetention_Sidney_EggInside = true;
+	PlayerRemoveInventory("VibratingEgg", 1);
+	ActorAddInventory("VibratingEgg");
+}
+
+// Chapter 3 - Sidney Tickle
+function C003_MorningDetention_Sidney_Tickle() {
+	if (C003_MorningDetention_Sidney_TickleDone == false) {
+		ActorChangeAttitude(-1, 0);
+		OveridenIntroText = "Fuck you!  I hate being tickled.|(She trashes in her cuffs.)";
+		C003_MorningDetention_Sidney_TickleDone = true;
+	}
+}

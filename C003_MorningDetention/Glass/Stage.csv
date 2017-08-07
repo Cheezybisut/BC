@@ -1,0 +1,3 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+10,0,0,,(Break the pill in.),You break the pill in the glass which dissolves quickly.,0,0,0,BreakPill()
+10,0,0,,(Keep the pill.),You keep the sleeping pill for yourself.,0,0,0,

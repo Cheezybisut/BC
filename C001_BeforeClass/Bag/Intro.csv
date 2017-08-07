@@ -1,0 +1,5 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,The school bag hangs unattended on the girl's back.|The straps are in the sleeves.,BagClosed.jpg
+10,0,0,,The school bag straps are hanging loose.|You can see some ropes in the bag.,BagOpen.jpg
+20,0,0,,The school bag straps are hanging loose.|There's nothing interesting left in the bag.,BagOpen.jpg
+30,0,0,,The bag is closed and well-guarded.|You'll need to speak with the bag owner.,BagClosed.jpg

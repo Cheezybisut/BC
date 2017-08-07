@@ -1,0 +1,212 @@
+// Main variables
+var CurrentIntro;
+var CurrentStage;
+var CurrentChapter;
+var CurrentScreen;
+var OveridenIntroText;
+var OveridenIntroImage;
+var LeaveChapter = "";
+var LeaveScreen = "";
+var LeaveIcon = "";
+var MouseX = 0;
+var MouseY = 0;
+var KeyPress = "";
+var IsMobile = false;
+var IntroStage = 0;
+var IntroLoveReq = 1;
+var IntroSubReq = 2;
+var IntroVarReq = 3;
+var IntroText = 4;
+var	IntroImage = 5;
+var StageNumber = 0;
+var StageLoveReq = 1;
+var StageSubReq = 2;
+var StageVarReq = 3;
+var StageInteractionText = 4;
+var StageInteractionResult = 5;
+var StageNextStage = 6;
+var StageLoveMod = 7;
+var StageSubMod = 8;
+var StageFunction = 9;
+var TextPhase = 0;
+
+// Common variables
+var Common_BondageAllowed = true;
+var Common_SelfBondageAllowed = true;
+var Common_PlayerRestrained = false;
+var Common_PlayerGagged = false;
+var Common_PlayerNotRestrained = true;
+var Common_PlayerNotGagged = true;
+var Common_PlayerClothed = true;
+var Common_PlayerUnderwear = false;
+var Common_PlayerNaked = false;
+var Common_PlayerCostume = "";
+var Common_PlayerCrime = "";
+
+// Translate a number to it's literal text
+function NumberToText(Number) {
+	if (Number == 0) return "Zero";
+	if (Number == 1) return "One";
+	if (Number == 2) return "Two";
+	if (Number == 3) return "Three";
+	if (Number == 4) return "Four";
+	if (Number == 5) return "Five";
+	if (Number == 6) return "Six";
+	if (Number == 7) return "Seven";
+	if (Number == 8) return "Eight";
+	if (Number == 9) return "Nine";
+	if (Number == 10) return "Ten";
+	if (Number == 11) return "Eleven";
+	if (Number == 12) return "Twelve";
+	return "";
+}
+
+// Returns the current date and time in a yyyy-mm-dd hh:mm:ss format
+function GetFormatDate() {
+	var d = new Date();
+	var yyyy = d.getFullYear();
+	var mm = d.getMonth() < 9 ? "0" + (d.getMonth() + 1) : (d.getMonth() + 1); // getMonth() is zero-based
+	var dd  = d.getDate() < 10 ? "0" + d.getDate() : d.getDate();
+	var hh = d.getHours() < 10 ? "0" + d.getHours() : d.getHours();
+	var min = d.getMinutes() < 10 ? "0" + d.getMinutes() : d.getMinutes();
+	var ss = d.getSeconds() < 10 ? "0" + d.getSeconds() : d.getSeconds();
+	return "".concat(yyyy).concat("-").concat(mm).concat("-").concat(dd).concat(" ").concat(hh).concat(":").concat(min).concat(":").concat(ss);
+}
+
+// Used to detect whether the users browser is an mobile browser
+function DetectMobile() {
+
+	// First check
+    if (sessionStorage.desktop) return false;
+    else if (localStorage.mobile) return true;
+
+    // Alternative check
+    var mobile = ['iphone','ipad','android','blackberry','nokia','opera mini','windows mobile','windows phone','iemobile']; 
+    for (var i in mobile) if (navigator.userAgent.toLowerCase().indexOf(mobile[i].toLowerCase()) > 0) return true;
+
+    // If nothing is found, we assume desktop
+    return false;
+}
+
+// Parse a CSV file
+function ParseCSV(str) {
+		
+    var arr = [];
+    var quote = false;  // true means we're inside a quoted field
+
+    // iterate over each character, keep track of current row and column (of the returned array)
+    for (var row = col = c = 0; c < str.length; c++) {
+        var cc = str[c], nc = str[c+1];        // current character, next character
+        arr[row] = arr[row] || [];             // create a new row if necessary
+        arr[row][col] = arr[row][col] || '';   // create a new column (start with empty string) if necessary
+
+        // If the current character is a quotation mark, and we're inside a
+        // quoted field, and the next character is also a quotation mark,
+        // add a quotation mark to the current column and skip the next character
+        if (cc == '"' && quote && nc == '"') { arr[row][col] += cc; ++c; continue; }  
+
+        // If it's just one quotation mark, begin/end quoted field
+        if (cc == '"') { quote = !quote; continue; }
+
+        // If it's a comma and we're not in a quoted field, move on to the next column
+        if (cc == ',' && !quote) { ++col; continue; }
+
+        // If it's a newline and we're not in a quoted field, move on to the next
+        // row and move to column 0 of that new row
+        if (cc == '\n' && !quote) { ++row; col = 0; continue; }
+
+        // Otherwise, append the current character to the current column
+        arr[row][col] += cc;
+    }
+    return arr;
+}
+
+// Read a CSV file from the web site
+function ReadCSV(Array, FileName) {
+	
+	// Opens the file, parse it and returns the result in an array
+	var Reader = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');	
+    Reader.open('get', FileName, true); 
+    Reader.onreadystatechange = function() {
+		if (Reader.readyState == 4)
+			window[Array] = ParseCSV(Reader.responseText);
+	};
+    Reader.send(null);	
+	
+}
+
+// Load the interactions from a scene and keep it in common variable
+function LoadInteractions() {
+	ReadCSV("CurrentIntro", CurrentChapter + "/" + CurrentScreen + "/Intro.csv");
+	ReadCSV("CurrentStage", CurrentChapter + "/" + CurrentScreen + "/Stage.csv");
+}
+
+// Calls a dynamic function (if it exists)
+function DynamicFunction(FunctionName) {
+	if (typeof window[FunctionName.substr(0, FunctionName.indexOf("("))] == "function") {
+		var Fct = new Function(FunctionName);
+		Fct();
+	} else console.log("Trying to launch invalid function: " + FunctionName);
+}
+
+// Set the current scene (chapter and screen)
+function SetScene(Chapter, Screen) {
+	
+	// Keep the chapter and screen
+	CurrentStage = null;
+	CurrentIntro = null;
+	CurrentActor = "";
+	CurrentChapter = Chapter;
+	CurrentScreen = Screen;
+	OveridenIntroText = "";
+	OveridenIntroImage = "";
+	LeaveIcon = "";
+	LeaveScreen = "";
+	LeaveChapter = Chapter;
+	
+	// Load the screen code
+	DynamicFunction(CurrentChapter + "_" + CurrentScreen + "_Load()");
+	
+}
+
+// Validates if any interaction was clicked
+function ClickInteraction(CurrentStagePosition) {
+	
+	// Make sure the current stage is loaded
+	if (CurrentStage != null) {
+	
+		// If a regular option was clicked, we process it
+		var Pos = 0;
+		for (var L = 0; L < CurrentStage.length; L++)
+			if (CurrentStage[L][StageNumber] == CurrentStagePosition)
+				if (ActorInteractionAvailable(CurrentStage[L][StageLoveReq], CurrentStage[L][StageSubReq], CurrentStage[L][StageVarReq], CurrentStage[L][StageInteractionText], false)) {
+					if ((MouseX >= (Pos % 2) * 300) && (MouseX <= ((Pos % 2) * 300) + 299) && (MouseY >= 151 + (Math.round((Pos - 1) / 2) * 90)) && (MouseY <= 240 + (Math.round((Pos - 1) / 2) * 90))) {
+						window[CurrentChapter + "_" + CurrentScreen + "_CurrentStage"] = CurrentStage[L][StageNextStage];
+						OveridenIntroText = CurrentStage[L][StageInteractionResult];
+						ActorChangeAttitude(CurrentStage[L][StageLoveMod], CurrentStage[L][StageSubMod]);					
+						if (CurrentStage[L][StageInteractionText].indexOf("(1 minute)") >= 0) CurrentTime = CurrentTime + 60000;
+						else CurrentTime = CurrentTime + 10000;
+						if (CurrentStage[L][StageFunction].trim() != "") DynamicFunction(CurrentChapter + "_" + CurrentScreen + "_" + CurrentStage[L][StageFunction].trim());
+						return;
+					}
+					Pos = Pos + 1;
+				}
+
+	}
+
+}
+
+// Triggers the leave or wait button if needed
+function LeaveButtonClick() {
+	
+	// If the wait option was clicked, we skip 2 minutes
+	if (LeaveIcon == "Wait")
+		if ((MouseX >= 1125) && (MouseX <= 1200) && (MouseY >= 600) && (MouseY <= 675)) 
+			CurrentTime = CurrentTime + 120000;
+
+	// If the leave option was clicked, we return to the previous screen
+	if ((LeaveIcon == "Leave") && (LeaveScreen != ""))
+		if ((MouseX >= 1125) && (MouseX <= 1200) && (MouseY >= 600) && (MouseY <= 675)) 
+			SetScene(LeaveChapter, LeaveScreen);
+
+}

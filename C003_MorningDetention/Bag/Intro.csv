@@ -1,0 +1,5 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,Common_PlayerNotRestrained,Teacher Yuki's bag is lying there unattended.,Bag.jpg
+0,0,0,Common_PlayerRestrained,Teacher Yuki's bag is lying there unattended.|You cannot open it wearing cuffs without being seen.,Bag.jpg
+10,0,0,Common_PlayerNotRestrained,The teacher bag is still open.,Bag.jpg
+10,0,0,Common_PlayerRestrained,The teacher bag is still open.|You cannot search it wearing cuffs without being seen.,Bag.jpg

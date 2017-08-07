@@ -1,0 +1,42 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,Psssst.,(She turns around and whispers)|What the fuck do you want?,10,0,0,
+0,0,0,,Excuse me.,(She turns around and stares at you)|What the fuck do you want loser?,10,0,-1,
+0,0,0,,(Tap on her shoulder.),(She turns around and whispers)|What the fuck do you want?,10,0,0,
+10,0,0,,Are you bored as I am?,(She whispers.) Hell yeah.|I'm bored out of my mind.,20,1,0,
+10,0,0,,For how long will|that class go?,(She whispers.) Until nine.|This fucking hour will never end.,20,0,0,
+10,0,0,,Did you fart?|It stinks here.,(She whispers.) No!  Are you|stupid?  This class will never end.,20,-1,0,
+10,0,0,,Don't fall asleep.,"(She clears her eyes and whispers.)|That's not my fault, this class is beyond boring.",20,0,1,
+20,0,0,,We should get out.,"(She nods and whispers.)  Sure,|but the teacher won't let us go.",30,1,0,
+20,0,0,,How do we kill time?,(She shrugs her shoulders.)|I don't know.  We are stuck here.,30,0,0,
+20,0,0,,Can you help me in|math after class?,(She shakes her head no.)  Do I look|like a nerd?  All I want is to run away.,30,0,-1,
+30,0,0,,There might be|a way to escape.,(She looks at you curiously.)|What do you have in mind?,40,0,0,
+30,0,0,,"Shut up, I|have a plan.",(She shuts up and looks at you curiously.),40,-1,1,
+40,0,0,,We could try to|subdue Mildred together.,"Subdue her?  Like a kidnapping?|It's dangerous, what's in there for me?",50,0,0,
+40,0,0,,We should kidnap|the fucking teacher.,"Kidnap her in class?  For real?|It's dangerous, what's in there for me?",50,1,0,
+40,0,0,,You will help me|to bind the teacher.,"Help you to kidnap her in class?|It's dangerous, what's in there for me?",50,0,1,
+50,3,0,PlayerHasRope,You can do it because|we are good friends.,"I guess.  Ok, I'll help you.|(She turns around.) But you do the first move.",60,0,0,AgreeHelp()
+50,3,0,!PlayerHasRope,You can do it because|we are good friends.,I guess.  I'll help and you can have this rope.|(She turns around.) But you do the first move.,60,0,0,AgreeHelp()
+50,0,3,PlayerHasRope,If you don't help.|I'll give you hell.,Fine.  I don't want trouble after school.  I'll help.|(She turns around.) But you do the first move.,60,0,0,AgreeHelp()
+50,0,3,!PlayerHasRope,If you don't help.|I'll give you hell.,"Fine, I'll help.  You can even use these ropes.|(She turns around.) But you do the first move.",60,0,0,AgreeHelp()
+50,0,0,,Do it!  It will be fun.,Ha!  You think you can convince me like that?|I need something good if I help you kidnap her.,50,0,0,
+50,0,0,,Let me think about it.,"(She shrugs.)  Fine, I won't be far.|I need something good if I help you kidnap her.",50,0,0,
+100,0,0,SubdueRemarkReady,And I bet you would|also look great tied up.,What?  You can't be serious. (She blushes.),100,0,1,SubdueRemark()
+100,0,4,SubdueRemarkReady,Admit it.  You would|love to be like her.,(She stays silent and blushes red.),100,0,1,SubdueRemark()
+100,0,0,SubdueRemarkReady,High five!  Now we|have a good class.,High five!  Best math class ever.,100,1,0,SubdueRemark()
+100,0,0,SubdueRemarkReady,We have a brand|new class today.,Fuck yeah!  This is much better.,100,0,0,SubdueRemark()
+100,0,0,AmandaWhipReady,You want to whip|Amanda? (1 minute),Yeah!  (She takes your crop|and whips Amanda a few times.),100,1,0,AmandaWhip()
+100,0,0,SarahWhipReady,You want to whip|Sarah? (1 minute),Oh fuck yes!  (She takes your|crop and whips Sarah several times.),100,1,0,SarahWhip()
+100,0,0,Common_PlayerGagged,"@Uuuummph, mmph!",(She whispers.) Stop making noise.,100,0,0,
+100,0,0,Common_PlayerGagged,(Chew on the gag.),(She whispers.) You look like an idiot.,100,0,0,
+100,1,0,Common_PlayerGagged,(Try to point|to the ballgag.),(She whispers) Shut up.|I'll help you after class.,100,0,0,
+100,-1,0,Common_PlayerGagged,(Try to point|to the ballgag.),(She whispers.) Stay gagged bitch.,100,0,0,
+100,0,0,Common_PlayerRestrained,(Tug on the cuffs.),(She whispers.) You'll never get out.,100,0,0,
+100,0,-2,BowRemarkReady,(Bow your head.),(She whispers.) You're pathetic.,100,0,-1,BowRemark()
+110,0,0,Common_PlayerGagged,"@Uuuummph, mmph!",(She rolls her eyes up.),110,0,0,
+110,0,0,Common_PlayerNotRestrained,(Ungag her.)|(1 minute),(You unbuckle and pull out the big ball.)|Fuck this gag!,100,0,0,Ungag()
+130,0,0,Common_PlayerGagged,"@Uuuummph, mmph!",(She rolls her eyes up.),130,0,0,
+130,0,0,Common_PlayerNotRestrained,(Ungag her.)|(1 minute),(You unbuckle and pull out the big ball.)|Fuck this gag!,120,0,0,Ungag()
+140,0,0,Common_PlayerNotRestrained,(Untie her.),(You untie the knots and she dresses back.)|Shit!  You're such a pervert.,100,0,0,Untie()
+150,0,0,Common_PlayerGagged,"@Uuuummph, mmph!",(She rolls her eyes up.),150,0,0,
+150,0,0,Common_PlayerNotRestrained,(Ungag her.)|(1 minute),(You unbuckle and pull out the big ball.)|Fuck this gag!,140,0,0,Ungag()
+150,0,0,Common_PlayerNotRestrained,(Untie her.),(You untie the knots and she dresses back.)|(She points then points to her gag.),110,0,0,Untie()

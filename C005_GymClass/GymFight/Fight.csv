@@ -1,0 +1,15 @@
+From,To,Image
+-1,-1,FightIntro.jpg
+0,0,FightLose.jpg
+1,9,Fight1.jpg
+10,18,Fight2.jpg
+19,27,Fight3.jpg
+28,36,Fight4.jpg
+37,45,Fight5.jpg
+46,54,FightEven.jpg
+55,63,Fight6.jpg
+64,72,Fight7.jpg
+73,81,Fight8.jpg
+82,90,Fight9.jpg
+91,99,Fight10.jpg
+100,100,FightWin.jpg

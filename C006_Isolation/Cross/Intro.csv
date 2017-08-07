@@ -1,0 +1,5 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,"An ""X"" shaped cross is bolted on the wall.",Cross.jpg
+10,0,0,,Do you want to lock your ankle in?,Cross.jpg
+20,0,0,,,Cross1Ankle.jpg
+30,0,0,,,Cross2Ankles.jpg
