@@ -52,22 +52,6 @@ function StruggleClick(SType, SDifficulty, SMessage, SDoneMessage, SX, SY, SRadi
 		// Raise the progress, 100 is done
 		if (StruggleProgress <= 0) StruggleProgress = 5;
 		StruggleProgress++;
-		StruggleProgress++;
-		StruggleProgress++;
-		StruggleProgress++;
-		StruggleProgress++;
-		StruggleProgress++;
-		StruggleProgress++;
-		StruggleProgress++;
-		StruggleProgress++;
-		StruggleProgress++;
-		StruggleProgress++;
-		StruggleProgress++;
-		StruggleProgress++;
-		StruggleProgress++;
-		StruggleProgress++;
-		StruggleProgress++;
-		StruggleProgress++;
 		if (StruggleProgress >= 100) {
 			StruggleProgress = 100;
 			StruggleDone = true;
