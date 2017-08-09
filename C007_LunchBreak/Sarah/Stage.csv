@@ -1,0 +1,74 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,Hungry like the wolf!,(She sings.)  Hungry like the wolf!|Are you going out or eating here?,10,1,0,
+0,0,0,,I don't know.  Maybe|I should skip lunch.,Oh no!  You have to eat something.|There's the cafeteria or you can go out.,10,0,-1,
+0,0,0,,Hungry for you.,(She giggles.)  What?  Who?  Me?|Are you going out or eating here?,10,0,1,
+0,0,0,,Hungry?  Only if they|serve food without GMO.,I have no idea what that means.|Are you going out or eating here?,10,-1,0,
+10,0,0,,I don't know.|What should I do?,"Try the cafe nearby, me and|my friend go there pretty often.",20,0,-1,
+10,0,0,,What's best?,"Try the cafe nearby, me and|my friend go there pretty often.",20,0,0,
+10,0,0,,Go out?  Anything|to get out of here.,Try the cafe nearby then.  Me and|my friend go there pretty often.,20,-1,0,
+20,5,0,,Ok!  Will you come|with me cutie?,"Cutie?  (She giggles and smiles.)|Alright, should we go right now?",30,1,0,
+20,0,5,,Perfect!  Come|with me girl.,I was planning to...  Never mind.|I'll gladly show you the cafe Miss.,30,0,1,
+20,0,0,NoOption,Do you want to|go there with me?,"I can't, I already have plans for lunch.",40,0,0,
+20,0,0,NoOption,Could you show|me that place?,"I can't, I already have plans for lunch.",40,0,0,
+20,0,0,,I'll try the cafe.|See you later.,Of course!  (She turns around|and heads out for lunch.),50,0,0,EndLunch()
+30,0,0,,Let's go now!|(Eat with Sarah.),(You both walk out to a nearby|restaurant and find an empty table.),100,0,0,StartLunch()
+40,0,0,,"Ok, see you later.",Of course!  (She waves|and heads up for lunch.),50,0,0,EndLunch()
+40,0,0,,Have a great|lunch then!,Absolutely!  (She waves|and heads up for lunch.),50,1,0,EndLunch()
+40,0,0,,You suck.,"No, you suck!  (She turns|around and heads out for lunch.)",50,-2,0,EndLunch()
+100,0,0,,So what do|you recommend?,The nacho plate kicks ass here!|So do you like the school so far?,110,0,0,
+100,0,0,,I'm starving!|What's good here?,(She giggles.)  I love the nacho plate.|So do you like the school so far?,110,0,1,
+100,0,0,,I don't know what to eat.|Can you order for me?,"I don't know, check the menu.|So do you like the school so far?",110,0,-1,
+110,0,0,,Oh yes!  It seems|like a good academy.,"Yes and no, the classes can get boring.|And what do you want to do in life?",120,0,0,
+110,0,0,,This college is|a nuts house.,(She laughs out loud.)  Very true!|And what do you want to do in life?,120,0,0,GoodMatch()
+110,0,0,,I've never seen a|kinky college like that.,(She laughs out loud.)  Absolutely!|And what do you want to do in life?,120,0,0,GoodMatch()
+110,0,0,,It's hard to judge|from a few hours.,"We're only chatting, you can be honest.|And what do you want to do in life?",120,0,0,BadMatch()
+110,0,0,,It's a pretty|boring school.,"Yeah, some classes can get boring I guess.|And what do you want to do in life?",120,0,0,
+120,0,0,,A musician.,Sweet!  And what's your favorite class?,130,0,0,GoodMatch()
+120,0,0,,A doctor.,Alright.  And what's your favorite class?,130,0,0,
+120,0,0,,An athlete.,Alright.  And what's your favorite class?,130,0,0,
+120,0,0,,A teacher.,Alright.  And what's your favorite class?,130,0,0,
+120,0,0,,An actor.,Sweet!  And what's your favorite class?,130,0,0,GoodMatch()
+120,0,0,,A dominatrix.,(She blushes.)  And what's your favorite class?,130,0,1,GoodMatch()
+120,0,0,,An architect.,Boring!  And what's your favorite class?,130,0,0,BadMatch()
+120,0,0,,A farmer.,Eeeeew!  With pigs and corn?|And what's your favorite class?,130,-1,0,BadMatch()
+120,0,0,,A programmer.,Boring!  And what's your favorite class?,130,0,0,BadMatch()
+120,0,0,,I don't know yet.,"Same here, I don't know what I want.|What's your favorite class?",130,0,0,GoodMatch()
+130,0,0,,Math.,For real?  And what do you do outside of school?,140,0,0,BadMatch()
+130,0,0,,Music.,Sweet!  And what do you do outside of school?,140,0,0,GoodMatch()
+130,0,0,,English.,Alright.  And what do you do outside of school?,140,0,0,
+130,0,0,,Gym.,Alright.  And what do you do outside of school?,140,0,0,
+130,0,0,,Chemistry.,For real?  And what do you do outside of school?,140,0,0,BadMatch()
+130,0,0,,French.,Sweet!  And what do you do outside of school?,140,0,0,GoodMatch()
+130,0,0,,Art.,Sweet!  And what do you do outside of school?,140,0,0,GoodMatch()
+130,0,0,,History.,Alright.  And what do you do outside of school?,140,0,0,
+130,0,0,,Theatre.,Sweet!  And what do you do outside of school?,140,0,0,GoodMatch()
+130,0,0,,I don't know.,"Don't be shy, it's only chit chat.|And what do you do outside of school?",140,0,0,BadMatch()
+140,0,0,,Basketball.,Mmmmhmmm.  (A waitress|interrupts to take your order.),150,0,0,
+140,0,0,,Rock music.,That's great!  (A waitress|interrupts to take your order.),150,0,0,GoodMatch()
+140,0,0,,Video games.,Mmmmhmmm.  (A waitress|interrupts to take your order.),150,0,0,
+140,0,0,,Cheerleading.,Mmmmhmmm.  (A waitress|interrupts to take your order.),150,0,0,
+140,0,0,,Going to parties.,That's great!  (A waitress|interrupts to take your order.),150,0,0,GoodMatch()
+140,0,0,,Role playing games.,Mmmmhmmm.  (A waitress|interrupts to take your order.),150,0,0,
+140,0,0,,Getting drunk.,Nothing wrong here!  (A waitress|interrupts to take your order.),150,0,0,GoodMatch()
+140,0,0,,Classical music.,That sounds boring.  (A waitress|interrupts to take your order.),150,0,0,BadMatch()
+140,0,0,,Making love.,(She nods and blushes.)  You're so kinky!|(A waitress interrupts to take your order.),150,1,0,GoodMatch()
+140,0,0,,I don't have|any hobbies.,Really?  Nothing?  (A waitress|interrupts to take your order.),150,0,0,BadMatch()
+150,0,0,,A salad please.,(She smiles and orders a nacho platter.)|My roommate loves the soup and salad here.,160,0,0,GoodMatch()
+150,0,0,,A steak please.,"(She smiles and orders a nacho platter.)|Next time try the nacho, there's three kinds of cheeses.",160,0,0,
+150,0,0,,A soup please.,(She smiles and orders a nacho platter.)|My roommate loves the soup and salad here.,160,0,0,GoodMatch()
+150,0,0,,A hamburger please.,(She orders a nacho platter.)|I can't eat fast food anymore.,160,0,0,BadMatch()
+150,0,0,,A nacho platter please.,(She smiles and orders the same.)|Best decision of your life!,160,0,0,GoodMatch()
+150,0,0,,Only cheesecake please.,Only cheesecake?  That's a great idea!|(She also orders cheesecake and smiles.),160,0,0,GoodMatch()
+150,0,0,,Soup and salad please.,(She smiles and orders a nacho platter.)|My roommate loves the soup and salad here.,160,0,0,GoodMatch()
+150,0,0,,A chili dog please.,(She orders a nacho platter.)|I can't eat fast food anymore.,160,0,0,BadMatch()
+150,0,0,,Fettuccine alfredo please.,"(She smiles and orders a nacho platter.)|Next time try the nacho, there's three kinds of cheeses.",160,0,0,
+150,0,0,,Only water please.,(She orders a nacho platter.)|Only water?  Are you feeling sick?,160,0,0,
+160,0,0,,I hope they are quick.|I don't want to be late.,"You worry too much, I'm always late.|I'll go wash my hands.  (She goes to the restroom.)",170,0,-1,RestroomTimerStart()
+160,0,0,,So you're a cute mouse|that loves cheese?,Yes I am!  (She does a silly mouse imitation.)|I'll go wash my hands.  (She goes to the restroom.),170,1,0,RestroomTimerStart()
+160,0,0,,"Don't worry about|the bill, I'll take it.",You will?  That's very generous of you.|I'll go wash my hands.  (She goes to the restroom.),170,0,1,RestroomTimerStart()
+160,0,0,,Can you take the bill?|I'll take the next one.,Mmmh.  I guess.  (She looks unhappy.)|I'll go wash my hands.  (She goes to the restroom.),170,-1,0,RestroomTimerStart()
+170,0,0,,(Wait patiently.)|(1 minute),You wait patiently but she's|not back from the restroom yet.,170,0,0,RestroomTimerRun()
+170,0,0,,(Look outside.)|(1 minute),You check the people outside and|she's not back from the restroom yet.,170,0,0,RestroomTimerRun()
+170,0,0,PurseReady,(Check in her bag.)|(1 minute),You search in her bag and find|some cuffs and a pink vibrating egg.,170,0,0,CheckPurse()
+170,0,0,,(Go to the restroom.),,180,0,0,
+170,0,0,,(Leave her stranded.)|(Back to college.),,0,-2,0,Strandard()
