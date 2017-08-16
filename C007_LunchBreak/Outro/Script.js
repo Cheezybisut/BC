@@ -3,12 +3,13 @@ function C007_LunchBreak_Outro_Load() {
 	
 	// Time is always 12:45:00 in the outro, unlock if needed
 	StopTimer(12.75 * 60 * 60 * 1000, CurrentChapter, "Outro");
+	LoadText();
 	PlayerUnlockAllInventory();
 	PlayerClothes("Clothed");
-	ActorSpecificClearInventory("Amanda", true);
-	ActorSpecificClearInventory("Sarah", true);
-	ActorSpecificClearInventory("Sidney", true);
-	ActorSpecificClearInventory("Jennifer", true);
+	ActorSpecificClearInventory("Amanda", !C007_LunchBreak_ActorSelect_EvilEnding);
+	ActorSpecificClearInventory("Sarah", !C007_LunchBreak_ActorSelect_EvilEnding);
+	ActorSpecificClearInventory("Sidney", !C007_LunchBreak_ActorSelect_EvilEnding);
+	ActorSpecificClearInventory("Jennifer", !C007_LunchBreak_ActorSelect_EvilEnding);
 
 }
 
@@ -22,17 +23,30 @@ function C007_LunchBreak_Outro_Run() {
 	else DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Bell.jpg", 800, 0);
 
 	// Text for eating alone
-	if ((C007_LunchBreak_ActorSelect_Actor == "") && (TextPhase >= 0)) DrawText(ctx, "Unable or too shy to find a friend, you eat lunch alone.", 400, 150, "White");
-	if ((C007_LunchBreak_ActorSelect_Actor == "") && (TextPhase >= 1)) DrawText(ctx, "You find a restaurant near the school and sit by yourself.", 400, 250, "White");
-	if ((C007_LunchBreak_ActorSelect_Actor == "") && (TextPhase >= 2)) DrawText(ctx, "Once your meal is over, you head back for your next class.", 400, 350, "White");
-	if ((C007_LunchBreak_ActorSelect_Actor == "") && (TextPhase >= 3)) DrawText(ctx, "The next class will be available in another version.", 400, 450, "White");
+	if (C007_LunchBreak_ActorSelect_Actor == "") {
+		if (TextPhase >= 0) DrawText(ctx, GetText("EatAlone1"), 400, 150, "White");
+		if (TextPhase >= 1) DrawText(ctx, GetText("EatAlone2"), 400, 250, "White");
+		if (TextPhase >= 2) DrawText(ctx, GetText("EatAlone3"), 400, 350, "White");
+		if (TextPhase >= 3) DrawText(ctx, GetText("EatAlone4"), 400, 450, "White");
+	}
+
+	// Text for early leave
+	if ((C007_LunchBreak_ActorSelect_Actor != "") && (C007_LunchBreak_ActorSelect_EarlyLeave || C007_LunchBreak_ActorSelect_EvilEnding)) {
+		if ((TextPhase >= 0) && !C007_LunchBreak_ActorSelect_EvilEnding) DrawText(ctx, GetText("Early1"), 400, 150, "White");
+		if ((TextPhase >= 0) && C007_LunchBreak_ActorSelect_EvilEnding) DrawText(ctx, GetText("Evil1"), 400, 150, "White");
+		if (TextPhase >= 1) DrawText(ctx, GetText("EvilEarly2"), 400, 250, "White");
+		if (TextPhase >= 2) DrawText(ctx, GetText("EvilEarly3"), 400, 350, "White");
+		if (TextPhase >= 3) DrawText(ctx, GetText("EvilEarly4"), 400, 450, "White");
+	}
 
 	// Text for eating with someone
-	if ((C007_LunchBreak_ActorSelect_Actor != "") && (TextPhase >= 0)) DrawText(ctx, "The bell rings, you and " + C007_LunchBreak_ActorSelect_Actor + " go back to school.", 400, 150, "White");
-	if ((C007_LunchBreak_ActorSelect_Actor != "") && (TextPhase >= 1) && C007_LunchBreak_ActorSelect_BonusDone) DrawText(ctx, "Right before splitting, she blows you a sweet kiss.", 400, 250, "White");
-	if ((C007_LunchBreak_ActorSelect_Actor != "") && (TextPhase >= 1) && !C007_LunchBreak_ActorSelect_BonusDone) DrawText(ctx, "You wave each other goodbye and go to the lockers.", 400, 250, "White");
-	if ((C007_LunchBreak_ActorSelect_Actor != "") && (TextPhase >= 2)) DrawText(ctx, "Hurry up!  Better not be late for your next class.", 400, 350, "White");
-	if ((C007_LunchBreak_ActorSelect_Actor != "") && (TextPhase >= 3)) DrawText(ctx, "The next class will be available in another version.", 400, 450, "White");
+	if ((C007_LunchBreak_ActorSelect_Actor != "") && !C007_LunchBreak_ActorSelect_EarlyLeave && !C007_LunchBreak_ActorSelect_EvilEnding) {
+		if (TextPhase >= 0) DrawText(ctx, GetText("RegularBonus1"), 400, 150, "White");
+		if ((TextPhase >= 1) && C007_LunchBreak_ActorSelect_BonusDone) DrawText(ctx, GetText("Bonus2"), 400, 250, "White");
+		if ((TextPhase >= 1) && !C007_LunchBreak_ActorSelect_BonusDone) DrawText(ctx, GetText("Regular2"), 400, 250, "White");
+		if (TextPhase >= 2) DrawText(ctx, GetText("RegularBonus3"), 400, 350, "White");
+		if (TextPhase >= 3) DrawText(ctx, GetText("RegularBonus4"), 400, 450, "White");
+	}
 	
 }
 

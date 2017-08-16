@@ -1,6 +1,6 @@
 Stage,LoveReq,SubReq,VarReq,IntroText,Image
 0,0,0,,It's lunch time!  Are you hungry?,SarahIntro.jpg
-0,5,0,,Sweet!  It's great to see you agin.|It's lunch time.  Are you hungry?,SarahIntroHappy.jpg
+0,5,0,,Sweet!  It's great to see you again.|It's lunch time.  Are you hungry?,SarahIntroHappy.jpg
 0,0,5,,Hi Miss.  (She looks at the floor.)|It's lunch time.  Are you hungry?,SarahIntroSubbie.jpg
 5,0,0,,(Sarah sees you but run away.|She pretends to be in a hurry.),SarahIntroGone.jpg
 10,0,0,,You can try the college cafeteria|if you want but the food isn't great.,SarahIntro.jpg
@@ -19,3 +19,16 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 150,0,0,,,SarahPlayerLunch0.jpg
 160,0,0,,,SarahPlayerLunch0.jpg
 170,0,0,,,SarahPlayerLunchGone.jpg
+180,0,0,,,RestroomDoor.jpg
+190,0,0,,,SarahPlayerLunch0.jpg
+200,0,0,,,SarahRestroom.jpg
+210,0,0,,,SarahRestroom.jpg
+220,0,0,,,SarahPlayerRestroomKiss.jpg
+230,0,0,,,SarahRestroom.jpg
+240,0,0,,,SarahPlayerRestroomNaked.jpg
+250,0,0,,,SarahPlayerRestroomLove.jpg
+260,0,0,,,SarahPlayerRestroomLove.jpg
+270,0,0,,,SarahPlayerRestroomNaked.jpg
+300,0,0,,,SarahPlayerLunch0.jpg
+310,0,0,,,SarahPlayerLunch0.jpg
+320,0,0,,,SarahPlayerLunch0.jpg

@@ -133,6 +133,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 330,0,0,,(Masturbate her.)|(1 minute),(She moans silently while you masturbate her.|Trembling lightly at your loving touch.),330,0,0,Masturbate()
 330,0,0,IsRoped,(Untie her.)|(1 minute),"(One knot at a time, you|release her from her bondage.)",330,0,0,Untie()
 330,0,0,IsGagged,(Ungag her.)|(1 minute),"(You carefully remove the gag.)|Thank you, that wasn't comfy.",330,0,0,Ungag()
+330,0,0,IsBoundAndGagged,I tricked you bitch.|(Leave her stranded.),,330,0,0,EvilEnd()
 330,0,0,,Let's go back.|(Back to school.),,0,0,0,EndBonus()
 400,0,0,,Why did you|drag me here?,I have a wild idea but you need to trust me.|Will you submit to me and remove your outfit?,410,0,0,
 400,0,0,,(Giggle shyly.)|What's going on?,I have a wild idea but you need to trust me.|Will you submit to me and remove your outfit?,410,0,-1,

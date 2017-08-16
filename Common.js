@@ -1,8 +1,11 @@
 // Main variables
 var CurrentIntro;
 var CurrentStage;
+var CurrentText;
 var CurrentChapter;
 var CurrentScreen;
+var CurrentLanguage = "English";
+var CurrentLanguageTag = "EN";
 var OveridenIntroText;
 var OveridenIntroImage;
 var LeaveChapter = "";
@@ -12,6 +15,9 @@ var MouseX = 0;
 var MouseY = 0;
 var KeyPress = "";
 var IsMobile = false;
+var TextPhase = 0;
+
+// Array variables
 var IntroStage = 0;
 var IntroLoveReq = 1;
 var IntroSubReq = 2;
@@ -28,7 +34,8 @@ var StageNextStage = 6;
 var StageLoveMod = 7;
 var StageSubMod = 8;
 var StageFunction = 9;
-var TextPhase = 0;
+var TextTag = 0;
+var TextContent = 1;
 
 // Common variables
 var Common_BondageAllowed = true;
@@ -137,8 +144,14 @@ function ReadCSV(Array, FileName) {
 
 // Load the interactions from a scene and keep it in common variable
 function LoadInteractions() {
-	ReadCSV("CurrentIntro", CurrentChapter + "/" + CurrentScreen + "/Intro.csv");
-	ReadCSV("CurrentStage", CurrentChapter + "/" + CurrentScreen + "/Stage.csv");
+	ReadCSV("CurrentIntro", CurrentChapter + "/" + CurrentScreen + "/Intro_" + CurrentLanguageTag + ".csv");
+	ReadCSV("CurrentStage", CurrentChapter + "/" + CurrentScreen + "/Stage_" + CurrentLanguageTag + ".csv");
+	if (CurrentChapter == "C007_LunchBreak") LoadText();
+}
+
+// Load the custom texts from a scene and keep it in common variable
+function LoadText() {
+	ReadCSV("CurrentText", CurrentChapter + "/" + CurrentScreen + "/Text_" + CurrentLanguageTag + ".csv");	
 }
 
 // Calls a dynamic function (if it exists)
@@ -155,6 +168,7 @@ function SetScene(Chapter, Screen) {
 	// Keep the chapter and screen
 	CurrentStage = null;
 	CurrentIntro = null;
+	CurrentText = null;
 	CurrentActor = "";
 	CurrentChapter = Chapter;
 	CurrentScreen = Screen;
@@ -193,6 +207,25 @@ function ClickInteraction(CurrentStagePosition) {
 				}
 
 	}
+
+}
+
+// Returns the text for the current scene associated with the tag
+function GetText(Tag) {
+
+	// Make sure the text CSV file is loaded
+	if (CurrentText != null) {
+		
+		// Cycle the text to find a matching tag and returns the text content
+		Tag = Tag.trim().toUpperCase();
+		for (var T = 0; T < CurrentText.length; T++)
+			if (CurrentText[T][TextTag].trim().toUpperCase() == Tag)
+				return CurrentText[T][TextContent];
+		
+		// Returns an error message
+		return "MISSING TEXT FOR TAG: " + Tag;
+
+	} else return "";
 
 }
 

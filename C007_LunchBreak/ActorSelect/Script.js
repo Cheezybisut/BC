@@ -5,6 +5,8 @@ var C007_LunchBreak_ActorSelect_SidneyAvail = true;
 var C007_LunchBreak_ActorSelect_JenniferAvail = true;
 var C007_LunchBreak_ActorSelect_Actor = "";
 var C007_LunchBreak_ActorSelect_BonusDone = false;
+var C007_LunchBreak_ActorSelect_EarlyLeave = false;
+var C007_LunchBreak_ActorSelect_EvilEnding = false;
 
 // Chapter 7 - Lunch Break - Actor Select Load
 function C007_LunchBreak_ActorSelect_Load() {
@@ -38,7 +40,7 @@ function C007_LunchBreak_ActorSelect_LoadActor(ActorToLoad) {
 		SetScene(CurrentChapter, ActorToLoad)
 	}
 	else
-		OveridenIntroText = ActorToLoad + " cannot be invited yet.|She will be available in another version.";
+		OveridenIntroText = ActorToLoad + " " + GetText("NotAvailable");
 }
 
 // Skip the lunch break, eat alone

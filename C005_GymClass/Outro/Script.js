@@ -5,6 +5,7 @@ function C005_GymClass_Outro_Load() {
 	StopTimer(11.5 * 60 * 60 * 1000);
 	PlayerUnlockAllInventory();
 	ActorSpecificClearInventory("Jennifer", true);
+	PlayerClothes("Clothed");
 
 }
 

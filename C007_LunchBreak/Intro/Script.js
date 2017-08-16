@@ -3,7 +3,8 @@ function C007_LunchBreak_Intro_Load() {
 
 	// Time is always 11:45 on the intro, no timer
 	StopTimer(11.75 * 60 * 60 * 1000);
-
+	LoadText();
+	
 }
 
 // Chapter 7 - Lunch Break Run
@@ -14,10 +15,10 @@ function C007_LunchBreak_Intro_Run() {
 	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
 
 	// Write the chapter introduction
-	DrawText(ctx, "Chapter 7 - Lunch Break (Click to continue)", 600, 150, "White");
-	if (TextPhase >= 1) DrawText(ctx, "The morning classes are over.  It's time to go eat.", 600, 250, "White");
-	if (TextPhase >= 2) DrawText(ctx, "It's a good time to socialize and meet new friends.", 600, 350, "White");
-	if (TextPhase >= 3) DrawText(ctx, "You can try to invite someone to get lunch with you.", 600, 450, "White");
+	DrawText(ctx, GetText("Intro1"), 600, 150, "White");
+	if (TextPhase >= 1) DrawText(ctx, GetText("Intro2"), 600, 250, "White");
+	if (TextPhase >= 2) DrawText(ctx, GetText("Intro3"), 600, 350, "White");
+	if (TextPhase >= 3) DrawText(ctx, GetText("Intro4"), 600, 450, "White");
 
 }
 
