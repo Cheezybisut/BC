@@ -31,7 +31,7 @@ function C999_Common_Collar_SelfCollar() {
 		PlayerRemoveInventory("Collar", 1);
 		PlayerLockInventory("Collar");
 	} else {
-		OveridenIntroText = "You fantasizes about being collared but realize that|it might not be the best time to collar yourself.";
+		OveridenIntroText = GetText("BadTiming");
 		C999_Common_Collar_CurrentStage = 0;
 	}
 }

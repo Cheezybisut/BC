@@ -1,6 +1,7 @@
 // Chapter Common - Player Load
 function C999_Common_Player_Load() {
 	LeaveIcon = "Leave";
+	LoadText();
 }
 
 // Returns the title for the player based on actor interactions
@@ -13,25 +14,39 @@ function C999_Common_Player_GetTitle() {
 		Love = Love + Actor[A][ActorLove];
 		Domme = Domme + Actor[A][ActorSubmission];
 	}
+
+	// Return a fitting title (level 3)
+	if ((Love >= 20) && (Domme >= 20)) return GetText("LoveDomme3");
+	if ((Love >= 20) && (Domme <= -20)) return GetText("LoveSub3");
+	if ((Love <= -20) && (Domme >= 20)) return GetText("HateDomme3");
+	if ((Love <= -20) && (Domme <= -20)) return GetText("HateSub3");
+	if (Love >= 30) return GetText("Love3");
+	if (Domme >= 30) return GetText("Domme3");
+	if (Love <= -30) return GetText("Hate3");
+	if (Domme <= -30) return GetText("Sub3");
 	
-	// Returns a fitting title
-	if ((Love >= 10) && (Domme >= 10)) return "Miss popular";
-	if ((Love >= 10) && (Domme <= -10)) return "Teacher's pet";
-	if ((Love <= -10) && (Domme >= 10)) return "Bully";
-	if ((Love <= -10) && (Domme <= -10)) return "Black sheep";
-	if (Love >= 14) return "Beloved";
-	if (Domme >= 14) return "Dominant";
-	if (Love <= -14) return "Hated";
-	if (Domme <= -14) return "Submissive";
-	if ((Love >= 5) && (Domme >= 5)) return "Trendy";
-	if ((Love >= 5) && (Domme <= -5)) return "Geeky";
-	if ((Love <= -5) && (Domme >= 5)) return "Little boss";
-	if ((Love <= -5) && (Domme <= -5)) return "Weirdo";
-	if (Love >= 7) return "Nice girl";
-	if (Domme >= 7) return "Tough cookie";
-	if (Love <= -7) return "Disliked";
-	if (Domme <= -7) return "Shy girl";
-	return "None";
+	// Return a fitting title (level 2)
+	if ((Love >= 12) && (Domme >= 12)) return GetText("LoveDomme2");
+	if ((Love >= 12) && (Domme <= -12)) return GetText("LoveSub2");
+	if ((Love <= -12) && (Domme >= 12)) return GetText("HateDomme2");
+	if ((Love <= -12) && (Domme <= -12)) return GetText("HateSub2");
+	if (Love >= 16) return GetText("Love2");
+	if (Domme >= 16) return GetText("Domme2");
+	if (Love <= -16) return GetText("Hate2");
+	if (Domme <= -16) return GetText("Sub2");
+
+	// Return a fitting title (level 1)
+	if ((Love >= 5) && (Domme >= 5)) return GetText("LoveDomme1");
+	if ((Love >= 5) && (Domme <= -5)) return GetText("LoveSub1");
+	if ((Love <= -5) && (Domme >= 5)) return GetText("HateDomme1");
+	if ((Love <= -5) && (Domme <= -5)) return GetText("HateSub1");
+	if (Love >= 7) return GetText("Love1");
+	if (Domme >= 7) return GetText("Domme1");
+	if (Love <= -7) return GetText("Hate1");
+	if (Domme <= -7) return GetText("Sub1");
+
+	// No title
+	return GetText("NoTitle");
 
 }
 
@@ -46,8 +61,8 @@ function C999_Common_Player_Run() {
 	DrawRect(ctx, 599, 0, 1, 600, "Black");
 	DrawRect(ctx, 0, 0, 599, 600, "White");
 	DrawRect(ctx, 30, 100, 539, 1, "Black");
-	DrawText(ctx, "Title: " + C999_Common_Player_GetTitle(), 300, 30, "black");
-	DrawText(ctx, "Personal records", 300, 70, "black");
+	DrawText(ctx, GetText("Title") + " " + C999_Common_Player_GetTitle(), 300, 30, "black");
+	DrawText(ctx, GetText("Records"), 300, 70, "black");
 	for (var A = 0; A < Actor.length; A++) {
 		CurrentActor = Actor[A][ActorName];
 		DrawActorStats(ctx, 300, A * 60 + 130);

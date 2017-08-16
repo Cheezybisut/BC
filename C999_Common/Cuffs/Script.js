@@ -33,7 +33,7 @@ function C999_Common_Cuffs_SelfCuff() {
 		PlayerRemoveInventory("Cuffs", 1);
 		PlayerLockInventory("Cuffs");
 	} else {
-		OveridenIntroText = "You fantasizes about being cuffed but realize that|it might not be the best time to cuff yourself.";
+		OveridenIntroText = GetText("BadTiming");
 		C999_Common_Cuffs_CurrentStage = 0;
 	}
 }

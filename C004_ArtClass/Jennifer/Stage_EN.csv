@@ -42,7 +42,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 130,0,0,,(Tickle her.)|(1 minute),(She cowers in shame|to avoid your tickling.),130,0,0,Tickle()
 130,0,0,Common_PlayerNotRestrained,(Untie her.)|(1 minute),(You untie her and she throws the|ropes at you.)  Can I go sit now?,120,0,0,Untie()
 140,0,0,,(Tighten the ropes.)|(1 minute),(This bondage is already|as tight as it can be.),140,0,0,Tighten()
-140,0,0,,(Tickle her.)|(1 minute),(She cowers in shame|to avoid your tickling.),150,0,0,Tickle()
+140,0,0,,(Tickle her.)|(1 minute),(She cowers in shame|to avoid your tickling.),140,0,0,Tickle()
 140,0,0,Common_PlayerNotRestrained,(Ungag her.)|(1 minute),(You unbuckle the gag and release it|from her mouth)  Can you untie me now?,130,0,0,Ungag()
 150,0,0,,(Tighten the ropes.)|(1 minute),(This bondage is already|as tight as it can be.),150,0,0,Tighten()
 150,0,0,,(Tickle her.)|(1 minute),(She cowers in shame|to avoid your tickling.),150,0,0,Tickle()

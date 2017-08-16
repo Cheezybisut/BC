@@ -146,7 +146,7 @@ function ReadCSV(Array, FileName) {
 function LoadInteractions() {
 	ReadCSV("CurrentIntro", CurrentChapter + "/" + CurrentScreen + "/Intro_" + CurrentLanguageTag + ".csv");
 	ReadCSV("CurrentStage", CurrentChapter + "/" + CurrentScreen + "/Stage_" + CurrentLanguageTag + ".csv");
-	if (CurrentChapter == "C007_LunchBreak") LoadText();
+	if ((CurrentChapter == "C007_LunchBreak") || (CurrentChapter == "C999_Common")) LoadText();
 }
 
 // Load the custom texts from a scene and keep it in common variable

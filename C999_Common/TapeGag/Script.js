@@ -35,7 +35,7 @@ function C999_Common_TapeGag_SelfGag() {
 		PlayerRemoveInventory("TapeGag", 1);
 		PlayerLockInventory("TapeGag");
 	} else {
-		OveridenIntroText = "You fantasizes about being gagged but realize that|it might not be the best time to gag yourself.";
+		OveridenIntroText = GetText("BadTiming");
 		C999_Common_TapeGag_CurrentStage = 0;
 	}
 }

@@ -32,7 +32,7 @@ function C999_Common_Ballgag_SelfGag() {
 		PlayerRemoveInventory("Ballgag", 1);
 		PlayerLockInventory("Ballgag");
 	} else {
-		OveridenIntroText = "You fantasizes about being gagged but realize that|it might not be the best time to gag yourself.";
+		OveridenIntroText = GetText("BadTiming");
 		C999_Common_Ballgag_CurrentStage = 0;
 	}
 }
