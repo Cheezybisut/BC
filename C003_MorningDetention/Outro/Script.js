@@ -21,10 +21,10 @@ function C003_MorningDetention_Outro_Run() {
 	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 800, 0);
 			
 	// Write the chapter outro
-	if (C003_MorningDetention_Outro_EscapedDetention == false) DrawText(ctx, "You've waited patiently in detention and served your time.", 400, 150, "White");
-	if (C003_MorningDetention_Outro_EscapedDetention == true) DrawText(ctx, "Having skipped detention early, you explore the school a little.", 400, 150, "White");
-	if (TextPhase >= 1) DrawText(ctx, "Your next class starts at 9:15, better not be late.", 400, 300, "White");
-	if (TextPhase >= 2) DrawText(ctx, "You walk in the halls, look around and find the classroom.", 400, 450, "White");
+	if (C003_MorningDetention_Outro_EscapedDetention == false) DrawText(ctx, GetText("Outro1A"), 400, 150, "White");
+	if (C003_MorningDetention_Outro_EscapedDetention == true) DrawText(ctx, GetText("Outro1B"), 400, 150, "White");
+	if (TextPhase >= 1) DrawText(ctx, GetText("Outro2"), 400, 300, "White");
+	if (TextPhase >= 2) DrawText(ctx, GetText("Outro3"), 400, 450, "White");
 
 }
 

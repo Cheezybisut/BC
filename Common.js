@@ -4,7 +4,6 @@ var CurrentStage;
 var CurrentText;
 var CurrentChapter;
 var CurrentScreen;
-var CurrentLanguage = "English";
 var CurrentLanguageTag = "EN";
 var OveridenIntroText;
 var OveridenIntroImage;
@@ -49,24 +48,6 @@ var Common_PlayerUnderwear = false;
 var Common_PlayerNaked = false;
 var Common_PlayerCostume = "";
 var Common_PlayerCrime = "";
-
-// Translate a number to it's literal text
-function NumberToText(Number) {
-	if (Number == 0) return "Zero";
-	if (Number == 1) return "One";
-	if (Number == 2) return "Two";
-	if (Number == 3) return "Three";
-	if (Number == 4) return "Four";
-	if (Number == 5) return "Five";
-	if (Number == 6) return "Six";
-	if (Number == 7) return "Seven";
-	if (Number == 8) return "Eight";
-	if (Number == 9) return "Nine";
-	if (Number == 10) return "Ten";
-	if (Number == 11) return "Eleven";
-	if (Number == 12) return "Twelve";
-	return "";
-}
 
 // Returns the current date and time in a yyyy-mm-dd hh:mm:ss format
 function GetFormatDate() {
@@ -146,12 +127,12 @@ function ReadCSV(Array, FileName) {
 function LoadInteractions() {
 	ReadCSV("CurrentIntro", CurrentChapter + "/" + CurrentScreen + "/Intro_" + CurrentLanguageTag + ".csv");
 	ReadCSV("CurrentStage", CurrentChapter + "/" + CurrentScreen + "/Stage_" + CurrentLanguageTag + ".csv");
-	if ((CurrentChapter == "C007_LunchBreak") || (CurrentChapter == "C999_Common")) LoadText();
+	LoadText();
 }
 
 // Load the custom texts from a scene and keep it in common variable
 function LoadText() {
-	ReadCSV("CurrentText", CurrentChapter + "/" + CurrentScreen + "/Text_" + CurrentLanguageTag + ".csv");	
+	ReadCSV("CurrentText", CurrentChapter + "/" + CurrentScreen + "/Text_" + CurrentLanguageTag + ".csv");
 }
 
 // Calls a dynamic function (if it exists)

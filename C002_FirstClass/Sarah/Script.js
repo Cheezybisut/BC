@@ -72,7 +72,7 @@ function C002_FirstClass_Sarah_Click() {
 
 	// If the player wants to gag Sarah
 	if ((ClickedInv == "Ballgag") && (ActorHasInventory("Ballgag") == false) && (C002_FirstClass_Classroom_MildredSubdueSuccess) && (Common_PlayerNotRestrained)) {
-		OveridenIntroText = "(She opens wide and bites the gag|like she's hungry while you strap it.)";
+		OveridenIntroText = GetText("Ballgag");
 		PlayerRemoveInventory("Ballgag", 1);
 		ActorAddInventory("Ballgag");
 		if (C002_FirstClass_Sarah_CurrentStage == 160) C002_FirstClass_Sarah_CurrentStage = 170;
@@ -81,8 +81,8 @@ function C002_FirstClass_Sarah_Click() {
 
 	// If the player wants to cuff Sarah
 	if ((ClickedInv == "Cuffs") && (ActorHasInventory("Cuffs") == false) && (C002_FirstClass_Classroom_MildredSubdueSuccess) && (Common_PlayerNotRestrained)) {
-		if (ActorHasInventory("Rope")) { OveridenIntroText = "(You undo the ropes so she can get|dressed and you cuff her right after.)"; PlayerAddInventory("Rope", 1); ActorRemoveInventory("Rope"); }
-		else OveridenIntroText = "(She happily turns so you can cuff her,|she shivers with the clicking sound.)";
+		if (ActorHasInventory("Rope")) { OveridenIntroText = GetText("CuffsReplaceRope"); PlayerAddInventory("Rope", 1); ActorRemoveInventory("Rope"); }
+		else OveridenIntroText = GetText("Cuffs");
 		PlayerRemoveInventory("Cuffs", 1);
 		ActorAddInventory("Cuffs");
 		CurrentTime = CurrentTime + 60000;
@@ -90,7 +90,7 @@ function C002_FirstClass_Sarah_Click() {
 
 	// If the player wants to uncuff Sarah
 	if ((ClickedInv == "CuffsKey") && (ActorHasInventory("Cuffs") == true) && (C002_FirstClass_Classroom_MildredSubdueSuccess) && (Common_PlayerNotRestrained)) {
-		OveridenIntroText = "(She pouts while you unlock her cuffs.)";
+		OveridenIntroText = GetText("Unlock");
 		PlayerAddInventory("Cuffs", 1);
 		ActorRemoveInventory("Cuffs");
 		CurrentTime = CurrentTime + 60000;
@@ -98,8 +98,8 @@ function C002_FirstClass_Sarah_Click() {
 
 	// If the player wants to rope Sarah
 	if ((ClickedInv == "Rope") && (ActorHasInventory("Rope") == false) && (C002_FirstClass_Classroom_MildredSubdueSuccess) && (Common_PlayerNotRestrained)) {
-		if (ActorHasInventory("Cuffs")) { OveridenIntroText = "(You unlock the cuff, she strips,|and you do a full rope harness on her.)"; PlayerAddInventory("Cuffs", 1); ActorRemoveInventory("Cuffs"); }
-		else OveridenIntroText = "(She removes her clothes happily so|you can do a rope harness on her.";
+		if (ActorHasInventory("Cuffs")) { OveridenIntroText = GetText("RopeReplaceCuffs"); PlayerAddInventory("Cuffs", 1); ActorRemoveInventory("Cuffs"); }
+		else OveridenIntroText = GetText("Rope");
 		PlayerRemoveInventory("Rope", 1);
 		ActorAddInventory("Rope");
 		CurrentTime = CurrentTime + 60000;
@@ -107,8 +107,8 @@ function C002_FirstClass_Sarah_Click() {
 
 	// If the player wants to crop Sarah
 	if ((ClickedInv == "Crop") && (C002_FirstClass_Classroom_MildredSubdueSuccess) && (Common_PlayerNotRestrained)) {
-		if (ActorHasInventory("Ballgag")) OveridenIntroText = "(You hit Sarah a few times with your crop.|She starts to moan and seems to like it.)";
-		else OveridenIntroText = "(You hit Sarah a few times with your crop.)|Oh!  It stings!  (She smiles and trembles.)";
+		if (ActorHasInventory("Ballgag")) OveridenIntroText = GetText("CropGagged");
+		else OveridenIntroText = GetText("Crop");
 		if (C002_FirstClass_Sarah_CropDone == false) { C002_FirstClass_Sarah_CropDone = true; ActorChangeAttitude(1, 1); }
 		CurrentTime = CurrentTime + 60000;
 	}

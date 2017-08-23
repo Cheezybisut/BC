@@ -34,7 +34,7 @@ function C001_BeforeClass_Sidney_Click() {
 	if ((C001_BeforeClass_Sidney_CurrentStage < 200) && (GetClickedInventory() == "Rope")) {
 		C001_BeforeClass_Sidney_BackupStage = C001_BeforeClass_Sidney_CurrentStage;
 		C001_BeforeClass_Sidney_CurrentStage = 200;
-		OveridenIntroText = "What are you doing with MY ropes?|(You need +2 submission to dominate Sidney.)"
+		OveridenIntroText = GetText("MyRopes");
 	}
 	
 }
@@ -60,7 +60,7 @@ function C001_BeforeClass_Sidney_Tie() {
 	PlayerRemoveInventory("Rope", 1);
 	if (C001_BeforeClass_Sidney_BondageFlag == false) {
 		ActorChangeAttitude(-1, 0);
-		OveridenIntroText = "(You pin her and tie her wrist behind her back.|She trashes and kicks you but finally submits.)";
+		OveridenIntroText = GetText("Bondage");
 		C001_BeforeClass_Sidney_BondageFlag = true;
 	}	
 }
@@ -69,7 +69,7 @@ function C001_BeforeClass_Sidney_Tie() {
 function C001_BeforeClass_Sidney_Tickle() {
 	if (C001_BeforeClass_Sidney_TickleDone == false) {
 		ActorChangeAttitude(-1, 0);
-		OveridenIntroText = "Don't even try!  I'm not ticklish!|(She trashes and tries to get free.)";
+		OveridenIntroText = GetText("Tickle");
 		C001_BeforeClass_Sidney_TickleDone = true;
 	}
 }
@@ -96,6 +96,6 @@ function C001_BeforeClass_Sidney_PantiesRemark() {
 	if (C001_BeforeClass_Sidney_PantiesRemark_Done == false) {
 		C001_BeforeClass_Sidney_PantiesRemark_Done = true;
 		ActorChangeAttitude(0, 1);
-		OveridenIntroText = "What the fuck?|(She blushes and tries to hide her panties.)";
+		OveridenIntroText = GetText("Panties");
 	}
 }

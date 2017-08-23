@@ -47,7 +47,7 @@ function C003_MorningDetention_Sidney_Click() {
 	if ((ClickInv == "CuffsKey") && (C003_MorningDetention_Sidney_CurrentStage < 300) && Common_PlayerNotRestrained) {
 		PlayerAddInventory("Cuffs", 1);
 		ActorChangeAttitude(2, 0);
-		OveridenIntroText = "As soon as you unlock her, she|thanks you, picks her stuff and leaves.";
+		OveridenIntroText = GetText("UnlockGone");
 		C003_MorningDetention_Sidney_CurrentStage = 300;
 		C003_MorningDetention_DetentionRoom_SidneyGone = true;
 		CurrentTime = CurrentTime + 60000;
@@ -55,15 +55,15 @@ function C003_MorningDetention_Sidney_Click() {
 
 	// Special code for when the user wants to use the vibrating egg on Sidney
 	if ((ClickInv == "VibratingEgg") && (C003_MorningDetention_Sidney_CurrentStage < 200) && Common_PlayerNotRestrained)
-		OveridenIntroText = "What the fuck is that pink thing?|Get it away before the teacher sees it.";
+		OveridenIntroText = GetText("VibratingEggTeacher");
 
 	// Special code for when the user wants to use the vibrating egg on Sidney
 	if ((ClickInv == "SleepingPill") && (C003_MorningDetention_Sidney_CurrentStage < 200) && Common_PlayerNotRestrained)
-		OveridenIntroText = "Get that pill away sicko!|There's no way I'm taking it.";
+		OveridenIntroText = GetText("SleepingPill");
 	
 	// Special code for when the user wants to use the vibrating egg on Sidney
 	if ((ClickInv == "VibratingEgg") && (C003_MorningDetention_Sidney_CurrentStage >= 200) && (C003_MorningDetention_Sidney_CurrentStage < 300) && Common_PlayerNotRestrained) {
-		OveridenIntroText = "What the fuck is that pink thing?|Don't you dare anything funky.";
+		OveridenIntroText = GetText("VibratingEggReady");
 		C003_MorningDetention_Sidney_EggReady = true;
 	}
 	
@@ -96,7 +96,7 @@ function C003_MorningDetention_Sidney_Insert() {
 function C003_MorningDetention_Sidney_Tickle() {
 	if (C003_MorningDetention_Sidney_TickleDone == false) {
 		ActorChangeAttitude(-1, 0);
-		OveridenIntroText = "Fuck you!  I hate being tickled.|(She trashes in her cuffs.)";
+		OveridenIntroText = GetText("Tickle");
 		C003_MorningDetention_Sidney_TickleDone = true;
 	}
 }

@@ -24,11 +24,11 @@ function C004_ArtClass_Outro_Run() {
 
 		// No crime outro
 		DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Bell.jpg", 800, 0);
-		DrawText(ctx, "The bell rings again, the art class is over.", 400, 150, "White");
-		if ((TextPhase >= 1) && C004_ArtClass_Outro_Restrained) DrawText(ctx, "You're finally released and dress back up.", 400, 300, "White");
-		if ((TextPhase >= 1) && !C004_ArtClass_Outro_Restrained && (C004_ArtClass_ArtRoom_ExtraModel == "Player")) DrawText(ctx, "You stop posing and sit down to relax quickly.", 400, 300, "White");
-		if ((TextPhase >= 1) && !C004_ArtClass_Outro_Restrained && (C004_ArtClass_ArtRoom_ExtraModel != "Player")) DrawText(ctx, "You finish your painting and give it to Julia.", 400, 300, "White");
-		if (TextPhase >= 2) DrawText(ctx, "Your next class starts at 10:30, better not be late.", 400, 450, "White");
+		DrawText(ctx, GetText("NoCrime1"), 400, 150, "White");
+		if ((TextPhase >= 1) && C004_ArtClass_Outro_Restrained) DrawText(ctx, GetText("NoCrime2A"), 400, 300, "White");
+		if ((TextPhase >= 1) && !C004_ArtClass_Outro_Restrained && (C004_ArtClass_ArtRoom_ExtraModel == "Player")) DrawText(ctx, GetText("NoCrime2B"), 400, 300, "White");
+		if ((TextPhase >= 1) && !C004_ArtClass_Outro_Restrained && (C004_ArtClass_ArtRoom_ExtraModel != "Player")) DrawText(ctx, GetText("NoCrime2C"), 400, 300, "White");
+		if (TextPhase >= 2) DrawText(ctx, GetText("NoCrime3"), 400, 450, "White");
 		
 	} else {
 
@@ -36,14 +36,14 @@ function C004_ArtClass_Outro_Run() {
 		if (TextPhase <= 1) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Bell.jpg", 800, 0);
 		if ((TextPhase >= 2) && (Common_PlayerCrime == "RestrainMildred")) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Mildred.jpg", 800, 0);
 		if ((TextPhase >= 2) && (Common_PlayerCrime == "DrugYuki")) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Yuki.jpg", 800, 0);
-		DrawText(ctx, "The bell rings again, the art class is over.", 400, 100, "White");
-		if ((TextPhase >= 1) && C004_ArtClass_Outro_Restrained) DrawText(ctx, "You're finally released and dress back up.", 400, 200, "White");
-		if ((TextPhase >= 1) && !C004_ArtClass_Outro_Restrained && (C004_ArtClass_ArtRoom_ExtraModel == "Player")) DrawText(ctx, "You stop posing and sit down to relax quickly.", 400, 200, "White");
-		if ((TextPhase >= 1) && !C004_ArtClass_Outro_Restrained && (C004_ArtClass_ArtRoom_ExtraModel != "Player")) DrawText(ctx, "You finish your painting and give it to Julia.", 400, 200, "White");
-		if ((TextPhase >= 2) && (Common_PlayerCrime == "RestrainMildred")) DrawText(ctx, "When you exit the class, Mildred is waiting for you.", 400, 300, "White");
-		if ((TextPhase >= 2) && (Common_PlayerCrime == "DrugYuki")) DrawText(ctx, "When you exit the class, Yuki is waiting for you.", 400, 300, "White");
-		if (TextPhase >= 3) DrawText(ctx, "Furious, she stays silent but grips your arm firmly.", 400, 400, "White");
-		if (TextPhase >= 4) DrawText(ctx, "She drags you down to the basement, where no one goes.", 400, 500, "White");
+		DrawText(ctx, GetText("Crime1"), 400, 100, "White");
+		if ((TextPhase >= 1) && C004_ArtClass_Outro_Restrained) DrawText(ctx, GetText("Crime2A"), 400, 200, "White");
+		if ((TextPhase >= 1) && !C004_ArtClass_Outro_Restrained && (C004_ArtClass_ArtRoom_ExtraModel == "Player")) DrawText(ctx, GetText("Crime2B"), 400, 200, "White");
+		if ((TextPhase >= 1) && !C004_ArtClass_Outro_Restrained && (C004_ArtClass_ArtRoom_ExtraModel != "Player")) DrawText(ctx, GetText("Crime2C"), 400, 200, "White");
+		if ((TextPhase >= 2) && (Common_PlayerCrime == "RestrainMildred")) DrawText(ctx, GetText("Crime3A"), 400, 300, "White");
+		if ((TextPhase >= 2) && (Common_PlayerCrime == "DrugYuki")) DrawText(ctx, GetText("Crime3B"), 400, 300, "White");
+		if (TextPhase >= 3) DrawText(ctx, GetText("Crime4"), 400, 400, "White");
+		if (TextPhase >= 4) DrawText(ctx, GetText("Crime5"), 400, 500, "White");
 
 	}
 

@@ -22,13 +22,12 @@ function C006_Isolation_IsolationRoom_Load() {
 	StruggleDone = false;
 	StruggleProgress = 0;
 	C006_Isolation_IsolationRoom_OrgasmReady = (PlayerHasLockedInventory("VibratingEgg"));
+	LoadText();
 }
 
 // Chapter 6 - Isolation Room Run
 function C006_Isolation_IsolationRoom_Run() {
-	if (C006_Isolation_IsolationRoom_Stage <= 1) StruggleRun("Click rapidly on a restrain to try to struggle out.", C006_Isolation_IsolationRoom_Stage);
-	if (C006_Isolation_IsolationRoom_Stage == 2) StruggleRun("", C006_Isolation_IsolationRoom_Stage);
-	if (C006_Isolation_IsolationRoom_Stage == 3) StruggleRun("Find a way to free yourself.", C006_Isolation_IsolationRoom_Stage);
+	StruggleRun(GetText("Struggle" + C006_Isolation_IsolationRoom_Stage.toString()), C006_Isolation_IsolationRoom_Stage);
 }
 
 // Chapter 6 - Isolation Room Click - The player can try to struggle out of the restrains
@@ -36,40 +35,40 @@ function C006_Isolation_IsolationRoom_Click() {
 
 	// On stage 0, only the leg ropes can be removed, the crotch rope also works with an egg
 	if ((C006_Isolation_IsolationRoom_Stage == 0) && (!StruggleDone)) {
-		StruggleClick("C006_Legs", "Normal", "Struggle to reach and undo the leg knots!", "You did it!  You freed your legs!", 260, 315, 100);
-		StruggleClick("C006_Crotch", "Easy", "Stimulate with the crotch rope!", (C006_Isolation_IsolationRoom_OrgasmReady ? "Combined with the egg, the crotch rope gives you a sweet orgasm." : "The rope feels very nice but it's not enough to get an orgasm."), 435, 285, 70);
-		StruggleClick("C006_Arms", "Impossible", "Struggle to free your arms!", "", 700, 240, 100);
-		StruggleClick("C006_Collar", "Impossible", "Struggle to break the collar!", "", 930, 320, 50);
-		StruggleClick("C006_Ballgag", "Impossible", "Struggle to spit the ballgag!", "", 1055, 355, 70);
+		StruggleClick("C006_Legs", "Normal", GetText("Legs"), GetText("LegsSuccess"), 260, 315, 100);
+		StruggleClick("C006_Crotch", "Easy", GetText("Crotch"), (C006_Isolation_IsolationRoom_OrgasmReady ? GetText("CrotchSuccess1") : GetText("CrotchSuccess2")), 435, 285, 70);
+		StruggleClick("C006_Arms", "Impossible", GetText("ArmsImpossible"), "", 700, 240, 100);
+		StruggleClick("C006_Collar", "Impossible", GetText("CollarImpossible"), "", 930, 320, 50);
+		StruggleClick("C006_Ballgag", "Impossible", GetText("BallgagImpossible"), "", 1055, 355, 70);
 	}
 
 	// On stage 1, only the collar can be unstrapped, the crotch rope also works with an egg
 	if ((C006_Isolation_IsolationRoom_Stage == 1) && (!StruggleDone)) {
-		StruggleClick("C006_Crotch", "Easy", "Stimulate with the crotch rope!", (C006_Isolation_IsolationRoom_OrgasmReady ? "Combined with the egg, the crotch rope gives you a sweet orgasm." : "The rope feels very nice but it's not enough to get an orgasm."), 435, 285, 70);
-		StruggleClick("C006_Arms", "Impossible", "Struggle to free your arms!", "", 700, 240, 100);
-		StruggleClick("C006_Collar", "Hard", "Struggle to unstrap the collar with your foot!", "You did it!  The collar is unstrapped.", 910, 310, 50);
-		StruggleClick("C006_Ballgag", "Impossible", "Struggle to spit the ballgag!", "", 1055, 355, 70);
+		StruggleClick("C006_Crotch", "Easy", GetText("Crotch"), (C006_Isolation_IsolationRoom_OrgasmReady ? GetText("CrotchSuccess1") : GetText("CrotchSuccess2")), 435, 285, 70);
+		StruggleClick("C006_Arms", "Impossible", GetText("ArmsImpossible"), "", 700, 240, 100);
+		StruggleClick("C006_Collar", "Hard", GetText("Collar"), GetText("CollarSuccess"), 910, 310, 50);
+		StruggleClick("C006_Ballgag", "Impossible", GetText("BallgagImpossible"), "", 1055, 355, 70);
 	}
 
 	// On stage 2, no real struggling can be done
 	if ((C006_Isolation_IsolationRoom_Stage == 2) && (!StruggleDone)) {
-		StruggleClick("C006_Crotch", "Easy", "Stimulate with the crotch rope!", (C006_Isolation_IsolationRoom_OrgasmReady ? "Combined with the egg, the crotch rope gives you a sweet orgasm." : "The rope feels very nice but it's not enough to get an orgasm."), 575, 490, 65);
-		StruggleClick("C006_Arms", "Impossible", "Struggle to free your arms!", "", 575, 350, 65);
-		StruggleClick("C006_Ballgag", "Impossible", "Struggle to spit the ballgag!", "", 575, 210, 65);
+		StruggleClick("C006_Crotch", "Easy", GetText("Crotch"), (C006_Isolation_IsolationRoom_OrgasmReady ? GetText("CrotchSuccess1") : GetText("CrotchSuccess2")), 575, 490, 65);
+		StruggleClick("C006_Arms", "Impossible", GetText("ArmsImpossible"), "", 575, 350, 65);
+		StruggleClick("C006_Ballgag", "Impossible", GetText("BallgagImpossible"), "", 575, 210, 65);
 		if ((MouseX >= 1) && (MouseX <= 450) && (MouseY >= 450) && (MouseY <= 599)) SetScene(CurrentChapter, "CellGround");
 		if ((MouseX >= 750) && (MouseX <= 1150) && (MouseY >= 1) && (MouseY <= 599) && !C006_Isolation_IsolationRoom_AllowPickLock) SetScene(CurrentChapter, "CellDoor");
-		if (C006_Isolation_IsolationRoom_AllowPickLock) StruggleClick("C006_CellDoor", "Normal", "Struggle to pick the lock!", "Well done!  You can leave the cell.", 900, 300, 200);
+		if (C006_Isolation_IsolationRoom_AllowPickLock) StruggleClick("C006_CellDoor", "Normal", GetText("PickLock"), GetText("PickLockSuccess"), 900, 300, 200);
 	}
 
 	// On stage 3, no real struggling can be done
 	if ((C006_Isolation_IsolationRoom_Stage == 3) && (!StruggleDone)) {
-		StruggleClick("C006_Arms", "Impossible", "Struggle to free your arms!", "", 390, 320, 80);
+		StruggleClick("C006_Arms", "Impossible", GetText("ArmsImpossible"), "", 390, 320, 80);
 		if ((MouseX >= 1) && (MouseX <= 300) && (MouseY >= 300) && (MouseY <= 599)) SetScene(CurrentChapter, "CellGround");
 		if ((MouseX >= 1035) && (MouseX <= 1200) && (MouseY >= 250) && (MouseY <= 599)) SetScene(CurrentChapter, "Pillory");
 		if ((MouseX >= 540) && (MouseX <= 825) && (MouseY >= 290) && (MouseY <= 450)) SetScene(CurrentChapter, "Horse");
 		if ((MouseX >= 460) && (MouseX <= 630) && (MouseY >= 30) && (MouseY <= 289)) SetScene(CurrentChapter, "Cross");
 		if ((MouseX >= 830) && (MouseX <= 1000) && (MouseY >= 180) && (MouseY <= 300) && (!C006_Isolation_IsolationRoom_AllowCutRope)) SetScene(CurrentChapter, "Table");
-		if (C006_Isolation_IsolationRoom_AllowCutRope) StruggleClick("C006_CutRope", "Hard", "Struggle to cut the rope!", "You did it!  You can escape isolation.", 910, 220, 100);
+		if (C006_Isolation_IsolationRoom_AllowCutRope) StruggleClick("C006_CutRope", "Hard", GetText("CutRope"), GetText("CutRopeSuccess"), 910, 220, 100);
 	}
 	
 	// Opens the inventory screen 

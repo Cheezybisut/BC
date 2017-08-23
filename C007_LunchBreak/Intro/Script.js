@@ -3,7 +3,6 @@ function C007_LunchBreak_Intro_Load() {
 
 	// Time is always 11:45 on the intro, no timer
 	StopTimer(11.75 * 60 * 60 * 1000);
-	LoadText();
 	
 }
 

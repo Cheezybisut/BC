@@ -1,0 +1,17 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,What do you want?|I don't have time to chat.,SidneyIntro.jpg
+0,5,0,,Hey there!  Can you help me?,SidneyIntroHappy.jpg
+0,0,5,,Hello Miss.  Can I ask for help?,SidneyIntroSubbie.jpg
+10,0,0,,I can't find my fucking purse|and I'm hungry as shit!,SidneyIntro.jpg
+10,5,0,,I can't find my fucking purse|and I'm hungry as shit!,SidneyIntroHappy.jpg
+10,0,5,,I can't find my purse|and I'm very hungry!,SidneyIntroSubbie.jpg
+90,0,0,,(Sidney is gone.),SidneyGone.jpg
+100,0,0,,What the fuck do you want?|I don't want to talk with you.,SidneyIntroGrumpy.jpg
+110,0,0,, I lost my fucking purse|and I'm hungry as shit!,SidneyIntroGrumpy.jpg
+120,0,0,,,SidneyIntroGrumpy.jpg
+130,0,0,,,SidneyPlayerBasement.jpg
+140,0,0,,,SidneyPlayerBasement.jpg
+150,0,0,,,SidneyPlayerPillory.jpg
+160,0,0,,,PlayerPillory.jpg
+170,0,0,,,SidneyPlayerPillory.jpg
+180,0,0,,,SidneyPlayerBasement.jpg

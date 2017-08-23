@@ -1,6 +1,7 @@
 // Struggle parameters
 var StruggleType = "";
 var StruggleDifficulty = ""; // Easy, Normal, Hard, Impossible
+var StruggleDifficultyShown = ""; // To translate the shown difficulty
 var StruggleMessage = "";
 var StruggleDoneMessage = "";
 var StruggleX = 0;
@@ -15,17 +16,17 @@ var StruggleImageFrameTime = 0;
 
 // The next tick to lower the struggle time comes faster with harder levels
 function StruggleGetNextTick() {
-	if ((StruggleDifficulty == "Easy") && (StruggleProgress <= 33)) StruggleNextTick = CurrentTime + 1000;
-	if ((StruggleDifficulty == "Easy") && (StruggleProgress > 33) && (StruggleProgress <= 66)) StruggleNextTick = CurrentTime + 800;
-	if ((StruggleDifficulty == "Easy") && (StruggleProgress > 66)) StruggleNextTick = CurrentTime + 600;
-	if ((StruggleDifficulty == "Normal") && (StruggleProgress <= 33)) StruggleNextTick = CurrentTime + 800;
-	if ((StruggleDifficulty == "Normal") && (StruggleProgress > 33) && (StruggleProgress <= 66)) StruggleNextTick = CurrentTime + 650;
-	if ((StruggleDifficulty == "Normal") && (StruggleProgress > 66)) StruggleNextTick = CurrentTime + 500;
-	if ((StruggleDifficulty == "Hard") && (StruggleProgress <= 33)) StruggleNextTick = CurrentTime + 650;
-	if ((StruggleDifficulty == "Hard") && (StruggleProgress > 33) && (StruggleProgress <= 66)) StruggleNextTick = CurrentTime + 500;
-	if ((StruggleDifficulty == "Hard") && (StruggleProgress > 66)) StruggleNextTick = CurrentTime + 350;
-	if ((StruggleDifficulty == "Impossible") && (StruggleProgress <= 33)) StruggleNextTick = CurrentTime + 500;
-	if ((StruggleDifficulty == "Impossible") && (StruggleProgress > 33) && (StruggleProgress <= 66)) StruggleNextTick = CurrentTime + 250;
+	if ((StruggleDifficulty == "Easy") && (StruggleProgress <= 33)) StruggleNextTick = CurrentTime + 600;
+	if ((StruggleDifficulty == "Easy") && (StruggleProgress > 33) && (StruggleProgress <= 66)) StruggleNextTick = CurrentTime + 450;
+	if ((StruggleDifficulty == "Easy") && (StruggleProgress > 66)) StruggleNextTick = CurrentTime + 300;
+	if ((StruggleDifficulty == "Normal") && (StruggleProgress <= 33)) StruggleNextTick = CurrentTime + 400;
+	if ((StruggleDifficulty == "Normal") && (StruggleProgress > 33) && (StruggleProgress <= 66)) StruggleNextTick = CurrentTime + 325;
+	if ((StruggleDifficulty == "Normal") && (StruggleProgress > 66)) StruggleNextTick = CurrentTime + 250;
+	if ((StruggleDifficulty == "Hard") && (StruggleProgress <= 33)) StruggleNextTick = CurrentTime + 300;
+	if ((StruggleDifficulty == "Hard") && (StruggleProgress > 33) && (StruggleProgress <= 66)) StruggleNextTick = CurrentTime + 225;
+	if ((StruggleDifficulty == "Hard") && (StruggleProgress > 66)) StruggleNextTick = CurrentTime + 150;
+	if ((StruggleDifficulty == "Impossible") && (StruggleProgress <= 33)) StruggleNextTick = CurrentTime + 250;
+	if ((StruggleDifficulty == "Impossible") && (StruggleProgress > 33) && (StruggleProgress <= 66)) StruggleNextTick = CurrentTime + 125;
 	if ((StruggleDifficulty == "Impossible") && (StruggleProgress > 66)) StruggleNextTick = CurrentTime + 10;
 }
 
@@ -36,9 +37,10 @@ function StruggleClick(SType, SDifficulty, SMessage, SDoneMessage, SX, SY, SRadi
 	if ((MouseX >= SX - SRadius) && (MouseX <= SX + SRadius) && (MouseY >= SY - SRadius) && (MouseY <= SY + SRadius)) {
 
 		// If we must start a new struggling
-		if (SType != StruggleType) {
+		if ((SType != StruggleType) || (StruggleDifficultyShown == "")) {
 			StruggleType = SType;
 			StruggleDifficulty = SDifficulty;
+			StruggleDifficultyShown = GetText(SDifficulty);
 			StruggleMessage = SMessage;
 			StruggleDoneMessage = SDoneMessage;
 			StruggleX = SX;
@@ -49,9 +51,9 @@ function StruggleClick(SType, SDifficulty, SMessage, SDoneMessage, SX, SY, SRadi
 			StruggleGetNextTick();
 		}
 		
-		// Raise the progress, 100 is done
-		if (StruggleProgress <= 0) StruggleProgress = 5;
-		StruggleProgress++;
+		// Raise the progress by 2 for each click, 100 is done
+		if (StruggleProgress <= 0) StruggleProgress = 8;
+		StruggleProgress = StruggleProgress + 2;
 		if (StruggleProgress >= 100) {
 			StruggleProgress = 100;
 			StruggleDone = true;
@@ -93,7 +95,7 @@ function StruggleDraw(NoStruggleMessage, StruggleStage) {
 	if (StruggleProgress <= 0) DrawText(ctx, NoStruggleMessage, 600, 30, "white");
 	if (StruggleProgress >= 100) DrawText(ctx, StruggleDoneMessage, 600, 30, "white");
 	if ((StruggleProgress > 0) && (StruggleProgress < 100)) { DrawText(ctx, StruggleMessage, 600, 30, "white"); DrawCircle(ctx, StruggleX, StruggleY, StruggleRadius + 4, 4, "white"); }
-	if ((StruggleProgress > 50) && (StruggleProgress < 100)) DrawText(ctx, StruggleDifficulty, StruggleX, StruggleY + StruggleRadius + 30, "white");
+	if ((StruggleProgress > 50) && (StruggleProgress < 100)) DrawText(ctx, StruggleDifficultyShown, StruggleX, StruggleY + StruggleRadius + 30, "white");
 
 	// Draw the progress meter
 	DrawRect(ctx, 399, 579, 402, 12, "white");
@@ -112,7 +114,7 @@ function StruggleRun(NoStruggleMessage, StruggleStage) {
 		if (StruggleDone) {
 			DynamicFunction(CurrentChapter + "_" + CurrentScreen + "_StruggleDone()");
 			StruggleDone = false;
-			StruggleProgress = "";
+			StruggleProgress = 0;
 			StruggleType = "";
 		} else {
 			StruggleProgress--;
@@ -124,5 +126,5 @@ function StruggleRun(NoStruggleMessage, StruggleStage) {
 
 	// Draw the struggle scene
 	StruggleDraw(NoStruggleMessage, StruggleStage);
-	
+
 }

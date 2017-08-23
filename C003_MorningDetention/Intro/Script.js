@@ -21,12 +21,12 @@ function C003_MorningDetention_Intro_Run() {
 	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
 
 	// Write the chapter introduction
-	DrawText(ctx, "Chapter 3 - Morning Detention (Click to continue)", 600, 50, "White");
-	if (TextPhase >= 1) DrawText(ctx, "For causing trouble, you and Sidney are sent to detention.", 600, 150, "White");
-	if (TextPhase >= 2) DrawText(ctx, "The detention room is a meeting room, where a teacher is waiting.", 600, 250, "White");
-	if (TextPhase >= 3) DrawText(ctx, "You're invited to sit at the desk and wait until detention is over.", 600, 350, "White");
-	if (TextPhase >= 4) DrawText(ctx, "Sidney enters the room wearing handcuffs and sits in front on you.", 600, 450, "White");
-	if (TextPhase >= 5) DrawText(ctx, "It's 8:20 and detention ends at 9:00, what will you do to kill time?", 600, 550, "White");
+	DrawText(ctx, GetText("Intro1"), 600, 50, "White");
+	if (TextPhase >= 1) DrawText(ctx, GetText("Intro2"), 600, 150, "White");
+	if (TextPhase >= 2) DrawText(ctx, GetText("Intro3"), 600, 250, "White");
+	if (TextPhase >= 3) DrawText(ctx, GetText("Intro4"), 600, 350, "White");
+	if (TextPhase >= 4) DrawText(ctx, GetText("Intro5"), 600, 450, "White");
+	if (TextPhase >= 5) DrawText(ctx, GetText("Intro6"), 600, 550, "White");
 		
 }
 

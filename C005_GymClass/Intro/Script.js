@@ -18,11 +18,11 @@ function C005_GymClass_Intro_Run() {
 	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
 
 	// Write the chapter introduction
-	DrawText(ctx, "Chapter 5 - Gym Class (Click to continue)", 600, 100, "White");
-	if (TextPhase >= 1) DrawText(ctx, "Your third class is gym, from 10:30 to 11:30.", 600, 200, "White");
-	if (TextPhase >= 2) DrawText(ctx, "You enter an old gymnasium covered with wrestling mats.", 600, 300, "White");
-	if (TextPhase >= 3) DrawText(ctx, "They give you a judo outfit which doesn't fit very well.", 600, 400, "White");
-	if (TextPhase >= 4) DrawText(ctx, "Everyone is already paired but Jennifer, you go see her.", 600, 500, "White");
+	DrawText(ctx, GetText("Intro1"), 600, 100, "White");
+	if (TextPhase >= 1) DrawText(ctx, GetText("Intro2"), 600, 200, "White");
+	if (TextPhase >= 2) DrawText(ctx, GetText("Intro3"), 600, 300, "White");
+	if (TextPhase >= 3) DrawText(ctx, GetText("Intro4"), 600, 400, "White");
+	if (TextPhase >= 4) DrawText(ctx, GetText("Intro5"), 600, 500, "White");
 
 }
 

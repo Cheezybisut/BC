@@ -66,13 +66,13 @@ function C006_Isolation_Mildred_AllowLeave() {
 // Chapter 6 - Mildred, if she doesn't like the player, she crops
 function C006_Isolation_Mildred_CheckForCrop() {	
 	if (ActorGetValue(ActorLove) <= -3) {
-		OveridenIntroText = "If isolation doesn't teach you, my crop will.|(She pushes you on a triangular wooden frame.)";
+		OveridenIntroText = GetText("CropStartHate");
 		C006_Isolation_Mildred_CurrentStage = 300;
 		C006_Isolation_Mildred_CropMaxCount = ActorGetValue(ActorLove) * -2;
 		if (C006_Isolation_Mildred_CropMaxCount > 12) C006_Isolation_Mildred_CropMaxCount = 12;
 	} else {
 		if (ActorGetValue(ActorSubmission) <= -3) {
-			OveridenIntroText = "Before isolation, a sub like you should feel pain.|(She pushes you on a triangular wooden frame.)";
+			OveridenIntroText = GetText("CropStartSub");
 			C006_Isolation_Mildred_CurrentStage = 300;
 			C006_Isolation_Mildred_CropMaxCount = ActorGetValue(ActorSubmission) * -2;
 			if (C006_Isolation_Mildred_CropMaxCount > 12) C006_Isolation_Mildred_CropMaxCount = 12;
@@ -86,21 +86,14 @@ function C006_Isolation_Mildred_DoCrop() {
 	// If there's still cropping to be done
 	if (C006_Isolation_Mildred_CropCount < C006_Isolation_Mildred_CropMaxCount) {
 		
-		// The text is random
+		// The text is random and the image rotates
 		C006_Isolation_Mildred_CropCount++;
 		var P = Math.floor(Math.random() * 6);
-		if (P == 0)	OveridenIntroText = NumberToText(C006_Isolation_Mildred_CropCount) + " !  (She does a quick lash|on your back from left to right.)";
-		if (P == 1)	OveridenIntroText = NumberToText(C006_Isolation_Mildred_CropCount) + " !  (She lands a really|strong one right on your butt.)";
-		if (P == 2)	OveridenIntroText = NumberToText(C006_Isolation_Mildred_CropCount) + " !  (She strikes a light one on|your breast, barely hitting a nipple.)";
-		if (P == 3)	OveridenIntroText = NumberToText(C006_Isolation_Mildred_CropCount) + " !  (She hits you on your|bounds arms, making you struggle.)";
-		if (P == 4)	OveridenIntroText = NumberToText(C006_Isolation_Mildred_CropCount) + " !  (She swings right on your|tummy.  Making you lose your breath.)";		
-		if (P == 5)	OveridenIntroText = NumberToText(C006_Isolation_Mildred_CropCount) + " !  (She smacks a harsh one|on your thigh.  Making a loud noise.)";
-
-		// The image rotates
+		OveridenIntroText = GetText("Count" + C006_Isolation_Mildred_CropCount) + " !  " + GetText("CropEvent" + P.toString());
 		OveridenIntroImage = "MildredPlayerHorseCrop" + (C006_Isolation_Mildred_CropCount % 3).toString() + ".jpg";
 		
 	} else {
-		OveridenIntroText = "That's enough.  (She stops.)|So have you learned a lesson?";
+		OveridenIntroText = GetText("CropStop");
 		C006_Isolation_Mildred_CurrentStage = 330;
 		OveridenIntroImage = "";
 	}

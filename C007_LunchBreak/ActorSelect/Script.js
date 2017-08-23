@@ -7,6 +7,7 @@ var C007_LunchBreak_ActorSelect_Actor = "";
 var C007_LunchBreak_ActorSelect_BonusDone = false;
 var C007_LunchBreak_ActorSelect_EarlyLeave = false;
 var C007_LunchBreak_ActorSelect_EvilEnding = false;
+var C007_LunchBreak_ActorSelect_NoFood = false;
 
 // Chapter 7 - Lunch Break - Actor Select Load
 function C007_LunchBreak_ActorSelect_Load() {
@@ -35,7 +36,7 @@ function C007_LunchBreak_ActorSelect_Click() {
 
 // When the user selects an actor, we load it
 function C007_LunchBreak_ActorSelect_LoadActor(ActorToLoad) {	
-	if ((ActorToLoad == "Amanda") || (ActorToLoad == "Sarah")) {
+	if ((ActorToLoad == "Amanda") || (ActorToLoad == "Sarah") || (ActorToLoad == "Sidney")) {
 		C007_LunchBreak_ActorSelect_Actor = ActorToLoad;
 		SetScene(CurrentChapter, ActorToLoad)
 	}

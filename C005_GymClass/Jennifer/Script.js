@@ -90,14 +90,14 @@ function C005_GymClass_Jennifer_Click() {
 
 		// When the user wants to use the crop
 		if ((ClickInv == "Crop") && ActorHasInventory("Rope") && Common_PlayerNotRestrained) {
-			OveridenIntroText = "(You whip her with the crop a few|times.  She screams and cries in pain.)";
+			OveridenIntroText = GetText("Crop");
 			if (C005_GymClass_Jennifer_CropDone == false) { C005_GymClass_Jennifer_CropDone = true; ActorChangeAttitude(-1, 1); }
 			CurrentTime = CurrentTime + 60000;
 		}
 		
 		// When the user wants to use a ballgag	
 		if ((ClickInv == "Ballgag") && ActorHasInventory("Rope") && !ActorHasInventory("Ballgag") && Common_PlayerNotRestrained && ((C005_GymClass_Jennifer_CurrentStage == 400) || (C005_GymClass_Jennifer_CurrentStage == 410) || (C005_GymClass_Jennifer_CurrentStage == 430))) {
-			OveridenIntroText = "(She shuts her mouth so you have to|push it hard to be strap it in.)";
+			OveridenIntroText = GetText("Ballgag");
 			C005_GymClass_Jennifer_CurrentStage = 420;
 			C005_GymClass_Jennifer_Ungag();
 			ActorAddInventory("Ballgag");
@@ -107,7 +107,7 @@ function C005_GymClass_Jennifer_Click() {
 
 		// When the user wants to use a tape gag
 		if ((ClickInv == "TapeGag") && ActorHasInventory("Rope") && !ActorHasInventory("TapeGag") && Common_PlayerNotRestrained && ((C005_GymClass_Jennifer_CurrentStage == 400) ||(C005_GymClass_Jennifer_CurrentStage == 410) || (C005_GymClass_Jennifer_CurrentStage == 420))) {
-			OveridenIntroText = "(She shakes her head from left to right|but you finally manage to tape her mouth.)";
+			OveridenIntroText = GetText("TapeGag");
 			C005_GymClass_Jennifer_CurrentStage = 430;
 			C005_GymClass_Jennifer_Ungag();
 			ActorAddInventory("TapeGag");
@@ -119,12 +119,12 @@ function C005_GymClass_Jennifer_Click() {
 		if ((ClickInv == "VibratingEgg") && !ActorHasInventory("VibratingEgg") && ActorHasInventory("Rope") && Common_PlayerNotRestrained) {		
 			if (C005_GymClass_Jennifer_EggConfirm == false) {
 				C005_GymClass_Jennifer_EggConfirm = true;
-				OveridenIntroText = "(You might not be able to recover the egg if|you insert it in Jennifer, click on it again to do it.)";
+				OveridenIntroText = GetText("VibratingEggWarning");
 			} else {
 				ActorAddInventory("VibratingEgg");
 				PlayerRemoveInventory("VibratingEgg", 1);
 				ActorChangeAttitude(-1, 0);
-				OveridenIntroText = "(Jennifer sees the egg and tries to struggle away but|you're able to insert it.  She now trembles randomly.)";
+				OveridenIntroText = GetText("VibratingEggInsert");
 				C005_GymClass_Jennifer_EggInside = true;
 			}
 		}
@@ -141,7 +141,7 @@ function C005_GymClass_Jennifer_StartPractice() {
 // Chapter 5 - Jennifer Explain Mobile
 function C005_GymClass_Jennifer_ExplainMobile() {
 	if (IsMobile) 
-		OveridenIntroText = "Fighting is all about timing, hitting with opportunity.|(Click on the bar when the hit icon reaches it.)";
+		OveridenIntroText = GetText("ExplainMobile");
 }
 
 // Chapter 5 - Jennifer Get Rope
@@ -204,7 +204,7 @@ function C005_GymClass_Jennifer_Spank() {
 function C005_GymClass_Jennifer_CrotchRope() {
 	if (C005_GymClass_Jennifer_CrotchRopeDone == false) {
 		C005_GymClass_Jennifer_CrotchRopeDone = true;
-		OveridenIntroText = "(You play with her rope and she suddenly|starts to jerk around, sweat and moan.)";
+		OveridenIntroText = GetText("CrotchRope");
 		C005_GymClass_Jennifer_CurrentStage = parseInt(C005_GymClass_Jennifer_CurrentStage) + 40;
 	}
 }
@@ -249,7 +249,7 @@ function C005_GymClass_Jennifer_BallgagPlayer() {
 // Chapter 5 - Ungag Player (Jennifer only does if the player is likeable and not submissive))
 function C005_GymClass_Jennifer_UngagPlayer() {
 	if (ActorGetValue(ActorLove) + ActorGetValue(ActorSubmission) >= 0) {
-		OveridenIntroText = "Hold on.  Let me help you.|(She carefully removes your gag.)";
+		OveridenIntroText = GetText("UngagPlayer");
 		if (PlayerHasLockedInventory("Ballgag")) {
 			PlayerUnlockInventory("Ballgag");
 			PlayerAddInventory("Ballgag", 1);
@@ -275,13 +275,13 @@ function C005_GymClass_Jennifer_ReleasePlayer() {
 // Chapter 5 - Check to Release Player (Jennifer helps or put the player in trouble depending on the relationship)
 function C005_GymClass_Jennifer_CheckReleasePlayer() {
 	if (ActorGetValue(ActorLove) + ActorGetValue(ActorSubmission) >= 0) {
-		OveridenIntroText = "Of course.  Let me help you.|(She unties you and you dress back.)";
+		OveridenIntroText = GetText("ReleasePlayer");
 		C005_GymClass_Jennifer_ReleasePlayer();
 	} else {
 		if ((ActorGetValue(ActorLove) < 0) && (ActorGetValue(ActorSubmission) < 0)) {
 			PlayerLockInventory("Ballgag");
 			C005_GymClass_Jennifer_CurrentStage = 520;
-			OveridenIntroText = "No!  In fact I will do the opposite.  You|talk too much.  (She straps a gag on you.)";
+			OveridenIntroText = GetText("GagPlayer");
 		}
 	}
 }
@@ -289,8 +289,8 @@ function C005_GymClass_Jennifer_CheckReleasePlayer() {
 // Chapter 5 - Crotch Rope Player
 function C005_GymClass_Jennifer_CrotchRopePlayer() {
 	if ((C005_GymClass_Jennifer_CrotchRopePlayerDone == false) && PlayerHasLockedInventory("VibratingEgg")) {
-		if (Common_PlayerGagged) OveridenIntroText = "(She tugs, making you tremble in a silent orgasm.)|Why are you trembling?  Nod if you're ok.";
-		else OveridenIntroText = "(She tugs, making you tremble in a silent orgasm.)|Are you ok?  Why are you trembling like that?";
+		if (Common_PlayerGagged) OveridenIntroText = GetText("PlayerOrgasmGagged");
+		else OveridenIntroText = GetText("PlayerOrgasm");
 		ActorAddOrgasm();
 		CurrentTime = CurrentTime + 50000;
 		C005_GymClass_Jennifer_CrotchRopePlayerDone = true;

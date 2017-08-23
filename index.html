@@ -74,6 +74,7 @@
 <script src="C007_LunchBreak/ActorSelect/Script.js"></script>
 <script src="C007_LunchBreak/Amanda/Script.js"></script>
 <script src="C007_LunchBreak/Sarah/Script.js"></script>
+<script src="C007_LunchBreak/Sidney/Script.js"></script>
 <script src="C007_LunchBreak/Outro/Script.js"></script>
 <script src="C999_Common/GameLoad/Script.js"></script>
 <script src="C999_Common/GameSave/Script.js"></script>
@@ -91,8 +92,9 @@
 <script src="C999_Common/MetalSheet/Script.js"></script>
 <script>
 
-// When the code is loaded, start on "Chapter 0" to select a chapter
+// When the code is loaded, start on "Chapter 0" to select a chapter and loads the default language
 window.onload = function() {
+	if (localStorage.getItem("CurrentLanguageTag")) CurrentLanguageTag = localStorage.getItem("CurrentLanguageTag");
 	IsMobile = DetectMobile();
 	document.getElementById("MainCanvas").addEventListener("keypress", KeyDown);
 	document.getElementById("MainCanvas").tabIndex = 1000;

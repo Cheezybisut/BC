@@ -22,6 +22,12 @@ function C000_Intro_ChapterSelect_LoadChapter(ChapterToLoad) {
 	SetScene(ChapterToLoad, "Intro");
 }
 
+// When the user selects a new language, we keep it and save it
+function C000_Intro_ChapterSelect_SetLanguage(NewLanguageTag) {
+	CurrentLanguageTag = NewLanguageTag;
+	localStorage.setItem("CurrentLanguageTag", CurrentLanguageTag);
+}
+
 // When the user wants to load, we call the load screen
 function C000_Intro_ChapterSelect_LoadScreen() {
 	SetScene("C999_Common", "GameLoad");

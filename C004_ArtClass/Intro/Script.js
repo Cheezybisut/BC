@@ -18,11 +18,11 @@ function C004_ArtClass_Intro_Run() {
 	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
 
 	// Write the chapter introduction
-	DrawText(ctx, "Chapter 4 - Art Class (Click to continue)", 600, 100, "White");
-	if (TextPhase >= 1) DrawText(ctx, "The second class is art, from 9:15 to 10:15.", 600, 200, "White");
-	if (TextPhase >= 2) DrawText(ctx, "You enter a room full of canvas and paint.", 600, 300, "White");
-	if (TextPhase >= 3) DrawText(ctx, "You take a seat in front of a blank canvas.", 600, 400, "White");
-	if (TextPhase >= 4) DrawText(ctx, "A strange woman sees you and open her arms.", 600, 500, "White");
+	DrawText(ctx, GetText("Intro1"), 600, 100, "White");
+	if (TextPhase >= 1) DrawText(ctx, GetText("Intro2"), 600, 200, "White");
+	if (TextPhase >= 2) DrawText(ctx, GetText("Intro3"), 600, 300, "White");
+	if (TextPhase >= 3) DrawText(ctx, GetText("Intro4"), 600, 400, "White");
+	if (TextPhase >= 4) DrawText(ctx, GetText("Intro5"), 600, 500, "White");
 
 }
 

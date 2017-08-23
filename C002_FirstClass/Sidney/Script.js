@@ -36,7 +36,7 @@ function C002_FirstClass_Sidney_Load() {
 
 	// Sidney can steal the key from the player
 	if ((C002_FirstClass_Sidney_CurrentStage == 100) && (PlayerHasLockedInventory("Cuffs")) && (PlayerHasInventory("CuffsKey")) && (C002_FirstClass_Classroom_MildredSubdueSuccess)) {
-		OveridenIntroText = "Yonk!  (She steals your cuffs key and laughs.)"
+		OveridenIntroText = GetText("StealKeys");
 		PlayerRemoveInventory("CuffsKey", 1);
 		ActorChangeAttitude(0, -2);
 		C002_FirstClass_Sidney_SubdueRemarkReady = false;
@@ -62,31 +62,31 @@ function C002_FirstClass_Sidney_Click() {
 	// If the player wants to gag Sidney
 	if ((C002_FirstClass_Sidney_CurrentStage >= 100) && (ClickedInv == "Ballgag") && (ActorHasInventory("Ballgag") == false) && (Common_PlayerNotRestrained)) {
 		if ((ActorGetValue(ActorSubmission) >= 2) || (ActorHasInventory("Rope")) || (ActorHasInventory("Cuffs"))) {
-			if (ActorGetValue(ActorSubmission) >= 4) OveridenIntroText = "(She takes a deep breath and|opens her mouth for the big gag.)";
-			else OveridenIntroText = "(She shuts her mouth to stop you but|you're able to push it and buckle it.)";
+			if (ActorGetValue(ActorSubmission) >= 4) OveridenIntroText = GetText("BallgagWilling");
+			else OveridenIntroText = GetText("BallgagReluctant");
 			PlayerRemoveInventory("Ballgag", 1);
 			ActorAddInventory("Ballgag");
 			C002_FirstClass_Sidney_CurrentStage = C002_FirstClass_Classroom_CalcStage();
-		} else OveridenIntroText = "She pushes you back and refuses to be gagged.|(You need 2 submission or more to gag Sidney.)";
+		} else OveridenIntroText = GetText("BallgagRefuse");
 		CurrentTime = CurrentTime + 60000;
 	}
 
 	// If the player wants to cuff Sidney
 	if ((C002_FirstClass_Sidney_CurrentStage >= 100) && (ClickedInv == "Cuffs") && (ActorHasInventory("Cuffs") == false) && (Common_PlayerNotRestrained)) {
 		if ((ActorGetValue(ActorSubmission) >= 2) || (ActorHasInventory("Rope"))) {
-			if (ActorHasInventory("Rope")) { OveridenIntroText = "(You undo the ropes so she can get|dressed but you cuff her right after.)"; PlayerAddInventory("Rope", 1); ActorRemoveInventory("Rope"); }
-			else if (ActorGetValue(ActorSubmission) >= 4) OveridenIntroText = "(She bows her head, sits down and put|her arms behind her back to be cuffed.)";
-			else OveridenIntroText = "(She pushes you but you're able|to pin her down to cuff her.)";
+			if (ActorHasInventory("Rope")) { OveridenIntroText = GetText("CuffsReplaceRope"); PlayerAddInventory("Rope", 1); ActorRemoveInventory("Rope"); }
+			else if (ActorGetValue(ActorSubmission) >= 4) OveridenIntroText = GetText("CuffsWilling");
+			else OveridenIntroText = GetText("CuffsReluctant");
 			PlayerRemoveInventory("Cuffs", 1);
 			ActorAddInventory("Cuffs");
 			C002_FirstClass_Sidney_CurrentStage = C002_FirstClass_Classroom_CalcStage();
-		} else OveridenIntroText = "She pushes you back and refuses to be cuffed.|(You need 2 submission or more to cuff Sidney.)";
+		} else OveridenIntroText = GetText("CuffsRefuse");
 		CurrentTime = CurrentTime + 60000;
 	}
 
 	// If the player wants to uncuff Sidney
 	if ((C002_FirstClass_Sidney_CurrentStage >= 100) && (ClickedInv == "CuffsKey") && (ActorHasInventory("Cuffs") == true) && (Common_PlayerNotRestrained)) {
-		OveridenIntroText = "(You unlock her cuffs|and she seems grateful.)";
+		OveridenIntroText = GetText("CuffsUnlock");
 		PlayerAddInventory("Cuffs", 1);
 		ActorRemoveInventory("Cuffs");
 		C002_FirstClass_Sidney_CurrentStage = C002_FirstClass_Classroom_CalcStage();
@@ -96,20 +96,20 @@ function C002_FirstClass_Sidney_Click() {
 	// If the player wants to rope Sidney
 	if ((C002_FirstClass_Sidney_CurrentStage >= 100) && (ClickedInv == "Rope") && (ActorHasInventory("Rope") == false) && (Common_PlayerNotRestrained)) {
 		if ((ActorGetValue(ActorSubmission) >= 2) || (ActorHasInventory("Cuffs"))) {
-			if (ActorHasInventory("Cuffs")) { OveridenIntroText = "(You unlock the cuff, she strips,|and you do a full rope harness on her.)"; PlayerAddInventory("Cuffs", 1); ActorRemoveInventory("Cuffs"); }
-			else if (ActorGetValue(ActorSubmission) >= 4) OveridenIntroText = "(She bows her head and strip, you|do a rope harness while she shivers.)";
-			else OveridenIntroText = "(You fight with her to remove her clothes|then do a rope harness while she resists.)";
+			if (ActorHasInventory("Cuffs")) { OveridenIntroText = GetText("RopeReplaceCuffs"); PlayerAddInventory("Cuffs", 1); ActorRemoveInventory("Cuffs"); }
+			else if (ActorGetValue(ActorSubmission) >= 4) OveridenIntroText = GetText("RopeWilling");
+			else OveridenIntroText = GetText("RopeReluctant");
 			PlayerRemoveInventory("Rope", 1);
 			ActorAddInventory("Rope");
 			C002_FirstClass_Sidney_CurrentStage = C002_FirstClass_Classroom_CalcStage();
-		} else OveridenIntroText = "She pushes you back and refuses to be tied.|(You need 2 submission or more to tie up Sidney.)";
+		} else OveridenIntroText = GetText("RopeRefuse");
 		CurrentTime = CurrentTime + 60000;
 	}
 
 	// If the player wants to crop Sidney
 	if ((C002_FirstClass_Sidney_CurrentStage >= 100) && (ClickedInv == "Crop") && (Common_PlayerNotRestrained)) {
-		if (ActorHasInventory("Ballgag")) OveridenIntroText = "(You hit Sidney a few times with your crop.|She grumbles and gives you an angry look.)";
-		else OveridenIntroText = "(You hit Sidney a few times with your crop.)|Fuck you!  That's the best you can do?";
+		if (ActorHasInventory("Ballgag")) OveridenIntroText = GetText("CropGagged");
+		else OveridenIntroText = GetText("Crop");
 		CurrentTime = CurrentTime + 60000;
 	}
 

@@ -1,0 +1,36 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,What's wrong?,I can't find my fucking purse|and I'm hungry as shit!,10,0,0,
+0,0,0,,Calm down!,Calm down?  Can't you see I'm|hungry and I can't find my purse!,10,-1,0,
+0,0,0,,What is your|problem girl?,I'm going nuts!  I can't find|my purse and I'm hungry as hell!,10,0,1,
+0,0,0,,Maybe I can|try to help.,Help me search!  I lost my|purse and I'm fucking hungry!,10,0,-1,
+10,0,0,,I saw a blond girl|running with a purse.,(She charges like a bull in the hallway.)|SAAAAAAARRRRRRRAAAAAHHH!!!,90,1,0,EndLunch()
+100,0,0,,What's wrong?,I can't find my fucking purse|and I'm hungry as shit!,110,0,0,
+100,0,0,,What is your|problem girl?,I'm going nuts!  I can't find|my purse and I'm hungry as hell!,110,0,1,
+100,0,0,,Can I help you?,No you cannot!  I lost my fucking|purse and I'm hungry as shit!,110,0,-1,
+110,0,0,,Maybe I can|help you find it.,Fuck no!  I  don't want to search.|I want to eat!  Gimme some money.,120,0,-1,NoLeave()
+110,0,0,,You have enough|time to find it.,Shut up!  I want to eat now!|Gimme some money.,120,0,0,NoLeave()
+110,0,0,,You'll have to|skip lunch then.,"Fuck you, I'm not skipping lunch!|Gimme some money!",120,-1,0,NoLeave()
+110,0,0,,You can survive|on your reserves.,Say that again and I'll break all of your bones.|Now gimme some money before I kill you.,120,-2,1,NoLeave()
+110,0,0,,I saw a blond girl|running with a purse.,(She charges like a bull in the hallway.)|SAAAAAAARRRRRRRAAAAAHHH!!!,90,1,0,EndLunch()
+110,0,0,,Have some money then.|(Give money to Sidney.),Thanks sucker!|(She grabs your money and runs.),90,1,-1,EndLunch()
+120,0,0,,"Here, this is a gift.|(Give money to Sidney.)",Thanks sucker!|(She grabs your money and runs.),90,1,-1,EndLunch()
+120,0,0,,Repay me tomorrow.|(Give money to Sidney.),Fine.  (She grabs your money and runs.),90,1,0,EndLunch()
+120,0,0,,I don't have|any money.,You little fucking liar!  Come with me.|(She grabs your arm and drags you in the basement.),130,-1,0,
+120,0,0,,I'm not giving|you anything.,You fucking bitch!  Come with me.|(She grabs your arm and drags you in the basement.),130,-1,1,
+130,0,0,,Ow!  It hurts!,"And it will hurt a lot more soon.|It's your last chance, pay or suffer!",140,0,-1,
+130,0,0,,Where are we?,"A place I know and you don't want to know.|Now this is your last chance, pay or suffer!",140,0,0,
+130,0,0,,You fucking pig!,"(She stares at you with furious eyes.)|This is your last chance, pay or suffer!",140,-1,0,
+130,0,0,,"Ok, ok, here it is.|(Give money to Sidney.)",Finally!  (She grabs your money and runs.),90,0,0,EndLunch()
+140,0,0,,Here's your money.|(Give money to Sidney.),Sucker!  (She grabs your money and runs.),90,0,0,EndLunch()
+140,0,0,,I'm not giving|you anything.,Then suffer!  (She grips you and|drags you in some wooden pillory.),150,-1,-1,
+150,0,0,,What the hell!|You can't do that.,"Enjoy your lunch bitch, I'll be back later.|(She grabs your purse and runs away.)",160,0,0,Pillory()
+150,0,0,,You will pay|for that!,"You're paying right now, I'll be back later.|(She grabs your purse and runs away.)",160,0,1,Pillory()
+150,0,0,,I'm sorry Sidney.|Can you release me?,It's too late bitch!  I'll be back later.|(She grabs your purse and runs away.),160,0,-1,Pillory()
+160,0,0,,(Wait patiently.),(You wait patiently while your stomach|grumbles but there's no sign of Sidney.),160,0,0,WaitPillory()
+160,0,0,,HELP!  SOMEONE|CAN HEAR ME?,(You scream for help but nobody comes.),160,0,0,WaitPillory()
+160,0,0,,(Try to break|the device.),(You try to force or break the|pillory but it doesn't move.),160,0,0,WaitPillory()
+160,0,0,,(Try to slip|your hands.),(You try to slip your hands out|but the hole is too narrow.),160,0,0,WaitPillory()
+170,0,0,,I will obey.|(Bow your head.),Perfect!  Now get|out of my face.,180,0,-1,
+170,0,0,,This is extortion!,That's fucking true my bitch.|Now get out of my face.,180,0,0,
+170,0,0,,Someday you will|pay for that.,We'll see about that.|Now get out of my face.,180,0,1,
+180,0,0,,(End lunch break.),,180,0,0,EndChapter()

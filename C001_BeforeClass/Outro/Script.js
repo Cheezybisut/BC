@@ -28,16 +28,15 @@ function C001_BeforeClass_Outro_Run() {
 	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 800, 0);
 	
 	// The text changes based on the trouble that was done
-	if ((C001_BeforeClass_Outro_Mode == 0) && (TextPhase >= 0)) DrawText(ctx, "The bell rings and the remaining students come in.", 400, 100, "White");
-	if ((C001_BeforeClass_Outro_Mode == 0) && (TextPhase >= 1)) DrawText(ctx, "Everyone takes their seat, some wave at you, some ignore you.", 400, 250, "White");
-	if ((C001_BeforeClass_Outro_Mode == 0) && (TextPhase >= 2)) DrawText(ctx, "The teacher comes in and the first morning class begins.", 400, 400, "White");	
-	if ((C001_BeforeClass_Outro_Mode >= 1) && (TextPhase >= 0)) DrawText(ctx, "The bell rings and the remaining students come in.", 400, 100, "White");
-	if ((C001_BeforeClass_Outro_Mode == 1) && (TextPhase >= 1)) DrawText(ctx, "Everyone is surprised to see Amanda tied up in her underwear.", 400, 200, "White");
-	if ((C001_BeforeClass_Outro_Mode == 2) && (TextPhase >= 1)) DrawText(ctx, "Everyone is surprised to see Sidney tied up in her underwear.", 400, 200, "White");
-	if ((C001_BeforeClass_Outro_Mode == 3) && (TextPhase >= 1)) DrawText(ctx, "Everyone is surprised to see both girls tied up in their underwear.", 400, 200, "White");
-	if ((C001_BeforeClass_Outro_Mode >= 1) && (TextPhase >= 2)) DrawText(ctx, "Some of the students turn away, some laugh and some take pictures.", 400, 300, "White");
-	if ((C001_BeforeClass_Outro_Mode >= 1) && (TextPhase >= 3)) DrawText(ctx, "The teacher finally comes in and manages to control the situation.", 400, 400, "White");
-	if ((C001_BeforeClass_Outro_Mode >= 1) && (TextPhase >= 4)) DrawText(ctx, "Since you caused trouble with Sidney's ropes, you both go to detention.", 400, 500, "White");
+	if (TextPhase >= 0) DrawText(ctx, GetText("Intro1"), 400, 100, "White");
+	if ((C001_BeforeClass_Outro_Mode == 0) && (TextPhase >= 1)) DrawText(ctx, GetText("Intro2A"), 400, 250, "White");
+	if ((C001_BeforeClass_Outro_Mode == 1) && (TextPhase >= 1)) DrawText(ctx, GetText("Intro2B"), 400, 200, "White");
+	if ((C001_BeforeClass_Outro_Mode == 2) && (TextPhase >= 1)) DrawText(ctx, GetText("Intro2C"), 400, 200, "White");
+	if ((C001_BeforeClass_Outro_Mode == 3) && (TextPhase >= 1)) DrawText(ctx, GetText("Intro2D"), 400, 200, "White");
+	if ((C001_BeforeClass_Outro_Mode == 0) && (TextPhase >= 2)) DrawText(ctx, GetText("Intro3A"), 400, 400, "White");	
+	if ((C001_BeforeClass_Outro_Mode >= 1) && (TextPhase >= 2)) DrawText(ctx, GetText("Intro3B"), 400, 300, "White");
+	if ((C001_BeforeClass_Outro_Mode >= 1) && (TextPhase >= 3)) DrawText(ctx, GetText("Intro4"), 400, 400, "White");
+	if ((C001_BeforeClass_Outro_Mode >= 1) && (TextPhase >= 4)) DrawText(ctx, GetText("Intro5"), 400, 500, "White");
 		
 }
 

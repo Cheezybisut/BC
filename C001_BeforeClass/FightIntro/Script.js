@@ -3,6 +3,7 @@ function C001_BeforeClass_FightIntro_Load() {
 
 	// Set the timer limits at 8:00
 	StartTimer(8 * 60 * 60 * 1000, "C001_BeforeClass", "FightOutro");
+	LoadText();
 	LeaveIcon = "";
 
 }
@@ -16,11 +17,11 @@ function C001_BeforeClass_FightIntro_Run() {
 	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 800, 0);
 	
 	// Each animation show an additional line of text
-	DrawText(ctx, "Sidney gets up, rolls her sleeves and clenches her fists.", 400, 150, "White");
-	if (TextPhase >= 1) DrawText(ctx, "Some of the girls hide and some scream for blood.", 400, 250, "White");
-	if (TextPhase >= 2) DrawText(ctx, "She charges on you furiously.  Get ready to fight!", 400, 350, "White");
-	if ((TextPhase >= 3) && !IsMobile) DrawText(ctx, "(Use A, S, K, L when the punch reaches the red bar.)", 400, 450, "White");
-	if ((TextPhase >= 3) && IsMobile) DrawText(ctx, "(Click on the red bar when the punch reaches it.)", 400, 450, "White");
+	DrawText(ctx, GetText("Intro1"), 400, 150, "White");
+	if (TextPhase >= 1) DrawText(ctx, GetText("Intro2"), 400, 250, "White");
+	if (TextPhase >= 2) DrawText(ctx, GetText("Intro3"), 400, 350, "White");
+	if ((TextPhase >= 3) && !IsMobile) DrawText(ctx, GetText("Intro4A"), 400, 450, "White");
+	if ((TextPhase >= 3) && IsMobile) DrawText(ctx, GetText("Intro4B"), 400, 450, "White");
 
 }
 

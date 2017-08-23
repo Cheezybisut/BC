@@ -24,11 +24,11 @@ function C006_Isolation_Intro_Run() {
 	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
 
 	// Write the chapter introduction
-	DrawText(ctx, "Chapter 6 - Isolation (Click to continue)", 600, 150, "White");
-	if ((TextPhase >= 1) && (Common_PlayerCrime == "RestrainMildred")) DrawText(ctx, "Mildred silently drags you by the arm to the basement.", 600, 250, "White");
-	if ((TextPhase >= 1) && (Common_PlayerCrime == "DrugYuki")) DrawText(ctx, "Yuki silently drags you by the arm to the basement.", 600, 250, "White");
-	if (TextPhase >= 2) DrawText(ctx, "The place is gloomy, cold and without any windows.", 600, 350, "White");
-	if (TextPhase >= 3) DrawText(ctx, "She pushes you in a brick room and finally speaks to you.", 600, 450, "White");
+	DrawText(ctx, GetText("Intro1"), 600, 150, "White");
+	if ((TextPhase >= 1) && (Common_PlayerCrime == "RestrainMildred")) DrawText(ctx, GetText("Intro2Mildred"), 600, 250, "White");
+	if ((TextPhase >= 1) && (Common_PlayerCrime == "DrugYuki")) DrawText(ctx, GetText("Intro2Yuki"), 600, 250, "White");
+	if (TextPhase >= 2) DrawText(ctx, GetText("Intro3"), 600, 350, "White");
+	if (TextPhase >= 3) DrawText(ctx, GetText("Intro4"), 600, 450, "White");
 
 }
 

@@ -16,12 +16,12 @@ function C001_BeforeClass_Intro_Run() {
 	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Player.jpg", 900, 0);
 		
 	// Introduce chapter 1 with each clicks
-	DrawText(ctx, "Chapter 1 - Before Class (Click to continue)", 450, 50, "White");
-	if (TextPhase >= 1) DrawText(ctx, "This is your first day in a new school.  It's both thrilling and kind of scary.", 450, 150, "White");
-	if (TextPhase >= 2) DrawText(ctx, "This is no ordinary college.  It's an all-girl academy renowned for its strictness.", 450, 250, "White");
-	if (TextPhase >= 3) DrawText(ctx, "You enter the austere building, it's outdated and cold, some windows have bars.", 450, 350, "White");
-	if (TextPhase >= 4) DrawText(ctx, "Every student is wearing the same skirt and tie, uniforms are mandatory.", 450, 450, "White");
-	if (TextPhase >= 5) DrawText(ctx, "It's 7:40 and class starts at 8:00, you take a seat behind a black haired girl.", 450, 550, "White");
+	DrawText(ctx, GetText("Intro1"), 450, 50, "White");
+	if (TextPhase >= 1) DrawText(ctx, GetText("Intro2"), 450, 150, "White");
+	if (TextPhase >= 2) DrawText(ctx, GetText("Intro3"), 450, 250, "White");
+	if (TextPhase >= 3) DrawText(ctx, GetText("Intro4"), 450, 350, "White");
+	if (TextPhase >= 4) DrawText(ctx, GetText("Intro5"), 450, 450, "White");
+	if (TextPhase >= 5) DrawText(ctx, GetText("Intro6"), 450, 550, "White");
 
 }
 

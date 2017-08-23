@@ -23,7 +23,7 @@ function C006_Isolation_Horse_Click() {
 	
 	// The collar can be used to get a better grip on the bolt
 	if ((GetClickedInventory() == "Collar") && C006_Isolation_Horse_BoltSeen && !C006_Isolation_Horse_BoltUndone) {
-		OveridenIntroText = "Using the leather collar, you get a good grip on the|bolt and undo it.  A metal sheet falls on the ground.";
+		OveridenIntroText = GetText("UndoBolt");		
 		C006_Isolation_Horse_BoltSeen = false;
 		C006_Isolation_Horse_BoltUndone = true;
 		C006_Isolation_Horse_MetalAvail = true;

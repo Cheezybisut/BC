@@ -67,4 +67,5 @@ function StopTimer(FixedTime) {
 	RunTimer = false;
 	CurrentTime = FixedTime;
 	TextPhase = 0;
+	LoadText();
 }

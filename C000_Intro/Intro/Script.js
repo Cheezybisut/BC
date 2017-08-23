@@ -15,11 +15,11 @@ function C000_Intro_Intro_Run() {
 	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Player.jpg", 900, 0);
 
 	// Draw the intro text
-	DrawText(ctx, "Welcome to the Bondage College (Click to continue)", 450, 100, "White");
-	DrawText(ctx, "The game isn't finished so there might be bugs or paths that lead nowhere.", 450, 200, "White");
-	DrawText(ctx, "There's no goal, you play a girl student on her first day in a kinky college.", 450, 300, "White");
-	DrawText(ctx, "Reload your browser page if you need to restart, there's no saves yet.", 450, 400, "White");
-	DrawText(ctx, "Be curious and click everywhere, you never know what you will find.", 450, 500, "White");
+	DrawText(ctx, GetText("Intro1"), 450, 100, "White");
+	DrawText(ctx, GetText("Intro2"), 450, 200, "White");
+	DrawText(ctx, GetText("Intro3"), 450, 300, "White");
+	DrawText(ctx, GetText("Intro4"), 450, 400, "White");
+	DrawText(ctx, GetText("Intro5"), 450, 500, "White");
 
 }
 

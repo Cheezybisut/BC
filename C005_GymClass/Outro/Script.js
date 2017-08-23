@@ -18,8 +18,8 @@ function C005_GymClass_Outro_Run() {
 	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Bell.jpg", 800, 0);
 		
 	// Draw the outro text
-	DrawText(ctx, "Gym class is over and the bell rings again.", 400, 200, "White");
-	if (TextPhase >= 1) DrawText(ctx, "You take a quick shower and head out for lunch.", 400, 400, "White");
+	DrawText(ctx, GetText("Outro1"), 400, 200, "White");
+	if (TextPhase >= 1) DrawText(ctx, GetText("Outro2"), 400, 400, "White");
 
 }
 

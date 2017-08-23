@@ -52,6 +52,7 @@ function LoadFight(EndScreen, DifficultyText, IconOffset) {
 	FightIconOffset = IconOffset;
 	FightPerfect = true;
 	ReadCSV("FightAnim", CurrentChapter + "/" + CurrentScreen + "/Fight.csv");
+	LoadText();
 	GenerateFightSequence(5000);
 
 	// 1 is the regular difficulty, the higher it goes, the harder it gets
@@ -156,15 +157,15 @@ function RenderFight() {
 				DrawFightProgress(ctx);
 			} 
 			else {
-				DrawText(ctx, "Starts in " + (5 - Math.floor(FightTimer / 1000)).toString(), 1000, 510, "white");
-				DrawText(ctx, "Difficulty: " + FightDifficultyText, 1000, 555, "white");
+				DrawText(ctx, GetText("StartsIn") + " " + (5 - Math.floor(FightTimer / 1000)).toString(), 1000, 510, "white");
+				DrawText(ctx, GetText("Difficulty") + " " + GetText(FightDifficultyText), 1000, 555, "white");
 			}
 		}
 		else {
-			if ((FightProgress >= 100) && FightPerfect) DrawText(ctx, "Perfect fight!", 1000, 150, "white");
-			if ((FightProgress >= 100) && !FightPerfect) DrawText(ctx, "You won!", 1000, 150, "white");
-			if (FightProgress <= 0) DrawText(ctx, "You lost!", 1000, 150, "white");
-			DrawText(ctx, "Click on the image to continue.", 1000, 300, "white");
+			if ((FightProgress >= 100) && FightPerfect) DrawText(ctx, GetText("Perfect"), 1000, 150, "white");
+			if ((FightProgress >= 100) && !FightPerfect) DrawText(ctx, GetText("Victory"), 1000, 150, "white");
+			if (FightProgress <= 0) DrawText(ctx, GetText("Defeat"), 1000, 150, "white");
+			DrawText(ctx, GetText("ClickContinue"), 1000, 300, "white");
 		}
 
 	}

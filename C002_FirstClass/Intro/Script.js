@@ -14,11 +14,11 @@ function C002_FirstClass_Intro_Run() {
 	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
 
 	// Write the chapter introduction
-	DrawText(ctx, "Chapter 2 - First Class (Click to continue)", 600, 100, "White");
-	if (TextPhase >= 1) DrawText(ctx, "Your first class today is math, from 8:00 to 9:00.", 600, 200, "White");
-	if (TextPhase >= 2) DrawText(ctx, "The teacher enters, introducing herself has Mildred.", 600, 300, "White");
-	if (TextPhase >= 3) DrawText(ctx, "She looks strict, holding some kind of crop in her hand.", 600, 400, "White");
-	if (TextPhase >= 4) DrawText(ctx, "Everyone sits down, Mildred walks to you and address you.", 600, 500, "White");
+	DrawText(ctx, GetText("Intro1"), 600, 100, "White");
+	if (TextPhase >= 1) DrawText(ctx, GetText("Intro2"), 600, 200, "White");
+	if (TextPhase >= 2) DrawText(ctx, GetText("Intro3"), 600, 300, "White");
+	if (TextPhase >= 3) DrawText(ctx, GetText("Intro4"), 600, 400, "White");
+	if (TextPhase >= 4) DrawText(ctx, GetText("Intro5"), 600, 500, "White");
 
 }
 

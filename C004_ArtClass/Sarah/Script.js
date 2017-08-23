@@ -58,11 +58,11 @@ function C004_ArtClass_Sarah_Click() {
 
 	// When the user wants to use any item and bondage isn't allowed
 	if (!Common_BondageAllowed && ((ClickInv == "Rope") || (ClickInv == "Ballgag") || (ClickInv == "TapeGag") || (ClickInv == "Crop") || (ClickInv == "Cuffs") || (ClickInv == "VibratingEgg")) && Common_PlayerNotRestrained)
-		OveridenIntroText = "This looks thrilling, but we need|Julia's approval to do anything kinky.";
+		OveridenIntroText = GetText("NoBondage");
 	
 	// When the user wants to use the rope
 	if (Common_BondageAllowed && (C004_ArtClass_Sarah_CurrentStage >= 150) && (ClickInv == "Rope") && !ActorHasInventory("Rope") && Common_PlayerNotRestrained) {
-		OveridenIntroText = "(She shivers and moans while you restrain|her body and arms.)  This is wonderful.";
+		OveridenIntroText = GetText("Rope");
 		C004_ArtClass_Sarah_CurrentStage = 160;
 		C004_ArtClass_ArtRoom_SarahStage = 3;
 		ActorAddInventory("Rope");
@@ -72,11 +72,11 @@ function C004_ArtClass_Sarah_Click() {
 
 	// When the user wants to use a gag without tying her
 	if (Common_BondageAllowed && ((ClickInv == "Ballgag") || (ClickInv == "TapeGag")) && !ActorHasInventory("Rope") && !ActorHasInventory("Ballgag") && !ActorHasInventory("TapeGag") && Common_PlayerNotRestrained)
-		OveridenIntroText = "(She giggles and pushes your hands away.)|No, no, no, you have to tie me up first.";
+		OveridenIntroText = GetText("BondageBeforeGag");
 		
 	// When the user wants to use a ballgag	
 	if (Common_BondageAllowed && (ClickInv == "Ballgag") && ActorHasInventory("Rope") && !ActorHasInventory("Ballgag") && Common_PlayerNotRestrained) {
-		OveridenIntroText = "(She hungrily opens her mouth so you|can strap the ballgag around her head.)";
+		OveridenIntroText = GetText("Ballgag");
 		C004_ArtClass_Sarah_CurrentStage = 170;
 		C004_ArtClass_Sarah_Ungag();
 		C004_ArtClass_ArtRoom_SarahStage = 4;
@@ -87,7 +87,7 @@ function C004_ArtClass_Sarah_Click() {
 
 	// When the user wants to use a tape gag
 	if (Common_BondageAllowed && (ClickInv == "TapeGag") && ActorHasInventory("Rope") && !ActorHasInventory("TapeGag") && Common_PlayerNotRestrained) {
-		OveridenIntroText = "(She happily shuts her mouth|so you can tape it easily.)";
+		OveridenIntroText = GetText("TapeGag");
 		C004_ArtClass_Sarah_CurrentStage = 180;
 		C004_ArtClass_Sarah_Ungag();
 		C004_ArtClass_ArtRoom_SarahStage = 5;
@@ -98,7 +98,7 @@ function C004_ArtClass_Sarah_Click() {
 
 	// When the user wants to use the crop
 	if (Common_BondageAllowed && (ClickInv == "Crop") && ActorHasInventory("Rope") && Common_PlayerNotRestrained) {
-		OveridenIntroText = "(You whip her with the crop a few|times.  She moans and seems to enjoy it.)";
+		OveridenIntroText = GetText("Crop");
 		if (C004_ArtClass_Sarah_CropDone == false) { C004_ArtClass_Sarah_CropDone = true; ActorChangeAttitude(1, 1); }
 		CurrentTime = CurrentTime + 60000;
 	}
@@ -107,12 +107,12 @@ function C004_ArtClass_Sarah_Click() {
 	if (Common_BondageAllowed && (ClickInv == "VibratingEgg") && !ActorHasInventory("VibratingEgg") && ActorHasInventory("Rope") && Common_PlayerNotRestrained) {		
 		if (C004_ArtClass_Sarah_EggConfirm == false) {
 			C004_ArtClass_Sarah_EggConfirm = true;
-			OveridenIntroText = "(You might not be able to recover the egg if|you insert it in Sarah, click on it again to do it.)";
+			OveridenIntroText = GetText("VibratingEggWarning");
 		} else {
 			ActorAddInventory("VibratingEgg");
 			PlayerRemoveInventory("VibratingEgg", 1);
 			ActorChangeAttitude(1, 0);
-			OveridenIntroText = "(Sarah sees the egg and nods happily.|You insert it and she starts to moan randomly.)";
+			OveridenIntroText = GetText("VibratingEggInsert");
 			C004_ArtClass_Sarah_EggInside = true;
 		}
 	}
@@ -168,26 +168,26 @@ function C004_ArtClass_Sarah_CollarRemark() {
 function C004_ArtClass_Sarah_Tighten() {
 	if (Common_PlayerNotRestrained) {
 		if (C004_ArtClass_Sarah_TightenDone == false) {
-			if (ActorHasInventory("Ballgag") || ActorHasInventory("TapeGag")) OveridenIntroText = "(You tighten the knots while she moans|and seems to be getting lots of pleasure.)";
-			else OveridenIntroText = "(You tighten the knots while she moans.)|Mmmmhh, can we see each other after school?";
+			if (ActorHasInventory("Ballgag") || ActorHasInventory("TapeGag")) OveridenIntroText = GetText("TightenGagged");
+			else OveridenIntroText = GetText("Tighten");
 			ActorChangeAttitude(1, 0);
 			C004_ArtClass_Sarah_TightenDone = true;
 		}
 	} else {
-		OveridenIntroText = "(You try to tighten Sarah's bondage|but fail as the other students giggle.)";
+		OveridenIntroText = GetText("TightenFail");
 	}
 }
 
 // Chapter 4 - Sarah Beg For Release, it can trick the player
 function C004_ArtClass_Sarah_BegForRelease() {
 	if (ActorGetValue(ActorSubmission) >= 4) {
-		OveridenIntroText = "Yes Miss.  Someone like you shouldn't be tied up.|(She releases you from your bondage.)";
+		OveridenIntroText = GetText("PlayerRelease");
 		PlayerUnlockInventory("Rope");
 		PlayerAddInventory("Rope", 1);
 		C004_ArtClass_Sarah_CanBeBallgagged = false;
 		CurrentTime = CurrentTime + 60000;
 	} else {
-		OveridenIntroText = "Help you?  Yes!  I know what could help.|(She searches to find tape and shuts your mouth.)";
+		OveridenIntroText = GetText("PlayerGag");
 		C004_ArtClass_Sarah_CanBegForRelease = false;
 		C004_ArtClass_Sarah_CanBeBallgagged = false;
 		PlayerLockInventory("TapeGag");

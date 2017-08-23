@@ -38,16 +38,16 @@ function C006_Isolation_Outro_Run() {
 
 	// Draw the outro text
 	if (!C006_Isolation_Outro_EarlyRelease && !C006_Isolation_Outro_EarlyEscape) {
-		if (C006_Isolation_IsolationRoom_Stage <= 1) DrawText(ctx, "Isolation is over, you're released from the cell floor.", 400, 150, "White");
-		if (C006_Isolation_IsolationRoom_Stage == 2) DrawText(ctx, Teacher + " is surprised to see you standing but releases you.", 400, 150, "White");
-		if ((C006_Isolation_IsolationRoom_Stage == 3) && !C006_Isolation_Outro_StuckPillory && !C006_Isolation_Outro_StuckCross) DrawText(ctx, Teacher + " is amazed to see you out of the cell but releases you.", 400, 150, "White");
-		if ((C006_Isolation_IsolationRoom_Stage == 3) && C006_Isolation_Outro_StuckPillory && !C006_Isolation_Outro_StuckCross) DrawText(ctx, Teacher + " laughs to see you in the pillory but releases you.", 400, 150, "White");
-		if ((C006_Isolation_IsolationRoom_Stage == 3) && !C006_Isolation_Outro_StuckPillory && C006_Isolation_Outro_StuckCross) DrawText(ctx, Teacher + " grins to see you on the cross but releases you.", 400, 150, "White");
+		if (C006_Isolation_IsolationRoom_Stage <= 1) DrawText(ctx, GetText("Outro1A"), 400, 150, "White");
+		if (C006_Isolation_IsolationRoom_Stage == 2) DrawText(ctx, GetText("Outro1B"), 400, 150, "White");
+		if ((C006_Isolation_IsolationRoom_Stage == 3) && !C006_Isolation_Outro_StuckPillory && !C006_Isolation_Outro_StuckCross) DrawText(ctx, GetText("Outro1C"), 400, 150, "White");
+		if ((C006_Isolation_IsolationRoom_Stage == 3) && C006_Isolation_Outro_StuckPillory && !C006_Isolation_Outro_StuckCross) DrawText(ctx, GetText("Outro1D"), 400, 150, "White");
+		if ((C006_Isolation_IsolationRoom_Stage == 3) && !C006_Isolation_Outro_StuckPillory && C006_Isolation_Outro_StuckCross) DrawText(ctx, GetText("Outro1E"), 400, 150, "White");
 	}
-	if (C006_Isolation_Outro_EarlyRelease) DrawText(ctx, "Hoping you've learned your lesson, you're released early.", 400, 150, "White");
-	if (C006_Isolation_Outro_EarlyEscape) DrawText(ctx, "You take what's left and escape from isolation with a grin.", 400, 150, "White");
-	if (TextPhase >= 1) DrawText(ctx, "You pick up your bag and make sure everything is still there.", 400, 300, "White");
-	if (TextPhase >= 2) DrawText(ctx, "You clean the dust on your clothes and head out for lunch.", 400, 450, "White");
+	if (C006_Isolation_Outro_EarlyRelease) DrawText(ctx, GetText("Outro1F"), 400, 150, "White");
+	if (C006_Isolation_Outro_EarlyEscape) DrawText(ctx, GetText("Outro1G"), 400, 150, "White");
+	if (TextPhase >= 1) DrawText(ctx, GetText("Outro2"), 400, 300, "White");
+	if (TextPhase >= 2) DrawText(ctx, GetText("Outro3"), 400, 450, "White");
 
 }
 

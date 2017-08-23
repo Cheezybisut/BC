@@ -64,10 +64,14 @@ function C007_LunchBreak_Sarah_Load() {
 	C007_LunchBreak_Sarah_CalcParams();
 	
 	// If Sarah doesn't like the player and isn't subbie enough, she leaves and don't talk
-	if ((ActorGetValue(ActorLove) <= -3) && (ActorGetValue(ActorSubmission) <= 2)) {
+	if ((ActorGetValue(ActorLove) <= -3) && (ActorGetValue(ActorSubmission) <= 2) && (C007_LunchBreak_Sarah_CurrentStage == 0)) {
 		C007_LunchBreak_Sarah_CurrentStage = 5;
 		C007_LunchBreak_ActorSelect_SarahAvail = false;
 	}
+	
+	// If Sarah had the egg from before chapter 7, there's a special intro
+	if ((C007_LunchBreak_Sarah_CurrentStage == 0) && ActorHasInventory("VibratingEgg"))
+		OveridenIntroText = GetText("IntroEgg");
 
 	// If we must put the previous text back
 	if ((C007_LunchBreak_Sarah_IntroText != "") && (C007_LunchBreak_Sarah_CurrentStage > 0)) {

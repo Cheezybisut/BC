@@ -52,8 +52,8 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 200,0,0,,So this slut|wants to cum?,"(She her head from left to right, then|from up to down, trying to control herself.)",210,-1,0,
 200,0,0,,You seem ready|to reach heaven.,"(She nods happily, trying to control herself.)",210,1,0,
 200,0,0,,Poor girl.|(Help her up.) (1 minute),(You help her stand up as she|slowly regains control of herself.),170,0,0,
-210,0,0,,You deserve it.|(Pleasure her.) (1 minute),"(You play with her crotch rope and she gets|a quiet orgasm.  Some notice it, other don't.)",220,1,0,
-210,0,0,,You're mine now.|(Pleasure her.) (1 minute),"(You play with her crotch rope and she gets|a quiet orgasm.  Some notice it, other don't.)",220,0,1,
+210,0,0,,You deserve it.|(Pleasure her.) (1 minute),"(You play with her crotch rope and she gets|a quiet orgasm.  Some notice it, other don't.)",220,1,0,Orgasm()
+210,0,0,,You're mine now.|(Pleasure her.) (1 minute),"(You play with her crotch rope and she gets|a quiet orgasm.  Some notice it, other don't.)",220,0,1,Orgasm()
 210,0,0,,You don't deserve it.|(Help her up.) (1 minute),(You deny her of her orgasm and help|her stand up.  She makes puppy eyes at you.),170,-1,1,
 210,0,0,,Not in class.|(Help her up.) (1 minute),(You deny her of her orgasm and help|her stand up.  She makes puppy eyes at you.),170,-1,-1,
 220,0,0,,Good girl.|(Help her up.) (1 minute),(She nods and trembles while you pick|her up and raise her on her feet.),170,1,0,

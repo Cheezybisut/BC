@@ -47,7 +47,7 @@ function C003_MorningDetention_Yuki_Click() {
 	if ((ClickInv == "Cuffs") && (C003_MorningDetention_Yuki_CurrentStage == 110) && Common_PlayerNotRestrained) {
 		PlayerRemoveInventory("Cuffs", 1);
 		ActorAddInventory("Cuffs");
-		OveridenIntroText = "You carefully snaps the cuffs on teacher Yuki.";
+		OveridenIntroText = GetText("Cuffs");
 		C003_MorningDetention_Yuki_CurrentStage = 120;
 		CurrentTime = CurrentTime + 60000;
 	} 
@@ -56,14 +56,14 @@ function C003_MorningDetention_Yuki_Click() {
 	if ((ClickInv == "CuffsKey") && ((C003_MorningDetention_Yuki_CurrentStage == 120) || (C003_MorningDetention_Yuki_CurrentStage == 130)) && Common_PlayerNotRestrained) {
 		PlayerAddInventory("Cuffs", 1);
 		ActorRemoveInventory("Cuffs");
-		OveridenIntroText = "You unlock the cuffs on teacher Yuki.";
+		OveridenIntroText = GetText("Unlock");
 		C003_MorningDetention_Yuki_CurrentStage = 110;
 		CurrentTime = CurrentTime + 60000;
 	} 
 
 	// Special code for when the user wants to unlock Yuki when she's awake
 	if ((ClickInv == "CuffsKey") && (C003_MorningDetention_Yuki_CurrentStage == 230) && Common_PlayerNotRestrained) {
-		OveridenIntroText = "(Once unlocked, she quickly cuffs and|gags you before dressing back up.)";
+		OveridenIntroText = GetText("UnlockTurnTables");
 		ActorRemoveInventory("Cuffs");
 		C003_MorningDetention_Yuki_CurrentStage = 260;
 		C003_MorningDetention_Yuki_FullRestrain();
@@ -72,7 +72,7 @@ function C003_MorningDetention_Yuki_Click() {
 
 	// Special code for when the user wants to use the egg on sleeping Yuki
 	if ((ClickInv == "VibratingEgg") && (C003_MorningDetention_Yuki_CurrentStage >= 110) && (C003_MorningDetention_Yuki_CurrentStage <= 130) && Common_PlayerNotRestrained) {
-		OveridenIntroText = "(You get the egg and look at Yuki with a grin.)";
+		OveridenIntroText = GetText("VibratingEggReady");
 		C003_MorningDetention_Yuki_EggReady = true;
 	} 
 
@@ -99,7 +99,7 @@ function C003_MorningDetention_Yuki_Search() {
 function C003_MorningDetention_Yuki_SearchCuffKeys() {
 	if (PlayerHasInventory("CuffsKey") == false) {
 		PlayerAddInventory("CuffsKey", 1);
-		OveridenIntroText = "(It's not an easy task but|you manage to find a key on Yuki.)"
+		OveridenIntroText = GetText("FindKey");
 	}
 }
 
@@ -120,7 +120,7 @@ function C003_MorningDetention_Yuki_Escape() {
 function C003_MorningDetention_Yuki_Annoyed() {
 	if (ActorGetValue(ActorLove) <= -4) {
 		PlayerLockInventory("Cuffs");
-		OveridenIntroText = "I've had enough!  (She pins you down|and cuffs your wrists behind your back.)";
+		OveridenIntroText = GetText("Annoyed");
 	}
 }
 

@@ -59,7 +59,7 @@ function C006_Isolation_Yuki_Pleasure(PleasureType) {
 	if ((C006_Isolation_Yuki_Pleasure1 > 0) && (C006_Isolation_Yuki_Pleasure2 > 0) && (C006_Isolation_Yuki_Pleasure3 > 0) && (C006_Isolation_Yuki_Pleasure1 + C006_Isolation_Yuki_Pleasure2 + C006_Isolation_Yuki_Pleasure3 >= 5)) {
 		
 		// Yuki gets an orgasm
-		OveridenIntroText = "aaaaaaAAAAAAHHH!!! (Yuki squeezes your face|in while she gets a shattering orgasm.)";
+		OveridenIntroText = GetText("Orgasm");
 		C006_Isolation_Yuki_CurrentStage = 220;
 		ActorChangeAttitude(2, 0);
 		ActorAddOrgasm();
@@ -68,7 +68,7 @@ function C006_Isolation_Yuki_Pleasure(PleasureType) {
 		
 		// If the player took too long to try all 3 pleasures, she gives up
 		if (C006_Isolation_Yuki_Pleasure1 + C006_Isolation_Yuki_Pleasure2 + C006_Isolation_Yuki_Pleasure3 >= 8) {
-			OveridenIntroText = "(She pushes you back.)  No, stop!|You're not good at that, it's been too long.";
+			OveridenIntroText = GetText("StopPleasure");
 			C006_Isolation_Yuki_CurrentStage = 250;
 		}
 		
@@ -80,13 +80,13 @@ function C006_Isolation_Yuki_CheckToEat() {
 	
 	// Yuki forces the player if she has the egg
 	if (C006_Isolation_Yuki_EggInside) {
-		OveridenIntroText = "(She drops her panties, grabs your hair and pulls|you close.)  This is your punishment for the egg.";
+		OveridenIntroText = GetText("LickEgg");
 		C006_Isolation_Yuki_CurrentStage = 200;
 	}
 
 	// Yuki forces the player if she's dominant
 	if (ActorGetValue(ActorSubmission) <= -3) {
-		OveridenIntroText = "(She drops her panties, grabs your hair and|pulls you close.)  Get to work little pet.";
+		OveridenIntroText = GetText("LickSub");
 		C006_Isolation_Yuki_CurrentStage = 200;
 	}
 
@@ -97,14 +97,14 @@ function C006_Isolation_Yuki_CheckToStop() {
 
 	// Yuki doesn't allow the player to stop if she has the egg
 	if (C006_Isolation_Yuki_EggInside) {
-		OveridenIntroText = "(You try to pull back but she grabs your hair.)|You've put that egg in.  You will finish the job!";
+		OveridenIntroText = GetText("NoPullEgg");
 		C006_Isolation_Yuki_CurrentStage = 200;
 		C006_Isolation_Yuki_AllowPullBack = false;
 	}
 
 	// Yuki doesn't allow the player to stop if she's dominant
 	if (ActorGetValue(ActorSubmission) <= -3) {
-		OveridenIntroText = "(You try to pull back but she grabs your hair.)|Where do you think you're going subbie girl?";
+		OveridenIntroText = GetText("NoPullSub");
 		C006_Isolation_Yuki_CurrentStage = 200;
 		C006_Isolation_Yuki_AllowPullBack = false;
 	}

@@ -59,32 +59,32 @@ function C002_FirstClass_Amanda_Click() {
 	// If the player wants to gag Amanda
 	if ((C002_FirstClass_Amanda_CurrentStage >= 100) && (ClickedInv == "Ballgag") && (ActorHasInventory("Ballgag") == false) && (Common_PlayerNotRestrained)) {
 		if ((ActorGetValue(ActorSubmission) >= 2) || (ActorHasInventory("Rope")) || (ActorHasInventory("Cuffs"))) {
-			if (ActorGetValue(ActorSubmission) >= 4) OveridenIntroText = "(She opens wide for you to push|the ball in her mouth and strap the gag.)";
-			else OveridenIntroText = "(She shuts her mouth to stop you but|you're able to push it and buckle it.)";
+			if (ActorGetValue(ActorSubmission) >= 4) OveridenIntroText = GetText("BallgagWilling");
+			else OveridenIntroText = GetText("BallgagReluctant");
 			PlayerRemoveInventory("Ballgag", 1);
 			ActorAddInventory("Ballgag");
 			if (C002_FirstClass_Amanda_CurrentStage == 160) C002_FirstClass_Amanda_CurrentStage = 170;
 			else C002_FirstClass_Amanda_CurrentStage = C002_FirstClass_Classroom_CalcStage();
-		} else OveridenIntroText = "She steps back and refuse to be gagged.|(You need 2 submission or more to gag Amanda.)";
+		} else OveridenIntroText = GetText("BallgagRefuse");
 		CurrentTime = CurrentTime + 60000;
 	}
 
 	// If the player wants to cuff Amanda
 	if ((C002_FirstClass_Amanda_CurrentStage >= 100) && (ClickedInv == "Cuffs") && (ActorHasInventory("Cuffs") == false) && (Common_PlayerNotRestrained)) {
 		if ((ActorGetValue(ActorSubmission) >= 2) || (ActorHasInventory("Rope"))) {
-			if (ActorHasInventory("Rope")) { OveridenIntroText = "(You undo the ropes so she can get|dressed but you cuff her right after.)"; PlayerAddInventory("Rope", 1); ActorRemoveInventory("Rope"); }
-			else if (ActorGetValue(ActorSubmission) >= 4) OveridenIntroText = "(She bows her head, sits down and put|her arms behind her back to be cuffed.)";
-			else OveridenIntroText = "(She pushes you but you're able|to pin her down to cuff her.)";
+			if (ActorHasInventory("Rope")) { OveridenIntroText = GetText("CuffsReplaceRope"); PlayerAddInventory("Rope", 1); ActorRemoveInventory("Rope"); }
+			else if (ActorGetValue(ActorSubmission) >= 4) OveridenIntroText = GetText("CuffsWilling");
+			else OveridenIntroText = GetText("CuffsReluctant");
 			PlayerRemoveInventory("Cuffs", 1);
 			ActorAddInventory("Cuffs");
 			C002_FirstClass_Amanda_CurrentStage = C002_FirstClass_Classroom_CalcStage();
-		} else OveridenIntroText = "She pushes you back and refuses to be cuffed.|(You need 2 submission or more to cuff Amanda.)";
+		} else OveridenIntroText = GetText("CuffsRefuse");
 		CurrentTime = CurrentTime + 60000;
 	}
 
 	// If the player wants to uncuff Amanda
 	if ((C002_FirstClass_Amanda_CurrentStage >= 100) && (ClickedInv == "CuffsKey") && (ActorHasInventory("Cuffs") == true) && (Common_PlayerNotRestrained)) {
-		OveridenIntroText = "(You unlock her cuffs|and she seems grateful.)";
+		OveridenIntroText = GetText("CuffsUnlock");
 		PlayerAddInventory("Cuffs", 1);
 		ActorRemoveInventory("Cuffs");
 		C002_FirstClass_Amanda_CurrentStage = C002_FirstClass_Classroom_CalcStage();
@@ -94,20 +94,20 @@ function C002_FirstClass_Amanda_Click() {
 	// If the player wants to rope Amanda
 	if ((C002_FirstClass_Amanda_CurrentStage >= 100) && (ClickedInv == "Rope") && (ActorHasInventory("Rope") == false) && (Common_PlayerNotRestrained)) {
 		if ((ActorGetValue(ActorSubmission) >= 2) || (ActorHasInventory("Cuffs"))) {
-			if (ActorHasInventory("Cuffs")) { OveridenIntroText = "(You unlock the cuff, she strips,|and you do a full rope harness on her.)"; PlayerAddInventory("Cuffs", 1); ActorRemoveInventory("Cuffs"); }
-			else if (ActorGetValue(ActorSubmission) >= 4) OveridenIntroText = "(She bows her head and strip, you|do a rope harness while she shivers.)";
-			else OveridenIntroText = "(You fight with her to remove her clothes|then do a rope harness while she resists.)";
+			if (ActorHasInventory("Cuffs")) { OveridenIntroText = GetText("RopeReplaceCuffs"); PlayerAddInventory("Cuffs", 1); ActorRemoveInventory("Cuffs"); }
+			else if (ActorGetValue(ActorSubmission) >= 4) OveridenIntroText = GetText("RopeWilling");
+			else OveridenIntroText = GetText("RopeReluctant");
 			PlayerRemoveInventory("Rope", 1);
 			ActorAddInventory("Rope");
 			C002_FirstClass_Amanda_CurrentStage = C002_FirstClass_Classroom_CalcStage();
-		} else OveridenIntroText = "She pushes you back and refuses to be tied.|(You need 2 submission or more to tie up Amanda.)";
+		} else OveridenIntroText = GetText("RopeRefuse");
 		CurrentTime = CurrentTime + 60000;
 	}
 
 	// If the player wants to crop Amanda
 	if ((C002_FirstClass_Amanda_CurrentStage >= 100) && (ClickedInv == "Crop") && (Common_PlayerNotRestrained)) {
-		if (ActorHasInventory("Ballgag")) OveridenIntroText = "(You hit Amanda a few times with your crop.|She starts to cry and seems to hate it.)";
-		else OveridenIntroText = "(You hit Amanda a few times with your crop.)|Ow!  It hurts!  Why are you so mean?";
+		if (ActorHasInventory("Ballgag")) OveridenIntroText = GetText("CropGagged");
+		else OveridenIntroText = GetText("Crop");
 		if (C002_FirstClass_Amanda_CropDone == false) { C002_FirstClass_Amanda_CropDone = true; ActorChangeAttitude(-2, 0); }
 		CurrentTime = CurrentTime + 60000;
 	}

@@ -55,7 +55,7 @@ function C007_LunchBreak_Amanda_Load() {
 	C007_LunchBreak_Amanda_CalcParams();
 	
 	// If Amanda doesn't like the player and isn't subbie enough, she leaves and don't talk
-	if ((ActorGetValue(ActorLove) <= -3) && (ActorGetValue(ActorSubmission) <= 2)) {
+	if ((ActorGetValue(ActorLove) <= -3) && (ActorGetValue(ActorSubmission) <= 2) && (C007_LunchBreak_Amanda_CurrentStage == 0)) {
 		C007_LunchBreak_Amanda_CurrentStage = 5;
 		C007_LunchBreak_ActorSelect_AmandaAvail = false;
 	}

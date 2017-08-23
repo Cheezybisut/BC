@@ -24,11 +24,11 @@ function C001_BeforeClass_FightOutro_Run() {
 	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Mildred.jpg", 800, 0);
 	
 	// Each animation show an additional line of text
-	if (C001_BeforeClass_FightOutro_FightResult == 0) DrawText(ctx, "The teacher comes in and sees you two fighting.", 400, 150, "White");
-	if (C001_BeforeClass_FightOutro_FightResult == 1) DrawText(ctx, "The teacher comes in and sees you beating up Sidney.", 400, 150, "White");
-	if (C001_BeforeClass_FightOutro_FightResult == 2) DrawText(ctx, "The teacher comes in and sees Sidney beating you up.", 400, 150, "White");	
-	if (TextPhase >= 1) DrawText(ctx, "She splits and pulls both of you away from the classroom.", 400, 300, "White");
-	if (TextPhase >= 2) DrawText(ctx, "She tells you that your next class will be spent in detention.", 400, 450, "White");
+	if (C001_BeforeClass_FightOutro_FightResult == 0) DrawText(ctx, GetText("Intro1A"), 400, 150, "White");
+	if (C001_BeforeClass_FightOutro_FightResult == 1) DrawText(ctx, GetText("Intro1B"), 400, 150, "White");
+	if (C001_BeforeClass_FightOutro_FightResult == 2) DrawText(ctx, GetText("Intro1C"), 400, 150, "White");	
+	if (TextPhase >= 1) DrawText(ctx, GetText("Intro2"), 400, 300, "White");
+	if (TextPhase >= 2) DrawText(ctx, GetText("Intro3"), 400, 450, "White");
 
 }
 

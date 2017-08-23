@@ -38,7 +38,7 @@ function C002_FirstClass_Mildred_Click() {
 	
 	// Beyond -3 love, the teacher spank the player
 	if ((C002_FirstClass_Mildred_CurrentStage <= 50) && (ActorGetValue(ActorLove) <= -3) && !C002_FirstClass_Mildred_BeatingDone) {
-		OveridenIntroText = "(Without warning, she jumps on you, forces you|to bend on your desk and raises your skirt.)";
+		OveridenIntroText = GetText("SurpriseAttack");
 		C002_FirstClass_Mildred_CurrentStage = 100;
 		C002_FirstClass_Mildred_BeatingDone = true;
 	}	
@@ -46,7 +46,7 @@ function C002_FirstClass_Mildred_Click() {
 	// When the user wants to use the gag
 	if ((C002_FirstClass_Mildred_CurrentStage >= 310) && (ClickedInv == "Ballgag") && (ActorHasInventory("Ballgag") == false) && (Common_PlayerNotRestrained)) {
 		C002_FirstClass_Mildred_CurrentStage = parseInt(C002_FirstClass_Mildred_CurrentStage) + 10;
-		OveridenIntroText = "(You push the ball in her mouth and buckle|the straps while she protests incomprehensibly.)"
+		OveridenIntroText = GetText("Ballgag");
 		PlayerRemoveInventory("Ballgag", 1);
 		ActorAddInventory("Ballgag");
 		CurrentTime = CurrentTime + 60000;
@@ -55,10 +55,10 @@ function C002_FirstClass_Mildred_Click() {
 	// When the user wants to use the key
 	if (((C002_FirstClass_Mildred_CurrentStage == 310) || (C002_FirstClass_Mildred_CurrentStage == 320) || (C002_FirstClass_Mildred_CurrentStage == 410) || (C002_FirstClass_Mildred_CurrentStage == 420)) && (ClickedInv == "CuffsKey")) {
 		if (C002_FirstClass_Mildred_ConfirmUnlock == false) {
-			OveridenIntroText = "(Are you sure you want to unlock her?|Click on the key again to do so.)";
+			OveridenIntroText = GetText("UnlockWarning");
 			C002_FirstClass_Mildred_ConfirmUnlock = true;
 		} else {
-			OveridenIntroText = "(After you unlock her, she pins you and|restrains you.) You saved yourself little miss.";
+			OveridenIntroText = GetText("Unlock");
 			CurrentTime = CurrentTime + 60000;
 			ActorRemoveInventory("Cuffs");
 			ActorRemoveInventory("Ballgag");
@@ -78,7 +78,7 @@ function C002_FirstClass_Mildred_Click() {
 	// When the user wants to use the rope
 	if (((C002_FirstClass_Mildred_CurrentStage == 310) || (C002_FirstClass_Mildred_CurrentStage == 320) || (C002_FirstClass_Mildred_CurrentStage == 410) || (C002_FirstClass_Mildred_CurrentStage == 420)) && (ClickedInv == "Rope") && (Common_PlayerNotRestrained)) {
 		C002_FirstClass_Mildred_CurrentStage = parseInt(C002_FirstClass_Mildred_CurrentStage) + 20;
-		OveridenIntroText = "(You circle the rope around her body, making|tight knots.  Once done, you remove her cuffs.)";
+		OveridenIntroText = GetText("Rope");
 		PlayerRemoveInventory("Rope", 1);
 		ActorAddInventory("Rope");
 		PlayerAddInventory("Cuffs", 1);
@@ -89,7 +89,7 @@ function C002_FirstClass_Mildred_Click() {
 	// When the user wants to use the cuffs
 	if (((C002_FirstClass_Mildred_CurrentStage == 330) || (C002_FirstClass_Mildred_CurrentStage == 340) || (C002_FirstClass_Mildred_CurrentStage == 430) || (C002_FirstClass_Mildred_CurrentStage == 440)) && (ClickedInv == "Cuffs") && (Common_PlayerNotRestrained)) {
 		C002_FirstClass_Mildred_CurrentStage = parseInt(C002_FirstClass_Mildred_CurrentStage) - 20;
-		OveridenIntroText = "(You cuff her again and undo all the knots|while she tries to kick you without success.)";
+		OveridenIntroText = GetText("Cuffs");
 		PlayerAddInventory("Rope", 1);
 		ActorRemoveInventory("Rope");
 		PlayerRemoveInventory("Cuffs", 1);
@@ -119,11 +119,11 @@ function C002_FirstClass_Mildred_Disturb() {
 	
 	// After 4 attempts to disturb Mildred, she cuffs and gags the player
 	C002_FirstClass_Mildred_DisturbCount++;
-	if (C002_FirstClass_Mildred_DisturbCount == 1) OveridenIntroText = "(She looks at you briefly.) Young lady,|stay quiet while I teach, we can talk after class.";
-	if (C002_FirstClass_Mildred_DisturbCount == 2) OveridenIntroText = "(She looks angry at you.) Little Miss!|You will stop bothering the class right now!";
-	if (C002_FirstClass_Mildred_DisturbCount == 3) OveridenIntroText = "(She looks furious.) This is your last warning!|The next time you bother the class I will restrain you.";
+	if (C002_FirstClass_Mildred_DisturbCount == 1) OveridenIntroText = GetText("Disturb1");
+	if (C002_FirstClass_Mildred_DisturbCount == 2) OveridenIntroText = GetText("Disturb2");
+	if (C002_FirstClass_Mildred_DisturbCount == 3) OveridenIntroText = GetText("Disturb3");
 	if (C002_FirstClass_Mildred_DisturbCount == 4) {
-		OveridenIntroText = "(She pins you down and raises your skirt.)|Young lady, today you will learn a lesson on discipline.";
+		OveridenIntroText = GetText("Disturb4");
 		C002_FirstClass_Mildred_CurrentStage = 220;
 		LeaveIcon = "";
 	}
@@ -141,16 +141,16 @@ function C002_FirstClass_Mildred_Subdue() {
 
 	// With no helper
 	if (AgreeCount == 0) {
-		OveridenIntroText = "(Alone, you fail to subdue her and she pins you down.)|Young lady, today you will learn a lesson on discipline.";
+		OveridenIntroText = GetText("SubdueAlone");
 		C002_FirstClass_Mildred_CurrentStage = 220;
 		LeaveIcon = "";		
 	}
 	
 	// With one helper, both the player and the helper end up bound and gagged
 	if (AgreeCount == 1) {
-		if (C002_FirstClass_Classroom_SidneyAgree) { OveridenIntroText = "(You and Sidney fail to subdue and she pins you.)|Young lady, today you will learn a lesson on discipline."; CurrentActor = "Sidney"; ActorAddInventory("Cuffs"); ActorAddInventory("Ballgag"); }
-		if (C002_FirstClass_Classroom_AmandaAgree) { OveridenIntroText = "(You and Amanda fail to subdue and she pins you.)|Young lady, today you will learn a lesson on discipline."; CurrentActor = "Amanda"; ActorAddInventory("Cuffs"); ActorAddInventory("Ballgag"); }
-		if (C002_FirstClass_Classroom_SarahAgree) { OveridenIntroText = "(You and Sarah fail to subdue and she pins you.)|Young lady, today you will learn a lesson on discipline."; CurrentActor = "Sarah"; ActorAddInventory("Cuffs"); ActorAddInventory("Ballgag"); }
+		if (C002_FirstClass_Classroom_SidneyAgree) { OveridenIntroText = GetText("SubdueSidney"); CurrentActor = "Sidney"; ActorAddInventory("Cuffs"); ActorAddInventory("Ballgag"); }
+		if (C002_FirstClass_Classroom_AmandaAgree) { OveridenIntroText = GetText("SubdueAmanda"); CurrentActor = "Amanda"; ActorAddInventory("Cuffs"); ActorAddInventory("Ballgag"); }
+		if (C002_FirstClass_Classroom_SarahAgree) { OveridenIntroText = GetText("SubdueSarah"); CurrentActor = "Sarah"; ActorAddInventory("Cuffs"); ActorAddInventory("Ballgag"); }
 		CurrentActor = "Mildred";
 		C002_FirstClass_Mildred_CurrentStage = 220;
 		LeaveIcon = "";
@@ -158,7 +158,7 @@ function C002_FirstClass_Mildred_Subdue() {
 
 	// With many helpers
 	if (AgreeCount >= 2) {
-		OveridenIntroText = "(With your helpers, you're able to strip Mildred.|You find some cuffs in her stuff and lock her wrists.)";
+		OveridenIntroText = GetText("SubdueSuccess");
 		ActorAddInventory("Cuffs");
 		C002_FirstClass_Classroom_MildredSubdueSuccess = true;
 		C002_FirstClass_Mildred_CurrentStage = 300;

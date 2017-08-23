@@ -22,13 +22,13 @@ function C002_FirstClass_Outro_Run() {
 	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 800, 0);
 		
 	// Write the chapter outro
-	DrawText(ctx, "The bell finally rings, the first class is over.", 400, 150, "White");
-	if ((TextPhase >= 1) && (C002_FirstClass_Classroom_MildredSubdueSuccess == false) && (C002_FirstClass_Classroom_MildredSubdueFailed == false)) DrawText(ctx, "You finally leave Miss Mildred class, it was long.", 400, 250, "White");
-	if ((TextPhase >= 1) && (C002_FirstClass_Classroom_MildredSubdueSuccess == true) && (C002_FirstClass_Classroom_MildredSubdueFailed == false) && (!C002_FirstClass_Outro_Restrained)) DrawText(ctx, "You leave Miss Mildred class with a huge grin.", 400, 250, "White");
-	if ((TextPhase >= 1) && (C002_FirstClass_Classroom_MildredSubdueSuccess == true) && (C002_FirstClass_Classroom_MildredSubdueFailed == false) && (C002_FirstClass_Outro_Restrained)) DrawText(ctx, "You get unlocked and leave class with a grin.", 400, 250, "White");
-	if ((TextPhase >= 1) && (C002_FirstClass_Classroom_MildredSubdueFailed == true)) DrawText(ctx, "Miss Mildred releases you, hoping you've learned a lesson.", 400, 250, "White");
-	if (TextPhase >= 2) DrawText(ctx, "Your next class starts at 9:15, better not be late.", 400, 350, "White");
-	if (TextPhase >= 3) DrawText(ctx, "You search the school and find your next classroom.", 400, 450, "White");
+	DrawText(ctx, GetText("Intro1"), 400, 150, "White");
+	if ((TextPhase >= 1) && (C002_FirstClass_Classroom_MildredSubdueSuccess == false) && (C002_FirstClass_Classroom_MildredSubdueFailed == false)) DrawText(ctx, GetText("Intro2A"), 400, 250, "White");
+	if ((TextPhase >= 1) && (C002_FirstClass_Classroom_MildredSubdueSuccess == true) && (C002_FirstClass_Classroom_MildredSubdueFailed == false) && (!C002_FirstClass_Outro_Restrained)) DrawText(ctx, GetText("Intro2B"), 400, 250, "White");
+	if ((TextPhase >= 1) && (C002_FirstClass_Classroom_MildredSubdueSuccess == true) && (C002_FirstClass_Classroom_MildredSubdueFailed == false) && (C002_FirstClass_Outro_Restrained)) DrawText(ctx, GetText("Intro2C"), 400, 250, "White");
+	if ((TextPhase >= 1) && (C002_FirstClass_Classroom_MildredSubdueFailed == true)) DrawText(ctx, GetText("Intro2D"), 400, 250, "White");
+	if (TextPhase >= 2) DrawText(ctx, GetText("Intro3"), 400, 350, "White");
+	if (TextPhase >= 3) DrawText(ctx, GetText("Intro4"), 400, 450, "White");
 
 }
 

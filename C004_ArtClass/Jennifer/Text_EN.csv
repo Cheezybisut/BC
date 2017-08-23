@@ -1,0 +1,21 @@
+Tag,Content
+NoBondage,(She pushes you back.)  What are|you doing?  We are supposed to paint.
+CropForInfo,(You whip her quick.)  Ow!  Let me think.|Tell her of Sandro Botticelli The Birth of Venus.
+RefuseBondage,(She pushes you back and stares at you.)|Oh no!  you're not tying me up.
+Bondage,(She tries to stop you but you overpower|her and restrain her body and arms.)
+NoGag,(She pushes your hand away.)  Oh no!
+Ballgag,(She shuts her mouth so you have to|push it hard to be strap it in.)
+TapeGag,(She shakes her head from left to right|but you finally manage to tape her mouth.)
+Crop,(You whip her with the crop a few|times.  She screams and cries in pain.)
+VibratingEggWarning,"(You might not be able to recover the egg if|you insert it in Jennifer, click on it again to do it.)"
+VibratingEggInsert,(Jennifer sees the egg and tries to move away but|you're able to insert it.  She now trembles randomly.)
+GaggedKiss,(You try to kiss her with your gag|but it only creates an awkward situation.)
+TightenGagged,(You tighten the knots while she|struggles and seems very nervous.)
+Tighten,Aaargh!  Be careful!|(She seems very nervous.)
+TightenFail,(You try to tighten Jennifer's bondage|but fail as the other students giggle.)
+Tickle,(You tickle her in front of the class.|She cowers in shame and tries to kick you.)
+TickleFail,(You fumble a little but manage to tickle her.|She cowers in shame and tries to kick you.)
+EarnTrust,I'll try to trust you then.|All of this is making me nervous.
+EggComment,"But, but, but.  I, I.  Ok.|(She bows her head.)"
+PlayerUntie,"(She blushes and steps up to untie you.)|Here you go my friend, I bet that was humiliating."
+PlayerStayTied,(She's too nervous to move up to help you.)|(You need 3 love or more to get help from her.)
