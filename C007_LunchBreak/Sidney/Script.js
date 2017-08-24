@@ -67,15 +67,22 @@ function C007_LunchBreak_Sidney_EndLunch() {
 function C007_LunchBreak_Sidney_Pillory() {
 	C007_LunchBreak_ActorSelect_NoFood = true;
 	C007_LunchBreak_ActorSelect_Actor = "Sidney";
+	PlayerSaveAllInventory();
+	PlayerRemoveAllInventory();
 }
 
-// Chapter 7 - Sidney Wait Pillory - She comes back at 12:40
-function C007_LunchBreak_Sidney_WaitPillory() {
+// Chapter 7 - Sidney Pillory Wait - She comes back at 12:40
+function C007_LunchBreak_Sidney_PilloryWait() {
 	CurrentTime = CurrentTime + 120000;
 	if (CurrentTime >= 12.66667 * 60 * 60 * 1000) {
 		OveridenIntroText = GetText("Extortion");
 		C007_LunchBreak_Sidney_CurrentStage = 170;
 	}	
+}
+
+// Chapter 7 - Sidney - The player is free from the pillory
+function C007_LunchBreak_Sidney_PilloryFree() {
+	PlayerRestoreAllInventory();
 }
 
 // Chapter 7 - Sidney Good Match

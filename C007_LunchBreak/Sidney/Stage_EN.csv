@@ -22,15 +22,15 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 130,0,0,,You fucking pig!,"(She stares at you with furious eyes.)|This is your last chance, pay or suffer!",140,-1,0,
 130,0,0,,"Ok, ok, here it is.|(Give money to Sidney.)",Finally!  (She grabs your money and runs.),90,0,0,EndLunch()
 140,0,0,,Here's your money.|(Give money to Sidney.),Sucker!  (She grabs your money and runs.),90,0,0,EndLunch()
-140,0,0,,I'm not giving|you anything.,Then suffer!  (She grips you and|drags you in some wooden pillory.),150,-1,-1,
-150,0,0,,What the hell!|You can't do that.,"Enjoy your lunch bitch, I'll be back later.|(She grabs your purse and runs away.)",160,0,0,Pillory()
-150,0,0,,You will pay|for that!,"You're paying right now, I'll be back later.|(She grabs your purse and runs away.)",160,0,1,Pillory()
-150,0,0,,I'm sorry Sidney.|Can you release me?,It's too late bitch!  I'll be back later.|(She grabs your purse and runs away.),160,0,-1,Pillory()
-160,0,0,,(Wait patiently.),(You wait patiently while your stomach|grumbles but there's no sign of Sidney.),160,0,0,WaitPillory()
-160,0,0,,HELP!  SOMEONE|CAN HEAR ME?,(You scream for help but nobody comes.),160,0,0,WaitPillory()
-160,0,0,,(Try to break|the device.),(You try to force or break the|pillory but it doesn't move.),160,0,0,WaitPillory()
-160,0,0,,(Try to slip|your hands.),(You try to slip your hands out|but the hole is too narrow.),160,0,0,WaitPillory()
-170,0,0,,I will obey.|(Bow your head.),Perfect!  Now get|out of my face.,180,0,-1,
-170,0,0,,This is extortion!,That's fucking true my bitch.|Now get out of my face.,180,0,0,
-170,0,0,,Someday you will|pay for that.,We'll see about that.|Now get out of my face.,180,0,1,
+140,0,0,,I'm not giving|you anything.,Then suffer!  (She grips you and|drags you in some wooden pillory.),150,-1,-1,Pillory()
+150,0,0,,What the hell!|You can't do that.,"Enjoy your lunch bitch, I'll be back later.|(She grabs your purse and runs away.)",160,0,0,
+150,0,0,,You will pay|for that!,"You're paying right now, I'll be back later.|(She grabs your purse and runs away.)",160,0,1,
+150,0,0,,I'm sorry Sidney.|Can you release me?,It's too late bitch!  I'll be back later.|(She grabs your purse and runs away.),160,0,-1,
+160,0,0,,(Wait patiently.),(You wait patiently while your stomach|grumbles but there's no sign of Sidney.),160,0,0,PilloryWait()
+160,0,0,,HELP!  SOMEONE|CAN HEAR ME?,(You scream for help but nobody comes.),160,0,0,PilloryWait()
+160,0,0,,(Try to break|the device.),(You try to force or break the|pillory but it doesn't move.),160,0,0,PilloryWait()
+160,0,0,,(Try to slip|your hands.),(You try to slip your hands out|but the hole is too narrow.),160,0,0,PilloryWait()
+170,0,0,,I will obey.|(Bow your head.),Perfect!  Now get out of my face.|(You pick up your purse and items.),180,0,-1,PilloryFree()
+170,0,0,,This is extortion!,That's true little bitch.  Now fuck off.|(You pick up your purse and items.),180,0,0,PilloryFree()
+170,0,0,,Someday you will|pay for that.,We'll see about that.  Now fuck off.|(You pick up your purse and items.),180,0,1,PilloryFree()
 180,0,0,,(End lunch break.),,180,0,0,EndChapter()
