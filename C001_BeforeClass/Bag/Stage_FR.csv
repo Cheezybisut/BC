@@ -1,0 +1,8 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Tu ouvres le sac.),"Les bretelles du sac se détachent.|Tu vois des cordes.",10,0,0,
+0,0,0,,(Tu tires le sac.),Arrête ça abrutie ! Qu'est ce qui te prends ?|(Elle met son sac hors de ta portée.),30,0,0,SidneyAnnoy()
+10,0,0,,(Tu refermes le sac.),Tu remets tout doucement|les bretelles dans leurs pochettes.,0,0,0,
+10,0,0,,(Tu voles les cordes.),Tu enlèves avec précaution les cordes du sac.,20,0,0,GetRope()
+10,0,0,,(Tu lui demandes.),,30,0,0,SidneyRope()
+10,0,0,,(Tu tires le sac.),Arrête ça abrutie ! Qu'est ce qui te prends ?|(elle met son sac hors de ta portée.),30,0,0,SidneyAnnoy()
+20,0,0,,(Tu tires le sac.),Arrête ça abrutie ! Qu'est ce qui te prends ?|(elle met son sac hors de ta portée.),30,0,0,SidneyAnnoy()
