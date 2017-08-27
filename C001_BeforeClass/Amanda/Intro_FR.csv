@@ -1,0 +1,19 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,Salut ! Tu es nouvelle ?|Le cours débute à huit heure.,Amanda.jpg
+0,0,0,SidneyInBondage,"Salut ! Incroyable ! Tu as ligoté Sidney.|Elle à l'air mignonne comme ça.",Amanda.jpg
+10,0,0,,Salut et bienvenue à nouveau.,Amanda.jpg
+20,0,0,,Tu as besoin de quelque chose ?,Amanda.jpg
+30,0,0,,Il y a autre chose que tu veux savoir ou|on peut se concentrer sur le cours ?,Amanda.jpg
+40,0,0,,(Elle jette un coup d'oeil à la fille aux cheveux|noirs et semble effrayée.),Amanda.jpg
+50,0,0,,"On parlera après, d'accord ?",Amanda.jpg
+50,2,0,,J'adorerai discuter mais je dois revoir mes fiches.| On se retrouve après la classe.,Amanda.jpg
+50,-2,0,,J'ai vraiment pas le temps de discuter.,Amanda.jpg
+50,0,0,SidneyInBondage,(Elle ricane.) Sidney est tellement mignonne comme ça.|Mais tu devrais la détacher avant le début du cours.,Amanda.jpg
+200,0,0,,"Pourquoi as-tu ramené des cordes ?",Amanda.jpg
+220,0,0,,Fait attention à mes vêtements.|(Elle semble très humiliée.),AmandaStrip.jpg
+230,0,0,,Mon dieu ! le cours va commencer dans peu de temps.|(Elle se remue inutilement pour se libérer.),AmandaBondageFront.jpg
+240,0,0,,,AmandaBondageBack.jpg
+250,0,0,,,AmandaBondageHug.jpg
+260,0,0,,,AmandaBondageKiss.jpg
+300,0,0,,Merci de m'avoir libérée. (Elle sourit.),Amanda.jpg
+300,0,0,SidneyInBondage,"Merci de m'avoir libérée, Sidney est mignonne comme| ça. Mais tu devrais la détacher avant le début du cours.",Amanda.jpg
