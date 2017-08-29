@@ -1,0 +1,3 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Tu l'examines.)|(1 minute), Elle est en acier inoxydable et|devrait fonctionner sur la plupart des menottes.,0,0,0,
+0,0,0,IsCuffed,(Tu déverrouilles les|menottes.) (1 minute),Tu farfouilles un moment pour trouver|la clé et tu te libères.,0,0,0,Unlock()
