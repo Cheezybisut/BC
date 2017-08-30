@@ -24,7 +24,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 200,0,0,StopRopeSubAllowed,"J'adore le bondage,|Pourrais-tu me ligoter ?","Je vois ! Tu es le genre ""soumise"", peut-être après|l'école. (Elle te fait un clin d'oeil.) De quoi on parlait ?",200,0,-2,StopRopeSub()
 200,0,0,,Pour les utiliser plus tard.|(Tu caches les cordes.),Plus tard ? (Elle te regarde avec curiosité.)|De quoi on parlait ?,200,0,0,StopRope()
 200,0,2,,(Tu la saisis et enlèves|son uniforme.) (1 minute),Oh non ! Pas encore !|(Elle essaye de se défendre mais elle échoue.),220,0,0,Strip()
-200,0,4,,"Petite soumise, enlève|ton uniforme. (1 minute)",N... Je... Oui madame...|(Elle enlève docilement son haut et sa jupe.),220,0,0,
+200,0,4,,"""Soumise"", enlève ton|uniforme. (1 minute)","N... Je... Oui, madame...|(Elle enlève docilement son haut et sa jupe.)",220,0,0,
 220,0,0,,(Tu la ligotes.)|(1 minute),(Tu enveloppes son corps et lui attaches|les bras derrière son dos. Elle gémit doucement.),230,0,0,Tie()
 220,0,0,,Remets tes vêtements.|(1 minute),Quel soulagement ! C'était embarrassant.,200,0,0,
 230,0,0,,(Tu la retournes.), Quoi ? Mon dieu ! Qu'est-ce que tu fais ?|(Tu la forces à se retourner.),240,0,0,
