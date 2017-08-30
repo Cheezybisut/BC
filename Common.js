@@ -123,16 +123,23 @@ function ReadCSV(Array, FileName) {
 	
 }
 
+// Returns a working language if translation isn't fully ready
+function GetWorkingLanguage() {
+	if ((CurrentLanguageTag == "FR") && ((CurrentChapter == "C000_Intro") || (CurrentChapter == "C001_BeforeClass") || (CurrentChapter == "C999_Common"))) return "FR";
+	return "EN";
+}
+
+
 // Load the interactions from a scene and keep it in common variable
-function LoadInteractions() {
-	ReadCSV("CurrentIntro", CurrentChapter + "/" + CurrentScreen + "/Intro_" + CurrentLanguageTag + ".csv");
-	ReadCSV("CurrentStage", CurrentChapter + "/" + CurrentScreen + "/Stage_" + CurrentLanguageTag + ".csv");
+function LoadInteractions() {	
+	ReadCSV("CurrentIntro", CurrentChapter + "/" + CurrentScreen + "/Intro_" + GetWorkingLanguage() + ".csv");
+	ReadCSV("CurrentStage", CurrentChapter + "/" + CurrentScreen + "/Stage_" + GetWorkingLanguage() + ".csv");
 	LoadText();
 }
 
 // Load the custom texts from a scene and keep it in common variable
 function LoadText() {
-	ReadCSV("CurrentText", CurrentChapter + "/" + CurrentScreen + "/Text_" + CurrentLanguageTag + ".csv");
+	ReadCSV("CurrentText", CurrentChapter + "/" + CurrentScreen + "/Text_" + GetWorkingLanguage() + ".csv");
 }
 
 // Calls a dynamic function (if it exists)

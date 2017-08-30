@@ -5,6 +5,12 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 10,0,0,,I can't find my fucking purse|and I'm hungry as shit!,SidneyIntro.jpg
 10,5,0,,I can't find my fucking purse|and I'm hungry as shit!,SidneyIntroHappy.jpg
 10,0,5,,I can't find my purse|and I'm very hungry!,SidneyIntroSubbie.jpg
+20,0,0,,Can you give me some cash?|I lost my fucking purse.,SidneyIntro.jpg
+20,5,0,,I'm fucking hungry my friend.|Can I borrow some cash?,SidneyIntroHappy.jpg
+20,0,5,,"Miss, I have no idea where's my purse.|Can I borrow some money please?",SidneyIntroSubbie.jpg
+30,0,0,,Are we leaving now?  I'm so hungry.,SidneyIntro.jpg
+30,5,0,,Are we leaving now?  I'm so hungry.,SidneyIntroHappy.jpg
+30,0,5,,Are we leaving now?  I'm so hungry.,SidneyIntroSubbie.jpg
 90,0,0,,(Sidney is gone.),SidneyGone.jpg
 100,0,0,,What the fuck do you want?|I don't want to talk with you.,SidneyIntroGrumpy.jpg
 110,0,0,, I lost my fucking purse|and I'm hungry as shit!,SidneyIntroGrumpy.jpg
@@ -15,3 +21,4 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 160,0,0,,,PlayerPillory.jpg
 170,0,0,,,SidneyPlayerPillory.jpg
 180,0,0,,,SidneyPlayerBasement.jpg
+200,0,0,,,SidneyPlayerLunch0.jpg

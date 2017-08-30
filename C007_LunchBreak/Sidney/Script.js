@@ -8,6 +8,14 @@ function C007_LunchBreak_Sidney_CalcParams() {
 
 	// No special images by default
 	OveridenIntroImage = "";
+	
+	// Between 200 and 299, the image evolves with the number of matches
+	if ((C007_LunchBreak_Sidney_CurrentStage >= 200) && (C007_LunchBreak_Sidney_CurrentStage <= 299)) {
+		var Img = "0";
+		if ((C007_LunchBreak_Sidney_MatchCount == 2) || (C007_LunchBreak_Sidney_MatchCount == 3)) Img = "1";
+		if (C007_LunchBreak_Sidney_MatchCount >= 4) Img = "2";
+		OveridenIntroImage = "SidneyPlayerLunch" + Img + ".jpg";
+	}
 
 }
 
@@ -85,6 +93,12 @@ function C007_LunchBreak_Sidney_PilloryFree() {
 	PlayerRestoreAllInventory();
 }
 
+// Chapter 7 - Sidney Start Lunch
+function C007_LunchBreak_Sidney_StartLunch() {	
+	CurrentTime = CurrentTime + 480000;
+	LeaveIcon = "";
+}
+
 // Chapter 7 - Sidney Good Match
 function C007_LunchBreak_Sidney_GoodMatch() {
 	C007_LunchBreak_Sidney_MatchCount++;
@@ -97,19 +111,13 @@ function C007_LunchBreak_Sidney_BadMatch() {
 	C007_LunchBreak_Sidney_CalcParams();
 }
 
-// Chapter 7 - Sidney Leave Stranded
-function C007_LunchBreak_Sidney_LeaveStranded() {
-	C007_LunchBreak_ActorSelect_EarlyLeave = true;
-	SetScene(CurrentChapter, "Outro");
-}
-
 // Chapter 7 - Sidney Evil End Chapter (Leave her bound and gagged)
 function C007_LunchBreak_Sidney_EvilEnd() {
 	if (C007_LunchBreak_Sidney_ConfirmEvil) {
 		C007_LunchBreak_ActorSelect_EvilEnding = true;
 		Common_PlayerCrime = "SidneyStranded";
 		ActorChangeAttitude(-5, 1);
-		SetScene(CurrentChapter, "Outro");		
+		SetScene(CurrentChapter, "Outro");
 	} else {
 		OveridenIntroText = GetText("LeaveBoundAndGagged");
 		C007_LunchBreak_Sidney_ConfirmEvil = true;

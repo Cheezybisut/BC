@@ -26,6 +26,7 @@ function C000_Intro_ChapterSelect_LoadChapter(ChapterToLoad) {
 function C000_Intro_ChapterSelect_SetLanguage(NewLanguageTag) {
 	CurrentLanguageTag = NewLanguageTag;
 	localStorage.setItem("CurrentLanguageTag", CurrentLanguageTag);
+	LoadInteractions();
 }
 
 // When the user wants to load, we call the load screen

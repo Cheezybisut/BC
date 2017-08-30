@@ -3,7 +3,18 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 0,0,0,,Calm down!,Calm down?  Can't you see I'm|hungry and I can't find my purse!,10,-1,0,
 0,0,0,,What is your|problem girl?,I'm going nuts!  I can't find|my purse and I'm hungry as hell!,10,0,1,
 0,0,0,,Maybe I can|try to help.,Help me search!  I lost my|purse and I'm fucking hungry!,10,0,-1,
+10,0,0,,Where did you|last saw your purse?,I don't know!  I can't think when I'm|hungry.  Can you give me some money?,20,0,0,
+10,0,0,,Are there theives|in this college?,They would be insane to steal from me.|Now can you give me some money?,20,0,0,
+10,0,5,,Stop worrying girl.|I'll buy you lunch.,"Miss?  You will?  That's really great.|I'm ready when you are, do we leave now?",30,0,1,
+10,5,0,,Come with me friend.|I'll buy your lunch.,"Really?  That's fucking awesome.|I'm ready to go, do we leave now?",30,1,0,
+10,0,0,,You will survive|skipping a meal.,Fuck you bitch!|(She walks away.),90,-1,0,
 10,0,0,,I saw a blond girl|running with a purse.,(She charges like a bull in the hallway.)|SAAAAAAARRRRRRRAAAAAHHH!!!,90,1,0,EndLunch()
+20,0,0,,Go beg elsewhere.,Fuck you bitch!|(She walks away.),90,-1,1,
+20,0,0,,"Sorry, I'm broke.","Shit, shit, shit!|(She walks away.)",90,0,0,
+20,0,0,,Have some money.|(Give money to Sidney.),Thanks sucker!|(She grabs your money and runs.),90,1,-1,
+20,0,5,,Stop worrying girl.|I'll buy you lunch.,"Miss?  You will?  That's really great.|I'm ready when you are, do we leave now?",30,0,1,
+20,5,0,,Come with me friend.|I'll buy your lunch.,"Really?  That's fucking awesome.|I'm ready to go, do we leave now?",30,1,0,
+30,0,0,,Let's go now!|(Eat with Sidney.),You walk pretty fast to a restaurant nearby.|Sidney quickly picks a table and seems really hungry.,200,0,0,StartLunch()
 100,0,0,,What's wrong?,I can't find my fucking purse|and I'm hungry as shit!,110,0,0,
 100,0,0,,What is your|problem girl?,I'm going nuts!  I can't find|my purse and I'm hungry as hell!,110,0,1,
 100,0,0,,Can I help you?,No you cannot!  I lost my fucking|purse and I'm hungry as shit!,110,0,-1,
@@ -34,3 +45,62 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 170,0,0,,This is extortion!,That's true little bitch.  Now fuck off.|(You pick up your purse and items.),180,0,0,PilloryFree()
 170,0,0,,Someday you will|pay for that.,We'll see about that.  Now fuck off.|(You pick up your purse and items.),180,0,1,PilloryFree()
 180,0,0,,(End lunch break.),,180,0,0,EndChapter()
+200,0,0,,It's a nice|place you found.,My stupid roommates are here all|the time so I don't come here often.,210,0,0,
+200,0,0,,This restaurant|looks alright.,My stupid roommates are here all|the time so I don't come here often.,210,0,0,
+200,0,0,,What should I get?,I don't care!  (She looks around.)|Are my stupid roommates here?,210,0,0,
+200,0,0,,So what are|you eating?,Fucking meat!  (She looks around.)|Are my stupid roommates here?,210,0,0,
+210,0,0,,You have roommates?|You're pretty lucky.,Oh fuck no!  This is hell.|Someday I'll make them pay.,220,0,0,BadMatch()
+210,0,0,,You have roommates?|That can be painful.,"Yeah, they are a pain in the ass.|Someday I'll make them pay.",220,0,0,GoodMatch()
+210,0,0,,I wish I had|some roommates.,You want mine?  They are a pain.|Someday I'll make them pay.,220,0,0,
+220,0,0,,You need help|to get even?,"That's a great idea!  Let's talk after school.|Tell me about you, what do you want to do in life?",230,1,0,GoodMatch()
+220,0,0,,You should try|to make peace.,"Peace?  Fuck no!  Let's change subject.|Tell me about you, what do you want to do in life?",230,-1,0,BadMatch()
+220,0,0,,Someday you'll|have your revenge.,"Yep!  And this day will come pretty soon.|Tell me about you, what do you want to do in life?",230,0,0,GoodMatch()
+230,0,0,,A musician.,You will end up poor as shit.|And what's your favorite class?,240,0,0,BadMatch()
+230,0,0,,A doctor.,Nice!  You will make good money.|And what's your favorite class?,240,0,0,GoodMatch()
+230,0,0,,An athlete.,You will end up poor as shit.|And what's your favorite class?,240,0,0,BadMatch()
+230,0,0,,A teacher.,"Not bad, there will always be jobs.|And what's your favorite class?",240,0,0,
+230,0,0,,An actor.,You will end up poor as shit.|And what's your favorite class?,240,0,0,BadMatch()
+230,0,0,,A dominatrix.,Ha!  You caught me off guard with that|stupid answer.  What's your favorite class?,240,0,0,
+230,0,0,,An architect.,"Nice choice, I also thought about it.|What's your favorite class?",240,0,0,GoodMatch()
+230,0,0,,A farmer.,Great!  My father is a farmer.|What's your favorite class?,240,0,0,GoodMatch()
+230,0,0,,A programmer.,"Not bad, there will always be jobs.|And what's your favorite class?",240,0,0,
+230,0,0,,I don't know yet.,"Same here, I'm not sure yet.|What's your favorite class?",240,0,0,GoodMatch()
+240,0,0,,Math.,That's boring but it might help you I guess.|And what do you do outside of school?,250,0,0,
+240,0,0,,Music.,This is such a pointless class.|What do you do outside of school?,250,0,0,BadMatch()
+240,0,0,,English.,I fucking suck in fucking English!|And what do you do outside of school?,250,0,0,BadMatch()
+240,0,0,,Gym.,It's not as boring as the other classes I guess.|And what do you do outside of school?,250,0,0,
+240,0,0,,Chemistry.,Great!  Can you make a bomb for me?|And what do you do outside of school?,250,0,0,GoodMatch()
+240,0,0,,French.,That's boring but it might help you I guess.|And what do you do outside of school?,250,0,0,
+240,0,0,,Art.,This is such a pointless class.|What do you do outside of school?,250,0,0,BadMatch()
+240,0,0,,History.,"Yeah, the history of wars can be fun.|And what do you do outside of school?",250,0,0,GoodMatch()
+240,0,0,,Theatre.,This is such a pointless class.|What do you do outside of school?,250,0,0,
+240,0,0,,I don't know.,Yeah...  Fuck these classes anyway.|What do you do outside of school?,250,0,0,GoodMatch()
+250,0,0,,Basketball.,I guess there are worse hobbies.|(A waitress interrupts to take your order.),260,0,0,
+250,0,0,,Rock music.,I prefer metal but rock is fine.|(A waitress interrupts to take your order.),260,0,0,GoodMatch()
+250,0,0,,Video games.,I guess there are worse hobbies.|(A waitress interrupts to take your order.),260,0,0,
+250,0,0,,Cheerleading.,What a shitty and boring hobby.|(A waitress interrupts to take your order.),260,0,0,
+250,0,0,,Going to parties.,The parties in this college are pretty lame.|(A waitress interrupts to take your order.),260,0,0,
+250,0,0,,Role playing games.,What a shitty and boring hobby.|(A waitress interrupts to take your order.),260,0,0,BadMatch()
+250,0,0,,Getting drunk.,"Fair enough, I need to get wasted soon.|(A waitress interrupts to take your order.)",260,0,0,GoodMatch()
+250,0,0,,Classical music.,What a shitty and boring hobby.|(A waitress interrupts to take your order.),260,0,0,BadMatch()
+250,0,0,,Making love.,I guess your fucking boyfriend is happy.|(A waitress interrupts to take your order.),260,0,0,
+250,0,0,,I don't have|any hobbies.,"Don't worry, mine is getting stoned all night.|(A waitress interrupts to take your order.)",260,0,0,GoodMatch()
+260,0,0,,A salad please.,Are you a fucking rabbit?|(She orders a big steak.),270,-1,0,BadMatch()
+260,0,0,,A steak please.,Best idea of the day!|(She also orders a steak.),270,1,0,GoodMatch()
+260,0,0,,A soup please.,That's not a big meal.(She orders a big steak.),270,0,0,
+260,0,0,,A hamburger please.,A pretty good choice.|(She orders a big steak.),270,0,0,GoodMatch()
+260,0,0,,A nacho platter please.,That's not a big meal.(She orders a big steak.),270,0,0,
+260,0,0,,Only cheesecake please.,That's not a big meal.(She orders a big steak.),270,0,0,
+260,0,0,,Soup and salad please.,Are you a fucking rabbit?|(She orders a big steak.),270,0,0,BadMatch()
+260,0,0,,A chili dog please.,A pretty good choice.|(She orders a big steak.),270,0,0,GoodMatch()
+260,0,0,,Fettuccine alfredo please.,A pretty good choice.|(She orders a big steak.),270,0,0,GoodMatch()
+260,0,0,,Only water please.,Fuck!  You're not going to eat?|(She orders a big steak.),270,-1,0,BadMatch()
+270,0,0,,Have a good meal!|(Wait for you meal.),Hell yeah!  (You both eat your meal.|She burps a few times and looks happy.),280,0,0,EatMeal()
+270,0,0,,Bon appetite!|(Wait for you meal.),Hell yeah!  (You both eat your meal.|She burps a few times and looks happy.),280,0,0,EatMeal()
+270,0,0,,Hurry up waitress!|(Wait for your meal.),Good call!  (You both eat your meal.|She burps a few times and looks happy.),280,0,1,EatMeal()
+270,0,0,,(Stay silent and|wait for your meal.),Hurry up!  (You both eat your meal.|She burps a few times and looks happy.),280,0,-1,EatMeal()
+280,0,0,,It was good?,Yep!  You can't go wrong with meat.|Is it time to go back to college?,290,0,0,CheckForSmoke()
+280,0,0,,Are you full?,Yep!  You can't go wrong with meat.|Is it time to go back to college?,290,0,0,CheckForSmoke()
+290,0,0,AllowSmoke,"Sure, let's go smoke.|(Go smoke with her.)",(You both walk to a recluded corner and|she lights up what looks like a joint.),300,0,0,
+290,0,0,AllowSmoke,"Sorry, I don't smoke.|(Back to college.)",,0,0,0,EndChapter()
+290,0,0,!AllowSmoke,Let's go back.|(Back to college.),,0,0,0,EndChapter()
