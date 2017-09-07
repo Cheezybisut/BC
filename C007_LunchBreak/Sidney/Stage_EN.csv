@@ -4,7 +4,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 0,0,0,,What is your|problem girl?,I'm going nuts!  I can't find|my purse and I'm hungry as hell!,10,0,1,
 0,0,0,,Maybe I can|try to help.,Help me search!  I lost my|purse and I'm fucking hungry!,10,0,-1,
 10,0,0,,Where did you|last saw your purse?,I don't know!  I can't think when I'm|hungry.  Can you give me some money?,20,0,0,
-10,0,0,,Are there theives|in this college?,They would be insane to steal from me.|Now can you give me some money?,20,0,0,
+10,0,0,,Are there thieves|in this college?,They would be insane to steal from me.|Now can you give me some money?,20,0,0,
 10,0,5,,Stop worrying girl.|I'll buy you lunch.,"Miss?  You will?  That's really great.|I'm ready when you are, do we leave now?",30,0,1,
 10,5,0,,Come with me friend.|I'll buy your lunch.,"Really?  That's fucking awesome.|I'm ready to go, do we leave now?",30,1,0,
 10,0,0,,You will survive|skipping a meal.,Fuck you bitch!|(She walks away.),90,-1,0,EndLunch()
@@ -18,7 +18,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 100,0,0,,What's wrong?,I can't find my fucking purse|and I'm hungry as shit!,110,0,0,
 100,0,0,,What is your|problem girl?,I'm going nuts!  I can't find|my purse and I'm hungry as hell!,110,0,1,
 100,0,0,,Can I help you?,No you cannot!  I lost my fucking|purse and I'm hungry as shit!,110,0,-1,
-110,0,0,,Maybe I can|help you find it.,Fuck no!  I  don't want to search.|I want to eat!  Gimme some money.,120,0,-1,NoLeave()
+110,0,0,,Maybe I can|help you find it.,Fuck no!  I don't want to search.|I want to eat!  Gimme some money.,120,0,-1,NoLeave()
 110,0,0,,You have enough|time to find it.,Shut up!  I want to eat now!|Gimme some money.,120,0,0,NoLeave()
 110,0,0,,You'll have to|skip lunch then.,"Fuck you, I'm not skipping lunch!|Gimme some money!",120,-1,0,NoLeave()
 110,0,0,,You can survive|on your reserves.,Say that again and I'll break all of your bones.|Now gimme some money before I kill you.,120,-2,1,NoLeave()
@@ -28,9 +28,9 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 120,0,0,,Repay me tomorrow.|(Give money to Sidney.),Fine.  (She grabs your money and runs.),90,1,0,EndLunch()
 120,0,0,,I don't have|any money.,You little fucking liar!  Come with me.|(She grabs your arm and drags you in the basement.),130,-1,0,
 120,0,0,,I'm not giving|you anything.,You fucking bitch!  Come with me.|(She grabs your arm and drags you in the basement.),130,-1,1,
-130,0,0,,Ow!  It hurts!,"And it will hurt a lot more soon.|It's your last chance, pay or suffer!",140,0,-1,
-130,0,0,,Where are we?,"A place I know and you don't want to know.|Now this is your last chance, pay or suffer!",140,0,0,
-130,0,0,,You fucking pig!,"(She stares at you with furious eyes.)|This is your last chance, pay or suffer!",140,-1,0,
+130,0,0,,Ow!  It hurts!,And it will hurt a lot more soon.|It's your last chance.  Pay or suffer.,140,0,-1,
+130,0,0,,Where are we?,A place I know and you don't want to know.|Now this is your last chance.  Pay or suffer.,140,0,0,
+130,0,0,,You fucking pig!,(She stares at you with furious eyes.)|This is your last chance.  Pay or suffer.,140,-1,0,
 130,0,0,,"Ok, ok, here it is.|(Give money to Sidney.)",Finally!  (She grabs your money and runs.),90,0,0,EndLunch()
 140,0,0,,Here's your money.|(Give money to Sidney.),Sucker!  (She grabs your money and runs.),90,0,0,EndLunch()
 140,0,0,,I'm not giving|you anything.,Then suffer!  (She grips you and|drags you in some wooden pillory.),150,-1,-1,Pillory()
@@ -84,13 +84,13 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 250,0,0,,Getting drunk.,"Fair enough, I need to get wasted soon.|(A waitress interrupts to take your order.)",260,0,0,GoodMatch()
 250,0,0,,Classical music.,What a shitty and boring hobby.|(A waitress interrupts to take your order.),260,0,0,BadMatch()
 250,0,0,,Making love.,I guess your fucking boyfriend is happy.|(A waitress interrupts to take your order.),260,0,0,
-250,0,0,,I don't have|any hobbies.,"Don't worry, mine is getting stoned all night.|(A waitress interrupts to take your order.)",260,0,0,GoodMatch()
+250,0,0,,I don't have|any hobbies.,Don't worry.  Mine is getting stoned all night.|(A waitress interrupts to take your order.),260,0,0,GoodMatch()
 260,0,0,,A salad please.,Are you a fucking rabbit?|(She orders a big steak.),270,-1,0,BadMatch()
 260,0,0,,A steak please.,Best idea of the day!|(She also orders a steak.),270,1,0,GoodMatch()
-260,0,0,,A soup please.,That's not a big meal.(She orders a big steak.),270,0,0,
+260,0,0,,A soup please.,That's not a big meal.|(She orders a big steak.),270,0,0,
 260,0,0,,A hamburger please.,A pretty good choice.|(She orders a big steak.),270,0,0,GoodMatch()
-260,0,0,,A nacho platter please.,That's not a big meal.(She orders a big steak.),270,0,0,
-260,0,0,,Only cheesecake please.,That's not a big meal.(She orders a big steak.),270,0,0,
+260,0,0,,A nacho platter please.,That's not a big meal.|(She orders a big steak.),270,0,0,
+260,0,0,,Only cheesecake please.,That's not a big meal.|(She orders a big steak.),270,0,0,
 260,0,0,,Soup and salad please.,Are you a fucking rabbit?|(She orders a big steak.),270,0,0,BadMatch()
 260,0,0,,A chili dog please.,A pretty good choice.|(She orders a big steak.),270,0,0,GoodMatch()
 260,0,0,,Fettuccine alfredo please.,A pretty good choice.|(She orders a big steak.),270,0,0,GoodMatch()
@@ -101,7 +101,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 270,0,0,,(Stay silent and|wait for your meal.),Hurry up!  (You both eat your meal.|She burps a few times and looks happy.),280,0,-1,EatMeal()
 280,0,0,,It was good?,Yep!  You can't go wrong with meat.|Is it time to go back to college?,290,0,0,CheckForSmoke()
 280,0,0,,Are you full?,Yep!  You can't go wrong with meat.|Is it time to go back to college?,290,0,0,CheckForSmoke()
-290,0,0,AllowSmoke,"Sure, let's go smoke.|(Go smoke with her.)",(You both walk to a recluded corner and|she lights up what looks like a joint.),300,0,0,
+290,0,0,AllowSmoke,"Sure, let's go smoke.|(Go smoke with her.)",(You both walk to a secluded corner and|she lights up what looks like a joint.),300,0,0,
 290,0,0,AllowSmoke,"Sorry, I don't smoke.|(Back to college.)",,0,0,0,EndChapter()
 290,0,0,!AllowSmoke,Let's go back.|(Back to college.),,0,0,0,EndChapter()
 300,0,0,,Can I have some?|(Smoke with her.),Sure!  (She smokes a big puff|and shares the joint with you.),310,1,0,Smoke()
@@ -112,9 +112,9 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 300,0,0,,No!  This is illegal!|(Don't smoke with her.),You're such a pathetic loser.|(She takes three big puffs of her joint.),320,-2,-2,Smoke()
 310,0,0,,This is great!|(Smoke the joint.),Yep!  Leave some for me though.|(You take a few puffs on the joint.),310,0,0,Smoke()
 310,0,0,,Thanks for that.|(Pass the joint.),(You pass the joint and she|takes three quick puffs on it.),320,0,0,Smoke()
-320,0,0,,How often do|you smoke weed?,Everyday!  Best medecine against boredom.|(She smokes two puffs and sits down wasted.),330,0,0,Smoke()
+320,0,0,,How often do|you smoke weed?,Every day!  Best medicine against boredom.|(She smokes two puffs and sits down wasted.),330,0,0,Smoke()
 320,0,0,,"Careful, you'll be|stoned for class.",Don't you think I already know that?|(She smokes two puffs and sits down wasted.),330,0,-1,Smoke()
-320,0,0,,That's great!  We need to|lunch together more often.,Fuck yeah!  We can get stoned everyday.|(She smokes two puffs and sits down wasted.),330,1,0,Smoke()
+320,0,0,,That's great!  We need to|lunch together more often.,Fuck yeah!  We can get stoned every day.|(She smokes two puffs and sits down wasted.),330,1,0,Smoke()
 330,0,0,,Are you ok?,Oh hell yeah!|(She looks stoned.),330,0,0,
 330,0,0,,We should|skip school.,Oh yeah!  Best idea ever!|(She giggles and stares blankly.),330,0,0,
 330,0,0,HateAmanda,Do you want to get|even with Amanda?,Fuck yeah!  Let's do it now.|Will you help beat her up?,400,0,0,
@@ -135,7 +135,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 350,0,0,,Cum for me sweetie.|(Make her climax.),(You masturbate her gently while she|moans and surrenders to a sweet orgasm.),340,1,0,Orgasm()
 350,0,0,,Cum now little whore.|(Make her climax.),(You masturbate her forcefully and|she climaxes with a great orgasm.),340,0,1,Orgasm()
 350,0,0,,"Not now, maybe later.|(Don't let her climax.)",(You stop masturbating her|and she slowly stops to moan.),340,-1,0,NoOrgasm()
-350,0,0,,You don't derserve it.|(Don't let her climax.),(You stop masturbating her|and she slowly stops to moan.),340,0,-1,NoOrgasm()
+350,0,0,,You don't deserve it.|(Don't let her climax.),(You stop masturbating her|and she slowly stops to moan.),340,0,-1,NoOrgasm()
 400,0,0,,"Beat up Amanda?|No, it's too extreme.",It's not extreme enough!|Someday she will pay.,330,0,0,
 400,0,0,,Yes!  Let's get|her right now.,Come with me then!  (You both walk to|an empty class where Amanda is reading.),410,0,0,StartBeatUp()
 410,0,0,,(Help Sidney to subdue|Amanda.)  (1 minute),(You both jump on Amanda and Sidney|gets a holds on her.)  Strip her down!,420,1,0,
