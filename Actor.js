@@ -32,6 +32,13 @@ function ActorGetValue(ValueType) {
 			return Actor[L][ValueType];	
 }
 
+// Return a value from a specific actor data
+function ActorSpecificGetValue(SpecificActorName, ValueType) {
+	for (var L = 0; L < Actor.length; L++)
+		if (SpecificActorName == Actor[L][ActorName])
+			return Actor[L][ValueType];	
+}
+
 // Change positively or negatively the current actor attitude toward the player
 function ActorChangeAttitude(LoveAttitude, SubAttitude) {
 	
@@ -39,6 +46,19 @@ function ActorChangeAttitude(LoveAttitude, SubAttitude) {
 	if ((LoveAttitude != 0) || (SubAttitude != 0))
 		for (var L = 0; L < Actor.length; L++)
 			if (CurrentActor == Actor[L][ActorName]) {
+				Actor[L][ActorLove] = Actor[L][ActorLove] + parseInt(LoveAttitude);
+				Actor[L][ActorSubmission] = Actor[L][ActorSubmission] + parseInt(SubAttitude);
+			}	
+
+}
+
+// Change positively or negatively a specific actor attitude toward the player
+function ActorSpecificChangeAttitude(SpecificActorName, LoveAttitude, SubAttitude) {
+	
+	// If we need to make a change to the attitude, we apply it
+	if ((LoveAttitude != 0) || (SubAttitude != 0))
+		for (var L = 0; L < Actor.length; L++)
+			if (SpecificActorName == Actor[L][ActorName]) {
 				Actor[L][ActorLove] = Actor[L][ActorLove] + parseInt(LoveAttitude);
 				Actor[L][ActorSubmission] = Actor[L][ActorSubmission] + parseInt(SubAttitude);
 			}	
@@ -90,6 +110,13 @@ function ActorAddInventory(NewInventory) {
 				}
 			}
 
+}
+
+// Add 1 to the bondage count of a specific actor
+function ActorSpecificAddBondage(SpecificActor) {
+	for (var A = 0; A < Actor.length; A++)
+		if (Actor[A][ActorName] == SpecificActor)
+			Actor[A][ActorBondageCount]++;
 }
 
 // Remove inventory from the current actor
