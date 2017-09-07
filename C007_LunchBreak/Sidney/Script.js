@@ -285,7 +285,7 @@ function C007_LunchBreak_Sidney_Release() {
 	}
 }
 
-// Chapter 7 - Sidney Masturbate
+// Chapter 7 - Sidney Masturbate, she will climax after 3 tries, no need for the egg
 function C007_LunchBreak_Sidney_Masturbate() {
 	C007_LunchBreak_Sidney_MasturbateCount++;
 	if (C007_LunchBreak_Sidney_MasturbateCount == 3) {
@@ -312,7 +312,7 @@ function C007_LunchBreak_Sidney_EvilEnd() {
 
 // Chapter 7 - Sidney Orgasm
 function C007_LunchBreak_Sidney_Orgasm() {
-	ActAddOrgasm();
+	ActorAddOrgasm();
 	C007_LunchBreak_ActorSelect_BonusDone = true;
 	CurrentTime = CurrentTime + 60000;
 }
