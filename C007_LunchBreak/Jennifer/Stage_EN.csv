@@ -1,0 +1,27 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,EggRemarkAvail,The egg will remind|you of your place.,My place?  (She looks down.)|That's... that's not very nice.,0,-1,1,EggRemark()
+0,0,0,EggRemarkAvail,Sorry about the egg.|You'll remove it at home.,It's ok I guess.  Let's not|talk about this anymore.,0,1,-1,EggRemark()
+0,0,0,,Are you going|to play tennis?,Yes!  Would you like to play with me?,10,0,0,
+0,0,0,,Why are you|dressed like that?,I'm going to play some tennis.|Would you like to play with me?,10,0,0,
+0,0,0,,You look cute|in that skirt.,Thanks a lot!  I'm going to play tennis.|Would you like to play with me?,10,1,0,
+0,0,0,,You look silly|in that skirt.,It's outdated?  I'm going to play tennis.|Would you like to play with me?,10,-1,0,
+0,0,0,,This skirt gives|you a great butt.,(She looks at her skirt and blushes.)|Would you like to play tennis with me?,10,0,1,
+10,4,0,,We could play tennis if|the winner gets rewarded.,Rewarded?  What do you have in mind?,20,0,0,
+10,0,4,,I'm up for it girl.  If you|want to spice the game.,Spice the game?|What do you have in mind?,20,0,0,
+10,0,0,NoOption,We could play some|tennis if you want.,Ok!  I can't play with you today though.|Would you like to try a game tomorrow?,15,0,0,
+10,0,0,NoOption,Sure!  Let's play.|This will be fun.,Great!  I can't play with you today though.|Would you like to try a game tomorrow?,15,1,0,
+10,0,0,,I can't play now|but have a good game.,I will!  Thanks.|(She leaves for tennis.),90,0,0,EndLunch()
+10,0,0,,"Sorry girl, but tennis|is a game for kids.",Alright miss.  Have a good lunch.|(She looks down and leaves for tennis.),90,-1,1,EndLunch()
+10,0,0,,I wish I could but|I'm horrible at tennis.,You'll never get good with this attitude.|(She takes her stuff and leaves for tennis.),90,0,-1,EndLunch()
+15,0,0,,"Ok, let's play a|game tomorrow.",It's a deal!  Have a great lunch.|(She packs her stuff and goes play tennis.),90,0,0,EndLunch()
+15,0,0,,No!  I want to play now!,"No deal then, have a good lunch anyway.|(She packs her stuff and goes play tennis.)",90,-1,0,EndLunch()
+20,0,0,,The loser will be the|winner slave for lunch.,Slave?  You mean the loser pays for lunch?,30,0,1,
+20,0,0,,The loser submits to|the winner for lunch.,Submits?  You mean the loser pays for lunch?,30,0,0,
+20,0,0,,On second thoughts.|I don't want to play.,"Alright then, see you later.|(She packs and leaves for tennis.)",90,0,0,EndLunch()
+30,0,0,,"Yes, whoever loses|will pay and obey.",You have a strange way to phrase your|bet but I'm up for it!  Should we go now?,40,0,0,
+30,0,0,,Don't make me repeat.|Are you game or not?,(She frowns at you and gets competitive.)|Alright then!  Are you ready to play now?,40,-1,0,
+30,0,0,,On second thoughts.|I don't want to play.,"Alright then, see you later.|(She packs and leaves for tennis.)",90,0,0,EndLunch()
+40,0,0,,Go easy with me.|(Go play tennis.),,100,0,0,"PlayTennis(""Easy"")"
+40,0,0,,Let's do a fun game.|(Go play tennis.),,100,0,0,"PlayTennis(""Normal"")"
+40,0,0,,I will crush you!|(Go play tennis.),,100,0,0,"PlayTennis(""Hard"")"
+40,0,0,,On second thoughts.|I don't want to play.,"Alright then, see you later.|(She packs and leaves for tennis.)",90,0,0,EndLunch()

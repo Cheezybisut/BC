@@ -4,11 +4,11 @@ var PlayerInventoryQuantity = 1;
 var PlayerLockedInventory = [];
 var PlayerSavedInventory = [];
 
-// Set up the player clothes
+// Set up the player clothes or costume
 function PlayerClothes(NewCloth) {
-	if (NewCloth == "Judo") Common_PlayerCostume = NewCloth;
+	if ((NewCloth == "Judo") || (NewCloth == "Tennis")) Common_PlayerCostume = NewCloth;
 	else Common_PlayerCostume = "";
-	Common_PlayerClothed = ((NewCloth == "Clothed") || (NewCloth == "Judo"));
+	Common_PlayerClothed = ((NewCloth == "Clothed") || (NewCloth == "Judo") || (NewCloth == "Tennis"));
 	Common_PlayerUnderwear = (NewCloth == "Underwear");
 	Common_PlayerNaked = (NewCloth == "Naked");
 }

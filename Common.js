@@ -126,9 +126,9 @@ function ReadCSV(Array, FileName) {
 // Returns a working language if translation isn't fully ready
 function GetWorkingLanguage() {
 	if ((CurrentLanguageTag == "FR") && ((CurrentChapter == "C000_Intro") || (CurrentChapter == "C001_BeforeClass") || (CurrentChapter == "C999_Common"))) return "FR";
+	if ((CurrentLanguageTag == "CN") && (CurrentChapter == "C000_Intro")) return "CN";
 	return "EN";
 }
-
 
 // Load the interactions from a scene and keep it in common variable
 function LoadInteractions() {	

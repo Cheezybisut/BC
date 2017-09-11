@@ -251,7 +251,7 @@ function DrawPlayerImage(X, Y) {
 	// The file name changes if the player is gagged or blinks at specified intervals
 	var ctx = document.getElementById("MainCanvas").getContext("2d");
 	var ImageName = "Clothed";
-	if (Common_PlayerCostume != "") ImageName = ImageName + "_Judo"
+	if (Common_PlayerCostume != "") ImageName = ImageName + "_" + Common_PlayerCostume
 	if (Common_PlayerUnderwear == true) ImageName = "Underwear";
 	if (Common_PlayerNaked == true) ImageName = "Naked";
 	if (PlayerHasLockedInventory("Cuffs") == true) ImageName = ImageName + "_Cuffs";

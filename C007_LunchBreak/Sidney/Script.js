@@ -4,6 +4,7 @@ var C007_LunchBreak_Sidney_IntroText = "";
 var C007_LunchBreak_Sidney_LeaveIcon = "";
 var C007_LunchBreak_Sidney_AllowSmoke = false;
 var C007_LunchBreak_Sidney_CuteRemarkDone = false;
+var C007_LunchBreak_Sidney_HasEgg = false;
 var C007_LunchBreak_Sidney_IsRoped = false;
 var C007_LunchBreak_Sidney_IsGagged = false;
 var C007_LunchBreak_Sidney_IsBoundAndGagged = false;
@@ -38,8 +39,9 @@ function C007_LunchBreak_Sidney_CalcParams() {
 		OveridenIntroImage = "SidneySit" + Img + ".jpg";
 	}
 	
-	// Keep the status of Sindey
+	// Keep the status of Sidney
 	C007_LunchBreak_Sidney_IsBoundAndGagged = ((ActorHasInventory("Rope") || ActorHasInventory("Cuffs")) && (ActorHasInventory("Ballgag") || ActorHasInventory("TapeGag")));
+	C007_LunchBreak_Sidney_HasEgg = ActorHasInventory("VibratingEgg");
 	
 }
 
@@ -52,11 +54,8 @@ function C007_LunchBreak_Sidney_Load() {
 	C007_LunchBreak_Sidney_CalcParams();
 	
 	// If the player is submissive toward Sidney, she will get bullied
-	if ((ActorGetValue(ActorLove) <= 4) && (ActorGetValue(ActorSubmission) <= -2)) C007_LunchBreak_Sidney_CurrentStage = 100;
-
-	// If Sidney had the egg from before chapter 7, there's a special intro
-	if ((C007_LunchBreak_Sidney_CurrentStage == 0) && ActorHasInventory("VibratingEgg"))
-		OveridenIntroText = GetText("IntroEgg");
+	if ((ActorGetValue(ActorLove) <= 4) && (ActorGetValue(ActorSubmission) <= -2) && C007_LunchBreak_Sidney_CurrentStage == 0) 
+		C007_LunchBreak_Sidney_CurrentStage = 100;
 
 	// If we must put the previous text back
 	if ((C007_LunchBreak_Sidney_IntroText != "") && (C007_LunchBreak_Sidney_CurrentStage > 0)) {
@@ -71,7 +70,7 @@ function C007_LunchBreak_Sidney_Load() {
 }
 
 // Chapter 7 - Sidney Run
-function C007_LunchBreak_Sidney_Run() {
+function C007_LunchBreak_Sidney_Run() {	
 	BuildInteraction(C007_LunchBreak_Sidney_CurrentStage);
 }
 

@@ -13,3 +13,4 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 10,0,0,,Menu principal,"Bienvenue à l'Université du Bondage.|Amusez-vous bien, soyez curieux(se) et coquin(e).",0,0,0,
 20,0,0,,Anglais,,0,0,0,"SetLanguage(""EN"")"
 20,0,0,,Français (Chapitre 1)|Merci à gottspende!,,0,0,0,"SetLanguage(""FR"")"
+20,0,0,,Chinois (Menu seulement)|Merci à asdcvbgf!,,0,0,0,"SetLanguage(""CN"")"
