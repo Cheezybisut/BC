@@ -25,3 +25,68 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 40,0,0,,Let's do a fun game.|(Go play tennis.),,100,0,0,"PlayTennis(""Normal"")"
 40,0,0,,I will crush you!|(Go play tennis.),,100,0,0,"PlayTennis(""Hard"")"
 40,0,0,,On second thoughts.|I don't want to play.,"Alright then, see you later.|(She packs and leaves for tennis.)",90,0,0,EndLunch()
+100,0,0,TennisVictory,You remember the bet?|You will obey for lunch.,"I'm still not sure what you mean by that.|But sure, I will obey and pay for lunch.",110,0,1,
+100,0,0,TennisVictory,I play better when|there are stakes. ,"I'm still not sure what you have in mind.|But sure, I will pay for your meal.",110,0,0,
+100,0,0,TennisVictory,You played well.|I simply got lucky.,"Thanks!  I will practice more and get better.|For now, you will enjoy your free meal.",110,1,0,
+100,0,0,!TennisVictory,You have a visor.|I had sun in my face.,Don't make excuses like that.|I won the game and the bet fairly.,105,-1,0,
+100,0,0,!TennisVictory,You're way too|good for me.,Cheer up and start practicing then!|Next time you might win the bet.,105,0,-1,
+100,0,0,!TennisVictory,That was a|fun match.,Yes!  We need to do another one soon.|Next time you might win the bet.,105,0,0,
+105,0,0,,Yes Miss.  And I will|obey you for lunch.,Obey me?  You sound so submissive.|I will enjoy my free meal for sure.,110,0,-1,
+105,0,0,,You remember the|terms of the bet?,"(She laughs.)  Yes, you will obey me for lunch.|And I will certainly enjoy this free meal.",110,0,0,
+105,0,0,,I will be your slave|until lunch is over.,My slave?  It sounds so bad.|I will enjoy my free meal though.,110,-1,-1,
+110,0,0,,What are you eating?,"I don't know yet, something healthy.|Do you also have a healthy diet?",113,0,0,
+110,0,0,,What should I get?,Go for a salad or a vegan meal.|Do you have a healthy diet?,113,0,0,
+110,0,0,,It's a nice|place you found.,I don't come here often.|I rarely go eat with friends.,116,0,0,
+110,0,0,,This restaurant|looks alright.,I don't come here often.|I rarely go eat with friends.,116,0,0,
+113,0,0,,A healthy diet?|That's pretty lame.,Wrong.  A healthy diet is very important.|So what kind of career are you aiming for?,120,0,0,BadMatch()
+113,0,0,,I'm on a beer|and cake diet.,You should more serious about what you eat.|So what kind of career are you aiming for?,120,0,0,BadMatch()
+113,0,0,,I balance between|good and bad food.,I guess that's fine while you're young.|So what kind of career are you aiming for?,120,0,0,
+113,0,0,,I try to eat healthy|from time to time.,I guess that's fine when you're young.|So what kind of career are you aiming for?,120,0,0,
+113,0,0,,I try to eat|strictly vegan.,That's a very good commitment.|So what kind of career are you aiming for?,120,0,0,GoodMatch()
+113,0,0,,I count the calories|of all my meals.,That's a lot of work but it will pay off.|So what kind of career are you aiming for?,120,0,0,GoodMatch()
+116,0,0,,Well you found|a friend today.,(She smiles.)  That's very sweet of you.|So what kind of career are you aiming for?,120,1,0,GoodMatch()
+116,0,0,,Let's go together|often then.,Absolutely!  I would love that.|So what kind of career are you aiming for?,120,0,0,GoodMatch()
+116,0,0,,How come you don't|have many friends?,"I don't know, I guess I'm too shy.|What kind of career are you aiming for?",120,0,0,
+116,0,0,,You need more|friends then.,"I don't know, I guess I don't need friends.|What kind of career are you aiming for?",120,0,0,
+116,0,0,,So you're a|reject at school?,Let's just say I don't have many friends.|What kind of career are you aiming for?,120,0,0,BadMatch()
+116,0,0,,You sound like a|loser without friends.,Don't be so mean!  I'm not a loser.|What kind of career are you aiming for?,120,-1,0,BadMatch()
+120,0,0,,A musician.,Arlight.  And what's your favorite class?,130,0,0,
+120,0,0,,A doctor.,You could heal sport injuries.|What's your favorite class?,130,0,0,GoodMatch()
+120,0,0,,An athlete.,This is great!  Follow your dreams.|So what's your favorite class?,130,0,0,GoodMatch()
+120,0,0,,A teacher.,I'm also thinking about teaching gym.|So what's your favorite class?,130,0,0,GoodMatch()
+120,0,0,,An actor.,Arlight.  And what's your favorite class?,130,0,0,
+120,0,0,,A dominatrix.,Don't you know about the dangers of the|sex industry?  What's your favorite class?,130,0,0,BadMatch()
+120,0,0,,An architect.,Arlight.  And what's your favorite class?,130,0,0,
+120,0,0,,A farmer.,It will bring good food to our tables.|And what's your favorite class?,130,0,0,GoodMatch()
+120,0,0,,A programmer.,You want to stare at a screen all day?|what's your favorite class?,130,0,0,BadMatch()
+120,0,0,,I don't know yet.,Finding the right career isn't easy.|What's your favorite class?,130,0,0,
+130,0,0,,Math.,I must admit that math isn't my forte.|What do you do outside of college?,140,0,0,BadMatch()
+130,0,0,,Music.,That's nice.  And what do|you do outside of college?,140,0,0,
+130,0,0,,English.,I'm pretty good in English also.|What do you do outside of college?,140,0,0,GoodMatch()
+130,0,0,,Gym.,Nothing can beat gym class!|What do you do outside of college?,140,0,0,GoodMatch()
+130,0,0,,Chemistry.,That's nice.  And what do|you do outside of college?,140,0,0,
+130,0,0,,French.,That's nice.  And what do|you do outside of college?,140,0,0,
+130,0,0,,Art.,I guess you had fun in Julia's class today.|And what do you do outside of college?,140,0,0,GoodMatch()
+130,0,0,,History.,Great!  I'm studying the history of the olympics.|And what do you do outside of college?,140,0,0,GoodMatch()
+130,0,0,,Theatre.,I'm way too shy to act in a play.|What do you do outside of college?,140,0,0,BadMatch()
+130,0,0,,I don't know.,That's pretty hard to believe.|What do you do outside of college?,140,0,0,BadMatch()
+140,0,0,,Basketball.,Sweet!  You should join the college team.|(The waitress interrupts and asks for your order.),150,0,0,GoodMatch()
+140,0,0,,Rock music.,My roommate plays it way too loud.|(The waitress interrupts and asks for your order.),150,0,0,BadMatch()
+140,0,0,,Video games.,I guess some systems like the WII are fine.|(The waitress interrupts and asks for your order.),150,0,0,
+140,0,0,,Cheerleading.,Nice!  You should join the college team.|(The waitress interrupts and asks for your order.),150,0,0,GoodMatch()
+140,0,0,,Going to parties.,Loud music and beer aren't great for you.|(The waitress interrupts and asks for your order.),150,0,0,BadMatch()
+140,0,0,,Role playing games.,"Believe it or not, I used to LARP back then.|(The waitress interrupts and asks for your order.)",150,0,0,GoodMatch()
+140,0,0,,Getting drunk.,Binge drinking is horrible for your health.|(The waitress interrupts and asks for your order.),150,0,0,BadMatch()
+140,0,0,,Classical music.,I guess it can be quite relaxing.|(The waitress interrupts and asks for your order.),150,0,0,
+140,0,0,,Making love.,(She blushes red.)  I guess it's healthy.|(The waitress interrupts and asks for your order.),150,0,0,GoodMatch()
+140,0,0,,I don't have|any hobbies.,Check the school billboard for an activity.|(The waitress interrupts and asks for your order.),150,0,0,
+150,0,0,,A salad please.,A very healthy choice.|(She orders the same.),160,0,0,GoodMatch()
+150,0,0,,A steak please.,I guess you can have some proteins|after a match.  (She orders a small salad.),160,0,0,
+150,0,0,,A soup please.,A very healthy choice.|(She orders the same.),160,0,0,GoodMatch()
+150,0,0,,A hamburger please.,I guess you can have some proteins|after a match.  (She orders a small salad.),160,0,0,
+150,0,0,,A nacho platter please.,I guess you can have some proteins|after a match.  (She orders a small salad.),160,0,0,
+150,0,0,,Only cheesecake please.,That's pretty unhealthy.|(She orders the same.),160,0,0,BadMatch()
+150,0,0,,Soup and salad please.,A very healthy choice.|(She orders the same.),160,0,0,GoodMatch()
+150,0,0,,A chili dog please.,That's pretty unhealthy.|(She orders the same.),160,0,0,BadMatch()
+150,0,0,,Fettuccine alfredo please.,I guess you can have some proteins|after a match.  (She orders a small salad.),160,0,0,
+150,0,0,,Only water please.,You have lots of self-control.|(She orders a small salad.),160,0,0,GoodMatch()

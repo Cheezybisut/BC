@@ -21,3 +21,12 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 90,0,0,,(Jennifer is gone.),JenniferIntroGone.jpg
 100,0,0,TennisVictory,"(After the game you walk to a cafe.)|You played well, you deserve a free lunch.",JenniferPlayerLunch0.jpg
 100,0,0,!TennisVictory,"(After the game you walk to a cafe.)|Don't worry about losing, I've played for years.",JenniferPlayerLunch0.jpg
+105,0,0,,,JenniferPlayerLunch0.jpg
+110,0,0,,,JenniferPlayerLunch0.jpg
+113,0,0,,,JenniferPlayerLunch0.jpg
+116,0,0,,,JenniferPlayerLunch0.jpg
+120,0,0,,,JenniferPlayerLunch0.jpg
+130,0,0,,,JenniferPlayerLunch0.jpg
+140,0,0,,,JenniferPlayerLunch0.jpg
+150,0,0,,,JenniferPlayerLunch0.jpg
+160,0,0,,,JenniferPlayerLunch0.jpg

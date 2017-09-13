@@ -96,11 +96,24 @@ function C007_LunchBreak_Jennifer_EndLunch() {
 	C007_LunchBreak_ActorSelect_JenniferAvail = false;
 }
 
-// Chapter 7 - Jennifer Play Tennis
+// Chapter 7 - Jennifer Play Tennis (adds 5 minutes)
 function C007_LunchBreak_Jennifer_PlayTennis(Difficulty) {
+	CurrentTime = CurrentTime + 300000;
 	C007_LunchBreak_Jennifer_IntroText = "";
 	C007_LunchBreak_Jennifer_LeaveIcon = "";
 	PlayerClothes("Tennis");
 	C007_LunchBreak_Jennifer_TennisDifficulty = Difficulty;
 	SetScene(CurrentChapter, "JenniferTennis");
+}
+
+// Chapter 7 - Jennifer Good Match
+function C007_LunchBreak_Jennifer_GoodMatch() {
+	C007_LunchBreak_Jennifer_MatchCount++;
+	C007_LunchBreak_Jennifer_CalcParams();
+}
+
+// Chapter 7 - Jennifer Bad Match
+function C007_LunchBreak_Jennifer_BadMatch() {
+	C007_LunchBreak_Jennifer_MatchCount--;
+	C007_LunchBreak_Jennifer_CalcParams();
 }
