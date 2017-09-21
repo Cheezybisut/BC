@@ -121,6 +121,35 @@ function PlayerHasInventory(QueryInventory) {
 	
 }
 
+// Restrains the player randomly from her inventory
+function PlayerRandomBondage() {
+	
+	// Selects the restrain type
+	var R = "";
+	if (PlayerHasInventory("Rope") && PlayerHasInventory("Cuffs") && PlayerHasInventory("CuffsKey")) { if (Math.floor(Math.random() * 2) == 1) R = "Rope"; else R = "Cuffs"; }
+	if (PlayerHasInventory("Rope") && !PlayerHasInventory("Cuffs")) { R = "Rope"; }
+	if (!PlayerHasInventory("Rope") && PlayerHasInventory("Cuffs") && PlayerHasInventory("CuffsKey")) { R = "Cuffs"; }
+
+	// Selects the gag type
+	var G = "";
+	if (PlayerHasInventory("Ballgag") && PlayerHasInventory("TapeGag")) { if (Math.floor(Math.random() * 2) == 1) G = "Ballgag"; else G = "TapeGag"; }
+	if (PlayerHasInventory("Ballgag") && !PlayerHasInventory("TapeGag")) { G = "Ballgag"; }
+	if (!PlayerHasInventory("Ballgag") && PlayerHasInventory("TapeGag")) { G = "TapeGag"; }
+
+	// Applies them on the player
+	if (R != "") { PlayerRemoveInventory(R, 1); PlayerLockInventory(R); }
+	if (G != "") { PlayerRemoveInventory(G, 1); PlayerLockInventory(G); }
+	
+}
+
+// Release the player from bondage and restore it's inventory
+function PlayerReleaseBondage() {
+	if (PlayerHasLockedInventory("Cuffs")) { PlayerUnlockInventory("Cuffs"); PlayerAddInventory("Cuffs", 1); }
+	if (PlayerHasLockedInventory("Rope")) { PlayerUnlockInventory("Rope"); PlayerAddInventory("Rope", 1); }
+	if (PlayerHasLockedInventory("Ballgag")) { PlayerUnlockInventory("Ballgag"); PlayerAddInventory("Ballgag", 1); }
+	if (PlayerHasLockedInventory("TapeGag")) { PlayerUnlockInventory("TapeGag"); }
+}
+
 // Returns the name of the inventory item that was clicked in the bottom menu
 function GetClickedInventory() {
 	
