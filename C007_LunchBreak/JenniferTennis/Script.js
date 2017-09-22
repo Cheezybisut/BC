@@ -20,6 +20,7 @@ function C007_LunchBreak_JenniferTennis_KeyDown() {
 
 // Chapter 7 - Jennifer Tennis Fight End
 function C007_LunchBreak_JenniferTennis_FightEnd(Victory) {
+	CurrentTime = CurrentTime + 300000;
 	C007_LunchBreak_Jennifer_TennisVictory = Victory;
 	if (Victory && (C007_LunchBreak_Jennifer_TennisDifficulty == "Normal")) C007_LunchBreak_Jennifer_MatchCount++;
 	if (Victory && (C007_LunchBreak_Jennifer_TennisDifficulty == "Hard")) C007_LunchBreak_Jennifer_MatchCount = C007_LunchBreak_Jennifer_MatchCount + 2;

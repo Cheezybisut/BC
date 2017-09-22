@@ -391,8 +391,8 @@ function C007_LunchBreak_Jennifer_RacketHit(Quality) {
 		C007_LunchBreak_Jennifer_CurrentStage = 470;
 		C007_LunchBreak_ActorSelect_BonusDone = true;
 		ActorChangeAttitude(0, -1);
-		if (PlayerHasLockedInventory("Cuffs") || PlayerHasLockedInventory("Rope")) C007_LunchBreak_Jennifer_CurrentStage = GetText("ReleaseRacket");
-		else C007_LunchBreak_Jennifer_CurrentStage = GetText("StopRacket");
+		if (PlayerHasLockedInventory("Cuffs") || PlayerHasLockedInventory("Rope")) OveridenIntroText = GetText("ReleaseRacket");
+		else OveridenIntroText = GetText("StopRacket");
 		PlayerReleaseBondage();
 	}
 }

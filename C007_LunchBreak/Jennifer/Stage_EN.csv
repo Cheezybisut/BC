@@ -119,7 +119,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 210,0,0,,"Remember, you're|my slave for now.","Don't say slave, it sounds so bad.|It's fine though, you can be my boss.",220,-1,0,
 210,0,0,,You have to obey|on everything I say.,"(She nods.)  Alright, but there are limits.",220,0,0,
 210,0,8,,(Grab and strip her.)|(1 minute),(She remains speechless as you|grab her and force her to strip.),240,-1,1,
-215,0,0,,Let's go back sweetie.|(Back to college.),,0,0,0,EndChapter()
+215,0,0,,Let's go back sweetie.|(Back to college.),,0,1,0,EndChapter()
 220,0,0,,Do a running lap.|(1 minute),Yes coach!  (She runs around the court.),220,0,0,Exercise()
 220,0,0,,Do five push-ups.|(1 minute),Yes coach!  (She does five push-ups.),220,0,0,Exercise()
 220,0,0,,"Alright, strip to|your underwear.",Strip?  But there will be people soon.,230,-1,0,
@@ -145,7 +145,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 250,0,0,,Let's do this|again someday.,I'm not really sure about that.|Should we go back to school?,260,0,0,
 250,0,0,,Next time will|you tie me up?,"(She giggles.)  Sure, why not?|Should we go back to school?",260,0,-1,
 250,0,0,,Get used to be tied up.|It will happen again.,"Oh, not in public like that I hope.|Should we head back to school?",260,0,1,
-260,8,0,,One last kiss?|(1 minute),(You grab each other in a loving|embrace and kiss passionately.),270,1,0,
+260,8,0,,One last kiss?|(1 minute),(You grab each other in a loving|embrace and kiss passionately.),270,1,0,BonusDone()
 260,0,0,,Let's go back.|(Back to college.),,0,0,0,EndChapter()
 270,0,0,,(Kiss her again.)|(1 minute),(You both close your|eyes and keep on kissing.),270,0,0,
 270,0,0,,Let's go back.|(Back to college.),,0,0,0,EndChapter()
@@ -190,7 +190,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 450,0,0,,(Bow your head|and bend down.),"Take a deep breath, it might be painful.|(She raises her racket, ready to hit you.)",460,0,-1,
 450,0,0,,You're doing better.|(Bend down.),"Take a deep breath, it might be painful.|(She raises her racket, ready to hit you.)",460,0,0,
 450,0,1,,"Forget it, let's head|back.  (Back to college.)",,0,0,0,EndChapter()
-460,0,0,,(Accept your punishment.)|(1 minute),(You close your eyes while she hits|you pretty good with her racket.),460,0,0,RacketHit(2)
+460,0,0,,(Close your eyes.)|(1 minute),(You close your eyes while she hits|you pretty good with her racket.),460,0,0,RacketHit(2)
 460,0,0,,(Raise your butt.)|(1 minute),(You position yourself to be hit and she|lands a really good smash on your butt.),460,0,0,RacketHit(3)
 460,0,0,,(Try to dodge her.)|(1 minute),(You move at the last second but|she's still able to hit you clumsily.),460,0,0,RacketHit(1)
 460,0,0,HasRestrainsAvail,Wait!  Check in my|bag.  (1 minute),(She checks in your bag and|find some restrains for you.),460,0,0,CheckBag()
