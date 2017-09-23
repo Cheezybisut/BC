@@ -1,0 +1,48 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,Psssst.,(Elle chuchote) Quoi ?,10,0,0,
+0,0,0,,Excuse-moi.,(Elle chuchote) On ne devrait pas parler plus tard ?,10,0,-1,
+0,0,0,,Hé ! Jolis yeux.,(Elle rougit et chuchote) Qui ? Moi ?,10,1,0,
+10,0,0,,Est-ce que tu t'ennuies|autant que moi ?,(Elle à l'air confuse.) S'ennuyer ? Comment quelqu'un|peut être ennuyé par les dérivées ?,20,-1,0,
+10,0,0,,Est-ce que ce cours|ne finira jamais ?,(Elle chuchote.) Il termine à 9H.|Je vois que les maths ne sont pas ton point fort.,20,0,0,
+10,0,0,,Peux-tu m'aider|avec ces problèmes ?,(Elle te fait non de la tête.) Pas maintenant.|Mais peut être que je pourrais t'aider plus tard ce soir.,20,0,-1,
+10,0,0,,Tu sembles|adorer cette classe.,(Elle hoche la tête.) C'est le cas ! Madame Mildred|peu paraître dûre mais c'est une bonne enseignante.,20,0,0,
+20,0,0,,"Ne veux-tu pas faire|un tour dehors ?","(Elle a l'air surprise.) Dehors ? Sortir de la classe ? |Qu'est-ce que tu as en tête ?",30,0,0,
+20,0,0,,"Admets-le, il y a de|meilleures choses à faire.",De meilleures choses ? Qu'est-ce que tu as en tête ?,30,0,0,
+20,0,0,,Une mignonne comme toi|devrait s'amuser plus.,S'amuser plus ? Qu'est-ce que tu as en tête ?,30,0,1,
+20,0,0,,"Tu m'ennuies,|Faisons autre chose.",Autre chose ? Qu'est-ce que tu as en tête ?,30,-1,0,
+30,0,0,,Aimerais-tu voir la prof|avec des cordes légères ?,(Ses yeux s'élargissent et elle rougit.)|Mettre Madame Mildred en bondage ? Nous ?,40,1,0,
+30,0,0,,On devrait kidnapper|la professeur.,(Ses yeux s'élargissent et elle rougit.)|Pour de vrai ? La ligoter en classe ?,40,0,0,
+30,0,0,,Nous devons battre|et ligoter la prof.,"(Elle secoue la tête de gauche à droite.) Oh mon dieu, |non, on peut pas blesser Madame Mildred.",40,-1,0,
+30,0,0,,"Petite, tu m'aideras|à kidnapper Mildred.",(Ses yeux s'élargissent et elle rougit.)|Quoi ? La ligoter devant toute la classe ?,40,0,1,
+40,4,0,,Tu peux le faire !|Pour l'amitié. (Clin d'oeil.),"(Elle hoche la tête.) D'accord, pour l'amitié.|Je t'aiderai, mais tu prends les devants.",50,0,0,AgreeHelp()
+40,0,4,,"""Soumise"",|Tu le feras.","(Elle baisse la tête.) Oui, Madame.|S'il vous plaît, prenez-les devants et j'aiderai.",50,0,0,AgreeHelp()
+40,0,0,,"Oui, m'aideras-tu ?","(Elle secoue la tête de gauche à droite.)|Je ne peux pas faire ça, J'aime bien Madame Mildred.",40,0,0,
+40,0,0,,"Oui, mais laisse-moi|y réfléchir.","(Elle hausse les épaules)|D'accord, mais tu devras être très convaincante.",40,0,0,
+100,0,0,SubdueRemarkReady,"Tu aimerais être ligotée|comme elle ?","Moi ? (Elle rit nerveusement.) Ou... No...|Ça ne serait pas convenable.",100,0,1,SubdueRemark()
+100,0,4,SubdueRemarkReady,"Admets-le ""Soumise"".|Tu l'envies.","Je... C'est... Euh... Oui, Madame.|(Elle baisse la tête.)",100,0,1,SubdueRemark()
+100,0,0,SubdueRemarkReady,"J'ai fait ce ravissant|bondage pour toi.","(She rougit.) Pour moi ?|(Elle rit.) C'est tellement coquin.",100,1,0,SubdueRemark()
+100,0,0,SubdueRemarkReady,"Nous avons un cours|bien différent ce matin.","Est-ce que ce sujet sera sur le prochain contrôle ?|(Elle rit.)",100,0,0,SubdueRemark()
+100,0,0,Common_PlayerGagged,"@Uuuummph, mmph !","(Elle met sa main sur sa bouche|pour s'empêcher de rire.)",100,0,0,
+100,0,0,Common_PlayerGagged,"(Tu mâches le bâillon.)","(Elle te regarde et semble|apprécier le spectacle.)",100,0,0,
+100,1,0,Common_PlayerGagged,"(Tu essayes de montrer|du doigt la boule.)","(Elle chuchote) Je t'aiderai après le cours.",100,0,0,
+100,-1,0,Common_PlayerGagged,"(Tu essayes de montrer|du doigt la boule.)","(Elle te regarde, lève son pouce puis elle rit.)",100,0,0,
+100,0,0,Common_PlayerRestrained,"(Tu tires sur tes liens.)","(Elle tourne sa tête de gauche à droite.)",100,0,0,
+100,0,-2,BowRemarkReady,"(Tu baisses la tête.)","(Elle chuchote.) Tu es tellement|mignonne attachée et bâillonée.",100,1,-1,BowRemark()
+110,0,0,Common_PlayerGagged,"@Uuuummph, mmph !",(Elle rit et marmonne.),110,0,0,
+110,0,0,Common_PlayerNotRestrained,(Tu la débâillonnes.)|(1 minute),"(Tu détaches le bâillon et retires la grosse boule.)|Merci. C'était vraiment inconfortable.",100,0,0,Ungag()
+130,0,0,Common_PlayerGagged,"@Uuuummph, mmph !",(Elle rit et marmonne.),130,0,0,
+130,0,0,Common_PlayerNotRestrained,(Tu la débâillonnes.)|(1 minute),"(Tu détaches le bâillon et retires la grosse boule.)|Merci. C'était vraiment inconfortable.",120,0,0,Ungag()
+140,0,0,Common_PlayerNotRestrained,(Tu la chatouilles.)|(1 minute),"(Tu la chatouilles et elle rit comme une folle.)|Ha ha HA HA ha ! S'il te plaît, arrête ! S'il te plaît.",140,0,0,Tickle()
+140,0,0,Common_PlayerNotRestrained,(Tu la détaches.)|(1 minute),(Tu défais les noeuds et elle se rhabille.)|Tu sais bien faire les noeuds. (Elle rit.),100,0,0,Untie()
+140,0,0,BondageHugReady,Aimerais-tu faire un calin|à Sarah ? (1 minute),(Elle donne un chaleureux câlin à Sarah|et susurre quelque chose de doux dans son oreille.),160,0,0,BondageHug()
+150,0,0,Common_PlayerGagged,"@Uuuummph, mmph !",(Elle rit et marmonne.),150,0,0,
+150,0,0,Common_PlayerNotRestrained,(Tu la chatouilles.)|(1 minute),"(Tu la chatouilles et elle rit comme une folle|dans son bâillon, elle devient cramoisie juste après.)",150,0,0,Tickle()
+150,0,0,Common_PlayerNotRestrained,(Tu la débâillonnes.)|(1 minute),(Tu détaches le bâillon et retires la grosse boule.)|Merci. C'était vraiment inconfortable.,140,0,0,Ungag()
+150,0,0,Common_PlayerNotRestrained,(Tu la détaches.)|(1 minute),(Tu défais les noeuds et elle se rhabille.)|(Elle t'indique les sangles de son bâillon.),110,0,0,Untie()
+150,0,0,BondageHugReady,"Aimerais-tu faire un câlin|à Sarah ? (1 minute)","(Elle hésite mais se déplace lentement vers son amie|pour lui donner un câlin chaleureux.)",170,0,0,BondageHug()
+160,0,0,,Aimerais-tu|l'embrasser ? (1 minute),"Sarah, tu veux bien m'embrasser ?|(Elle se rapproche et embrasse Sarah.)",160,0,0,KissSarah()
+160,0,0,,Vous êtes amoureuse ?,Je... Euh... C'est... (Elle devient cramoisie.),160,0,0,
+160,0,0,Common_PlayerNotRestrained,(Tu les sépares.)|(1 minute),(Elle murmure quelque chose à Sarah|et elles se séparent.),140,0,0,Separate()
+170,0,0,,Vous faites un joli|couple de bondage.,(Elle rougit et détourne le regard.),170,0,0,
+170,0,0,Common_PlayerNotRestrained,(Tu les sépares.)|(1 minute),(Elle regarde Sarah une dernière fois|et retourne s'assoir sur sa chaise.),150,0,0,Separate()
+170,0,0,Common_PlayerNotRestrained,(Tu la détaches.)|(1 minute),"(Tu détaches le bâillon et retires la grosse boule.)|Merci. C'était vraiment inconfortable.",160,0,0,Ungag()
