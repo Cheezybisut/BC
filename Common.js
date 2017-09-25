@@ -125,8 +125,8 @@ function ReadCSV(Array, FileName) {
 
 // Returns a working language if translation isn't fully ready
 function GetWorkingLanguage() {
-	if ((CurrentLanguageTag == "FR") && ((CurrentChapter == "C000_Intro") || (CurrentChapter == "C001_BeforeClass") || (CurrentChapter == "C999_Common"))) return "FR";
-	if ((CurrentLanguageTag == "CN") && (CurrentChapter == "C000_Intro")) return "CN";
+	if ((CurrentLanguageTag == "FR") && ((CurrentChapter == "C000_Intro") || (CurrentChapter == "C001_BeforeClass") || (CurrentChapter == "C002_FirstClass") || (CurrentChapter == "C999_Common"))) return "FR";
+	if ((CurrentLanguageTag == "CN") && ((CurrentChapter == "C000_Intro") || (CurrentChapter == "C005_GymClass") || (CurrentChapter == "C999_Common"))) return "CN";
 	return "EN";
 }
 
@@ -208,7 +208,7 @@ function GetText(Tag) {
 		Tag = Tag.trim().toUpperCase();
 		for (var T = 0; T < CurrentText.length; T++)
 			if (CurrentText[T][TextTag].trim().toUpperCase() == Tag)
-				return CurrentText[T][TextContent];
+				return CurrentText[T][TextContent].trim();
 		
 		// Returns an error message
 		return "MISSING TEXT FOR TAG: " + Tag;
