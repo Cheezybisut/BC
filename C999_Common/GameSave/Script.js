@@ -11,8 +11,13 @@ function C999_Common_GameSave_Load() {
 
 // Chapter Common - GameSave Run
 function C999_Common_GameSave_Run() {
+	
+	// Build the game saving screen	
 	SaveStateSlotSummary();
 	BuildInteraction(C999_Common_GameSave_CurrentStage);
+	var ctx = document.getElementById("MainCanvas").getContext("2d");
+	DrawText(ctx, GetText("SaveGame"), 900, 420, "black");
+	
 }
 
 // Chapter Common - GameSave Click

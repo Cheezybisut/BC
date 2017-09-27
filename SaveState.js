@@ -19,7 +19,7 @@ function SaveStateGetSummary(SlotNumber) {
 		if (localStorage.getItem("SaveGameVersion" + SN) == SaveGameVersion) {
 			var SaveStateChapter = localStorage.getItem("CurrentChapter" + SN);
 			var SaveStateDateTime = localStorage.getItem("SaveGameDateTime" + SN);
-			Summary = "Slot " + SN + " - Chapter " + SaveStateChapter.substring(3, 4) + "|" + SaveStateDateTime;
+			Summary = GetText("Slot") + " " + SN + " - " + GetText("Chapter") + " " + SaveStateChapter.substring(3, 4) + "|" + SaveStateDateTime;
 		}
 		
 	// Returns the summary
@@ -31,7 +31,7 @@ function SaveStateGetSummary(SlotNumber) {
 function SaveStateSlotSummary() {
 
 	// If the current stage is loaded
-	if (CurrentStage != null)
+	if ((CurrentStage != null) && (CurrentText != null))
 		if (CurrentStage[1][StageInteractionText] == "Slot 1") {
 
 			// For each save slots, we load the summary

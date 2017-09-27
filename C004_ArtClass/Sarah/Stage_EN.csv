@@ -49,7 +49,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 180,0,0,Common_PlayerNotRestrained,(Ungag her.)|(1 minute),(She smiles at you.)  This tape|was the best idea I've ever had.,160,0,0,Ungag()
 180,0,0,Common_PlayerNotRestrained,(Tickle her.)|(1 minute),(She giggles but isn't impressed by your tickling.),180,0,0,
 200,0,0,,Do you want to|climax subbie girl?,"(She nods slowly, trying to control herself.)",210,0,1,
-200,0,0,,So this slut|wants to cum?,"(She her head from left to right, then|from up to down, trying to control herself.)",210,-1,0,
+200,0,0,,So this slut|wants to cum?,"(She shakes her head from left to right, then|from up to down, trying to control herself.)",210,-1,0,
 200,0,0,,You seem ready|to reach heaven.,"(She nods happily, trying to control herself.)",210,1,0,
 200,0,0,,Poor girl.|(Help her up.) (1 minute),(You help her stand up as she|slowly regains control of herself.),170,0,0,
 210,0,0,,You deserve it.|(Pleasure her.) (1 minute),"(You play with her crotch rope and she gets|a quiet orgasm.  Some notice it, other don't.)",220,1,0,Orgasm()
@@ -61,7 +61,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 220,0,0,,Next time I'll be tied up.|(Help her up.) (1 minute),(She giggles and trembles while you pick|her up and raise her on her feet.),170,0,-1,
 220,0,0,,(Stay silent and help|her stand up.) (1 minute),(She still trembles while you pick|her up and raise her on her feet.),170,0,0,
 250,0,0,,Do you want to|climax subbie girl?,"(She nods slowly, trying to control herself.)",260,0,1,
-250,0,0,,So this slut|wants to cum?,"(She her head from left to right, then|from up to down, trying to control herself.)",260,-1,0,
+250,0,0,,So this slut|wants to cum?,"(She shakes her head from left to right, then|from up to down, trying to control herself.)",260,-1,0,
 250,0,0,,You seem ready|to reach heaven.,"(She nods happily, trying to control herself.)",260,1,0,
 250,0,0,,Poor girl.|(Help her up.) (1 minute),(You help her stand up as she|slowly regains control of herself.),180,0,0,
 260,0,0,,You deserve it.|(Pleasure her.) (1 minute),"(You play with her crotch rope and she gets|a quiet orgasm.  Some notice it, other don't.)",270,1,0,Orgasm()
