@@ -1,0 +1,5 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,Common_PlayerNotRestrained,Le sac du professeur Yuki|se trouve là sans surveillance.,Bag.jpg
+0,0,0,Common_PlayerRestrained,Le sac du professeur Yuki se trouve là sans surveillance.|Tu ne peux l'ouvrir avec tes menottes sans être vue.,Bag.jpg
+10,0,0,Common_PlayerNotRestrained,Le sac du professeur est toujours ouvert.,Bag.jpg
+10,0,0,Common_PlayerRestrained,Le sac du professeur est toujours ouvert.|Tu ne peux l'ouvrir avec tes menottes sans être vue.,Bag.jpg
