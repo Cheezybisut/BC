@@ -1,0 +1,35 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,Ligoter les autres étudiantes est strictement interdit.|J'espère que tu tireras une leçon de cette retenue.,YukiFace.jpg
+0,0,0,Fighting,Se battre à l'école est inacceptable jeune fille.|J'espère que cette retenue te servira de leçon.,YukiFace.jpg
+0,0,0,Sleepy,"Ce que tu as fait est inacceptable jeune fille.|(Elle baille bruyamment.)",YukiSleepy.jpg
+10,0,0,,Vas-tu essayer d'être une bonne étudiante ?,YukiFace.jpg
+10,0,0,Sleepy,Vas-tu essayer d'être une bonne étudiante ?,YukiSleepy.jpg
+20,0,0,,Peux-tu te tenir tranquille jusqu'à la fin de la retenue ?,YukiFace.jpg
+20,0,0,Sleepy,Peux-tu te tenir tranquille jusqu'à la fin de la retenue ?,YukiSleepy.jpg
+30,0,0,,Qu'est-ce que tu as dans ta main ?,YukiFace.jpg
+30,0,0,Sleepy,Qu'est-ce que tu as dans ta main ?,YukiSleepy.jpg
+40,0,0,,,YukiFace.jpg
+40,0,0,Sleepy,,YukiSleepy.jpg
+50,0,0,,"S'il te plaît, reste tranquille jeune fille.|Ta retenue finira à neuf heure.",YukiFace.jpg
+50,0,0,Sleepy,"(Elle baille et lutte pour rester éveillée.)|(La pilule peut mettre quelques minutes avant d'agir.)",YukiSleepy.jpg
+60,0,0,,"S'il te plaît, reste tranquille jeune fille.|Ta retenue finira à neuf heure.",YukiFace.jpg
+60,0,0,Sleepy,"(Elle baille et lutte pour rester éveillée.)|(La pilule peut mettre quelques minutes avant d'agir.)",YukiSleepy.jpg
+70,0,0,,"Ce bâillon vous rendra silencieuse mademoiselle.|Votre retenue finira à neuf heure.",YukiFace.jpg
+70,0,0,Sleepy,"(Elle baille et lutte pour rester éveillée.)|(La pilule peut mettre quelques minutes avant d'agir.)",YukiSleepy.jpg
+100,0,0,,(La professeur Yuki dors profondément.),YukiSleep.jpg
+100,0,0,EggInside,(La professeur Yuki dors profondément.|Elle tremble et gémit aléatoirement à cause de l'oeuf.),YukiSleep.jpg
+110,0,0,,(La professeur Yuki dors profondément|en sous-vêtements.),YukiStrip.jpg
+110,0,0,EggInside,(La professeur Yuki dors profondément.|Elle tremble et gémit aléatoirement à cause de l'oeuf.),YukiStrip.jpg
+120,0,0,,(La professeur Yuki dors menottée en sous-vêtements.),YukiCuffs.jpg
+120,0,0,EggInside,(La professeur Yuki dors menottée en sous-vêtements.|Elle tremble et gémit aléatoirement à cause de l'oeuf.),YukiCuffs.jpg
+130,0,0,,(La professeur Yuki dors menottée en sous-vêtements.),YukiLay.jpg
+130,0,0,EggInside,(La professeur Yuki dors menottée en sous-vêtements.|Elle tremble et gémit aléatoirement à cause de l'oeuf.),YukiLay.jpg
+200,0,0,,Qu'est-ce qui s'est passé ici ? Est-ce que je me suis endormi ?,YukiSleepy.jpg
+210,0,0,,Je me suis endormi ? Qui m'a déshabillé ?,YukiSleepyStrip.jpg
+220,0,0,,Que s'est-il passé ici ? Je me suis endormi ?|Qui m'a déshabillé et menotté ?,YukiAwakeCuffs.jpg
+230,0,0,,Tu es en train de t'attirer de plus en plus d'ennuis.|Retire-moi ces menottes maintenant !,YukiAwakeCuffs.jpg
+250,0,0,,Reste tranquille durant ta retenue.,YukiFace.jpg
+250,0,0,EggInside,Dis donc ! Il fait pas un peu trop chaud ici ?|(Elle semble transpirer à cause de l'oeuf.),YukiFace.jpg
+260,0,0,,(Elle est toujours furieuse contre toi et t'ignore.),YukiFace.jpg
+260,0,0,EggInside,(Elle est toujours furieuse contre toi et t'ignore.)|(Elle semble transpirer beaucoup à cause de l'oeuf.),YukiFace.jpg
+270,0,0,,(Yuki est partie.),YukiGone.jpg

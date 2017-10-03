@@ -1,0 +1,3 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+10,0,0,,(Tu casses la pilule.),Tu casses la pilule et la mets dans le verre|elle se dissout rapidement.,0,0,0,BreakPill()
+10,0,0,,(Tu gardes la pilule.),Tu gardes la pilule.,0,0,0,

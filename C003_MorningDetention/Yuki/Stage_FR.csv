@@ -1,0 +1,68 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,Oui M'dame.|Je suis désolée.,Bien. dorénavant tu seras une bonne étudiante ?,10,1,-1,
+0,0,0,,"Je sais, je sais.|Pas besoin de le répèter.","Mademoiselle, vous avez un mauvais comportement.|Allez-vous essayer d'être une bonne étudiante ?",10,-1,0,
+0,0,0,,Toute la faute|revient à sidney.,C'est aussi de votre faute mademoiselle.|Allez-vous essayer d'être une bonne étudiante ?,10,0,0,
+0,0,0,Fighting,Je me suis simplement|opposé à Sidney.,"Il n'y a aucune excuse valable pour se battre.|Dorénavant, seras-tu une bonne étudiante ?",10,0,0,
+0,0,0,Bondage,Admettez-le ! Vous pensiez|que c'était plutôt sexy.,"Jeune fille, ce n'est pas convenable.|Dorénavant, seras-tu une bonne étudiante ?",10,0,1,
+10,0,0,,"Oui, je ne causerai|plus aucun problème.",Très bien. Peux-tu te tenir tranquille|jusqu'à la fin de la retenue ?,20,0,0,
+10,0,0,,"Si Sidney peux rester|tranquille, je le ferai.","Mmm, bien. Peux-tu te tenir tranquille|jusqu'à la fin de la retenue ?",20,0,0,
+10,0,0,,Montrez-moi une|bonne prof avant.,Tu as vraiment besoin de plus de discipline.|Peux-tu te tenir tranquille jusqu'à la fin de la retenue ?,20,-1,0,
+10,0,0,,Oui mais seulement parce|que vous êtes aimable.,Très bien. Peux-tu te tenir tranquille|jusqu'à la fin de la retenue ?,20,1,0,
+20,0,0,,Rester tranquille une|heure ? C'est impossible.,"Au moins essaye, ça passera vite. J'ai quelques coups|de fil à passer, reste tranquille durant ces moments-là.",40,0,1,
+20,0,0,,"Ouais, je suppose.|Je peux rester tranquille.",Bien. J'ai quelques coups de fil à passer.|Reste silencieuse.,40,0,0,
+20,0,0,,Je parlerai quand|je le voudrais.,"Nous avons les moyens de te faire taire.|J'ai quelques coups de fil à passer, reste tranquille.",40,-1,1,
+20,0,0,,Oui M'dame.|Je serais sage.,Très bien. J'ai quelques coups de fil à passer.|Reste silencieuse s'il te plaît.,40,1,-1,
+30,0,0,,Ce n'est pas|vos affaires.,"Jeune fille, donne moi ça tout de suite.|(Elle saisit tes objets et les confisque.)",40,-1,0,Confiscate()
+30,0,0,,J'ai trouvé ceci|dans le couloir.,"Merci jeune fille, c'est bien aimable de ta part.|(Elle sourit et confisque tes objets.)",40,1,0,Confiscate()
+30,0,0,,Ce n'est rien.|(Tu caches l'objet),"Mmm, bien. Je pensais avoir vu quelque chose.|Reste tranquille, j'ai quelques coups de fil à passer.",40,0,0,
+50,0,0,Common_PlayerNotRestrained,(Tu essayes de la|déranger.) (1 minute),Jeune fille. Tu ferais mieux d'arrêter tout de suite|ou je devrais te menotter.,50,-1,0,Annoyed()
+60,0,0,Common_PlayerRestrained,C'est quoi ce bordel ! Vous|pouvez pas me menotter.,Je peux même faire mieux. (Elle s'en va et revient|avec un morceau de ruban adhésif pour ta bouche.),60,0,0,GagPlayer()
+70,0,0,Common_PlayerGagged,@Uhmma huhme !,(Elle t'ignore.),70,0,0,
+70,0,0,Common_PlayerGagged,(Tu lui fais les yeux doux.),(Elle t'ignore.),70,0,0,
+100,0,0,Common_PlayerRestrained,(Tu recherches la clé.)|(1 minute),Yuki ne semble pas avoir la clé.,100,0,0,SearchCuffKeys()
+100,0,0,Common_PlayerNotRestrained,(Tu la déshabilles.)|(1 minute),Tu la déshabilles prudemment pour ne pas la réveiller.,110,0,0,
+100,0,0,Common_PlayerNotRestrained,(Tu t'échappes de|la salle de retenue.),,100,0,0,Escape()
+100,0,0,,(Tu la réveilles.)|(1 minute),(Tu la secoue jusqu'à ce qu'elle se réveille.)|Hein ? Quoi ? Qu'est-ce qui s'est passé ?,200,0,0,NoLeave()
+110,0,0,Common_PlayerNotRestrained,(Tu la rhabilles.)|(1 minute),Tu la rhabilles prudemment pour ne pas la réveiller.,100,0,0,
+110,0,0,CanSearch,(Tu fouilles dans ses|affaires.) (1 minute),Tu trouves des menottes et une clé dans ses affaires.,110,0,0,Search()
+110,0,0,EggReady,(Tu insères l'oeuf.)|(1 minute),"Tu glisses l'oeuf dans son vagin, elle gémit doucement.|Il vibre et s'enfonce profondément. Difficile à récupérer.",110,0,0,Insert()
+110,0,0,EggInside,(Tu enlèves l'oeuf.)|(1 minute),Tu glisses un doigt à l'intérieur mais tu n'arrives pas à|l'attraper. Elle est coincée avec.,110,0,0,
+110,0,0,Common_PlayerNotRestrained,(Tu t'échappes de|la salle de retenue.),,110,0,0,Escape()
+110,0,0,,(Tu la réveilles.)|(1 minute),(Tu la secoue jusqu'à ce qu'elle se réveille.)|Qu'est-ce qui s'est passé ? Où sont mes vêtements ?,210,0,0,NoLeave()
+120,0,0,Common_PlayerNotRestrained,(Tu l'allonges sur la table.)|(1 minute),Tu la mets en position allongée sur the table.,130,0,0,
+120,0,0,EggReady,(Tu insères l'oeuf.)|(1 minute),"Tu glisses l'oeuf dans son vagin, elle gémit doucement.|Il vibre et s'enfonce profondément. Difficile à récupérer.",120,0,0,Insert()
+120,0,0,EggInside,(Tu enlèves l'oeuf.)|(1 minute),Tu glisses un doigt à l'intérieur mais tu n'arrives pas à|l'attraper. Elle est coincée avec.,120,0,0,
+120,0,0,Common_PlayerNotRestrained,(Tu t'échappes de|la salle de retenue.),,120,0,0,Escape()
+120,0,0,,(Tu la réveilles.)|(1 minute),(Tu la secoue jusqu'à ce qu'elle se réveille.)|Quoi ? Où sont mes vêtements ? Qui m'a menottée ?,220,0,0,NoLeave()
+130,0,0,Common_PlayerNotRestrained,(Tu la fait s'asseoir.)|(1 minute),Tu la remets sur son fauteuil.,120,0,0,
+130,0,0,EggReady,(Tu insères l'oeuf.)|(1 minute),"Tu glisses l'oeuf dans son vagin, elle gémit doucement.|Il vibre et s'enfonce profondément. Difficile à récupérer.",130,0,0,Insert()
+130,0,0,EggInside,(Tu enlèves l'oeuf.)|(1 minute),Tu glisses un doigt à l'intérieur mais tu n'arrives pas à|l'attraper. Elle est coincée avec.,130,0,0,
+130,0,0,Common_PlayerNotRestrained,(Tu t'échappes de|la salle de retenue.),,130,0,0,Escape()
+130,0,0,,(Tu la réveilles.)|(1 minute),(Tu la secoue jusqu'à ce qu'elle se réveille.)|Quoi ? Où sont mes vêtements ? Qui m'a menottée ?,220,0,0,NoLeave()
+200,0,0,Common_PlayerGagged,@Heaheruhi !,"Laisse-moi enlever ce ruban.|Alors, je me suis endormi ?",200,0,0,Ungag()
+200,0,0,,"Oui, vous, vous|êtes endormis.",C'est embarrassant. Je vais prendre|un autre verre d'eau. La retenue peut continuer.,250,0,0,NoCrime()
+200,0,0,,"Vous, vous êtes endormis.|alors je vous ai réveillé.","Merci, j'apprécie. Je vais prendre|un autre verre d'eau. La retenue peut continuer.",250,1,0,NoCrime()
+200,0,0,,Je vous ai drogué.,"QUOI ??? (Elle te saute dessus, te maîtrise,|te menotte et te bâillone avec du ruban adhésif.)",260,-2,1,FullRestrain()
+200,0,0,!SidneyGone,Sidney vous a drogué.,"Menteuse ! Elle est menottée donc c'est toi qui l'a fait !|(Elle te saute dessus, te menotte et te bâillone.)",260,-2,0,FullRestrain()
+200,0,0,SidneyGone,Sidney vous a drogué.,"SIDNEY !!! (Elle saute de sa chaise, quitte la pièce|et commence à courir dans les couloirs.)",270,1,0,NoCrime()
+210,0,0,Common_PlayerGagged,@Heaheruhi !,"Laisse-moi enlever ce ruban.|Alors, je me suis endormi ? Où sont mes vêtements ?",210,0,0,Ungag()
+210,0,0,,"Vous, vous êtes endormis.|Votre tenue m'attirait...",C'était une très mauvaise idée. (Elle se rhabille.)|Je vais me rafraîchir et la retenue continuera.,250,-1,0,NoCrime()
+210,0,0,,Je pensais que vous aviez|de la fièvre alors...,C'est une bonne attention. (Elle se rhabille.)|Je vais me rafraîchir et la retenue continuera.,250,1,0,NoCrime()
+210,0,0,,Je vous ai drogué|et déshabillé.,"QUOI ??? (Elle te saute dessus, te menotte|et te bâillonne puis elle se rhabille.)",260,-2,1,FullRestrain()
+210,0,0,!SidneyGone,Sidney vous a drogué|et déshabillé.,"Menteuse ! Elle est menottée ! (Elle te saute dessus,|te menotte et te bâillonne puis elle se rhabille.)",260,-2,0,FullRestrain()
+210,0,0,SidneyGone,Sidney vous a drogué|et déshabillé.,"SIDNEY !!! (Elle saute de sa chaise,|se rhabille rapidement et court vers la sortie.)",270,1,0,NoCrime()
+220,0,0,Common_PlayerGagged,@Heaheruhi !,"Penche-toi, que je puisse atteindre le ruban.|Où sont mes vêtements ? Pourquoi suis-je menottée ?",220,0,0,Ungag()
+220,0,0,,T'es ma salope|maintenant.,Retire-moi ces menottes maintenant !,230,-1,2,AllowLeave()
+220,0,0,,"Je vous ai drogué,|déshabillé et menotté.",Retire-moi ces menottes maintenant !,230,-1,1,AllowLeave()
+220,0,0,!SidneyGone,"Sidney vous a drogué,|déshabillé et menotté.",Menteuse ! Elle est menottée ! Tu l'a fais !|Retire-moi ces menottes maintenant !,230,-1,0,AllowLeave()
+220,0,0,SidneyGone,"Sidney vous a drogué,|déshabillé et menotté.",Merci ! SIDNEY ! (Elle saute de sa chaise|et court menottée en sous-vêtements vers la sortie.),270,1,0,NoCrime()
+230,0,0,,Vous avez l'air|mignonne comme ça.,Vous n'arrangez pas votre cas mademoiselle.|Retire-moi ces menottes maintenant !,230,0,0,
+230,0,0,,(Tu la chatouilles.)|(1 minute),Hé !!! HahaHAHAhahA ! Arrête ! Arrête ça !|(Elle rit à gorge déployée et rougit.),230,0,0,Tickle()
+230,0,0,,(Tu lui mets une fessée.)|(1 minute),Ouille ! Tu n'as pas intérêt à me retoucher !,230,0,0,
+230,0,0,,(Tu t'échappes de|la salle de retenue.),,230,0,0,Escape()
+250,0,0,SidneyGone,Si vous cherchez Sidney.|Elle est dans le couloir.,Merci ! Tu restes ici et je vais aller la chercher.|(Elle se presse et sort de la pièce.),270,1,0,
+250,0,0,Common_PlayerRestrained,(Tu lui montres|tes menottes.),Tu les garderas pour l'instant.|Je te libèrerai après la retenue.,250,0,0,
+250,0,0,Common_PlayerRestrained,Hé ! Vous ne pouvez pas|me garder menottée.,Je peux même faire mieux. (Elle s'en va et revient|avec un morceau de ruban adhésif pour ta bouche.),250,0,0,GagPlayer()
+260,0,0,Common_PlayerGagged,@Uhmma huhme !,(Elle t'ignore.),260,0,0,
+260,0,0,Common_PlayerGagged,(Tu lui fais les yeux doux.),(Elle t'ignore.),260,0,0,
+270,0,0,,(Tu t'échappes de|la salle de retenue.),,270,0,0,Escape()
