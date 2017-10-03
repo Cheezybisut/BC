@@ -1,4 +1,7 @@
 var C008_DramaClass_JuliaIntro_CurrentStage = 0;
+var C008_DramaClass_JuliaIntro_PlayerRole = "";
+var C008_DramaClass_JuliaIntro_AmandaRole = "";
+var C008_DramaClass_JuliaIntro_SarahRole = "";
 
 // Chapter 8 - Julia Intro Load
 function C008_DramaClass_JuliaIntro_Load() {
@@ -21,10 +24,46 @@ function C008_DramaClass_JuliaIntro_Run() {
 	BuildInteraction(C008_DramaClass_JuliaIntro_CurrentStage);
 }
 
-// Chapter 8 - Julia Click
+// Chapter 8 - Julia Intro Click
 function C008_DramaClass_JuliaIntro_Click() {	
-
-	// Regular interactions
 	ClickInteraction(C008_DramaClass_JuliaIntro_CurrentStage);
+}
 
+// Chapter 8 - Julia Intro - Check if the player should be forced to play a role
+function C008_DramaClass_JuliaIntro_CheckRole() {
+	
+	// If the player is submissive, she will be forced to play the damsel in Distress
+	if (ActorGetValue(ActorSubmission) <= -3) {
+		C008_DramaClass_JuliaIntro_SetRole("Damsel");
+		OveridenIntroText = GetText("ForceDamsel");
+	} else {
+
+		// If the player is loved, she will be forced to play the heroine
+		if (ActorGetValue(ActorLove) >= 3) {
+			C008_DramaClass_JuliaIntro_SetRole("Heroine");
+			OveridenIntroText = GetText("ForceHeroine");
+		}
+
+		// If the player is hated, she will be forced to play the villain
+		if (ActorGetValue(ActorLove) <= -3) {
+			C008_DramaClass_JuliaIntro_SetRole("Villain");
+			OveridenIntroText = GetText("ForceVillain");
+		}
+		
+	}
+}	
+
+// Chapter 8 - Julia Intro - Set all the roles for the play
+function C008_DramaClass_JuliaIntro_SetRole(NewRole) {
+	C008_DramaClass_JuliaIntro_PlayerRole = NewRole;
+	if (NewRole != "Villain") C008_DramaClass_JuliaIntro_AmandaRole = "Villain";
+	else C008_DramaClass_JuliaIntro_AmandaRole = "Heroine";
+	if (NewRole != "Damsel") C008_DramaClass_JuliaIntro_SarahRole = "Damsel";
+	else C008_DramaClass_JuliaIntro_SarahRole = "Heroine";
+	C008_DramaClass_JuliaIntro_CurrentStage = 60;
+}
+
+// Chapter 8 - Julia Intro - Jump to the dressing room scene
+function C008_DramaClass_JuliaIntro_DressingRoom() {
+	SetScene("C008_DramaClass", "DressingRoom");
 }

@@ -156,18 +156,21 @@ function ActorSpecificHasInventory(QueryActor, QueryInventory) {
 
 }
 
-// Clear all inventory from an actor (expect the egg and collar)
+// Clear all inventory from an actor (expect the egg, chastitybelt and collar)
 function ActorSpecificClearInventory(QueryActor, Recover) {	
 	for (var A = 0; A < Actor.length; A++)
 		if (Actor[A][ActorName] == QueryActor) {
 			var HadEgg = ActorSpecificHasInventory(QueryActor, "VibratingEgg");
 			var HadCollar = ActorSpecificHasInventory(QueryActor, "Collar");
+			var HadBelt = ActorSpecificHasInventory(QueryActor, "ChastityBelt");
 			while (Actor[A][ActorInventory].length > 0) {
-				if ((Actor[A][ActorInventory][0] != "VibratingEgg") && (Actor[A][ActorInventory][0] != "Collar") && (Actor[A][ActorInventory][0] != "TapeGag") && Recover) PlayerAddInventory(Actor[A][ActorInventory][0], 1);
-				Actor[A][ActorInventory].splice(0, 1);				
+				if ((Actor[A][ActorInventory][0] != "VibratingEgg") && (Actor[A][ActorInventory][0] != "Collar") && (Actor[A][ActorInventory][0] != "ChastityBelt") && (Actor[A][ActorInventory][0] != "TapeGag") && Recover)
+					PlayerAddInventory(Actor[A][ActorInventory][0], 1);
+				Actor[A][ActorInventory].splice(0, 1);
 			}
 			if (HadEgg) Actor[A][ActorInventory].push("VibratingEgg");
 			if (HadCollar) Actor[A][ActorInventory].push("Collar");
+			if (HadBelt) Actor[A][ActorInventory].push("ChastityBelt");
 		}
 }
 

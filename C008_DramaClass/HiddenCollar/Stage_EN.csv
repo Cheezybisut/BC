@@ -1,0 +1,3 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,Common_PlayerNotRestrained,(Search.)|(1 minute),You search in the objects|and find an interesting collar.,10,0,0,TakeCollar()
+10,0,0,Common_PlayerNotRestrained,(Search.)|(1 minute),You search in the objects|but don't find anyting interesting.,10,0,0,

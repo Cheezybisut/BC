@@ -199,27 +199,32 @@ function DrawInventory(ctx) {
 	else
 		DrawImage(ctx, "Icons/" + GetPlayerIconImage() + "_Inactive.png", 0, 601);
 	
-	// Scroll in the full inventory to draw the icons
+	// Scroll in the full inventory to draw the icons and quantity, draw a padlock over the item if it's locked
 	var Pos = 1;
 	for (var I = 0; I < PlayerInventory.length; I++) {
-		if (((MouseX >= 1 + Pos * 75) && (MouseX <= 74 + Pos * 75) && (MouseY >= 601) && (MouseY <= 674)) || (IsMobile))
-			DrawImage(ctx, "Icons/" + PlayerInventory[I][PlayerInventoryName] + "_Active.png", 1 + Pos * 75, 601);
-		else
-			DrawImage(ctx, "Icons/" + PlayerInventory[I][PlayerInventoryName] + "_Inactive.png", 1 + Pos * 75, 601);
+		var ImgState = "Inactive";
+		if (((MouseX >= 1 + Pos * 75) && (MouseX <= 74 + Pos * 75) && (MouseY >= 601) && (MouseY <= 674)) || (IsMobile)) ImgState = "Active";		
+		DrawImage(ctx, "Icons/" + PlayerInventory[I][PlayerInventoryName] + "_" + ImgState + ".png", 1 + Pos * 75, 601);
 		DrawText(ctx, PlayerInventory[I][PlayerInventoryQuantity].toString(), Pos * 75 + 64, 661, "#000000");
+		if (PlayerHasLockedInventory(PlayerInventory[I][PlayerInventoryName]))
+			DrawImage(ctx, "Icons/Lock_" + ImgState + ".png", Pos * 75, 600)
 		Pos = Pos + 1;
 	};
 
-	// Scroll in the locked inventory also
-	for (var I = 0; I < PlayerLockedInventory.length; I++) {
-		if (((MouseX >= 1 + Pos * 75) && (MouseX <= 74 + Pos * 75) && (MouseY >= 601) && (MouseY <= 674)) || (IsMobile))
-			DrawImage(ctx, "Icons/" + PlayerLockedInventory[I] + "_Active.png", 1 + Pos * 75, 601);
-		else
-			DrawImage(ctx, "Icons/" + PlayerLockedInventory[I] + "_Inactive.png", 1 + Pos * 75, 601);
-		DrawImage(ctx, "Icons/Lock.png", 56 + Pos * 75, 653)
-		Pos = Pos + 1;
-	};
-	
+	// Scroll in the locked inventory also to find items that were not loaded
+	for (var I = 0; I < PlayerLockedInventory.length; I++) 
+		if (!PlayerHasInventory(PlayerLockedInventory[I])) {
+			if (((MouseX >= 1 + Pos * 75) && (MouseX <= 74 + Pos * 75) && (MouseY >= 601) && (MouseY <= 674)) || (IsMobile)) {
+				DrawImage(ctx, "Icons/" + PlayerLockedInventory[I] + "_Active.png", 1 + Pos * 75, 601);
+				DrawImage(ctx, "Icons/Lock_Active.png", Pos * 75, 600);
+			}
+			else {
+				DrawImage(ctx, "Icons/" + PlayerLockedInventory[I] + "_Inactive.png", 1 + Pos * 75, 601);				
+				DrawImage(ctx, "Icons/Lock_Inactive.png", Pos * 75, 600);
+			}
+			Pos = Pos + 1;
+		};
+
 }
 
 // Build the bottom bar menu
@@ -252,11 +257,12 @@ function DrawPlayerImage(X, Y) {
 	var ctx = document.getElementById("MainCanvas").getContext("2d");
 	var ImageName = "Clothed";
 	if (Common_PlayerCostume != "") ImageName = ImageName + "_" + Common_PlayerCostume
-	if (Common_PlayerUnderwear == true) ImageName = "Underwear";
-	if (Common_PlayerNaked == true) ImageName = "Naked";
+	if (Common_PlayerUnderwear) ImageName = "Underwear";
+	if (Common_PlayerNaked) ImageName = "Naked";
+	if ((Common_PlayerUnderwear || Common_PlayerNaked) && PlayerHasLockedInventory("ChastityBelt")) ImageName = "ChastityBelt";
 	if (PlayerHasLockedInventory("Cuffs") == true) ImageName = ImageName + "_Cuffs";
 	if (PlayerHasLockedInventory("Rope") == true) ImageName = ImageName + "_Rope";
-	if ((PlayerHasLockedInventory("Collar") == true) && !Common_PlayerClothed) ImageName = ImageName + "_Collar";
+	if ((PlayerHasLockedInventory("Collar") == true) && (!Common_PlayerClothed || Common_PlayerCostume == "Damsel")) ImageName = ImageName + "_Collar";
 	if (PlayerHasLockedInventory("Ballgag") == true) ImageName = ImageName + "_Ballgag";
 	if (PlayerHasLockedInventory("TapeGag") == true) ImageName = ImageName + "_TapeGag";
 	
