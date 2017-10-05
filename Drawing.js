@@ -7,7 +7,7 @@ var CacheImageData = 1;
 function DrawGetImage(Source) {
     // Search in the cache to find the image
     if (!CacheImage[Source]) {
-        img = new Image;
+        var img = new Image;
         img.src = Source;
         CacheImage[Source] = img;
     }
