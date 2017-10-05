@@ -6,8 +6,8 @@ var C008_DramaClass_JuliaIntro_SarahRole = "";
 // Chapter 8 - Julia Intro Load
 function C008_DramaClass_JuliaIntro_Load() {
 
-	// Set the timer limits at 14:00
-	StartTimer(14 * 60 * 60 * 1000, "C008_DramaClass", "Outro");
+	// Set the timer limits at 13:30
+	StartTimer(13.5 * 60 * 60 * 1000, "C008_DramaClass", "Transition");
 
 	// Load the scene parameters
 	ActorLoad("Julia", "");

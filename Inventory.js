@@ -151,6 +151,11 @@ function PlayerRandomBondage() {
 function PlayerReleaseBondage() {
 	if (PlayerHasLockedInventory("Cuffs")) { PlayerUnlockInventory("Cuffs"); PlayerAddInventory("Cuffs", 1); }
 	if (PlayerHasLockedInventory("Rope")) { PlayerUnlockInventory("Rope"); PlayerAddInventory("Rope", 1); }
+	PlayerUngag();
+}
+
+// Ungag the player and restore it's inventory
+function PlayerUngag() {
 	if (PlayerHasLockedInventory("Ballgag")) { PlayerUnlockInventory("Ballgag"); PlayerAddInventory("Ballgag", 1); }
 	if (PlayerHasLockedInventory("TapeGag")) { PlayerUnlockInventory("TapeGag"); }
 }
@@ -178,7 +183,7 @@ function GetClickedInventory() {
 			for (var L = 0; L < PlayerLockedInventory.length; L++)	
 				if (!PlayerHasInventory(PlayerLockedInventory[L])) {
 					if ((MouseX >= 1 + (I + 1) * 75) && (MouseX <= 74 + (I + 1) * 75))
-						Inv = PlayerLockedInventory[L];
+						Inv = "Locked_" + PlayerLockedInventory[L];
 					I++;
 				}				
 
@@ -192,7 +197,7 @@ function GetClickedInventory() {
 // Regular event for inventory clicks, set the common scene for the item
 function InventoryClick(Inv, LChapter, LScreen) {
 	if (Inv != "") {
-		SetScene("C999_Common", Inv);
+		SetScene("C999_Common", Inv.replace("Locked_", ""));
 		LeaveChapter = LChapter;
 		LeaveScreen = LScreen;
 	}

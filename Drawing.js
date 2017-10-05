@@ -1,5 +1,45 @@
-// Draw an image from a file to the canvas
+// A bank of all the chached images
+var CacheImage = [];
+var CacheImageSource = 0;
+var CacheImageData = 1;
+
+// Returns the image file or build it from the source
+function DrawGetImage(Source) {
+
+	// Search in the cache to find the image
+	var img;
+	var found = false;
+	for (var I = 0; I < CacheImage.length; I++)
+		if (Source == CacheImage[I][CacheImageSource]) {
+			img = CacheImage[I][CacheImageData];
+			found = true;
+			break;
+		}
+
+	// If we didn't found it in the cache, we load it from the source and add it to the cache
+	if (!found) {
+		img = new Image;
+		img.src = Source;
+		CacheImage[CacheImage.length] = [Source, img];
+	}
+
+	// returns the final image
+	return img;
+
+}
+		
+// Draw a zoomed image from a source to the canvas
+function DrawImageZoom(ctx, Source, SX, SY, SWidth, SHeight, X, Y, Width, Height) {
+	ctx.drawImage(DrawGetImage(Source), SX, SY, SWidth, SHeight, X, Y, Width, Height);
+}
+
+// Draw an image from a source to the canvas
 function DrawImage(ctx, Source, X, Y) {
+	ctx.drawImage(DrawGetImage(Source), X, Y);
+}
+
+// Draw an image from a file to the canvas, without using the cache system
+function DrawImageNoCache(ctx, Source, X, Y) {
 
 	// The image is created dynamically every time
 	var img = new Image;
@@ -268,10 +308,22 @@ function DrawPlayerImage(X, Y) {
 	
 	// The image is created dynamically every time and can be zoomed
 	if ((X == 0) && (Y == 0)) DrawImage(ctx, "C999_Common/Player/" + ImageName + ".jpg", 600, 0);
-	else {
-		var img = new Image;
-		img.src = "C999_Common/Player/" + ImageName + ".jpg";
-		ctx.drawImage(img, X, Y, 600, 600, 600, 0, 1200, 1200);		
-	}	
-	
+	else DrawImageZoom(ctx, "C999_Common/Player/" + ImageName + ".jpg", X, Y, 600, 600, 600, 0, 1200, 1200);
+
+}
+
+// Draw the transparent actor over the current background
+function DrawActor(ActorToDraw, X, Y, Zoom) {
+
+	// Retrieves the current image & clothes
+	var ctx = document.getElementById("MainCanvas").getContext("2d");
+	var Cloth = ActorSpecificGetValue(ActorToDraw, ActorCloth);
+	if (ActorSpecificHasInventory(ActorToDraw, "ChastityBelt")) Cloth = "ChastityBelt";
+	DrawImageZoom(ctx, "Actors/" + ActorToDraw + "/" + Cloth + ".png", 0, 0, 600 / Zoom, 600 / Zoom, X, Y, 600, 600);		
+
+}
+
+// Draw the current interaction actor
+function DrawInteractionActor() {
+	DrawActor(CurrentActor, 600, 0, 1);
 }

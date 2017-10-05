@@ -1,28 +1,26 @@
-var C008_DramaClass_DressingRoom_SarahImage = "";
-var C008_DramaClass_DressingRoom_AmandaImage = "";
-
 // Chapter 8 - Dressing Room Load
 function C008_DramaClass_DressingRoom_Load() {
-	
-	// The player cannot leave the room
 	LeaveIcon = "";
-	
-	// Prepare the images for Sarah & Amanda
-	C008_DramaClass_DressingRoom_SarahImage = "Sarah";
-	C008_DramaClass_DressingRoom_AmandaImage = "Amanda";
-	if (Common_PlayerCrime == "SarahStranded") C008_DramaClass_DressingRoom_SarahImage = "";
-	if (Common_PlayerCrime == "AmandaStranded") C008_DramaClass_DressingRoom_AmandaImage = "";
-
 }
 
 // Chapter 8 - Dressing Room Run
 function C008_DramaClass_DressingRoom_Run() {
 
-	// Draw the background image and the girls if they are available
+	// Draw the background image 
 	var ctx = document.getElementById("MainCanvas").getContext("2d");
 	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
-	if (C008_DramaClass_DressingRoom_SarahImage != "") DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/" + C008_DramaClass_DressingRoom_SarahImage + ".png", 0, 0);
-	if (C008_DramaClass_DressingRoom_AmandaImage != "") DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/" + C008_DramaClass_DressingRoom_AmandaImage + ".png", 800, 0);
+	
+	// Draw Sarah
+	if (Common_PlayerCrime != "SarahStranded") {
+		if (C008_DramaClass_SarahIntro_CurrentStage == 0) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/SarahSearch.png", 0, 0);
+		else DrawActor("Sarah", 130, 50, 0.575);
+	}
+	
+	// Draw Amanda
+	if (Common_PlayerCrime != "AmandaStranded") {
+		if (C008_DramaClass_AmandaIntro_CurrentStage == 0) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/AmandaSearch.png", 800, 0);
+		else DrawActor("Amanda", 800, 50, 0.6);
+	} 
 
 }
 
