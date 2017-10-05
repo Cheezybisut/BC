@@ -1,31 +1,19 @@
 // A bank of all the chached images
-var CacheImage = [];
+var CacheImage = {};
 var CacheImageSource = 0;
 var CacheImageData = 1;
 
 // Returns the image file or build it from the source
 function DrawGetImage(Source) {
+    // Search in the cache to find the image
+    if (!CacheImage[Source]) {
+        img = new Image;
+        img.src = Source;
+        CacheImage[Source] = img;
+    }
 
-	// Search in the cache to find the image
-	var img;
-	var found = false;
-	for (var I = 0; I < CacheImage.length; I++)
-		if (Source == CacheImage[I][CacheImageSource]) {
-			img = CacheImage[I][CacheImageData];
-			found = true;
-			break;
-		}
-
-	// If we didn't found it in the cache, we load it from the source and add it to the cache
-	if (!found) {
-		img = new Image;
-		img.src = Source;
-		CacheImage[CacheImage.length] = [Source, img];
-	}
-
-	// returns the final image
-	return img;
-
+    // returns the final image
+    return CacheImage[Source];
 }
 		
 // Draw a zoomed image from a source to the canvas
