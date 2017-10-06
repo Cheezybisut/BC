@@ -6,20 +6,21 @@ var PlayerSavedInventory = [];
 
 // Set up the player clothes or costume
 function PlayerClothes(NewCloth) {
-	if ((NewCloth != "Clothed") && (NewCloth != "Underwear") && (NewCloth != "Naked")) Common_PlayerCostume = NewCloth;
-	else Common_PlayerCostume = "";	
+	if ((NewCloth == "Judo") || (NewCloth == "Tennis")) Common_PlayerCostume = NewCloth;
+	else Common_PlayerCostume = "";
+	Common_PlayerClothed = ((NewCloth == "Clothed") || (NewCloth == "Judo") || (NewCloth == "Tennis"));
 	Common_PlayerUnderwear = (NewCloth == "Underwear");
 	Common_PlayerNaked = (NewCloth == "Naked");
-	Common_PlayerClothed = (!Common_PlayerUnderwear && !Common_PlayerNaked);
 }
 
-// Set the restrained and gagged common variables, used by many scenes
+// Set the restrained, gagged and blinded common variables, used by many scenes
 function LoadRestrainStatus() {
 	Common_PlayerRestrained = (PlayerHasLockedInventory("Cuffs") || PlayerHasLockedInventory("Rope"));
-	Common_PlayerGagged = (PlayerHasLockedInventory("Ballgag") || PlayerHasLockedInventory("TapeGag"));
-	Common_PlayerChaste = PlayerHasLockedInventory("ChastityBelt");
+    Common_PlayerGagged = (PlayerHasLockedInventory("Ballgag") || PlayerHasLockedInventory("TapeGag") || PlayerHasLockedInventory("DoubleOpenGag") || PlayerHasLockedInventory("ClothGag"));
+    Common_PlayerBlinded = PlayerHasLockedInventory("Blindfold")
 	Common_PlayerNotRestrained = !Common_PlayerRestrained;
-	Common_PlayerNotGagged = !Common_PlayerGagged;
+    Common_PlayerNotGagged = !Common_PlayerGagged;
+    Common_PlayerNotBlinded = !Common_PlayerBlinded;
 }
 
 // Save the current full inventory for the player
@@ -57,16 +58,12 @@ function PlayerUnlockInventory(UnlockedInventory) {
 
 }
 
-// Remove all items from the locked inventory except the egg, collar and chastity belt
+// Remove all items from the locked inventory except the egg
 function PlayerUnlockAllInventory(UnlockedInventory) {
-	var HadCollar = PlayerHasLockedInventory("Collar");
 	var HadEgg = PlayerHasLockedInventory("VibratingEgg");
-	var HadBelt = PlayerHasLockedInventory("ChastityBelt");
 	while (PlayerLockedInventory.length > 0)
 		PlayerLockedInventory.splice(0, 1);
-	if (HadCollar) PlayerLockInventory("Collar");
 	if (HadEgg) PlayerLockInventory("VibratingEgg");
-	if (HadBelt) PlayerLockInventory("ChastityBelt");
 	LoadRestrainStatus();
 }
 
@@ -126,40 +123,6 @@ function PlayerHasInventory(QueryInventory) {
 	
 }
 
-// Restrains the player randomly from her inventory
-function PlayerRandomBondage() {
-	
-	// Selects the restrain type
-	var R = "";
-	if (PlayerHasInventory("Rope") && PlayerHasInventory("Cuffs") && PlayerHasInventory("CuffsKey")) { if (Math.floor(Math.random() * 2) == 1) R = "Rope"; else R = "Cuffs"; }
-	if (PlayerHasInventory("Rope") && !PlayerHasInventory("Cuffs")) { R = "Rope"; }
-	if (!PlayerHasInventory("Rope") && PlayerHasInventory("Cuffs") && PlayerHasInventory("CuffsKey")) { R = "Cuffs"; }
-
-	// Selects the gag type
-	var G = "";
-	if (PlayerHasInventory("Ballgag") && PlayerHasInventory("TapeGag")) { if (Math.floor(Math.random() * 2) == 1) G = "Ballgag"; else G = "TapeGag"; }
-	if (PlayerHasInventory("Ballgag") && !PlayerHasInventory("TapeGag")) { G = "Ballgag"; }
-	if (!PlayerHasInventory("Ballgag") && PlayerHasInventory("TapeGag")) { G = "TapeGag"; }
-
-	// Applies them on the player
-	if (R != "") { PlayerRemoveInventory(R, 1); PlayerLockInventory(R); }
-	if (G != "") { PlayerRemoveInventory(G, 1); PlayerLockInventory(G); }
-	
-}
-
-// Release the player from bondage and restore it's inventory
-function PlayerReleaseBondage() {
-	if (PlayerHasLockedInventory("Cuffs")) { PlayerUnlockInventory("Cuffs"); PlayerAddInventory("Cuffs", 1); }
-	if (PlayerHasLockedInventory("Rope")) { PlayerUnlockInventory("Rope"); PlayerAddInventory("Rope", 1); }
-	PlayerUngag();
-}
-
-// Ungag the player and restore it's inventory
-function PlayerUngag() {
-	if (PlayerHasLockedInventory("Ballgag")) { PlayerUnlockInventory("Ballgag"); PlayerAddInventory("Ballgag", 1); }
-	if (PlayerHasLockedInventory("TapeGag")) { PlayerUnlockInventory("TapeGag"); }
-}
-
 // Returns the name of the inventory item that was clicked in the bottom menu
 function GetClickedInventory() {
 	
@@ -181,11 +144,8 @@ function GetClickedInventory() {
 		// Check in the locked inventory
 		if (Inv == "")
 			for (var L = 0; L < PlayerLockedInventory.length; L++)	
-				if (!PlayerHasInventory(PlayerLockedInventory[L])) {
-					if ((MouseX >= 1 + (I + 1) * 75) && (MouseX <= 74 + (I + 1) * 75))
-						Inv = "Locked_" + PlayerLockedInventory[L];
-					I++;
-				}				
+				if ((MouseX >= 1 + (I + L + 1) * 75) && (MouseX <= 74 + (I + L + 1) * 75))
+					Inv = "Locked_" + PlayerLockedInventory[L];
 
 	}
 
@@ -194,11 +154,30 @@ function GetClickedInventory() {
 
 }
 
-// Regular event for inventory clicks, set the common scene for the item
+// Activate a common scene from inventory
+function InventoryCommonScene(SceneName, LChapter, LScreen) {	
+	SetScene("C999_Common", SceneName);
+	LeaveChapter = LChapter;
+	LeaveScreen = LScreen;
+}
+
+// Regular event for inventory clicks
 function InventoryClick(Inv, LChapter, LScreen) {
-	if (Inv != "") {
-		SetScene("C999_Common", Inv.replace("Locked_", ""));
-		LeaveChapter = LChapter;
-		LeaveScreen = LScreen;
-	}
+
+	// When the user clicks on the player icon or any regular inventory item, we launch the common chapter
+	if (Inv == "Player") InventoryCommonScene("Player", LChapter, LScreen);
+	if (Inv == "Crop") InventoryCommonScene("Crop", LChapter, LScreen);
+	if (Inv == "CuffsKey") InventoryCommonScene("CuffsKey", LChapter, LScreen);
+	if (Inv == "SleepingPill") InventoryCommonScene("SleepingPill", LChapter, LScreen);
+	if (Inv == "RustyHook") InventoryCommonScene("RustyHook", LChapter, LScreen);
+	if (Inv == "MetalSheet") InventoryCommonScene("MetalSheet", LChapter, LScreen);
+	if ((Inv == "Collar") || (Inv == "Locked_Collar")) InventoryCommonScene("Collar", LChapter, LScreen);
+	if ((Inv == "Cuffs") || (Inv == "Locked_Cuffs")) InventoryCommonScene("Cuffs", LChapter, LScreen);
+	if ((Inv == "Rope") || (Inv == "Locked_Rope")) InventoryCommonScene("Rope", LChapter, LScreen);
+	if ((Inv == "VibratingEgg") || (Inv == "Locked_VibratingEgg")) InventoryCommonScene("Egg", LChapter, LScreen);
+	if ((Inv == "Ballgag") || (Inv == "Locked_Ballgag")) InventoryCommonScene("Ballgag", LChapter, LScreen);
+    if ((Inv == "TapeGag") || (Inv == "Locked_TapeGag")) InventoryCommonScene("TapeGag", LChapter, LScreen);
+    if ((Inv == "ClothGag") || (Inv == "Locked_ClothGag")) InventoryCommonScene("ClothGag", LChapter, LScreen);
+    if ((Inv == "DoubleOpenGag") || (Inv == "Locked_DoubleOpenGag")) InventoryCommonScene("DoubleOpenGag", LChapter, LScreen);
+    if ((Inv == "Blindfold") || (Inv == "Locked_Blindfold")) InventoryCommonScene("Blindfold", LChapter, LScreen);
 }

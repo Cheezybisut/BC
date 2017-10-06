@@ -1,31 +1,5 @@
-// A bank of all the chached images
-var CacheImage = {};
-
-// Returns the image file or build it from the source
-function DrawGetImage(Source) {
-    // Search in the cache to find the image
-    if (!CacheImage[Source]) {
-        var img = new Image;
-        img.src = Source;
-        CacheImage[Source] = img;
-    }
-
-    // returns the final image
-    return CacheImage[Source];
-}
-		
-// Draw a zoomed image from a source to the canvas
-function DrawImageZoom(ctx, Source, SX, SY, SWidth, SHeight, X, Y, Width, Height) {
-	ctx.drawImage(DrawGetImage(Source), SX, SY, SWidth, SHeight, X, Y, Width, Height);
-}
-
-// Draw an image from a source to the canvas
+// Draw an image from a file to the canvas
 function DrawImage(ctx, Source, X, Y) {
-	ctx.drawImage(DrawGetImage(Source), X, Y);
-}
-
-// Draw an image from a file to the canvas, without using the cache system
-function DrawImageNoCache(ctx, Source, X, Y) {
 
 	// The image is created dynamically every time
 	var img = new Image;
@@ -210,7 +184,10 @@ function GetPlayerIconImage() {
 	var Image = "Player";
 	var seconds = new Date().getTime();
 	if (PlayerHasLockedInventory("Ballgag") == true) Image = Image + "_Ballgag";
-	if (PlayerHasLockedInventory("TapeGag") == true) Image = Image + "_TapeGag";
+    if (PlayerHasLockedInventory("TapeGag") == true) Image = Image + "_TapeGag";
+    if (PlayerHasLockedInventory("ClothGag") == true) Image = Image + "_ClothGag";
+    if (PlayerHasLockedInventory("DoubleOpenGag") == true) Image = Image + "_DoubleOpenGag";
+    if (PlayerHasLockedInventory("Blindfold") == true) Image = Image + "_Blindfold";
 	if (Math.round(seconds / 500) % 15 == 0) Image = Image + "_Blink";
 	return Image;
 
@@ -225,32 +202,27 @@ function DrawInventory(ctx) {
 	else
 		DrawImage(ctx, "Icons/" + GetPlayerIconImage() + "_Inactive.png", 0, 601);
 	
-	// Scroll in the full inventory to draw the icons and quantity, draw a padlock over the item if it's locked
+	// Scroll in the full inventory to draw the icons
 	var Pos = 1;
 	for (var I = 0; I < PlayerInventory.length; I++) {
-		var ImgState = "Inactive";
-		if (((MouseX >= 1 + Pos * 75) && (MouseX <= 74 + Pos * 75) && (MouseY >= 601) && (MouseY <= 674)) || (IsMobile)) ImgState = "Active";		
-		DrawImage(ctx, "Icons/" + PlayerInventory[I][PlayerInventoryName] + "_" + ImgState + ".png", 1 + Pos * 75, 601);
+		if (((MouseX >= 1 + Pos * 75) && (MouseX <= 74 + Pos * 75) && (MouseY >= 601) && (MouseY <= 674)) || (IsMobile))
+			DrawImage(ctx, "Icons/" + PlayerInventory[I][PlayerInventoryName] + "_Active.png", 1 + Pos * 75, 601);
+		else
+			DrawImage(ctx, "Icons/" + PlayerInventory[I][PlayerInventoryName] + "_Inactive.png", 1 + Pos * 75, 601);
 		DrawText(ctx, PlayerInventory[I][PlayerInventoryQuantity].toString(), Pos * 75 + 64, 661, "#000000");
-		if (PlayerHasLockedInventory(PlayerInventory[I][PlayerInventoryName]))
-			DrawImage(ctx, "Icons/Lock_" + ImgState + ".png", Pos * 75, 600)
 		Pos = Pos + 1;
 	};
 
-	// Scroll in the locked inventory also to find items that were not loaded
-	for (var I = 0; I < PlayerLockedInventory.length; I++) 
-		if (!PlayerHasInventory(PlayerLockedInventory[I])) {
-			if (((MouseX >= 1 + Pos * 75) && (MouseX <= 74 + Pos * 75) && (MouseY >= 601) && (MouseY <= 674)) || (IsMobile)) {
-				DrawImage(ctx, "Icons/" + PlayerLockedInventory[I] + "_Active.png", 1 + Pos * 75, 601);
-				DrawImage(ctx, "Icons/Lock_Active.png", Pos * 75, 600);
-			}
-			else {
-				DrawImage(ctx, "Icons/" + PlayerLockedInventory[I] + "_Inactive.png", 1 + Pos * 75, 601);				
-				DrawImage(ctx, "Icons/Lock_Inactive.png", Pos * 75, 600);
-			}
-			Pos = Pos + 1;
-		};
-
+	// Scroll in the locked inventory also
+	for (var I = 0; I < PlayerLockedInventory.length; I++) {
+		if (((MouseX >= 1 + Pos * 75) && (MouseX <= 74 + Pos * 75) && (MouseY >= 601) && (MouseY <= 674)) || (IsMobile))
+			DrawImage(ctx, "Icons/" + PlayerLockedInventory[I] + "_Active.png", 1 + Pos * 75, 601);
+		else
+			DrawImage(ctx, "Icons/" + PlayerLockedInventory[I] + "_Inactive.png", 1 + Pos * 75, 601);
+		DrawImage(ctx, "Icons/Lock.png", 56 + Pos * 75, 653)
+		Pos = Pos + 1;
+	};
+	
 }
 
 // Build the bottom bar menu
@@ -283,33 +255,23 @@ function DrawPlayerImage(X, Y) {
 	var ctx = document.getElementById("MainCanvas").getContext("2d");
 	var ImageName = "Clothed";
 	if (Common_PlayerCostume != "") ImageName = ImageName + "_" + Common_PlayerCostume
-	if (Common_PlayerUnderwear) ImageName = "Underwear";
-	if (Common_PlayerNaked) ImageName = "Naked";
-	if ((Common_PlayerUnderwear || Common_PlayerNaked) && PlayerHasLockedInventory("ChastityBelt")) ImageName = "ChastityBelt";
+	if (Common_PlayerUnderwear == true) ImageName = "Underwear";
+	if (Common_PlayerNaked == true) ImageName = "Naked";
 	if (PlayerHasLockedInventory("Cuffs") == true) ImageName = ImageName + "_Cuffs";
 	if (PlayerHasLockedInventory("Rope") == true) ImageName = ImageName + "_Rope";
-	if ((PlayerHasLockedInventory("Collar") == true) && (!Common_PlayerClothed || Common_PlayerCostume == "Damsel")) ImageName = ImageName + "_Collar";
-	if (PlayerHasLockedInventory("Ballgag") == true) ImageName = ImageName + "_Ballgag";
-	if (PlayerHasLockedInventory("TapeGag") == true) ImageName = ImageName + "_TapeGag";
+	if ((PlayerHasLockedInventory("Collar") == true) && !Common_PlayerClothed) ImageName = ImageName + "_Collar";
+    if (PlayerHasLockedInventory("Ballgag") == true) ImageName = ImageName + "_Ballgag";
+    if (PlayerHasLockedInventory("ClothGag") == true) ImageName = ImageName + "_ClothGag";
+    if (PlayerHasLockedInventory("TapeGag") == true) ImageName = ImageName + "_TapeGag";
+    if (PlayerHasLockedInventory("DoubleOpenGag") == true) ImageName = ImageName + "_DoubleOpenGag";
+    if (PlayerHasLockedInventory("Blindfold") == true) ImageName = ImageName + "_Blindfold";
 	
 	// The image is created dynamically every time and can be zoomed
 	if ((X == 0) && (Y == 0)) DrawImage(ctx, "C999_Common/Player/" + ImageName + ".jpg", 600, 0);
-	else DrawImageZoom(ctx, "C999_Common/Player/" + ImageName + ".jpg", X, Y, 600, 600, 600, 0, 1200, 1200);
-
-}
-
-// Draw the transparent actor over the current background
-function DrawActor(ActorToDraw, X, Y, Zoom) {
-
-	// Retrieves the current image & clothes
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	var Cloth = ActorSpecificGetValue(ActorToDraw, ActorCloth);
-	if (ActorSpecificHasInventory(ActorToDraw, "ChastityBelt")) Cloth = "ChastityBelt";
-	DrawImageZoom(ctx, "Actors/" + ActorToDraw + "/" + Cloth + ".png", 0, 0, 600 / Zoom, 600 / Zoom, X, Y, 600, 600);		
-
-}
-
-// Draw the current interaction actor
-function DrawInteractionActor() {
-	DrawActor(CurrentActor, 600, 0, 1);
+	else {
+		var img = new Image;
+		img.src = "C999_Common/Player/" + ImageName + ".jpg";
+		ctx.drawImage(img, X, Y, 600, 600, 600, 0, 1200, 1200);		
+	}	
+	
 }
