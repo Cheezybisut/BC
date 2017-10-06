@@ -36,12 +36,8 @@ function C007_LunchBreak_ActorSelect_Click() {
 
 // When the user selects an actor, we load it
 function C007_LunchBreak_ActorSelect_LoadActor(ActorToLoad) {	
-	if ((ActorToLoad == "Amanda") || (ActorToLoad == "Sarah") || (ActorToLoad == "Sidney")) {
-		C007_LunchBreak_ActorSelect_Actor = ActorToLoad;
-		SetScene(CurrentChapter, ActorToLoad)
-	}
-	else
-		OveridenIntroText = ActorToLoad + " " + GetText("NotAvailable");
+	C007_LunchBreak_ActorSelect_Actor = ActorToLoad;
+	SetScene(CurrentChapter, ActorToLoad)
 }
 
 // Skip the lunch break, eat alone

@@ -1,0 +1,22 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,Qu'est-ce que tu veux ? (Elle te regarde fixement.),SidneyFace.jpg
+0,0,0,AmandaInBondage,Incroyable ! Je voulais la ligoter depuis des semaines.|Tu voulais quelque chose ? (Elle te regarde fixement.),SidneyFace.jpg
+10,0,0,,(Elle fixe la fille aux cheveux bruns).,SidneyStare.jpg
+20,0,0,,(Elle croise ses bras et |te regarde droit dans les yeux.),SidneyFace.jpg
+30,0,0,,(Elle se remet à fixer la fille aux cheveux bruns.),SidneyStare.jpg
+40,0,0,,(Elle tourne la tête et t'ignore.),SidneyBack.jpg
+40,2,0,,Le cours va commencer nous en parlerons plus tard.,SidneyFace.jpg
+40,-2,0,,Ne me parle pas pétasse !|(Elle tourne la tête et t'ignore.),SidneyBack.jpg
+40,0,0,AmandaInBondage,Félicitations pour l'avoir humiliée. Parlons en après|les cours. (Elle regarde Amanda et lève son pouce.),SidneyFace.jpg
+100,0,0,,Qu'est-ce que... T'as fouillé dans mes affaires ?|(Elle semble nerveuse que tu aies trouvé les cordes.),SidneyFace.jpg
+110,0,0,,(Elle te regarde avec un air curieux.),SidneyFace.jpg
+200,0,0,,"As-tu volé ces cordes dans mon sac ?|(Elle a l'air furieuse.)",SidneyFace.jpg
+210,0,0,,Rends-moi mes cordes !,SidneyFace.jpg
+220,0,0,,Attends que je me libère !|(Elle lutte en vain pour se libérer.),SidneyBondageFront.jpg
+220,0,0,AmandaInBondage,Au moins elle a l'air plus humiliée que moi.|(Elle regarde Amanda et sourit.),SidneyBondageFront.jpg
+230,0,0,,,SidneyBondageBack.jpg
+240,0,0,,,SidneyBondageHug.jpg
+250,0,0,,,SidneyBondageKiss.jpg
+300,0,0,,Sale voleuse ! On a rien à se dire.,SidneyBack.jpg
+310,0,0,,J'arrive pas à croire que tu m'as ligoté en classe.|Nous en parlerons plus tard.,SidneyFace.jpg
+310,0,0,AmandaInBondage,"J'arrive pas à croire que tu m'as ligoté en classe.|Le bon coté, c'est qu'elle est toujours dans la merde.",SidneyFace.jpg

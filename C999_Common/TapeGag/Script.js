@@ -1,4 +1,5 @@
 var C999_Common_TapeGag_CurrentStage = 0;
+var C999_Common_TapeGag_HasLooseTape = false;
 
 // Chapter Common - TapeGag Load
 function C999_Common_TapeGag_Load() {
@@ -11,16 +12,20 @@ function C999_Common_TapeGag_Load() {
 	if (PlayerHasLockedInventory("TapeGag") == true) C999_Common_TapeGag_CurrentStage = 10;
 	else C999_Common_TapeGag_CurrentStage = 0;
 
+	// If the player has some loose tape
+	C999_Common_TapeGag_HasLooseTape = PlayerHasInventory("TapeGag");
+
 }
 
 // Chapter Common - Tapegag Run, we draw the regular player image if the item is on
 function C999_Common_TapeGag_Run() {
 	BuildInteraction(C999_Common_TapeGag_CurrentStage);
-	if (PlayerHasLockedInventory("Tapegag")) DrawPlayerImage(150, 0);
+	if (PlayerHasLockedInventory("TapeGag") && (OveridenIntroImage == "")) DrawPlayerImage(150, 0);
 }
 
 // Chapter Common - TapeGag Click, allow regular interactions and clicking on another item
 function C999_Common_TapeGag_Click() {
+	OveridenIntroImage = "";
 	ClickInteraction(C999_Common_TapeGag_CurrentStage);
 	InventoryClick(GetClickedInventory(), LeaveChapter, LeaveScreen);
 }
@@ -34,6 +39,7 @@ function C999_Common_TapeGag_SelfGag() {
 		} 
 		PlayerRemoveInventory("TapeGag", 1);
 		PlayerLockInventory("TapeGag");
+		C999_Common_TapeGag_HasLooseTape = PlayerHasInventory("TapeGag");
 	} else {
 		OveridenIntroText = GetText("BadTiming");
 		C999_Common_TapeGag_CurrentStage = 0;
@@ -44,4 +50,9 @@ function C999_Common_TapeGag_SelfGag() {
 function C999_Common_TapeGag_SelfUngag() {
 	PlayerUnlockInventory("TapeGag");
 	if (!PlayerHasInventory("TapeGag")) SetScene(LeaveChapter, LeaveScreen);
+}
+
+// Chapter Common - Show the item image
+function C999_Common_TapeGag_ShowImage() {
+	OveridenIntroImage = "Tape.jpg";
 }

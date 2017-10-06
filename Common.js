@@ -41,6 +41,7 @@ var Common_BondageAllowed = true;
 var Common_SelfBondageAllowed = true;
 var Common_PlayerRestrained = false;
 var Common_PlayerGagged = false;
+var Common_PlayerChaste = false;
 var Common_PlayerNotRestrained = true;
 var Common_PlayerNotGagged = true;
 var Common_PlayerClothed = true;
@@ -123,16 +124,23 @@ function ReadCSV(Array, FileName) {
 	
 }
 
+// Returns a working language if translation isn't fully ready
+function GetWorkingLanguage() {
+	if ((CurrentLanguageTag == "FR") && ((CurrentChapter == "C000_Intro") || (CurrentChapter == "C001_BeforeClass") || (CurrentChapter == "C002_FirstClass") || (CurrentChapter == "C003_MorningDetention") || (CurrentChapter == "C999_Common"))) return "FR";
+	if ((CurrentLanguageTag == "CN") && ((CurrentChapter == "C000_Intro") || (CurrentChapter == "C005_GymClass") || (CurrentChapter == "C999_Common"))) return "CN";
+	return "EN";
+}
+
 // Load the interactions from a scene and keep it in common variable
-function LoadInteractions() {
-	ReadCSV("CurrentIntro", CurrentChapter + "/" + CurrentScreen + "/Intro_" + CurrentLanguageTag + ".csv");
-	ReadCSV("CurrentStage", CurrentChapter + "/" + CurrentScreen + "/Stage_" + CurrentLanguageTag + ".csv");
+function LoadInteractions() {	
+	ReadCSV("CurrentIntro", CurrentChapter + "/" + CurrentScreen + "/Intro_" + GetWorkingLanguage() + ".csv");
+	ReadCSV("CurrentStage", CurrentChapter + "/" + CurrentScreen + "/Stage_" + GetWorkingLanguage() + ".csv");
 	LoadText();
 }
 
 // Load the custom texts from a scene and keep it in common variable
 function LoadText() {
-	ReadCSV("CurrentText", CurrentChapter + "/" + CurrentScreen + "/Text_" + CurrentLanguageTag + ".csv");
+	ReadCSV("CurrentText", CurrentChapter + "/" + CurrentScreen + "/Text_" + GetWorkingLanguage() + ".csv");
 }
 
 // Calls a dynamic function (if it exists)
@@ -179,7 +187,7 @@ function ClickInteraction(CurrentStagePosition) {
 						window[CurrentChapter + "_" + CurrentScreen + "_CurrentStage"] = CurrentStage[L][StageNextStage];
 						OveridenIntroText = CurrentStage[L][StageInteractionResult];
 						ActorChangeAttitude(CurrentStage[L][StageLoveMod], CurrentStage[L][StageSubMod]);					
-						if (CurrentStage[L][StageInteractionText].indexOf("(1 minute)") >= 0) CurrentTime = CurrentTime + 60000;
+						if (CurrentStage[L][StageInteractionText].indexOf("(1 minute)") >= 0 || CurrentStage[L][StageInteractionText].indexOf("(1 分钟)") >= 0) CurrentTime = CurrentTime + 60000;
 						else CurrentTime = CurrentTime + 10000;
 						if (CurrentStage[L][StageFunction].trim() != "") DynamicFunction(CurrentChapter + "_" + CurrentScreen + "_" + CurrentStage[L][StageFunction].trim());
 						return;
@@ -201,7 +209,7 @@ function GetText(Tag) {
 		Tag = Tag.trim().toUpperCase();
 		for (var T = 0; T < CurrentText.length; T++)
 			if (CurrentText[T][TextTag].trim().toUpperCase() == Tag)
-				return CurrentText[T][TextContent];
+				return CurrentText[T][TextContent].trim();
 		
 		// Returns an error message
 		return "MISSING TEXT FOR TAG: " + Tag;

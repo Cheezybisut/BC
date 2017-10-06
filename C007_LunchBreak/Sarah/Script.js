@@ -9,6 +9,7 @@ var C007_LunchBreak_Sarah_ViolenceDone = 0;
 var C007_LunchBreak_Sarah_IsRoped = false;
 var C007_LunchBreak_Sarah_IsGagged = false;
 var C007_LunchBreak_Sarah_IsBoundAndGagged = false;
+var C007_LunchBreak_Sarah_HasEgg = false;
 var C007_LunchBreak_Sarah_TwoRopes = false;
 var C007_LunchBreak_Sarah_ConfirmEvil = false;
 
@@ -52,6 +53,7 @@ function C007_LunchBreak_Sarah_CalcParams() {
 	
 	// Keep the status of Sarah
 	C007_LunchBreak_Sarah_IsBoundAndGagged = ((ActorHasInventory("Rope") || ActorHasInventory("Cuffs")) && (ActorHasInventory("Ballgag") || ActorHasInventory("TapeGag")));
+	C007_LunchBreak_Sarah_HasEgg = ActorHasInventory("VibratingEgg");
 	
 }
 
@@ -68,10 +70,6 @@ function C007_LunchBreak_Sarah_Load() {
 		C007_LunchBreak_Sarah_CurrentStage = 5;
 		C007_LunchBreak_ActorSelect_SarahAvail = false;
 	}
-	
-	// If Sarah had the egg from before chapter 7, there's a special intro
-	if ((C007_LunchBreak_Sarah_CurrentStage == 0) && ActorHasInventory("VibratingEgg"))
-		OveridenIntroText = GetText("IntroEgg");
 
 	// If we must put the previous text back
 	if ((C007_LunchBreak_Sarah_IntroText != "") && (C007_LunchBreak_Sarah_CurrentStage > 0)) {

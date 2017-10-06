@@ -42,6 +42,7 @@ function C000_Intro_Intro_KeyDown() {
 		PlayerAddInventory("Collar", 4);
 		PlayerAddInventory("Crop", 1);
 		PlayerAddInventory("VibratingEgg", 4);
+		PlayerAddInventory("ChastityBelt", 4);
 	}
 	
 }

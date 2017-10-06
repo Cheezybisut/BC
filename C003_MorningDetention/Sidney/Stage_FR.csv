@@ -1,0 +1,31 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,Je suppose que tu es en|retenue assez souvent ?,Souvent ? Ce bureau portera mon nom.,10,0,0,
+0,0,0,,Tu vas le regretter si tu|me cherches à nouveau.,Quoi ! A ton avis on est ici à cause de qui.,10,-1,1,
+0,0,0,,On ferait mieux de s'arrêter|avant d'être renvoyées.,Quelle excuse bidon. On ne vit qu'une fois.,10,0,-1,
+0,0,0,,En retenue dès mon |premier cours. Plutôt cool ?,C'est assez impressionnant je dois le reconnaître.,10,1,0,
+10,0,0,,Et sinon pourquoi|es-tu menottée ?,Parce que je me suis enfuie la dernière fois.|Ces idiotes veulent s'assurer que je reste.,20,0,0,
+10,0,0,,Pourquoi ne m'ont-elles|pas menottée ?,Ah ! Tu veux vraiment mes menottes ?|Essaye donc de t'échapper et elles te menotteront.,20,0,-1,
+10,0,0,,Tu as l'air si soumise|toute menottée.,(Elle rougit) Pas du tout ! N'essaye pas de t'échapper|où elles vont te menotter aussi.,20,0,1,
+10,0,0,,Une fille à problèmes doit|toujours être menottée.,Je vais te botter le cul une fois sorti d'ici.|Et je parie que tu seras aussi menottée tôt ou tard.,20,-1,0,
+20,0,0,,Au moins je suis contente|d'être coincée avec toi.,"Ouais, Je suppose que ça pourrait être pire.",30,1,0,
+20,0,0,,Comment on peut|tuer le temps ici ?,"Je ne sais pas, regarde l'horloge.",30,0,0,
+20,0,0,,Comment on peut|sortir d'ici ?,Tu veux t'échapper ?|Trouve les clés des menottes et je t'aiderai.,30,0,0,
+30,0,0,,On ne peut rien|faire de plus.,"Voila, maintenant arrête de me déranger.|(Elle lutte pour enlever les menottes.)",40,0,0,
+30,0,0,,Je vais penser à un plan.|Reste tranquille.,"(Elle hoche la tête, reste silencieuse|et procède à des vérifications sur ses menottes.)",40,0,1,
+30,0,0,,C'est sans espoir.|Nous devons attendre.,Tu es désespérante.|(Elle t'ignore et lutte contre ses menottes.),40,0,-1,
+100,0,0,,Ouep ! Maintenant|attendons les résultats.,Ouais ! C'est génial !|Je parie que ça va faire effet rapidement.,110,1,0,
+100,0,0,,Maintenant tu sais qu'il|faut pas me chercher.,C'est très clair ! Je me demande|au bout de combien de temps ça va faire effet.,110,0,1,
+100,0,0,,Ne dis pas un mot.,"T'inquiète pas.|Je suis impatiente de voir les premiers effets.",110,0,0,
+150,0,0,,Ne t'inquiète pas. On|l'aura à nouveau.,À nouveau ? Tu l'avais il y a quelques minutes !|Tu avais un super plan et tu l'a gâcher.,160,-1,0,
+150,0,0,,Ça allait trop loin.,Il n'y a pas plus idiote que toi dans tout l'établissement !|Tu avais un super plan et tu l'a gâcher.,160,-1,-1,
+150,0,0,,La ferme ! Je sais|que j'ai merdé.,Plutôt oui ! C'est un gros coup que tu as loupé !|Tu avais un super plan et tu l'a gâcher.,160,-1,1,
+200,0,0,,Oui ! Maintenant|on peut s'amuser.,(Elle te regarde nerveusement.)|Qu'est-ce que tu as en tête ?,210,0,0,
+200,0,0,,Alors tu veux sortir ?,Oui ! Tu as les clés de ses menottes ?,210,1,-1,
+200,0,0,,"Tu es toute à moi|maintenant, salope !",Mais de quoi tu parles putain ?|(Elle te regarde nerveusement.),210,-1,1,
+210,0,0,Common_PlayerNotRestrained,(Tu la déshabilles.)|(1 minute),Oula attends ! Qu'est-ce que tu fais ?|(Tu la forces à se déshabiller.),220,0,0,Strip()
+210,1,0,,(Tu l'embrasses.)|(1 minute),(Tu l'embrasses et elle reste sans voix.),210,0,0,
+220,0,0,Common_PlayerNotRestrained,(Tu la rhabilles.)|(1 minute),Y'a-t'il une seule logique dans tout ce que tu fais ?,210,0,0,Dress()
+220,1,0,,(Tu l'embrasses.)|(1 minute),(Tu l'embrasses et elle reste sans voix.),220,0,0,
+220,0,0,Common_PlayerNotRestrained,(Tu la chatouilles.)|(1 minute),Va te faire foutre ! Toi et ton fétiche sur les chatouilles !|(Elle ne semble pas rire ni s'amuser.),220,0,0,Tickle()
+220,0,0,EggReady,(Tu insères l'oeuf.)|(1 minute),(Tu insères l'oeuf dans son vagin. Il vibre et s'enfonce|profondément.) Putain ! Pourquoi tu as fait ça ?,220,-1,1,Insert()
+220,0,0,EggInside,(Tu enlèves l'oeuf.)|(1 minute),(Tu glisses un doigt à l'intérieur mais tu n'arrives pas à|l'attraper.) Tu ne peux pas l'attraper ! Mais quelle idiote !,220,0,0,

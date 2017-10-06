@@ -1,0 +1,58 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,Je veux simplement|me présenter.,"Mmmh, salut, Je m'appelle Sidney.|(Elle tourne la tête et regarde l'autre fille)",10,0,0,
+0,0,0,,"Oh ! T'es toujours aussi|rude avec des étrangers ?","Normalement non, désolée pour ça, je m'appelle|Sidney. (Elle tourne la tête et regarde l'autre fille)",10,0,1,
+0,0,0,,"Je suis nouvelle, ne te|mets pas en colère.","Nouvelle et pathétique, tu tiendras pas la journée.|(Elle tourne la tête et regarde l'autre fille)",10,-1,-1,
+0,0,0,,"Tu as l'air assez forte,|contente de te rencontrer.","Je suis la plus balaise ici, je m'appelle Sidney.|(Elle tourne la tête et regarde l'autre fille)",10,1,0,
+0,0,0,,Quelles mauvaises|manières !,Tu ferais mieux de la fermer ou je te casse le nez.|(Elle tourne la tête et regarde l'autre fille),10,-2,0,
+0,0,0,AmandaInBondage,"Ouais, les intellos vont |voir qui gouverne ici.","Bien dit ! Je m'appelle Sidney, ravie de te rencontrer.",20,2,0,
+0,0,0,AmandaInBondage,"Si tu veux pas finir comme|elle tu ferais mieux d'obéir.","(Elle baisse les yeux et reste silencieuse quelques|secondes.) Tant que cette intello est punie ça me va.",20,0,2,
+10,0,0,,Quelque chose|ne va pas ?,"Cette fichu brunette et sa copine stupide !|Voilà ce qui ne va pas.",20,0,0,
+10,0,0,,Pourquoi est-ce que tu|fixes cette fille ?,Ça ne te regardes pas.,20,0,0,
+10,0,0,,Arrête de la fixer !,Hé ! Tu ne me donnes pas d'ordre !,20,-1,1,
+20,0,0,,Tu m'as l'air d'être|bien remontée.,"Et ? Qu'est-ce que ça peut te faire ?",30,0,0,
+20,0,0,,Tu as vraiment l'air de|détester cette intello.,"Ah, ça oui ! C'est une emmerdeuse de première.|Un jour j'aurais ma revanche.",30,1,0,
+20,0,0,,"T'as le sang chaud,|j'aime ça.","C'est ça ! Maintenant, laisse-moi tranquille,| le cours va commencer".,40,1,0,
+20,0,0,,Ton comportement laisse|vraiment à désirer.,La ferme !|(Elle tourne la tête et t'ignore.),40,-1,0,
+20,1,0,,Tu as besoin d'aide|pour punir cette fille ?,"Je pourrais, oui ! J'ai des cordes dans mon sac.|On la chopera après les cours.",40,1,0,
+30,0,0,,"T'as le sang chaud,|j'aime ça.","C'est ça ! Maintenant, laisse-moi tranquille,| le cours va commencer".,40,1,0,
+30,0,0,,Ton comportement laisse|vraiment à désirer.,La ferme !|(Elle tourne la tête et t'ignore.),40,-1,0,
+30,1,0,,Tu as besoin d'aide|pour punir cette fille ?,"Je pourrais, oui ! J'ai des cordes dans mon sac.|On la chopera après les cours.",40,1,0,
+40,-2,0,,Sale connasse ! Tu veux|te battre ?,,40,-1,0,Fight()
+100,0,0,,Pourquoi as-tu des cordes|dans ton sac ?, Ça ne te regardes pas.|(Elle ferme son sac.),20,-1,0,
+100,0,0,,Tu vas faire de l'escalade|après l'école ?,"Oui ! Donne-moi ça !|(Elle ferme son sac.)",20,-1,0,
+100,0,0,,Tu as prévue de|kidnapper quelqu'un ?,"Mmmh, pourquoi cette question ?",110,0,-1,
+100,0,0,,"Alors, tu es une coquine|qui aime être attachée ?",Tu t'y connais en bondage ?,110,0,1,
+110,0,0,,Qu'est-ce que tu as|prévue ? J'en suis.,Parlons-en après les cours.|(Elle ferme son sac.),20,1,0,
+110,0,0,,Ça ne m'intéresse pas.,Ok ! Peu importe.|(Elle ferme son sac.),20,0,0,
+110,0,0,,C'est mal ! je vais|prévenir la professeur.,,40,-2,0,Fight()
+200,0,0,BondageNotConfronted,Les cordes dépassaient|de ton sac.,Menteuse ! Rends-les moi.,200,0,0,ConfrontBondage()
+200,0,0,BondageNotConfronted,"Tu trimballes des cordes...|Ok, tu veux être ligotée !",(Elle rougit.) Non ! Pas du tout !|Rends-les moi. Maintenant !,200,0,1,ConfrontBondage()
+200,0,0,BondageNotConfronted,"Désolée. je les adore, |peux-tu me ligoter ?","Tu es pathétique, tu finiras par me lécher les bottes.|Maintenant ! Rends-les moi. (Elle te les prends.)",300,0,-2,GiveRope()
+200,0,0,,Les voilà tes cordes. |Cache les mieux.,Ok ! Maintenant laisse-moi tranquille.|(Elle te les prends et se retourne.),300,1,0,GiveRope()
+200,0,0,,Discutons un peu plus.,"Mmmh. Ok.|De quoi veux-tu me parler ?",200,0,0,StopRope()
+200,0,2,,(Tu la déshabilles|et la ligotes.) (1 minute),(Tu lui aggripes le poignet et l'attaches par derrière.|Elle se débat mais fini par capituler.),220,0,0,Tie()
+200,0,4,,"Allez, déshabille-toi.|(Tu la ligotes.) (1 minute)",(Elle enlève son uniforme à contrecoeur|et te tend son poignet pour que tu l'attaches.),220,0,0,TieSub()
+200,0,0,,"Si tu les veux,|viens les chercher.",,40,-2,0,Fight()
+220,0,0,,(Tu la retournes.),Putain ! Qu'est-ce que tu fais ?|(Tu la forces à se retourner.),230,0,0,
+220,0,0,,(Tu la détaches.)|(1 minute),"(Tu détaches ses bras pendant qu'elle t'injure.|Une fois détachée, elle te repousse avec colère.)",200,0,0,Untie()
+220,0,0,,(Tu la chatouilles.)|(1 minute),J'ai dis que je n'étais pas chatouilleuse !|(Son regard est rempli de colère.),220,0,0,Tickle()
+220,1,0,,(Tu l'embrasses.)|(1 minute),(Elle te regarde d'un air ahuri|et reste sans voix.),220,0,0,
+220,0,0,AmandaInBondage,(Tu la fais câliner |Amanda.) (1 min),(Les deux filles sont forcées de se câliner et de se|frotter.) Putain ! Quelle genre de perverse es-tu ?,240,-1,0,
+220,0,0,,Ces cordes s'adaptent|tendrement sur ton corps.,Oh ! Mmmmh... Merci... Je suppose.,220,0,0,
+220,0,0,,"Si je te libère, je pourrais|te rattacher ? (1 min)",Ça me semble juste. Affaire conclue.|(Tu la détaches et lui serre la main.),310,1,1,Untie()
+220,0,0,,"Si je te libère, plus tard,|tu me ligoteras ? (1 min)",Ça marche ! La vengeance sera douce.|(Tu la détaches et lui serre la main.),310,1,-2,Untie()
+230,0,0,,(Tu la retournes.),(Tu la retournes pendant|qu'elle te fixe furieusement.),220,0,0,
+230,0,0,,(Tu la détaches.)|(1 minute),"(Tu détaches ses bras pendant qu'elle t'injure.|Une fois détachée, elle te repousse avec colère.)",200,0,0,Untie()
+230,0,0,,(Tu la chatouilles.)|(1 minute),J'ai dis que je n'étais pas chatouilleuse !|(Son regard est rempli de colère.),230,0,0,Tickle()
+230,0,0,,(Tu lui mets une fessée.)|(1 minute),(Tu lui flanques une fessée devant les autres|étudiantes.) C'est le mieux que tu puisses faire ?,230,0,0,
+230,0,0,,"Au vu de ta culotte, t'es en|train de prendre ton pied.",Arrête de mater sale perverse !,230,0,0,PantiesRemark()
+230,0,0,,"Si je te libère, je pourrais|te rattacher ? (1 min)",Ça me semble juste. Affaire conclue.|(Tu la détaches et lui serre la main.),310,1,1,Untie()
+230,0,0,,"Si je te libère, plus tard|tu me ligoteras ? (1 min)",Ça marche ! La vengeance sera douce.|(Tu la détaches et lui serre la main.),310,1,-2,Untie()
+240,0,0,,(Tu les sépares.),Enfin ! C'était une mauvaise idée !,220,0,0,
+240,0,0,,(Tu les forces à|s'embrasser.) (1 min),"(Tu les forces à s'embrasser, Sidney à l'air furieuse.)|Amanda, si tu mets la langue je te la coupe.",250,0,0,
+240,0,0,,Vous faites un joli|couple de bondage.,"(Elles te fixent, leurs regards en dit long.)",240,0,0,
+250,0,0,,(Tu les sépares.),Enfin ! C'était une idée pourrie !,220,0,0,
+250,0,0,,(Tu stoppes les baisers.),"Admets-le ! Je suis meilleure que cette stupide blonde.|(Elle essaye d'intimider Amanda qui détourne le regard.)",240,0,0,
+250,0,0,,Il y a de l'amour dans l'air !,Tu vas faire un vol plané quand je serais libre !,250,0,0,
+250,2,0,,Je peux aussi|avoir un baiser ?,"Mmmmmh, Ok, pourquoi pas ?|(Elle se tourne et t'embrasse.)",250,0,0,
+300,-2,0,,Sale connasse ! Tu veux|te battre ?,,40,-1,0,Fight()

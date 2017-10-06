@@ -1,0 +1,26 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,IsDamsel,What kind of costume?,I'm supposed to play the damsel in distress.|I need to find a white wedding dress.,0,0,0,
+0,0,0,!IsDamsel,What kind of costume?,I'm supposed to play the heroic knight.|I need a white set of medieval armor.,0,0,0,
+0,0,0,,Drama class|is stupid.,Fine!  I'll search alone.  (She finds a|costume.)  Do you mind if I strip here?,10,-1,0,
+0,0,0,!Common_PlayerRestrained,(Search for her costume.)|(1 minute),(You find her costume and she jumps of joy.)|Perfect!  You don't mind if I strip right here?,10,0,-1,
+0,0,0,IsDamsel,(Point at the costume|rack.)  (1 minute),I found it!  (She picks a wedding dress.)|You don't mind if I strip right here?,10,0,0,
+0,0,0,!IsDamsel,(Point at the costume|rack.)  (1 minute),I found it!  (She picks a white armor.)|You don't mind if I strip right here?,10,0,0,
+10,0,0,IsDamsel,You can strip here.|I'll help with the gown.,That's very kind of you.  (She strips down.)|So what should I put on first?  The dress?,20,1,0,Strip()
+10,0,0,!IsDamsel,You can strip here.|I'll help with the armor.,That's very kind of you.  (She strips down.)|So what should I put on first?  The chainmail?,20,1,0,Strip()
+10,0,0,IsDamsel,(Nod.),(She happily strips down to her underwear.)|So what should I put on first?  The dress?,20,0,0,Strip()
+10,0,0,!IsDamsel,(Nod.),(She happily strips down to her underwear.)|So what should I put on first?  The chainmail?,20,0,0,Strip()
+20,0,0,IsFree,You know that|you're pretty?,"Aaaaw, you're so kind.  Thank you.",20,0,0,
+20,0,0,IsFree,You would look|great tied up.,(She giggles and nods.)|Would you like restrain me?,20,0,0,
+20,0,0,IsFree,(Help her dress.)|(1 minute),(You help her dress in her costume.)|Perfect!  Are we ready for the play?,30,0,0,Costume()
+20,0,0,IsFree,"Sarah, would you|like to tie me up?","Oh no, I cannot do that Miss.|(She blushes and bows her head.)",20,0,0,RandomBondage()
+20,0,0,!Common_PlayerRestrained,(Tickle her.)|(1 minute),"(You tickle her on the ribs and she|giggles lightly, she's not very ticklish.)",20,0,0,
+20,0,0,!Common_PlayerRestrained,(Spank her.)|(1 minute),(She bends down so you can spank her butt|easily.  She moans and seems to enjoy it.),20,0,0,Spank()
+20,5,0,!Common_PlayerGagged,(Kiss her.)|(1 minute),(You kiss her slowly and lovingly.|She moans and seems to enjoy it.),20,0,0,
+20,0,5,!Common_PlayerRestrained,(Slap her.)|(1 minute),(You slap her hard on the face and the|breast while she screams of pleasure.),20,0,0,Slap()
+20,0,0,!Common_PlayerRestrained,(Masturbate her.)|(1 minute),(You bend down to masturbate her|but she pushes your hand away.),20,0,0,Masturbate()
+20,0,0,CanUntie,(Untie her.)|(1 minute),(She fights you playfully|but you're able to untie her.),20,0,0,Untie()
+20,0,0,CanUngag,(Ungag her.)|(1 minute),(She moves her head in circle|but you're able to remove the gag.),20,0,0,Ungag()
+30,0,0,IsPlayReady,Let's do some drama.|(Join the drama class.),,30,0,0,StartDrama()
+100,0,0,Common_PlayerGagged,@Ungn!,Nod for yes or shake for no.|Do you need help with that gag?,100,0,0,
+100,0,0,,(Nod slowly.),Nope!  I like you better like that.|You can help me find my costume?,0,0,0,CheckUngag()
+100,0,0,,(Shake your head.),"Fine, you look cute with that gag.|Can you help me find my costume?",0,0,0,

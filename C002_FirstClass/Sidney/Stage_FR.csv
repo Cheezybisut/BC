@@ -1,0 +1,42 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,Psssst.,"(Elle se retourne et chuchote)|Putain, qu'est-ce que tu veux ?",10,0,0,
+0,0,0,,Excuse-moi.,"(Elle se retourne et chuchote)|Qu'est-ce que tu veux loser ?",10,0,-1,
+0,0,0,,"(Tu tapotes son épaule.)","(Elle se retourne et chuchote)|Putain, qu'est-ce que tu veux ?",10,0,0,
+10,0,0,,"Est-ce que tu t'ennuies|autant que moi ?","(Elle chuchote.) Ouais, assez.|Je m'ennuie à mourir.",20,1,0,
+10,0,0,,"Ce cours va durer encore|combien de temps ?","(Elle chuchote.) Jusqu'à 9H.|Cette putain d'heure ne finira jamais.",20,0,0,
+10,0,0,,"Tu as pété ?|Ça empeste ici.","(Elle chuchote.) Non ! T'es stupide ou quoi ?|Ce cours ne finira jamais.",20,-1,0,
+10,0,0,,"Ne t'endors pas.","(Elle s'éclaircit les yeux et chuchote.)|Ce n'est pas ma faute, ce cours est au-delà de l'ennuie.",20,0,1,
+20,0,0,,On devrait sortir.,"(Elle confirme et chuchote.) C'est sûr,|mais la prof nous laissera pas sortir.",30,1,0,
+20,0,0,,"Comment tuer le temps ?",(Elle hausse les épaules.)| Je ne sais pas. nous sommes coincées ici.,30,0,0,
+20,0,0,,"Peux-tu m'aider en|maths après le cours ?",(Elle fait non de la tête.) J'ai l'air d'être une intello ?|Tout ce que je veux c'est m'enfuir d'ici.,30,0,-1,
+30,0,0,,"Il y a peut-être un|moyen de s'échapper.","(Elle te regarde, l'air curieuse.)|Qu'est-ce que tu as en tête ?",40,0,0,
+30,0,0,,"Tais-toi, j'ai un plan.","(elle se tait et te regarde, l'air curieuse.)",40,-1,1,
+40,0,0,,Nous pourrions essayer de|maîtriser Mildred ensemble.,"La maîtriser ? Comme la kidnapper ?|C'est dangereux, qu'est-ce que ça m'apporte ?",50,0,0,
+40,0,0,,Nous devrions kidnapper|cette putain de prof.,"La kidnapper ? En plein cours ? Pour de vrai ?|C'est dangereux, qu'est-ce que ça m'apporte ?",50,1,0,
+40,0,0,,Tu m'aideras|à attacher la prof.,"T'aider à l'attacher en plein cours ?|C'est dangereux, qu'est-ce que ça m'apporte ?",50,0,1,
+50,3,0,PlayerHasRope,"Tu peux le faire ! Nous|sommes de bonnes amies.","Je suppose. Ok, je t'aiderais.|(Elle se retourne.) Mais tu y vas la première.",60,0,0,AgreeHelp()
+50,3,0,!PlayerHasRope,"Tu peux le faire ! Nous|sommes de bonnes amies.","Je suppose. Je t'aiderais, tu peux avoir ces cordes.|(Elle se retourne.) Mais tu y vas la première.",60,0,0,AgreeHelp()
+50,0,3,PlayerHasRope,Si tu ne m'aides pas !|Tu connaitras l'enfer !,"Ok, je ne veux pas d'ennuis après les cours. J'aiderais.|(Elle se retourne.) Mais tu y vas la première".,60,0,0,AgreeHelp()
+50,0,3,!PlayerHasRope,Si tu ne m'aides pas !|Tu connaitras l'enfer !,"Ok, je t'aiderais. Tu peux même utiliser ces cordes.|(Elle se retourne.) Mais tu y vas la première.",60,0,0,AgreeHelp()
+50,0,0,,"Fais-le ! Ça sera marrant.","Ha ! Tu crois que tu peux me convaincre comme ça ?|Il faut que ça me rapporte quelque chose si je t'aide.",50,0,0,
+50,0,0,,"Laisse-moi y réfléchir.","(Elle hausse les épaules.) Bien, je ne serai pas loin.|Il faut que ça me rapporte quelque chose si je t'aide.",50,0,0,
+100,0,0,SubdueRemarkReady,Et je parie que tu serais|aussi superbe toute ligotée.,Quoi ? Tu n'es pas sérieuse. (Elle rougit.),100,0,1,SubdueRemark()
+100,0,4,SubdueRemarkReady,"Admets-le. Tu adorerais|être comme elle.","(Elle reste silencieuse et devient cramoisie.)",100,0,1,SubdueRemark()
+100,0,0,SubdueRemarkReady,"Tape m'en cinq ! Enfin|un cours intéressant.","(Elle te frappe la paume de la main)|Le meilleur cours de maths de tous les temps.",100,1,0,SubdueRemark()
+100,0,0,SubdueRemarkReady,"Nous avons un nouveau|style de cours aujourd'hui.","Ouais ! C'est nettement mieux.",100,0,0,SubdueRemark()
+100,0,0,AmandaWhipReady,"Tu veux fouetter|Amanda ? (1 minute)","Ouais ! (Elle prend la cravache|et donne quelques coups à Amanda.)",100,1,0,AmandaWhip()
+100,0,0,SarahWhipReady,"Tu veux fouetter|Sarah ? (1 minute)","Mais carrément ! (Elle prend la cravache|et donne quelques coups à Sarah.)",100,1,0,SarahWhip()
+100,0,0,Common_PlayerGagged,"@Uuuummph, mmph !",(Elle chuchote.) Arrête de faire du bruit.,100,0,0,
+100,0,0,Common_PlayerGagged,(Tu mâches la boule.),(Elle chuchote.) Tu as l'air d'une idiote.,100,0,0,
+100,1,0,Common_PlayerGagged,(Tu essayes de montrer|du doigt la boule.),(Elle chuchote) La ferme.|Je t'aiderai après le cours.,100,0,0,
+100,-1,0,Common_PlayerGagged,(Tu essayes de montrer|du doigt la boule.),(Elle chuchote.) Reste bâillonnée pétasse.,100,0,0,
+100,0,0,Common_PlayerRestrained,(Tu tires sur les menottes.),(Elle chuchote.) Tu n'arriveras jamais à te libérer.,100,0,0,
+100,0,-2,BowRemarkReady,(Tu baisses la tête.),(Elle chuchotte.) Tu es pitoyable.,100,0,-1,BowRemark()
+110,0,0,Common_PlayerGagged,"@Uuuummph, mmph !",(Elle lève les yeux au ciel.),110,0,0,
+110,0,0,Common_PlayerNotRestrained,(Tu la débâillonnes.)|(1 minute),(Tu détaches le bâillon et retires la grosse boule.)|Putain de bâillon !,100,0,0,Ungag()
+130,0,0,Common_PlayerGagged,"@Uuuummph, mmph !",(Elle lève les yeux au ciel.),130,0,0,
+130,0,0,Common_PlayerNotRestrained,(Tu la débâillonnes.)|(1 minute),(Tu détaches le bâillon et retires la grosse boule.)|Putain de bâillon !,120,0,0,Ungag()
+140,0,0,Common_PlayerNotRestrained,(Tu la détaches.),(Tu défais les noeuds et elle se rhabille.)|Fait chier ! Tu es une sacrée perverse.,100,0,0,Untie()
+150,0,0,Common_PlayerGagged,"@Uuuummph, mmph !",(Elle lève les yeux au ciel.),150,0,0,
+150,0,0,Common_PlayerNotRestrained,(Tu la débâillonnes.)|(1 minute),(Tu détaches le bâillon et retires la grosse boule.)|Putain de bâillon !,140,0,0,Ungag()
+150,0,0,Common_PlayerNotRestrained,(Tu la détaches.),(Tu défais les noeuds et elle se rhabille.)|(Elle t'indique les sangles de son bâillon.),110,0,0,Untie()
