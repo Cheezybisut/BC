@@ -1,7 +1,5 @@
 // A bank of all the chached images
 var CacheImage = {};
-var CacheImageSource = 0;
-var CacheImageData = 1;
 
 // Returns the image file or build it from the source
 function DrawGetImage(Source) {
