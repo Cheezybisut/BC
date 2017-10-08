@@ -3,11 +3,13 @@ var C007_LunchBreak_ActorSelect_AmandaAvail = true;
 var C007_LunchBreak_ActorSelect_SarahAvail = true;
 var C007_LunchBreak_ActorSelect_SidneyAvail = true;
 var C007_LunchBreak_ActorSelect_JenniferAvail = true;
+var C007_LunchBreak_ActorSelect_NatalieAvail = true;
 var C007_LunchBreak_ActorSelect_Actor = "";
 var C007_LunchBreak_ActorSelect_BonusDone = false;
 var C007_LunchBreak_ActorSelect_EarlyLeave = false;
 var C007_LunchBreak_ActorSelect_EvilEnding = false;
 var C007_LunchBreak_ActorSelect_NoFood = false;
+var C007_LunchBreak_ActorSelect_Kinbaku = false;
 
 // Chapter 7 - Lunch Break - Actor Select Load
 function C007_LunchBreak_ActorSelect_Load() {
