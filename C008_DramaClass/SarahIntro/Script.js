@@ -4,6 +4,7 @@ var C008_DramaClass_SarahIntro_IsDamsel = false;
 var C008_DramaClass_SarahIntro_IsFree = true;
 var C008_DramaClass_SarahIntro_IsRestrained = false;
 var C008_DramaClass_SarahIntro_IsGagged = false;
+var C008_DramaClass_SarahIntro_IsChaste = false;
 var C008_DramaClass_SarahIntro_IsPlayRead = false;
 var C008_DramaClass_SarahIntro_CanUntie = false;
 var C008_DramaClass_SarahIntro_CanUngag = false;
@@ -16,6 +17,7 @@ var C008_DramaClass_SarahIntro_OrgasmDone = false;
 function C008_DramaClass_SarahIntro_CalcParams() {
 	C008_DramaClass_SarahIntro_IsRestrained = ActorIsRestrained();
 	C008_DramaClass_SarahIntro_IsGagged = ActorIsGagged();
+	C008_DramaClass_SarahIntro_IsChaste = (ActorHasInventory("ChastityBelt"));
 	C008_DramaClass_SarahIntro_IsFree = (!C008_DramaClass_SarahIntro_IsRestrained && !C008_DramaClass_SarahIntro_IsGagged);
 	C008_DramaClass_SarahIntro_IsPlayRead = (C008_DramaClass_SarahIntro_IsFree && ((Common_PlayerCrime == "AmandaStranded") || (C008_DramaClass_AmandaIntro_CurrentStage == 20)));
 	C008_DramaClass_SarahIntro_CanUntie = (ActorHasInventory("Rope") && !Common_PlayerRestrained);
@@ -79,9 +81,19 @@ function C008_DramaClass_SarahIntro_Click() {
 	
 	// Sarah can be restrained on stage 20
 	if (C008_DramaClass_SarahIntro_CurrentStage == 20) {
+		
+		// Sarah can refuse the belt if she's not submissive enough or not tied up
+		if ((ClickInv == "ChastityBelt") && !C008_DramaClass_SarahIntro_IsRestrained && (ActorGetValue(ActorSubmission) < 10)) {
+			OveridenIntroText = GetText("RefuseBelt");
+			CurrentTime = CurrentTime + 60000;
+			return;
+		}
+		
+		// Apply the clicked restrain
 		ActorApplyRestrain(ClickInv, GetText(ClickInv));
 		C008_DramaClass_SarahIntro_CalcParams();
 		if (ClickInv == "Crop") C008_DramaClass_SarahIntro_ViolenceDone = true;
+
 	}
 
 }
@@ -110,6 +122,7 @@ function C008_DramaClass_SarahIntro_Strip() {
 
 // Chapter 8 - Sarah Costume
 function C008_DramaClass_SarahIntro_Costume() {
+	if (C008_DramaClass_SarahIntro_IsChaste) OveridenIntroText = GetText("DressWithBelt");
 	if (C008_DramaClass_SarahIntro_IsDamsel) ActorSetCloth("Damsel");
 	else ActorSetCloth("Heroine");
 }
@@ -147,12 +160,13 @@ function C008_DramaClass_SarahIntro_Masturbate() {
 			C008_DramaClass_SarahIntro_MasturbateCount++;
 			if (C008_DramaClass_SarahIntro_ViolenceDone || ActorHasInventory("VibratingEgg")) {				
 				if ((C008_DramaClass_SarahIntro_MasturbateCount >= 3) && !C008_DramaClass_SarahIntro_OrgasmDone) {
-					GetText("MasturbateOrgasm");
+					OveridenIntroText = GetText("MasturbateOrgasm");
 					ActorAddOrgasm();
-					ActorChangeAttitude(1, 0);
+					ActorChangeAttitude(1, 0);					
 					C008_DramaClass_SarahIntro_OrgasmDone = true;
-				} else GetText("MasturbateGood");
-			} else GetText("Masturbate");
+					C008_DramaClass_SarahIntro_CurrentStage = 200;
+				} else OveridenIntroText = GetText("MasturbateGood");
+			} else OveridenIntroText = GetText("Masturbate");
 			
 		} else OveridenIntroText = GetText("MasturbateBelt");
 	}

@@ -201,9 +201,9 @@ function ActorApplyRestrain(RestrainName, RestrainText) {
 		// Regular gags (gags can be swapped)
 		if ((RestrainName == "Ballgag") || (RestrainName == "TapeGag")) {
 			if (ActorHasInventory("Ballgag")) { ActorRemoveInventory("Ballgag"); PlayerAddInventory("Ballgag", 1); }
-			if (ActorHasInventory("TapeGag")) { ActorRemoveInventory("TapeGag"); PlayerAddInventory("TapeGag", 1); }
+			if (ActorHasInventory("TapeGag")) { ActorRemoveInventory("TapeGag"); }
 			PlayerRemoveInventory(RestrainName, 1);
-			if (RestrainName != "TapeGag") ActorAddInventory(RestrainName);
+			ActorAddInventory(RestrainName);
 			CurrentTime = CurrentTime + 60000;
 		}
 

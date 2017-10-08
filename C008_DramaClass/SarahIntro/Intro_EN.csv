@@ -11,5 +11,7 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 20,0,0,IsGagged,Uugnmph mhn nungn!|(She seems to enjoy her gag.),Background.jpg
 30,0,0,,Do you like my costume?|Are we ready for the play?,Background.jpg
 30,0,0,AmandaMissing,Should we go without Amanda?|Are we ready for the play?,Background.jpg
+30,0,0,IsChaste,I can't believe you locked that belt on me.|We really need to unlock it after the play.,Background.jpg
 100,0,0,,(She looks at you and giggles.)|Do you need help with that gag?,Background.jpg
 100,0,0,AmandaMissing,This is crazy!  Amanda is late and|you're gagged.  Do you need help?,Background.jpg
+200,0,0,,(Sarah is still slowly recovering from an orgasm.),BackgroundOrgasm.jpg

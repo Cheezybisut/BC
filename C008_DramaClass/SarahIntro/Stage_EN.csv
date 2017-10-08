@@ -24,3 +24,9 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 100,0,0,Common_PlayerGagged,@Ungn!,Nod for yes or shake for no.|Do you need help with that gag?,100,0,0,
 100,0,0,,(Nod slowly.),Nope!  I like you better like that.|You can help me find my costume?,0,0,0,CheckUngag()
 100,0,0,,(Shake your head.),"Fine, you look cute with that gag.|Can you help me find my costume?",0,0,0,
+200,0,0,,Welcome to heaven.,"(She nods and moans, slowly|recovering from her orgasm.)",20,1,0,
+200,0,0,,(Pet her head gently.),"(She purs and moans, slowly|recovering from her orgasm.)",20,1,0,
+200,0,0,,Now I control|your orgasms.,"(She bows her head, slowly|recovering from her orgasm.)",20,0,1,
+200,0,0,,(Slap her face.),"(She bows her head, slowly|recovering from her orgasm.)",20,0,1,
+200,0,0,,You're such a slut.,"(She shakes her head no, slowly|recovering from her orgasm.)",20,-1,1,
+200,0,0,,Next time you|will beg to cum.,"(She bows her head, slowly|recovering from her orgasm.)",20,0,1,

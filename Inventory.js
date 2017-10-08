@@ -160,6 +160,16 @@ function PlayerUngag() {
 	if (PlayerHasLockedInventory("TapeGag")) { PlayerUnlockInventory("TapeGag"); }
 }
 
+// Add a random item in the player inventory
+function PlayerAddRandomItem() {
+	var ItemList = ["Ballgag", "TapeGag", "Cuffs", "Rope", "ChastityBelt", "VibratingEgg", "Crop", "Collar", "SleepingPill"];
+	var Item = ItemList[Math.floor(Math.random() * 8)];
+	PlayerAddInventory(Item, 1);
+	if (Item == "TapeGag") PlayerAddInventory(Item, 7); // For tape gag, add a bonus + 7 quantity
+	if ((Item == "Cuffs") && (Math.floor(Math.random() * 2) == 1)) PlayerAddInventory("CuffsKey", 1); // For cuffs, can randomly add keys
+}
+
+
 // Returns the name of the inventory item that was clicked in the bottom menu
 function GetClickedInventory() {
 	
@@ -185,7 +195,7 @@ function GetClickedInventory() {
 					if ((MouseX >= 1 + (I + 1) * 75) && (MouseX <= 74 + (I + 1) * 75))
 						Inv = "Locked_" + PlayerLockedInventory[L];
 					I++;
-				}				
+				}
 
 	}
 

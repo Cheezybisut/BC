@@ -28,7 +28,7 @@ function C008_DramaClass_DressingRoom_Run() {
 function C008_DramaClass_DressingRoom_Click() {
 
 	// When the user clicks on any character (screen is divided in 4, 3rd can be the player)
-	if ((MouseX >= 0) && (MouseX <= 200) && (MouseY >= 400) && (MouseY <= 600)) SetScene(CurrentChapter, "HiddenCollar");
+	if ((MouseX >= 0) && (MouseX <= 200) && (MouseY >= 400) && (MouseY <= 600)) SetScene(CurrentChapter, "DressingHiddenItem");
 	if ((MouseX >= 200) && (MouseX <= 400) && (MouseY >= 10) && (MouseY <= 590) && (Common_PlayerCrime != "SarahStranded")) SetScene(CurrentChapter, "SarahIntro");
 	if ((MouseX >= 400) && (MouseX <= 800) && (MouseY >= 10) && (MouseY <= 590)) SetScene(CurrentChapter, "Dressing");
 	if ((MouseX >= 850) && (MouseX <= 1100) && (MouseY >= 10) && (MouseY <= 590) && (Common_PlayerCrime != "AmandaStranded")) SetScene(CurrentChapter, "AmandaIntro");

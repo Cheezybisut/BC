@@ -251,7 +251,7 @@ function C007_LunchBreak_Sarah_MakeLove() {
 	C007_LunchBreak_Sarah_LoveCount++;
 	if ((C007_LunchBreak_Sarah_LoveCount >= 3) && (C007_LunchBreak_Sarah_ViolenceDone || ActorHasInventory("VibratingEgg"))) {
 		OveridenIntroText = GetText("Orgasm");
-		ActorAddOrgasm();		
+		ActorAddOrgasm();
 		C007_LunchBreak_Sarah_CurrentStage = 260;
 	}
 }

@@ -3,6 +3,7 @@ var CacheImage = {};
 
 // Returns the image file or build it from the source
 function DrawGetImage(Source) {
+
     // Search in the cache to find the image
     if (!CacheImage[Source]) {
         var img = new Image;
@@ -303,9 +304,13 @@ function DrawActor(ActorToDraw, X, Y, Zoom) {
 
 	// Retrieves the current image & clothes
 	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	var Cloth = ActorSpecificGetValue(ActorToDraw, ActorCloth);
-	if (ActorSpecificHasInventory(ActorToDraw, "ChastityBelt")) Cloth = "ChastityBelt";
-	DrawImageZoom(ctx, "Actors/" + ActorToDraw + "/" + Cloth + ".png", 0, 0, 600 / Zoom, 600 / Zoom, X, Y, 600, 600);		
+	var ImageName = ActorSpecificGetValue(ActorToDraw, ActorCloth);
+	if (ActorSpecificHasInventory(ActorToDraw, "ChastityBelt") && ((ImageName == "Underwear") || (ImageName == "Naked"))) ImageName = "ChastityBelt";
+	if (ActorSpecificHasInventory(ActorToDraw, "Rope")) ImageName = ImageName + "_Rope";
+	if (ActorSpecificHasInventory(ActorToDraw, "Cuffs")) ImageName = ImageName + "_Cuffs";
+	if (ActorSpecificHasInventory(ActorToDraw, "TapeGag")) ImageName = ImageName + "_TapeGag";
+	if (ActorSpecificHasInventory(ActorToDraw, "Ballgag")) ImageName = ImageName + "_Ballgag";
+	DrawImageZoom(ctx, "Actors/" + ActorToDraw + "/" + ImageName + ".png", 0, 0, 600 / Zoom, 600 / Zoom, X, Y, 600, 600);		
 
 }
 
