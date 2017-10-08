@@ -41,9 +41,10 @@ var Common_BondageAllowed = true;
 var Common_SelfBondageAllowed = true;
 var Common_PlayerRestrained = false;
 var Common_PlayerGagged = false;
-var Common_PlayerChaste = false;
+var Common_PlayerBlinded = false;
 var Common_PlayerNotRestrained = true;
 var Common_PlayerNotGagged = true;
+var Common_PlayerNotBlinded = true;
 var Common_PlayerClothed = true;
 var Common_PlayerUnderwear = false;
 var Common_PlayerNaked = false;
@@ -126,8 +127,8 @@ function ReadCSV(Array, FileName) {
 
 // Returns a working language if translation isn't fully ready
 function GetWorkingLanguage() {
-	if ((CurrentLanguageTag == "FR") && ((CurrentChapter == "C000_Intro") || (CurrentChapter == "C001_BeforeClass") || (CurrentChapter == "C002_FirstClass") || (CurrentChapter == "C003_MorningDetention") || (CurrentChapter == "C999_Common"))) return "FR";
-	if ((CurrentLanguageTag == "CN") && ((CurrentChapter == "C000_Intro") || (CurrentChapter == "C005_GymClass") || (CurrentChapter == "C999_Common"))) return "CN";
+	if ((CurrentLanguageTag == "FR") && ((CurrentChapter == "C000_Intro") || (CurrentChapter == "C001_BeforeClass") || (CurrentChapter == "C999_Common"))) return "FR";
+	if ((CurrentLanguageTag == "CN") && (CurrentChapter == "C000_Intro")) return "CN";
 	return "EN";
 }
 
@@ -187,7 +188,7 @@ function ClickInteraction(CurrentStagePosition) {
 						window[CurrentChapter + "_" + CurrentScreen + "_CurrentStage"] = CurrentStage[L][StageNextStage];
 						OveridenIntroText = CurrentStage[L][StageInteractionResult];
 						ActorChangeAttitude(CurrentStage[L][StageLoveMod], CurrentStage[L][StageSubMod]);					
-						if (CurrentStage[L][StageInteractionText].indexOf("(1 minute)") >= 0 || CurrentStage[L][StageInteractionText].indexOf("(1 分钟)") >= 0) CurrentTime = CurrentTime + 60000;
+						if (CurrentStage[L][StageInteractionText].indexOf("(1 minute)") >= 0) CurrentTime = CurrentTime + 60000;
 						else CurrentTime = CurrentTime + 10000;
 						if (CurrentStage[L][StageFunction].trim() != "") DynamicFunction(CurrentChapter + "_" + CurrentScreen + "_" + CurrentStage[L][StageFunction].trim());
 						return;
@@ -209,7 +210,7 @@ function GetText(Tag) {
 		Tag = Tag.trim().toUpperCase();
 		for (var T = 0; T < CurrentText.length; T++)
 			if (CurrentText[T][TextTag].trim().toUpperCase() == Tag)
-				return CurrentText[T][TextContent].trim();
+				return CurrentText[T][TextContent];
 		
 		// Returns an error message
 		return "MISSING TEXT FOR TAG: " + Tag;
