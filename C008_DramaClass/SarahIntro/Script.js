@@ -1,27 +1,29 @@
 var C008_DramaClass_SarahIntro_CurrentStage = 0;
 var C008_DramaClass_SarahIntro_AmandaMissing = false;
 var C008_DramaClass_SarahIntro_IsDamsel = false;
-var C008_DramaClass_SarahIntro_IsFree = true;
+var C008_DramaClass_SarahIntro_IsBothFree = true;
 var C008_DramaClass_SarahIntro_IsRestrained = false;
 var C008_DramaClass_SarahIntro_IsGagged = false;
 var C008_DramaClass_SarahIntro_IsChaste = false;
-var C008_DramaClass_SarahIntro_IsPlayRead = false;
+var C008_DramaClass_SarahIntro_IsPlayReady = false;
 var C008_DramaClass_SarahIntro_CanUntie = false;
 var C008_DramaClass_SarahIntro_CanUngag = false;
 var C008_DramaClass_SarahIntro_SlapDone = false;
 var C008_DramaClass_SarahIntro_MasturbateCount = 0;
 var C008_DramaClass_SarahIntro_ViolenceDone = false;
 var C008_DramaClass_SarahIntro_OrgasmDone = false;
+var C008_DramaClass_SarahIntro_PlayerIsRoped = false;
 
 // Calculates the scene parameters
 function C008_DramaClass_SarahIntro_CalcParams() {
 	C008_DramaClass_SarahIntro_IsRestrained = ActorIsRestrained();
 	C008_DramaClass_SarahIntro_IsGagged = ActorIsGagged();
 	C008_DramaClass_SarahIntro_IsChaste = (ActorHasInventory("ChastityBelt"));
-	C008_DramaClass_SarahIntro_IsFree = (!C008_DramaClass_SarahIntro_IsRestrained && !C008_DramaClass_SarahIntro_IsGagged);
-	C008_DramaClass_SarahIntro_IsPlayRead = (C008_DramaClass_SarahIntro_IsFree && ((Common_PlayerCrime == "AmandaStranded") || (C008_DramaClass_AmandaIntro_CurrentStage == 20)));
+	C008_DramaClass_SarahIntro_IsBothFree = (!C008_DramaClass_SarahIntro_IsRestrained && !C008_DramaClass_SarahIntro_IsGagged && !Common_PlayerRestrained && !Common_PlayerGagged);
+	C008_DramaClass_SarahIntro_IsPlayReady = (C008_DramaClass_SarahIntro_IsBothFree && ((Common_PlayerCrime == "AmandaStranded") || (C008_DramaClass_AmandaIntro_CurrentStage == 20)));
 	C008_DramaClass_SarahIntro_CanUntie = (ActorHasInventory("Rope") && !Common_PlayerRestrained);
 	C008_DramaClass_SarahIntro_CanUngag = (C008_DramaClass_SarahIntro_IsGagged && !Common_PlayerRestrained);
+	C008_DramaClass_SarahIntro_PlayerIsRoped = (PlayerHasLockedInventory("Rope"));
 }
 
 // Chapter 8 - Sarah Intro Load
@@ -108,9 +110,12 @@ function C008_DramaClass_SarahIntro_CheckUngag() {
 
 // Chapter 8 - Sarah Random Bondage - Sarah can tie up the player if she's not too submissive
 function C008_DramaClass_SarahIntro_RandomBondage() {
-	if (ActorGetValue(ActorSubmission) <= 2) {
-		PlayerRandomBondage();
-		OveridenIntroText = GetText("PlayerRandomBondage");
+	if (ActorGetValue(ActorSubmission) < 5) {
+		if (Common_PlayerUnderwear || Common_PlayerNaked) {
+			PlayerRandomBondage();
+			OveridenIntroText = GetText("PlayerRandomBondage");
+			CurrentTime = CurrentTime + 60000;
+		} else OveridenIntroText = GetText("UndressBeforeBondage");
 	}
 }
 
@@ -149,6 +154,15 @@ function C008_DramaClass_SarahIntro_Untie() {
 // Chapter 8 - Sarah Ungag
 function C008_DramaClass_SarahIntro_Ungag() {
 	ActorUngag();
+}
+
+// Chapter 8 - Sarah Test Untie Player (Sarah will do it if she likes the player or is submissive)
+function C008_DramaClass_SarahIntro_TestUntiePlayer() {
+	if ((ActorGetValue(ActorLove)) > 0 || (ActorGetValue(ActorSubmission) >= 5)) {
+		PlayerReleaseBondage();
+		OveridenIntroText = GetText("UntiePlayer");
+		CurrentTime = CurrentTime + 60000;
+	}
 }
 
 // Chapter 8 - Sarah Masturbate - Only works if restrained and not chaste

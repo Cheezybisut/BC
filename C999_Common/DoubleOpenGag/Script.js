@@ -1,6 +1,6 @@
 var C999_Common_DoubleOpenGag_CurrentStage = 0;
 
-// Chapter Common - Ballgag Load
+// Chapter Common - DoubleOpenGag Load
 function C999_Common_DoubleOpenGag_Load() {
 
 	// Load the scene parameters
@@ -20,12 +20,12 @@ function C999_Common_DoubleOpenGag_Run() {
 }
 
 // Chapter Common - DoubleOpenGag Click, allow regular interactions and clicking on another item
-function C999_Common_Ballgag_Click() {
+function C999_Common_DoubleOpenGag_Click() {
     ClickInteraction(C999_Common_DoubleOpenGag_CurrentStage);
 	InventoryClick(GetClickedInventory(), LeaveChapter, LeaveScreen);
 }
 
-// Chapter Common - Self Ballgag
+// Chapter Common - Self DoubleOpenGag
 function C999_Common_DoubleOpenGag_SelfGag() {
 	if ((Common_BondageAllowed) && (Common_SelfBondageAllowed)) {
         PlayerUnlockInventory("TapeGag");

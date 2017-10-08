@@ -16,7 +16,7 @@ function PlayerClothes(NewCloth) {
 // Set the restrained and gagged common variables, used by many scenes
 function LoadRestrainStatus() {
 	Common_PlayerRestrained = (PlayerHasLockedInventory("Cuffs") || PlayerHasLockedInventory("Rope"));
-	Common_PlayerGagged = (PlayerHasLockedInventory("Ballgag") || PlayerHasLockedInventory("TapeGag"));
+	Common_PlayerGagged = (PlayerHasLockedInventory("Ballgag") || PlayerHasLockedInventory("TapeGag") || PlayerHasLockedInventory("ClothGag") || PlayerHasLockedInventory("DoubleOpenGag"));
 	Common_PlayerChaste = PlayerHasLockedInventory("ChastityBelt");
 	Common_PlayerNotRestrained = !Common_PlayerRestrained;
 	Common_PlayerNotGagged = !Common_PlayerGagged;

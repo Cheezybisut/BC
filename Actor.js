@@ -86,6 +86,7 @@ function ActorInteractionAvailable(LoveReq, SubReq, VarReq, InText, ForIntro) {
 	
 	// Checks if there's a customer script variable or a common variable to process
 	if ((VarReq != "") && (VarReq.substr(0, 7) == "Common_") && (window[VarReq] == false)) return false;
+	if ((VarReq != "") && (VarReq.substr(0, 8) == "!Common_") && (window[VarReq.substr(1)] == true)) return false;
 	if ((VarReq != "") && (VarReq.substr(0, 7) != "Common_") && (VarReq.substr(0, 1) != "!") && (window[CurrentChapter + "_" + CurrentScreen + "_" + VarReq] == false)) return false;
 	if ((VarReq != "") && (VarReq.substr(0, 7) != "Common_") && (VarReq.substr(0, 1) == "!") && (window[CurrentChapter + "_" + CurrentScreen + "_" + VarReq.substr(1)] == true)) return false;
 	

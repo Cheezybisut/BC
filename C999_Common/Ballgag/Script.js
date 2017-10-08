@@ -9,7 +9,7 @@ function C999_Common_Ballgag_Load() {
 	LoadInteractions();
 
 	// Set the correct stage
-	if (PlayerHasLockedInventory("Ballgag") == true) C999_Common_Ballgag_CurrentStage = 10;
+	if (PlayerHasLockedInventory("Ballgag")) C999_Common_Ballgag_CurrentStage = 10;
 	else C999_Common_Ballgag_CurrentStage = 0;
 
 	// If the player has a loose ballgag
@@ -43,7 +43,7 @@ function C999_Common_Ballgag_SelfGag() {
 	}
 }
 
-// Chapter Common - Self Ung«g
+// Chapter Common - Self Ungag
 function C999_Common_Ballgag_SelfUngag() {
 	PlayerUnlockInventory("Ballgag");
 	PlayerAddInventory("Ballgag", 1);
