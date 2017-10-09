@@ -728,6 +728,7 @@ function C007_LunchBreak_Natalie_KneePlayer() {
     C007_LunchBreak_Natalie_Knee = true;
     if (C007_LunchBreak_Natalie_VibratorPlayer >= 5) {
         OveridenIntroText = GetText("Orgasm");
+        ActorAddOrgasm();
         C007_LunchBreak_Natalie_OrgasmDone = true;
         C007_LunchBreak_Natalie_CurrentStage = 670;
     }
