@@ -1,8 +1,8 @@
 Stage,LoveReq,SubReq,VarReq,IntroText,Image
 0,0,0,,"Hello, you must be new here?|I haven't seen you before.",NatalieIntro.JPG
-10,0,0,,"I'm Natalie, are you looking for something.",NatalieIntro.JPG
-20,0,0,,How about joining a club for lunch break.,NatalieIntro.JPG
-30,0,0,,Would you like to come|to the Kinbaku club.,NatalieIntro.JPG
+10,0,0,,"I'm Natalie, are you looking for something?",NatalieIntro.JPG
+20,0,0,,How about joining a club for lunch break?,NatalieIntro.JPG
+30,0,0,,Would you like to come|to the Kinbaku club?,NatalieIntro.JPG
 40,0,0,,You can try the cafeteria down the hall|or find a cafe.,NatalieIntro.JPG
 50,0,0,,,NatalieIntroGone.jpg
 100,0,0,,,NatalieClubIntro.jpg
