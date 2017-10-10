@@ -211,7 +211,10 @@ function GetPlayerIconImage() {
 	var Image = "Player";
 	var seconds = new Date().getTime();
 	if (PlayerHasLockedInventory("Ballgag") == true) Image = Image + "_Ballgag";
-	if (PlayerHasLockedInventory("TapeGag") == true) Image = Image + "_TapeGag";
+    if (PlayerHasLockedInventory("TapeGag") == true) Image = Image + "_TapeGag";
+    if (PlayerHasLockedInventory("ClothGag") == true) Image = Image + "_ClothGag";
+    if (PlayerHasLockedInventory("DoubleOpenGag") == true) Image = Image + "_DoubleOpenGag";
+    if (PlayerHasLockedInventory("Blindfold") == true) Image = Image + "_Blindfold";
 	if (Math.round(seconds / 500) % 15 == 0) Image = Image + "_Blink";
 	return Image;
 
@@ -291,7 +294,10 @@ function DrawPlayerImage(X, Y) {
 	if (PlayerHasLockedInventory("Rope") == true) ImageName = ImageName + "_Rope";
 	if ((PlayerHasLockedInventory("Collar") == true) && (!Common_PlayerClothed || Common_PlayerCostume == "Damsel")) ImageName = ImageName + "_Collar";
 	if (PlayerHasLockedInventory("Ballgag") == true) ImageName = ImageName + "_Ballgag";
-	if (PlayerHasLockedInventory("TapeGag") == true) ImageName = ImageName + "_TapeGag";
+    if (PlayerHasLockedInventory("TapeGag") == true) ImageName = ImageName + "_TapeGag";
+    if (PlayerHasLockedInventory("ClothGag") == true) ImageName = ImageName + "_ClothGag";
+    if (PlayerHasLockedInventory("DoubleOpenGag") == true) ImageName = ImageName + "_DoubleOpenGag";
+    if (PlayerHasLockedInventory("Blindfold") == true) ImageName = ImageName + "_Blindfold";
 	
 	// The image is created dynamically every time and can be zoomed
 	if ((X == 0) && (Y == 0)) DrawImage(ctx, "C999_Common/Player/" + ImageName + ".jpg", 600, 0);
