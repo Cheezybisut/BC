@@ -20,7 +20,7 @@ function C008_DramaClass_SarahIntro_CalcParams() {
 	C008_DramaClass_SarahIntro_IsGagged = ActorIsGagged();
 	C008_DramaClass_SarahIntro_IsChaste = (ActorHasInventory("ChastityBelt"));
 	C008_DramaClass_SarahIntro_IsBothFree = (!C008_DramaClass_SarahIntro_IsRestrained && !C008_DramaClass_SarahIntro_IsGagged && !Common_PlayerRestrained && !Common_PlayerGagged);
-	C008_DramaClass_SarahIntro_IsPlayReady = (C008_DramaClass_SarahIntro_IsBothFree && ((Common_PlayerCrime == "AmandaStranded") || (C008_DramaClass_AmandaIntro_CurrentStage == 20)));
+	C008_DramaClass_SarahIntro_IsPlayReady = (C008_DramaClass_SarahIntro_IsBothFree && ((Common_PlayerCrime == "AmandaStranded") || (C008_DramaClass_AmandaIntro_CurrentStage == 50)) && (Common_PlayerCostume != ""));
 	C008_DramaClass_SarahIntro_CanUntie = (ActorHasInventory("Rope") && !Common_PlayerRestrained);
 	C008_DramaClass_SarahIntro_CanUngag = (C008_DramaClass_SarahIntro_IsGagged && !Common_PlayerRestrained);
 	C008_DramaClass_SarahIntro_PlayerIsRoped = (PlayerHasLockedInventory("Rope"));
@@ -176,7 +176,7 @@ function C008_DramaClass_SarahIntro_Masturbate() {
 				if ((C008_DramaClass_SarahIntro_MasturbateCount >= 3) && !C008_DramaClass_SarahIntro_OrgasmDone) {
 					OveridenIntroText = GetText("MasturbateOrgasm");
 					ActorAddOrgasm();
-					ActorChangeAttitude(1, 0);					
+					ActorChangeAttitude(1, 0);
 					C008_DramaClass_SarahIntro_OrgasmDone = true;
 					C008_DramaClass_SarahIntro_CurrentStage = 200;
 				} else OveridenIntroText = GetText("MasturbateGood");

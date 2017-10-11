@@ -22,6 +22,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 20,0,0,CanUntie,(Untie her.)|(1 minute),(She fights you playfully|but you're able to untie her.),20,0,0,Untie()
 20,0,0,CanUngag,(Ungag her.)|(1 minute),(She moves her head in circle|but you're able to remove the gag.),20,0,0,Ungag()
 30,0,0,IsPlayReady,Let's do some drama.|(Join the drama class.),,30,0,0,StartDrama()
+30,0,0,!IsPlayReady,Everyone isn't ready.,Maybe we need to speed things up then.,30,0,0,
 100,0,0,Common_PlayerGagged,@Ungn!,Nod for yes or shake for no.|Do you need help with that gag?,100,0,0,
 100,0,0,,(Nod slowly.),Nope!  I like you better like that.|You can help me find my costume?,0,0,0,CheckUngag()
 100,0,0,,(Shake your head.),"Fine, you look cute with that gag.|Can you help me find my costume?",0,0,0,
