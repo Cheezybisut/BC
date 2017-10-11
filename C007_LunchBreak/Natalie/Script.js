@@ -5,7 +5,7 @@ var C007_LunchBreak_Natalie_KissDone = false;
 var C007_LunchBreak_Natalie_MasturbateCount = 0;
 var C007_LunchBreak_Natalie_OrgasmDone = 0;
 var C007_LunchBreak_Natalie_CropDone = false;
-var C007_LunchBreak_Natalie_SpankDone = true;
+var C007_LunchBreak_Natalie_SpankDone = false;
 var C007_LunchBreak_Natalie_IsRoped = false;
 var C007_LunchBreak_Natalie_IsGagged = false;
 var C007_LunchBreak_Natalie_IsBlindfolded = false;
@@ -60,7 +60,7 @@ function C007_LunchBreak_Natalie_CalcParams() {
     }
 
     // At 400, the player can dominate Natalie with many restraints, the image changes accordingly
-    if (C007_LunchBreak_Natalie_CurrentStage == 430) {
+    if ((C007_LunchBreak_Natalie_CurrentStage >= 430) && (C007_LunchBreak_Natalie_CurrentStage <= 460)) {
         var Img = "";
         if (C007_LunchBreak_Natalie_Clothes == 0) Img = Img + "Uniform";
         if (C007_LunchBreak_Natalie_Clothes == 1) Img = Img + "Underwear";
@@ -443,8 +443,8 @@ function C007_LunchBreak_Natalie_Tickle() {
 function C007_LunchBreak_Natalie_Spank() {
     CurrentTime = CurrentTime + 60000;
     if (!C007_LunchBreak_Natalie_SpankDone) {
-        C007_LunchBreak_Natalie_SpankDone = true;
         ActorChangeAttitude(-1, 1);
+        C007_LunchBreak_Natalie_SpankDone = true;
     }
     C007_LunchBreak_Natalie_TimeLimit()
 }
