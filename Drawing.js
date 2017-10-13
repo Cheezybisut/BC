@@ -283,25 +283,40 @@ function BuildBottomBar() {
 // Draw the player image (can zoom if an X and Y are provided)
 function DrawPlayerImage(X, Y) {
 
-	// The file name changes if the player is gagged or blinks at specified intervals
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	var ImageName = "Clothed";
-	if (Common_PlayerCostume != "") ImageName = ImageName + "_" + Common_PlayerCostume
-	if (Common_PlayerUnderwear) ImageName = "Underwear";
-	if (Common_PlayerNaked) ImageName = "Naked";
-	if ((Common_PlayerUnderwear || Common_PlayerNaked) && PlayerHasLockedInventory("ChastityBelt")) ImageName = "ChastityBelt";
-	if (PlayerHasLockedInventory("Cuffs") == true) ImageName = ImageName + "_Cuffs";
-	if (PlayerHasLockedInventory("Rope") == true) ImageName = ImageName + "_Rope";
-	if ((PlayerHasLockedInventory("Collar") == true) && (!Common_PlayerClothed || Common_PlayerCostume == "Damsel")) ImageName = ImageName + "_Collar";
-	if (PlayerHasLockedInventory("Ballgag") == true) ImageName = ImageName + "_Ballgag";
-    if (PlayerHasLockedInventory("TapeGag") == true) ImageName = ImageName + "_TapeGag";
-    if (PlayerHasLockedInventory("ClothGag") == true) ImageName = ImageName + "_ClothGag";
-    if (PlayerHasLockedInventory("DoubleOpenGag") == true) ImageName = ImageName + "_DoubleOpenGag";
-    if (PlayerHasLockedInventory("Blindfold") == true) ImageName = ImageName + "_Blindfold";
+	// Get the first part of the image
+	var ImageCloth = "Clothed";
+	if (Common_PlayerUnderwear) ImageCloth = "Underwear";
+	if (Common_PlayerNaked) ImageCloth = "Naked";
+	if ((Common_PlayerUnderwear || Common_PlayerNaked) && PlayerHasLockedInventory("ChastityBelt")) ImageCloth = "ChastityBelt";
+	if (Common_PlayerCostume != "") ImageCloth = Common_PlayerCostume
 	
-	// The image is created dynamically every time and can be zoomed
-	if ((X == 0) && (Y == 0)) DrawImage(ctx, "C999_Common/Player/" + ImageName + ".jpg", 600, 0);
-	else DrawImageZoom(ctx, "C999_Common/Player/" + ImageName + ".jpg", X, Y, 600, 600, 600, 0, 1200, 1200);
+	// Second part is the type of bondage
+	var ImageBondage = "_NoBondage";	
+	if (PlayerHasLockedInventory("Cuffs") == true) ImageBondage = "_Cuffs";
+	if (PlayerHasLockedInventory("Rope") == true) ImageBondage = "_Rope";
+
+	// Third part is the collar, which only shows for certain clothes
+	var ImageCollar = "";
+	if ((ImageCloth == "Underwear") || (ImageCloth == "Naked") || (ImageCloth == "ChastityBelt") || (ImageCloth == "Damsel")) {
+		if (PlayerHasLockedInventory("Collar")) ImageCollar = "_Collar";
+		else ImageCollar = "_NoCollar";
+	}
+	
+	// Fourth part is the gag
+	var ImageGag = "_NoGag";
+	if (PlayerHasLockedInventory("Ballgag") == true) ImageGag = "_Ballgag";
+    if (PlayerHasLockedInventory("TapeGag") == true) ImageGag = "_TapeGag";
+    if (PlayerHasLockedInventory("ClothGag") == true) ImageGag = "_ClothGag";
+    if (PlayerHasLockedInventory("DoubleOpenGag") == true) ImageGag = "_DoubleOpenGag";
+
+	// Fifth part is the blindfold
+	var ImageBlindfold = "";	
+    if (PlayerHasLockedInventory("Blindfold") == true) ImageBlindfold = "_Blindfold";
+	
+	// The image is created from all parts and can be zoomed
+	var ctx = document.getElementById("MainCanvas").getContext("2d");
+	if ((X == 0) && (Y == 0)) DrawImage(ctx, "C999_Common/Player/" + ImageCloth + ImageBondage + ImageCollar + ImageGag + ImageBlindfold + ".jpg", 600, 0);
+	else DrawImageZoom(ctx, "C999_Common/Player/" + ImageCloth + ImageBondage + ImageCollar + ImageGag + ImageBlindfold + ".jpg", X, Y, 600, 600, 600, 0, 1200, 1200);
 
 }
 
@@ -316,6 +331,7 @@ function DrawActor(ActorToDraw, X, Y, Zoom) {
 	if (ActorSpecificHasInventory(ActorToDraw, "Cuffs")) ImageName = ImageName + "_Cuffs";
 	if (ActorSpecificHasInventory(ActorToDraw, "TapeGag")) ImageName = ImageName + "_TapeGag";
 	if (ActorSpecificHasInventory(ActorToDraw, "Ballgag")) ImageName = ImageName + "_Ballgag";
+	if (ActorSpecificHasInventory(ActorToDraw, "ClothGag")) ImageName = ImageName + "_ClothGag";
 	DrawImageZoom(ctx, "Actors/" + ActorToDraw + "/" + ImageName + ".png", 0, 0, 600 / Zoom, 600 / Zoom, X, Y, 600, 600);		
 
 }

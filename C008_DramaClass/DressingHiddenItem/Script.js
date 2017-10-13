@@ -1,4 +1,5 @@
 var C008_DramaClass_DressingHiddenItem_CurrentStage = 0;
+var C008_DramaClass_DressingHiddenItem_SearchCount = 0;
 
 // Chapter 8 - Hidden Item - Load
 function C008_DramaClass_DressingHiddenItem_Load() {
@@ -17,7 +18,17 @@ function C008_DramaClass_DressingHiddenItem_Click() {
 	ClickInteraction(C008_DramaClass_DressingHiddenItem_CurrentStage);
 }
 
-// Chapter 8 - Hidden Item - Take Item - Add 2 random items to the player inventory
-function C008_DramaClass_DressingHiddenItem_TakeItem() {
-	PlayerAddRandomItem();
+// Chapter 8 - Hidden Item - Search
+function C008_DramaClass_DressingHiddenItem_Search() {
+	
+	// After 1 search, a cloth gag, after 3 searches, a random item
+	C008_DramaClass_DressingHiddenItem_SearchCount++;
+	if (C008_DramaClass_DressingHiddenItem_SearchCount == 1) {
+		OveridenIntroText = GetText("FindClothGag");
+		PlayerAddInventory("ClothGag", 1);
+	}
+	if (C008_DramaClass_DressingHiddenItem_SearchCount == 3) {
+		OveridenIntroText = GetText("FindItem");
+		PlayerAddRandomItem();
+	}
 }

@@ -159,7 +159,7 @@ function ActorIsRestrained() {
 
 // Returns true if the actor is gagged
 function ActorIsGagged() {
-	return (ActorHasInventory("Ballgag") || ActorHasInventory("TapeGag"));
+	return (ActorHasInventory("Ballgag") || ActorHasInventory("TapeGag") || ActorHasInventory("ClothGag"));
 }
 
 // Returns true if the actor is chaste
@@ -177,10 +177,8 @@ function ActorUntie() {
 
 // Ungag the actor and returns the item if possible
 function ActorUngag() {
-	if (ActorHasInventory("Ballgag")) {
-		PlayerAddInventory("Ballgag", 1);
-		ActorRemoveInventory("Ballgag");
-	}
+	if (ActorHasInventory("Ballgag")) { ActorRemoveInventory("Ballgag"); PlayerAddInventory("Ballgag", 1); }
+	if (ActorHasInventory("ClothGag")) { ActorRemoveInventory("ClothGag"); PlayerAddInventory("ClothGag", 1); }
 	if (ActorHasInventory("TapeGag")) ActorRemoveInventory("TapeGag");
 }
 
@@ -200,9 +198,8 @@ function ActorApplyRestrain(RestrainName, RestrainText) {
 		}
 
 		// Regular gags (gags can be swapped)
-		if ((RestrainName == "Ballgag") || (RestrainName == "TapeGag")) {
-			if (ActorHasInventory("Ballgag")) { ActorRemoveInventory("Ballgag"); PlayerAddInventory("Ballgag", 1); }
-			if (ActorHasInventory("TapeGag")) { ActorRemoveInventory("TapeGag"); }
+		if ((RestrainName == "Ballgag") || (RestrainName == "TapeGag") || (RestrainName == "ClothGag")) {
+			ActorUngag();
 			PlayerRemoveInventory(RestrainName, 1);
 			ActorAddInventory(RestrainName);
 			CurrentTime = CurrentTime + 60000;

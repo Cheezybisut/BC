@@ -42,6 +42,7 @@ var Common_SelfBondageAllowed = true;
 var Common_PlayerRestrained = false;
 var Common_PlayerGagged = false;
 var Common_PlayerBlinded = false;
+var Common_PlayerChaste = false;
 var Common_PlayerNotRestrained = true;
 var Common_PlayerNotGagged = true;
 var Common_PlayerNotBlinded = true;
@@ -127,8 +128,8 @@ function ReadCSV(Array, FileName) {
 
 // Returns a working language if translation isn't fully ready
 function GetWorkingLanguage() {
-	if ((CurrentLanguageTag == "FR") && ((CurrentChapter == "C000_Intro") || (CurrentChapter == "C001_BeforeClass") || (CurrentChapter == "C999_Common"))) return "FR";
-	if ((CurrentLanguageTag == "CN") && (CurrentChapter == "C000_Intro")) return "CN";
+	if ((CurrentLanguageTag == "FR") && ((CurrentChapter == "C000_Intro") || (CurrentChapter == "C001_BeforeClass") || (CurrentChapter == "C002_FirstClass") || (CurrentChapter == "C003_MorningDetention") || (CurrentChapter == "C999_Common"))) return "FR";
+	if ((CurrentLanguageTag == "CN") && ((CurrentChapter == "C000_Intro") || (CurrentChapter == "C005_GymClass") || (CurrentChapter == "C999_Common"))) return "CN";
 	return "EN";
 }
 

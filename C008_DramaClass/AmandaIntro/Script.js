@@ -12,11 +12,15 @@ var C008_DramaClass_AmandaIntro_CanUngag = false;
 var C008_DramaClass_AmandaIntro_MasturbateCount = 0;
 var C008_DramaClass_AmandaIntro_OrgasmDone = false;
 var C008_DramaClass_AmandaIntro_PlayerIsRoped = false;
+var C008_DramaClass_AmandaIntro_PlayerIsCuffed = false;
 var C008_DramaClass_AmandaIntro_PrettyCommentDone = false;
 var C008_DramaClass_AmandaIntro_TickleDone = false;
 var C008_DramaClass_AmandaIntro_SpankDone = false;
 var C008_DramaClass_AmandaIntro_KissDone = false;
 var C008_DramaClass_AmandaIntro_SlapDone = false;
+var C008_DramaClass_AmandaIntro_PlayerBondageDone = false;
+var C008_DramaClass_AmandaIntro_CropDone = false;
+var C008_DramaClass_AmandaIntro_KeyTaken = false;
 
 // Calculates the scene parameters
 function C008_DramaClass_AmandaIntro_CalcParams() {
@@ -28,6 +32,7 @@ function C008_DramaClass_AmandaIntro_CalcParams() {
 	C008_DramaClass_AmandaIntro_CanUntie = (ActorHasInventory("Rope") && !Common_PlayerRestrained);
 	C008_DramaClass_AmandaIntro_CanUngag = (C008_DramaClass_AmandaIntro_IsGagged && !Common_PlayerRestrained);
 	C008_DramaClass_AmandaIntro_PlayerIsRoped = (PlayerHasLockedInventory("Rope"));
+	C008_DramaClass_AmandaIntro_PlayerIsCuffed = (PlayerHasLockedInventory("Cuffs"));
 }
 
 // Chapter 8 - Amanda Intro Load
@@ -41,6 +46,7 @@ function C008_DramaClass_AmandaIntro_Load() {
 	// Check if Sarah is missing for this scene and if Amanda is the Heroine
 	C008_DramaClass_AmandaIntro_SarahMissing = (Common_PlayerCrime == "SarahStranded");
 	C008_DramaClass_AmandaIntro_IsHeroine = (C008_DramaClass_JuliaIntro_AmandaRole == "Heroine");
+	C008_DramaClass_AmandaIntro_TakeKey();
 
 }
 
@@ -56,7 +62,71 @@ function C008_DramaClass_AmandaIntro_Click() {
 	// Regular and inventory interactions
 	ClickInteraction(C008_DramaClass_AmandaIntro_CurrentStage);
 	var ClickInv = GetClickedInventory();
+	
+	// Amanda can take the keys if the player is too submissive
+	if (ClickInv == "CuffsKey")
+		C008_DramaClass_AmandaIntro_TakeKey();
 
+	// Amanda will not accept any item when she's dressed
+	if (((ClickInv == "Rope") || (ClickInv == "Cuffs") || (ClickInv == "TapeGag") || (ClickInv == "Ballgag") || (ClickInv == "ClothGag") || (ClickInv == "ChastityBelt") || (ClickInv == "VibratingEgg")) && (C008_DramaClass_AmandaIntro_CurrentStage < 20))
+		OveridenIntroText = GetText("StripBeforeFun");
+
+	// Amanda will not accept any item when she's costumed
+	if (((ClickInv == "Rope") || (ClickInv == "Cuffs") || (ClickInv == "TapeGag") || (ClickInv == "Ballgag") || (ClickInv == "ClothGag") || (ClickInv == "ChastityBelt") || (ClickInv == "VibratingEgg")) && (C008_DramaClass_AmandaIntro_CurrentStage == 50))
+		OveridenIntroText = GetText("CostumeBlocksFun");
+	
+	// Amanda can be restrained on stage 40
+	if ((C008_DramaClass_AmandaIntro_CurrentStage == 40) && (ClickInv != "")) {
+	
+		// Amande doesn't like the crop but becomes more submissive
+		if ((ClickInv == "Crop") && (!C008_DramaClass_AmandaIntro_CropDone)) {
+			C008_DramaClass_AmandaIntro_CropDone = true;
+			ActorChangeAttitude(-1, 1);
+			return;
+		}
+
+		// Amande cannot be tied up if she's not at least a little submissive
+		if ((ActorGetValue(ActorSubmission) < 2) && (ClickInv != "CuffsKey")) {
+			OveridenIntroText = GetText("RefuseBondage");
+			return;			
+		}
+
+		// Amanda can refuse the belt if she's not submissive enough or not tied up
+		if ((ClickInv == "ChastityBelt") && !C008_DramaClass_AmandaIntro_IsRestrained && (ActorGetValue(ActorSubmission) < 10)) {
+			OveridenIntroText = GetText("RefuseBelt");
+			return;
+		}
+	
+		// Apply the clicked restrain
+		ActorApplyRestrain(ClickInv, GetText(ClickInv));
+		C008_DramaClass_AmandaIntro_CalcParams();
+
+	}
+
+}
+
+// Chapter 8 - Amanda can take the keys from the player
+function C008_DramaClass_AmandaIntro_TakeKey() {
+	if ((PlayerHasInventory("CuffsKey")) && (!C008_DramaClass_AmandaIntro_IsRestrained) && (ActorGetValue(ActorSubmission) < -2) && (C008_DramaClass_AmandaIntro_CurrentStage == 40)) {
+		PlayerRemoveInventory("CuffsKey", 99);
+		OveridenIntroText = GetText("TakeKey");
+		LeaveIcon = "";
+		C008_DramaClass_AmandaIntro_CurrentStage = 200;
+		C008_DramaClass_AmandaIntro_KeyTaken = true;
+	}
+}
+
+// Chapter 8 - Amanda Allow Leave
+function C008_DramaClass_AmandaIntro_AllowLeave() {
+	LeaveIcon = "Leave";
+}
+
+// Chapter 8 - Amanda can cuff the player
+function C008_DramaClass_AmandaIntro_CuffPlayer() {
+	PlayerRemoveInventory("Cuffs", 1);
+	PlayerLockInventory("Cuffs");
+	C008_DramaClass_AmandaIntro_CalcParams();
+	LeaveIcon = "Leave";
 }
 
 // Chapter 8 - Amanda Strip
@@ -91,6 +161,7 @@ function C008_DramaClass_AmandaIntro_CheatedCover() {
 		PlayerClothes("Underwear");
 		if (PlayerHasInventory("Rope")) PlayerRemoveInventory("Rope", 1);
 		PlayerLockInventory("Rope");
+		C008_DramaClass_AmandaIntro_CalcParams();
 	}
 	LeaveIcon = "Leave";
 }
@@ -145,11 +216,13 @@ function C008_DramaClass_AmandaIntro_Costume() {
 // Chapter 8 - Amanda Untie
 function C008_DramaClass_AmandaIntro_Untie() {
 	ActorUntie();
+	C008_DramaClass_AmandaIntro_CalcParams();
 }
 
 // Chapter 8 - Amanda Ungag
 function C008_DramaClass_AmandaIntro_Ungag() {
 	ActorUngag();
+	C008_DramaClass_AmandaIntro_CalcParams();
 }
 
 // Chapter 8 - Amanda Masturbate - Only works if restrained and not chaste
@@ -165,7 +238,7 @@ function C008_DramaClass_AmandaIntro_Masturbate() {
 					ActorAddOrgasm();
 					ActorChangeAttitude(1, 0);
 					C008_DramaClass_AmandaIntro_OrgasmDone = true;
-					C008_DramaClass_AmandaIntro_CurrentStage = 200;
+					C008_DramaClass_AmandaIntro_CurrentStage = 100;
 				} else OveridenIntroText = GetText("MasturbateGood");
 			} else OveridenIntroText = GetText("Masturbate");
 			
@@ -178,19 +251,47 @@ function C008_DramaClass_AmandaIntro_RandomBondage() {
 	if (ActorGetValue(ActorSubmission) < 5) {
 		if (Common_PlayerUnderwear || Common_PlayerNaked) {
 			PlayerRandomBondage();
+			C008_DramaClass_AmandaIntro_CalcParams();
 			OveridenIntroText = GetText("PlayerRandomBondage");
 			CurrentTime = CurrentTime + 60000;
+			if (!C008_DramaClass_AmandaIntro_PlayerBondageDone) {
+				C008_DramaClass_AmandaIntro_PlayerBondageDone = true;
+				ActorChangeAttitude(0, -2);
+			}
 		} else OveridenIntroText = GetText("UndressBeforeBondage");
 	}
 }
 
 // Chapter 8 - Amanda Test Untie Player (Amanda will do it if she likes the player or is submissive)
 function C008_DramaClass_AmandaIntro_TestUntiePlayer() {
-	if ((ActorGetValue(ActorLove)) > 0 || (ActorGetValue(ActorSubmission) >= 5)) {
-		PlayerReleaseBondage();
-		OveridenIntroText = GetText("UntiePlayer");
-		CurrentTime = CurrentTime + 60000;
-	}
+	if (!C008_DramaClass_AmandaIntro_IsRestrained) {
+		if ((ActorGetValue(ActorLove)) > 0 || (ActorGetValue(ActorSubmission) >= 5)) {
+			PlayerReleaseBondage();
+			C008_DramaClass_AmandaIntro_CalcParams();
+			if (!C008_DramaClass_AmandaIntro_IsGagged) OveridenIntroText = GetText("UntiePlayer");
+			else OveridenIntroText = GetText("HelpWhileGagged");
+			CurrentTime = CurrentTime + 60000;
+		} else {
+			if (C008_DramaClass_SarahIntro_IsGagged) OveridenIntroText = GetText("CannotFreeGagged");
+		}
+	} else OveridenIntroText = GetText("CannotFree");
+}
+
+// Chapter 8 - Amanda Test Untie Player (Amanda will do it if she likes the player or is submissive)
+function C008_DramaClass_AmandaIntro_TestUncuffPlayer() {
+	if (!C008_DramaClass_AmandaIntro_IsRestrained) {
+		if (C008_DramaClass_AmandaIntro_KeyTaken) {
+			if ((ActorGetValue(ActorLove)) > 0 || (ActorGetValue(ActorSubmission) >= 5)) {
+				PlayerReleaseBondage();
+				C008_DramaClass_AmandaIntro_CalcParams();
+				if (!C008_DramaClass_AmandaIntro_IsGagged) OveridenIntroText = GetText("UncuffAccept");
+				else OveridenIntroText = GetText("HelpWhileGagged");
+				CurrentTime = CurrentTime + 60000;
+			} else OveridenIntroText = GetText("UncuffRefuse");
+		} else {
+			if (C008_DramaClass_SarahIntro_IsGagged) OveridenIntroText = GetText("CannotFreeGagged");
+		}
+	} else OveridenIntroText = GetText("CannotFree");
 }
 
 // Chapter 8 - Amanda Start Drama

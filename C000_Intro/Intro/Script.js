@@ -31,14 +31,15 @@ function C000_Intro_Intro_Click() {
 // Intro Key Down
 function C000_Intro_Intro_KeyDown() {
 
-	// Special "z" cheat to get lots of items
-	if (KeyPress == 122) {
+	// Special "z" cheat to get lots of items, only used for developers
+	if ((KeyPress == 122) && (window.location.hostname != "ben987.x10host.com")) {
 		PlayerRemoveAllInventory();
 		PlayerAddInventory("Cuffs", 4);
 		PlayerAddInventory("CuffsKey", 1);
 		PlayerAddInventory("Rope", 4);
 		PlayerAddInventory("Ballgag", 4);
 		PlayerAddInventory("TapeGag", 8);
+		PlayerAddInventory("ClothGag", 4);
 		PlayerAddInventory("Collar", 4);
 		PlayerAddInventory("Crop", 1);
 		PlayerAddInventory("VibratingEgg", 4);

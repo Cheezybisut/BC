@@ -10,10 +10,11 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 10,0,0,IsDamsel,(Nod.),(She happily strips down to her underwear.)|So what should I put on first?  The dress?,20,0,0,Strip()
 10,0,0,!IsDamsel,(Nod.),(She happily strips down to her underwear.)|So what should I put on first?  The chainmail?,20,0,0,Strip()
 20,0,0,PlayerIsRoped,(Turn and point|to your ropes.),Nope!  I like you better when you're tied up|Struggle some more and you might get out.,20,0,0,TestUntiePlayer()
-20,0,0,IsBothFree,You know that|you're pretty?,"Aaaaw, you're so kind.  Thank you.",20,0,0,
-20,0,0,IsBothFree,You would look|great tied up.,(She giggles and nods.)|Would you like restrain me?,20,0,0,
+20,0,0,PlayerIsCuffed,(Turn and point|to your cuffs.),"Nope, I don't have any cuff keys.",20,0,0,TestUncuffPlayer()
+20,0,0,IsBothFree,You know that|you're pretty?,"Aaaaw, you're so kind.  Thank you.",20,0,0,TiedUpComment()
+20,0,0,IsBothFree,You would look|great tied up.,(She giggles and nods.)|Would you like restrain me?,20,0,1,
 20,0,0,IsBothFree,(Help her dress.)|(1 minute),(You help her dress in her costume.)|Perfect!  Are we ready for the play?,30,0,0,Costume()
-20,0,0,IsBothFree,"Sarah, would you|like to tie me up?","Oh no, I cannot do that Miss.|(She blushes and bows her head.)",20,0,0,RandomBondage()
+20,0,0,IsBothFree,"Sarah, would you|like to restrain me?","Oh no, I cannot do that Miss.|(She blushes and bows her head.)",20,0,0,RandomBondage()
 20,0,0,!Common_PlayerRestrained,(Tickle her.)|(1 minute),"(You tickle her on the ribs and she|giggles lightly, she's not very ticklish.)",20,0,0,
 20,0,0,!Common_PlayerRestrained,(Spank her.)|(1 minute),(She bends down so you can spank her butt|easily.  She moans and seems to enjoy it.),20,0,0,Spank()
 20,5,0,!Common_PlayerGagged,(Kiss her.)|(1 minute),(You kiss her slowly and lovingly.|She moans and seems to enjoy it.),20,0,0,

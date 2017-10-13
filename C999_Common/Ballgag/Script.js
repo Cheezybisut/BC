@@ -33,7 +33,7 @@ function C999_Common_Ballgag_Click() {
 // Chapter Common - Self Ballgag
 function C999_Common_Ballgag_SelfGag() {
 	if ((Common_BondageAllowed) && (Common_SelfBondageAllowed)) {
-		PlayerUnlockInventory("TapeGag");
+		PlayerUngag();
 		PlayerRemoveInventory("Ballgag", 1);
 		PlayerLockInventory("Ballgag");
 		C999_Common_Ballgag_HasLooseBallgag = PlayerHasInventory("Ballgag");

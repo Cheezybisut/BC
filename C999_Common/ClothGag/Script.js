@@ -28,8 +28,7 @@ function C999_Common_ClothGag_Click() {
 // Chapter Common - Self ClothGag
 function C999_Common_ClothGag_SelfGag() {
 	if ((Common_BondageAllowed) && (Common_SelfBondageAllowed)) {
-        PlayerUnlockInventory("TapeGag");
-        PlayerUnlockInventory("Ballgag");
+		PlayerUngag();
         PlayerRemoveInventory("ClothGag", 1);
         PlayerLockInventory("ClothGag");
 	} else {

@@ -131,15 +131,21 @@ function PlayerRandomBondage() {
 	
 	// Selects the restrain type
 	var R = "";
-	if (PlayerHasInventory("Rope") && PlayerHasInventory("Cuffs") && PlayerHasInventory("CuffsKey")) { if (Math.floor(Math.random() * 2) == 1) R = "Rope"; else R = "Cuffs"; }
-	if (PlayerHasInventory("Rope") && !PlayerHasInventory("Cuffs")) { R = "Rope"; }
-	if (!PlayerHasInventory("Rope") && PlayerHasInventory("Cuffs") && PlayerHasInventory("CuffsKey")) { R = "Cuffs"; }
+	if (!Common_PlayerRestrained) {
+		if (PlayerHasInventory("Rope") && PlayerHasInventory("Cuffs")) { if (Math.floor(Math.random() * 2) == 1) R = "Rope"; else R = "Cuffs"; }
+		if (PlayerHasInventory("Rope") && !PlayerHasInventory("Cuffs")) { R = "Rope"; }
+		if (!PlayerHasInventory("Rope") && PlayerHasInventory("Cuffs")) { R = "Cuffs"; }
+	}
 
 	// Selects the gag type
 	var G = "";
-	if (PlayerHasInventory("Ballgag") && PlayerHasInventory("TapeGag")) { if (Math.floor(Math.random() * 2) == 1) G = "Ballgag"; else G = "TapeGag"; }
-	if (PlayerHasInventory("Ballgag") && !PlayerHasInventory("TapeGag")) { G = "Ballgag"; }
-	if (!PlayerHasInventory("Ballgag") && PlayerHasInventory("TapeGag")) { G = "TapeGag"; }
+	if (!Common_PlayerGagged) {
+		var GT = [];
+		if (PlayerHasInventory("Ballgag")) GT.push("Ballgag");
+		if (PlayerHasInventory("TapeGag")) GT.push("TapeGag");
+		if (PlayerHasInventory("ClothGag")) GT.push("ClothGag");
+		if (GT.length > 0) G = GT[Math.floor(Math.random() * GT.length)];
+	}
 
 	// Applies them on the player
 	if (R != "") { PlayerRemoveInventory(R, 1); PlayerLockInventory(R); }
@@ -157,13 +163,14 @@ function PlayerReleaseBondage() {
 // Ungag the player and restore it's inventory
 function PlayerUngag() {
 	if (PlayerHasLockedInventory("Ballgag")) { PlayerUnlockInventory("Ballgag"); PlayerAddInventory("Ballgag", 1); }
+	if (PlayerHasLockedInventory("ClothGag")) { PlayerUnlockInventory("ClothGag"); PlayerAddInventory("ClothGag", 1); }
 	if (PlayerHasLockedInventory("TapeGag")) { PlayerUnlockInventory("TapeGag"); }
 }
 
 // Add a random item in the player inventory
 function PlayerAddRandomItem() {
-	var ItemList = ["Ballgag", "TapeGag", "Cuffs", "Rope", "ChastityBelt", "VibratingEgg", "Crop", "Collar", "SleepingPill"];
-	var Item = ItemList[Math.floor(Math.random() * 8)];
+	var ItemList = ["Ballgag", "TapeGag", "ClothGag", "Cuffs", "Rope", "ChastityBelt", "VibratingEgg", "Crop", "Collar", "SleepingPill"];
+	var Item = ItemList[Math.floor(Math.random() * 10)];
 	PlayerAddInventory(Item, 1);
 	if (Item == "TapeGag") PlayerAddInventory(Item, 7); // For tape gag, add a bonus + 7 quantity
 	if ((Item == "Cuffs") && (Math.floor(Math.random() * 2) == 1)) PlayerAddInventory("CuffsKey", 1); // For cuffs, can randomly add keys

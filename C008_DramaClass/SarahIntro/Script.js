@@ -12,7 +12,10 @@ var C008_DramaClass_SarahIntro_SlapDone = false;
 var C008_DramaClass_SarahIntro_MasturbateCount = 0;
 var C008_DramaClass_SarahIntro_ViolenceDone = false;
 var C008_DramaClass_SarahIntro_OrgasmDone = false;
+var C008_DramaClass_SarahIntro_TiedUpCommentDone = false;
+var C008_DramaClass_SarahIntro_PlayerBondageDone = false;
 var C008_DramaClass_SarahIntro_PlayerIsRoped = false;
+var C008_DramaClass_SarahIntro_PlayerIsCuffed = false;
 
 // Calculates the scene parameters
 function C008_DramaClass_SarahIntro_CalcParams() {
@@ -24,6 +27,7 @@ function C008_DramaClass_SarahIntro_CalcParams() {
 	C008_DramaClass_SarahIntro_CanUntie = (ActorHasInventory("Rope") && !Common_PlayerRestrained);
 	C008_DramaClass_SarahIntro_CanUngag = (C008_DramaClass_SarahIntro_IsGagged && !Common_PlayerRestrained);
 	C008_DramaClass_SarahIntro_PlayerIsRoped = (PlayerHasLockedInventory("Rope"));
+	C008_DramaClass_SarahIntro_PlayerIsCuffed = (PlayerHasLockedInventory("Cuffs"));
 }
 
 // Chapter 8 - Sarah Intro Load
@@ -74,15 +78,15 @@ function C008_DramaClass_SarahIntro_Click() {
 	}
 	
 	// Sarah can tease the player if she wants to use a toy on stage 0 or 10
-	if (((ClickInv == "Rope") || (ClickInv == "Cuffs") || (ClickInv == "TapeGag") || (ClickInv == "Ballgag") || (ClickInv == "ChastityBelt") || (ClickInv == "VibratingEgg")) && (C008_DramaClass_SarahIntro_CurrentStage < 20))
+	if (((ClickInv == "Rope") || (ClickInv == "Cuffs") || (ClickInv == "TapeGag") || (ClickInv == "Ballgag") || (ClickInv == "ClothGag") || (ClickInv == "ChastityBelt") || (ClickInv == "VibratingEgg")) && (C008_DramaClass_SarahIntro_CurrentStage < 20))
 		OveridenIntroText = GetText("CostumeBeforeFun");
 
 	// Sarah refuses but tease the player on stage 30
-	if (((ClickInv == "Rope") || (ClickInv == "Cuffs") || (ClickInv == "TapeGag") || (ClickInv == "Ballgag") || (ClickInv == "ChastityBelt") || (ClickInv == "VibratingEgg")) && (C008_DramaClass_SarahIntro_CurrentStage == 30))
+	if (((ClickInv == "Rope") || (ClickInv == "Cuffs") || (ClickInv == "TapeGag") || (ClickInv == "Ballgag") || (ClickInv == "ClothGag") || (ClickInv == "ChastityBelt") || (ClickInv == "VibratingEgg")) && (C008_DramaClass_SarahIntro_CurrentStage == 30))
 		OveridenIntroText = GetText("CostumeBlocksFun");
 	
 	// Sarah can be restrained on stage 20
-	if (C008_DramaClass_SarahIntro_CurrentStage == 20) {
+	if ((C008_DramaClass_SarahIntro_CurrentStage == 20) && (ClickInv != "")) {
 		
 		// Sarah can refuse the belt if she's not submissive enough or not tied up
 		if ((ClickInv == "ChastityBelt") && !C008_DramaClass_SarahIntro_IsRestrained && (ActorGetValue(ActorSubmission) < 10)) {
@@ -113,8 +117,13 @@ function C008_DramaClass_SarahIntro_RandomBondage() {
 	if (ActorGetValue(ActorSubmission) < 5) {
 		if (Common_PlayerUnderwear || Common_PlayerNaked) {
 			PlayerRandomBondage();
+			C008_DramaClass_SarahIntro_CalcParams();
 			OveridenIntroText = GetText("PlayerRandomBondage");
 			CurrentTime = CurrentTime + 60000;
+			if (!C008_DramaClass_SarahIntro_PlayerBondageDone) {
+				C008_DramaClass_SarahIntro_PlayerBondageDone = true;
+				ActorChangeAttitude(0, -2);
+			}
 		} else OveridenIntroText = GetText("UndressBeforeBondage");
 	}
 }
@@ -141,6 +150,14 @@ function C008_DramaClass_SarahIntro_Slap() {
 	}
 }
 
+// Chapter 8 - Sarah becomes more submissive if she's offered to be tied up
+function C008_DramaClass_SarahIntro_TiedUpComment() {
+	if (!C008_DramaClass_SarahIntro_TiedUpCommentDone) {
+		C008_DramaClass_SarahIntro_TiedUpCommentDone = true;
+		ActorChangeAttitude(0, 1);
+	}
+}
+
 // Chapter 8 - Sarah spank
 function C008_DramaClass_SarahIntro_Spank() {
 	C008_DramaClass_SarahIntro_ViolenceDone = true;
@@ -149,20 +166,35 @@ function C008_DramaClass_SarahIntro_Spank() {
 // Chapter 8 - Sarah Untie
 function C008_DramaClass_SarahIntro_Untie() {
 	ActorUntie();
+	C008_DramaClass_SarahIntro_CalcParams();
 }
 
 // Chapter 8 - Sarah Ungag
 function C008_DramaClass_SarahIntro_Ungag() {
 	ActorUngag();
+	C008_DramaClass_SarahIntro_CalcParams();
 }
 
 // Chapter 8 - Sarah Test Untie Player (Sarah will do it if she likes the player or is submissive)
 function C008_DramaClass_SarahIntro_TestUntiePlayer() {
-	if ((ActorGetValue(ActorLove)) > 0 || (ActorGetValue(ActorSubmission) >= 5)) {
-		PlayerReleaseBondage();
-		OveridenIntroText = GetText("UntiePlayer");
-		CurrentTime = CurrentTime + 60000;
-	}
+	if (!C008_DramaClass_SarahIntro_IsRestrained) {
+		if ((ActorGetValue(ActorLove)) > 0 || (ActorGetValue(ActorSubmission) >= 5)) {
+			PlayerReleaseBondage();
+			C008_DramaClass_SarahIntro_CalcParams();			
+			if (!C008_DramaClass_SarahIntro_IsGagged) OveridenIntroText = GetText("UntiePlayer");
+			else OveridenIntroText = GetText("HelpWhileGagged");
+			CurrentTime = CurrentTime + 60000;
+		} else {
+			if (C008_DramaClass_SarahIntro_IsGagged) OveridenIntroText = GetText("CannotFreeGagged");
+		}
+	} else OveridenIntroText = GetText("CannotFree");
+}
+
+// Chapter 8 - Sarah Test Uncuff Player (Sarah never has cuff keys but can interact)
+function C008_DramaClass_SarahIntro_TestUncuffPlayer() {
+	if (!C008_DramaClass_SarahIntro_IsRestrained) {
+		if (C008_DramaClass_SarahIntro_IsGagged) OveridenIntroText = GetText("CannotFreeGagged");
+	} else OveridenIntroText = GetText("CannotFree");
 }
 
 // Chapter 8 - Sarah Masturbate - Only works if restrained and not chaste

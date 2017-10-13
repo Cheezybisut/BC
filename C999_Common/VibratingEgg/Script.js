@@ -23,11 +23,12 @@ function C999_Common_VibratingEgg_Load() {
 // Chapter Common - Egg Run, we draw the regular player image if the item is on
 function C999_Common_VibratingEgg_Run() {
 	BuildInteraction(C999_Common_VibratingEgg_CurrentStage);
-	if (PlayerHasLockedInventory("VibratingEgg")) DrawPlayerImage(0, 0);
+	if (PlayerHasLockedInventory("VibratingEgg") && (OveridenIntroImage == "")) DrawPlayerImage(0, 0);
 }
 
 // Chapter Common - Egg Click, allow regular interactions and clicking on another item
 function C999_Common_VibratingEgg_Click() {
+	OveridenIntroImage = "";
 	ClickInteraction(C999_Common_VibratingEgg_CurrentStage);
 	InventoryClick(GetClickedInventory(), LeaveChapter, LeaveScreen);
 }
