@@ -22,12 +22,12 @@ function C999_Common_Cuffs_Load() {
 // Chapter Common - Cuffs Run, we draw the regular player image if the item is on
 function C999_Common_Cuffs_Run() {
 	BuildInteraction(C999_Common_Cuffs_CurrentStage);
-	if (PlayerHasLockedInventory("Cuffs") && (OveridenIntroImage == "")) DrawPlayerImage(150, 240);
+	if (PlayerHasLockedInventory("Cuffs") && (OverridenIntroImage == "")) DrawPlayerImage(150, 240);
 }
 
 // Chapter Common - Cuffs Click, allow regular interactions and clicking on another item
 function C999_Common_Cuffs_Click() {
-	OveridenIntroImage = "";
+	OverridenIntroImage = "";
 	ClickInteraction(C999_Common_Cuffs_CurrentStage);
 	InventoryClick(GetClickedInventory(), LeaveChapter, LeaveScreen);
 }
@@ -39,7 +39,7 @@ function C999_Common_Cuffs_SelfCuff() {
 		PlayerLockInventory("Cuffs");
 		C999_Common_Cuffs_HasLooseCuffs = PlayerHasInventory("Cuffs");
 	} else {
-		OveridenIntroText = GetText("BadTiming");
+		OverridenIntroText = GetText("BadTiming");
 		C999_Common_Cuffs_CurrentStage = 0;
 	}
 }
@@ -52,5 +52,5 @@ function C999_Common_Cuffs_Unlock() {
 
 // Chapter Common - Show the item image
 function C999_Common_Cuffs_ShowImage() {
-	OveridenIntroImage = "Cuffs.jpg";
+	OverridenIntroImage = "Cuffs.jpg";
 }

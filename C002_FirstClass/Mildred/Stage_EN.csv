@@ -35,8 +35,8 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 120,0,0,,Fuck you bitch!,"(She hits you really hard one last time.)|Last warning, will you be good and follow the rules?",130,-1,1,
 130,0,0,,Yes Miss Mildred.|Please excuse me.,You're excused.  Now we can begin the class.,50,2,-1,
 130,0,0,,"Yes, I'll be good.",Fine.  Now we can begin the class.,50,1,0,
-130,0,0,,No way!  I follow|my own rules.,"(She cuffs your wrist and straps a ballgag in.)|If you cannot behave, you'll spend the class like that.",50,0,0,RestrainPlayer()
-130,0,0,,(Refuse to answer.),"(She cuffs your wrist and straps a ballgag in.)|Since you want to be silent, you will stay silent.",50,0,-1,RestrainPlayer()
+130,0,0,,No way!  I follow|my own rules.,"(She cuffs your wrist and straps a BallGag in.)|If you cannot behave, you'll spend the class like that.",50,0,0,RestrainPlayer()
+130,0,0,,(Refuse to answer.),"(She cuffs your wrist and straps a BallGag in.)|Since you want to be silent, you will stay silent.",50,0,-1,RestrainPlayer()
 200,0,0,Common_PlayerNotRestrained,(Talk to get|her attention.),,200,-1,0,Disturb()
 200,0,0,Common_PlayerNotRestrained,(Try to subdue|Miss Mildred.),Do you want to try to subdue and tie up Miss Mildred?|(Each student that helps gives better odds to do it.),210,0,0,
 200,0,0,Common_PlayerRestrained,Uummph!,(She ignores your screams|and the other students giggle.),200,0,0,

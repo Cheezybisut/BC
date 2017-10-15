@@ -37,7 +37,7 @@ function C000_Intro_Intro_KeyDown() {
 		PlayerAddInventory("Cuffs", 4);
 		PlayerAddInventory("CuffsKey", 1);
 		PlayerAddInventory("Rope", 4);
-		PlayerAddInventory("Ballgag", 4);
+		PlayerAddInventory("BallGag", 4);
 		PlayerAddInventory("TapeGag", 8);
 		PlayerAddInventory("ClothGag", 4);
 		PlayerAddInventory("Collar", 4);

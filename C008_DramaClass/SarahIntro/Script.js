@@ -63,7 +63,7 @@ function C008_DramaClass_SarahIntro_Click() {
 	
 	// The player can whip her to help her strip
 	if ((ClickInv == "Crop") && (C008_DramaClass_SarahIntro_CurrentStage == 10) && !Common_PlayerRestrained) {
-		OveridenIntroText = GetText("CropToStrip");
+		OverridenIntroText = GetText("CropToStrip");
 		C008_DramaClass_SarahIntro_CurrentStage = 20;
 		ActorChangeAttitude(0, 1);
 		C008_DramaClass_SarahIntro_Strip();
@@ -71,32 +71,32 @@ function C008_DramaClass_SarahIntro_Click() {
 
 	// The player can whip her to help her find her costume
 	if ((ClickInv == "Crop") && (C008_DramaClass_SarahIntro_CurrentStage == 0) && !Common_PlayerRestrained) {
-		OveridenIntroText = GetText("CropToSearch");
+		OverridenIntroText = GetText("CropToSearch");
 		C008_DramaClass_SarahIntro_CurrentStage = 10;
 		ActorChangeAttitude(0, 1);
 		CurrentTime = CurrentTime + 60000;
 	}
 	
 	// Sarah can tease the player if she wants to use a toy on stage 0 or 10
-	if (((ClickInv == "Rope") || (ClickInv == "Cuffs") || (ClickInv == "TapeGag") || (ClickInv == "Ballgag") || (ClickInv == "ClothGag") || (ClickInv == "ChastityBelt") || (ClickInv == "VibratingEgg")) && (C008_DramaClass_SarahIntro_CurrentStage < 20))
-		OveridenIntroText = GetText("CostumeBeforeFun");
+	if (((ClickInv == "Rope") || (ClickInv == "Cuffs") || (ClickInv == "TapeGag") || (ClickInv == "BallGag") || (ClickInv == "ClothGag") || (ClickInv == "ChastityBelt") || (ClickInv == "VibratingEgg")) && (C008_DramaClass_SarahIntro_CurrentStage < 20))
+		OverridenIntroText = GetText("CostumeBeforeFun");
 
 	// Sarah refuses but tease the player on stage 30
-	if (((ClickInv == "Rope") || (ClickInv == "Cuffs") || (ClickInv == "TapeGag") || (ClickInv == "Ballgag") || (ClickInv == "ClothGag") || (ClickInv == "ChastityBelt") || (ClickInv == "VibratingEgg")) && (C008_DramaClass_SarahIntro_CurrentStage == 30))
-		OveridenIntroText = GetText("CostumeBlocksFun");
+	if (((ClickInv == "Rope") || (ClickInv == "Cuffs") || (ClickInv == "TapeGag") || (ClickInv == "BallGag") || (ClickInv == "ClothGag") || (ClickInv == "ChastityBelt") || (ClickInv == "VibratingEgg")) && (C008_DramaClass_SarahIntro_CurrentStage == 30))
+		OverridenIntroText = GetText("CostumeBlocksFun");
 	
 	// Sarah can be restrained on stage 20
 	if ((C008_DramaClass_SarahIntro_CurrentStage == 20) && (ClickInv != "")) {
 		
 		// Sarah can refuse the belt if she's not submissive enough or not tied up
 		if ((ClickInv == "ChastityBelt") && !C008_DramaClass_SarahIntro_IsRestrained && (ActorGetValue(ActorSubmission) < 10)) {
-			OveridenIntroText = GetText("RefuseBelt");
+			OverridenIntroText = GetText("RefuseBelt");
 			CurrentTime = CurrentTime + 60000;
 			return;
 		}
 		
 		// Apply the clicked restrain
-		ActorApplyRestrain(ClickInv, GetText(ClickInv));
+		ActorApplyRestrain(ClickInv);
 		C008_DramaClass_SarahIntro_CalcParams();
 		if (ClickInv == "Crop") C008_DramaClass_SarahIntro_ViolenceDone = true;
 
@@ -108,7 +108,7 @@ function C008_DramaClass_SarahIntro_Click() {
 function C008_DramaClass_SarahIntro_CheckUngag() {	
 	if ((ActorGetValue(ActorLove)) > 0 || (ActorGetValue(ActorSubmission) > 0)) {
 		PlayerUngag();
-		OveridenIntroText = GetText("UngagPlayer");
+		OverridenIntroText = GetText("UngagPlayer");
 	}
 }
 
@@ -118,13 +118,13 @@ function C008_DramaClass_SarahIntro_RandomBondage() {
 		if (Common_PlayerUnderwear || Common_PlayerNaked) {
 			PlayerRandomBondage();
 			C008_DramaClass_SarahIntro_CalcParams();
-			OveridenIntroText = GetText("PlayerRandomBondage");
+			OverridenIntroText = GetText("PlayerRandomBondage");
 			CurrentTime = CurrentTime + 60000;
 			if (!C008_DramaClass_SarahIntro_PlayerBondageDone) {
 				C008_DramaClass_SarahIntro_PlayerBondageDone = true;
 				ActorChangeAttitude(0, -2);
 			}
-		} else OveridenIntroText = GetText("UndressBeforeBondage");
+		} else OverridenIntroText = GetText("UndressBeforeBondage");
 	}
 }
 
@@ -136,7 +136,7 @@ function C008_DramaClass_SarahIntro_Strip() {
 
 // Chapter 8 - Sarah Costume
 function C008_DramaClass_SarahIntro_Costume() {
-	if (C008_DramaClass_SarahIntro_IsChaste) OveridenIntroText = GetText("DressWithBelt");
+	if (C008_DramaClass_SarahIntro_IsChaste) OverridenIntroText = GetText("DressWithBelt");
 	if (C008_DramaClass_SarahIntro_IsDamsel) ActorSetCloth("Damsel");
 	else ActorSetCloth("Heroine");
 }
@@ -181,20 +181,20 @@ function C008_DramaClass_SarahIntro_TestUntiePlayer() {
 		if ((ActorGetValue(ActorLove)) > 0 || (ActorGetValue(ActorSubmission) >= 5)) {
 			PlayerReleaseBondage();
 			C008_DramaClass_SarahIntro_CalcParams();			
-			if (!C008_DramaClass_SarahIntro_IsGagged) OveridenIntroText = GetText("UntiePlayer");
-			else OveridenIntroText = GetText("HelpWhileGagged");
+			if (!C008_DramaClass_SarahIntro_IsGagged) OverridenIntroText = GetText("UntiePlayer");
+			else OverridenIntroText = GetText("HelpWhileGagged");
 			CurrentTime = CurrentTime + 60000;
 		} else {
-			if (C008_DramaClass_SarahIntro_IsGagged) OveridenIntroText = GetText("CannotFreeGagged");
+			if (C008_DramaClass_SarahIntro_IsGagged) OverridenIntroText = GetText("CannotFreeGagged");
 		}
-	} else OveridenIntroText = GetText("CannotFree");
+	} else OverridenIntroText = GetText("CannotFree");
 }
 
 // Chapter 8 - Sarah Test Uncuff Player (Sarah never has cuff keys but can interact)
 function C008_DramaClass_SarahIntro_TestUncuffPlayer() {
 	if (!C008_DramaClass_SarahIntro_IsRestrained) {
-		if (C008_DramaClass_SarahIntro_IsGagged) OveridenIntroText = GetText("CannotFreeGagged");
-	} else OveridenIntroText = GetText("CannotFree");
+		if (C008_DramaClass_SarahIntro_IsGagged) OverridenIntroText = GetText("CannotFreeGagged");
+	} else OverridenIntroText = GetText("CannotFree");
 }
 
 // Chapter 8 - Sarah Masturbate - Only works if restrained and not chaste
@@ -206,15 +206,15 @@ function C008_DramaClass_SarahIntro_Masturbate() {
 			C008_DramaClass_SarahIntro_MasturbateCount++;
 			if (C008_DramaClass_SarahIntro_ViolenceDone || ActorHasInventory("VibratingEgg")) {				
 				if ((C008_DramaClass_SarahIntro_MasturbateCount >= 3) && !C008_DramaClass_SarahIntro_OrgasmDone) {
-					OveridenIntroText = GetText("MasturbateOrgasm");
+					OverridenIntroText = GetText("MasturbateOrgasm");
 					ActorAddOrgasm();
 					ActorChangeAttitude(1, 0);
 					C008_DramaClass_SarahIntro_OrgasmDone = true;
 					C008_DramaClass_SarahIntro_CurrentStage = 200;
-				} else OveridenIntroText = GetText("MasturbateGood");
-			} else OveridenIntroText = GetText("Masturbate");
+				} else OverridenIntroText = GetText("MasturbateGood");
+			} else OverridenIntroText = GetText("Masturbate");
 			
-		} else OveridenIntroText = GetText("MasturbateBelt");
+		} else OverridenIntroText = GetText("MasturbateBelt");
 	}
 }
 

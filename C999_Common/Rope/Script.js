@@ -20,17 +20,17 @@ function C999_Common_Rope_Load() {
 // Chapter Common - Rope Run, we draw the regular player image if the item is on
 function C999_Common_Rope_Run() {
 	BuildInteraction(C999_Common_Rope_CurrentStage);
-	if (PlayerHasLockedInventory("Rope") && (OveridenIntroImage == "")) DrawPlayerImage(150, 240);
+	if (PlayerHasLockedInventory("Rope") && (OverridenIntroImage == "")) DrawPlayerImage(150, 240);
 }
 
 // Chapter Common - Rope Click, allow regular interactions and clicking on another item
 function C999_Common_Rope_Click() {
-	OveridenIntroImage = "";
+	OverridenIntroImage = "";
 	ClickInteraction(C999_Common_Rope_CurrentStage);
 	InventoryClick(GetClickedInventory(), LeaveChapter, LeaveScreen);
 }
 
 // Chapter Common - Show the item image
 function C999_Common_Rope_ShowImage() {
-	OveridenIntroImage = "Rope.jpg";
+	OverridenIntroImage = "Rope.jpg";
 }

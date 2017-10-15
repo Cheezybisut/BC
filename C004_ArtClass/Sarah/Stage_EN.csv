@@ -18,7 +18,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 120,0,0,,We can convince|her using art.,"Oh!  There's something you could try.|Tell her of ""Shibari"", the Japanese rope bondage art.",130,0,0,ShibariComment()
 120,0,0,,She loves art.|Can we use that?,"Yes!  Stay quiet.  I have the perfect plan.|Tell her of ""Shibari"", the Japanese rope bondage art.",130,0,-1,ShibariComment()
 130,0,0,CanBeTied,"Sarah, can you|tie me up?","I prefer to be tied up, but maybe I can help.|(She takes your rope and restrains you pretty well.)",130,0,0,TiePlayer()
-130,0,0,CanBeBallgagged,"Check in my stuff,|there's a ballgag.",Oh nice!  Open wide pretty model.|(She straps the ballgag in your mouth.),130,0,0,BallgagPlayer()
+130,0,0,CanBeBallGagged,"Check in my stuff,|there's a BallGag.",Oh nice!  Open wide pretty model.|(She straps the BallGag in your mouth.),130,0,0,BallGagPlayer()
 130,0,0,Common_PlayerRestrained,"Sarah, can you help me?",,130,0,0,BegForRelease()
 130,0,0,Common_PlayerGagged,"@Nanghn, uuumng!",(She giggles)  You're so cute with that gag.,130,0,0,
 130,0,0,Common_PlayerGagged,(Bow your head.),You're a nice submissive you know?,130,0,0,BowHead()

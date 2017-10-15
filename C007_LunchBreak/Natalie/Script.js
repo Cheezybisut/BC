@@ -30,14 +30,14 @@ var C007_LunchBreak_Natalie_TwoRopes = false;
 function C007_LunchBreak_Natalie_CalcParams() {
 
 	// No special images by default
-	OveridenIntroImage = "";
+	OverridenIntroImage = "";
         
     // Between 200 and 240, the image evolves with the number of matches
     if ((C007_LunchBreak_Natalie_CurrentStage >= 200) && (C007_LunchBreak_Natalie_CurrentStage <= 240)) {
         var Img = "0";
         if (C007_LunchBreak_Natalie_MatchCount == 1) Img = "1";
         if (C007_LunchBreak_Natalie_MatchCount >= 2) Img = "2";
-        OveridenIntroImage = "NataliePlayerSubLunch" + Img + ".jpg";
+        OverridenIntroImage = "NataliePlayerSubLunch" + Img + ".jpg";
     }
 
     // Between 250 and 290, the image evolves with the number of matches
@@ -45,18 +45,18 @@ function C007_LunchBreak_Natalie_CalcParams() {
         var Img = "0";
         if (C007_LunchBreak_Natalie_MatchCount == 1) Img = "1";
         if (C007_LunchBreak_Natalie_MatchCount >= 2) Img = "2";
-        OveridenIntroImage = "NataliePlayerDomLunch" + Img + ".jpg";
+        OverridenIntroImage = "NataliePlayerDomLunch" + Img + ".jpg";
     }
 
     // At 360. The image changes with player action.
     if (C007_LunchBreak_Natalie_CurrentStage == 360) {
-        if (C007_LunchBreak_Natalie_BadStage == 1) OveridenIntroImage = "NataliePlayerBadNoEscape.jpg";
-        if (C007_LunchBreak_Natalie_BadStage == 2) OveridenIntroImage = "NataliePlayerBadNoHelp.jpg";
-        if (C007_LunchBreak_Natalie_BadStage == 3) OveridenIntroImage = "NataliePlayerBadChloeSuspended0.jpg";
-        if (C007_LunchBreak_Natalie_BadStage == 4) OveridenIntroImage = "NataliePlayerBadChloeSuspended1.jpg";
-        if (C007_LunchBreak_Natalie_BadStage == 5) OveridenIntroImage = "NataliePlayerBadChloeSuspended2.jpg";
-        if (C007_LunchBreak_Natalie_BadStage == 6) OveridenIntroImage = "NataliePlayerBadStruggling.jpg";
-        if (C007_LunchBreak_Natalie_BadStage == 7) OveridenIntroImage = "NataliePlayerBad.jpg";
+        if (C007_LunchBreak_Natalie_BadStage == 1) OverridenIntroImage = "NataliePlayerBadNoEscape.jpg";
+        if (C007_LunchBreak_Natalie_BadStage == 2) OverridenIntroImage = "NataliePlayerBadNoHelp.jpg";
+        if (C007_LunchBreak_Natalie_BadStage == 3) OverridenIntroImage = "NataliePlayerBadChloeSuspended0.jpg";
+        if (C007_LunchBreak_Natalie_BadStage == 4) OverridenIntroImage = "NataliePlayerBadChloeSuspended1.jpg";
+        if (C007_LunchBreak_Natalie_BadStage == 5) OverridenIntroImage = "NataliePlayerBadChloeSuspended2.jpg";
+        if (C007_LunchBreak_Natalie_BadStage == 6) OverridenIntroImage = "NataliePlayerBadStruggling.jpg";
+        if (C007_LunchBreak_Natalie_BadStage == 7) OverridenIntroImage = "NataliePlayerBad.jpg";
     }
 
     // At 400, the player can dominate Natalie with many restraints, the image changes accordingly
@@ -67,11 +67,11 @@ function C007_LunchBreak_Natalie_CalcParams() {
         if (C007_LunchBreak_Natalie_Clothes == 2) Img = Img + "Naked";
         if (ActorHasInventory("Rope") && !C007_LunchBreak_Natalie_TwoRopes) Img = Img + "Rope";
 		if (ActorHasInventory("Rope") && C007_LunchBreak_Natalie_TwoRopes) Img = Img + "Desk";
-		if (ActorHasInventory("Ballgag")) Img = Img + "Ballgag";
+		if (ActorHasInventory("BallGag")) Img = Img + "BallGag";
         if (ActorHasInventory("ClothGag")) Img = Img + "ClothGag";
         if (ActorHasInventory("TapeGag")) Img = Img + "TapeGag";
         if (ActorHasInventory("Blindfold")) Img = Img + "Blindfold";
-		OveridenIntroImage = "NataliePlayerDom" + Img + ".jpg";
+		OverridenIntroImage = "NataliePlayerDom" + Img + ".jpg";
     }
 
     // At 660, the image changes with intensity, knee and remote drop
@@ -80,7 +80,7 @@ function C007_LunchBreak_Natalie_CalcParams() {
         if (C007_LunchBreak_Natalie_Intensify) Img = Img + "Intensify";
         if (C007_LunchBreak_Natalie_NoRemote) Img = Img + "Drop";
         if (C007_LunchBreak_Natalie_Knee) Img = Img + "Knee";
-        OveridenIntroImage = "NataliePlayerHug" + Img + ".jpg";
+        OverridenIntroImage = "NataliePlayerHug" + Img + ".jpg";
     }
 
     // Keep the status of Natalie
@@ -105,7 +105,7 @@ function C007_LunchBreak_Natalie_Load() {
 
     // If we must put the previous text back
     if ((C007_LunchBreak_Natalie_IntroText != "") && (C007_LunchBreak_Natalie_CurrentStage > 0)) {
-        OveridenIntroText = C007_LunchBreak_Natalie_IntroText;
+        OverridenIntroText = C007_LunchBreak_Natalie_IntroText;
         LeaveIcon = C007_LunchBreak_Natalie_LeaveIcon;
     }
 
@@ -127,14 +127,14 @@ function C007_LunchBreak_Natalie_Click() {
     ClickInteraction(C007_LunchBreak_Natalie_CurrentStage);
     var ClickInv = GetClickedInventory();
     if (ClickInv == "Player") {
-        C007_LunchBreak_Natalie_IntroText = OveridenIntroText;
+        C007_LunchBreak_Natalie_IntroText = OverridenIntroText;
         C007_LunchBreak_Natalie_LeaveIcon = LeaveIcon;
         InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
     }
 
     // When the user wants to use a second rope
     if ((C007_LunchBreak_Natalie_CurrentStage == 430) && (ClickInv == "Rope") && ActorHasInventory("Rope") && !C007_LunchBreak_Natalie_TwoRopes) {
-        OveridenIntroText = GetText("SecondRope");
+        OverridenIntroText = GetText("SecondRope");
         PlayerRemoveInventory("Rope", 1);
         CurrentTime = CurrentTime + 120000;
         C007_LunchBreak_Natalie_TwoRopes = true;
@@ -143,7 +143,7 @@ function C007_LunchBreak_Natalie_Click() {
 
     // When the user wants to use the rope
     if ((C007_LunchBreak_Natalie_CurrentStage == 430) && (ClickInv == "Rope") && !ActorHasInventory("Rope")) {
-        OveridenIntroText = GetText("FirstRope");
+        OverridenIntroText = GetText("FirstRope");
         ActorAddInventory("Rope");
         PlayerRemoveInventory("Rope", 1);
         CurrentTime = CurrentTime + 120000;
@@ -153,13 +153,13 @@ function C007_LunchBreak_Natalie_Click() {
 
     // When the user wants to use the cuffs
     if ((C007_LunchBreak_Natalie_CurrentStage == 430) && (ClickInv == "Cuffs")) {
-        OveridenIntroText = GetText("Cuffs");
+        OverridenIntroText = GetText("Cuffs");
         C007_LunchBreak_Natalie_TimeLimit()
     }
 
     // When the user wants to use the blindfold
     if ((C007_LunchBreak_Natalie_CurrentStage == 430) && (ClickInv == "Blindfold") && !ActorHasInventory("Blindfold")) {
-        OveridenIntroText = GetText("Blindfold");
+        OverridenIntroText = GetText("Blindfold");
         ActorAddInventory("Blindfold");
         PlayerRemoveInventory("Blindfold", 1);
         CurrentTime = CurrentTime + 60000;
@@ -167,12 +167,12 @@ function C007_LunchBreak_Natalie_Click() {
         C007_LunchBreak_Natalie_TimeLimit()
     }
 
-    // When the user wants to use the ballgag
-    if ((C007_LunchBreak_Natalie_CurrentStage == 430) && (ClickInv == "Ballgag") && !ActorHasInventory("Ballgag")) {
-        OveridenIntroText = GetText("Ballgag");
+    // When the user wants to use the BallGag
+    if ((C007_LunchBreak_Natalie_CurrentStage == 430) && (ClickInv == "BallGag") && !ActorHasInventory("BallGag")) {
+        OverridenIntroText = GetText("BallGag");
         C007_LunchBreak_Natalie_Ungag();
-        ActorAddInventory("Ballgag");
-        PlayerRemoveInventory("Ballgag", 1);
+        ActorAddInventory("BallGag");
+        PlayerRemoveInventory("BallGag", 1);
         CurrentTime = CurrentTime + 60000;
         C007_LunchBreak_Natalie_IsGagged = true;
         C007_LunchBreak_Natalie_TimeLimit()
@@ -180,7 +180,7 @@ function C007_LunchBreak_Natalie_Click() {
 
     // When the user wants to use the ClothGag
     if ((C007_LunchBreak_Natalie_CurrentStage == 430) && (ClickInv == "ClothGag") && !ActorHasInventory("ClothGag")) {
-        OveridenIntroText = GetText("ClothGag");
+        OverridenIntroText = GetText("ClothGag");
         C007_LunchBreak_Natalie_Ungag();
         ActorAddInventory("ClothGag");
         PlayerRemoveInventory("ClothGag", 1);
@@ -191,7 +191,7 @@ function C007_LunchBreak_Natalie_Click() {
 
     // When the user wants to use the tape gag
     if ((C007_LunchBreak_Natalie_CurrentStage == 430) && (ClickInv == "TapeGag") && !ActorHasInventory("TapeGag")) {
-        OveridenIntroText = GetText("TapeGag");
+        OverridenIntroText = GetText("TapeGag");
         C007_LunchBreak_Natalie_Ungag();
         ActorAddInventory("TapeGag");
         PlayerRemoveInventory("TapeGag", 1);
@@ -202,7 +202,7 @@ function C007_LunchBreak_Natalie_Click() {
 
     // When the user wants to use the crop on Natalie
     if ((C007_LunchBreak_Natalie_CurrentStage == 430) && (ClickInv == "Crop")) {
-        OveridenIntroText = GetText("Crop");
+        OverridenIntroText = GetText("Crop");
         if (!C007_LunchBreak_Natalie_CropDone) {
             C007_LunchBreak_Natalie_CropDone = true;
             ActorChangeAttitude(0, 1);
@@ -213,7 +213,7 @@ function C007_LunchBreak_Natalie_Click() {
 
     // When the user wants to use the egg
     if ((C007_LunchBreak_Natalie_CurrentStage == 430) && (ClickInv == "VibratingEgg") && !ActorHasInventory("VibratingEgg")) {
-        OveridenIntroText = GetText("VibratingEgg");
+        OverridenIntroText = GetText("VibratingEgg");
         ActorChangeAttitude(0, 1);
         ActorAddInventory("VibratingEgg");
         PlayerRemoveInventory("VibratingEgg", 1);
@@ -223,16 +223,16 @@ function C007_LunchBreak_Natalie_Click() {
     
     // When the user wants to use the collar (+20 submission and a ceremony is required)
     if ((C007_LunchBreak_Natalie_CurrentStage == 430) && (ClickInv == "Collar") && !ActorHasInventory("Collar"))
-        OveridenIntroText = GetText("Collar");
+        OverridenIntroText = GetText("Collar");
     C007_LunchBreak_Natalie_TimeLimit()
 
     // When the user wants to use a bondage item when subbie
-    if ((C007_LunchBreak_Natalie_CurrentStage >= 500) && (C007_LunchBreak_Natalie_CurrentStage < 540) && ((ClickInv == "Collar") || (ClickInv == "VibratingEgg") || (ClickInv == "Crop") || (ClickInv == "TapeGag") || (ClickInv == "Ballgag") || (ClickInv == "Rope")))
-        OveridenIntroText = GetText("SubbieNoItem");
+    if ((C007_LunchBreak_Natalie_CurrentStage >= 500) && (C007_LunchBreak_Natalie_CurrentStage < 540) && ((ClickInv == "Collar") || (ClickInv == "VibratingEgg") || (ClickInv == "Crop") || (ClickInv == "TapeGag") || (ClickInv == "BallGag") || (ClickInv == "Rope")))
+        OverridenIntroText = GetText("SubbieNoItem");
 
     // When the user wants to use a bondage item together
-    if ((C007_LunchBreak_Natalie_CurrentStage >= 600) && (C007_LunchBreak_Natalie_CurrentStage < 630) && ((ClickInv == "Collar") || (ClickInv == "VibratingEgg") || (ClickInv == "Crop") || (ClickInv == "TapeGag") || (ClickInv == "Ballgag") || (ClickInv == "Rope")))
-        OveridenIntroText = GetText("TogetherNoItem");
+    if ((C007_LunchBreak_Natalie_CurrentStage >= 600) && (C007_LunchBreak_Natalie_CurrentStage < 630) && ((ClickInv == "Collar") || (ClickInv == "VibratingEgg") || (ClickInv == "Crop") || (ClickInv == "TapeGag") || (ClickInv == "BallGag") || (ClickInv == "Rope")))
+        OverridenIntroText = GetText("TogetherNoItem");
 
     // Recalculates the scene parameters
     C007_LunchBreak_Natalie_CalcParams();
@@ -320,7 +320,7 @@ function C007_LunchBreak_Natalie_NoEscape() {
     C007_LunchBreak_Natalie_BadStage = 1;
     CurrentTime = CurrentTime + 120000;
     if (CurrentTime >= 12.66667 * 60 * 60 * 1000) {
-        OveridenIntroText = GetText("NatalieReturns");
+        OverridenIntroText = GetText("NatalieReturns");
         C007_LunchBreak_Natalie_CurrentStage = 365;
     }
 }
@@ -330,7 +330,7 @@ function C007_LunchBreak_Natalie_NoHelp() {
     C007_LunchBreak_Natalie_BadStage = 2;
     CurrentTime = CurrentTime + 120000;
     if (CurrentTime >= 12.66667 * 60 * 60 * 1000) {
-        OveridenIntroText = GetText("NatalieReturns");
+        OverridenIntroText = GetText("NatalieReturns");
         C007_LunchBreak_Natalie_CurrentStage = 365;
     }
 }
@@ -342,16 +342,16 @@ function C007_LunchBreak_Natalie_ChloeSuspended() {
     }
     if (C007_LunchBreak_Natalie_Others == 1) {
         C007_LunchBreak_Natalie_BadStage = 4;
-        OveridenIntroText = GetText("Chloe1");
+        OverridenIntroText = GetText("Chloe1");
     }
     if (C007_LunchBreak_Natalie_Others >= 2) {
         C007_LunchBreak_Natalie_BadStage = 5;
-        OveridenIntroText = GetText("Chloe2");
+        OverridenIntroText = GetText("Chloe2");
     }
     C007_LunchBreak_Natalie_Others++;
     CurrentTime = CurrentTime + 120000;
     if (CurrentTime >= 12.66667 * 60 * 60 * 1000) {
-        OveridenIntroText = GetText("NatalieReturns");
+        OverridenIntroText = GetText("NatalieReturns");
         C007_LunchBreak_Natalie_CurrentStage = 365;
     }
 }
@@ -361,7 +361,7 @@ function C007_LunchBreak_Natalie_Struggle() {
     C007_LunchBreak_Natalie_BadStage = 6;
     CurrentTime = CurrentTime + 120000;
     if (CurrentTime >= 12.66667 * 60 * 60 * 1000) {
-        OveridenIntroText = GetText("NatalieReturns");
+        OverridenIntroText = GetText("NatalieReturns");
         C007_LunchBreak_Natalie_CurrentStage = 365;
     }
 }
@@ -371,7 +371,7 @@ function C007_LunchBreak_Natalie_Wait() {
     C007_LunchBreak_Natalie_BadStage = 7;
     CurrentTime = CurrentTime + 120000;
     if (CurrentTime >= 12.66667 * 60 * 60 * 1000) {
-        OveridenIntroText = GetText("NatalieReturns");
+        OverridenIntroText = GetText("NatalieReturns");
         C007_LunchBreak_Natalie_CurrentStage = 365;
     }
 }
@@ -399,7 +399,7 @@ function C007_LunchBreak_Natalie_EndChapter() {
 function C007_LunchBreak_Natalie_GetToys() {
     PlayerAddInventory("Rope", 1);
     PlayerAddInventory("Blindfold", 1);
-    PlayerAddInventory("Ballgag", 1);
+    PlayerAddInventory("BallGag", 1);
     PlayerAddInventory("ClothGag", 1);
     PlayerAddInventory("VibratingEgg", 1);
 }
@@ -430,7 +430,7 @@ function C007_LunchBreak_Natalie_NatilieClothed() {
 function C007_LunchBreak_Natalie_Tickle() {
     CurrentTime = CurrentTime + 60000;
     if (ActorHasInventory("Rope")) {
-        OveridenIntroText = GetText("TickleTied");
+        OverridenIntroText = GetText("TickleTied");
         if (!C007_LunchBreak_Natalie_TickleDone) {
             C007_LunchBreak_Natalie_TickleDone = true;
             ActorChangeAttitude(-1, 1);
@@ -453,14 +453,14 @@ function C007_LunchBreak_Natalie_Spank() {
 function C007_LunchBreak_Natalie_Kiss() {
     CurrentTime = CurrentTime + 60000;
     if ((C007_LunchBreak_Natalie_IsRoped) && (!C007_LunchBreak_Natalie_IsGagged)) {
-        OveridenIntroText = GetText("KissTied");
+        OverridenIntroText = GetText("KissTied");
         if (!C007_LunchBreak_Natalie_KissDone) {
             C007_LunchBreak_Natalie_KissDone = true;
             ActorChangeAttitude(1, 0);
         }
     }
     if (C007_LunchBreak_Natalie_IsGagged) {
-        OveridenIntroText = GetText("KissGagged");
+        OverridenIntroText = GetText("KissGagged");
         if (!C007_LunchBreak_Natalie_KissDone) {
             C007_LunchBreak_Natalie_KissDone = true;
             ActorChangeAttitude(0, 1);
@@ -472,7 +472,7 @@ function C007_LunchBreak_Natalie_Kiss() {
 // Chapter 7 - Natalie Dom Masturbate (only when tied up, quicker with egg and 2 stage)
 function C007_LunchBreak_Natalie_DomMasturbate() {
     if (!ActorHasInventory("Rope")) {
-        OveridenIntroText = GetText("NoMasturbate");
+        OverridenIntroText = GetText("NoMasturbate");
     }
     if (ActorHasInventory("Rope")) {
         CurrentTime = CurrentTime + 60000;
@@ -481,13 +481,13 @@ function C007_LunchBreak_Natalie_DomMasturbate() {
             C007_LunchBreak_Natalie_MasturbateCount++;
         }
         if ((C007_LunchBreak_Natalie_MasturbateCount >= 5) && (C007_LunchBreak_Natalie_OrgasmDone < 1)) {
-            OveridenIntroText = GetText("NatalieOrgasm1");
+            OverridenIntroText = GetText("NatalieOrgasm1");
             ActorAddOrgasm();
             ActorChangeAttitude(0, 1);
             C007_LunchBreak_Natalie_OrgasmDone++;
         }
         if ((C007_LunchBreak_Natalie_MasturbateCount >= 9) && (C007_LunchBreak_Natalie_OrgasmDone < 2)) {
-            OveridenIntroText = GetText("NatalieOrgasm2");
+            OverridenIntroText = GetText("NatalieOrgasm2");
             ActorAddOrgasm();
             ActorChangeAttitude(2, 1);
             C007_LunchBreak_Natalie_OrgasmDone++;
@@ -516,9 +516,9 @@ function C007_LunchBreak_Natalie_Untie() {
 function C007_LunchBreak_Natalie_Ungag() {
     CurrentTime = CurrentTime + 60000;
     ActorRemoveInventory("TapeGag");
-    if (ActorHasInventory("Ballgag")) {
-        ActorRemoveInventory("Ballgag");
-        PlayerAddInventory("Ballgag", 1);
+    if (ActorHasInventory("BallGag")) {
+        ActorRemoveInventory("BallGag");
+        PlayerAddInventory("BallGag", 1);
     }
     if (ActorHasInventory("ClothGag")) {
         ActorRemoveInventory("ClothGag");
@@ -540,7 +540,7 @@ function C007_LunchBreak_Natalie_Unblind() {
 // Chapter 7 - Natalie dom time limit
 function C007_LunchBreak_Natalie_TimeLimit() {
     if ((C007_LunchBreak_Natalie_CurrentStage == 430) && (CurrentTime >= 12.66667 * 60 * 60 * 1000)) {
-        OveridenIntroText = GetText("OutOfTime");
+        OverridenIntroText = GetText("OutOfTime");
         C007_LunchBreak_Natalie_NatalieRelease()
         C007_LunchBreak_Natalie_CurrentStage = 490;
     }
@@ -549,9 +549,9 @@ function C007_LunchBreak_Natalie_TimeLimit() {
 // Chapter 7 - Natalie is released
 function C007_LunchBreak_Natalie_NatalieRelease() {
     ActorRemoveInventory("TapeGag");
-    if (ActorHasInventory("Ballgag")) {
-        ActorRemoveInventory("Ballgag");
-        PlayerAddInventory("Ballgag", 1);
+    if (ActorHasInventory("BallGag")) {
+        ActorRemoveInventory("BallGag");
+        PlayerAddInventory("BallGag", 1);
     }
     if (ActorHasInventory("ClothGag")) {
         ActorRemoveInventory("ClothGag");
@@ -618,10 +618,10 @@ function C007_LunchBreak_Natalie_PlayerEgg() {
     PlayerLockInventory("VibratingEgg");
 }
 
-// Cha[ter 7 - Natalie - Player is Ballgagged
-function C007_LunchBreak_Natalie_PlayerBallgag() {
+// Cha[ter 7 - Natalie - Player is BallGagged
+function C007_LunchBreak_Natalie_PlayerBallGag() {
     CurrentTime = CurrentTime + 60000;
-    PlayerLockInventory("Ballgag");
+    PlayerLockInventory("BallGag");
 }
 
 // Chapter 7 - Natalie - Player Subbie Masturbate (After 3 times, the player cums)
@@ -629,10 +629,10 @@ function C007_LunchBreak_Natalie_SubbieMasturbate() {
     CurrentTime = CurrentTime + 120000;
     C007_LunchBreak_Natalie_MasturbateCount++;
     if (C007_LunchBreak_Natalie_MasturbateCount >= 4) {
-        OveridenIntroText = GetText("SubbieMasturbate");
+        OverridenIntroText = GetText("SubbieMasturbate");
         ActorAddOrgasm();
         ActorChangeAttitude(1, 0);
-        PlayerUnlockInventory("Ballgag");
+        PlayerUnlockInventory("BallGag");
         PlayerUnlockInventory("Blindfold");
         PlayerUnlockInventory("Rope");
         CurrentTime = CurrentTime + 120000;
@@ -673,18 +673,18 @@ function C007_LunchBreak_Natalie_VibeNatalie() {
     C007_LunchBreak_Natalie_VibratorNatalie++;
     C007_LunchBreak_Natalie_Knee = false;
     CurrentTime = CurrentTime + 60000;
-    if (C007_LunchBreak_Natalie_VibratorNatalie <= 1) OveridenIntroText = GetText("Remote1");
-    if (C007_LunchBreak_Natalie_VibratorNatalie == 2) OveridenIntroText = GetText("Remote2");
+    if (C007_LunchBreak_Natalie_VibratorNatalie <= 1) OverridenIntroText = GetText("Remote1");
+    if (C007_LunchBreak_Natalie_VibratorNatalie == 2) OverridenIntroText = GetText("Remote2");
     if (C007_LunchBreak_Natalie_VibratorNatalie >= 3) {
-        OveridenIntroText = GetText("Remote3");
-        // OveridenIntroImage = "NataliePlayerRemoteDrop.jpg";
+        OverridenIntroText = GetText("Remote3");
+        // OverridenIntroImage = "NataliePlayerRemoteDrop.jpg";
         C007_LunchBreak_Natalie_VibratorPlayer++;
         C007_LunchBreak_Natalie_Remote = false;
         C007_LunchBreak_Natalie_NoRemote = true;
         C007_LunchBreak_Natalie_Intensify = true;
     }  
     if (CurrentTime >= 12.66667 * 60 * 60 * 1000) {
-        OveridenIntroText = GetText("JennaReturns");
+        OverridenIntroText = GetText("JennaReturns");
         C007_LunchBreak_Natalie_CurrentStage = 690;
     }
     C007_LunchBreak_Natalie_CalcParams();
@@ -697,7 +697,7 @@ function C007_LunchBreak_Natalie_Panic() {
     C007_LunchBreak_Natalie_Knee = false;
     CurrentTime = CurrentTime + 60000;
     if (CurrentTime >= 12.66667 * 60 * 60 * 1000) {
-        OveridenIntroText = GetText("JennaReturns");
+        OverridenIntroText = GetText("JennaReturns");
         C007_LunchBreak_Natalie_CurrentStage = 690;
     }
     C007_LunchBreak_Natalie_CalcParams();
@@ -709,13 +709,13 @@ function C007_LunchBreak_Natalie_VibePlayer() {
     C007_LunchBreak_Natalie_Intensify = true;
     C007_LunchBreak_Natalie_Knee = false;
     if (C007_LunchBreak_Natalie_VibratorPlayer >= 5) {
-        OveridenIntroText = GetText("Orgasm");
+        OverridenIntroText = GetText("Orgasm");
         C007_LunchBreak_Natalie_OrgasmDone = true;
         C007_LunchBreak_Natalie_CurrentStage = 670;
     }
     CurrentTime = CurrentTime + 60000;
     if (CurrentTime >= 12.66667 * 60 * 60 * 1000) {
-        OveridenIntroText = GetText("JennaReturns");
+        OverridenIntroText = GetText("JennaReturns");
         C007_LunchBreak_Natalie_CurrentStage = 690;
     }
     C007_LunchBreak_Natalie_CalcParams();
@@ -727,14 +727,14 @@ function C007_LunchBreak_Natalie_KneePlayer() {
     C007_LunchBreak_Natalie_Intensify = true;
     C007_LunchBreak_Natalie_Knee = true;
     if (C007_LunchBreak_Natalie_VibratorPlayer >= 5) {
-        OveridenIntroText = GetText("Orgasm");
+        OverridenIntroText = GetText("Orgasm");
         ActorAddOrgasm();
         C007_LunchBreak_Natalie_OrgasmDone = true;
         C007_LunchBreak_Natalie_CurrentStage = 670;
     }
     CurrentTime = CurrentTime + 60000;
     if (CurrentTime >= 12.66667 * 60 * 60 * 1000) {
-        OveridenIntroText = GetText("JennaReturns");
+        OverridenIntroText = GetText("JennaReturns");
         C007_LunchBreak_Natalie_CurrentStage = 690;
     }
     C007_LunchBreak_Natalie_CalcParams();
@@ -745,7 +745,7 @@ function C007_LunchBreak_Natalie_Hug() {
     CurrentTime = CurrentTime + 60000;
     C007_LunchBreak_Natalie_Knee = false;
     if (CurrentTime >= 12.66667 * 60 * 60 * 1000) {
-        OveridenIntroText = GetText("JennaReturns");
+        OverridenIntroText = GetText("JennaReturns");
         C007_LunchBreak_Natalie_CurrentStage = 690;
     }
     C007_LunchBreak_Natalie_CalcParams();

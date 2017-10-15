@@ -46,7 +46,7 @@ function C006_Isolation_Yuki_AddRope() {
 
 // Chapter 6 - Yuki Add Gag
 function C006_Isolation_Yuki_AddGag() {
-	PlayerLockInventory("Ballgag");
+	PlayerLockInventory("BallGag");
 }
 
 // Chapter 6 - Yuki Pleasure 
@@ -59,7 +59,7 @@ function C006_Isolation_Yuki_Pleasure(PleasureType) {
 	if ((C006_Isolation_Yuki_Pleasure1 > 0) && (C006_Isolation_Yuki_Pleasure2 > 0) && (C006_Isolation_Yuki_Pleasure3 > 0) && (C006_Isolation_Yuki_Pleasure1 + C006_Isolation_Yuki_Pleasure2 + C006_Isolation_Yuki_Pleasure3 >= 5)) {
 		
 		// Yuki gets an orgasm
-		OveridenIntroText = GetText("Orgasm");
+		OverridenIntroText = GetText("Orgasm");
 		C006_Isolation_Yuki_CurrentStage = 220;
 		ActorChangeAttitude(2, 0);
 		ActorAddOrgasm();
@@ -68,7 +68,7 @@ function C006_Isolation_Yuki_Pleasure(PleasureType) {
 		
 		// If the player took too long to try all 3 pleasures, she gives up
 		if (C006_Isolation_Yuki_Pleasure1 + C006_Isolation_Yuki_Pleasure2 + C006_Isolation_Yuki_Pleasure3 >= 8) {
-			OveridenIntroText = GetText("StopPleasure");
+			OverridenIntroText = GetText("StopPleasure");
 			C006_Isolation_Yuki_CurrentStage = 250;
 		}
 		
@@ -80,13 +80,13 @@ function C006_Isolation_Yuki_CheckToEat() {
 	
 	// Yuki forces the player if she has the egg
 	if (C006_Isolation_Yuki_EggInside) {
-		OveridenIntroText = GetText("LickEgg");
+		OverridenIntroText = GetText("LickEgg");
 		C006_Isolation_Yuki_CurrentStage = 200;
 	}
 
 	// Yuki forces the player if she's dominant
 	if (ActorGetValue(ActorSubmission) <= -3) {
-		OveridenIntroText = GetText("LickSub");
+		OverridenIntroText = GetText("LickSub");
 		C006_Isolation_Yuki_CurrentStage = 200;
 	}
 
@@ -97,14 +97,14 @@ function C006_Isolation_Yuki_CheckToStop() {
 
 	// Yuki doesn't allow the player to stop if she has the egg
 	if (C006_Isolation_Yuki_EggInside) {
-		OveridenIntroText = GetText("NoPullEgg");
+		OverridenIntroText = GetText("NoPullEgg");
 		C006_Isolation_Yuki_CurrentStage = 200;
 		C006_Isolation_Yuki_AllowPullBack = false;
 	}
 
 	// Yuki doesn't allow the player to stop if she's dominant
 	if (ActorGetValue(ActorSubmission) <= -3) {
-		OveridenIntroText = GetText("NoPullSub");
+		OverridenIntroText = GetText("NoPullSub");
 		C006_Isolation_Yuki_CurrentStage = 200;
 		C006_Isolation_Yuki_AllowPullBack = false;
 	}

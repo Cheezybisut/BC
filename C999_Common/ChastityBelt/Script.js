@@ -22,12 +22,12 @@ function C999_Common_ChastityBelt_Load() {
 // Chapter Common - Chastity Belt Run, we draw the regular player image if the item is on
 function C999_Common_ChastityBelt_Run() {
 	BuildInteraction(C999_Common_ChastityBelt_CurrentStage);
-	if (PlayerHasLockedInventory("ChastityBelt") && (OveridenIntroImage == "")) DrawPlayerImage(0, 0);
+	if (PlayerHasLockedInventory("ChastityBelt") && (OverridenIntroImage == "")) DrawPlayerImage(0, 0);
 }
 
 // Chapter Common - Chastity Belt Click, allow regular interactions and clicking on another item
 function C999_Common_ChastityBelt_Click() {
-	OveridenIntroImage = "";
+	OverridenIntroImage = "";
 	ClickInteraction(C999_Common_ChastityBelt_CurrentStage);
 	InventoryClick(GetClickedInventory(), LeaveChapter, LeaveScreen);
 }
@@ -36,7 +36,7 @@ function C999_Common_ChastityBelt_Click() {
 function C999_Common_ChastityBelt_LockSelf() {
 	if (!C999_Common_ChastityBelt_ConfirmLock) {
 		C999_Common_ChastityBelt_ConfirmLock = true;
-		OveridenIntroText = GetText("ConfirmLock");
+		OverridenIntroText = GetText("ConfirmLock");
 	} else {
 		PlayerRemoveInventory("ChastityBelt", 1);
 		PlayerLockInventory("ChastityBelt");
@@ -46,5 +46,5 @@ function C999_Common_ChastityBelt_LockSelf() {
 
 // Chapter Common - Show the item image
 function C999_Common_ChastityBelt_ShowImage() {
-	OveridenIntroImage = "Belt.jpg";
+	OverridenIntroImage = "Belt.jpg";
 }

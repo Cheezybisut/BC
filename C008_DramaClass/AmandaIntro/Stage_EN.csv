@@ -22,11 +22,11 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 40,0,0,PlayerIsCuffed,(Turn and point|to your cuffs.),"Sorry, I don't have the keys for these cuffs.",40,0,0,TestUncuffPlayer()
 40,0,0,IsBothFree,You know that|you're pretty?,(She giggles and blushes.)|You're also very pretty.,40,0,0,PrettyComment()
 40,0,0,IsBothFree,You would look|great tied up.,(She blushes.)  It might not|be the best time for that.,40,0,0,
+40,0,0,IsBothFree,A few hugs|before the play?,Hugs before the play?|What do you have in mind?,300,0,0,StartHugs()
 40,0,0,IsBothFree,(Help her dress.)|(1 minute),(You help her dress in her armor.)|Thanks!  Are we ready for the play?,50,0,0,Costume()
 40,0,0,IsBothFree,"Amanda, would you|like to restrain me?","Oh my god, Miss, that wouldn't be proper.|(She bows her head and looks away.)",40,0,0,RandomBondage()
 40,0,0,!Common_PlayerRestrained,(Tickle her.)|(1 minute),"(You tickle her on the ribs and she|laughs out loud, she's enjoying it.)",40,0,0,Tickle()
 40,0,0,!Common_PlayerRestrained,(Spank her.)|(1 minute),"(You give her a quick spank and she|steps back, she didn't seem to like it.)",40,0,0,Spank()
-40,5,0,!Common_PlayerGagged,(Kiss her.)|(1 minute),(You kiss her slowly and lovingly.|She moans and shivers of pleasure.),40,0,0,Kiss()
 40,0,5,!Common_PlayerRestrained,(Slap her.)|(1 minute),(You slap her hard on the face and the|breast while she cowers in fear of you.),40,0,0,Slap()
 40,0,0,!Common_PlayerRestrained,(Masturbate her.)|(1 minute),(You bend down to masturbate her|but she pushes your hand away.),40,0,0,Masturbate()
 40,0,0,CanUntie,(Untie her.)|(1 minute),(You undo the knots to free her and|she stretches her arms in appretiation.),40,0,0,Untie()
@@ -47,3 +47,10 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 200,0,0,!Common_PlayerRestrained,Give me my|key right now!,A good submissive shouldn't talk like that.|(She pins you and cuffs your hands in your back.),40,0,1,CuffPlayer()
 200,0,0,Common_PlayerRestrained,You bitch!,Such a filthy mouth.  I'll have|to teach you a lesson someday.,40,1,0,AllowLeave()
 200,0,0,Common_PlayerRestrained,Give me my|key right now!,A good subbie shouldn't talk like that.|(She giggles and pulls her tongue at you.),40,0,1,AllowLeave()
+300,0,0,,Give me a hug!|(1 minute),(You hold each other in the|arms for a long and warm hug.),300,0,0,"Hug(""PlayerHug"")"
+300,5,0,HugDone,(Kiss her.)|(1 minute),(You kiss her tenderly on the neck|and lips while she moans shyly.),300,0,0,"Hug(""PlayerKiss"")"
+300,0,0,SarahReadyHug,Go hug Sarah.|(1 minute),(Amanda shyly offers a hug and|Sarah quickly jumps in her arms.),300,0,0,"Hug(""SarahHug"")"
+300,0,5,SarahReadyKiss,Go kiss Sarah.|(1 minute),(She stays silent in front of Sarah for a|few seconds and surprise her with a kiss.),300,0,0,"Hug(""SarahKiss"")"
+300,0,0,SarahReadyHug,Let's do a group|hug.  (1 minute),(You invite both of them in your arms|and share a warm hug before the play.),300,0,0,"Hug(""GroupHug"")"
+300,10,10,SarahReadyKiss,Let's do a group|kiss.  (1 minute),(You order them to kiss and join|the fun for a love trio of kisses.),300,0,0,"Hug(""GroupKiss"")"
+300,0,0,,That's enough.,"Alright, so can you help me to dress?",40,0,0,AllowLeave()

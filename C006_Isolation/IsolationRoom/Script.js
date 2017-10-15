@@ -39,7 +39,7 @@ function C006_Isolation_IsolationRoom_Click() {
 		StruggleClick("C006_Crotch", "Easy", GetText("Crotch"), (C006_Isolation_IsolationRoom_OrgasmReady ? GetText("CrotchSuccess1") : GetText("CrotchSuccess2")), 435, 285, 70);
 		StruggleClick("C006_Arms", "Impossible", GetText("ArmsImpossible"), "", 700, 240, 100);
 		StruggleClick("C006_Collar", "Impossible", GetText("CollarImpossible"), "", 930, 320, 50);
-		StruggleClick("C006_Ballgag", "Impossible", GetText("BallgagImpossible"), "", 1055, 355, 70);
+		StruggleClick("C006_BallGag", "Impossible", GetText("BallGagImpossible"), "", 1055, 355, 70);
 	}
 
 	// On stage 1, only the collar can be unstrapped, the crotch rope also works with an egg
@@ -47,14 +47,14 @@ function C006_Isolation_IsolationRoom_Click() {
 		StruggleClick("C006_Crotch", "Easy", GetText("Crotch"), (C006_Isolation_IsolationRoom_OrgasmReady ? GetText("CrotchSuccess1") : GetText("CrotchSuccess2")), 435, 285, 70);
 		StruggleClick("C006_Arms", "Impossible", GetText("ArmsImpossible"), "", 700, 240, 100);
 		StruggleClick("C006_Collar", "Hard", GetText("Collar"), GetText("CollarSuccess"), 910, 310, 50);
-		StruggleClick("C006_Ballgag", "Impossible", GetText("BallgagImpossible"), "", 1055, 355, 70);
+		StruggleClick("C006_BallGag", "Impossible", GetText("BallGagImpossible"), "", 1055, 355, 70);
 	}
 
 	// On stage 2, no real struggling can be done
 	if ((C006_Isolation_IsolationRoom_Stage == 2) && (!StruggleDone)) {
 		StruggleClick("C006_Crotch", "Easy", GetText("Crotch"), (C006_Isolation_IsolationRoom_OrgasmReady ? GetText("CrotchSuccess1") : GetText("CrotchSuccess2")), 575, 490, 65);
 		StruggleClick("C006_Arms", "Impossible", GetText("ArmsImpossible"), "", 575, 350, 65);
-		StruggleClick("C006_Ballgag", "Impossible", GetText("BallgagImpossible"), "", 575, 210, 65);
+		StruggleClick("C006_BallGag", "Impossible", GetText("BallGagImpossible"), "", 575, 210, 65);
 		if ((MouseX >= 1) && (MouseX <= 450) && (MouseY >= 450) && (MouseY <= 599)) SetScene(CurrentChapter, "CellGround");
 		if ((MouseX >= 750) && (MouseX <= 1150) && (MouseY >= 1) && (MouseY <= 599) && !C006_Isolation_IsolationRoom_AllowPickLock) SetScene(CurrentChapter, "CellDoor");
 		if (C006_Isolation_IsolationRoom_AllowPickLock) StruggleClick("C006_CellDoor", "Normal", GetText("PickLock"), GetText("PickLockSuccess"), 900, 300, 200);

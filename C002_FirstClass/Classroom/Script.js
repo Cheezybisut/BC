@@ -11,7 +11,7 @@ var C002_FirstClass_Classroom_MildredSubdueFailed = false;
 // Calculate the current stage depending on what the actor is wearing
 function C002_FirstClass_Classroom_CalcStage() {
 	var NewStage = 100;
-	if (ActorHasInventory("Ballgag")) NewStage = NewStage + 10;
+	if (ActorHasInventory("BallGag")) NewStage = NewStage + 10;
 	if (ActorHasInventory("Cuffs")) NewStage = NewStage + 20;
 	if (ActorHasInventory("Rope")) NewStage = NewStage + 40;
 	return NewStage;

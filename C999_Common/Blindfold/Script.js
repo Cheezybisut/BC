@@ -31,7 +31,7 @@ function C999_Common_Blindfold_SelfBlind() {
         PlayerRemoveInventory("Blindfold", 1);
         PlayerLockInventory("Blindfold");
 	} else {
-		OveridenIntroText = GetText("BadTiming");
+		OverridenIntroText = GetText("BadTiming");
 		C999_Common_Blindfold_CurrentStage = 0;
 	}
 }

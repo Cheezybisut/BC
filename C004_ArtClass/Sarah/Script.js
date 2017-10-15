@@ -12,7 +12,7 @@ var C004_ArtClass_Sarah_CollarRemarkReady = true;
 var C004_ArtClass_Sarah_TightenDone = false;
 var C004_ArtClass_Sarah_CanBegForRelease = false;
 var C004_ArtClass_Sarah_CanBeTied = false;
-var C004_ArtClass_Sarah_CanBeBallgagged = false;
+var C004_ArtClass_Sarah_CanBeBallGagged = false;
 var C004_ArtClass_Sarah_BowHeadDone = false;
 var C004_ArtClass_Sarah_EggConfirm = false;
 var C004_ArtClass_Sarah_EggInside = false;
@@ -30,13 +30,13 @@ function C004_ArtClass_Sarah_Load() {
 	C004_ArtClass_Sarah_GetTapeAvail = (!C004_ArtClass_Sarah_GetTapeDone && Common_BondageAllowed && (C004_ArtClass_Sarah_CurrentStage >= 130));
 	C004_ArtClass_Sarah_CanBegForRelease = ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && Common_PlayerRestrained && Common_PlayerNotGagged);
 	C004_ArtClass_Sarah_CanBeTied = ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && Common_BondageAllowed && Common_PlayerNotRestrained && Common_PlayerNotGagged && Common_PlayerNaked && PlayerHasInventory("Rope"));
-	C004_ArtClass_Sarah_CanBeBallgagged = ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && Common_BondageAllowed && Common_PlayerRestrained && Common_PlayerNotGagged && Common_PlayerNaked && PlayerHasInventory("Ballgag"));
+	C004_ArtClass_Sarah_CanBeBallGagged = ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && Common_BondageAllowed && Common_PlayerRestrained && Common_PlayerNotGagged && Common_PlayerNaked && PlayerHasInventory("BallGag"));
 
 	// Set the correct stage
 	if ((C004_ArtClass_ArtRoom_JuliaStage == 2) && (C004_ArtClass_Sarah_CurrentStage < 50)) C004_ArtClass_Sarah_CurrentStage = 50;
 	if ((C004_ArtClass_ArtRoom_JuliaStage == 3) && (C004_ArtClass_Sarah_CurrentStage < 100)) C004_ArtClass_Sarah_CurrentStage = 100;
 	C004_ArtClass_Sarah_IsModel = (C004_ArtClass_ArtRoom_ExtraModel == "Sarah");
-	if (C004_ArtClass_Sarah_IsModel && (C004_ArtClass_Sarah_CurrentStage <= 130)) OveridenIntroImage = "SarahPose.jpg";
+	if (C004_ArtClass_Sarah_IsModel && (C004_ArtClass_Sarah_CurrentStage <= 130)) OverridenIntroImage = "SarahPose.jpg";
 	if (!C004_ArtClass_Sarah_IsModel && (C004_ArtClass_Sarah_CurrentStage > 130)) C004_ArtClass_Sarah_CurrentStage = 130;
 	if ((C004_ArtClass_Sarah_CurrentStage >= 200) && (C004_ArtClass_Sarah_CurrentStage < 250)) C004_ArtClass_Sarah_CurrentStage = 170;
 	if ((C004_ArtClass_Sarah_CurrentStage >= 250) && (C004_ArtClass_Sarah_CurrentStage < 300)) C004_ArtClass_Sarah_CurrentStage = 180;
@@ -53,16 +53,16 @@ function C004_ArtClass_Sarah_Click() {
 
 	// Regular interactions
 	ClickInteraction(C004_ArtClass_Sarah_CurrentStage);	
-	if (C004_ArtClass_Sarah_CurrentStage > 130) OveridenIntroImage = "";
+	if (C004_ArtClass_Sarah_CurrentStage > 130) OverridenIntroImage = "";
 	var ClickInv = GetClickedInventory();
 
 	// When the user wants to use any item and bondage isn't allowed
-	if (!Common_BondageAllowed && ((ClickInv == "Rope") || (ClickInv == "Ballgag") || (ClickInv == "TapeGag") || (ClickInv == "Crop") || (ClickInv == "Cuffs") || (ClickInv == "VibratingEgg")) && Common_PlayerNotRestrained)
-		OveridenIntroText = GetText("NoBondage");
+	if (!Common_BondageAllowed && ((ClickInv == "Rope") || (ClickInv == "BallGag") || (ClickInv == "TapeGag") || (ClickInv == "Crop") || (ClickInv == "Cuffs") || (ClickInv == "VibratingEgg")) && Common_PlayerNotRestrained)
+		OverridenIntroText = GetText("NoBondage");
 	
 	// When the user wants to use the rope
 	if (Common_BondageAllowed && (C004_ArtClass_Sarah_CurrentStage >= 150) && (ClickInv == "Rope") && !ActorHasInventory("Rope") && Common_PlayerNotRestrained) {
-		OveridenIntroText = GetText("Rope");
+		OverridenIntroText = GetText("Rope");
 		C004_ArtClass_Sarah_CurrentStage = 160;
 		C004_ArtClass_ArtRoom_SarahStage = 3;
 		ActorAddInventory("Rope");
@@ -71,23 +71,23 @@ function C004_ArtClass_Sarah_Click() {
 	}
 
 	// When the user wants to use a gag without tying her
-	if (Common_BondageAllowed && ((ClickInv == "Ballgag") || (ClickInv == "TapeGag")) && !ActorHasInventory("Rope") && !ActorHasInventory("Ballgag") && !ActorHasInventory("TapeGag") && Common_PlayerNotRestrained)
-		OveridenIntroText = GetText("BondageBeforeGag");
+	if (Common_BondageAllowed && ((ClickInv == "BallGag") || (ClickInv == "TapeGag")) && !ActorHasInventory("Rope") && !ActorHasInventory("BallGag") && !ActorHasInventory("TapeGag") && Common_PlayerNotRestrained)
+		OverridenIntroText = GetText("BondageBeforeGag");
 		
-	// When the user wants to use a ballgag	
-	if (Common_BondageAllowed && (ClickInv == "Ballgag") && ActorHasInventory("Rope") && !ActorHasInventory("Ballgag") && Common_PlayerNotRestrained) {
-		OveridenIntroText = GetText("Ballgag");
+	// When the user wants to use a BallGag	
+	if (Common_BondageAllowed && (ClickInv == "BallGag") && ActorHasInventory("Rope") && !ActorHasInventory("BallGag") && Common_PlayerNotRestrained) {
+		OverridenIntroText = GetText("BallGag");
 		C004_ArtClass_Sarah_CurrentStage = 170;
 		C004_ArtClass_Sarah_Ungag();
 		C004_ArtClass_ArtRoom_SarahStage = 4;
-		ActorAddInventory("Ballgag");
-		PlayerRemoveInventory("Ballgag", 1);
+		ActorAddInventory("BallGag");
+		PlayerRemoveInventory("BallGag", 1);
 		CurrentTime = CurrentTime + 60000;
 	}
 
 	// When the user wants to use a tape gag
 	if (Common_BondageAllowed && (ClickInv == "TapeGag") && ActorHasInventory("Rope") && !ActorHasInventory("TapeGag") && Common_PlayerNotRestrained) {
-		OveridenIntroText = GetText("TapeGag");
+		OverridenIntroText = GetText("TapeGag");
 		C004_ArtClass_Sarah_CurrentStage = 180;
 		C004_ArtClass_Sarah_Ungag();
 		C004_ArtClass_ArtRoom_SarahStage = 5;
@@ -98,7 +98,7 @@ function C004_ArtClass_Sarah_Click() {
 
 	// When the user wants to use the crop
 	if (Common_BondageAllowed && (ClickInv == "Crop") && ActorHasInventory("Rope") && Common_PlayerNotRestrained) {
-		OveridenIntroText = GetText("Crop");
+		OverridenIntroText = GetText("Crop");
 		if (C004_ArtClass_Sarah_CropDone == false) { C004_ArtClass_Sarah_CropDone = true; ActorChangeAttitude(1, 1); }
 		CurrentTime = CurrentTime + 60000;
 	}
@@ -107,12 +107,12 @@ function C004_ArtClass_Sarah_Click() {
 	if (Common_BondageAllowed && (ClickInv == "VibratingEgg") && !ActorHasInventory("VibratingEgg") && ActorHasInventory("Rope") && Common_PlayerNotRestrained) {		
 		if (C004_ArtClass_Sarah_EggConfirm == false) {
 			C004_ArtClass_Sarah_EggConfirm = true;
-			OveridenIntroText = GetText("VibratingEggWarning");
+			OverridenIntroText = GetText("VibratingEggWarning");
 		} else {
 			ActorAddInventory("VibratingEgg");
 			PlayerRemoveInventory("VibratingEgg", 1);
 			ActorChangeAttitude(1, 0);
-			OveridenIntroText = GetText("VibratingEggInsert");
+			OverridenIntroText = GetText("VibratingEggInsert");
 			C004_ArtClass_Sarah_EggInside = true;
 		}
 	}
@@ -152,9 +152,9 @@ function C004_ArtClass_Sarah_Untie() {
 // Chapter 4 - Sarah Ungag
 function C004_ArtClass_Sarah_Ungag() {
 	C004_ArtClass_ArtRoom_SarahStage = 3;
-	if (ActorHasInventory("Ballgag")) {
-		PlayerAddInventory("Ballgag", 1);
-		ActorRemoveInventory("Ballgag");
+	if (ActorHasInventory("BallGag")) {
+		PlayerAddInventory("BallGag", 1);
+		ActorRemoveInventory("BallGag");
 	}
 	ActorRemoveInventory("TapeGag");
 }
@@ -168,28 +168,28 @@ function C004_ArtClass_Sarah_CollarRemark() {
 function C004_ArtClass_Sarah_Tighten() {
 	if (Common_PlayerNotRestrained) {
 		if (C004_ArtClass_Sarah_TightenDone == false) {
-			if (ActorHasInventory("Ballgag") || ActorHasInventory("TapeGag")) OveridenIntroText = GetText("TightenGagged");
-			else OveridenIntroText = GetText("Tighten");
+			if (ActorHasInventory("BallGag") || ActorHasInventory("TapeGag")) OverridenIntroText = GetText("TightenGagged");
+			else OverridenIntroText = GetText("Tighten");
 			ActorChangeAttitude(1, 0);
 			C004_ArtClass_Sarah_TightenDone = true;
 		}
 	} else {
-		OveridenIntroText = GetText("TightenFail");
+		OverridenIntroText = GetText("TightenFail");
 	}
 }
 
 // Chapter 4 - Sarah Beg For Release, it can trick the player
 function C004_ArtClass_Sarah_BegForRelease() {
 	if (ActorGetValue(ActorSubmission) >= 4) {
-		OveridenIntroText = GetText("PlayerRelease");
+		OverridenIntroText = GetText("PlayerRelease");
 		PlayerUnlockInventory("Rope");
 		PlayerAddInventory("Rope", 1);
-		C004_ArtClass_Sarah_CanBeBallgagged = false;
+		C004_ArtClass_Sarah_CanBeBallGagged = false;
 		CurrentTime = CurrentTime + 60000;
 	} else {
-		OveridenIntroText = GetText("PlayerGag");
+		OverridenIntroText = GetText("PlayerGag");
 		C004_ArtClass_Sarah_CanBegForRelease = false;
-		C004_ArtClass_Sarah_CanBeBallgagged = false;
+		C004_ArtClass_Sarah_CanBeBallGagged = false;
 		PlayerLockInventory("TapeGag");
 		CurrentTime = CurrentTime + 60000;
 	}
@@ -202,11 +202,11 @@ function C004_ArtClass_Sarah_TiePlayer() {
 	C004_ArtClass_Sarah_CanBeTied = false;
 }
 
-// Chapter 4 - Sarah Ballgag Player
-function C004_ArtClass_Sarah_BallgagPlayer() {
-	PlayerRemoveInventory("Ballgag", 1);
-	PlayerLockInventory("Ballgag");
-	C004_ArtClass_Sarah_CanBeBallgagged = false;
+// Chapter 4 - Sarah BallGag Player
+function C004_ArtClass_Sarah_BallGagPlayer() {
+	PlayerRemoveInventory("BallGag", 1);
+	PlayerLockInventory("BallGag");
+	C004_ArtClass_Sarah_CanBeBallGagged = false;
 }
 
 // Chapter 4 - Sarah Bow Head

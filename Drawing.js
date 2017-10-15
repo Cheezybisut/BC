@@ -127,8 +127,8 @@ function DrawIntro(ctx, Intro, CurrentStagePosition, LoveLevel, SubLevel) {
 	
 	// Find the correct intro text
 	var ShowText = "";
-	if (OveridenIntroText != "")
-		ShowText = OveridenIntroText
+	if (OverridenIntroText != "")
+		ShowText = OverridenIntroText
 	else
 		for (var I = 0; I < Intro.length; I++)
 			if (Intro[I][IntroStage] == CurrentStagePosition)
@@ -174,8 +174,8 @@ function FindImage(Intro, CurrentStagePosition) {
 	
 	// The image file is a column in the intro CSV file
 	var ImageName = "";
-	if (OveridenIntroImage != "")
-		ImageName = OveridenIntroImage;
+	if (OverridenIntroImage != "")
+		ImageName = OverridenIntroImage;
 	else
 		for (var I = 0; I < Intro.length; I++)
 			if (Intro[I][IntroStage] == CurrentStagePosition)
@@ -210,7 +210,7 @@ function GetPlayerIconImage() {
 	// The file name changes if the player is gagged or blinks at specified intervals
 	var Image = "Player";
 	var seconds = new Date().getTime();
-	if (PlayerHasLockedInventory("Ballgag") == true) Image = Image + "_Ballgag";
+	if (PlayerHasLockedInventory("BallGag") == true) Image = Image + "_BallGag";
     if (PlayerHasLockedInventory("TapeGag") == true) Image = Image + "_TapeGag";
     if (PlayerHasLockedInventory("ClothGag") == true) Image = Image + "_ClothGag";
     if (PlayerHasLockedInventory("DoubleOpenGag") == true) Image = Image + "_DoubleOpenGag";
@@ -304,7 +304,7 @@ function DrawPlayerImage(X, Y) {
 	
 	// Fourth part is the gag
 	var ImageGag = "_NoGag";
-	if (PlayerHasLockedInventory("Ballgag") == true) ImageGag = "_Ballgag";
+	if (PlayerHasLockedInventory("BallGag") == true) ImageGag = "_BallGag";
     if (PlayerHasLockedInventory("TapeGag") == true) ImageGag = "_TapeGag";
     if (PlayerHasLockedInventory("ClothGag") == true) ImageGag = "_ClothGag";
     if (PlayerHasLockedInventory("DoubleOpenGag") == true) ImageGag = "_DoubleOpenGag";
@@ -323,20 +323,31 @@ function DrawPlayerImage(X, Y) {
 // Draw the transparent actor over the current background
 function DrawActor(ActorToDraw, X, Y, Zoom) {
 
-	// Retrieves the current image & clothes
+	// First, we retrieve the current clothes
+	var ImageCloth = ActorSpecificGetValue(ActorToDraw, ActorCloth);
+	if (ImageCloth == "") ImageCloth = "Clothed";
+	if (((ImageCloth == "Underwear") || (ImageCloth == "Naked")) && ActorSpecificHasInventory(ActorToDraw, "ChastityBelt")) ImageCloth = "ChastityBelt";
+	
+	// Second part is the type of bondage
+	var ImageBondage = "_NoBondage";	
+	if (ActorSpecificHasInventory(ActorToDraw, "Cuffs")) ImageBondage = "_Cuffs";
+	if (ActorSpecificHasInventory(ActorToDraw, "Rope")) ImageBondage = "_Rope";
+	if (ActorSpecificHasInventory(ActorToDraw, "TwoRopes")) ImageBondage = "_TwoRopes";
+	
+	// Third part is the gag
+	var ImageGag = "_NoGag";
+	if (ActorSpecificHasInventory(ActorToDraw, "BallGag")) ImageGag = "_BallGag";
+	if (ActorSpecificHasInventory(ActorToDraw, "TapeGag")) ImageGag = "_TapeGag";
+	if (ActorSpecificHasInventory(ActorToDraw, "ClothGag")) ImageGag = "_ClothGag";
+	
+	// Draw the full image from all parts
 	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	var ImageName = ActorSpecificGetValue(ActorToDraw, ActorCloth);
-	if (ActorSpecificHasInventory(ActorToDraw, "ChastityBelt") && ((ImageName == "Underwear") || (ImageName == "Naked"))) ImageName = "ChastityBelt";
-	if (ActorSpecificHasInventory(ActorToDraw, "Rope")) ImageName = ImageName + "_Rope";
-	if (ActorSpecificHasInventory(ActorToDraw, "Cuffs")) ImageName = ImageName + "_Cuffs";
-	if (ActorSpecificHasInventory(ActorToDraw, "TapeGag")) ImageName = ImageName + "_TapeGag";
-	if (ActorSpecificHasInventory(ActorToDraw, "Ballgag")) ImageName = ImageName + "_Ballgag";
-	if (ActorSpecificHasInventory(ActorToDraw, "ClothGag")) ImageName = ImageName + "_ClothGag";
-	DrawImageZoom(ctx, "Actors/" + ActorToDraw + "/" + ImageName + ".png", 0, 0, 600 / Zoom, 600 / Zoom, X, Y, 600, 600);		
+	DrawImageZoom(ctx, "Actors/" + ActorToDraw + "/" + ImageCloth + ImageBondage + ImageGag + ".png", 0, 0, 600 / Zoom, 900 / Zoom, X, Y, 600, 900);
 
 }
 
 // Draw the current interaction actor
 function DrawInteractionActor() {
-	DrawActor(CurrentActor, 600, 0, 1);
+	if (ActorHasInventory("TwoRopes")) DrawActor(CurrentActor, 600, -250, 1);
+	else DrawActor(CurrentActor, 600, 0, 1);
 }

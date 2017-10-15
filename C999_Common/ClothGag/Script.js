@@ -32,7 +32,7 @@ function C999_Common_ClothGag_SelfGag() {
         PlayerRemoveInventory("ClothGag", 1);
         PlayerLockInventory("ClothGag");
 	} else {
-		OveridenIntroText = GetText("BadTiming");
+		OverridenIntroText = GetText("BadTiming");
 		C999_Common_ClothGag_CurrentStage = 0;
 	}
 }

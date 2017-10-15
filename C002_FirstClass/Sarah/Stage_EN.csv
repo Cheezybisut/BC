@@ -75,7 +75,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 160,0,0,Common_PlayerNotRestrained,(Separate them.)|(1 minute),See you later Amy.  (She winks.),140,0,0,Separate()
 170,0,0,,You two make a|nice bondage duo.,(She nods happily.),170,0,0,BondageDuo()
 170,0,0,Common_PlayerNotRestrained,(Separate them.)|(1 minute),(She reluctantly returns to her chair.),150,0,0,Separate()
-170,0,0,Common_PlayerNotRestrained,(Ungag her.)|(1 minute),(You unbuckle and pull out the ballgag.)|Isn't this thrilling Amanda?,160,0,0,Ungag()
+170,0,0,Common_PlayerNotRestrained,(Ungag her.)|(1 minute),(You unbuckle and pull out the BallGag.)|Isn't this thrilling Amanda?,160,0,0,Ungag()
 200,0,0,,"@Uuumph, mmph!","(She laughs.)  I can't understand.|I'm Sarah, pleased to meet you.",210,0,0,
 200,0,0,,(Nod slowly.),"(She giggles.)  You look great like that.|I'm Sarah, pleased to meet you.",210,0,-1,
 200,0,0,,(Try to point|to Mildred.),"She tied you up?  Very nice.|I'm Sarah, nice to meet you.",210,0,0,

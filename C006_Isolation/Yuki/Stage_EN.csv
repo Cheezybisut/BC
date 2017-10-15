@@ -53,11 +53,11 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 150,0,0,,A hogtie?  That's the|best you can do?,Oh I can do much worse than that.|(She links the collar to a large metal ring.),160,0,1,
 150,0,0,,Look Yuki!  I've|learned my lesson.,I do hope you will learn a lesson.|(She links the collar to a large metal ring.),160,0,0,
 150,0,0,,This hogtie is amazing!,You may change your mind after an hour.|(She links the collar to a large metal ring.),160,0,-1,
-160,0,0,,You little bitch!|How dare you?,"Such a horrible mouth, this should help it.|(She straps a ballgag around your head.)",170,-1,0,AddGag()
-160,0,0,,Let me go or|I'll call the police.,Call whoever you want young lady.|(She straps a ballgag around your head.),170,0,0,AddGag()
-160,0,0,,I do admire your|bondage skills.,Thanks.  Now you will see my gagging skills.|(She straps a ballgag around your head.),170,1,0,AddGag()
-160,0,0,,Admit it.  You|won't leave me here.,So you really still think I'm bluffing?|(She straps a ballgag around your head.),170,0,0,AddGag()
-160,0,0,,(Try to struggle out.),You're not going anywhere little miss.|(She straps a ballgag around your head.),170,0,0,AddGag()
+160,0,0,,You little bitch!|How dare you?,"Such a horrible mouth, this should help it.|(She straps a BallGag around your head.)",170,-1,0,AddGag()
+160,0,0,,Let me go or|I'll call the police.,Call whoever you want young lady.|(She straps a BallGag around your head.),170,0,0,AddGag()
+160,0,0,,I do admire your|bondage skills.,Thanks.  Now you will see my gagging skills.|(She straps a BallGag around your head.),170,1,0,AddGag()
+160,0,0,,Admit it.  You|won't leave me here.,So you really still think I'm bluffing?|(She straps a BallGag around your head.),170,0,0,AddGag()
+160,0,0,,(Try to struggle out.),You're not going anywhere little miss.|(She straps a BallGag around your head.),170,0,0,AddGag()
 170,0,0,,(Give her an|angry look.),You're so cute.  I'll be back at 11:30.|(She stands up and leaves the room.),180,0,0,AllowLeave()
 170,0,0,,(Make pleading eyes|and whimper softly.),"Cry all you want, I'll be back at 11:30.|(She stands up and leaves the room.)",180,0,-1,AllowLeave()
 170,0,0,,(Chew on the gag.),Enjoy your gag.  I'll be back at 11:30.|(She stands up and leaves the room.),180,0,0,AllowLeave()

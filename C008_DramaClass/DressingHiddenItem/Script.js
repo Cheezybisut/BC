@@ -24,11 +24,11 @@ function C008_DramaClass_DressingHiddenItem_Search() {
 	// After 1 search, a cloth gag, after 3 searches, a random item
 	C008_DramaClass_DressingHiddenItem_SearchCount++;
 	if (C008_DramaClass_DressingHiddenItem_SearchCount == 1) {
-		OveridenIntroText = GetText("FindClothGag");
+		OverridenIntroText = GetText("FindClothGag");
 		PlayerAddInventory("ClothGag", 1);
 	}
 	if (C008_DramaClass_DressingHiddenItem_SearchCount == 3) {
-		OveridenIntroText = GetText("FindItem");
+		OverridenIntroText = GetText("FindItem");
 		PlayerAddRandomItem();
 	}
 }

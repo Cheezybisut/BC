@@ -1,8 +1,8 @@
 Tag,Content
 StealKeys,Yonk ! (Elle vole la clé des menottes et rit.)
-BallgagWilling,(Elle respire profondément et|ouvre la bouche pour mettre le bâillon.)
-BallgagReluctant,(Elle ferme sa bouche pour t'arrêter mais|tu réussis quand même à lui mettre le bâillon.)
-BallgagRefuse,"Elle recule et refuse d'être bâillonnée.|(""+2"" en soumission ou plus pour la bâillonner.)"
+BallGagWilling,(Elle respire profondément et|ouvre la bouche pour mettre le bâillon.)
+BallGagReluctant,(Elle ferme sa bouche pour t'arrêter mais|tu réussis quand même à lui mettre le bâillon.)
+BallGagRefuse,"Elle recule et refuse d'être bâillonnée.|(""+2"" en soumission ou plus pour la bâillonner.)"
 CuffsReplaceRope,(Tu défais les cordes jusqu'à ce qu'elle puisse|se rhabiller puis tu la menottes juste après.)
 CuffsWilling,"(Elle baisse la tête, s'assoie et met|ses bras derrière son dos pour être menottée.)"
 CuffsReluctant,(Elle te repousse mais tu es capable|de l'attacher avec les menottes.)

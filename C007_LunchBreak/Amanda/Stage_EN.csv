@@ -152,7 +152,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 430,0,0,,Maybe we should stop.|(Dress back up.),"Its ok, I would never force you.|(You dress back.)  Let's go back.",490,-1,0,
 440,0,0,,(Pull your tongue.)|(1 minute),(She giggles and pulls her tongue also.)|Common!  Open wide subbie girl.,440,0,0,
 440,0,0,,(Clench your teeth.)|(1 minute),You're not helping at all you know.|Common!  Open wide subbie girl.,440,0,0,ClenchTeeth()
-440,0,0,,(Open wide.)|(1 minute),(She pushes a ballgag in and straps it.)|Can I touch you now?  Do you want pleasure?,450,0,0,SubbieGag()
+440,0,0,,(Open wide.)|(1 minute),(She pushes a BallGag in and straps it.)|Can I touch you now?  Do you want pleasure?,450,0,0,SubbieGag()
 440,0,0,,Maybe we should stop.|Can you release me?,"Its ok, I would never force you.|(She releases you.)  Let's go back.",490,-1,0,SubbieRelease()
 450,0,0,,@Hheesh hissh.|(Nod slowly.),(She pushes you against the|fence and starts to rub her hand.),460,0,0,
 450,0,0,,@UOOG HEESSH!|(Nod rapidly.),(She pushes you against the|fence and starts to rub her hand.),460,1,0,

@@ -20,12 +20,12 @@ function C999_Common_Collar_Load() {
 // Chapter Common - Collar Run, we draw the regular player image if the item is on
 function C999_Common_Collar_Run() {
 	BuildInteraction(C999_Common_Collar_CurrentStage);
-	if (PlayerHasLockedInventory("Collar") && (OveridenIntroImage == "")) DrawPlayerImage(150, 50);
+	if (PlayerHasLockedInventory("Collar") && (OverridenIntroImage == "")) DrawPlayerImage(150, 50);
 }
 
 // Chapter Common - Collar Click, allow regular interactions and clicking on another item
 function C999_Common_Collar_Click() {
-	OveridenIntroImage = "";
+	OverridenIntroImage = "";
 	ClickInteraction(C999_Common_Collar_CurrentStage);
 	InventoryClick(GetClickedInventory(), LeaveChapter, LeaveScreen);
 }
@@ -37,7 +37,7 @@ function C999_Common_Collar_SelfCollar() {
 		PlayerLockInventory("Collar");
 		C999_Common_Collar_HasLooseCollar = PlayerHasInventory("Collar");
 	} else {
-		OveridenIntroText = GetText("BadTiming");
+		OverridenIntroText = GetText("BadTiming");
 		C999_Common_Collar_CurrentStage = 0;
 	}
 }
@@ -50,5 +50,5 @@ function C999_Common_Collar_SelfUncollar() {
 
 // Chapter Common - Show the item image
 function C999_Common_Collar_ShowImage() {
-	OveridenIntroImage = "Collar.jpg";
+	OverridenIntroImage = "Collar.jpg";
 }

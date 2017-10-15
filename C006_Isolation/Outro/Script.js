@@ -10,7 +10,7 @@ function C006_Isolation_Outro_Load() {
 	if ((CurrentTime < 11.5 * 60 * 60 * 1000) && !C006_Isolation_Outro_EarlyRelease) {
 		C006_Isolation_Outro_EarlyEscape = true;
 		PlayerAddInventory("Rope", 1);
-		PlayerAddInventory("Ballgag", 1);
+		PlayerAddInventory("BallGag", 1);
 		if (C006_Isolation_CellGround_CollarAvail) PlayerAddInventory("Collar", 1);
 		if (C006_Isolation_CellGround_RopeAvail) PlayerAddInventory("Rope", 1);
 	}

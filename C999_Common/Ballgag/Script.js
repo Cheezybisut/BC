@@ -1,55 +1,55 @@
-var C999_Common_Ballgag_CurrentStage = 0;
-var C999_Common_Ballgag_HasLooseBallgag = false;
+var C999_Common_BallGag_CurrentStage = 0;
+var C999_Common_BallGag_HasLooseBallGag = false;
 
-// Chapter Common - Ballgag Load
-function C999_Common_Ballgag_Load() {
+// Chapter Common - BallGag Load
+function C999_Common_BallGag_Load() {
 
 	// Load the scene parameters
 	LeaveIcon = "Leave";
 	LoadInteractions();
 
 	// Set the correct stage
-	if (PlayerHasLockedInventory("Ballgag")) C999_Common_Ballgag_CurrentStage = 10;
-	else C999_Common_Ballgag_CurrentStage = 0;
+	if (PlayerHasLockedInventory("BallGag")) C999_Common_BallGag_CurrentStage = 10;
+	else C999_Common_BallGag_CurrentStage = 0;
 
-	// If the player has a loose ballgag
-	C999_Common_Ballgag_HasLooseBallgag = PlayerHasInventory("Ballgag");
+	// If the player has a loose BallGag
+	C999_Common_BallGag_HasLooseBallGag = PlayerHasInventory("BallGag");
 
 }
 
-// Chapter Common - Ballgag Run, we draw the regular player image if the item is on
-function C999_Common_Ballgag_Run() {
-	BuildInteraction(C999_Common_Ballgag_CurrentStage);
-	if (PlayerHasLockedInventory("Ballgag") && (OveridenIntroImage == "")) DrawPlayerImage(150, 0);
+// Chapter Common - BallGag Run, we draw the regular player image if the item is on
+function C999_Common_BallGag_Run() {
+	BuildInteraction(C999_Common_BallGag_CurrentStage);
+	if (PlayerHasLockedInventory("BallGag") && (OverridenIntroImage == "")) DrawPlayerImage(150, 0);
 }
 
-// Chapter Common - Ballgag Click, allow regular interactions and clicking on another item
-function C999_Common_Ballgag_Click() {
-	OveridenIntroImage = "";
-	ClickInteraction(C999_Common_Ballgag_CurrentStage);
+// Chapter Common - BallGag Click, allow regular interactions and clicking on another item
+function C999_Common_BallGag_Click() {
+	OverridenIntroImage = "";
+	ClickInteraction(C999_Common_BallGag_CurrentStage);
 	InventoryClick(GetClickedInventory(), LeaveChapter, LeaveScreen);
 }
 
-// Chapter Common - Self Ballgag
-function C999_Common_Ballgag_SelfGag() {
+// Chapter Common - Self BallGag
+function C999_Common_BallGag_SelfGag() {
 	if ((Common_BondageAllowed) && (Common_SelfBondageAllowed)) {
 		PlayerUngag();
-		PlayerRemoveInventory("Ballgag", 1);
-		PlayerLockInventory("Ballgag");
-		C999_Common_Ballgag_HasLooseBallgag = PlayerHasInventory("Ballgag");
+		PlayerRemoveInventory("BallGag", 1);
+		PlayerLockInventory("BallGag");
+		C999_Common_BallGag_HasLooseBallGag = PlayerHasInventory("BallGag");
 	} else {
-		OveridenIntroText = GetText("BadTiming");
-		C999_Common_Ballgag_CurrentStage = 0;
+		OverridenIntroText = GetText("BadTiming");
+		C999_Common_BallGag_CurrentStage = 0;
 	}
 }
 
 // Chapter Common - Self Ungag
-function C999_Common_Ballgag_SelfUngag() {
-	PlayerUnlockInventory("Ballgag");
-	PlayerAddInventory("Ballgag", 1);
+function C999_Common_BallGag_SelfUngag() {
+	PlayerUnlockInventory("BallGag");
+	PlayerAddInventory("BallGag", 1);
 }
 
 // Chapter Common - Show the item image
-function C999_Common_Ballgag_ShowImage() {
-	OveridenIntroImage = "Ballgag.jpg";
+function C999_Common_BallGag_ShowImage() {
+	OverridenIntroImage = "BallGag.jpg";
 }

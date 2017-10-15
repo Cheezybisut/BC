@@ -11,9 +11,8 @@ function C007_LunchBreak_Outro_Load() {
 	ActorSpecificClearInventory("Jennifer", !C007_LunchBreak_ActorSelect_EvilEnding);
 	ActorSpecificClearInventory("Natalie", !C007_LunchBreak_ActorSelect_EvilEnding);
 
-	// Removes the blindfold and cloth gag for now, maybe we will use them in a later version
+	// Removes the blindfold and open gag for now, maybe we will use them in a later version
 	PlayerRemoveInventory("Blindfold", 1);
-	PlayerRemoveInventory("ClothGag", 1);
 	PlayerRemoveInventory("DoubleOpenGag", 1);
 
 }

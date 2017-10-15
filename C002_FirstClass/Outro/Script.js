@@ -57,8 +57,8 @@ function C002_FirstClass_Outro_Click() {
 
 		// if gagged, unlock it	
 		if (Common_PlayerGagged) {
-			PlayerUnlockInventory("Ballgag");
-			PlayerAddInventory("Ballgag", 1);
+			PlayerUnlockInventory("BallGag");
+			PlayerAddInventory("BallGag", 1);
 		}
 
 	}

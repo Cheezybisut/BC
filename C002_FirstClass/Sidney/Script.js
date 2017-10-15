@@ -36,7 +36,7 @@ function C002_FirstClass_Sidney_Load() {
 
 	// Sidney can steal the key from the player
 	if ((C002_FirstClass_Sidney_CurrentStage == 100) && (PlayerHasLockedInventory("Cuffs")) && (PlayerHasInventory("CuffsKey")) && (C002_FirstClass_Classroom_MildredSubdueSuccess)) {
-		OveridenIntroText = GetText("StealKeys");
+		OverridenIntroText = GetText("StealKeys");
 		PlayerRemoveInventory("CuffsKey", 1);
 		ActorChangeAttitude(0, -2);
 		C002_FirstClass_Sidney_SubdueRemarkReady = false;
@@ -60,33 +60,33 @@ function C002_FirstClass_Sidney_Click() {
 	var ClickedInv = GetClickedInventory();
 	
 	// If the player wants to gag Sidney
-	if ((C002_FirstClass_Sidney_CurrentStage >= 100) && (ClickedInv == "Ballgag") && (ActorHasInventory("Ballgag") == false) && (Common_PlayerNotRestrained)) {
+	if ((C002_FirstClass_Sidney_CurrentStage >= 100) && (ClickedInv == "BallGag") && (ActorHasInventory("BallGag") == false) && (Common_PlayerNotRestrained)) {
 		if ((ActorGetValue(ActorSubmission) >= 2) || (ActorHasInventory("Rope")) || (ActorHasInventory("Cuffs"))) {
-			if (ActorGetValue(ActorSubmission) >= 4) OveridenIntroText = GetText("BallgagWilling");
-			else OveridenIntroText = GetText("BallgagReluctant");
-			PlayerRemoveInventory("Ballgag", 1);
-			ActorAddInventory("Ballgag");
+			if (ActorGetValue(ActorSubmission) >= 4) OverridenIntroText = GetText("BallGagWilling");
+			else OverridenIntroText = GetText("BallGagReluctant");
+			PlayerRemoveInventory("BallGag", 1);
+			ActorAddInventory("BallGag");
 			C002_FirstClass_Sidney_CurrentStage = C002_FirstClass_Classroom_CalcStage();
-		} else OveridenIntroText = GetText("BallgagRefuse");
+		} else OverridenIntroText = GetText("BallGagRefuse");
 		CurrentTime = CurrentTime + 60000;
 	}
 
 	// If the player wants to cuff Sidney
 	if ((C002_FirstClass_Sidney_CurrentStage >= 100) && (ClickedInv == "Cuffs") && (ActorHasInventory("Cuffs") == false) && (Common_PlayerNotRestrained)) {
 		if ((ActorGetValue(ActorSubmission) >= 2) || (ActorHasInventory("Rope"))) {
-			if (ActorHasInventory("Rope")) { OveridenIntroText = GetText("CuffsReplaceRope"); PlayerAddInventory("Rope", 1); ActorRemoveInventory("Rope"); }
-			else if (ActorGetValue(ActorSubmission) >= 4) OveridenIntroText = GetText("CuffsWilling");
-			else OveridenIntroText = GetText("CuffsReluctant");
+			if (ActorHasInventory("Rope")) { OverridenIntroText = GetText("CuffsReplaceRope"); PlayerAddInventory("Rope", 1); ActorRemoveInventory("Rope"); }
+			else if (ActorGetValue(ActorSubmission) >= 4) OverridenIntroText = GetText("CuffsWilling");
+			else OverridenIntroText = GetText("CuffsReluctant");
 			PlayerRemoveInventory("Cuffs", 1);
 			ActorAddInventory("Cuffs");
 			C002_FirstClass_Sidney_CurrentStage = C002_FirstClass_Classroom_CalcStage();
-		} else OveridenIntroText = GetText("CuffsRefuse");
+		} else OverridenIntroText = GetText("CuffsRefuse");
 		CurrentTime = CurrentTime + 60000;
 	}
 
 	// If the player wants to uncuff Sidney
 	if ((C002_FirstClass_Sidney_CurrentStage >= 100) && (ClickedInv == "CuffsKey") && (ActorHasInventory("Cuffs") == true) && (Common_PlayerNotRestrained)) {
-		OveridenIntroText = GetText("CuffsUnlock");
+		OverridenIntroText = GetText("CuffsUnlock");
 		PlayerAddInventory("Cuffs", 1);
 		ActorRemoveInventory("Cuffs");
 		C002_FirstClass_Sidney_CurrentStage = C002_FirstClass_Classroom_CalcStage();
@@ -96,33 +96,33 @@ function C002_FirstClass_Sidney_Click() {
 	// If the player wants to rope Sidney
 	if ((C002_FirstClass_Sidney_CurrentStage >= 100) && (ClickedInv == "Rope") && (ActorHasInventory("Rope") == false) && (Common_PlayerNotRestrained)) {
 		if ((ActorGetValue(ActorSubmission) >= 2) || (ActorHasInventory("Cuffs"))) {
-			if (ActorHasInventory("Cuffs")) { OveridenIntroText = GetText("RopeReplaceCuffs"); PlayerAddInventory("Cuffs", 1); ActorRemoveInventory("Cuffs"); }
-			else if (ActorGetValue(ActorSubmission) >= 4) OveridenIntroText = GetText("RopeWilling");
-			else OveridenIntroText = GetText("RopeReluctant");
+			if (ActorHasInventory("Cuffs")) { OverridenIntroText = GetText("RopeReplaceCuffs"); PlayerAddInventory("Cuffs", 1); ActorRemoveInventory("Cuffs"); }
+			else if (ActorGetValue(ActorSubmission) >= 4) OverridenIntroText = GetText("RopeWilling");
+			else OverridenIntroText = GetText("RopeReluctant");
 			PlayerRemoveInventory("Rope", 1);
 			ActorAddInventory("Rope");
 			C002_FirstClass_Sidney_CurrentStage = C002_FirstClass_Classroom_CalcStage();
-		} else OveridenIntroText = GetText("RopeRefuse");
+		} else OverridenIntroText = GetText("RopeRefuse");
 		CurrentTime = CurrentTime + 60000;
 	}
 
 	// If the player wants to crop Sidney
 	if ((C002_FirstClass_Sidney_CurrentStage >= 100) && (ClickedInv == "Crop") && (Common_PlayerNotRestrained)) {
-		if (ActorHasInventory("Ballgag")) OveridenIntroText = GetText("CropGagged");
-		else OveridenIntroText = GetText("Crop");
+		if (ActorHasInventory("BallGag")) OverridenIntroText = GetText("CropGagged");
+		else OverridenIntroText = GetText("Crop");
 		CurrentTime = CurrentTime + 60000;
 	}
 
-	// If the stage changed, we remove the overiden image, also recalculates the Amanda and Sarah variables
-	if (EntryStage != C002_FirstClass_Sidney_CurrentStage) OveridenIntroImage = "";
+	// If the stage changed, we remove the Overriden image, also recalculates the Amanda and Sarah variables
+	if (EntryStage != C002_FirstClass_Sidney_CurrentStage) OverridenIntroImage = "";
 	C002_FirstClass_Sidney_AmandaSarahVariables();
 
 }
 
 // Chapter 2 - Sidney Ungag
 function C002_FirstClass_Sidney_Ungag() {
-	PlayerAddInventory("Ballgag", 1);
-	ActorRemoveInventory("Ballgag");
+	PlayerAddInventory("BallGag", 1);
+	ActorRemoveInventory("BallGag");
 }
 
 // Chapter 2 - Sidney Untie
@@ -149,14 +149,14 @@ function C002_FirstClass_Sidney_AgreeHelp() {
 
 // Chapter 2 - Sidney Whip Amanda
 function C002_FirstClass_Sidney_AmandaWhip() {
-	OveridenIntroImage = "Sidney_Crop.jpg";
+	OverridenIntroImage = "Sidney_Crop.jpg";
 	C002_FirstClass_Sidney_AmandaWhipDone = true;
 	C002_FirstClass_Sidney_AmandaSarahVariables();
 }
 
 // Chapter 2 - Sidney Whip Sarah
 function C002_FirstClass_Sidney_SarahWhip() {
-	OveridenIntroImage = "Sidney_Crop.jpg";
+	OverridenIntroImage = "Sidney_Crop.jpg";
 	C002_FirstClass_Sidney_SarahWhipDone = true;
 	C002_FirstClass_Sidney_AmandaSarahVariables();	
 }

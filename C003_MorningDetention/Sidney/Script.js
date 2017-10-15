@@ -47,7 +47,7 @@ function C003_MorningDetention_Sidney_Click() {
 	if ((ClickInv == "CuffsKey") && (C003_MorningDetention_Sidney_CurrentStage < 300) && Common_PlayerNotRestrained) {
 		PlayerAddInventory("Cuffs", 1);
 		ActorChangeAttitude(2, 0);
-		OveridenIntroText = GetText("UnlockGone");
+		OverridenIntroText = GetText("UnlockGone");
 		C003_MorningDetention_Sidney_CurrentStage = 300;
 		C003_MorningDetention_DetentionRoom_SidneyGone = true;
 		CurrentTime = CurrentTime + 60000;
@@ -55,15 +55,15 @@ function C003_MorningDetention_Sidney_Click() {
 
 	// Special code for when the user wants to use the vibrating egg on Sidney
 	if ((ClickInv == "VibratingEgg") && (C003_MorningDetention_Sidney_CurrentStage < 200) && Common_PlayerNotRestrained)
-		OveridenIntroText = GetText("VibratingEggTeacher");
+		OverridenIntroText = GetText("VibratingEggTeacher");
 
 	// Special code for when the user wants to use the vibrating egg on Sidney
 	if ((ClickInv == "SleepingPill") && (C003_MorningDetention_Sidney_CurrentStage < 200) && Common_PlayerNotRestrained)
-		OveridenIntroText = GetText("SleepingPill");
+		OverridenIntroText = GetText("SleepingPill");
 	
 	// Special code for when the user wants to use the vibrating egg on Sidney
 	if ((ClickInv == "VibratingEgg") && (C003_MorningDetention_Sidney_CurrentStage >= 200) && (C003_MorningDetention_Sidney_CurrentStage < 300) && Common_PlayerNotRestrained) {
-		OveridenIntroText = GetText("VibratingEggReady");
+		OverridenIntroText = GetText("VibratingEggReady");
 		C003_MorningDetention_Sidney_EggReady = true;
 	}
 	
@@ -96,7 +96,7 @@ function C003_MorningDetention_Sidney_Insert() {
 function C003_MorningDetention_Sidney_Tickle() {
 	if (C003_MorningDetention_Sidney_TickleDone == false) {
 		ActorChangeAttitude(-1, 0);
-		OveridenIntroText = GetText("Tickle");
+		OverridenIntroText = GetText("Tickle");
 		C003_MorningDetention_Sidney_TickleDone = true;
 	}
 }

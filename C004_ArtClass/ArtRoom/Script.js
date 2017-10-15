@@ -28,7 +28,7 @@ function C004_ArtClass_ArtRoom_Load() {
 	if ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && (Common_PlayerUnderwear)) C004_ArtClass_ArtRoom_ExtraModelImage = "Player_Underwear";
 	if ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && (Common_PlayerNaked)) C004_ArtClass_ArtRoom_ExtraModelImage = "Player_Naked";
 	if ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && (PlayerHasLockedInventory("Rope"))) C004_ArtClass_ArtRoom_ExtraModelImage = "Player_Rope";
-	if ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && (PlayerHasLockedInventory("Rope")) && (PlayerHasLockedInventory("Ballgag"))) C004_ArtClass_ArtRoom_ExtraModelImage = "Player_Rope_Ballgag";
+	if ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && (PlayerHasLockedInventory("Rope")) && (PlayerHasLockedInventory("BallGag"))) C004_ArtClass_ArtRoom_ExtraModelImage = "Player_Rope_BallGag";
 	if ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && (PlayerHasLockedInventory("Rope")) && (PlayerHasLockedInventory("TapeGag"))) C004_ArtClass_ArtRoom_ExtraModelImage = "Player_Rope_TapeGag";
 	if (C004_ArtClass_ArtRoom_ExtraModel == "Jennifer") C004_ArtClass_ArtRoom_ExtraModelImage = C004_ArtClass_ArtRoom_ExtraModelImage + "_" + C004_ArtClass_ArtRoom_JenniferStage.toString();
 	if (C004_ArtClass_ArtRoom_ExtraModel == "Sarah") C004_ArtClass_ArtRoom_ExtraModelImage = C004_ArtClass_ArtRoom_ExtraModelImage + "_" + C004_ArtClass_ArtRoom_SarahStage.toString();

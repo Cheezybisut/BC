@@ -200,7 +200,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 560,0,0,,It feels like a hug|that will never let go.,"Thats more like it, you just need a bit more|encouragement.  (She inserts a vibrating egg.)",570,1,0,PlayerEgg()
 560,0,0,,It feels so good|and tantalising.,Thats it. I'm going to treat you now.|(She inserts a vibrating egg.),570,1,-1,PlayerEgg()
 570,0,0,,"This is intense,|have me now.",With pleasure.|(natalie starts playing with your crotch rope.),580,1,0,
-570,0,0,,"Ahhh, gag me and|have me now please.",Only because you're such a good little subbie.|(Natlie gags you and plays with your crotch rope.),580,0,-1,PlayerBallgag()
+570,0,0,,"Ahhh, gag me and|have me now please.",Only because you're such a good little subbie.|(Natlie gags you and plays with your crotch rope.),580,0,-1,PlayerBallGag()
 570,0,0,,Stop this is|going too far.,"You think so, I'll let you go then. (Natalie releases you.)",590,-1,0,PlayerRelease()
 580,0,0,,(Enjoy her touch.),(You surrender to her loving touch while she tugs|on the crotch rope and masturbates your clitoris.),580,0,0,SubbieMasturbate()
 580,0,0,,(Squirm to her rhythm.),(You move your hips to follow her rhythm.|Slowly building up pleasure from her touch.),580,0,0,SubbieMasturbate()

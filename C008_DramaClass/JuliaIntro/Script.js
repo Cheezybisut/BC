@@ -35,19 +35,19 @@ function C008_DramaClass_JuliaIntro_CheckRole() {
 	// If the player is submissive, she will be forced to play the damsel in Distress
 	if (ActorGetValue(ActorSubmission) <= -3) {
 		C008_DramaClass_JuliaIntro_SetRole("Damsel");
-		OveridenIntroText = GetText("ForceDamsel");
+		OverridenIntroText = GetText("ForceDamsel");
 	} else {
 
 		// If the player is loved, she will be forced to play the heroine
 		if (ActorGetValue(ActorLove) >= 3) {
 			C008_DramaClass_JuliaIntro_SetRole("Heroine");
-			OveridenIntroText = GetText("ForceHeroine");
+			OverridenIntroText = GetText("ForceHeroine");
 		}
 
 		// If the player is hated, she will be forced to play the villain
 		if (ActorGetValue(ActorLove) <= -3) {
 			C008_DramaClass_JuliaIntro_SetRole("Villain");
-			OveridenIntroText = GetText("ForceVillain");
+			OverridenIntroText = GetText("ForceVillain");
 		}
 		
 	}

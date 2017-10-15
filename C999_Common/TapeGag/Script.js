@@ -20,12 +20,12 @@ function C999_Common_TapeGag_Load() {
 // Chapter Common - Tapegag Run, we draw the regular player image if the item is on
 function C999_Common_TapeGag_Run() {
 	BuildInteraction(C999_Common_TapeGag_CurrentStage);
-	if (PlayerHasLockedInventory("TapeGag") && (OveridenIntroImage == "")) DrawPlayerImage(150, 0);
+	if (PlayerHasLockedInventory("TapeGag") && (OverridenIntroImage == "")) DrawPlayerImage(150, 0);
 }
 
 // Chapter Common - TapeGag Click, allow regular interactions and clicking on another item
 function C999_Common_TapeGag_Click() {
-	OveridenIntroImage = "";
+	OverridenIntroImage = "";
 	ClickInteraction(C999_Common_TapeGag_CurrentStage);
 	InventoryClick(GetClickedInventory(), LeaveChapter, LeaveScreen);
 }
@@ -38,7 +38,7 @@ function C999_Common_TapeGag_SelfGag() {
 		PlayerLockInventory("TapeGag");
 		C999_Common_TapeGag_HasLooseTape = PlayerHasInventory("TapeGag");
 	} else {
-		OveridenIntroText = GetText("BadTiming");
+		OverridenIntroText = GetText("BadTiming");
 		C999_Common_TapeGag_CurrentStage = 0;
 	}
 }
@@ -51,5 +51,5 @@ function C999_Common_TapeGag_SelfUngag() {
 
 // Chapter Common - Show the item image
 function C999_Common_TapeGag_ShowImage() {
-	OveridenIntroImage = "Tape.jpg";
+	OverridenIntroImage = "Tape.jpg";
 }

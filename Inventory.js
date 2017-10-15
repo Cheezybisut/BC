@@ -16,7 +16,7 @@ function PlayerClothes(NewCloth) {
 // Set the restrained and gagged common variables, used by many scenes
 function LoadRestrainStatus() {
 	Common_PlayerRestrained = (PlayerHasLockedInventory("Cuffs") || PlayerHasLockedInventory("Rope"));
-	Common_PlayerGagged = (PlayerHasLockedInventory("Ballgag") || PlayerHasLockedInventory("TapeGag") || PlayerHasLockedInventory("ClothGag") || PlayerHasLockedInventory("DoubleOpenGag"));
+	Common_PlayerGagged = (PlayerHasLockedInventory("BallGag") || PlayerHasLockedInventory("TapeGag") || PlayerHasLockedInventory("ClothGag") || PlayerHasLockedInventory("DoubleOpenGag"));
 	Common_PlayerChaste = PlayerHasLockedInventory("ChastityBelt");
 	Common_PlayerNotRestrained = !Common_PlayerRestrained;
 	Common_PlayerNotGagged = !Common_PlayerGagged;
@@ -141,7 +141,7 @@ function PlayerRandomBondage() {
 	var G = "";
 	if (!Common_PlayerGagged) {
 		var GT = [];
-		if (PlayerHasInventory("Ballgag")) GT.push("Ballgag");
+		if (PlayerHasInventory("BallGag")) GT.push("BallGag");
 		if (PlayerHasInventory("TapeGag")) GT.push("TapeGag");
 		if (PlayerHasInventory("ClothGag")) GT.push("ClothGag");
 		if (GT.length > 0) G = GT[Math.floor(Math.random() * GT.length)];
@@ -162,14 +162,14 @@ function PlayerReleaseBondage() {
 
 // Ungag the player and restore it's inventory
 function PlayerUngag() {
-	if (PlayerHasLockedInventory("Ballgag")) { PlayerUnlockInventory("Ballgag"); PlayerAddInventory("Ballgag", 1); }
+	if (PlayerHasLockedInventory("BallGag")) { PlayerUnlockInventory("BallGag"); PlayerAddInventory("BallGag", 1); }
 	if (PlayerHasLockedInventory("ClothGag")) { PlayerUnlockInventory("ClothGag"); PlayerAddInventory("ClothGag", 1); }
 	if (PlayerHasLockedInventory("TapeGag")) { PlayerUnlockInventory("TapeGag"); }
 }
 
 // Add a random item in the player inventory
 function PlayerAddRandomItem() {
-	var ItemList = ["Ballgag", "TapeGag", "ClothGag", "Cuffs", "Rope", "ChastityBelt", "VibratingEgg", "Crop", "Collar", "SleepingPill"];
+	var ItemList = ["BallGag", "TapeGag", "ClothGag", "Cuffs", "Rope", "ChastityBelt", "VibratingEgg", "Crop", "Collar", "SleepingPill"];
 	var Item = ItemList[Math.floor(Math.random() * 10)];
 	PlayerAddInventory(Item, 1);
 	if (Item == "TapeGag") PlayerAddInventory(Item, 7); // For tape gag, add a bonus + 7 quantity

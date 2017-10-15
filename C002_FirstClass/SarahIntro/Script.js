@@ -17,7 +17,7 @@ function C002_FirstClass_SarahIntro_Run() {
 	
 	// Paints the background
 	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	if (ActorSpecificHasInventory("Amanda", "Ballgag"))
+	if (ActorSpecificHasInventory("Amanda", "BallGag"))
 		DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background_AmandaGag.jpg", 0, 0);
 	else
 		DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);

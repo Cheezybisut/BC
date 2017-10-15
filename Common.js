@@ -5,8 +5,8 @@ var CurrentText;
 var CurrentChapter;
 var CurrentScreen;
 var CurrentLanguageTag = "EN";
-var OveridenIntroText;
-var OveridenIntroImage;
+var OverridenIntroText;
+var OverridenIntroImage;
 var LeaveChapter = "";
 var LeaveScreen = "";
 var LeaveIcon = "";
@@ -163,8 +163,8 @@ function SetScene(Chapter, Screen) {
 	CurrentActor = "";
 	CurrentChapter = Chapter;
 	CurrentScreen = Screen;
-	OveridenIntroText = "";
-	OveridenIntroImage = "";
+	OverridenIntroText = "";
+	OverridenIntroImage = "";
 	LeaveIcon = "";
 	LeaveScreen = "";
 	LeaveChapter = Chapter;
@@ -187,7 +187,7 @@ function ClickInteraction(CurrentStagePosition) {
 				if (ActorInteractionAvailable(CurrentStage[L][StageLoveReq], CurrentStage[L][StageSubReq], CurrentStage[L][StageVarReq], CurrentStage[L][StageInteractionText], false)) {
 					if ((MouseX >= (Pos % 2) * 300) && (MouseX <= ((Pos % 2) * 300) + 299) && (MouseY >= 151 + (Math.round((Pos - 1) / 2) * 90)) && (MouseY <= 240 + (Math.round((Pos - 1) / 2) * 90))) {
 						window[CurrentChapter + "_" + CurrentScreen + "_CurrentStage"] = CurrentStage[L][StageNextStage];
-						OveridenIntroText = CurrentStage[L][StageInteractionResult];
+						OverridenIntroText = CurrentStage[L][StageInteractionResult];
 						ActorChangeAttitude(CurrentStage[L][StageLoveMod], CurrentStage[L][StageSubMod]);					
 						if (CurrentStage[L][StageInteractionText].indexOf("(1 minute)") >= 0) CurrentTime = CurrentTime + 60000;
 						else CurrentTime = CurrentTime + 10000;

@@ -26,12 +26,12 @@ function C008_DramaClass_Dressing_Search() {
 	// On the first search, we find the costume
 	C008_DramaClass_Dressing_SearchCount++;
 	if (C008_DramaClass_Dressing_SearchCount == 1) {
-		OveridenIntroText = GetText("FindCostume");
+		OverridenIntroText = GetText("FindCostume");
 	}
 	
 	// On the third search, we find a chastity belt
 	if (C008_DramaClass_Dressing_SearchCount == 3) {
-		OveridenIntroText = GetText("FindBelt");
+		OverridenIntroText = GetText("FindBelt");
 		PlayerAddInventory("ChastityBelt", 1);
 	}
 	

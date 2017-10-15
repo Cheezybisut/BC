@@ -29,11 +29,11 @@ function C999_Common_DoubleOpenGag_Click() {
 function C999_Common_DoubleOpenGag_SelfGag() {
 	if ((Common_BondageAllowed) && (Common_SelfBondageAllowed)) {
         PlayerUnlockInventory("TapeGag");
-        PlayerUnlockInventory("Ballgag");
+        PlayerUnlockInventory("BallGag");
         PlayerRemoveInventory("DoubleOpenGag", 1);
         PlayerLockInventory("DoubleOpenGag");
 	} else {
-		OveridenIntroText = GetText("BadTiming");
+		OverridenIntroText = GetText("BadTiming");
 		C999_Common_DoubleOpenGag_CurrentStage = 0;
 	}
 }

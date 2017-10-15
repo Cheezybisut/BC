@@ -1,4 +1,4 @@
-var SaveGameVersion = "7A";
+var SaveGameVersion = "8";
 var SaveChapter = "";
 var SaveScreen = "";
 
@@ -82,12 +82,7 @@ function LoadState(SlotNumber) {
 			Common_PlayerCrime = localStorage.getItem("Common_PlayerCrime" + SN);
 			LoadRestrainStatus();
 			SetScene(CurrentChapter, CurrentScreen);
-	
-			// Fix to make old save games from version 7 compatible
-			for (var A = 0; A < Actor.length; A++)
-				if (Actor[A].length == 7)
-					Actor[A] = [Actor[A][0], Actor[A][1], Actor[A][2], Actor[A][3], Actor[A][4], Actor[A][5], Actor[A][6], "Clothed"];
-	
+
 		}
 
 }

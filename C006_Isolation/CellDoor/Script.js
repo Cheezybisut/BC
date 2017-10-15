@@ -21,7 +21,7 @@ function C006_Isolation_CellDoor_Click() {
 	// The hook can be used to pick the lock
 	if (GetClickedInventory() == "RustyHook") {
 		C006_Isolation_CellDoor_CurrentStage = 10;
-		OveridenIntroText = GetText("PickLock");
+		OverridenIntroText = GetText("PickLock");
 		PlayerRemoveInventory("RustyHook", 1);
 		C006_Isolation_IsolationRoom_AllowPickLock = true;
 	}
