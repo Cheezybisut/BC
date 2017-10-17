@@ -1,5 +1,5 @@
 Stage,LoveReq,SubReq,VarReq,IntroText,Image
-0,0,0,,Oh!  COMMON_PLAYERNAME!|Can you help me find my costume?,Background.jpg
+0,0,0,,Hello COMMON_PLAYERNAME.|Can you help me find my costume?,Background.jpg
 0,5,0,,Oh nice!  COMMON_PLAYERNAME!|Can you help me find my costume?,Background.jpg
 0,0,5,,Greetings Miss COMMON_PLAYERNAME.|Would you help me find my costume?,Background.jpg
 0,0,0,AmandaMissing,What's going on?  Amanda is late and I|can't find my costume.  Can you help me?,Background.jpg

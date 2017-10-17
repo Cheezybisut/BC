@@ -9,10 +9,10 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 10,0,0,!IsDamsel,You can strip here.|I'll help with the armor.,That's very kind of you.  (She strips down.)|So what should I put on first?  The chainmail?,20,1,0,Strip()
 10,0,0,IsDamsel,(Nod.),(She happily strips down to her underwear.)|So what should I put on first?  The dress?,20,0,0,Strip()
 10,0,0,!IsDamsel,(Nod.),(She happily strips down to her underwear.)|So what should I put on first?  The chainmail?,20,0,0,Strip()
-20,0,0,PlayerIsRoped,(Turn and point|to your ropes.),Nope!  I like you better when you're tied up|Struggle some more and you might get out.,20,0,0,TestUntiePlayer()
+20,0,0,PlayerIsRoped,(Turn and point|to your ropes.),Nope!  I like you better when you're tied up.|Struggle some more and you might get out.,20,0,0,TestUntiePlayer()
 20,0,0,PlayerIsCuffed,(Turn and point|to your cuffs.),"Nope, I don't have any cuff keys.",20,0,0,TestUncuffPlayer()
-20,0,0,IsBothFree,You know that|you're pretty?,"Aaaaw, you're so kind.  Thank you.",20,0,0,TiedUpComment()
-20,0,0,IsBothFree,You would look|great tied up.,(She giggles and nods.)|Would you like restrain me?,20,0,1,
+20,0,0,IsBothFree,You know that|you're pretty?,"Aaaaw, you're so kind.|Thanks COMMON_PLAYERNAME.",20,0,0,
+20,0,0,IsBothFree,You would look|great tied up.,(She giggles and nods.)|Would you like restrain me?,20,0,0,TiedUpComment()
 20,0,0,ReadyHug,A few hugs|before the play?,Sure!  I love hugs.|What kind of hugs?,300,0,0,StartHugs()
 20,0,0,IsBothFree,(Help her dress.)|(1 minute),(You help her dress in her costume.)|Perfect!  Are we ready for the play?,30,0,0,Costume()
 20,0,0,IsBothFree,"Sarah, would you|like to restrain me?","Oh no, I cannot do that Miss.|(She blushes and bows her head.)",20,0,0,RandomBondage()
@@ -25,10 +25,10 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 30,0,0,IsPlayReady,Let's do some drama.|(Join the drama class.),,30,0,0,StartDrama()
 30,0,0,!IsPlayReady,Everyone isn't ready.,Maybe we need to speed things up then.,30,0,0,
 100,0,0,Common_PlayerGagged,@Ungn!,Nod for yes or shake for no.|Do you need help with that gag?,100,0,0,
-100,0,0,,(Nod slowly.),Nope!  I like you better like that.|You can help me find my costume?,0,0,0,CheckUngag()
+100,0,0,,(Nod slowly.),Nope!  I like you better like that.|Can you help me find my costume?,0,0,0,CheckUngag()
 100,0,0,,(Shake your head.),"Fine, you look cute with that gag.|Can you help me find my costume?",0,0,0,
 200,0,0,,Welcome to heaven.,"(She nods and moans, slowly|recovering from her orgasm.)",20,1,0,
-200,0,0,,(Pet her head gently.),"(She purs and moans, slowly|recovering from her orgasm.)",20,1,0,
+200,0,0,,(Pet her head gently.),"(She purrs and moans, slowly|recovering from her orgasm.)",20,1,0,
 200,0,0,,Now I control|your orgasms.,"(She bows her head, slowly|recovering from her orgasm.)",20,0,1,
 200,0,0,,(Slap her face.),"(She bows her head, slowly|recovering from her orgasm.)",20,0,1,
 200,0,0,,You're such a slut.,"(She shakes her head no, slowly|recovering from her orgasm.)",20,-1,1,
