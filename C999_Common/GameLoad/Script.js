@@ -4,6 +4,7 @@ var C999_Common_GameLoad_CurrentStage = 0;
 function C999_Common_GameLoad_Load() {
 	LeaveIcon = "";
 	LoadInteractions();
+	StopTimer(7.6666667 * 60 * 60 * 1000);
 }
 
 // Chapter Common - GameLoad Run

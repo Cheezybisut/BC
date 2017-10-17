@@ -38,6 +38,9 @@ function DrawImageNoCache(ctx, Source, X, Y) {
 // Draw a text in the canvas
 function DrawText(ctx, Text, X, Y, Color) {
 
+	// Replace the COMMON_PLAYERNAME keyword with the player name
+	Text = Text.replace("COMMON_PLAYERNAME", Common_PlayerName);
+
 	// Font is fixed for now, color can be set
 	ctx.font = "24px Arial";
 	ctx.fillStyle = Color;

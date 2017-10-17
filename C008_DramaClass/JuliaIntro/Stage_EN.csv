@@ -6,11 +6,11 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 10,0,0,,That's a nice hug.,Si!  I love to give warm hugs!|Welcome to drama class new pupil.,20,0,0,
 10,0,0,,You give the|best hugs.,Si!  I love to give warm hugs!|Welcome to drama class new pupil.,20,0,0,
 10,0,0,,I cannot breath!,So sorry little new pupil.|Welcome to drama class!,20,0,-1,
-10,0,0,,(Kiss her breast.),"No, no, no, new pupil.|Welcome to drama class.",20,-1,0,
+10,0,0,,(Kiss her breast.),No COMMON_PLAYERNAME.  (She pushes you back.)|Anyway.  Welcome to drama class.,20,-1,0,
 20,0,0,,Drama class?,Si!  Today you will repeat a role|for a theater act we are preparing.,30,0,0,
 20,0,0,,Are you doing|a theater play?,Si!  Today you will repeat a role|for a theater act we are preparing.,30,0,0,
-30,0,0,,What's the|act about?,It's a medieval play called a Tales of Two Knights.|It's a drama about two rivals that love the same damsel.,40,0,0,
-30,0,0,,Are we playing|some Shakespeare?,"No, it's a medieval play called a Tales of Two Knights.|It's a drama about two rivals that love the same damsel.",40,0,0,
+30,0,0,,What's the|act about?,It's a medieval play called a Tale of Two Knights.|A drama about two rivals that loves the same damsel.,40,0,0,
+30,0,0,,Are we playing|some Shakespeare?,"No, it's a medieval play called a Tale of Two Knights.|A drama about two rivals that loves the same damsel.",40,0,0,
 40,0,0,,And what role|will I play?,"You can be the heroic white knight, the|evil black knight or the damsel in distress.",50,0,0,CheckRole()
 40,0,0,,Great!  What|role do I get?,"You can be the heroic white knight, the|evil black knight or the damsel in distress.",50,1,0,CheckRole()
 40,0,0,,Drama isn't|my forte.,"Nonsense!  You can be the heroic white knight,|the evil black knight or the damsel in distress.",50,-1,0,CheckRole()

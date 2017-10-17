@@ -39,6 +39,7 @@ var TextContent = 1;
 // Common variables
 var Common_BondageAllowed = true;
 var Common_SelfBondageAllowed = true;
+var Common_PlayerName = "";
 var Common_PlayerRestrained = false;
 var Common_PlayerGagged = false;
 var Common_PlayerBlinded = false;
@@ -211,10 +212,10 @@ function GetText(Tag) {
 		Tag = Tag.trim().toUpperCase();
 		for (var T = 0; T < CurrentText.length; T++)
 			if (CurrentText[T][TextTag].trim().toUpperCase() == Tag)
-				return CurrentText[T][TextContent];
+				return CurrentText[T][TextContent].trim();
 		
 		// Returns an error message
-		return "MISSING TEXT FOR TAG: " + Tag;
+		return "MISSING TEXT FOR TAG: " + Tag.trim();
 
 	} else return "";
 

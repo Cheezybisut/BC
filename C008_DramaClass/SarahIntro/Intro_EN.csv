@@ -1,7 +1,7 @@
 Stage,LoveReq,SubReq,VarReq,IntroText,Image
-0,0,0,,Can you help me find my costume?,Background.jpg
-0,5,0,,Oh nice!  Hey there my friend!|Can you help me find my costume?,Background.jpg
-0,0,5,,"Greetings Miss, I'm glad to see you.|Can you help me find my costume?",Background.jpg
+0,0,0,,Oh!  COMMON_PLAYERNAME!|Can you help me find my costume?,Background.jpg
+0,5,0,,Oh nice!  COMMON_PLAYERNAME!|Can you help me find my costume?,Background.jpg
+0,0,5,,Greetings Miss COMMON_PLAYERNAME.|Would you help me find my costume?,Background.jpg
 0,0,0,AmandaMissing,What's going on?  Amanda is late and I|can't find my costume.  Can you help me?,Background.jpg
 10,0,0,,I finally have my costume.|Do you mind if I strip here?,Background.jpg
 20,0,0,IsDamsel,I have my wedding dress.|Can you help me change?,Background.jpg
@@ -17,3 +17,5 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 100,0,0,,(She looks at you and giggles.)|Do you need help with that gag?,Background.jpg
 100,0,0,AmandaMissing,This is crazy!  Amanda is late and|you're gagged.  Do you need help?,Background.jpg
 200,0,0,,(Sarah is still slowly recovering from an orgasm.),BackgroundOrgasm.jpg
+300,0,0,,,Background.jpg
+310,0,0,,,Background.jpg

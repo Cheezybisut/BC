@@ -23,6 +23,7 @@
 <script src="Struggle.js"></script>
 <script src="C000_Intro/Intro/Script.js"></script>
 <script src="C000_Intro/ChapterSelect/Script.js"></script>
+<script src="C000_Intro/CreatePlayer/Script.js"></script>
 <script src="C001_BeforeClass/Intro/Script.js"></script>
 <script src="C001_BeforeClass/Classroom/Script.js"></script>
 <script src="C001_BeforeClass/Bag/Script.js"></script>
@@ -121,7 +122,7 @@ window.onload = function() {
 
 // Main game running state, runs the current screen code and bottom bar
 function MainRun() {
-	document.getElementById("MainCanvas").focus();
+	if (CurrentScreen != "CreatePlayer") document.getElementById("MainCanvas").focus();
 	ProcessTimer();
 	DynamicFunction(CurrentChapter + "_" + CurrentScreen + "_Run()");
 	BuildBottomBar();
@@ -157,7 +158,7 @@ function Touch(event) {
 function MouseMove(event) {
 	var rect = document.getElementById("MainCanvas").getBoundingClientRect();
 	MouseX = event.clientX - rect.left;
-	MouseY = event.clientY - rect.top;	
+	MouseY = event.clientY - rect.top;
 }
 
 // When the mouse is away from the control, we stop keeping the coordinates

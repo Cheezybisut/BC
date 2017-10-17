@@ -1,0 +1,4 @@
+Tag,Content
+EnterName,Please enter a name for your character.
+ValidChars,"You can use letters, numbers & spaces."
+Validate,Start the game

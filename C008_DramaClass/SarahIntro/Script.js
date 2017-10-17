@@ -16,6 +16,10 @@ var C008_DramaClass_SarahIntro_TiedUpCommentDone = false;
 var C008_DramaClass_SarahIntro_PlayerBondageDone = false;
 var C008_DramaClass_SarahIntro_PlayerIsRoped = false;
 var C008_DramaClass_SarahIntro_PlayerIsCuffed = false;
+var C008_DramaClass_SarahIntro_ReadyHug = false;
+var C008_DramaClass_SarahIntro_AmandaReadyHug = false;
+var C008_DramaClass_SarahIntro_HugDone = false;
+var C008_DramaClass_SarahIntro_HugImage = "";
 
 // Calculates the scene parameters
 function C008_DramaClass_SarahIntro_CalcParams() {
@@ -28,6 +32,8 @@ function C008_DramaClass_SarahIntro_CalcParams() {
 	C008_DramaClass_SarahIntro_CanUngag = (C008_DramaClass_SarahIntro_IsGagged && !Common_PlayerRestrained);
 	C008_DramaClass_SarahIntro_PlayerIsRoped = (PlayerHasLockedInventory("Rope"));
 	C008_DramaClass_SarahIntro_PlayerIsCuffed = (PlayerHasLockedInventory("Cuffs"));
+	C008_DramaClass_SarahIntro_ReadyHug = (!C008_DramaClass_SarahIntro_IsRestrained && !C008_DramaClass_SarahIntro_IsGagged && !C008_DramaClass_SarahIntro_IsChaste && Common_PlayerUnderwear && !Common_PlayerRestrained && !Common_PlayerGagged && !Common_PlayerChaste);
+	C008_DramaClass_SarahIntro_AmandaReadyHug = ((C008_DramaClass_AmandaIntro_CurrentStage == 40) && !ActorSpecificHasInventory("Amanda", "Cuffs") && !ActorSpecificHasInventory("Amanda", "Rope") && !ActorSpecificHasInventory("Amanda", "BallGag") && !ActorSpecificHasInventory("Amanda", "TapeGag") && !ActorSpecificHasInventory("Amanda", "ClothGag") && !ActorSpecificHasInventory("Amanda", "ChastityBelt"));
 }
 
 // Chapter 8 - Sarah Intro Load
@@ -51,7 +57,8 @@ function C008_DramaClass_SarahIntro_Load() {
 // Chapter 8 - Sarah Intro Run
 function C008_DramaClass_SarahIntro_Run() {
 	BuildInteraction(C008_DramaClass_SarahIntro_CurrentStage);
-	DrawInteractionActor();
+	if (C008_DramaClass_SarahIntro_CurrentStage != 310) DrawInteractionActor();
+	else DrawImage(document.getElementById("MainCanvas").getContext("2d"), C008_DramaClass_SarahIntro_HugImage, 600, 0);
 }
 
 // Chapter 8 - Sarah Intro Click
@@ -116,14 +123,16 @@ function C008_DramaClass_SarahIntro_CheckUngag() {
 function C008_DramaClass_SarahIntro_RandomBondage() {
 	if (ActorGetValue(ActorSubmission) < 5) {
 		if (Common_PlayerUnderwear || Common_PlayerNaked) {
-			PlayerRandomBondage();
-			C008_DramaClass_SarahIntro_CalcParams();
-			OverridenIntroText = GetText("PlayerRandomBondage");
-			CurrentTime = CurrentTime + 60000;
-			if (!C008_DramaClass_SarahIntro_PlayerBondageDone) {
-				C008_DramaClass_SarahIntro_PlayerBondageDone = true;
-				ActorChangeAttitude(0, -2);
-			}
+			if (PlayerHasInventory("Cuffs") || PlayerHasInventory("Rope") || PlayerHasInventory("BallGag") || PlayerHasInventory("TapeGag") || PlayerHasInventory("ClothGag")) {
+				PlayerRandomBondage();
+				C008_DramaClass_SarahIntro_CalcParams();
+				OverridenIntroText = GetText("PlayerRandomBondage");
+				CurrentTime = CurrentTime + 60000;
+				if (!C008_DramaClass_SarahIntro_PlayerBondageDone) {
+					C008_DramaClass_SarahIntro_PlayerBondageDone = true;
+					ActorChangeAttitude(0, -2);
+				}
+			} else OverridenIntroText = GetText("NoBondageItem");				
 		} else OverridenIntroText = GetText("UndressBeforeBondage");
 	}
 }
@@ -216,6 +225,22 @@ function C008_DramaClass_SarahIntro_Masturbate() {
 			
 		} else OverridenIntroText = GetText("MasturbateBelt");
 	}
+}
+
+// Chapter 8 - Sarah Start Hugs
+function C008_DramaClass_SarahIntro_StartHugs() {
+	LeaveIcon = "";
+}
+
+// Chapter 8 - Sarah Hug
+function C008_DramaClass_SarahIntro_Hug(HugImage) {
+	C008_DramaClass_SarahIntro_HugImage = CurrentChapter + "/HugImages/" + HugImage + ".png";
+	C008_DramaClass_SarahIntro_HugDone = true;
+}
+
+// Chapter 8 - Sarah Allow Leave
+function C008_DramaClass_SarahIntro_AllowLeave() {
+	LeaveIcon = "Leave";
 }
 
 // Chapter 8 - Sarah Start Drama

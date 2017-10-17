@@ -60,12 +60,13 @@ function C999_Common_Player_Run() {
 	var ctx = document.getElementById("MainCanvas").getContext("2d");
 	DrawRect(ctx, 599, 0, 1, 600, "Black");
 	DrawRect(ctx, 0, 0, 599, 600, "White");
-	DrawRect(ctx, 30, 100, 539, 1, "Black");
-	DrawText(ctx, GetText("Title") + " " + C999_Common_Player_GetTitle(), 300, 30, "black");
-	DrawText(ctx, GetText("Records"), 300, 70, "black");
+	DrawRect(ctx, 30, 114, 539, 1, "Black");
+	DrawText(ctx, GetText("Name") + " " + Common_PlayerName, 300, 25, "black");
+	DrawText(ctx, GetText("Title") + " " + C999_Common_Player_GetTitle(), 300, 60, "black");
+	DrawText(ctx, GetText("Records"), 300, 95, "black");
 	for (var A = 0; A < Actor.length; A++) {
 		CurrentActor = Actor[A][ActorName];
-		DrawActorStats(ctx, 300, A * 60 + 130);
+		DrawActorStats(ctx, 300, A * 50 + 130);
 	}
 	CurrentActor = "";
 

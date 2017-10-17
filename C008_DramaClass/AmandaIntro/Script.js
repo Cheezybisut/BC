@@ -21,6 +21,9 @@ var C008_DramaClass_AmandaIntro_SlapDone = false;
 var C008_DramaClass_AmandaIntro_PlayerBondageDone = false;
 var C008_DramaClass_AmandaIntro_CropDone = false;
 var C008_DramaClass_AmandaIntro_KeyTaken = false;
+var C008_DramaClass_AmandaIntro_ReadyHug = false;
+var C008_DramaClass_AmandaIntro_SarahReadyHug = false;
+var C008_DramaClass_AmandaIntro_HugImage = "";
 
 // Calculates the scene parameters
 function C008_DramaClass_AmandaIntro_CalcParams() {
@@ -33,6 +36,8 @@ function C008_DramaClass_AmandaIntro_CalcParams() {
 	C008_DramaClass_AmandaIntro_CanUngag = (C008_DramaClass_AmandaIntro_IsGagged && !Common_PlayerRestrained);
 	C008_DramaClass_AmandaIntro_PlayerIsRoped = (PlayerHasLockedInventory("Rope"));
 	C008_DramaClass_AmandaIntro_PlayerIsCuffed = (PlayerHasLockedInventory("Cuffs"));
+	C008_DramaClass_AmandaIntro_ReadyHug = (!C008_DramaClass_AmandaIntro_IsRestrained && !C008_DramaClass_AmandaIntro_IsGagged && !C008_DramaClass_AmandaIntro_IsChaste && Common_PlayerUnderwear && !Common_PlayerRestrained && !Common_PlayerGagged && !Common_PlayerChaste);
+	C008_DramaClass_AmandaIntro_SarahReadyHug = ((C008_DramaClass_SarahIntro_CurrentStage == 20) && !ActorSpecificHasInventory("Sarah", "Cuffs") && !ActorSpecificHasInventory("Sarah", "Rope") && !ActorSpecificHasInventory("Sarah", "BallGag") && !ActorSpecificHasInventory("Sarah", "TapeGag") && !ActorSpecificHasInventory("Sarah", "ClothGag") && !ActorSpecificHasInventory("Sarah", "ChastityBelt"));
 }
 
 // Chapter 8 - Amanda Intro Load
@@ -53,7 +58,8 @@ function C008_DramaClass_AmandaIntro_Load() {
 // Chapter 8 - Amanda Intro Run
 function C008_DramaClass_AmandaIntro_Run() {
 	BuildInteraction(C008_DramaClass_AmandaIntro_CurrentStage);
-	if (C008_DramaClass_AmandaIntro_CurrentStage != 20) DrawInteractionActor();
+	if ((C008_DramaClass_AmandaIntro_CurrentStage != 20) && (C008_DramaClass_AmandaIntro_CurrentStage != 310)) DrawInteractionActor();
+	if (C008_DramaClass_AmandaIntro_CurrentStage == 310) DrawImage(document.getElementById("MainCanvas").getContext("2d"), C008_DramaClass_AmandaIntro_HugImage, 600, 0);
 }
 
 // Chapter 8 - Amanda Intro Click
@@ -76,7 +82,7 @@ function C008_DramaClass_AmandaIntro_Click() {
 		OverridenIntroText = GetText("CostumeBlocksFun");
 	
 	// Amanda can be restrained on stage 40
-	if ((C008_DramaClass_AmandaIntro_CurrentStage == 40) && (ClickInv != "")) {
+	if ((C008_DramaClass_AmandaIntro_CurrentStage == 40) && (ClickInv != "") && (ClickInv != "Player")) {
 	
 		// Amande doesn't like the crop but becomes more submissive
 		if ((ClickInv == "Crop") && (!C008_DramaClass_AmandaIntro_CropDone)) {
@@ -242,14 +248,16 @@ function C008_DramaClass_AmandaIntro_Masturbate() {
 function C008_DramaClass_AmandaIntro_RandomBondage() {
 	if (ActorGetValue(ActorSubmission) < 5) {
 		if (Common_PlayerUnderwear || Common_PlayerNaked) {
-			PlayerRandomBondage();
-			C008_DramaClass_AmandaIntro_CalcParams();
-			OverridenIntroText = GetText("PlayerRandomBondage");
-			CurrentTime = CurrentTime + 60000;
-			if (!C008_DramaClass_AmandaIntro_PlayerBondageDone) {
-				C008_DramaClass_AmandaIntro_PlayerBondageDone = true;
-				ActorChangeAttitude(0, -2);
-			}
+			if (PlayerHasInventory("Cuffs") || PlayerHasInventory("Rope") || PlayerHasInventory("BallGag") || PlayerHasInventory("TapeGag") || PlayerHasInventory("ClothGag")) {
+				PlayerRandomBondage();
+				C008_DramaClass_AmandaIntro_CalcParams();
+				OverridenIntroText = GetText("PlayerRandomBondage");
+				CurrentTime = CurrentTime + 60000;
+				if (!C008_DramaClass_AmandaIntro_PlayerBondageDone) {
+					C008_DramaClass_AmandaIntro_PlayerBondageDone = true;
+					ActorChangeAttitude(0, -2);
+				}				
+			} else OverridenIntroText = GetText("NoBondageItem");
 		} else OverridenIntroText = GetText("UndressBeforeBondage");
 	}
 }
@@ -293,7 +301,7 @@ function C008_DramaClass_AmandaIntro_StartHugs() {
 
 // Chapter 8 - Amanda Hug
 function C008_DramaClass_AmandaIntro_Hug(HugImage) {
-	OverridenIntroImage = HugImage + ".jpg";
+	C008_DramaClass_AmandaIntro_HugImage = CurrentChapter + "/HugImages/" + HugImage + ".png";
 	if (!C008_DramaClass_AmandaIntro_HugDone) {
 		C008_DramaClass_AmandaIntro_HugDone = true;
 		ActorChangeAttitude(1, 0);

@@ -6,6 +6,7 @@ RefuseBondage,(She sees your item and quickly pushes|it away.  You need +2 submi
 RefuseBelt,(You show her the belt but she looks|angry and quickly pushes it away.)
 PlayerRandomBondage,Alright.  (Amanda picks some random|items in your bag and restrain you.)
 UndressBeforeBondage,"Mmmh, sure, why not.|But you need to undress."
+NoBondageItem,(She checks your bag.)  Sorry COMMON_PLAYERNAME.|You don't have anything I could use on you.
 UntiePlayer,You're cute tied up but I can help.|(She undoes the knots and releases you.)
 Collar,(You need +20 submission or better|and a special ceremony to collar Amanda.)
 Crop,(You whip her pretty hard while she|struggles and whimpers.  She dosn't like it.)

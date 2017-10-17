@@ -1,4 +1,4 @@
-var SaveGameVersion = "8";
+var SaveGameVersion = "8A";
 var SaveChapter = "";
 var SaveScreen = "";
 
@@ -14,12 +14,13 @@ function SaveStateGetSummary(SlotNumber) {
 
 	// Fetch the data
 	var SN = SlotNumber.toString();	
-	var Summary = "No save on slot " + SN;
+	var Summary = GetText("NoSaveOnSlot") + " " + SN;
 	if (localStorage.getItem("SaveGameVersion" + SN))
 		if (localStorage.getItem("SaveGameVersion" + SN) == SaveGameVersion) {
+			var SaveStatePlayerName = localStorage.getItem("Common_PlayerName" + SN);
 			var SaveStateChapter = localStorage.getItem("CurrentChapter" + SN);
 			var SaveStateDateTime = localStorage.getItem("SaveGameDateTime" + SN);
-			Summary = GetText("Slot") + " " + SN + " - " + GetText("Chapter") + " " + SaveStateChapter.substring(3, 4) + "|" + SaveStateDateTime;
+			Summary = SaveStatePlayerName.substr(0, 10) + " - " + GetText("Chapter") + " " + SaveStateChapter.substring(3, 4) + "|" + SaveStateDateTime;
 		}
 		
 	// Returns the summary
@@ -54,6 +55,7 @@ function SaveState(SlotNumber) {
 	localStorage.setItem("SaveGameDateTime" + SN, GetFormatDate());
 	localStorage.setItem("CurrentChapter" + SN, SaveChapter);
 	localStorage.setItem("CurrentScreen" + SN, SaveScreen);
+	localStorage.setItem("Common_PlayerName" + SN, Common_PlayerName);
 	localStorage.setItem("PlayerInventory" + SN, JSON.stringify(PlayerInventory));
 	localStorage.setItem("PlayerLockedInventory" + SN, JSON.stringify(PlayerLockedInventory));
 	localStorage.setItem("Actor" + SN, JSON.stringify(Actor));
@@ -76,6 +78,7 @@ function LoadState(SlotNumber) {
 			// Load the game state
 			CurrentChapter = localStorage.getItem("CurrentChapter" + SN);
 			CurrentScreen = localStorage.getItem("CurrentScreen" + SN);
+			Common_PlayerName = localStorage.getItem("Common_PlayerName" + SN);
 			PlayerInventory = JSON.parse(localStorage.getItem("PlayerInventory" + SN));
 			PlayerLockedInventory = JSON.parse(localStorage.getItem("PlayerLockedInventory" + SN));
 			Actor = JSON.parse(localStorage.getItem("Actor" + SN));
