@@ -1,33 +1,33 @@
 Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
-0,0,0,,"Hello, yes I just transfered.",I thought so. The names Natalie,10,0,0,
+0,0,0,,"Hello, yes I just transferred.",I thought so. The names Natalie.,10,0,0,
 0,0,0,,"Hi, first day but|feels like weeks already.","First days can feel like that.|Natalie, please to meet you.",10,0,0,
-0,0,0,,"I am, but you might|see a lot more of me now.","Cool, I'm Natalie",10,1,0,
-0,0,0,,New? I feel I have been|here longer than you.,"Ok that was pretty blunt, sorry.|My name is Natalie",10,0,1,
-10,0,0,,Could you tell me where|the cafeteria is?,"If really want, but its pretty poor.|I have lunch with a college club instead",20,0,0,
-10,0,0,,I'm really hungry.|could you help please?,There is more to lunch break than just food.|Have you considered joining a club,20,0,-1,
-10,0,0,,Wheres best to get|lunch round here?,"Quite a few students use a local cafe,|but best I reckon is club lunches.",20,1,0,
+0,0,0,,"I am, but you might|see a lot more of me now.","Cool, I'm Natalie.",10,1,0,
+0,0,0,,New? I feel I have been|here longer than you.,"Ok that was pretty blunt, sorry.|My name is Natalie.",10,0,1,
+10,0,0,,Could you tell me where|the cafeteria is?,"If really want, but its pretty poor.|I have lunch with a college club instead.",20,0,0,
+10,0,0,,I'm really hungry.|Could you help please?,There is more to lunch break than just food.|Have you considered joining a club?,20,0,-1,
+10,0,0,,Where's best to get|lunch round here?,"Quite a few students use a local café,|but best I reckon is club lunches.",20,1,0,
 20,0,0,,"Clubs, I'm game for that.|Bring it on.","I'm in the Kinbaku club,|which is by far the best.",30,1,1,
-20,0,0,,"A club, would any|want me to join?",Of course. The Kinbaku club would just love you,30,1,-1,
+20,0,0,,"A club, would any|want me to join?",Of course. The Kinbaku club would just love you.,30,1,-1,
 20,0,0,,"Clubs, aren't they|just for Geeks?","You have got to be kidding me,|Kinbaku club is way cooler than that.",30,0,0,
-20,0,0,,Clubs! no chance.|I just want food.,If thats your attitude then you best find the cafeteria,40,-1,0,
-20,0,0,,Clubs aren't my thing.|Too many initiations.,"Ok then, I need to be going. Someone|else will show you to a nice cafe.",40,0,0,
+20,0,0,,Clubs! No chance.|I just want food.,If that's your attitude then you best find the cafeteria.,40,-1,0,
+20,0,0,,Clubs aren't my thing.|Too many initiations.,"Ok then, I must be going. Someone|else will show you to a nice cafe.",40,0,0,
 30,0,0,,Let's go then|(Go to club with Natalie.),(Natalie takes you into a|nearby spare classroom.),100,0,0,StartLunch()
 30,0,0,,"Maybe not,|I really need a good meal.","OK then, you could brave the cafeteria|or find a cafe.",40,0,0,
 40,0,0,,Enjoy your |lunch break then!,Absolutely!  (She waves|and walks away.),50,1,0,EndLunch()
-40,0,0,,"Ok, see you around.",Of course!  (She waves|and walks away.),50,0,0,EndLunch()
+40,0,0,,"OK, see you around.",Of course!  (She waves|and walks away.),50,0,0,EndLunch()
 40,0,0,,You suck.,"No, you suck!  (She turns|around and storms away.)",50,-2,0,EndLunch()
-100,0,0,,Wow is that a|reverse prayer?,"Yes, you seem to know you stuff.|Chloe is just stretching after a ballet lesson",110,1,0,
-100,0,0,,Is she ok?|that looks harsh.,"Of course, Chloe is as flexible doing|stretches as she is in ballet.",110,0,0,
-100,0,0,,I'm not sure|I could manage that.,We can't all be a flexible as Chloe.,110,0,-1,
-100,0,0,,"Oh my, I didn't know|what Kinbaku was.",Litterally it means 'tight binding'.|don't worry you'll be fine.,110,0,-1,
+100,0,0,,Wow is that a|reverse prayer?,"Yes, you seem to know you stuff.|Chloe is just stretching after a ballet lesson.",110,1,0,
+100,0,0,,Is she OK?|That looks harsh.,"Of course, Chloe is as flexible doing|stretches as she is in ballet.",110,0,0,
+100,0,0,,I'm not sure|I could manage that.,We can't all be as flexible as Chloe.,110,0,-1,
+100,0,0,,"Oh my, I didn't know|what Kinbaku was.",Literally it means 'tight binding'.|Don't worry you'll be fine.,110,0,-1,
 100,0,0,,Cool I bet you would|look good tied like that.,"Thank you, but I'm not quite as|flexible as Chloe over there is.",110,1,1,
-110,0,0,,You did mention|food earlier.,"Yes, There is a takeout delivery ordered.|How about a quick tie while we wait?",120,0,0,
-110,0,0,,So where is the food?|I'm hungry now.,There's a takeout coming.|would you like to try some tying till then?,120,-1,1,
-110,0,0,,Could I have some|lunch now please.,"Just wait a moment, its being delivered|Some Kinbaku will pass the time.",120,0,-1,
+110,0,0,,You did mention|food earlier.,"Yes, there is a takeout delivery ordered.|How about a quick tie while we wait?",120,0,0,
+110,0,0,,So where is the food?|I'm hungry now.,There's a takeout coming.|Would you like to try some tying till then?,120,-1,1,
+110,0,0,,Could I have some|lunch now please?,"Just wait a moment, its being delivered|Some Kinbaku will pass the time.",120,0,-1,
 120,0,0,,Can I tie you up?,Certainly not. A new member|must learn the ropes first.,130,-1,-1,
-120,0,0,,Can you tie me up?,"Of course, its a new memebers duty to be tied first.",130,0,-1,
-120,1,1,,Only if I tie you up first?,"Well OK then, normally new members gets tied first.|The club has lots of rope you can use.",140,0,1,
-120,1,1,,I suppose the newby|gets tied first?,"Of course, but I might have let|you tie me up first, too late now.",130,1,-1,
+120,0,0,,Can you tie me up?,"Of course, it's a new member's duty to be tied first.",130,0,-1,
+120,1,1,,Only if I tie you up first?,"Well OK then, normally new members get tied first.|The club has lots of rope you can use.",140,0,1,
+120,1,1,,I suppose the newbie|gets tied first?,"Of course, but I might have let|you tie me up first, too late now.",130,1,-1,
 130,0,0,,Wow this is exciting.,(She pulls your arms back behind you and|tightly binds them) It sure is.,150,1,0,PlayerRope()
 130,0,0,,Ouch not too tight please.,But it has to be tight.  (She pulls your|arms behind you back and tightly binds them.),150,-1,0,PlayerRope()
 130,0,0,,"OK miss, but|please be gentle.",You're so sweet.  (She pulls your arms behind|your back and tightly binds them.),150,1,-1,PlayerRope()
@@ -45,70 +45,70 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 200,0,0,,It's hard to judge|from a few hours.,I've been here a while and still not sure either.|And what do you want to do in life?,210,0,0,EatGoodMatch()
 200,0,0,,It's a pretty|boring school.,"Yeah, some classes can get boring I guess.|And what do you want to do in life?",210,0,0,Eat()
 210,0,0,,A musician.,Cool!  And what's your favorite class?,220,0,0,EatGoodMatch()
-210,0,0,,A doctor.,Thats nice.  And what's your favorite class?,220,0,0,Eat()
+210,0,0,,A doctor.,That's nice.  And what's your favorite class?,220,0,0,Eat()
 210,0,0,,An athlete.,Cool!  And what's your favorite class?,220,0,0,EatGoodMatch()
-210,0,0,,A teacher.,They just brain washer kids.  And what's your favorite class?,220,-1,0,EatBadMatch()
-210,0,0,,An actor.,Thats nice.  And what's your favorite class?,220,0,0,Eat()
+210,0,0,,A teacher.,They just brain wash kids.|And what's your favorite class?,220,-1,0,EatBadMatch()
+210,0,0,,An actor.,That's nice.  And what's your favorite class?,220,0,0,Eat()
 210,0,0,,A dominatrix.,(She grins.)  And what's your favorite class?,220,1,0,Eat()
-210,0,0,,An architect.,Thats nice.  And what's your favorite class?,220,0,0,Eat()
-210,0,0,,A farmer.,My cousins one.  She taught me a lot of knots|And what's your favorite class?,220,0,0,EatGoodMatch()
+210,0,0,,An architect.,That's nice.  And what's your favorite class?,220,0,0,Eat()
+210,0,0,,A farmer.,My cousin's one.  She taught me a lot of knots.|And what's your favorite class?,220,0,0,EatGoodMatch()
 210,0,0,,A programmer.,Boring!  And what's your favorite class?,220,0,0,EatBadMatch()
 210,0,0,,I don't know yet.,Come on you must have some idea.|What's your favorite class?,220,0,0,EatBadMatch()
 220,0,0,,Math.,At least numbers don't lie?|And what do you do outside of school?,230,0,0,Eat()
 220,0,0,,Music.,Cool!  And what do you do outside of school?,230,0,0,EatGoodMatch()
-220,0,0,,English.,The litriture is just creative lying.|And what do you do outside of school?,230,0,0,EatBadMatch()
+220,0,0,,English.,The literature is just creative lying.|And what do you do outside of school?,230,0,0,EatBadMatch()
 220,0,0,,Gym.,The Hojojutsu lessons are great.|And what do you do outside of school?,230,0,0,EatGoodMatch()
 220,0,0,,Chemistry.,Explosive reactions are fun.|And what do you do outside of school?,230,0,0,EatGoodMatch()
 220,0,0,,French.,Boring!  And what do you do outside of school?,230,0,0,EatBadMatch()
 220,0,0,,Art.,At least Julia is a laugh!|And what do you do outside of school?,230,0,0,Eat()
-220,0,0,,History.,Thats nice.  And what do you do outside of school?,230,0,0,Eat()
-220,0,0,,Theatre.,Thats nice.  And what do you do outside of school?,230,0,0,Eat()
-220,0,0,,I don't know.,"Don't worry its about learning, not knowing.|And what do you do outside of school?",230,0,0,Eat()
-230,0,0,,Basketball.,Thats nice.  (You all finish the pizzas.),240,0,0,Eat()
+220,0,0,,History.,That's nice.  And what do you do outside of school?,230,0,0,Eat()
+220,0,0,,Theatre.,That's nice.  And what do you do outside of school?,230,0,0,Eat()
+220,0,0,,I don't know.,"Don't worry it's about learning, not knowing.|And what do you do outside of school?",230,0,0,Eat()
+230,0,0,,Basketball.,That's nice.  (You all finish the pizzas.),240,0,0,Eat()
 230,0,0,,Rock music.,Awesome!  (You all finish the pizzas.),240,0,0,EatGoodMatch()
 230,0,0,,Video games.,Cool!  (You all finish the pizzas.),240,0,0,EatGoodMatch()
-230,0,0,,Cheerleading.,Thats nice.  (You all finish the pizzas.),240,0,0,Eat()
-230,0,0,,Going to parties.,Thats nice.  (You all finish the pizzas.),240,0,0,Eat()
+230,0,0,,Cheerleading.,That's nice.  (You all finish the pizzas.),240,0,0,Eat()
+230,0,0,,Going to parties.,That's nice.  (You all finish the pizzas.),240,0,0,Eat()
 230,0,0,,Role playing games.,Cool!  (You all finish the pizzas.),240,0,0,EatGoodMatch()
 230,0,0,,Getting drunk.,"Getting is fine, recovering sucks.|(You all finish the pizzas.)",240,0,0,EatBadMatch()
-230,0,0,,Classical music.,Thats nice.  (You all finish the pizzas.),240,0,0,Eat()
+230,0,0,,Classical music.,That's nice.  (You all finish the pizzas.),240,0,0,Eat()
 230,0,0,,Making love.,(She smiles.)  You're so kinky!|(You all finish the pizzas.),240,1,0,EatGoodMatch()
 230,0,0,,I don't have|any hobbies.,Seriously?  (You all finish the pizzas.),240,0,0,EatBadMatch()
 240,0,0,,So what do we do now?,Isn't that obvious.,320,0,0,TestMatch()
-240,0,0,,Can we do some more|Kinbaku now,Oh yes.,320,1,0,TestMatch()
+240,0,0,,Can we do some more|Kinbaku now?,Oh yes.,320,1,0,TestMatch()
 250,0,0,,Oh yes!  It seems|like a good academy.,"Yes and no, some classes are more practical.|And what do you want to do in life?",260,0,0,Eat()
 250,0,0,,This college is|a nuts house.,It seems sensible enough to me.|And what do you want to do in life?,260,0,0,EatBadMatch()
 250,0,0,,I've never seen a|kinky college like that.,(She laughs out loud.)  Absolutely!|And what do you want to do in life?,260,0,0,EatGoodMatch()
 250,0,0,,It's hard to judge|from a few hours.,I've been here a while and still not sure either.|And what do you want to do in life?,260,0,0,EatGoodMatch()
 250,0,0,,It's a pretty|boring school.,"Yeah, some classes can get boring I guess.|And what do you want to do in life?",260,0,0,Eat()
 260,0,0,,A musician.,Cool!  And what's your favorite class?,270,0,0,EatGoodMatch()
-260,0,0,,A doctor.,Thats nice.  And what's your favorite class?,270,0,0,Eat()
+260,0,0,,A doctor.,That's nice.  And what's your favorite class?,270,0,0,Eat()
 260,0,0,,An athlete.,Cool!  And what's your favorite class?,270,0,0,EatGoodMatch()
-260,0,0,,A teacher.,They just brain washer kids.|And what's your favorite class?,270,-1,0,EatBadMatch()
-260,0,0,,An actor.,Thats nice.  And what's your favorite class?,270,0,0,Eat()
+260,0,0,,A teacher.,They just brain wash kids.|And what's your favorite class?,270,-1,0,EatBadMatch()
+260,0,0,,An actor.,That's nice.  And what's your favorite class?,270,0,0,Eat()
 260,0,0,,A dominatrix.,(She grins.)  And what's your favorite class?,270,1,0,Eat()
-260,0,0,,An architect.,Thats nice.  And what's your favorite class?,270,0,0,Eat()
-260,0,0,,A farmer.,My cousins one.  She taught me a lot of knots|And what's your favorite class?,270,0,0,EatGoodMatch()
+260,0,0,,An architect.,That's nice.  And what's your favorite class?,270,0,0,Eat()
+260,0,0,,A farmer.,My cousin's one.  She taught me a lot of knots.|And what's your favorite class?,270,0,0,EatGoodMatch()
 260,0,0,,A programmer.,Boring!  And what's your favorite class?,270,0,0,EatBadMatch()
 260,0,0,,I don't know yet.,Come on you must have some idea.|What's your favorite class?,270,0,0,EatBadMatch()
 270,0,0,,Math.,At least numbers don't lie?|And what do you do outside of school?,280,0,0,Eat()
 270,0,0,,Music.,Cool!  And what do you do outside of school?,280,0,0,EatGoodMatch()
-270,0,0,,English.,The litriture is just creative lying.|And what do you do outside of school?,280,0,0,EatBadMatch()
+270,0,0,,English.,The literature is just creative lying.|And what do you do outside of school?,280,0,0,EatBadMatch()
 270,0,0,,Gym.,The Hojojutsu lessons are great.|And what do you do outside of school?,280,0,0,EatGoodMatch()
 270,0,0,,Chemistry.,Explosive reactions are fun.|And what do you do outside of school?,280,0,0,EatGoodMatch()
 270,0,0,,French.,Boring!  And what do you do outside of school?,280,0,0,EatBadMatch()
 270,0,0,,Art.,At least Julia is a laugh!|And what do you do outside of school?,280,0,0,Eat()
-270,0,0,,History.,Thats nice.  And what do you do outside of school?,280,0,0,Eat()
-270,0,0,,Theatre.,Thats nice.  And what do you do outside of school?,280,0,0,Eat()
-270,0,0,,I don't know.,"Don't worry its about learning, not knowing.|And what do you do outside of school?",280,0,0,Eat()
-280,0,0,,Basketball.,Thats nice.  (You all finish the pizzas.),290,0,0,Eat()
+270,0,0,,History.,That's nice.  And what do you do outside of school?,280,0,0,Eat()
+270,0,0,,Theatre.,That's nice.  And what do you do outside of school?,280,0,0,Eat()
+270,0,0,,I don't know.,"Don't worry it's about learning, not knowing.|And what do you do outside of school?",280,0,0,Eat()
+280,0,0,,Basketball.,That's nice.  (You all finish the pizzas.),290,0,0,Eat()
 280,0,0,,Rock music.,Awesome!  (You all finish the pizzas.),290,0,0,EatGoodMatch()
 280,0,0,,Video games.,Cool!  (You all finish the pizzas.),290,0,0,EatGoodMatch()
-280,0,0,,Cheerleading.,Thats nice.  (You all finish the pizzas.),290,0,0,Eat()
-280,0,0,,Going to parties.,Thats nice.  (You all finish the pizzas.),290,0,0,Eat()
+280,0,0,,Cheerleading.,That's nice.  (You all finish the pizzas.),290,0,0,Eat()
+280,0,0,,Going to parties.,That's nice.  (You all finish the pizzas.),290,0,0,Eat()
 280,0,0,,Role playing games.,Cool!  (You all finish the pizzas.),290,0,0,EatGoodMatch()
 280,0,0,,Getting drunk.,"Getting is fine, recovering sucks.|(You all finish the pizzas.)",290,0,0,EatBadMatch()
-280,0,0,,Classical music.,Thats nice.  (You all finish the pizzas.),290,0,0,Eat()
+280,0,0,,Classical music.,That's nice.  (You all finish the pizzas.),290,0,0,Eat()
 280,0,0,,Making love.,(She smiles.)  You're so kinky!|(You all finish the pizzas.),290,1,0,EatGoodMatch()
 280,0,0,,I don't have|any hobbies.,Seriously?  (You all finish the pizzas.),290,0,0,EatBadMatch()
 290,0,0,,So what do we do now?,Isn't that obvious.,300,0,0,TestMatch()
@@ -116,48 +116,48 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 300,0,0,,Time to tie you|up even more.,"No, you must learn not to leave knots in reach.|(Natalie easily escapes your ropes and advances.)",310,0,0,NatalieEscape()
 310,0,0,,"Wait, can I try again?","Learn from an expert first.  (Natalie binds you,|showing off the knots placed out of reach.)",320,0,0,SubbieRope()
 310,0,0,,"OK, can you show me?",Certainly.  (Natalie binds you|pointing out where the knots must go.),320,1,0,SubbieRope()
-310,0,0,,Please no. I'm not a sub.,But you're not much of a dom either.|(Natalie tightly binds your arms.),320,0,-1,SubbieRope()
+310,0,0,,Please no. I'm not a sub.,But you're not much of a Dom either.|(Natalie tightly binds your arms.),320,0,-1,SubbieRope()
 320,0,0,,Can you show me some|more Kinbaku?,"Yes, time to work on your legs.|(Natalie binds you legs.)  It's gag time.",330,0,0,
 320,0,0,,(Try to escape.),Where do you think you're going without permission?|(Natalie quickly binds you legs.)  It's gag time.,330,0,-1,
 320,0,0,,(Struggle playfully.),You're a little wriggler.|(Natalie binds you legs.)  It's gag time.,330,1,0,
 330,0,0,,What?,"Open wide. (You open your mouth and Natalie packs|it with cloth, then cleaves and OTM gags you.)",350,0,0,SubbieClothGag()
-330,0,0,,I can be gagged now?,(You bearly finish speaking before she|packs your mouth with a cloth and gags you.),350,0,0,SubbieClothGag()
+330,0,0,,Do you really want to gag me?,(You barely finish speaking before she|packs your mouth with a cloth and gags you.),350,0,0,SubbieClothGag()
 330,0,0,,Please no more.,"You talk too much. (Natalie stuffs your mouth|with cloth, then cleave and OTM gags you.)",350,0,-1,SubbieClothGag()
-330,0,0,,Thats enough|(Clench your jaw.),So you like to play the hard way.|(Natalie pinches nose shut.),340,1,0,
+330,0,0,,That's enough|(Clench your jaw.),So you like to play the hard way.|(Natalie pinches nose shut.),340,1,0,
 340,0,0,,(Try to hold your breath|...................),"(You eventually gasp for breath only to have your|mouth stuffed with cloth, cleave and OTM gagged.)",350,0,0,SubbieClothGag()
 340,0,0,,(Try to call for help.) Hel.....,(You don't get the first word out before she|packs your mouth with a cloth and gags you.),350,0,0,SubbieClothGag()
 350,0,0,,(Stare daggers at Natalie.),(Natalie chuckles.) You need some time to calm down.|(Natalie walks away.),360,0,0,
-350,0,0,,(Whimper and make|puppy-dog eyes.),(Natalie smiles.) Wait! like a good girl.|I'll be back later. (Natalie walks away.),360,1,-1,
-350,0,0,,(Struggle against|your bounds.),Thats it test your ropes for a while.|(Natalie walks away.),360,1,0,
+350,0,0,,(Whimper and make|puppy-dog eyes.),(Natalie smiles.) Wait! Who's a good girl?|I'll be back later. (Natalie walks away.),360,1,-1,
+350,0,0,,(Struggle against|your bounds.),That's it test your ropes for a while.|(Natalie walks away.),360,1,0,
 360,0,0,,(Look for an escape.),(The doors are shut and there|is nothing useful left on the ground.),360,0,0,NoEscape()
 360,0,0,,(Try calling for help.),"(With your mouth packed full, you make even|less sound than when ball gagged.)",360,0,0,NoHelp()
-360,0,0,,(Look at what the|others are doing.),"(Jenna is playing with Chloe,|who mumbles happliy at Natalie.)",360,0,0,ChloeSuspended()
+360,0,0,,(Look at what the|others are doing.),"(Jenna is playing with Chloe,|who mumbles happily at Natalie.)",360,0,0,ChloeSuspended()
 360,0,0,,(Struggling against|the ropes.),(You thrash and roll about|but nothing comes loose.),360,0,0,Struggle()
-360,0,0,,(Wait until Natalie returns.),"(You wait, but the club memebers|are still ignoring you.)",360,0,0,Wait()
+360,0,0,,(Wait until Natalie returns.),"(You wait, but the club members|are still ignoring you.)",360,0,0,Wait()
 365,0,0,,@Nhthlnm.,(Natalie removes the OTM and cleave gags.|You spit out the cloth.),370,0,0,BadUngag()
-370,0,0,,"Thank you miss,|please let me go.","My pleasure, its nearly time for classes.|(Natalie unties you and helps you stand up.)",380,1,-1,PlayerRelease()
-370,0,0,,"About time,|what took you so long.",I though uou needed some quite time.|(Natalie unties you and you get up.),380,0,0,PlayerRelease()
-370,0,0,,"Aww, I was eanjoying that.","I suspected you were, but lunch time ends soon.|(Natalie releases you.)",380,1,0,PlayerRelease()
-380,0,0,,"Its been fun,|see you later.",,0,2,0,EndChapter()
-380,0,0,,I can't belive they|allowed this club.,,0,-1,0,EndChapter()
-380,0,0,,"(Run away quickly,|before its too late.)",,0,0,-1,EndChapter()
-400,0,0,,Lets try some of|my own toys.,"You have some of your own already, that's great!|Do you want to untie and strip me first?",410,1,0,
+370,0,0,,"Thank you miss,|please let me go.","My pleasure, it's nearly time for classes.|(Natalie unties you and helps you stand up.)",380,1,-1,PlayerRelease()
+370,0,0,,"About time,|what took you so long?",I though you needed some quite time.|(Natalie unties you and you get up.),380,0,0,PlayerRelease()
+370,0,0,,"Aww, I was enjoying that.","I suspected you were, but lunch time ends soon.|(Natalie releases you.)",380,1,0,PlayerRelease()
+380,0,0,,"It's been fun,|see you later.",,0,2,0,EndChapter()
+380,0,0,,I can't believe they|allowed this club.,,0,-1,0,EndChapter()
+380,0,0,,"(Run away quickly,|before it's too late.)",,0,0,-1,EndChapter()
+400,0,0,,Let's try some of|my own toys.,"You have some of your own already, that's great!|Do you want to untie and strip me first?",410,1,0,
 400,0,0,,Has the club got|anything else I can use?,Of course.  (Jenna passes you some items.)|Do you want to untie and strip me first?,410,0,0,GetToys()
 400,0,0,,Actually can I be|tied up now?,Well yes ok then. Would you like to be|bound and gagged by me or with me?,405,0,0,
-405,0,0,,By you please.,"Certainly, could you give me a hand? I'm a little|tied up at the moment.  (you untie her.)",505,0,-1,
-405,0,0,,I could be bound with you?|that sounds like fun.,Jenna could you help us?  (Jenna comes over|with more items and unties Natalie),600,1,0,
+405,0,0,,By you please.,"Certainly, could you give me a hand? I'm a little|tied up at the moment.  (You untie her.)",505,0,-1,
+405,0,0,,I could be bound with you?|That sounds like fun.,Jenna could you help us?  (Jenna comes over|with more items and unties Natalie),600,1,0,
 410,0,0,,"No, you look good|in uniform.",Why thank you.  (What will you do to her now?),430,1,0,
-410,0,0,,"Yes, lets see your|pretty body.","You think so, thank you.  (You untie here and she|removes here clothes.)",420,1,0,UntieStrip()
-410,0,0,,Not this time.,Thats fine.  (What will you do to her now?),430,0,0,
+410,0,0,,"Yes, let's see your|pretty body.","You think so, thank you.  (You untie here and she|removes here clothes.)",420,1,0,UntieStrip()
+410,0,0,,Not this time.,That's fine.  (What will you do to her now?),430,0,0,
 410,0,0,,Want? I demand you|strip for me.,Err... Yes miss. (You untie here and|she removes here clothes.),420,0,1,UntieStrip()
 420,0,0,,Is that the best|can do?,"Sorry miss, you wanted me completely naked?|(She reluctantly strips.  What will you do to her?)",430,0,1,NatalieNaked()
-420,0,0,,"Cute underwear,|I like it.",Thank you miss. (she blushes.)|(what will you do to her now?),430,1,0,
+420,0,0,,"Cute underwear,|I like it.",Thank you miss. (She blushes.)|(What will you do to her now?),430,1,0,
 420,0,0,,Actually you looked|better clothed.,What are you trying to say?  (She gets dressed|in disgust.  What will you do to her now?),430,-2,0,NatalieClothed()
 420,0,0,,You will be even better|without those on.,Maybe if wearing rope instead.  (She reluctantly strips.|What will you do to here now?),430,0,1,NatalieNaked()
-430,0,0,,(Kiss her.),"(You kiss breifly, before she stops you.)|This is nice, but you're meant to be tying me up.",430,0,0,Kiss()
-430,0,0,,(Tickle her.),"(She flinches pushes you away.)|Oh no, anything but that.",430,0,0,Tickle()
+430,0,0,,(Kiss her.),"(You kiss briefly, before she stops you.)|This is nice, but you're meant to be tying me up.",430,0,0,Kiss()
+430,0,0,,(Tickle her.),"(She flinches and pushes you away.)|Oh no, anything but that.",430,0,0,Tickle()
 430,0,0,,(Masturbate her.),(She shivers and moans softly as you masturbate her.),430,0,0,DomMasturbate()
-430,0,0,TwoRopes,(Spank her.),"(She cries out and recoils in pain and|struggles breifly, before submitting to you.)",430,0,0,Spank()
+430,0,0,TwoRopes,(Spank her.),"(She cries out and recoils in pain and|struggles briefly, before submitting to you.)",430,0,0,Spank()
 430,0,0,IsRoped,(Untie her.),(You slowly release Natalie from her tight bondage.),430,0,0,Untie()
 430,0,0,IsGagged,(Remove her gag.),"(You carefully remove the gag.)|Thank you, my jaw needed a break.",430,0,0,Ungag()
 430,0,0,IsBlindfolded,(Remove her blindfold.),(She blinks as her eyes adjust to the light|and is happy to see you again.),430,0,0,Unblind()
@@ -165,59 +165,59 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 430,0,0,,I'm bored now.,"(You release her.)|What already, I though you where enjoying this?",480,-1,0,NatalieRelease()
 430,0,0,,That is enough for|one lunch break.,(You release her.)|You're done already? OK.,480,0,0,NatalieRelease()
 450,0,0,,Yes.,(The other members have already left|the room for their afternoon classes.),460,0,0,
-450,0,0,,No.,(what will you do to here now?),430,0,0,
+450,0,0,,No.,(What will you do to here now?),430,0,0,
 460,0,0,,I will come back for|you after class.,(You kiss her goodbye and leave her to|panic and futilely struggle.),470,-1,5,
 460,0,0,,You're just a kinky whore|and deserve punishing.,(You tickle and spank her hard till she is left sobbing.),470,-5,3,
-470,0,0,,"Its been fun,|see you later bitch.",,0,0,0,EvilEnd()
-470,0,0,,I can't belive they|allowed this club.,,0,0,0,EvilEnd()
-470,0,0,,"(Run away quickly,|before its too late.)",,0,0,0,EvilEnd()
+470,0,0,,"It's been fun,|see you later bitch.",,0,0,0,EvilEnd()
+470,0,0,,I can't believe they|allowed this club.,,0,0,0,EvilEnd()
+470,0,0,,"(Run away quickly,|before it's too late.)",,0,0,0,EvilEnd()
 480,0,0,,Lunch break is nearly|over anyway.,I suppose so.,490,0,0,
 480,0,0,,I need to get|ready for class.,"That's a lame excuses.  (She suddenly pins you down|on the ground, binds and gags you.)",350,0,-1,PlayerBoundGagged()
 490,0,0,,"That was great,|can I come again.","Of course, the club|has bigger meetings most evenings.",700,1,0,
-490,0,0,OrgasmDone,You were loving that.,"(She blushes.) Yes, I think you did to.",700,1,1,
+490,0,0,OrgasmDone,You loved that.,"(She blushes.) Yes, I think you did too.",700,1,1,
 490,0,0,,You should tie me up|properly sometime.,"Oh yes, I should.  The club has evening meetings|where you could be tied up for hours.",700,1,-1,
 490,0,0,,Thanks for the Lunch.,"My pleasure, you should join the club properly for an evening meeting.",700,0,0,
 500,0,0,,Can you untie me first?,"Yes, you can have a break while you undress.|(She unties you.)",510,0,0,PlayerRelease()
-500,0,0,,How about you get|tied up instead?,"Not this time, You deserve the full experiance,|that is without clothes.  (She unties you.)",510,0,0,PlayerRelease()
+500,0,0,,How about you get|tied up instead?,"Not this time, you deserve the full experience.|That means without clothes.  (She unties you.)",510,0,0,PlayerRelease()
 500,0,0,,All this Kinbaku is|making me hot.,"I know what you mean, you will be cooler|without your clothes on.  (She unties you.)",510,1,0,PlayerRelease()
-500,1,1,,Its your turn now!,"Well ok, I have tied you once now.|(She unties you and you quickly her tied up)",400,0,1,PlayerReversal()
+500,1,1,,It's your turn now!,"Well ok, I have tied you once now.|(She unties you and you quickly her tied up.)",400,0,1,PlayerReversal()
 505,0,0,,You can tie me up now.,"Yes, but I think you should first take your|uniform off, to really feel the ropes.",510,0,0,
-510,0,0,,I suppose I can.|(Take you uniform off.),"(You undress.)  Thats it, you will|feel the ropes much better like that.",530,0,0,PlayerStrip()
-510,0,0,,Wait this is too fast.,"Thats fine, would you still like|to try some more Kinbaku?",520,0,-1,
-510,0,0,,No. I won't strip for you.,"OK OK, it was just ad idea.|Are you still interested in Kinbaku?",520,0,1,
+510,0,0,,I suppose I can.|(Take you uniform off.),"(You undress.)  That's it, you will|feel the ropes much better like that.",530,0,0,PlayerStrip()
+510,0,0,,Wait this is too fast.,"That's fine, would you still like|to try some more Kinbaku?",520,0,-1,
+510,0,0,,No. I won't strip for you.,"OK OK, it was just an idea.|Are you still interested in Kinbaku?",520,0,1,
 510,0,0,,Yes Miss|(Take you uniform off.),(You undress.)  You're going to love|the feel of natural rope on your soft skin.,530,1,-1,PlayerStrip()
-520,0,0,,No,I don't think this is the best club for you then.,380,-1,0,
-520,0,0,,Yes,You were fine with your arms tied.|(Natalie ties your arms again.),320,0,0,PlayerRope()
+520,0,0,,No.,I don't think this is the best club for you then.,380,-1,0,
+520,0,0,,Yes.,You were fine with your arms tied.|(Natalie ties your arms again.),320,0,0,PlayerRope()
 530,0,0,,Feel the rope?,"Yes, you must learn to use all your senses.|(She ties a lot of rope around your arms and body.)",540,0,0,PlayerRope()
-530,0,0,,I've already felt rope|on my bare wrists.,That is not the same as rope against your torsoe.|(She tightly binds your arms and body.),540,-1,0,PlayerRope()
+530,0,0,,I've already felt rope|on my bare wrists.,That is not the same as rope against your torso.|(She tightly binds your arms and body.),540,-1,0,PlayerRope()
 540,0,0,,It still just|feels like rope.,"You rely on sight too much, try this.|(She blindfolds you.)",550,0,0,PlayerBlindfold()
-540,0,0,,This rope just feels itchy.,"Thats something, but you're still not feeling it yet.|(She blindfolds you.)",550,0,0,PlayerBlindfold()
-550,0,0,,"Wait, no, plea","(You feel a finger across your lips.)|Shhh, its all right. How are the ropes now?",560,0,-1,
+540,0,0,,This rope just feels itchy.,"That's something, but you're still not feeling it yet.|(She blindfolds you.)",550,0,0,PlayerBlindfold()
+550,0,0,,"Wait, no, please.","(You feel a finger across your lips.)|Shhh, it's all right. How are the ropes now?",560,0,-1,
 550,0,0,,I wasn't expecting that.,You were too busy looking and not even seeing.| What do you think of the ropes feel now?,560,0,0,
 550,0,0,,You can't just|blindfold me.,Stop complaining and tell me|what you think of the ropes feel now.,560,-1,0,
-560,0,0,,They still feel like rope.,You are hopeless. Lets try something you will feel.|(She inserts a vibrating egg.),570,-1,0,PlayerEgg()
+560,0,0,,They still feel like rope.,You are hopeless. Let's try something you will feel.|(She inserts a vibrating egg.),570,-1,0,PlayerEgg()
 560,0,0,,It feels tight and secure.,Better but you're not there yet. Try this.|(She inserts a vibrating egg.),570,0,0,PlayerEgg()
-560,0,0,,It feels like a hug|that will never let go.,"Thats more like it, you just need a bit more|encouragement.  (She inserts a vibrating egg.)",570,1,0,PlayerEgg()
-560,0,0,,It feels so good|and tantalising.,Thats it. I'm going to treat you now.|(She inserts a vibrating egg.),570,1,-1,PlayerEgg()
-570,0,0,,"This is intense,|have me now.",With pleasure.|(natalie starts playing with your crotch rope.),580,1,0,
-570,0,0,,"Ahhh, gag me and|have me now please.",Only because you're such a good little subbie.|(Natlie gags you and plays with your crotch rope.),580,0,-1,PlayerBallGag()
+560,0,0,,It feels like a hug|that will never let go.,"That's more like it, you just need a bit more|encouragement.  (She inserts a vibrating egg.)",570,1,0,PlayerEgg()
+560,0,0,,It feels so good|and tantalising.,That's it. I'm going to treat you now.|(She inserts a vibrating egg.),570,1,-1,PlayerEgg()
+570,0,0,,"This is intense,|have me now.",With pleasure.|(Natalie starts playing with your crotch rope.),580,1,0,
+570,0,0,,"Ahhh, please gag me|and have me now.",Only because you're such a good little subbie.|(Natalie gags you and plays with your crotch rope.),580,0,-1,PlayerBallGag()
 570,0,0,,Stop this is|going too far.,"You think so, I'll let you go then. (Natalie releases you.)",590,-1,0,PlayerRelease()
 580,0,0,,(Enjoy her touch.),(You surrender to her loving touch while she tugs|on the crotch rope and masturbates your clitoris.),580,0,0,SubbieMasturbate()
 580,0,0,,(Squirm to her rhythm.),(You move your hips to follow her rhythm.|Slowly building up pleasure from her touch.),580,0,0,SubbieMasturbate()
 580,0,0,,(Struggle playfully.),(You struggle playfully and she seems to enjoy it.|She picks up speed and masturbates a little harder.),580,0,0,SubbieMasturbate()
 590,0,0,,Can you remove this|damn egg?  Please.,If you're sure you don't want to keep it.|(Natalie extracts the egg and you get dressed.),700,-1,-1,PlayerNoEgg()
-590,0,0,,Can I keep|the egg?,"You may, its your initiation present.|(You get dressed.)",700,1,0,PlayerClothed()
-590,0,0,,Can I keep|the blindfold?,Sorry its my only one.|(You get dressed.),700,0,0,PlayerClothed()
+590,0,0,,Can I keep|the egg?,"You may, it's your initiation present.|(You get dressed.)",700,1,0,PlayerClothed()
+590,0,0,,Can I keep|the blindfold?,Sorry it's my only one.|(You get dressed.),700,0,0,PlayerClothed()
 600,0,0,,How are we going to|be tied together?,"(Jenna approaches you.)|Not tied, cuffed this time.",610,0,0,
 600,0,0,,Do you need to|untie Natalie?,"(Jenna approaches you.)|Yes, I have something different planned for you two.",610,0,1,
 610,0,0,,What do you|have in mind?,First you two love birds need to hug.|(You embrace Natalie.),620,0,0,
 610,0,0,,Oh a surprise.,"Many surprises probably, first give Natalie a|big hug.  (You hug Natalie.)",620,0,0,
-620,0,0,,(Give Natalie a|nice long hug.),"Thats it, you two have already got a room.|(Jenna cuffs your hands around each other.)",630,1,0,PlayerCuffed()
+620,0,0,,(Give Natalie a|nice long hug.),"That's it, you two have already got a room.|(Jenna cuffs your hands around each other.)",630,1,0,PlayerCuffed()
 620,0,0,,(Give Natalie a|quick hug.),(Before you can let go Jenna cuffs your|hands around each other.)  You can't stop now.,630,-1,0,PlayerCuffed()
 630,0,0,,"Wait, what is that?",It's a special double gag for you two to share.|(Jenna straps the strange gag on you.),640,0,0,OpenGag()
 630,0,0,,This is fun Natalie.,"It is, but open wide now.|(Jenna straps a strange gag on you.)",640,1,0,OpenGag()
-640,0,0,,@whht thm...,(Natlie is also strapped into the gag|and your tongues touch.),650,0,0,
-650,0,0,,(Try struggling|with Natalie.),Patience.  (Jenna gives you and natalie|vibrators and a remote each.)  Have fun now.,660,0,0,
+640,0,0,,@whht thm...,(Natalie is also strapped into the gag|and your tongues touch.),650,0,0,
+650,0,0,,(Try struggling|with Natalie.),Patience.  (Jenna gives you and Natalie|vibrators and a remote each.)  Have fun now.,660,0,0,
 660,0,0,Remote,(Adjust your remote.),,660,0,1,VibeNatalie()
 660,0,0,,(Struggle playfully.),(Natalie struggles with you.|Your vibrator intensifies.),660,0,0,VibePlayer()
 660,0,0,,(Look longingly at Natalie.),(Your vibrator intensifies.|Natalie rubs it against you with here leg.),660,1,-1,KneePlayer()
@@ -225,20 +225,20 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 660,0,0,,(French kiss.),"(Your tongues dance intimately,|while your vibrator intensifies.)",660,1,0,VibePlayer()
 660,0,0,,(Moan through the gag.),(Natalie hugs you tighter.|Your vibrator intensifies.),660,0,0,VibePlayer()
 660,0,0,,(Hug Natalie tenderly.),(Natalie does the same back|and your tongues meet gently.),660,0,0,Hug()
-660,0,0,,(Try removing|Natalies gag.),(The strap buckles have been padlocked.|The gag can't be removed without a key.),660,0,0,Hug()
+660,0,0,,(Try removing|Natalie's gag.),(The strap buckles have been padlocked.|The gag can't be removed without a key.),660,0,0,Hug()
 670,0,0,,@hh nhthlnm thhngnhh.,(Jenna comes and releases Natalie.|You drop to knees gasping for breath.),680,1,0,
 670,0,0,,@plmhfm nhthlnm|thrn Hmt hff.,(Jenna comes and releases Natalie.|You drop to knees gasping for breath.),680,0,-1,
 670,0,0,,@fhrry|(Blush and look away.),(Jenna comes and releases Natalie.|You drop to knees gasping for breath.),680,1,-1,
 680,0,0,,@ghn nhh rmlmhfm mm nhw?,Yes. (Natalie releases you.)|So how was that for you?,685,0,0,PlayerRelease()
-680,0,0,,@plmhfm rmlmhfm mm mnff.,I supose I should. (Natalie releases you.)|So how was that for you?,685,0,-1,PlayerRelease()
+680,0,0,,@plmhfm rmlmhfm mm mnff.,I suppose I should. (Natalie releases you.)|So how was that for you?,685,0,-1,PlayerRelease()
 685,0,0,NoRemote,I nearly had|you begging me.,"Yes, sorry.  You made my thumb slip on the|remote setting.  It's time for next class.",700,1,2,
-685,0,0,,I've had better.,"Seriously, I doubt that, the way you just colapsed.|It's time for next class.",700,-1,0,
-685,0,0,,I can't belive you|just did that to me.,"Sorry, I though you would like it.|It's time for next class.",700,-1,1,
-685,0,0,,I'm still shaking|from it miss.,Thats cute. Come back later if you stop.|It's time for next class.,700,0,-1,
+685,0,0,,I've had better.,"Seriously, I doubt that, the way you just collapsed.|It's time for next class.",700,-1,0,
+685,0,0,,I can't believe you|just did that to me.,"Sorry, I though you would like it.|It's time for next class.",700,-1,1,
+685,0,0,,I'm still shaking|from it miss.,That's cute. Come back later if you stop.|It's time for next class.,700,0,-1,
 685,0,0,,That was fantastic.,It was for me too.|It's time for next class.,700,1,0,
 685,0,0,,Next time I will|have you.,I like the sound of next time.|It's time for next class.,700,1,1,
-690,0,0,,@Lmt mm gh rnght nhw!,I though you were enjoying that.|(Jenna releases you.),700,-1,0,PlayerRelease()
+690,0,0,,@Lmt mm gh rnght nhw!,I though you would have enjoyed that.|(Jenna releases you.),700,-1,0,PlayerRelease()
 690,0,0,,@plmhfm rmlmhfm mm mnff.,"OK, maybe that was a bit much for a first time.|(Jenna releases you.)",700,0,-1,PlayerRelease()
-690,0,0,,@jhft h lnttlm|lhngmr plmhfm,"No, clubs shouldn't get in the way of your studies.|(Jenna releases you.)",700,0,0,PlayerRelease()
+690,0,0,,@jhft h lnttlm|lhngmr plmhfm.,"No, clubs shouldn't get in the way of your studies.|(Jenna releases you.)",700,0,0,PlayerRelease()
 700,0,0,,Let's get back to classes.|(Leave.),,0,0,0,EndChapter()
 700,0,0,,Let's meet again after|class.  (Leave.),,0,1,0,EndChapter()
