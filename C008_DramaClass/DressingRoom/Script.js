@@ -1,6 +1,6 @@
 // Chapter 8 - Dressing Room Load
 function C008_DramaClass_DressingRoom_Load() {
-	LeaveIcon = "";
+	LeaveIcon = "Wait";
 }
 
 // Chapter 8 - Dressing Room Run

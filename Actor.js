@@ -260,7 +260,7 @@ function ActorSpecificClearInventory(QueryActor, Recover) {
 			var HadCollar = ActorSpecificHasInventory(QueryActor, "Collar");
 			var HadBelt = ActorSpecificHasInventory(QueryActor, "ChastityBelt");
 			while (Actor[A][ActorInventory].length > 0) {
-				if ((Actor[A][ActorInventory][0] != "VibratingEgg") && (Actor[A][ActorInventory][0] != "Collar") && (Actor[A][ActorInventory][0] != "ChastityBelt") && (Actor[A][ActorInventory][0] != "TapeGag") && Recover)
+				if ((Actor[A][ActorInventory][0] != "VibratingEgg") && (Actor[A][ActorInventory][0] != "TwoRopes") && (Actor[A][ActorInventory][0] != "Collar") && (Actor[A][ActorInventory][0] != "ChastityBelt") && (Actor[A][ActorInventory][0] != "TapeGag") && Recover)
 					PlayerAddInventory(Actor[A][ActorInventory][0], 1);
 				Actor[A][ActorInventory].splice(0, 1);
 			}

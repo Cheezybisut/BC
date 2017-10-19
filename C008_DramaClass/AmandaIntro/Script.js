@@ -82,7 +82,7 @@ function C008_DramaClass_AmandaIntro_Click() {
 		OverridenIntroText = GetText("CostumeBlocksFun");
 	
 	// Amanda can be restrained on stage 40
-	if ((C008_DramaClass_AmandaIntro_CurrentStage == 40) && (ClickInv != "") && (ClickInv != "Player")) {
+	if ((C008_DramaClass_AmandaIntro_CurrentStage == 40) && (ClickInv != "") && (ClickInv != "Player") && !Common_PlayerRestrained) {
 	
 		// Amande doesn't like the crop but becomes more submissive
 		if ((ClickInv == "Crop") && (!C008_DramaClass_AmandaIntro_CropDone)) {
