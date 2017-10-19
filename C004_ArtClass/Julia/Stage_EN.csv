@@ -1,0 +1,53 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,Nice to meet|you Julia.,Yes!  Now give me a big hug new pupil.,10,1,0,
+0,0,0,,Pleased to meet|you Miss Giuliana.,"No, no, no, no, call me Julia.|Now give me a big hug new pupil.",10,0,-1,
+0,0,0,,Art?  Oh my.|(Roll your eyes up.),Art is fire!  And I am the flame.||Now give me a big hug new pupil.,10,-1,1,
+0,0,0,,(Look elsewhere.),Look here new pupil.  Come|closer and give me a big hug.,10,-1,0,
+10,0,0,,"A hug?  Sure, why not.",Si!  (She hugs you close and almost|squeezes your head between her breasts.),20,0,0,
+10,0,0,,Of course!|(Open your arms.),Si!  (She hugs you really tight and|squeezes your head between her breasts.),20,1,0,
+10,0,0,,"No, thanks.","Alright new pupil, no hug for you.|But I hope you're ready to paint.",30,0,0,
+10,0,0,,Hug you?|Forget it.,So you have the flame and the rage.|This painting class is made for you then.,30,-1,0,
+20,0,0,,This is a|warm welcome.,Si!  (She releases you.)|I hope you're ready to paint.,30,0,0,
+20,0,0,,(Plunge your face|deeper in her breast.),"No, no, no, no, don't do that.|Instead, get ready to paint new pupil.",30,-1,1,
+20,0,0,,I can't breathe!,(She releases you.)  So sorry little pupil.|I hope you're ready to paint then.,30,0,-1,
+30,0,0,,"Mmmmh, ok.",You'll need more fire than that!|Because you will paint me like da Vinci!,40,0,0,
+30,0,0,,Painting?  This|will be a disaster.,The only disaster is the lack of belief in|yourself.  Today you will paint me like da Vinci.,40,-1,0,
+30,0,0,,Alright!  I|love painting.,Fabulous!  And today is special.|You will paint me like da Vinci.,40,1,0,
+30,0,0,,I don't know how to paint.,"Nonsense!  Everybody can paint.|And today, you will paint me like da Vinci.",40,0,-1,
+40,0,0,,Paint you?  I'll|need a bigger canvas.,(She stares at you.)  I assume you're|saying that because of my traditional dress.,50,-1,1,
+40,0,0,,Oh!  I'll need|lots of colors.,Si!  Especially if you want to|catch all the details of my traditional dress.,50,1,0,
+40,0,0,,This might be|too hard for me.,There are many details in my traditional|dress.  But I'm sure you can do a great job.,50,0,-1,
+50,0,0,,Let's see|that brush.,Fine.  Show me your Michelangelo|skills then.  (She takes a pose.),60,0,0,
+50,0,0,,I guess I can try.|(Sigh sadly.),Michelangelo doesn't try.  Michelangelo|does!  Do it!  (She takes a pose.),60,0,-1,
+50,0,0,,Alright then!  Take|your best pose!,Great!  Show me your Michelangelo|skills then.  (She takes a pose.),60,0,1,
+60,2,0,BigHugReady,Can I have|another hug?,Si!  (She squeezes your head tight in|her breast.  You almost cannot breath.),60,0,0,BigHug()
+60,0,0,Sandro,"Have you seen Botticelli|""The Birth of Venus""?",Si!  You had the chance to see|Sandro Botticelli masterpiece?,70,0,0,
+60,0,0,Sandro,"You've heard of ""The Birth|of Venus"" ? (Giggle shyly.)",,70,0,-1,
+70,0,0,,I bet you would be|a gorgeous Venus.,(She smiles.)  Me?|The wonderful Venus?,80,1,0,
+70,0,0,,You could take|a Venus pose.,Me?  A Venus pose?|Like Botticelli's Venus?,80,0,0,
+80,0,0,,"Yes, but you need|to show more skin.",For the great Venus!  (She undoes her|top and shows her breast.)  Get your brush!,100,0,0,RemoveTop()
+80,0,0,,"Yes, show your|curves like Venus.",For the great Venus!  (She undoes her|top and shows her breast.)  Get your brush!,100,0,1,RemoveTop()
+110,0,0,,You look fine.,Fine?  Fine isn't great.  Fine isn't art.,120,0,0,
+110,0,0,,Magnifico!|Almost perfect.,Si!  But almost perfect isn't perfect.,120,1,0,
+110,0,0,,This could|be better.,Better?  You don't like it?,120,0,1,
+110,0,0,,Chunkyvenus. (Cough.) ,(She gives you a mean look.)|You don't like it new pupil?,120,-1,0,
+120,0,0,,The great Venus|was fully naked.,Very true!  For Botticelli and Venus then!|(She strips completely.)  Get your brush!,130,0,0,Strip()
+120,0,0,,Do like Venus|and strip completely.,"Si, si, si!  For Botticelli and Venus then!|(She strips completely.)  Get your brush!",130,0,1,Strip()
+120,0,0,,Can you remove even|more? (Giggle shyly.),"You shy pupil, I'll show you the artist flame.|(She strips completely.)  Get your brush!",130,0,-1,Strip()
+140,0,0,,Maybe we should|add another model.,You think?  I'm intrigued.|Who should model with me?,150,0,0,QueryNewModel()
+140,0,0,,It would be prettier|if we added a model.,"So I'm not pretty enough by myself?  Nonsense!|But I'm intrigued, who should model with me?",150,-1,0,QueryNewModel()
+150,0,0,,I will model with you.|(1 minute),Oh!  Very daring!  Come here.|Pupils!  We have an extra model.,160,0,0,"NewModel(""Player"")"
+150,0,0,,Sarah should model.|(1 minute),"Good idea, Sarah, step up please.|Time to paint, get your brushes!",160,0,0,"NewModel(""Sarah"")"
+150,0,0,,Jennifer should model.|(1 minute),"Interesting, Jennifer, step up please.|Time to paint, get your brushes!",160,0,0,"NewModel(""Jennifer"")"
+170,0,1,Common_PlayerNotRestrained,Let's change|model again.,Again?  Who should model with me?,150,0,0,ChangeModel()
+170,0,-1,,Can I sit down please?,No!  Poor shy new pupil.  You need to|overcome your shyness first and get the flame.,170,0,0,
+170,0,0,CanBegForRelease,@HUUIA!  HMMH EE!,Keep the pose new pupil.|It's no time to chat.,170,0,0,GaggedSpeach()
+170,0,0,CanBegForRelease,(Whimper and make|sad puppy eyes.),,170,0,0,BegForRelease()
+170,0,0,AllowUnderwear,Our clothing is|different.  (1 minute),Si!  It's weird that you're clothed.|(You slowly remove your outfit.) Now paint!,180,0,0,PlayerRemoveOutfit()
+170,0,0,AllowNaked,We're still clothed|differently. (1 minute),Very daring!  You should also be naked.|(You slowly remove your undies.) Now paint!,180,0,0,PlayerStrip()
+170,0,0,AllowShibari,"Have you heard|of ""Shibari""?","Si!  Shibari is the art of Japanese rope bondage.|Here's some rope, we can try that today.",170,0,0,ShibariStart()
+170,0,1,AllowShibari,"Hey Julia, have you|tried ""Shibari"" before?","I've never tried Japanese rope bondage art.|Here's some rope, we can try that today.",170,0,1,ShibariStart()
+170,0,0,IsRestrained,(Tickle her.)|(1 minute),(She giggles lightly and seems to enjoy it.),170,0,0,Tickle()
+170,0,0,IsRestrained,(Tighten the ropes.)|(1 minute),The ropes are already|as tight as they can be.,170,0,0,Tighten()
+170,0,0,IsRestrained,(Release her.)|(1 minute),(You undo the knots and release her.)|So you didn't like Shibari after all?,170,0,0,Release()
+170,0,0,IsGagged,(Ungag her.)|(1 minute),(You remove the gag and she smiles.)|Art can be crazy sometimes.  Now paint!,170,0,0,TryUngag()
