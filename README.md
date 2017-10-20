@@ -1,6 +1,6 @@
 # Bondage College
 
-Welcome Bondage College! You play a new student in Amanda’s kinky college and of course you can tie up the other students.
+Welcome to Bondage College! You play a new student in Amanda’s kinky college and of course you can tie up the other students.
 
 Be curious, kinky and have fun!
 
