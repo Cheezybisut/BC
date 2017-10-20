@@ -15,6 +15,7 @@ var MouseY = 0;
 var KeyPress = "";
 var IsMobile = false;
 var TextPhase = 0;
+var CSVCache = {};
 
 // Array variables
 var IntroStage = 0;
@@ -115,16 +116,22 @@ function ParseCSV(str) {
 
 // Read a CSV file from the web site
 function ReadCSV(Array, FileName) {
-	
+	if (CSVCache[FileName]) {
+        window[Array] = CSVCache[FileName];
+        return;
+    }
+
 	// Opens the file, parse it and returns the result in an array
-	var Reader = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');	
-    Reader.open('get', FileName, true); 
+	var Reader = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
+    Reader.open('get', FileName, true);
     Reader.onreadystatechange = function() {
-		if (Reader.readyState == 4)
-			window[Array] = ParseCSV(Reader.responseText);
+		if (Reader.readyState == 4) {
+            CSVCache[FileName] = ParseCSV(Reader.responseText);
+            window[Array] = CSVCache[FileName];
+		}
 	};
-    Reader.send(null);	
-	
+    
+    Reader.send(null);
 }
 
 // Returns a working language if translation isn't fully ready
