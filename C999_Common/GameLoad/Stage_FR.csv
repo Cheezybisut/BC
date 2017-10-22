@@ -1,7 +1,0 @@
-Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
-0,0,0,,Slot 1,L'emplacement 1 ne peut être chargé.,0,0,0,LoadGame(1)
-0,0,0,,Slot 2,L'emplacement 2 ne peut être chargé.,0,0,0,LoadGame(2)
-0,0,0,,Slot 3,L'emplacement 3 ne peut être chargé.,0,0,0,LoadGame(3)
-0,0,0,,Slot 4,L'emplacement 4 ne peut être chargé.,0,0,0,LoadGame(4)
-0,0,0,,Slot 5,L'emplacement 5 ne peut être chargé.,0,0,0,LoadGame(5)
-0,0,0,,Menu principal,,0,0,0,MainMenu()

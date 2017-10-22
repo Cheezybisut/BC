@@ -1,7 +1,0 @@
-Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
-0,0,0,,(调查)|(1 分钟),手铐十分坚固，|要是没有钥匙，任谁也不能逃脱。,0,0,0,
-0,0,0,Common_PlayerNotRestrained,(戴上手铐)|(1 分钟),你把手铐放到身后。当手铐咔嗒一声锁上，|你感觉到一股电流走遍全身。,10,0,0,SelfCuff()
-10,0,0,HasLooseCuffs,(Inspect the loose cuffs.)|(1 minute),"You clumsily inspect the cuffs in your restrains.|They seem strong, nobody could espace without the key.",10,0,0,ShowImage()
-10,0,0,,(尝试脱下手铐)|(1 分钟),你尝试脱下手铐，|然而你失败了。,10,0,0,
-10,0,0,,(尝试砸开手铐)|(1 分钟),你尝试砸开手铐，|然而手铐毫发无损。,10,0,0,
-10,0,0,HasKey,(解开手铐)|(1 分钟),你笨拙地试了一会，|终于解开了锁。,0,0,0,Unlock()
