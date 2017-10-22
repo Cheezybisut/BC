@@ -1,0 +1,5 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,Common_PlayerNotRestrained,(Tu ouvres le sac.),Tu ouvres prudemment le sac du professeur|et tu cherches s'il contient quelque chose d'intéressant.,10,0,0,
+10,0,0,Common_PlayerNotRestrained,(Tu fermes le sac.),Tu fermes le sac du professeur Yuki.,0,0,0,
+10,0,0,PillInBagAvail,(Tu voles la pilule|pour dormir.),Tu prends la pilule du sac.,10,0,0,StealPill()
+10,0,0,EggInBagAvail,(Tu voles l'oeuf vibrant.),"Tu prends l'oeuf vibrant télécommandé du sac,|mais tu ne trouves aucune télécommande.",10,0,0,StealEgg()

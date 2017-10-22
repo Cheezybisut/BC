@@ -1,0 +1,15 @@
+From,To,Image
+-1,-1,TennisIntro.jpg
+0,0,TennisLose.jpg
+1,9,Tennis1.jpg
+10,18,Tennis2.jpg
+19,27,Tennis3.jpg
+28,36,Tennis4.jpg
+37,45,Tennis5.jpg
+46,54,TennisEven.jpg
+55,63,Tennis6.jpg
+64,72,Tennis7.jpg
+73,81,Tennis8.jpg
+82,90,Tennis9.jpg
+91,99,Tennis10.jpg
+100,100,TennisWin.jpg

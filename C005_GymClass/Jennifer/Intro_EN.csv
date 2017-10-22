@@ -1,0 +1,30 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,It's you!  This pink thing is still inside and|it buzzes crazy.  How do you remove it?,Jennifer.jpg
+5,0,0,,Hey there!  Two classes together in row.|Would you like to practice judo with me?,Jennifer.jpg
+5,-2,0,,(She sighs.)  Oh my.  It's you again.|I guess we have to practice judo together.,Jennifer.jpg
+5,2,0,,So nice!  What a coincidence.|It will be fun to try judo together.,Jennifer.jpg
+10,0,0,,Have you tried judo before?,Jennifer.jpg
+20,0,0,,They say that practice makes perfect.|Should we practice or do a real match?,Jennifer.jpg
+100,0,0,,You're a good fighter!  Now your self-defense|move is to restrain me.  I won't make it easy.,JenniferLosing.jpg
+110,0,0,!Turnabout,Your next self-defense move is to remove|my judo outfit and restrain me with ropes.,JenniferLosing.jpg
+110,0,0,Turnabout,"Oh my!  You certainly turned the tables.|Try to restrain me then, it won't be easy.",JenniferLosing.jpg
+200,0,0,,"Since I won the fight, my next self|defense move is to restrain you.",JenniferWinning.jpg
+210,0,0,!Turnabout,"To complete my self-defense, I need to|remove your outfit and tie you with ropes.",JenniferWinning.jpg
+210,0,0,Turnabout,Turnabout is fair play they say.|Now it's my turn to try to restrain you.,JenniferWinning.jpg
+400,0,0,!DefeatedHardMode,You're pretty good but next time I'll fight better.|Did you enjoy this judo and self-defense practice?,JenniferDefeat.jpg
+400,0,0,DefeatedHardMode,That was great!  You fight really well.|I'll need lots of practice to reach your level.,JenniferDefeat.jpg
+400,0,0,DefeatedHardModePerfect,That was amazing!  You're the perfect fighter.|Take the gag in my bag for your final move.,JenniferDefeat.jpg
+410,0,0,,You restrained me pretty well.|I guess you already knew self-defense.,JenniferDefeat.jpg
+420,0,0,,(She whimpers and looks at you.|She seems to want to be released.),JenniferDefeatBallGag.jpg
+430,0,0,,(She whimpers and looks at you.|She seems to want to be released.),JenniferDefeatTapeGag.jpg
+450,0,0,,(She blushes red and tries to look away.),JenniferDefeatClimax.jpg
+460,0,0,,(She blushes red and tries to look away.),JenniferDefeatClimaxBallGag.jpg
+470,0,0,,(She blushes red and tries to look away.),JenniferDefeatClimaxTapeGag.jpg
+500,0,0,,A nice little package!|Isn't judo and self-defense great?,JenniferVictory.jpg
+510,0,0,,I hope you learned a few tricks in our match.|Now your challenge is to escape from these ropes.,JenniferVictory.jpg
+520,0,0,,I hope you learned a few tricks in our match.|Now your challenge is to escape from these ropes.,JenniferVictoryBallGag.jpg
+530,0,0,,I hope you learned a few tricks in our match.|Now your challenge is to escape from these ropes.,JenniferVictoryTapeGag.jpg
+550,0,0,,Are you ok?  You were trembling pretty badly.,JenniferVictoryClimax.jpg
+560,0,0,,Nod if you're ok.  You|were trembling pretty badly.,JenniferVictoryClimaxBallGag.jpg
+570,0,0,,Nod if you're ok.  You|were trembling pretty badly.,JenniferVictoryClimaxTapeGag.jpg
+600,0,0,,Another judo practice before we go to lunch?,Jennifer.jpg

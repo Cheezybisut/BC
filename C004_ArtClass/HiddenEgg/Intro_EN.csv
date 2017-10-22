@@ -1,0 +1,4 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,Common_PlayerNotRestrained,There seems to be a pink object|hidden behind the red paint can.,HiddenEgg.jpg
+0,0,0,Common_PlayerRestrained,There's a pink object hidden behind the red|paint can but you can't reach it while restrained.,HiddenEgg.jpg
+10,0,0,,There's nothing interesting left here.,NoEgg.jpg

@@ -1,0 +1,35 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,Common_PlayerGagged,Tu es mignonne avec ce bâillon.|Je peux aussi en avoir un ?,Sarah.jpg
+10,0,0,Common_PlayerGagged,Tu es mignonne avec ce bâillon.|Je peux aussi en avoir un ?,Sarah.jpg
+20,0,0,Common_PlayerGagged,Tu es mignonne avec ce bâillon.|Je peux aussi en avoir un ?,Sarah.jpg
+30,0,0,Common_PlayerGagged,Tu es mignonne avec ce bâillon.|Je peux aussi en avoir un ?,Sarah.jpg
+40,0,0,Common_PlayerGagged,Tu es mignonne avec ce bâillon.|Je peux aussi en avoir un ?,Sarah.jpg
+50,0,0,Common_PlayerGagged,Tu es mignonne avec ce bâillon.|Je peux aussi en avoir un ?,Sarah.jpg
+60,0,0,Common_PlayerGagged,Tu es mignonne avec ce bâillon.|Je peux aussi en avoir un ?,Sarah.jpg
+0,0,0,SubdueNotDone,"(Elle se tourne vers toi et chuchote.)|Bonjour, Je m'appelle Sarah.",Sarah.jpg
+10,0,0,SubdueNotDone,C'est donc ton premier cours de maths|avec Madame Mildred ?,Sarah.jpg
+20,0,0,SubdueNotDone,(Elle bâille et se tourne vers toi.),Sarah.jpg
+30,0,0,SubdueNotDone,"Madame Mildred est une enseignante|assez sévère, n'est-ce pas ?",Sarah.jpg
+40,0,0,SubdueNotDone,"Je suis curieuse, qu'est-ce que tu as en tête ?",Sarah.jpg
+50,0,0,SubdueNotDone,Tu veux soumettre et kidnapper Madame Mildred ?|(""+2"" en amour ou en soumission pour la convaincre.),Sarah.jpg
+60,0,0,SubdueNotDone,Je t'aiderai.|Mais tu commences le kidnapping.,Sarah.jpg
+0,0,0,SubdueSuccess,Wow ! C'est la première fois que j'aurai|aimé arriver à l'heure en cours de maths.,Sarah.jpg
+10,0,0,SubdueSuccess,"Je m'appelle Sarah, ravie de te rencontrer.",Sarah.jpg
+20,0,0,SubdueSuccess,C'est le meilleur cours de maths de tous les temps !,Sarah.jpg
+30,0,0,SubdueSuccess,"Tu devrais humilier Peggy.|Euh, je veux dire Sidney.",Sarah.jpg
+40,0,0,SubdueSuccess,As-tu de quoi restreindre mes mouvements ?,Sarah.jpg
+50,0,0,SubdueSuccess,As-tu de quoi restreindre mes mouvements ?,Sarah.jpg
+60,0,0,SubdueSuccess,As-tu de quoi restreindre mes mouvements ?,Sarah.jpg
+110,0,0,,(Elle mâche le bâillon avec plaisir|et te fait un signe de la main.),Sarah_BallGag.jpg
+120,0,0,,(Elle joue avec les menottes.)|J'ai besoin de menottes comme celles-ci à la maison.,Sarah_Cuffs.jpg
+130,0,0,,(Elle joue avec les menottes et|semble apprécier d'être maitrisée.),Sarah_Cuffs_BallGag.jpg
+140,0,0,,(Elle joue avec la corde et semble s'amuser.)|J'adore ta manière de me ligoter.,Sarah_Rope.jpg
+150,0,0,,(Elle joue et frotte son corps contre la corde.|Elle semble bien s'amuser.),Sarah_Rope_BallGag.jpg
+200,0,0,,ll semblerait que quelqu'un soit|en plus mauvaise posture que moi.,Sarah.jpg
+210,0,0,,"Je m'appelle Sarah, ravie de te rencontrer.",Sarah.jpg
+220,0,0,,"Alors, qu'est-ce-qu'il s'est passé ?",Sarah.jpg
+230,0,0,,Tu es si adorable toute maîtrisée.,Sarah.jpg
+240,0,0,,J'aimerais bien être attachée comme toi.,Sarah.jpg
+250,0,0,,Tu penses que je peux te rejoindre si j'embête la prof ?,Sarah.jpg
+260,0,0,,(Elle mâche le bâillon et tire malicieusement|sur les menottes.),Sarah_Cuffs_BallGag.jpg
+300,0,0,,Ce cours est si ennuyant.|J'espère qu'il va bientôt finir.,Sarah.jpg

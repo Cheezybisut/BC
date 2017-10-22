@@ -1,0 +1,21 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,Hello COMMON_PLAYERNAME.|Can you help me find my costume?,Background.jpg
+0,5,0,,Oh nice!  COMMON_PLAYERNAME!|Can you help me find my costume?,Background.jpg
+0,0,5,,Greetings Miss COMMON_PLAYERNAME.|Would you help me find my costume?,Background.jpg
+0,0,0,AmandaMissing,What's going on?  Amanda is late and I|can't find my costume.  Can you help me?,Background.jpg
+10,0,0,,I finally have my costume.|Do you mind if I strip here?,Background.jpg
+20,0,0,IsDamsel,I have my wedding dress.|Can you help me change?,Background.jpg
+20,0,0,!IsDamsel,I have my white armor.|Can you help me change?,Background.jpg
+20,0,0,AmandaMissing,That's strange...  Amanda is never late.|Oh well!  Can you help me change?,Background.jpg
+20,0,0,Common_PlayerGagged,"I love your gag, can I have one?|Or can you help me change?",Background.jpg
+20,0,0,Common_PlayerRestrained,(She giggles and seems jealous.)|Why are you restrained and not me?,Background.jpg
+20,0,0,IsRestrained,You're so kinky!  But we should focus on the play.|Can you help me out so I can put my costume?,Background.jpg
+20,0,0,IsGagged,Uugnmph mhn nungn!|(She seems to enjoy her gag.),Background.jpg
+30,0,0,,Do you like my costume?|Are we ready for the play?,Background.jpg
+30,0,0,AmandaMissing,Should we go without Amanda?|Are we ready for the play?,Background.jpg
+30,0,0,IsChaste,I can't believe you locked that belt on me.|We really need to unlock it after the play.,Background.jpg
+100,0,0,,(She looks at you and giggles.)|Do you need help with that gag?,Background.jpg
+100,0,0,AmandaMissing,This is crazy!  Amanda is late and|you're gagged.  Do you need help?,Background.jpg
+200,0,0,,(Sarah is still slowly recovering from an orgasm.),BackgroundOrgasm.jpg
+300,0,0,,,Background.jpg
+310,0,0,,,Background.jpg

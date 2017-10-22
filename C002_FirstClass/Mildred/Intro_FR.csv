@@ -1,0 +1,24 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,"Bienvenue dans ma classe jeune fille.|Tu m'appeleras ""Madame Mildred"".",MildredIntro.jpg
+10,0,0,,,MildredIntro.jpg
+20,0,0,,,MildredIntro.jpg
+30,0,0,,,MildredIntro.jpg
+40,0,0,,,MildredIntro.jpg
+50,0,0,,"(Le cours de Madame Mildred dure jusqu'à 9H00.|Elle semble diriger la classe avec une poigne de fer.)",MildredTeach.jpg
+100,0,0,,,MildredCrop.jpg
+110,0,0,,,MildredCrop.jpg
+120,0,0,,,MildredCrop.jpg
+130,0,0,,,MildredCrop.jpg
+200,0,0,Common_PlayerNotRestrained,"(Le cours de Madame Mildred dure jusqu'à 9H00.|Elle semble diriger la classe avec une poigne de fer.)",MildredTeach.jpg
+200,0,0,Common_PlayerRestrained,"(Le cours continue pendant que tu restes là, menottée|et bavante. Tu devras attendre jusqu'à 9H00.)",MildredTeach.jpg
+210,0,0,,"(Madame Mildred a le contrôle total de sa classe.|Tu veux vraiment essayer de la maîtriser ?)",MildredTeach.jpg
+220,0,0,,,MildredCrop.jpg
+300,0,0,,Jeune fille ! Tu vas me libérer maintenant.,Mildred_Cuffs.jpg
+310,0,0,,Jeune fille ! Tu vas me libérer maintenant.,Mildred_Cuffs.jpg
+320,0,0,,(Elle mord son bâillon et semble furieuse.),Mildred_Cuffs_BallGag.jpg
+330,0,0,,Jeune fille ! Tu vas me détacher immédiatement.|(Elle ferme les yeux pour garder un peu de dignité.),Mildred_Rope.jpg
+340,0,0,,(Elle mord son bâillon et semble furieuse.)|(Elle ferme les yeux pour garder un peu de dignité.),Mildred_Rope_BallGag.jpg
+410,0,0,,"(Tu la penches sur le bureau et lève la cravache.)|Mademoiselle, pensez à votre futur !",Mildred_Cuffs_Crop.jpg
+420,0,0,,"(Tu la penches sur le bureau et lève la cravache.)|(Elle proteste mais elle reste incomprise.)",Mildred_Cuffs_Crop.jpg
+430,0,0,,"(Tu la penches sur le bureau et lève la cravache.)|Mademoiselle, pensez à votre futur !",Mildred_Rope_Crop.jpg
+440,0,0,,"(Tu la penches sur le bureau et lève la cravache.)|(Elle proteste mais elle reste incomprise.)",Mildred_Rope_Crop.jpg

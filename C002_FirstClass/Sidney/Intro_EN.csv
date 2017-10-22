@@ -1,0 +1,20 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,!BondageBefore,(She doesn't bother to turn|around but seems to listen.),SidneyBack.jpg
+0,1,0,!BondageBefore,(She turns to you and whispers) What?,SidneyFace.jpg
+0,0,0,BondageBefore,(She doesn't turn around but whispers.)|Forget it.  You're not tying me up again.,SidneyBack.jpg
+0,1,0,BondageBefore,(She turns to you and whispers)|Don't think about tying me up again.,SidneyFace.jpg
+10,0,0,,(She turns to you and whispers) What?,SidneyFace.jpg
+20,0,0,,(She turns to you and whispers)|Are you also bored out of your mind?,SidneyFace.jpg
+30,0,0,,(She turns to you and whispers)|I wish there was a way to get out early.,SidneyFace.jpg
+40,0,0,,(She turns to you and whispers)|What do you have in mind?,SidneyFace.jpg
+50,0,0,,You want to kidnap her?  What's in there for me?|(You need 3 love or submission to convince her.),SidneyFace.jpg
+60,0,0,,(She doesn't bother to turn but whispers.)|I will help you but you do the first move.,SidneyBack.jpg
+100,0,0,Common_PlayerNotGagged,Shit!  That was fucking great!,SidneyFace.jpg
+100,0,0,Common_PlayerGagged,(She points at your gag and grins.),SidneyFace.jpg
+100,2,0,Common_PlayerGagged,(She turns around and whispers.)|I'll get you out after class.,SidneyFace.jpg
+100,-2,0,Common_PlayerGagged,(She doesn't turn around but whispers.)|You fucking got what you deserved.,SidneyBack.jpg
+110,0,0,,(She gives you an angry look|and chews on her gag.),Sidney_BallGag.jpg
+120,0,0,,"(She tugs on her cuffs,|trying to force them open.)",Sidney_Cuffs.jpg
+130,0,0,,(She gives you an angry look|and chews on her gag.),Sidney_Cuffs_BallGag.jpg
+140,0,0,,(She trashes to reach a knot but fails.),Sidney_Rope.jpg
+150,0,0,,(She gives you an angry look|and chews on her gag.),Sidney_Rope_BallGag.jpg

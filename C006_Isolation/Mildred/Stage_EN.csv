@@ -1,0 +1,87 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,Yep!  And I did|a pretty good job.,Let's hope some isolation will fix this attitude.|Are you somewhat ashamed of what you did?,10,-1,1,
+0,0,0,,Sidney tricked|me into it!,She will be punished accordingly.|Are you ashamed of what you did?,10,0,0,
+0,0,0,,(Stay silent.),You should talk now while you still can.|Are you ashamed of what you did?,10,0,0,
+0,0,0,,I'm sorry Miss Mildred.,That's better.  But you still deserve to|be punished.  Are you ashamed of what you did?,10,1,-1,
+10,0,0,,(Bow your head.),Much better.  Now give me that bag.|(She confiscates your school bag.),20,0,-1,StealItems()
+10,0,0,,(Stay silent.),Fine.  Stay silent and give me that bag.|(She confiscates your school bag.),20,0,0,StealItems()
+10,0,0,,"Yes, I know, that|wasn't very bright.",Very true.  Now give me that bag.|(She confiscates your school bag.),20,1,0,StealItems()
+10,0,0,,Ashamed?  That was|the best class ever.,(She looks furious.)  Give me that bag!|(She confiscates your school bag.),20,-1,0,StealItems()
+10,0,0,,You didn't resist|very hard Mildred.,Nonsense!  Now give me that bag.|(She confiscates your school bag.),20,0,1,StealItems()
+20,0,0,,Hey!  You can't do that.,I can and I can do much worse.|Remove your school outfit young lady.,30,0,0,
+20,0,0,,Will you give me|back my bag?,Only when your punishment is over.|Now remove your school outfit young lady.,30,0,0,
+30,0,0,,You pervert!  I will|never strip for you.,"If you won't do it, I will do it for you.|Remove it now or it will be painful.",40,0,1,
+30,0,0,,Remove my outfit?|It's freezing here.,It won't get any warmer if you complain.|Remove it now or it will be painful.,40,0,0,
+30,0,0,,Yes Miss Mildred.|(Strip.)  (1 minute),Very good.  For your punishment you will|wear this.  (She shows you a leather collar.),60,1,-1,
+30,0,0,,(Stay silent and strip.)|(1 minute),Good girl.  For your punishment you will|wear this.  (She shows you a leather collar.),60,1,0,
+40,0,0,,Fuck you!,(She drags and straps you to a device.)|We have ways to make you cooperate young lady.,50,-1,0,
+40,0,0,,Forget it.|I'm not stripping.,(She drags and straps you to a device.)|We have ways to make you cooperate young lady.,50,0,0,
+40,0,0,,Yes Miss Mildred.|(Strip.)  (1 minute),Very good.  For your punishment you will|wear this.  (She shows you a leather collar.),60,1,-1,
+40,0,0,,(Stay silent and strip.)|(1 minute),Good girl.  For your punishment you will|wear this.  (She shows you a leather collar.),60,1,0,
+50,0,0,,Let me go!,(She strips you and produces a leather collar.)|You will wear this for your punishment.,70,0,0,
+50,0,0,,HELP!  POLICE!,(She strips you and produces a leather collar.)|You will wear this for your punishment.,70,0,-1,
+50,0,0,,(Give her an angry look.),(She strips you and produces a leather collar.)|You will wear this for your punishment.,70,0,1,
+60,0,0,,What is that?,It's a collar for your punishment.|(She straps the collar on you.),100,0,0,AddCollar()
+60,0,0,,A collar?  Do I|look like a dog?,Stop complaining young lady.|(She straps the collar on you.),100,0,1,AddCollar()
+60,0,0,,You freak!  I'm|not wearing that.,Stop complaining young lady.|(She straps the collar on you.),100,-1,0,AddCollar()
+60,0,-3,,You want to|collar me Miss?,Only for your punishment.|(She straps the collar on you.),100,0,-1,AddCollar()
+70,0,0,,What is that?,It's a collar for your punishment young lady.|(She straps the collar on you and releases you.),100,0,0,AddCollar()
+70,0,0,,A collar?  Do I|look like a dog?,You're not in a position to negotiate young lady.|(She straps the collar on you and releases you.),100,0,1,AddCollar()
+70,0,0,,You freak!  I'm|not wearing that.,You're not in a position to negotiate young lady.|(She straps the collar on you and releases you.),100,-1,0,AddCollar()
+70,0,-3,,You want to|collar me Miss?,Only for your punishment young lady.|(She straps the collar on you and releases you.),100,0,-1,AddCollar()
+100,0,0,,What is going|on in here?,It's very simple.  You will be restrained with|ropes and isolated for the next hour little miss.,110,0,0,
+100,0,0,,I'm sorry Miss.|Please let me go.,It's too late for that.  You will be restrained with|ropes and isolated for the next hour little miss.,110,1,-1,
+100,0,0,,This collar is kinky!,Focus young lady.  You will be restrained|with ropes and isolated for the next hour.,110,0,0,
+100,0,0,,You would look|better with a collar.,(She stares at you.)  You will be restrained|with ropes and isolated for the next hour.,110,0,1,
+110,0,0,,Restrain me?  I|guess it's only fair.,Absolutely.  (She gets some rope|and wraps it over your body.),120,1,0,AddRope()
+110,0,0,,(Turn around and|give your hands.),"(She smiles, gets some rope|and wraps it over your body.)",120,0,-1,AddRope()
+110,0,0,,Oh no!  You're|not tying me up.,"Oh yes I am.  (She grabs your arms, gets|some rope and wraps it over your body.)",120,0,0,AddRope()
+120,0,0,,Fuck!  This is tight.,And it will get even tighter.|(She pushes you in a steel cell.),125,-1,0,CheckForCrop()
+120,0,0,,You can't leave|me like that!,I can do even worse than that.|(She pushes you in a steel cell.),125,0,0,CheckForCrop()
+120,0,0,,"Oh Miss, this is hot!",Do not act like a whore young lady.|(She pushes you in a steel cell.),125,0,0,CheckForCrop()
+125,0,0,,I'm already tied up!|Why use a cell?,Stop arguing and get down on your knees.|(She pushes you to the ground and hogtie you.),130,0,0,
+125,0,0,,Stop pushing me!,Stop arguing and get down on your knees.|(She pushes you to the ground and hogtie you.),130,0,0,
+125,0,0,,Are we in a prison?,Something like that.  Now get down.|(She pushes you to the ground and hogtie you.),130,0,0,
+130,0,0,,Oh Lord!  Please|Miss.  I'm so sorry.,Don't you think it's a little late for that?|(She locks the collar on a ring on the floor.),140,1,-1,
+130,0,0,,This is going too far!,Just accept your punishment like a big girl.|(She locks the collar on a ring on the floor.),140,0,0,
+130,0,0,,I will call the|cops on you!,Just accept your punishment like a big girl.|(She locks the collar on a ring on the floor.),140,0,0,
+130,0,0,,This is a pretty nice|bondage Miss.,Let's just say that I had good teachers.|(She locks the collar on a ring on the floor.),140,0,-1,
+140,0,0,,Ow!  I can't move!,Of course you can't.  Any last|words before I gag and isolate you?,150,0,0,
+140,0,0,,Someday you'll|pay for that!,Keep on dreaming girl.  Any last|words before I gag and isolate you?,150,0,1,
+140,0,0,,I do admire your|restraining skills.,I disciplined other students before you.|Any last words before I gag and isolate you?,150,1,0,
+150,0,0,,(Stay silent.),(She straps a BallGag on you.)|Try to learn from your time in isolation.,200,0,0,AddGag()
+150,0,0,,One day you will pay.,(She sighs and straps a BallGag on you.)|Try to learn from your time in isolation.,200,0,0,AddGag()
+150,0,0,,Miss Mildred!,(She shakes her head and straps a BallGag on you.)|Try to learn from your time in isolation.,200,0,0,AddGag()
+150,5,0,,"Miss Mildred, I learned|my lesson.  I'll be good.",(She smiles at you.)  So you|promise to stop causing trouble?,160,0,0,
+150,1,-5,,Oh please Miss Mildred.|(Whimper and cry.),Poor girl.  Maybe I was too harsh.|Do you promise to be good for now on?,160,0,0,
+150,0,6,,If you leave me here|my dad will sue your ass.,"Mmh.  I cannot afford a lawsuit.  Alright young|lady, I will release you if you promise to be good.",160,0,0,
+160,0,0,,"Yes, I promise|to be good Miss.",Very well.  (She releases you.)|Now get dressed and go get an early lunch.,170,0,0,Release()
+160,0,0,,I won't cause|any more trouble.,Alright.  (She releases you.)|Now get dressed and go get an early lunch.,170,0,0,Release()
+160,0,0,,I don't want pity.|Do your worse!,(She shakes her head and straps a BallGag on you.)|Try to learn from your time in isolation.,200,0,1,AddGag()
+160,0,0,,FUCK YOU PIG!,(She shakes her head and straps a BallGag on you.)|Try to learn from your time in isolation.,200,-1,0,AddGag()
+170,0,0,,Yes Miss.|(Leave isolation.),,170,0,0,LeaveIsolation()
+170,0,0,,(Nod and smile.)|(Leave isolation.),,170,0,0,LeaveIsolation()
+200,0,0,,UUMPH!  UGN!,(She slowly walks away.)|I will be back at 11:30.,210,0,0,AllowLeave()
+200,0,0,,(Make an angry look.),(She slowly walks away.)|I will be back at 11:30.,210,0,0,AllowLeave()
+200,0,0,,(Look away from her.),(She slowly walks away.)|I will be back at 11:30.,210,0,0,AllowLeave()
+300,0,0,,What the fuck|is that thing?,This device will make sure you|stay put while I discipline you.,310,-1,0,
+300,0,0,,(Try to get comfy.),I doubt you will find any good|position on this whipping horse.,310,0,0,
+300,0,0,,Ha!  You can't scare|me with that toy.,"This ""toy"" will make sure you|stay put while I discipline you.",310,0,1,
+310,0,0,,You can't hit me!|I'm a student here.,,320,0,0,DoCrop()
+310,0,0,,Are you sure|this is legal?,,320,0,0,DoCrop()
+310,0,0,,Yes Miss Mildred.|I understand.,,320,0,0,DoCrop()
+310,0,0,,You better hit hard.|Pain is my middle name.,,320,0,0,DoCrop()
+320,0,0,,Fuck it hurts!,,320,0,0,DoCrop()
+320,0,0,,Ow!  Please Miss!,,320,0,0,DoCrop()
+320,0,0,,Harder!  Faster!,,320,0,0,DoCrop()
+320,0,0,,I've had mosquito bites|worse than that.,,320,0,0,DoCrop()
+320,0,0,,(Stay silent|and endure.),,320,0,0,DoCrop()
+320,0,0,,(Pretend it|doesn't hurt.),,320,0,0,DoCrop()
+320,0,0,,(Try to avoid it.),,320,0,0,DoCrop()
+320,0,0,,(Cry and beg|for help.),,320,0,0,DoCrop()
+330,0,0,,Mmmh.  Maybe.,Maybe isolation will teach you then.|(She pushes you in a steel cell.),125,0,0,
+330,0,0,,Yes.  To run|when I see you.,You are hopeless young lady.|(She pushes you in a steel cell.),125,0,0,
+330,0,0,,I think I did.|Thanks I guess.,That's very good young lady.|(She pushes you in a steel cell.),125,1,0,
+330,0,0,,Yes Miss Mildred.|(Bow your head.),This crop is a great tool to educate.|(She pushes you in a steel cell.),125,0,-1,
+330,0,0,,Ouch!  The lesson is|not to sit for a day?,You are hopeless young lady.|(She pushes you in a steel cell.),125,0,0,
+330,0,0,,Next time I|will whip you.,(She hits you one last time on the|face and pushes you in a steel cell.),125,-1,1,

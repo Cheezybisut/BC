@@ -1,0 +1,35 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,Tying up other students is strictly forbidden.|I hope you will learn a lesson from this detention.,YukiFace.jpg
+0,0,0,Fighting,Fighting in school isn't acceptable young lady.|I hope this detention time serves you well.,YukiFace.jpg
+0,0,0,Sleepy,What you did isn't acceptable|young lady.  (She yawns loudly.),YukiSleepy.jpg
+10,0,0,,Now will you try to be a good student?,YukiFace.jpg
+10,0,0,Sleepy,Now will you try to be a good student?,YukiSleepy.jpg
+20,0,0,,Can you sit quietly for your detention?,YukiFace.jpg
+20,0,0,Sleepy,Can you sit quietly for your detention?,YukiSleepy.jpg
+30,0,0,,What do you have in your hand?,YukiFace.jpg
+30,0,0,Sleepy,What do you have in your hand?,YukiSleepy.jpg
+40,0,0,,,YukiFace.jpg
+40,0,0,Sleepy,,YukiSleepy.jpg
+50,0,0,,Please stay quiet young lady.|Your detention will end at nine o'clock.,YukiFace.jpg
+50,0,0,Sleepy,(She yawns and fights to stay awake.)|(It might take a few minutes before the pill acts.),YukiSleepy.jpg
+60,0,0,,Please stay quiet young lady.|Your detention will end at nine o'clock.,YukiFace.jpg
+60,0,0,Sleepy,(She yawns and fights to stay awake.)|(It might take a few minutes before the pill acts.),YukiSleepy.jpg
+70,0,0,,This gag will keep you quiet little miss.|Your detention will end at nine o'clock.,YukiFace.jpg
+70,0,0,Sleepy,(She yawns and fights to stay awake.)|(It might take a few minutes before the pill acts.),YukiSleepy.jpg
+100,0,0,,(Teacher Yuki is sleeping deeply.),YukiSleep.jpg
+100,0,0,EggInside,(Teacher Yuki is sleeping deeply.|She trembles and moans randomly from the egg.),YukiSleep.jpg
+110,0,0,,(Teacher Yuki is sleeping deeply in her underwear.),YukiStrip.jpg
+110,0,0,EggInside,(Teacher Yuki is sleeping deeply in her underwear.|She trembles and moans randomly from the egg.),YukiStrip.jpg
+120,0,0,,(Teacher Yuki is sleeping cuffed in her underwear.),YukiCuffs.jpg
+120,0,0,EggInside,(Teacher Yuki is sleeping cuffed in her underwear.|She trembles and moans randomly from the egg.),YukiCuffs.jpg
+130,0,0,,(Teacher Yuki is sleeping cuffed in her underwear.),YukiLay.jpg
+130,0,0,EggInside,(Teacher Yuki is sleeping cuffed in her underwear.|She trembles and moans randomly from the egg.),YukiLay.jpg
+200,0,0,,What happened here?  Did I fell asleep?,YukiSleepy.jpg
+210,0,0,,Did I fell asleep?  Who stripped me?,YukiSleepyStrip.jpg
+220,0,0,,What happened here?  Did I fell asleep?|Who stripped me and cuffed me?,YukiAwakeCuffs.jpg
+230,0,0,,You're only getting yourself into more trouble.|Get me out of these cuffs right now!,YukiAwakeCuffs.jpg
+250,0,0,,Stay quiet for your detention.,YukiFace.jpg
+250,0,0,EggInside,My!  Is it too hot in here?|(She seems to sweat from the egg.),YukiFace.jpg
+260,0,0,,(She's still furious at you and ignores you.),YukiFace.jpg
+260,0,0,EggInside,(She's still furious at you and ignores you.)|(She also seems to sweat a lot from the egg.),YukiFace.jpg
+270,0,0,,(Yuki is gone.),YukiGone.jpg

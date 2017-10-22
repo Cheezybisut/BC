@@ -1,0 +1,5 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,RopeAvail,(Pick up the rope.),You pick up the rope.,0,0,0,TakeRope()
+0,0,0,CollarAvail,(Pick up the collar.),You pick up the collar.,0,0,0,TakeCollar()
+0,0,0,,(Pick up the chain.),You try to take the chain but|it's firmly attached to the ground.,0,0,0,
+0,0,0,HookAvail,(Pick up the hook.),You pick up an old metal hook.,0,0,0,TakeHook()

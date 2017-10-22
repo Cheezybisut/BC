@@ -1,0 +1,49 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,"Yes, it's my|first day here.","I hope you'll like it, we have a great gym.|I'm Jennifer, glad to meet you.",10,0,0,
+0,0,0,,Yep!  A fresh start|in a fresh college!,"I like your attitude, you'll do well here.|I'm Jennifer, pleased to meet you.",10,1,0,
+0,0,0,,"Yeah, I miss my old|school and friends.","Shh.  You'll make better friends here!|I'm Jennifer, nice to meet you.",10,0,-1,
+10,0,0,,So you're|an artist?,"Me?  That's a good one.|No, I'm much better in sports.",20,0,0,
+10,0,0,,Can you help|me paint?,"Help you?  Trust me, you'll do better than me.|I'm not an artist, I'm much better in sports.",20,0,-1,
+10,0,0,,You don't look|like a painter.,"Very true, I'm far from an|artist.  I'm much better in sports.",20,0,1,
+10,0,0,,This class|is pointless.,"You're very negative.  Gym class would|be more fun though, I'm better in sports.",20,-1,0,
+20,0,0,,Sports?  Our fat teacher|doesn't know that word.,"Shh.  Careful!  She's stronger than she looks.|And yes, Julia is an artist, not an athlete.",30,-1,0,
+20,0,0,,You're too skinny|to do sports.,"Don't judge me, I'm in good shape.",30,-1,1,
+20,0,0,,Yeah!  I can't wait|for gym class!,(She gives you a thumb up.),30,1,0,
+20,0,0,,I guess it will be|relaxing to paint.,Sure.  And Sarah seems to have fun.,30,0,0,
+30,0,0,,Can we make this|class more interesting?,More interesting?|What do you in mind?,40,0,0,
+30,0,0,,This is boring. (Yawn.),Cheer up!  It's not|as bad as you think.,40,-1,0,
+30,0,0,,This could more fun!,More fun?  I'm curious.|What are you talking about?,40,1,0,
+40,0,0,,Our teacher should|show her curves.,Her curves?  (She giggles.)  You|mean she should remove her dress?,50,1,0,
+40,0,0,,It would be better if|Julia removed her dress.,A sexy portrait?  I don't know.,50,0,0,
+40,0,0,,Help me trick her|out of that dress.,Oh!  That's pretty devious.|You think we can do that?,50,0,1,
+50,2,0,,Help me convince her|to strip my friend.,"Let me think...  She loves Italian painters.|Tell her of Sandro Botticelli ""The Birth of Venus"".",60,0,0,SandroComment()
+50,0,2,,You will help me|convince her to strip.,"Let me think...  She loves Italian painters.|Tell her of Sandro Botticelli ""The Birth of Venus"".",60,0,0,SandroComment()
+50,0,0,,Can you convince|her to strip?,"Me?  Oh no, I'm|not doing that for you.",50,0,0,
+60,0,0,JuliaStrip,Isn't the class|better now?,It will be memorable that's for sure.|I didn't knew that Julia was so daring.,70,0,0,
+60,0,0,JuliaStrip,We make a|great team!,(She gives you a high five.)  To teamwork!|I didn't knew that Julia was so daring.,70,1,0,
+60,0,0,JuliaStrip,Her breast|is monstrous.,"Don't be too tough with her, losing fat|isn't easy.  And it's very daring of her.",70,-1,0,
+80,0,0,CanBegForRelease,"Please Jennifer, can|you help me out?",,80,0,0,BegForRelease()
+80,0,0,Common_PlayerGagged,@Eehmmo ehm ehher!,"I'm sorry, I cannot understand.",80,0,0,
+80,0,0,Common_PlayerGagged,(Whimper and tremble.),"Trust me, I feel for you.  You must be|humiliated now.  I'll cheer you up later.",80,0,0,PityComment()
+100,0,1,,Shouldn't you undress|like Julia? (1 minute),I... I guess I can.|(She slowly undresses.),110,0,0,"SetCloth(1, 0, 0)"
+100,0,1,,Take your clothes|off. (1 minute),I... Yes... Sorry.|(She slowly undresses.),110,0,0,"SetCloth(1, 0, 1)"
+100,0,1,,You should show your|pretty body.  (1 minute),I really think I'm pretty?|(She slowly undresses.),110,0,0,"SetCloth(1, 1, 0)"
+110,0,2,,Do I have to take these|off myself?  (1 minute),"NO!  Oops, I didn't meant to yell, I'll do it.|(She blushes red and removes her underwear.)",120,0,0,"SetCloth(2, -1, 1)"
+110,0,2,,Only a few items left|to join Julia.  (1 minute),"Yes, if Julia could do it, I can.|(She blushes red and removes her underwear.)",120,0,0,"SetCloth(2, 0, 0)"
+110,0,2,,"If Julia can strip, you|can do it.  (1 minute)","Yes, if Julia could do it, I can.|(She blushes red and removes her underwear.)",120,0,0,"SetCloth(2, 0, 0)"
+110,0,2,,Show us more skin|and bones.  (1 minute),Bones?  I'm not that skinny.|(She blushes red and removes her underwear.),120,0,0,"SetCloth(2, -1, 0)"
+110,0,0,,Maybe you should dress|back up.  (1 minute),"You think?  Yeah, this is school after all.|(She picks her clothes and dresses back.)",100,0,0,"SetCloth(0, 0, 0)"
+120,0,0,,Maybe you should dress|back up.  (1 minute),"You think?  Yeah, this is school after all.|(She picks her clothes and dresses back.)",100,0,0,"SetCloth(0, 0, 0)"
+120,0,0,,Try your underwear|again.  (1 minute),(She sighs.)  I'll never understand art.|(She puts her underwear back on.),110,0,0,"SetCloth(1, 0, 0)"
+130,0,0,,Don't worry Jennifer.|Everything will be fine.,(She nods slowly.),130,0,0,TrustComment()
+130,0,0,EggInside,This egg will remind|you that I'm the boss.,(She bows her head.),130,0,0,EggComment()
+130,2,0,KissReady,(Kiss her.)|(1 minute),Please don't.  I'm not into it.|(She didn't seem to enjoy the kiss.),130,-1,0,Kiss()
+130,0,0,,(Tighten the ropes.)|(1 minute),(This bondage is already|as tight as it can be.),130,0,0,Tighten()
+130,0,0,,(Tickle her.)|(1 minute),(She cowers in shame|to avoid your tickling.),130,0,0,Tickle()
+130,0,0,Common_PlayerNotRestrained,(Untie her.)|(1 minute),(You untie her and she throws the|ropes at you.)  Can I go sit now?,120,0,0,Untie()
+140,0,0,,(Tighten the ropes.)|(1 minute),(This bondage is already|as tight as it can be.),140,0,0,Tighten()
+140,0,0,,(Tickle her.)|(1 minute),(She cowers in shame|to avoid your tickling.),140,0,0,Tickle()
+140,0,0,Common_PlayerNotRestrained,(Ungag her.)|(1 minute),(You unbuckle the gag and release it|from her mouth)  Can you untie me now?,130,0,0,Ungag()
+150,0,0,,(Tighten the ropes.)|(1 minute),(This bondage is already|as tight as it can be.),150,0,0,Tighten()
+150,0,0,,(Tickle her.)|(1 minute),(She cowers in shame|to avoid your tickling.),150,0,0,Tickle()
+150,0,0,Common_PlayerNotRestrained,(Ungag her.)|(1 minute),"(You remove the tape from her mouth.)|Alright, can you untie me now?",130,0,0,Ungag()

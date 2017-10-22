@@ -1,0 +1,21 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,!BondageBefore,(She looks at you but stays quiet to make|sure she doesn't bother the teacher.),Amanda.jpg
+0,1,0,!BondageBefore,(She whispers) We should talk after|class.  Miss Mildred is teaching.,Amanda.jpg
+0,0,0,BondageBefore,"(She looks at you and whispers)|Don't think about bondage, we are in class.",Amanda.jpg
+0,1,0,BondageBefore,"(She looks at you and whispers)|No more bondage please, we are in class.",Amanda.jpg
+10,0,0,,(She whispers) Is there anything you want?,Amanda.jpg
+20,0,0,,(She whispers) You don't|seem to be enjoying this class.,Amanda.jpg
+30,0,0,,(She whispers) What do you have in mind?,Amanda.jpg
+40,0,0,,(She whispers) You want to kidnap Miss Mildred?|(You need 4 love or submission to convince her.),Amanda.jpg
+50,0,0,,"(She whispers and blushes.) I will|help you, but you do the first move.",Amanda.jpg
+100,0,0,Common_PlayerNotGagged,Oh my god!  This is unbelievable!,Amanda.jpg
+100,0,0,Common_PlayerGagged,(She giggles quietly while looking at you.),Amanda.jpg
+100,2,0,Common_PlayerGagged,(She looks at you and whispers.)|You look adorable with that gag.,Amanda.jpg
+100,-2,0,Common_PlayerGagged,(She looks at you and whispers.)|I think I like you better when you're gagged.,Amanda.jpg
+110,0,0,,(She whimpers in her gag and|shakes her head from left to right.),Amanda_BallGag.jpg
+120,0,0,,"(She tugs on her cuffs,|trying to slip out a hand.)",Amanda_Cuffs.jpg
+130,0,0,,(She whimpers in her gag and|shakes her head from left to right.),Amanda_Cuffs_BallGag.jpg
+140,0,0,,(She rubs her skin against the|rope and seems to enjoy the feeling.),Amanda_Rope.jpg
+150,0,0,,(She whimpers in her gag and|shakes her head from left to right.),Amanda_Rope_BallGag.jpg
+160,0,0,,,Amanda_Rope.jpg
+170,0,0,,,Amanda_Rope_BallGag.jpg

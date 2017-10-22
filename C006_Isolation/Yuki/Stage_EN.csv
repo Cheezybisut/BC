@@ -1,0 +1,82 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,I didn't do it!,Stop lying for once and endure|your punishment like a lady.,10,0,0,
+0,0,0,,Sidney did it!,If she had anything to do in this|she will be punished just like you.,10,0,0,
+0,0,0,,I know.  I guess|it was pretty wrong.,Indeed.  And that's why you're getting punished.,10,1,0,
+0,0,0,,I'm sorry teacher Yuki.,Sorry isn't enough.  And that's|why you're getting punished.,10,0,-1,
+0,0,0,,It was your pill anyway.,That's not the point.  You drugged|me and you will be punished.,10,0,0,
+0,0,0,,I could have done|much worse to you.,You really need to learn your place here.|And that's why you will be punished.,10,-1,1,
+10,0,0,,Punished how?,You will stay bound and gagged|in that cell for the next hour.,20,0,0,
+10,0,0,,What do you|want from me?,You will stay bound and gagged|in that cell for the next hour.,20,0,0,
+10,0,0,,If I give you money|can we forget this?,You cannot bribe me.  You will stay bound|and gagged in that cell for the next hour.,20,-1,0,
+20,0,0,,Bound and gagged?|Are you serious?,Very serious.  First you will give|me this.  (She confiscates your bag.),30,0,0,StealItems()
+20,0,0,,I guess it will be|easier if I don't fight.,Very wise of you.  First you will give|me this.  (She confiscates your bag.),30,1,0,StealItems()
+20,0,0,,Awesome!  I|love bondage.,You won't enjoy this hour.  Now you will give|me this bag.  (She confiscates your bag.),30,-1,-1,StealItems()
+20,0,0,,Forget it!  I won't do it.,You don't have a choice.  First you will|give me this.  (She confiscates your bag.),30,0,1,StealItems()
+30,0,0,,Please don't|steal anything.,"I won't, don't worry.  Now|you will remove your uniform.",40,0,-1,
+30,0,0,,You thief!,Stop complaining ok?  Now|you will remove your uniform.,40,-1,0,
+30,0,0,,You can't do that.,Of course I can.  Now|you will remove your uniform.,40,0,0,
+40,0,0,,Strip?  Sorry but you're|way too ugly for me.,"(She pushes you on a pillory and locks it.)|If you resist, I'll have to use these devices.",70,-1,0,
+40,0,0,,Forget it lady.|I'm not stripping.,"(She pushes you on a pillory and locks it.)|If you resist, I'll have to use these devices.",70,0,0,
+40,0,0,,"Damn it!  Ok, ok.|(Strip.)  (1 minute)",Very well.  And you are expected to wear|this.  (She shows you a leather collar.),50,0,0,
+40,0,0,,It's only for your eyes.|(Strip.)  (1 minute),Of course.  And you are expected to wear|this.  (She shows you a leather collar.),50,1,0,
+50,0,0,,Yes Miss.|(Bow your head.),(She straps the collar around your neck.)|And how do you feel now?  Vulnerable?,100,0,-1,AddCollar()
+50,0,0,,A collar?  Do I|look like a dog?,"(She pushes you on a pillory and locks it.)|If you resist, I'll have to use these devices.",80,0,0,
+50,0,0,,Mmmh.  Ok.|(Bow your head.),(She straps the collar around your neck.)|And how do you feel now?  Vulnerable?,100,0,0,AddCollar()
+50,0,0,,It will be freezing in|hell before I wear that.,"(She pushes you on a pillory and locks it.)|If you resist, I'll have to use these devices.",80,0,1,
+70,0,0,,(Stay silent.),Silence is gold.  (She removes your uniform.)|You will also have to wear a leather collar.,80,0,0,
+70,0,0,,Strip me?  You're some|kind of crazy lesbian?,Such foul language.  (She removes your uniform.)|You will also have to wear a leather collar.,80,-1,0,
+70,0,0,,I guess it's only fair.,Indeed it is.  (She removes your uniform.)|You will also have to wear a leather collar.,80,1,0,
+70,0,0,,One day I'll|have my revenge.,(She sighs and removes your uniform.)|You will also have to wear a leather collar.,80,0,1,
+80,0,0,,(Stay silent.),(She straps the collar and releases you.)|So how do you feel now?  Vulnerable?,100,0,0,AddCollar()
+80,0,0,,Put that collar away!,Shhhh.  (She straps the collar and releases you.)|So how do you feel now?  Vulnerable?,100,0,0,AddCollar()
+80,0,0,,I guess there's no|use to fight now.,Correct.  (She straps the collar and releases you.)|So how do you feel now?  Vulnerable?,100,0,0,AddCollar()
+100,0,0,,I've had better days.,It's not going to get better in this hour.|Turn around and give me your hands.,110,0,0,
+100,0,0,,Very vulnerable.|(Bow your head.),"It's not easy, but it's for your own good.|Now turn around and give me your hands.",110,0,-1,
+100,0,0,,(Yawn.)  I'm feeling|pretty bored actually.,So you still think you're smart?|Turn around and give me your hands.,110,-1,0,
+100,0,0,,Why the collar?|I don't get it.,You will understand pretty soon.|Turn around and give me your hands.,110,0,0,
+110,0,0,,Don't touch me!,You're in no position to give orders.|(She grabs some rope and wraps it over you.),120,0,0,AddRope()
+110,0,0,,Fuck off!  You're|not tying me up.,Mmh.  A gag will be needed also.|(She grabs some rope and wraps it over you.),120,-1,0,AddRope()
+110,0,0,,"Alright, but don't|tie me too tight.",It will be tight enough so you don't escape.|(She grabs some rope and wraps it over you.),120,1,0,AddRope()
+110,0,0,,(Nod and turn|around silently.),You know you can be good when you want to.|(She grabs some rope and wraps it over you.),120,0,-1,AddRope()
+120,0,0,,This is too tight!,And it's only the beginning.|(She pushes you in a steel cell.),130,0,0,
+120,0,0,,(Struggle playfully|and giggle.),You're not supposed to enjoy this.|(She pushes you in a steel cell.),130,0,0,
+120,0,0,,Where did you|learn to do that?,Let's say I had very good teachers.|(She pushes you in a steel cell.),130,0,0,
+130,0,0,,At first it was fun|but now it's scary.,Oh!  But the fun is only beginning.|(She pushes you on your knees.),140,0,0,
+130,0,0,,"Please Miss, you|cannot abandon me.",It's only for an hour you know.|(She pushes you on your knees.),140,0,-1,
+130,0,0,,You're a real|bitch you know?,You're only sinking deeper young lady.|(She pushes you on your knees.),140,-1,0,
+130,0,0,,Someday you will|rot in that cell.,Maybe you'll spend the full day in here.|(She pushes you on your knees.),140,0,1,
+140,0,0,,Oh my!  The|floor is so cold.,"Be warned, it will not get any warmer.|(She gets more rope and ties your legs.)",150,0,-1,CheckToEat()
+140,0,0,,What do you want?,I want you to learn a lesson on life.|(She gets more rope and ties your legs.),150,0,0,CheckToEat()
+140,3,0,,"Yuki, would you|like to cum?",(She looks down at you.)  Oh hell yes!|(She drops her panties and pulls you under.),200,1,0,
+140,0,-3,,"Miss, would you|like an orgasm?",(She looks down at you.)  Oh lord yes!|(She drops her panties and pulls you under.),200,0,-1,
+150,0,0,,Geez!  This is|going too far.,Too far?  Like drugging your teacher?|(She links the collar to a large metal ring.),160,0,0,
+150,0,0,,A hogtie?  That's the|best you can do?,Oh I can do much worse than that.|(She links the collar to a large metal ring.),160,0,1,
+150,0,0,,Look Yuki!  I've|learned my lesson.,I do hope you will learn a lesson.|(She links the collar to a large metal ring.),160,0,0,
+150,0,0,,This hogtie is amazing!,You may change your mind after an hour.|(She links the collar to a large metal ring.),160,0,-1,
+160,0,0,,You little bitch!|How dare you?,"Such a horrible mouth, this should help it.|(She straps a BallGag around your head.)",170,-1,0,AddGag()
+160,0,0,,Let me go or|I'll call the police.,Call whoever you want young lady.|(She straps a BallGag around your head.),170,0,0,AddGag()
+160,0,0,,I do admire your|bondage skills.,Thanks.  Now you will see my gagging skills.|(She straps a BallGag around your head.),170,1,0,AddGag()
+160,0,0,,Admit it.  You|won't leave me here.,So you really still think I'm bluffing?|(She straps a BallGag around your head.),170,0,0,AddGag()
+160,0,0,,(Try to struggle out.),You're not going anywhere little miss.|(She straps a BallGag around your head.),170,0,0,AddGag()
+170,0,0,,(Give her an|angry look.),You're so cute.  I'll be back at 11:30.|(She stands up and leaves the room.),180,0,0,AllowLeave()
+170,0,0,,(Make pleading eyes|and whimper softly.),"Cry all you want, I'll be back at 11:30.|(She stands up and leaves the room.)",180,0,-1,AllowLeave()
+170,0,0,,(Chew on the gag.),Enjoy your gag.  I'll be back at 11:30.|(She stands up and leaves the room.),180,0,0,AllowLeave()
+170,0,0,,(Bow your head.),"Good girl, I'll be back at 11:30.|(She stands up and leaves the room.)",180,0,-1,AllowLeave()
+170,0,0,,@UUHEE!,You're so cute.  I'll be back at 11:30.|(She stands up and leaves the room.),180,0,0,AllowLeave()
+170,0,0,,@Heesee ehhem.,You're so cute.  I'll be back at 11:30.|(She stands up and leaves the room.),180,0,0,AllowLeave()
+200,0,0,,(Nuzzle against her|pussy.) (1 minute),(She opens her legs and moans softly.),200,0,0,Pleasure(1)
+200,0,0,,(Lick her clitoris.)|(1 minute),(She pulls you close by the hair and trembles.),200,0,0,Pleasure(2)
+200,0,0,,(Push your tongue|inside.)  (1 minute),(She pulls your head back|and forth with both hands.),200,0,0,Pleasure(3)
+200,0,0,AllowPullBack,(Stop and pull back.),(You pull back and she looks disappointed.)|So you're going to give up?,210,0,0,CheckToStop()
+210,0,0,,I was only taking|my breath.  (Go back.),Very good.  (She grabs your|hair and pulls you back in.),200,0,0,
+210,0,0,,"Sorry Miss, I|cannot do it.","Fine, I don't care anyway.|(She gets more rope and ties your legs.)",150,-1,0,
+210,0,0,,When did you|last take a bath?,You're going to pay for that!|(She gets more rope and ties your legs.),150,-2,0,
+220,0,0,,(Lick her juices.),"That's enough, you did a wonderful job.|If I let you go, will you do it again later?",230,1,0,
+220,0,0,,(Catch your breath.),"Young lady, you did a wonderful job.|If I let you go, will you do it again later?",230,0,0,
+220,0,0,,(Cough in disgust.),"Don't pretend you didn't enjoy this.|If I let you go, will you do it again later?",230,-1,0,
+230,0,0,,Yes.  We have a deal.,Perfect!  (She unties you and leads you out.)|Get dressed and go get an early lunch then.,240,0,-1,Release()
+230,0,0,,No.  I will never|do that again.,"Fine, let's resume your isolation then.|(She gets more rope and ties your legs.)",150,-1,0,
+240,0,0,,Alright!|(Leave isolation.),,240,0,0,LeaveIsolation()
+250,0,0,,Sorry Miss Yuki.|Can I try again?,No.  It's time for your isolation now.|(She gets more rope and ties your legs.),150,-1,-1,
+250,0,0,,(Stay silent.),It's time for your isolation now.|(She gets more rope and ties your legs.),150,-1,0,
+250,0,0,,Are you frigid?,"(She slaps you on the face, gets|more rope and ties your legs.)",150,-2,1,

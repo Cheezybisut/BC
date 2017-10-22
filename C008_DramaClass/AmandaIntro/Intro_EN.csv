@@ -1,0 +1,25 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,IsHeroine,So you're joining the drama act.|I'm playing the heroic white knight.,Background.jpg
+0,0,0,!IsHeroine,So you're joining the drama act.|I'm playing the villain black knight.,Background.jpg
+0,5,0,IsHeroine,It's so nice to see you join the act.|I'm playing the heroic white knight.,Background.jpg
+0,5,0,!IsHeroine,It's so nice to see you join the act.|I'm playing the villain black knight.,Background.jpg
+0,0,5,IsHeroine,Welcome to drama class Miss.|I'll be playing the heroic white knight.,Background.jpg
+0,0,5,!IsHeroine,Welcome to drama class Miss.|I'll be playing the villain black knight.,Background.jpg
+0,0,0,Common_PlayerGagged,You look cute with that gag.|But it's not needed for the play.,Background.jpg
+10,0,0,,Now cover your eyes so I can change.,Background.jpg
+10,0,5,,"Miss COMMON_PLAYERNAME, can you|please cover your eyes so I can change?",Background.jpg
+10,0,0,Common_PlayerGagged,You look cute with that gag.|But it's not needed for the play.,Background.jpg
+20,0,0,,,CoverEyes.jpg
+30,0,0,,Why didn't you keep your eyes covered?,Background.jpg
+40,0,0,,I guess you can see me change.|Can you help me put this armor?,Background.jpg
+40,0,0,Common_PlayerGagged,You look cute with that gag.|But can you help me put this armor?,Background.jpg
+40,0,0,Common_PlayerRestrained,Your restrains are pretty nice.|But you won't be able to help me.,Background.jpg
+40,0,0,IsChaste,(She tugs on the belt.)  COMMON_PLAYERNAME?|You do have the key for that belt?,Background.jpg
+40,0,0,IsRestrained,It might not be the best time for bondage.|(She struggles.)  Could you release me please?,Background.jpg
+40,0,0,IsGagged,Aaaeemg ngee nnaaagn!|(She struggles with the gag.),Background.jpg
+50,0,0,SarahMissing,Sarah is late for class again.|Should we go without her?,Background.jpg
+50,0,0,!SarahMissing,Is everyone ready for the play?,Background.jpg
+100,0,0,,(Amanda is still recovering|from a wonderful orgasm.),BackgroundOrgasm.jpg
+200,0,0,,"A subbie like you shouldn't have any|keys, I'll take it.  (She takes your cuffs key.)",Background.jpg
+300,0,0,,,Background.jpg
+310,0,0,,,Background.jpg

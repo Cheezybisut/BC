@@ -1,0 +1,21 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,!BondageBefore,(Elle te regarde mais reste silencieuse pour s'assurer|qu'elle n'importune pas la professeur.),Amanda.jpg
+0,1,0,!BondageBefore,(Elle chuchote) Nous parlerons après la classe.|Madame Mildred est en train d'enseigner.,Amanda.jpg
+0,0,0,BondageBefore,"(Elle te regarde et chuchote)|Ne pense pas au bondage, nous sommes en classe.",Amanda.jpg
+0,1,0,BondageBefore,"(Elle te regarde et chuchote) Pas encore du bondage,|s'il te plaît, nous sommes en classe.",Amanda.jpg
+10,0,0,,(Elle chuchote) Tu as quelque chose à me demander ?,Amanda.jpg
+20,0,0,,(Elle chuchote) Tu n'as pas l'air d'apprécier ce cours.,Amanda.jpg
+30,0,0,,(Elle chuchote) Qu'est-ce que tu as en tête ?,Amanda.jpg
+40,0,0,,"(Elle chuchote) Tu veux kidnapper Madame Mildred ?|(""+4"" en amour ou en soumission pour la convaincre.)",Amanda.jpg
+50,0,0,,"(Elle chuchote et rougit.) je t'aiderai,| mais tu prends les devants.",Amanda.jpg
+100,0,0,Common_PlayerNotGagged,Oh mon dieu ! C'est incroyable !,Amanda.jpg
+100,0,0,Common_PlayerGagged,(Elle rit discrètement tout en te regardant.),Amanda.jpg
+100,2,0,Common_PlayerGagged,(Elle te regarde et chuchote.)|Tu as l'air adorable avec ce bâillon.,Amanda.jpg
+100,-2,0,Common_PlayerGagged,(Elle te regarde et chuchote.)|Je penses que je te préfère quand tu es baîlloné.,Amanda.jpg
+110,0,0,,"(Elle gémit dans son baîllon et|tourne sa tête de gauche à droite.)",Amanda_BallGag.jpg
+120,0,0,,"(Elle tire sur ses menottes,|et essaye de libérer une main.)",Amanda_Cuffs.jpg
+130,0,0,,"(Elle gémit dans son baîllon et|tourne sa tête de gauche à droite.)",Amanda_Cuffs_BallGag.jpg
+140,0,0,,(Elle frotte sa peau contre la corde|et semble apprécier la sensation.),Amanda_Rope.jpg
+150,0,0,,(Elle gémit dans son baîllon et|tourne sa tête de gauche à droite.),Amanda_Rope_BallGag.jpg
+160,0,0,,,Amanda_Rope.jpg
+170,0,0,,,Amanda_Rope_BallGag.jpg

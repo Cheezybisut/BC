@@ -1,0 +1,17 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,New Game,,0,0,0,"LoadChapter(""C001_BeforeClass"")"
+0,0,0,,Load Game,,0,0,0,LoadScreen()
+0,0,0,,Select Chapter,"Select the chapter you want to play.|If you never tried the game, start on chapter 1.",10,0,0,
+0,0,0,,Change Language,,20,0,0,
+10,0,0,,Chapter 1|Before Class,,10,0,0,"LoadChapter(""C001_BeforeClass"")"
+10,0,0,,Chapter 2|First Class,,10,0,0,"LoadChapter(""C002_FirstClass"")"
+10,0,0,,Chapter 3|Morning Detention,,10,0,0,"LoadChapter(""C003_MorningDetention"")"
+10,0,0,,Chapter 4|Art Class,,10,0,0,"LoadChapter(""C004_ArtClass"")"
+10,0,0,,Chapter 5|Gym Class,,10,0,0,"LoadChapter(""C005_GymClass"")"
+10,0,0,,Chapter 6|Isolation,,10,0,0,"LoadChapter(""C006_Isolation"")"
+10,0,0,,Chapter 7|Lunch Break,,10,0,0,"LoadChapter(""C007_LunchBreak"")"
+10,0,0,,Chapter 8|Drama Class,,10,0,0,"LoadChapter(""C008_DramaClass"")"
+10,0,0,,Main Menu,"Welcome to the Bondage College.|Have fun, be curious and be kinky.",0,0,0,
+20,0,0,,English,,0,0,0,"SetLanguage(""EN"")"
+20,0,0,,French (Chapter 1 to 3)|Made by gottspende,,0,0,0,"SetLanguage(""FR"")"
+20,0,0,,Chinese (Chapter 5)|Made by asdcvbgf,,0,0,0,"SetLanguage(""CN"")"

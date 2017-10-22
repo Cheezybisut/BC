@@ -1,0 +1,22 @@
+Tag,Content
+CropStartHate,"If isolation doesn't teach you, my crop will.|(She pushes you on a triangular wooden frame.)"
+CropStartSub,"Before isolation, a sub like you should feel pain.|(She pushes you on a triangular wooden frame.)"
+CropEvent0,(She does a quick lash|on your back from left to right.)
+CropEvent1,(She lands a really|strong one right on your butt.)
+CropEvent2,"(She strikes a light one on|your breast, barely hitting a nipple.)"
+CropEvent3,"(She hits you on your|bounds arms, making you struggle.)"
+CropEvent4,(She swings right on your|tummy.  Making you lose your breath.)
+CropEvent5,(She smacks a harsh one|on your thigh.  Making a loud noise.)
+Count1,One
+Count2,Two
+Count3,Three
+Count4,Four
+Count5,Five
+Count6,Six
+Count7,Seven
+Count8,Eight
+Count9,Nine
+Count10,Ten
+Count11,Eleven
+Count12,Twelve
+CropStop,That's enough.  (She stops.)|So have you learned a lesson?

@@ -1,0 +1,5 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,Le sac au dos de la fille est laissé sans surveillance. |Les bretelles sont rentrées dans leurs pochettes.,BagClosed.jpg
+10,0,0,,Les bretelles du sac sont détachées.|Tu vois une paire de cordes.,BagOpen.jpg
+20,0,0,,Les bretelles du sac sont détachées.|Il n'y a plus rien d'intéressant.,BagOpen.jpg
+30,0,0,,Le sac est fermé et bien gardé. |Tu devras parler avec Sydney.,BagClosed.jpg

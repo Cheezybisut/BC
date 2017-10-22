@@ -1,0 +1,22 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,Welcome to the art class.|You're a new student here?,Jennifer.jpg
+10,0,0,,"I'm Jennifer, nice to meet you.",Jennifer.jpg
+20,0,0,,"Art class is fine, but I prefer sports.",Jennifer.jpg
+30,0,0,,Is there anything you want?,Jennifer.jpg
+40,0,0,,"So tell me, what do you have in mind?",Jennifer.jpg
+50,0,0,,So you want to see the teacher undress?|(You need 2 love or submission to convince her.),Jennifer.jpg
+60,0,0,,"Tell her of Sandro Botticelli ""The Birth of Venus"".|It might convince her to remove her dress.",Jennifer.jpg
+60,0,0,JuliaStrip,It worked!  That's pretty amazing.,Jennifer.jpg
+70,0,0,,I didn't knew that Julia was so daring.,Jennifer.jpg
+80,0,0,,Two models!  I didn't expect that.,Jennifer.jpg
+80,0,0,Common_PlayerGagged,Why are you gagged?,Jennifer.jpg
+80,0,0,Common_PlayerRestrained,Aren't you humiliated?,Jennifer.jpg
+100,0,0,,I'm not very comfortable posing.|(You need +1 submission to strip her.),JenniferPose.jpg
+110,0,0,,I'm not very comfortable posing.|(You need +2 submission to get her naked.),JenniferUnderwear.jpg
+120,0,0,,This is kind of humiliating.|(You need +3 submission to tie her up.),JenniferNaked.jpg
+130,0,0,,This is very humiliating.|(She doesn't seem to be having fun.),JenniferRope.jpg
+130,0,0,EggInside,Can you please remove this pink thing?|(She trembles randomly from the egg.),JenniferRope.jpg
+140,0,0,,Mhu nugin hm!  (She doesn't seem to|enjoy being tied up in front of the class.),JenniferRopeBallGag.jpg
+140,0,0,EggInside,(She sweats and trembles randomly from the egg.|She doesn't enjoy being tied up in front of the class.),JenniferRopeBallGag.jpg
+150,0,0,,Mhu nugin hm!  (She doesn't seem to|enjoy being tied up in front of the class.),JenniferRopeTapeGag.jpg
+150,0,0,EggInside,(She sweats and trembles randomly from the egg.|She doesn't enjoy being tied up in front of the class.),JenniferRopeTapeGag.jpg
