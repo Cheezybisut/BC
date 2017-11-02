@@ -1,0 +1,33 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+100,0,0,PlayerIsVillain,(The white knight is starting the play.),Background.jpg
+100,0,0,!PlayerIsVillain,(She's watching the white knight.),Background.jpg
+110,0,0,PlayerIsVillain,"(As the black knight,|this is your line.)",Background.jpg
+110,0,0,!PlayerIsVillain,(She's about to say her line.),Background.jpg
+120,0,0,PlayerIsVillain,(The white knight is next.),Background.jpg
+120,0,0,!PlayerIsVillain,(She's watching the white knight.),Background.jpg
+130,0,0,PlayerIsVillain,"(As the black knight,|this is your next line.)",Background.jpg
+130,0,0,!PlayerIsVillain,(She's about to say her line.),Background.jpg
+140,0,0,PlayerIsVillain,(The damsel is next.),Background.jpg
+140,0,0,!PlayerIsVillain,(She's watching the damsel.),Background.jpg
+150,0,0,PlayerIsVillain,(The damsel is next.),Background.jpg
+150,0,0,!PlayerIsVillain,(She's watching the damsel.),Background.jpg
+160,0,0,PlayerIsVillain,(The damsel is next.),Background.jpg
+160,0,0,!PlayerIsVillain,(She's watching the damsel.),Background.jpg
+200,0,0,PlayerIsVillain,"(As the black knight,|this is your next line.)",Background.jpg
+200,0,0,!PlayerIsVillain,(She's about to say her line.),Background.jpg
+210,0,0,PlayerIsVillain,"(As the black knight,|this is your next line.)",Background.jpg
+210,0,0,!PlayerIsVillain,(She's about to say her line.),Background.jpg
+220,0,0,PlayerIsVillain,(The white knight is next.),Background.jpg
+220,0,0,!PlayerIsVillain,(She's watching the white knight.),Background.jpg
+230,0,0,PlayerIsVillain,"(As the black knight,|this is your next line.)",Background.jpg
+230,0,0,!PlayerIsVillain,(She's about to say her line.),Background.jpg
+240,0,0,PlayerIsVillain,(The white knight is next.),Background.jpg
+240,0,0,!PlayerIsVillain,(She's watching the white knight.),Background.jpg
+250,0,0,PlayerIsVillain,(The damsel is next.),Background.jpg
+250,0,0,!PlayerIsVillain,(She's watching the damsel.),Background.jpg
+270,0,0,PlayerIsVillain,"(As the black knight,|this is your next line.)",Background.jpg
+270,0,0,!PlayerIsVillain,(She's about to say her line.),Background.jpg
+280,0,0,PlayerIsVillain,(The damsel is next.),Background.jpg
+280,0,0,!PlayerIsVillain,(She's watching the damsel.),Background.jpg
+300,0,0,PlayerIsVillain,(The play is over.),Background.jpg
+300,0,0,!PlayerIsVillain,It was a fun play.,Background.jpg

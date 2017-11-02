@@ -1,0 +1,20 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+140,0,0,PlayerIsDamsel,Halt!  Before soil|turns crimson.,Both knights looks at the damsel.,150,0,0,"GlobalStage(150, 1, 0)"
+140,0,0,PlayerIsDamsel,Stop!  Before the|ground turns red.,Both knights looks at the damsel.,150,0,0,"GlobalStage(150, -1, 0)"
+140,0,0,PlayerIsDamsel,Sorry Julia.|I forgot my line.,"Julia whispers: ""Halt!  Before soil turns crimson.""",140,0,0,ForgetLine()
+140,0,0,!PlayerIsDamsel,(Listen quietly.),"Sarah steps in like a princess and says:|""Halt!  Before soil turns crimson.""",150,0,0,"GlobalStage(150, 0, 0)"
+140,0,0,!PlayerIsDamsel,(Snap your fingers|with impatience.),"Sarah rushes on the stage and says:|""Halt!  Before soil turns red.""",150,0,0,"GlobalStage(150, 0, 1)"
+140,0,0,!PlayerIsDamsel,(Make some silly|faces to distract her.),"Sarah tries not to laugh and says:|""Stop!  Before ground turns crimson.""",150,0,0,"GlobalStage(150, -1, 0)"
+150,0,0,PlayerIsDamsel,Allow me to speak|from my heart.,Both knights looks curiously at you.,160,0,0,"GlobalStage(160, -1, 0)"
+150,0,0,PlayerIsDamsel,Alloweth thy heart speaks pure voice.,Both knights looks at you anxiously.,160,0,0,"GlobalStage(160, 1, 0)"
+150,0,0,PlayerIsDamsel,Sorry Julia.|I forgot my line.,"Julia whispers: ""Alloweth thy heart speaks pure voice.""",150,0,0,ForgetLine()
+150,0,0,!PlayerIsDamsel,(Listen quietly.),"Sarah looks at both knights and says:|""Alloweth thy heart speaks pure voice.""",160,0,0,"GlobalStage(160, 0, 0)"
+150,0,0,!PlayerIsDamsel,(Snap your fingers|with impatience.),"Sarah speeds up and says:|""Allow my heart to speak pure voice.""",160,0,0,"GlobalStage(160, 0, 1)"
+150,0,0,!PlayerIsDamsel,(Give her a thumbs|up to cheer her.),"Sarah smiles at you and says:|""Alloweth thy heart speaks pure voice.""",160,0,0,"GlobalStage(160, 1, 0)"
+160,0,0,PlayerIsDamsel,I love the|white hero!,The black knight unsheathe her|sword and takes the stage.,200,0,0,"GlobalStage(200, -1, 0)"
+160,0,0,PlayerIsDamsel,I profess love unto|thy white hero.,The black knight unsheathe her|sword and takes the stage.,200,0,0,"GlobalStage(200, 1, 0)"
+160,0,0,PlayerIsDamsel,I love the|black knight!,The black knight unsheathe her|sword and takes the stage.,210,0,0,"GlobalStage(210, -1, 0)"
+160,0,0,PlayerIsDamsel,I profess love unto|thy black champion.,The black knight unsheathe her|sword and takes the stage.,210,0,0,"GlobalStage(210, 1, 0)"
+160,0,0,PlayerIsDamsel,Sorry Julia.|I forgot my line.,"Julia sighs and whispers to you:|""I profess love unto thy white hero.""",150,0,0,ForgetLine()
+160,0,0,!PlayerIsDamsel,(Listen quietly.),,160,0,0,SarahChooseKnight()
+160,0,0,!PlayerIsDamsel,(Snap your fingers|with impatience.),,160,0,0,SarahChooseKnight()

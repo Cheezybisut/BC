@@ -152,6 +152,13 @@ function ActorSetCloth(NewCloth) {
 			Actor[A][ActorCloth] = NewCloth;
 }
 
+// Sets the clothes for a specific actor
+function ActorSpecificSetCloth(SpecificActor, NewCloth) {
+	for (var A = 0; A < Actor.length; A++)
+		if (Actor[A][ActorName] == SpecificActor)
+			Actor[A][ActorCloth] = NewCloth;
+}
+
 // Returns true if the actor is restrained
 function ActorIsRestrained() {
 	return (ActorHasInventory("Rope") || ActorHasInventory("TwoRopes") || ActorHasInventory("Cuffs"));

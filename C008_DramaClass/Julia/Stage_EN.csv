@@ -1,0 +1,13 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,Teatro?  I don't know.,Ignite your flame COMMON_PLAYERNAME!|This is your script.  (She hands you a sheet.),10,0,-1,
+0,0,0,,I will break a leg!,That's the spirit COMMON_PLAYERNAME!|This is your script.  (She hands you a sheet.),10,0,1,
+0,0,0,,I'm ready Julia.,Magnifico COMMON_PLAYERNAME!|This is your script.  (She hands you a sheet.),10,0,0,
+0,0,0,,This play will suck.,What a bad attitude COMMON_PLAYERNAME.|This is your script.  (She hands you a sheet.),10,-1,-1,
+10,0,0,,(Read the script.)|(1 minute),A great role isn't it?  Now get on the|stage.  The white knight starts the play.,20,0,0,
+10,0,0,,(Read the script|minutely.)  (1 minute),Oh!  A meticulous pupil!  Now get on the|stage.  The white knight starts the play.,20,1,0,
+10,0,0,,(Scan the script|rapidly.)  (1 minute),You seem really confident.  Now get on the|stage.  The white knight starts the play.,20,0,1,
+10,0,0,!ScriptRefused,I don't want|to read that.,How will you act without knowing the script?|Little COMMON_PLAYERNAME!  Read it.,10,0,0,RefuseScript()
+20,0,0,,(Go on the stage.),,100,0,0,StartDrama()
+20,0,0,,Can we improvise?,Si!  Don't go too far away from|the script but you can improvise.,20,0,0,
+100,0,0,,(Focus on the play.),,100,0,0,StartDrama()
+100,0,0,,Can we improvise?,Si!  Don't go too far away from|the script but you can improvise.,100,0,0,

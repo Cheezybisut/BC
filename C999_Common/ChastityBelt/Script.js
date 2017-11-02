@@ -40,6 +40,7 @@ function C999_Common_ChastityBelt_LockSelf() {
 	} else {
 		PlayerRemoveInventory("ChastityBelt", 1);
 		PlayerLockInventory("ChastityBelt");
+		C999_Common_ChastityBelt_HasLooseBelt = PlayerHasInventory("ChastityBelt");
 		C999_Common_ChastityBelt_CurrentStage = 10;
 	}
 }

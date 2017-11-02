@@ -1,0 +1,33 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+100,0,0,PlayerIsHeroine,"(As the white knight, you are|supposed to start the play.)",Background.jpg
+100,0,0,!PlayerIsHeroine,(The white knight is about to start to play.),Background.jpg
+110,0,0,PlayerIsHeroine,(The black knight is next.),Background.jpg
+110,0,0,!PlayerIsHeroine,(She's watching the black knight.),Background.jpg
+120,0,0,PlayerIsHeroine,"(As the white knight,|this is your next line.)",Background.jpg
+120,0,0,!PlayerIsHeroine,(The white knight is about to talk.),Background.jpg
+130,0,0,PlayerIsHeroine,(The black knight is next.),Background.jpg
+130,0,0,!PlayerIsHeroine,(She's watching the black knight.),Background.jpg
+140,0,0,PlayerIsHeroine,(The damsel is next.),Background.jpg
+140,0,0,!PlayerIsHeroine,(She's watching the damsel.),Background.jpg
+150,0,0,PlayerIsHeroine,(The damsel is next.),Background.jpg
+150,0,0,!PlayerIsHeroine,(She's watching the damsel.),Background.jpg
+160,0,0,PlayerIsHeroine,(The damsel is next.),Background.jpg
+160,0,0,!PlayerIsHeroine,(She's watching the damsel.),Background.jpg
+200,0,0,PlayerIsHeroine,(The black knight is next.),Background.jpg
+200,0,0,!PlayerIsHeroine,(She's watching the black knight.),Background.jpg
+210,0,0,PlayerIsHeroine,(The black knight is next.),Background.jpg
+210,0,0,!PlayerIsHeroine,(She's watching the black knight.),Background.jpg
+220,0,0,PlayerIsHeroine,"(As the white knight,|this is your next line.)",Background.jpg
+220,0,0,!PlayerIsHeroine,(The white knight is about to talk.),Background.jpg
+230,0,0,PlayerIsHeroine,(The black knight is next.),Background.jpg
+230,0,0,!PlayerIsHeroine,(She's watching the black knight.),Background.jpg
+240,0,0,PlayerIsHeroine,"(As the white knight,|this is your next line.)",Background.jpg
+240,0,0,!PlayerIsHeroine,(The white knight is about to talk.),Background.jpg
+250,0,0,PlayerIsHeroine,(The damsel is next.),Background.jpg
+250,0,0,!PlayerIsHeroine,(She's watching the damsel.),Background.jpg
+270,0,0,PlayerIsHeroine,(The black knight is next.),Background.jpg
+270,0,0,!PlayerIsHeroine,(She's watching the black knight.),Background.jpg
+280,0,0,PlayerIsHeroine,(The damsel is next.),Background.jpg
+280,0,0,!PlayerIsHeroine,(She's watching the damsel.),Background.jpg
+300,0,0,PlayerIsHeroine,(The play is over),Background.jpg
+300,0,0,!PlayerIsHeroine,It was a fun play.,Background.jpg

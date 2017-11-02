@@ -7,7 +7,12 @@ function C008_DramaClass_Transition_Load() {
 	PlayerReleaseBondage();
 	ActorSpecificClearInventory("Amanda", true);
 	ActorSpecificClearInventory("Sarah", true);
+
+	// Sets the clothes depending on the role
 	PlayerClothes(C008_DramaClass_JuliaIntro_PlayerRole);
+	ActorSpecificSetCloth("Amanda", C008_DramaClass_JuliaIntro_AmandaRole);
+	ActorSpecificSetCloth("Sarah", C008_DramaClass_JuliaIntro_SarahRole);
+
 }
 
 // Chapter 8 - Transition Run
@@ -24,11 +29,10 @@ function C008_DramaClass_Transition_Run() {
 		
 	// Draw the outro text
 	DrawText(ctx, GetText(LateForDrama + "1"), 400, 150, "White");
-	if (TextPhase >= 1) DrawText(ctx, GetText(LateForDrama + "2"), 400, 250, "White");
-	if ((TextPhase >= 2) && (Common_PlayerCrime != "AmandaStranded") && (Common_PlayerCrime != "SarahStranded")) DrawText(ctx, GetText(LateForDrama + "3"), 400, 350, "White");
-	if ((TextPhase >= 2) && (Common_PlayerCrime == "AmandaStranded")) DrawText(ctx, GetText("Amanda"), 400, 350, "White");
-	if ((TextPhase >= 2) && (Common_PlayerCrime == "SarahStranded")) DrawText(ctx, GetText("Sarah"), 400, 350, "White");
-	if (TextPhase >= 3) DrawText(ctx, GetText(LateForDrama + "4"), 400, 450, "White");
+	if (TextPhase >= 1) DrawText(ctx, GetText(LateForDrama + "2"), 400, 300, "White");
+	if ((TextPhase >= 2) && (Common_PlayerCrime != "AmandaStranded") && (Common_PlayerCrime != "SarahStranded")) DrawText(ctx, GetText(LateForDrama + "3"), 400, 450, "White");
+	if ((TextPhase >= 2) && (Common_PlayerCrime == "AmandaStranded")) DrawText(ctx, GetText("Amanda"), 400, 450, "White");
+	if ((TextPhase >= 2) && (Common_PlayerCrime == "SarahStranded")) DrawText(ctx, GetText("Sarah"), 400, 450, "White");
 
 }
 
@@ -37,6 +41,6 @@ function C008_DramaClass_Transition_Click() {
 
 	// Jump to the next animation
 	TextPhase++;
-	//if (TextPhase >= 3) SaveMenu("C009", "Intro");
+	if (TextPhase >= 3) SetScene(CurrentChapter, "Julia");
 
 }

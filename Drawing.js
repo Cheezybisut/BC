@@ -283,9 +283,9 @@ function BuildBottomBar() {
 
 }
 
-// Draw the player image (can zoom if an X and Y are provided)
-function DrawPlayerImage(X, Y) {
-
+// Returns the name of the image file to use to draw the player
+function DrawGetPlayerImageName() {
+	
 	// Get the first part of the image
 	var ImageCloth = "Clothed";
 	if (Common_PlayerUnderwear) ImageCloth = "Underwear";
@@ -315,42 +315,64 @@ function DrawPlayerImage(X, Y) {
 	// Fifth part is the blindfold
 	var ImageBlindfold = "";	
     if (PlayerHasLockedInventory("Blindfold") == true) ImageBlindfold = "_Blindfold";
-	
-	// The image is created from all parts and can be zoomed
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	if ((X == 0) && (Y == 0)) DrawImage(ctx, "C999_Common/Player/" + ImageCloth + ImageBondage + ImageCollar + ImageGag + ImageBlindfold + ".jpg", 600, 0);
-	else DrawImageZoom(ctx, "C999_Common/Player/" + ImageCloth + ImageBondage + ImageCollar + ImageGag + ImageBlindfold + ".jpg", X, Y, 600, 600, 600, 0, 1200, 1200);
 
+	// Return the constructed name
+	return ImageCloth + ImageBondage + ImageCollar + ImageGag + ImageBlindfold;
+
+}
+
+// Draw the regular player image (600x600) (can zoom if an X and Y are provided)
+function DrawPlayerImage(X, Y) {
+	var ctx = document.getElementById("MainCanvas").getContext("2d");
+	if ((X == 0) && (Y == 0)) DrawImage(ctx, "C999_Common/Player/" + DrawGetPlayerImageName() + ".jpg", 600, 0);
+	else DrawImageZoom(ctx, "C999_Common/Player/" + DrawGetPlayerImageName() + ".jpg", X, Y, 600, 600, 600, 0, 1200, 1200);
+}
+
+// Draw the transparent player image (600x900) with a zoom if required
+function DrawTransparentPlayerImage(X, Y, Zoom) {
+	var ctx = document.getElementById("MainCanvas").getContext("2d");
+	DrawImageZoom(ctx, "Actors/Player/" + DrawGetPlayerImageName() + ".png", 0, 0, 600 / Zoom, 900 / Zoom, X, Y, 600, 900);	
 }
 
 // Draw the transparent actor over the current background
 function DrawActor(ActorToDraw, X, Y, Zoom) {
+	
+	// Validate first if we must draw the transparent player image
+	if (ActorToDraw == "Player") {
+		DrawTransparentPlayerImage(X, Y, Zoom);		
+	} else {
 
-	// First, we retrieve the current clothes
-	var ImageCloth = ActorSpecificGetValue(ActorToDraw, ActorCloth);
-	if (ImageCloth == "") ImageCloth = "Clothed";
-	if (((ImageCloth == "Underwear") || (ImageCloth == "Naked")) && ActorSpecificHasInventory(ActorToDraw, "ChastityBelt")) ImageCloth = "ChastityBelt";
-	
-	// Second part is the type of bondage
-	var ImageBondage = "_NoBondage";	
-	if (ActorSpecificHasInventory(ActorToDraw, "Cuffs")) ImageBondage = "_Cuffs";
-	if (ActorSpecificHasInventory(ActorToDraw, "Rope")) ImageBondage = "_Rope";
-	if (ActorSpecificHasInventory(ActorToDraw, "TwoRopes")) ImageBondage = "_TwoRopes";
-	
-	// Third part is the gag
-	var ImageGag = "_NoGag";
-	if (ActorSpecificHasInventory(ActorToDraw, "BallGag")) ImageGag = "_BallGag";
-	if (ActorSpecificHasInventory(ActorToDraw, "TapeGag")) ImageGag = "_TapeGag";
-	if (ActorSpecificHasInventory(ActorToDraw, "ClothGag")) ImageGag = "_ClothGag";
-	
-	// Draw the full image from all parts
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawImageZoom(ctx, "Actors/" + ActorToDraw + "/" + ImageCloth + ImageBondage + ImageGag + ".png", 0, 0, 600 / Zoom, 900 / Zoom, X, Y, 600, 900);
+		// First, we retrieve the current clothes
+		var ImageCloth = ActorSpecificGetValue(ActorToDraw, ActorCloth);
+		if (ImageCloth == "") ImageCloth = "Clothed";
+		if (((ImageCloth == "Underwear") || (ImageCloth == "Naked")) && ActorSpecificHasInventory(ActorToDraw, "ChastityBelt")) ImageCloth = "ChastityBelt";
+
+		// Second part is the type of bondage
+		var ImageBondage = "_NoBondage";	
+		if (ActorSpecificHasInventory(ActorToDraw, "Cuffs")) ImageBondage = "_Cuffs";
+		if (ActorSpecificHasInventory(ActorToDraw, "Rope")) ImageBondage = "_Rope";
+		if (ActorSpecificHasInventory(ActorToDraw, "TwoRopes")) ImageBondage = "_TwoRopes";
+
+		// Third part is the gag
+		var ImageGag = "_NoGag";
+		if (ActorSpecificHasInventory(ActorToDraw, "BallGag")) ImageGag = "_BallGag";
+		if (ActorSpecificHasInventory(ActorToDraw, "TapeGag")) ImageGag = "_TapeGag";
+		if (ActorSpecificHasInventory(ActorToDraw, "ClothGag")) ImageGag = "_ClothGag";
+
+		// Draw the full image from all parts
+		var ctx = document.getElementById("MainCanvas").getContext("2d");
+		DrawImageZoom(ctx, "Actors/" + ActorToDraw + "/" + ImageCloth + ImageBondage + ImageGag + ".png", 0, 0, 600 / Zoom, 900 / Zoom, X, Y, 600, 900);
+		
+	}
 
 }
 
-// Draw the current interaction actor
+// Draw the current interaction actor (if there's no actor, we draw the player)
 function DrawInteractionActor() {
-	if (ActorHasInventory("TwoRopes")) DrawActor(CurrentActor, 600, -250, 1);
-	else DrawActor(CurrentActor, 600, 0, 1);
+	if (CurrentActor == "") {
+		DrawTransparentPlayerImage(600, 0, 1);
+	} else {
+		if (ActorHasInventory("TwoRopes")) DrawActor(CurrentActor, 600, -250, 1);
+		else DrawActor(CurrentActor, 600, 0, 1);
+	}
 }

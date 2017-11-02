@@ -1,0 +1,18 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+110,0,0,PlayerIsVillain,Her heart had beaten|thy true loveth.,"The hero steps forward and answers:|""Foul tongue, liberate with haste.""",130,0,0,"GlobalStage(130, 1, 0)"
+110,0,0,PlayerIsVillain,Her heart is beating|for her true love.,"The white knight answers in confusion:|""Foul mouth, liberate her now!""",130,0,0,"GlobalStage(130, -1, 0)"
+110,0,0,PlayerIsVillain,Sorry Julia.|I forgot my line.,"Julia whispers: ""Her heart had beaten thy true loveth.""",110,0,0,ForgetLine()
+110,0,0,!PlayerIsVillain,(Listen quietly.),"The black knight takes a pose and says:|""Her heart had beaten thy true loveth.""",120,0,0,"GlobalStage(120, 0, 0)"
+110,0,0,!PlayerIsVillain,(Snap your fingers|with impatience.),"The black knight quickly jumps in and says:|""Her heart had beaten thy true loveth.""",120,0,0,"GlobalStage(120, 0, 1)"
+130,0,0,PlayerIsVillain,Step forward and|you will get steel.,Both knights stare at each other|while the damsel takes the stage.,140,0,0,"GlobalStage(130, -1, 0)"
+130,0,0,PlayerIsVillain,Step furth'r and|steel awaits thee.,Both knights stare at each other|while the damsel takes the stage.,140,0,0,"GlobalStage(130, 1, 0)"
+130,0,0,PlayerIsVillain,Sorry Julia.|I forgot my line.,"Julia whispers: ""Step furth'r and steel awaits thee.""",130,0,0,ForgetLine()
+130,0,0,!PlayerIsVillain,(Listen quietly.),"The black knight gives a menacing look and says:|""Step furth'r and steel awaits thee.""",140,0,0,"GlobalStage(140, 0, 0)"
+130,0,0,!PlayerIsVillain,(Snap your fingers|with impatience.),"The black knight quickly answers:|""Step furth'r and steel awaits thee.""",140,0,0,"GlobalStage(140, 0, 1)"
+130,0,0,!PlayerIsVillain,(Make some silly|faces to distract her.),"The black knight giggles and answers:|""Step furth'r and steel will wait.""",140,0,0,"GlobalStage(140, -1, 0)"
+200,0,0,PlayerIsVillain,"Hero!  Thou hast her|heart, flesh is mine.","The hero gets her sword and yells:|""So fate chooseth steel, en garde!""",230,0,0,"GlobalStage(230, 1, 0)"
+200,0,0,PlayerIsVillain,Hero!  You have her|heart but I have her body.,"The hero fumbles with her sword and says:|""So destiny has choosen steel, en garde!""",230,0,0,"GlobalStage(230, -1, 0)"
+200,0,0,PlayerIsVillain,Sorry Julia.|I forgot my line.,"Julia whispers: ""So fate chooseth steel, en garde!""",200,0,0,ForgetLine()
+200,0,0,!PlayerIsVillain,(Listen quietly.),"The black knight grabs the damsel and says:|""Hero!  Thou hast her heart, flesh is mine.""",220,0,0,"GlobalStage(220, 0, 0)"
+200,0,0,!PlayerIsVillain,(Applaud lightly.),"The black knight grabs the damsel and says:|""Hero!  Thou hast her heart, flesh is mine.""",220,0,0,"GlobalStage(220, 1, 0)"
+200,0,0,!PlayerIsVillain,(Yawn in boredom.),"The black knight grabs the damsel and says:|""Hero!  Thou hast her heart, flesh is mine.""",220,0,0,"GlobalStage(220, -1, 0)"
