@@ -57,7 +57,7 @@ function C008_DramaClass_Damsel_GlobalStage(GlobalStage, LoveMod, SubMod) {
 		PlayerClothes("Underwear");
 		PlayerLockInventory("Rope");
 		PlayerLockInventory("ClothGag");
-		OverridentIntroText = GetText("AmandaRestrainPlayer");
+		OverridenIntroText = GetText("AmandaRestrainPlayer");
 	}
 
 }
@@ -86,15 +86,15 @@ function C008_DramaClass_Damsel_SarahChooseKnight() {
 			ActorSetCloth("Underwear");
 			ActorAddInventory("Rope");
 			ActorAddInventory("ClothGag");
-			OverridentIntroText = GetText("SarahChooseWhiteKnightRestrained");
-		} else OverridentIntroText = GetText("SarahChooseWhiteKnight");
+			OverridenIntroText = GetText("SarahChooseWhiteKnightRestrained");
+		} else OverridenIntroText = GetText("SarahChooseWhiteKnight");
 
 	} else {
 
 		// Stage 210 means the villain was selected
 		C008_DramaClass_Damsel_CurrentStage = 210;
 		C008_DramaClass_Theater_GlobalStage = 210;
-		OverridentIntroText = GetText("SarahChooseBlackKnight");
+		OverridenIntroText = GetText("SarahChooseBlackKnight");
 
 	}
 

@@ -85,6 +85,11 @@ function LoadState(SlotNumber) {
 			Common_PlayerCrime = localStorage.getItem("Common_PlayerCrime" + SN);
 			LoadRestrainStatus();
 			SetScene(CurrentChapter, CurrentScreen);
+			
+			// Fix to make old save games from version 8A compatible (adds the actor pose)
+			for (var A = 0; A < Actor.length; A++)
+				if (Actor[A].length == 8)
+					Actor[A] = [Actor[A][0], Actor[A][1], Actor[A][2], Actor[A][3], Actor[A][4], Actor[A][5], Actor[A][6], Actor[A][7], ""];
 
 		}
 

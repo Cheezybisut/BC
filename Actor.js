@@ -9,6 +9,7 @@ var ActorOrgasmCount = 4;
 var ActorBondageCount = 5;
 var ActorLastBondageChapter = 6;
 var ActorCloth = 7;
+var ActorPose = 8;
 
 // Make sure the current actor is loaded (create it if not)
 function ActorLoad(ActorToLoad, ActorLeaveScreen) {
@@ -22,7 +23,7 @@ function ActorLoad(ActorToLoad, ActorLeaveScreen) {
 	for (var L = 0; L < Actor.length; L++)
 		if (Actor[L][ActorName] == ActorToLoad)
 			return;
-	Actor[Actor.length] = [ActorToLoad, 0, 0, [], 0, 0, "", "Clothed"];
+	Actor[Actor.length] = [ActorToLoad, 0, 0, [], 0, 0, "", "Clothed", ""];
 	
 }
 

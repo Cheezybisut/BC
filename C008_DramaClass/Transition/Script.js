@@ -10,8 +10,11 @@ function C008_DramaClass_Transition_Load() {
 
 	// Sets the clothes depending on the role
 	PlayerClothes(C008_DramaClass_JuliaIntro_PlayerRole);
+	ActorLoad("Amanda", "");
 	ActorSpecificSetCloth("Amanda", C008_DramaClass_JuliaIntro_AmandaRole);
+	ActorLoad("Sarah", "");
 	ActorSpecificSetCloth("Sarah", C008_DramaClass_JuliaIntro_SarahRole);
+	LeaveIcon = "";
 
 }
 

@@ -316,8 +316,12 @@ function DrawGetPlayerImageName() {
 	var ImageBlindfold = "";	
     if (PlayerHasLockedInventory("Blindfold") == true) ImageBlindfold = "_Blindfold";
 
+	// Sixth part is the pose
+	var ImagePose = "";
+    if (Common_PlayerPose != "") ImagePose = "_" & Common_PlayerPose;
+
 	// Return the constructed name
-	return ImageCloth + ImageBondage + ImageCollar + ImageGag + ImageBlindfold;
+	return ImageCloth + ImageBondage + ImageCollar + ImageGag + ImageBlindfold + ImagePose;
 
 }
 
@@ -359,9 +363,13 @@ function DrawActor(ActorToDraw, X, Y, Zoom) {
 		if (ActorSpecificHasInventory(ActorToDraw, "TapeGag")) ImageGag = "_TapeGag";
 		if (ActorSpecificHasInventory(ActorToDraw, "ClothGag")) ImageGag = "_ClothGag";
 
+		// Fourth part is the pose
+		var ImagePose = "";
+		if (ActorSpecificGetValue(ActorToDraw, ActorPose) != "") ImagePose = "_" + ActorSpecificGetValue(ActorToDraw, ActorPose);
+
 		// Draw the full image from all parts
 		var ctx = document.getElementById("MainCanvas").getContext("2d");
-		DrawImageZoom(ctx, "Actors/" + ActorToDraw + "/" + ImageCloth + ImageBondage + ImageGag + ".png", 0, 0, 600 / Zoom, 900 / Zoom, X, Y, 600, 900);
+		DrawImageZoom(ctx, "Actors/" + ActorToDraw + "/" + ImageCloth + ImageBondage + ImageGag + ImagePose + ".png", 0, 0, 600 / Zoom, 900 / Zoom, X, Y, 600, 900);
 		
 	}
 
