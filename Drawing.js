@@ -318,7 +318,7 @@ function DrawGetPlayerImageName() {
 
 	// Sixth part is the pose
 	var ImagePose = "";
-    if (Common_PlayerPose != "") ImagePose = "_" & Common_PlayerPose;
+    if (Common_PlayerPose != "") ImagePose = "_" + Common_PlayerPose;
 
 	// Return the constructed name
 	return ImageCloth + ImageBondage + ImageCollar + ImageGag + ImageBlindfold + ImagePose;

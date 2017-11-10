@@ -22,13 +22,33 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 210,0,0,!PlayerIsVillain,(Listen quietly.),"The black knight looks at the damsel and says:|""Hero!  Concede thine defeat, she's mine.""",220,0,0,"GlobalStage(220, 0, 0)"
 210,0,0,!PlayerIsVillain,(Applaud lightly.),"The black knight looks at the damsel and says:|""Hero!  Concede thine defeat, she's mine.""",220,1,0,"GlobalStage(220, 1, 0)"
 210,0,0,!PlayerIsVillain,(Yawn in boredom.),"The black knight looks at the damsel and says:|""Hero!  Concede thine defeat, she's mine.""",220,-1,0,"GlobalStage(220, -1, 0)"
-230,0,0,PlayerIsVillain,En garde!|(Do a sword fight.),,230,0,0,StartFight()
+230,0,0,PlayerIsVillain,En garde!|(Do a sword fight.),You charge each other and start|a funny but intense sword fight.,235,0,0,NoLeave()
 230,0,0,PlayerIsVillain,"Don't attack, I yield.|(Surrender without a fight.)",You drop your sword and the white|knight steps forward with a grin.,240,0,0,Surrender()
-230,0,0,PlayerIsHeroine,(Do a sword fight.),,230,0,0,StartFight()
+230,0,0,PlayerIsHeroine,(Do a sword fight.),You charge each other and start|a funny but intense sword fight.,235,0,0,NoLeave()
 230,0,0,PlayerIsHeroine,(Surrender without a fight.),You drop your sword and the black|knight steps forward with a grin.,270,0,0,Surrender()
 230,0,0,PlayerIsDamsel,(Watch the fight.),Both knights charge on each other and|engage in a pretty neat sword fight.,235,0,0,NoLeave()
-235,0,0,,Hurray for thy|white champion!,,235,0,0,AmandaSarahFight(-4)
-235,0,0,,Hurray for thy|black champion!,,235,0,0,AmandaSarahFight(4)
-235,0,0,,Go Amanda!,,235,0,0,AmandaSarahFight(2)
-235,0,0,,Go Sarah!,,235,0,0,AmandaSarahFight(-2)
-235,0,0,,(Stay silent and|watch the fight.),,235,0,0,AmandaSarahFight(0)
+235,0,0,CanIntimidate,(Intimidate her.)|(1 minute),You give a menacing look to Amanda which|barely fights and lets you disarm her.,270,0,0,"GlobalStage(270, 0, 1)"
+235,0,0,CanDisarm,(Disarm her.)|(1 minute),Amanda puts a pretty nice fight but|you're able to win by disarming her.,270,0,0,"GlobalStage(270, 0, 0)"
+235,0,0,PlayerIsVillain,(Play defensive.)|(1 minute),You stick to defensive moves and Amanda|takes advatange of it to disarm you.,240,0,0,"GlobalStage(240, 0, 0)"
+235,0,0,PlayerIsVillain,(Let Amanda win.)|(1 minute),You don't put much of a fight|and Amanda easily disarms you.,240,0,0,"GlobalStage(240, 0, -1)"
+235,0,10,PlayerIsHeroine,(Intimidate her.)|(1 minute),You give a menacing look to Amanda which|barely fights and lets you disarm her.,240,0,0,"GlobalStage(240, 0, 1)"
+235,0,2,PlayerIsHeroine,(Disarm her.)|(1 minute),Amanda puts a pretty nice fight but|you're able to win by disarming her.,240,0,0,"GlobalStage(240, 0, 0)"
+235,0,0,PlayerIsHeroine,(Play defensive.)|(1 minute),You stick to defensive moves and Amanda|takes advatange of it to disarm you.,270,0,0,"GlobalStage(270, 0, 0)"
+235,0,0,PlayerIsHeroine,(Let Amanda win.)|(1 minute),You don't put much of a fight|and Amanda easily disarms you.,270,0,0,"GlobalStage(270, 0, -1)"
+235,0,0,PlayerIsDamsel,Hurray for thy|white champion!,,235,0,0,AmandaSarahFight(-4)
+235,0,0,PlayerIsDamsel,Hurray for thy|black champion!,,235,0,0,AmandaSarahFight(4)
+235,0,0,PlayerIsDamsel,Go Amanda!,,235,0,0,AmandaSarahFight(2)
+235,0,0,PlayerIsDamsel,Go Sarah!,,235,0,0,AmandaSarahFight(-2)
+235,0,0,PlayerIsDamsel,(Stay silent and|watch the fight.),,235,0,0,AmandaSarahFight(0)
+270,0,0,PlayerIsVillain,You're my prisoner.|(Restrain her.) (1 minute),You strip the white knight from her armor and|restrain her with items from the theater.,280,0,0,"GlobalStage(280, -1, 0)"
+270,0,0,PlayerIsVillain,Thou art mine prisoner.|(Restrain her.) (1 minute),You strip the white knight from her armor and|restrain her with items from the theater.,280,0,0,"GlobalStage(280, 1, 0)"
+270,0,0,PlayerIsVillain,Sorry Julia.|I forgot my line.,"Julia whispers to you:|""Thou art mine prisoner.""",270,0,0,ForgetLine()
+270,0,0,PlayerIsHeroine,(Stay silent.)|(1 minute),"The black knight strips and restrains you|while saying: ""Thou art mine prisoner.""",280,0,0,"GlobalStage(280, 0, 0)"
+270,0,0,PlayerIsHeroine,(Bow to the black|knight.) (1 minute),"The black knight strips and restrains you|while saying: ""Thou art mine prisoner.""",280,0,-1,"GlobalStage(280, 0, -1)"
+270,0,0,PlayerIsHeroine,Booooooo!|(1 minute),"The black knight strips and restrains you|while saying: ""Thou art mine prisoner.""",280,-1,0,"GlobalStage(280, -1, 0)"
+270,0,0,PlayerIsDamsel,(Watch the scene.)|(1 minute),"The villain strips and restrains the heroine|while saying: ""Thou art mine prisoner.""",280,0,0,"GlobalStage(280, 0, 0)"
+270,0,0,PlayerIsDamsel,(Cheer for the villain.)|(1 minute),"The villain strips and restrains the heroine|while saying: ""Thou art mine prisoner.""",280,1,0,"GlobalStage(280, 1, 0)"
+280,0,0,Common_PlayerGagged,@Eeengn em!,Amanda smiles and tries not to|laugh at your gagged mumblings.,280,0,0,
+280,10,0,PlayerIsDamsel,(Go kiss her.)|(1 minute),You rush into her arms and|you both kiss for the final act.,290,0,0,FinalKiss()
+280,0,-5,PlayerIsDamsel,(Kneel for her.)|(1 minute),You bow and kneel for the black knight.|Hugging her legs gently for the final act.,290,0,0,FinalDomme()
+280,0,0,PlayerIsDamsel,(Go hug her.)|(1 minute),You go in her arms and|you hug for the final act.,290,0,0,FinalHug()

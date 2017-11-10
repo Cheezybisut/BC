@@ -24,10 +24,15 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 240,0,0,PlayerIsDamsel,(The white knight is next.),Background.jpg
 240,0,0,!PlayerIsDamsel,(She's watching the white knight.),Background.jpg
 250,0,0,PlayerIsDamsel,"(As the damsel, this is your line.)",Background.jpg
-250,0,0,!PlayerIsDamsel,(She's about to say her line.),Background.jpg
+250,0,0,!PlayerIsDamsel,(She's ready for the final act.),Background.jpg
+255,0,0,,(She's ready for the final act.),Background.jpg
+260,0,0,,,Background.jpg
 270,0,0,PlayerIsDamsel,(The black knight is next.),Background.jpg
 270,0,0,!PlayerIsDamsel,(She's watching the black knight.),Background.jpg
 280,0,0,PlayerIsDamsel,"(As the damsel, this is your line.)",Background.jpg
-280,0,0,!PlayerIsDamsel,(She's about to say her line.),Background.jpg
+280,0,0,!PlayerIsDamsel,(She's ready for the final act.),Background.jpg
+285,0,0,,(She's ready for the final act.),Background.jpg
+290,0,0,,,Background.jpg
+300,0,0,!PlayerIsDamsel,It was a fun play.  I really|enjoyed being the damsel.,Background.jpg
+300,0,0,IsGagged,(She hums a happy song in her gag.),Background.jpg
 300,0,0,PlayerIsDamsel,(The play is over.),Background.jpg
-300,0,0,!PlayerIsDamsel,It was a fun play.,Background.jpg

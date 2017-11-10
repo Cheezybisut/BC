@@ -3,6 +3,10 @@ var C008_DramaClass_Julia_IsDamsel = false;
 var C008_DramaClass_Julia_IsHeroine = false;
 var C008_DramaClass_Julia_IsVillain = false;
 var C008_DramaClass_Julia_ScriptRefused = false;
+var C008_DramaClass_Julia_EndingKiss = false;
+var C008_DramaClass_Julia_EndingHug = false;
+var C008_DramaClass_Julia_EndingDomme = false;
+var C008_DramaClass_Julia_EndingTwoPrisoners = false;
 
 // Chapter 8 - Julia Load
 function C008_DramaClass_Julia_Load() {
@@ -22,6 +26,12 @@ function C008_DramaClass_Julia_Load() {
 	C008_DramaClass_Julia_IsDamsel = (C008_DramaClass_JuliaIntro_PlayerRole == "Damsel");
 	C008_DramaClass_Julia_IsHeroine = (C008_DramaClass_JuliaIntro_PlayerRole == "Heroine");
 	C008_DramaClass_Julia_IsVillain = (C008_DramaClass_JuliaIntro_PlayerRole == "Villain");
+	
+	// Keep the ending type
+	C008_DramaClass_Julia_EndingKiss = (C008_DramaClass_Theater_Ending == "Kiss");
+	C008_DramaClass_Julia_EndingHug = (C008_DramaClass_Theater_Ending == "Hug");
+	C008_DramaClass_Julia_EndingDomme = (C008_DramaClass_Theater_Ending == "Domme");
+	C008_DramaClass_Julia_EndingTwoPrisoners = (C008_DramaClass_Theater_Ending == "TwoPrisoners");
 
 }
 

@@ -10,9 +10,22 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 120,0,0,!PlayerIsHeroine,(Listen quietly.),"The white knight takes a stand and says:|""Foul tongue, liberate with haste.""",130,0,0,"GlobalStage(130, 0, 0)"
 120,0,0,!PlayerIsHeroine,(Snap your fingers|with impatience.),"The white knight quickly says:|""Foul tongue, liberate with haste.""",130,0,0,"GlobalStage(130, 0, 1)"
 120,0,0,!PlayerIsHeroine,(Make some silly|faces to distract her.),"The white knight laughs and says:|""Foul mouth, liberate her now.""",130,0,0,"GlobalStage(130, -1, 0)"
-220,0,0,PlayerIsHeroine,"So fate chosen|metal, en garde!",Amanda unsheathes her|sword and steps forward.,230,0,0,"GlobalStage(230, -1, 0)"
-220,0,0,PlayerIsHeroine,"So fate chooseth|steel, en garde!",Amanda unsheathes her|sword and steps forward.,230,0,0,"GlobalStage(230, 1, 0)"
+220,0,0,PlayerIsHeroine,"So fate chosen|metal, en garde!",You simultaneously unsheathe your|swords and take a step forward.,230,0,0,"GlobalStage(230, -1, 0)"
+220,0,0,PlayerIsHeroine,"So fate chooseth|steel, en garde!",You simultaneously unsheathe your|swords and take a step forward.,230,0,0,"GlobalStage(230, 1, 0)"
 220,0,0,PlayerIsHeroine,Sorry Julia.|I forgot my line.,"Julia whispers to you:|""So fate chooseth steel, en garde!""",220,0,0,ForgetLine()
+220,0,0,VillainCanTaunt,The bound damsel|is anon mineth.,"Amanda angrily grabs her sword and says:|""So fate chooseth steel, en garde!""",230,0,1,"GlobalStage(230, 0, 1)"
 220,0,0,!PlayerIsHeroine,(Listen quietly.),"The white knight grabs her sword and says:|""So fate chooseth steel, en garde!""",230,0,0,"GlobalStage(230, 0, 0)"
 220,0,0,!PlayerIsHeroine,(Yawn in boredom.),"The white knight grabs her sword and says:|""So fate chooseth steel, en garde!""",230,0,0,"GlobalStage(230, -1, 0)"
 220,0,0,!PlayerIsHeroine,(Applaud lightly.),"The white knight grabs her sword and says:|""So fate chooseth steel, en garde!""",230,0,0,"GlobalStage(230, 1, 0)"
+240,0,0,PlayerIsHeroine,Law shalt judgeth thee.|(Restrain her) (1 minute),You pick a few items from the theater|and restrain Amanda the black knight.,250,0,0,"GlobalStage(250, 1, 0)"
+240,0,0,PlayerIsHeroine,You will be judged.|(Restrain her) (1 minute),You pick a few items from the theater|and restrain Amanda the black knight.,250,0,0,"GlobalStage(250, -1, 0)"
+240,0,0,PlayerIsHeroine,Sorry Julia.|I forgot my line.,"Julia whispers to you:|""Law shalt judgeth thee.""",240,0,0,ForgetLine()
+240,0,0,PlayerIsVillain,(Listen quietly.)|(1 minute),"The white knight strips and restrains you|while saying: ""Law shalt judgeth thee.""",250,0,0,"GlobalStage(250, 0, 0)"
+240,0,0,PlayerIsVillain,(Bow to the white|knight.) (1 minute),"The white knight strips and restrains you|while saying: ""Law shalt judgeth thee.""",250,0,-1,"GlobalStage(250, 0, -1)"
+240,0,0,PlayerIsVillain,That sucks!|(1 minute),"The white knight strips and restrains you|while saying: ""Law shalt judgeth thee.""",250,-1,0,"GlobalStage(250, -1, 0)"
+240,0,0,PlayerIsDamsel,(Watch the scene.)|(1 minute),"The heroine strips and restrains the villain|while saying: ""Law shalt judgeth thee.""",250,0,0,"GlobalStage(250, 0, 0)"
+240,0,0,PlayerIsDamsel,(Cheer for the heroine.)|(1 minute),"The heroine strips and restrains the villain|while saying: ""Law shalt judgeth thee.""",250,1,0,"GlobalStage(250, 1, 0)"
+250,0,0,Common_PlayerGagged,@Mng nuuum!,Amanda giggles a little at your gagged|mumblings but stays focused on her role.,250,0,0,
+250,10,0,PlayerIsDamsel,(Rush to kiss her.)|(1 minute),You rush into her arms and you|both kiss tenderly for the final act.,260,0,0,FinalKiss()
+250,0,-5,PlayerIsDamsel,(Kneel for her.)|(1 minute),You bow and kneel for the white knight.|Hugging her legs lovingly for the final act.,260,0,0,FinalDomme()
+250,0,0,PlayerIsDamsel,(Go hug her.)|(1 minute),You go in her arms and|you hug for the final act.,260,0,0,FinalHug()

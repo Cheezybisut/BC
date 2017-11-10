@@ -137,12 +137,11 @@ function ActorRemoveInventory(RemInventory) {
 function ActorHasInventory(QueryInventory) {
 
 	// Cycles to find the correct actor and checks if the inventory is in the list
-	var HasInv = false;
 	for (var A = 0; A < Actor.length; A++)
 		if (Actor[A][ActorName] == CurrentActor)
 			if (Actor[A][ActorInventory].indexOf(QueryInventory) >= 0)
-				HasInv = true;
-	return HasInv;
+				return true;
+	return false;
 
 }
 
@@ -160,19 +159,50 @@ function ActorSpecificSetCloth(SpecificActor, NewCloth) {
 			Actor[A][ActorCloth] = NewCloth;
 }
 
-// Returns true if the actor is restrained
+// Sets the pose for a specified actor (also works for the player if needed)
+function ActorSpecificSetPose(SpecificActor, NewPose) {
+	if (SpecificActor == "Player") {
+		Common_PlayerPose = NewPose;
+	} else {
+		for (var A = 0; A < Actor.length; A++)
+			if (Actor[A][ActorName] == SpecificActor)
+				Actor[A][ActorPose] = NewPose;
+	}
+}
+
+// Returns TRUE if the actor (or player) is in visible bondage
+function ActorSpecificInBondage(SpecificActor) {
+	if (SpecificActor == "Player") {
+		return (Common_PlayerRestrained || Common_PlayerGagged);
+	} else {
+		for (var A = 0; A < Actor.length; A++)
+			if (Actor[A][ActorName] == SpecificActor)
+				return (ActorSpecificHasInventory(SpecificActor, "Rope") || ActorSpecificHasInventory(SpecificActor, "TwoRopes") || ActorSpecificHasInventory(SpecificActor, "Cuffs") || ActorSpecificHasInventory(SpecificActor, "BallGag") || ActorSpecificHasInventory(SpecificActor, "TapeGag") || ActorSpecificHasInventory(SpecificActor, "ClothGag"));
+	}
+}
+
+// Returns true if the actor is restrained (if there's no actor, we return the player status)
 function ActorIsRestrained() {
-	return (ActorHasInventory("Rope") || ActorHasInventory("TwoRopes") || ActorHasInventory("Cuffs"));
+	if (CurrentActor == "")
+		return Common_PlayerRestrained;
+	else
+		return (ActorHasInventory("Rope") || ActorHasInventory("TwoRopes") || ActorHasInventory("Cuffs"));
 }
 
-// Returns true if the actor is gagged
+// Returns true if the actor is gagged (if there's no actor, we return the player status)
 function ActorIsGagged() {
-	return (ActorHasInventory("BallGag") || ActorHasInventory("TapeGag") || ActorHasInventory("ClothGag"));
+	if (CurrentActor == "")
+		return Common_PlayerGagged;
+	else
+		return (ActorHasInventory("BallGag") || ActorHasInventory("TapeGag") || ActorHasInventory("ClothGag"));
 }
 
-// Returns true if the actor is chaste
+// Returns true if the actor is chaste (if there's no actor, we return the player status)
 function ActorIsChaste() {
-	return (ActorHasInventory("ChastityBelt"));
+	if (CurrentActor == "")
+		return Common_PlayerChaste;
+	else
+		return (ActorHasInventory("ChastityBelt"));
 }
 
 // Unties the actor and returns the rope to the player
@@ -251,12 +281,11 @@ function ActorApplyRestrain(RestrainName) {
 function ActorSpecificHasInventory(QueryActor, QueryInventory) {
 
 	// Cycles to find the correct actor and checks if the inventory is in the list
-	var HasInv = false;
 	for (var A = 0; A < Actor.length; A++)
 		if (Actor[A][ActorName] == QueryActor)
 			if (Actor[A][ActorInventory].indexOf(QueryInventory) >= 0)
-				HasInv = true;
-	return HasInv;
+				return true;
+	return false;
 
 }
 

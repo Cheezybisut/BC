@@ -34,6 +34,7 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 270,0,0,!IsVillain,(She looks at the black knight.),JuliaLookAway.jpg
 280,0,0,IsDamsel,(She whispers to you.)  Don't look at me.|This is your time to shine like a star.,JuliaLookPlayer.jpg
 280,0,0,!IsDamsel,(She looks at the damsel.),JuliaLookAway.jpg
-300,0,0,IsDamsel,Bravo!  Bravo!  Bravisimo!|You were a great damsel.,Background.jpg
-300,0,0,IsHeroine,Bravo!  Bravo!  Bravisimo!|You were a great white knight.,Background.jpg
-300,0,0,IsVillain,Bravo!  Bravo!  Bravisimo!|You were a great black knight.,Background.jpg
+300,0,0,EndingKiss,Bravo!  Bravo!  Bravisimo!|What a wonderful final kiss!,Background.jpg
+300,0,0,EndingHug,Bravo!  Mille Bravo!|And what a nice hug at the end.,Background.jpg
+300,0,0,EndingDomme,Bravo!  The dominant ending was|unexpected but theater can be chaotic.,Background.jpg
+300,0,0,EndingTwoPrisoners,Bravo!  The ending with the two prisoners|was unexpected but theater can be chaotic.,Background.jpg
