@@ -39,13 +39,16 @@ function C008_DramaClass_Theater_SetPose() {
 		if (C008_DramaClass_Theater_Villain == "Player") {
 			PlayerClothes("Underwear");
 			PlayerLockInventory("Rope");
-			PlayerLockInventory("ClothGag");			
+			PlayerLockInventory("ClothGag");
 		} else {
 			CurrentActor = C008_DramaClass_Theater_Villain;
 			ActorSetCloth("Underwear");
 			ActorAddInventory("Rope");
 			ActorAddInventory("ClothGag");
-		}		
+		}
+		C008_DramaClass_Heroine_CurrentStage = 251;
+		C008_DramaClass_Villain_CurrentStage = 251;
+		C008_DramaClass_Damsel_CurrentStage = 251;
 	}
 
 	// If the heroine must be tied up
@@ -53,13 +56,16 @@ function C008_DramaClass_Theater_SetPose() {
 		if (C008_DramaClass_Theater_Heroine == "Player") {
 			PlayerClothes("Underwear");
 			PlayerLockInventory("Rope");
-			PlayerLockInventory("ClothGag");			
+			PlayerLockInventory("ClothGag");
 		} else {
 			CurrentActor = C008_DramaClass_Theater_Heroine;
 			ActorSetCloth("Underwear");
 			ActorAddInventory("Rope");
 			ActorAddInventory("ClothGag");
-		}		
+		}
+		C008_DramaClass_Heroine_CurrentStage = 251;
+		C008_DramaClass_Villain_CurrentStage = 251;
+		C008_DramaClass_Damsel_CurrentStage = 251;
 	}
 	
 	// Assign the heroine pose depending on the stage
@@ -99,7 +105,7 @@ function C008_DramaClass_Theater_Load() {
 	if (C008_DramaClass_JuliaIntro_PlayerRole == "Heroine") C008_DramaClass_Theater_Heroine = "Player";
 	if (C008_DramaClass_JuliaIntro_SarahRole == "Heroine") C008_DramaClass_Theater_Heroine = "Sarah";
 	if (C008_DramaClass_JuliaIntro_AmandaRole == "Heroine") C008_DramaClass_Theater_Heroine = "Amanda";
-	Common_SelfBondageAllowed = (C008_DramaClass_Theater_GlobalStage >= 300);
+	Common_SelfBondageAllowed = (C008_DramaClass_Theater_GlobalStage >= 350);
 	C008_DramaClass_Theater_SetPose();
 	
 }

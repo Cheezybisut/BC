@@ -7,6 +7,7 @@ var C008_DramaClass_Julia_EndingKiss = false;
 var C008_DramaClass_Julia_EndingHug = false;
 var C008_DramaClass_Julia_EndingDomme = false;
 var C008_DramaClass_Julia_EndingTwoPrisoners = false;
+var C008_DramaClass_Julia_EndingTrio = false;
 
 // Chapter 8 - Julia Load
 function C008_DramaClass_Julia_Load() {
@@ -15,7 +16,7 @@ function C008_DramaClass_Julia_Load() {
 	StartTimer(14 * 60 * 60 * 1000, "C008_DramaClass", "Outro");
 
 	// Load the scene parameters
-	C008_DramaClass_Julia_CurrentStage = C008_DramaClass_Theater_GlobalStage;
+	if (C008_DramaClass_Julia_CurrentStage < 300) C008_DramaClass_Julia_CurrentStage = C008_DramaClass_Theater_GlobalStage;
 	ActorLoad("Julia", "Theater");
 	LoadInteractions();
 	
@@ -32,6 +33,7 @@ function C008_DramaClass_Julia_Load() {
 	C008_DramaClass_Julia_EndingHug = (C008_DramaClass_Theater_Ending == "Hug");
 	C008_DramaClass_Julia_EndingDomme = (C008_DramaClass_Theater_Ending == "Domme");
 	C008_DramaClass_Julia_EndingTwoPrisoners = (C008_DramaClass_Theater_Ending == "TwoPrisoners");
+	C008_DramaClass_Julia_EndingTrio = (C008_DramaClass_Theater_Ending == "Trio");
 
 }
 
@@ -56,4 +58,23 @@ function C008_DramaClass_Julia_RefuseScript() {
 function C008_DramaClass_Julia_StartDrama() {
 	C008_DramaClass_Theater_GlobalStage = 100;
 	SetScene(CurrentChapter, "Theater");
+}
+
+// Chapter 8 - Julia - Julia will always release the player at the end of the play
+function C008_DramaClass_Julia_ReleasePlayer() {
+	PlayerClothes(C008_DramaClass_JuliaIntro_PlayerRole);
+	PlayerUnlockInventory("Rope");
+	PlayerUnlockInventory("ClothGag");
+}
+
+// Chapter 8 - Julia - Sets the global stage of the play
+function C008_DramaClass_Julia_GlobalStage(GlobalStage) {
+	C008_DramaClass_Theater_GlobalStage	= GlobalStage;
+}
+
+// Chapter 8 - Julia - Julia can become a Damsel or the queen for some extra acting (400 can interact. 500 cannot, it's the player.)
+function C008_DramaClass_Julia_JuliaEntersPlay() {
+	if (C008_DramaClass_Julia_IsHeroine) C008_DramaClass_Heroine_CurrentStage = 500; else C008_DramaClass_Heroine_CurrentStage = 400;
+	if (C008_DramaClass_Julia_IsVillain) C008_DramaClass_Villain_CurrentStage = 500; else C008_DramaClass_Villain_CurrentStage = 400;
+	if (C008_DramaClass_Julia_IsDamsel) C008_DramaClass_Damsel_CurrentStage = 500; else C008_DramaClass_Damsel_CurrentStage = 400;
 }

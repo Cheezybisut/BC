@@ -14,14 +14,18 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 200,0,0,PlayerIsVillain,Hero!  You have her|heart but I have her body.,"The hero fumbles with her sword and says:|""So destiny has choosen steel, en garde!""",230,0,0,"GlobalStage(230, -1, 0)"
 200,0,0,PlayerIsVillain,Sorry Julia.|I forgot my line.,"Julia whispers to you:|""Hero!  Thou hast her heart, flesh is mine.""",200,0,0,ForgetLine()
 200,0,0,!PlayerIsVillain,(Listen quietly.),"The black knight grabs the damsel and says:|""Hero!  Thou hast her heart, flesh is mine.""",220,0,0,"GlobalStage(220, 0, 0)"
-200,0,0,!PlayerIsVillain,(Applaud lightly.),"The black knight grabs the damsel and says:|""Hero!  Thou hast her heart, flesh is mine.""",220,1,0,"GlobalStage(220, 1, 0)"
-200,0,0,!PlayerIsVillain,(Yawn in boredom.),"The black knight grabs the damsel and says:|""Hero!  Thou hast her heart, flesh is mine.""",220,-1,0,"GlobalStage(220, -1, 0)"
+200,0,0,PlayerIsHeroine,(Applaud lightly.),"The black knight grabs the damsel and says:|""Hero!  Thou hast her heart, flesh is mine.""",220,1,0,"GlobalStage(220, 1, 0)"
+200,0,0,PlayerIsHeroine,(Yawn in boredom.),"The black knight grabs the damsel and says:|""Hero!  Thou hast her heart, flesh is mine.""",220,-1,0,"GlobalStage(220, -1, 0)"
+200,0,0,DamselCanInteract,(Applaud lightly.),"The black knight grabs the damsel and says:|""Hero!  Thou hast her heart, flesh is mine.""",220,1,0,"GlobalStage(220, 1, 0)"
+200,0,0,DamselCanInteract,(Yawn in boredom.),"The black knight grabs the damsel and says:|""Hero!  Thou hast her heart, flesh is mine.""",220,-1,0,"GlobalStage(220, -1, 0)"
 210,0,0,PlayerIsVillain,"Hero!  Concede thine|defeat, she's mine.","The hero gets her sword and yells:|""So fate chooseth steel, en garde!""",230,0,0,"GlobalStage(230, 1, 0)"
 210,0,0,PlayerIsVillain,Concede your defeat|hero!  She's mine.,"The hero fumbles with her sword and says:|""So destiny has choosen steel, en garde!""",230,0,0,"GlobalStage(230, -1, 0)"
 210,0,0,PlayerIsVillain,Sorry Julia.|I forgot my line.,"Julia sighs and whispers to you:|""Hero!  Concede thine defeat, she's mine.""",200,0,0,ForgetLine()
 210,0,0,!PlayerIsVillain,(Listen quietly.),"The black knight looks at the damsel and says:|""Hero!  Concede thine defeat, she's mine.""",220,0,0,"GlobalStage(220, 0, 0)"
-210,0,0,!PlayerIsVillain,(Applaud lightly.),"The black knight looks at the damsel and says:|""Hero!  Concede thine defeat, she's mine.""",220,1,0,"GlobalStage(220, 1, 0)"
-210,0,0,!PlayerIsVillain,(Yawn in boredom.),"The black knight looks at the damsel and says:|""Hero!  Concede thine defeat, she's mine.""",220,-1,0,"GlobalStage(220, -1, 0)"
+210,0,0,PlayerIsHeroine,(Applaud lightly.),"The black knight looks at the damsel and says:|""Hero!  Concede thine defeat, she's mine.""",220,1,0,"GlobalStage(220, 1, 0)"
+210,0,0,PlayerIsHeroine,(Yawn in boredom.),"The black knight looks at the damsel and says:|""Hero!  Concede thine defeat, she's mine.""",220,-1,0,"GlobalStage(220, -1, 0)"
+210,0,0,DamselCanInteract,(Applaud lightly.),"The black knight looks at the damsel and says:|""Hero!  Concede thine defeat, she's mine.""",220,1,0,"GlobalStage(220, 1, 0)"
+210,0,0,DamselCanInteract,(Yawn in boredom.),"The black knight looks at the damsel and says:|""Hero!  Concede thine defeat, she's mine.""",220,-1,0,"GlobalStage(220, -1, 0)"
 230,0,0,PlayerIsVillain,En garde!|(Do a sword fight.),You charge each other and start|a funny but intense sword fight.,235,0,0,NoLeave()
 230,0,0,PlayerIsVillain,"Don't attack, I yield.|(Surrender without a fight.)",You drop your sword and the white|knight steps forward with a grin.,240,0,0,Surrender()
 230,0,0,PlayerIsHeroine,(Do a sword fight.),You charge each other and start|a funny but intense sword fight.,235,0,0,NoLeave()
@@ -47,8 +51,10 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 270,0,0,PlayerIsHeroine,(Bow to the black|knight.) (1 minute),"The black knight strips and restrains you|while saying: ""Thou art mine prisoner.""",280,0,-1,"GlobalStage(280, 0, -1)"
 270,0,0,PlayerIsHeroine,Booooooo!|(1 minute),"The black knight strips and restrains you|while saying: ""Thou art mine prisoner.""",280,-1,0,"GlobalStage(280, -1, 0)"
 270,0,0,PlayerIsDamsel,(Watch the scene.)|(1 minute),"The villain strips and restrains the heroine|while saying: ""Thou art mine prisoner.""",280,0,0,"GlobalStage(280, 0, 0)"
-270,0,0,PlayerIsDamsel,(Cheer for the villain.)|(1 minute),"The villain strips and restrains the heroine|while saying: ""Thou art mine prisoner.""",280,1,0,"GlobalStage(280, 1, 0)"
+270,0,0,PlayerIsDamsel,Hurray black knight!|(1 minute),"The villain strips and restrains the heroine|while saying: ""Thou art mine prisoner.""",280,1,0,"GlobalStage(280, 1, 0)"
 280,0,0,Common_PlayerGagged,@Eeengn em!,Amanda smiles and tries not to|laugh at your gagged mumblings.,280,0,0,
-280,10,0,PlayerIsDamsel,(Go kiss her.)|(1 minute),You rush into her arms and|you both kiss for the final act.,290,0,0,FinalKiss()
-280,0,-5,PlayerIsDamsel,(Kneel for her.)|(1 minute),You bow and kneel for the black knight.|Hugging her legs gently for the final act.,290,0,0,FinalDomme()
-280,0,0,PlayerIsDamsel,(Go hug her.)|(1 minute),You go in her arms and|you hug for the final act.,290,0,0,FinalHug()
+280,10,0,DamselCanInteract,(Go kiss her.)|(1 minute),You rush into her arms and|you both kiss for the final act.,290,0,0,FinalKiss()
+280,0,-5,DamselCanInteract,(Kneel for her.)|(1 minute),You bow and kneel for the black knight.|Hugging her legs gently for the final act.,290,0,0,FinalDomme()
+280,0,0,DamselCanInteract,(Go hug her.)|(1 minute),You go in her arms and|you hug for the final act.,290,0,0,FinalHug()
+280,2,0,DamselCanBeg,(Make pleading eyes.)|(1 minute),You make sweet pleading eyes and|she releases you from your bondage.,280,0,0,ReleasePlayer()
+280,0,0,DamselCanBeg,(Surrender to her.)|(1 minute),You surrender to her and she decides to|keep you both prisoners for the final act.,300,0,0,FinalTwoPrisoners()

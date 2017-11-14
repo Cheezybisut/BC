@@ -11,3 +11,14 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 20,0,0,,Can we improvise?,Si!  Don't go too far away from|the script but you can improvise.,20,0,0,
 100,0,0,,(Focus on the play.),,100,0,0,StartDrama()
 100,0,0,,Can we improvise?,Si!  Don't go too far away from|the script but you can improvise.,100,0,0,
+300,0,0,Common_PlayerGagged,(Make pleading eyes.)|(1 minute),You make sweet pleading eyes to Julia.|She smiles and releases you from your bondage.,300,0,0,ReleasePlayer()
+300,0,0,,It was a fun play.,Si!  And there was room to improvise.,310,0,0,
+300,0,0,,That play was|great Julia.,Thanks a lot COMMON_PLAYERNAME!|And there was room to improvise.,310,1,0,
+300,0,0,,That play was|too chaotic.,"Chaos is art, art is chaos.|I wanted you to improvise.",310,-1,0,
+300,0,0,,Next time I want|a better role.,I'm sure we'll find a perfect role for you.|And there is always room to improvise.,310,0,1,
+300,0,0,,I think drama|isn't for me.,"You did fine, don't be afraid of the stage.|And there is always room to improvise.",310,0,-1,
+310,0,0,,"If we can improvise,|you should join in.",Join the play after it's over?|But what role will I play?,320,0,0,
+310,0,0,,"True can improvise,|thee should join in.",Join the playeth after it's ov'r?|But what role wilt I playeth? ,320,1,0,
+320,0,0,IsDamsel,Be a damsel like me.|Owned by the knight.,Aye!  I shalt beest the sweet|damsel protected by the knight. ,400,0,0,JuliaEntersPlay()
+320,0,0,!IsDamsel,Be a second damsel.|Owned by the knight.,Aye!  I shalt beest the sweet|damsel protected by the knight. ,400,0,1,JuliaEntersPlay()
+320,0,0,,Be the queen who|rules the knights.,Aye!  I shalt beest the fair|queen who rules the land. ,500,0,-1,JuliaEntersPlay()

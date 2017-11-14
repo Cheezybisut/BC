@@ -26,6 +26,7 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 240,0,0,!PlayerIsVillain,(She's watching the white knight.),Background.jpg
 250,0,0,PlayerIsVillain,(The damsel is next.),Background.jpg
 250,0,0,!PlayerIsVillain,(She's watching the damsel.),Background.jpg
+251,0,0,,,Background.jpg
 270,0,0,PlayerIsVillain,"(As the black knight,|this is your next line.)",Background.jpg
 270,0,0,!PlayerIsVillain,(She's about to say her line.),Background.jpg
 280,0,0,PlayerIsVillain,(The damsel is next.),Background.jpg
@@ -34,3 +35,7 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 300,0,0,!PlayerIsVillain,It was a great play.  I never|thought I could be the villain.,Background.jpg
 300,0,0,IsGagged,(She struggles to remove|the gag but quickly gives up.),Background.jpg
 300,0,0,PlayerIsVillain,(The play is over.),Background.jpg
+400,0,0,PlayerIsHeroine,What do you want white knight?,Background.jpg
+400,0,0,PlayerIsDamsel,Sweet and beautiful damsel.|How can I be of service?,Background.jpg
+400,0,0,IsGagged,(She remains silent and stares at you.),Background.jpg
+500,0,0,,(It seems the play isn't totally over.|You can still interact with the others.),Background.jpg

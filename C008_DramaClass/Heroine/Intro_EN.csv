@@ -19,12 +19,15 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 210,0,0,!PlayerIsHeroine,(She's watching the black knight.),Background.jpg
 220,0,0,PlayerIsHeroine,"(As the white knight,|this is your next line.)",Background.jpg
 220,0,0,!PlayerIsHeroine,(The white knight is about to talk.),Background.jpg
+225,0,0,,,Background.jpg
+226,0,0,,,Background.jpg
 230,0,0,PlayerIsHeroine,(The black knight is next.),Background.jpg
 230,0,0,!PlayerIsHeroine,(She's watching the black knight.),Background.jpg
 240,0,0,PlayerIsHeroine,"(As the white knight,|this is your next line.)",Background.jpg
 240,0,0,!PlayerIsHeroine,(The white knight is about to talk.),Background.jpg
 250,0,0,PlayerIsHeroine,(The damsel is next.),Background.jpg
 250,0,0,!PlayerIsHeroine,(She's watching the damsel.),Background.jpg
+251,0,0,,,Background.jpg
 260,0,0,,,Background.jpg
 270,0,0,PlayerIsHeroine,(The black knight is next.),Background.jpg
 270,0,0,!PlayerIsHeroine,(She's watching the black knight.),Background.jpg
@@ -33,3 +36,7 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 300,0,0,!PlayerIsHeroine,It was a really nice.  I hope|I was a good white knight.,Background.jpg
 300,0,0,IsGagged,Mnuh gnunmn n muh!,Background.jpg
 300,0,0,PlayerIsHeroine,(The play is over),Background.jpg
+400,0,0,PlayerIsVillain,Black knight!  You fellon!|What do you want now?,Background.jpg
+400,0,0,PlayerIsDamsel,My lovely fiancee.|What can I do for you?,Background.jpg
+400,0,0,IsGagged,Aaem mne nyyo!,Background.jpg
+500,0,0,,(It seems the play isn't totally over.|You can still interact with the others.),Background.jpg

@@ -9,6 +9,8 @@ var C008_DramaClass_Damsel_CanKissHeroine = false;
 var C008_DramaClass_Damsel_CanKissVillain = false;
 var C008_DramaClass_Damsel_CanKneelHeroine = false;
 var C008_DramaClass_Damsel_CanKneelVillain = false;
+var C008_DramaClass_Damsel_CanHugHeroine = false;
+var C008_DramaClass_Damsel_CanHugVillain = false;
 var C008_DramaClass_Damsel_IsGagged = false;
 
 // Chapter 8 - Damsel Load
@@ -18,11 +20,13 @@ function C008_DramaClass_Damsel_Load() {
 	C008_DramaClass_Damsel_PlayerIsDamsel = (C008_DramaClass_JuliaIntro_PlayerRole == "Damsel");
 	C008_DramaClass_Damsel_PlayerIsHeroine = (C008_DramaClass_JuliaIntro_PlayerRole == "Heroine");
 	C008_DramaClass_Damsel_PlayerIsVillain = (C008_DramaClass_JuliaIntro_PlayerRole == "Villain");
-	C008_DramaClass_Damsel_CurrentStage = C008_DramaClass_Theater_GlobalStage;
-	C008_DramaClass_Damsel_CanKissHeroine = (C008_DramaClass_Damsel_PlayerIsDamsel && (ActorSpecificGetValue("Sarah", ActorLove) >= 10));
-	C008_DramaClass_Damsel_CanKissVillain = (C008_DramaClass_Damsel_PlayerIsDamsel && (ActorSpecificGetValue("Amanda", ActorLove) >= 10));
-	C008_DramaClass_Damsel_CanKneelHeroine = (C008_DramaClass_Damsel_PlayerIsDamsel && (ActorSpecificGetValue("Sarah", ActorLove) <= -5));
-	C008_DramaClass_Damsel_CanKneelVillain = (C008_DramaClass_Damsel_PlayerIsDamsel && (ActorSpecificGetValue("Amanda", ActorLove) <= -5));
+	if (C008_DramaClass_Damsel_CurrentStage < 300) C008_DramaClass_Damsel_CurrentStage = C008_DramaClass_Theater_GlobalStage;
+	C008_DramaClass_Damsel_CanKissHeroine = (C008_DramaClass_Damsel_PlayerIsDamsel && (ActorSpecificGetValue("Sarah", ActorLove) >= 10) && !Common_PlayerGagged);
+	C008_DramaClass_Damsel_CanKissVillain = (C008_DramaClass_Damsel_PlayerIsDamsel && (ActorSpecificGetValue("Amanda", ActorLove) >= 10) && !Common_PlayerGagged);
+	C008_DramaClass_Damsel_CanKneelHeroine = (C008_DramaClass_Damsel_PlayerIsDamsel && (ActorSpecificGetValue("Sarah", ActorLove) <= -5) && !Common_PlayerGagged);
+	C008_DramaClass_Damsel_CanKneelVillain = (C008_DramaClass_Damsel_PlayerIsDamsel && (ActorSpecificGetValue("Amanda", ActorLove) <= -5) && !Common_PlayerGagged);
+	C008_DramaClass_Damsel_CanHugVillain = (C008_DramaClass_Damsel_PlayerIsDamsel && !Common_PlayerGagged);
+	C008_DramaClass_Damsel_CanHugHeroine = (C008_DramaClass_Damsel_PlayerIsDamsel && !Common_PlayerGagged);
 
 	// Load the scene parameters
 	if (!C008_DramaClass_Damsel_PlayerIsDamsel) ActorLoad(C008_DramaClass_Theater_Damsel, "Theater");
@@ -86,6 +90,7 @@ function C008_DramaClass_Damsel_GlobalStage(GlobalStage, LoveMod, SubMod) {
 		PlayerClothes("Underwear");
 		PlayerLockInventory("Rope");
 		PlayerLockInventory("ClothGag");
+		Common_PlayerPose = "";
 		OverridenIntroText = GetText("AmandaRestrainPlayer");
 	}
 

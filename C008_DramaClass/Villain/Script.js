@@ -7,6 +7,8 @@ var C008_DramaClass_Villain_SnapFingersDone = false;
 var C008_DramaClass_Villain_CanDisarm = false;
 var C008_DramaClass_Villain_CanIntimidate = false;
 var C008_DramaClass_Villain_IsGagged = false;
+var C008_DramaClass_Villain_DamselCanInteract = false;
+var C008_DramaClass_Villain_DamselCanBeg = false;
 
 // Chapter 8 - Villain Load
 function C008_DramaClass_Villain_Load() {
@@ -15,7 +17,7 @@ function C008_DramaClass_Villain_Load() {
 	C008_DramaClass_Villain_PlayerIsVillain = (C008_DramaClass_JuliaIntro_PlayerRole == "Villain");
 	C008_DramaClass_Villain_PlayerIsHeroine = (C008_DramaClass_JuliaIntro_PlayerRole == "Heroine");
 	C008_DramaClass_Villain_PlayerIsDamsel = (C008_DramaClass_JuliaIntro_PlayerRole == "Damsel");
-	C008_DramaClass_Villain_CurrentStage = C008_DramaClass_Theater_GlobalStage;
+	if (C008_DramaClass_Villain_CurrentStage < 300) C008_DramaClass_Villain_CurrentStage = C008_DramaClass_Theater_GlobalStage;
 
 	// Load the scene parameters
 	if (!C008_DramaClass_Villain_PlayerIsVillain) ActorLoad(C008_DramaClass_Theater_Villain, "Theater");
@@ -23,6 +25,8 @@ function C008_DramaClass_Villain_Load() {
 	LeaveIcon = "Leave";
 	LeaveScreen = "Theater";
 	C008_DramaClass_Villain_IsGagged = ActorIsGagged();
+	C008_DramaClass_Villain_DamselCanInteract = (C008_DramaClass_Villain_PlayerIsDamsel && !Common_PlayerGagged);
+	C008_DramaClass_Villain_DamselCanBeg = (C008_DramaClass_Villain_PlayerIsDamsel && Common_PlayerGagged);
 	
 	// The player can disarm if sub +2 vs Amanda and intimidate if sub + 10
 	C008_DramaClass_Villain_CanDisarm = (C008_DramaClass_Villain_PlayerIsVillain && (ActorSpecificGetValue("Amanda", ActorSubmission) >= 2));
@@ -92,7 +96,6 @@ function C008_DramaClass_Villain_AmandaSarahFight(CheerFactor) {
 		C008_DramaClass_Villain_CurrentStage = 270;
 		C008_DramaClass_Theater_GlobalStage = 270;
 		OverridenIntroText = GetText("PlayerDamselVillainWin");
-		C008_DramaClass_Theater_SetPose();
 
 	} else {
 
@@ -100,9 +103,12 @@ function C008_DramaClass_Villain_AmandaSarahFight(CheerFactor) {
 		C008_DramaClass_Villain_CurrentStage = 240;
 		C008_DramaClass_Theater_GlobalStage = 240;
 		OverridenIntroText = GetText("PlayerDamselHeroineWin");
-		C008_DramaClass_Theater_SetPose();
 
 	}
+
+	// Allows the player to leave once the fight is over
+	C008_DramaClass_Theater_SetPose();
+	LeaveIcon = "Leave";
 	
 }
 
@@ -131,4 +137,19 @@ function C008_DramaClass_Villain_FinalDomme() {
 	ActorSpecificChangeAttitude("Sarah", -1, 0);
 	C008_DramaClass_Theater_GlobalStage = 300;
 	C008_DramaClass_Theater_Ending = "Domme";
+}
+
+// Chapter 8 - Villain - When the damsel begs to be released
+function C008_DramaClass_Villain_ReleasePlayer() {
+	PlayerClothes("Damsel");
+	PlayerUnlockInventory("Rope");
+	PlayerUnlockInventory("ClothGag");
+	C008_DramaClass_Villain_DamselCanInteract = true;
+	C008_DramaClass_Villain_DamselCanBeg = false;
+}
+
+// Chapter 8 - Villain - When the damsel surrenders and the play ends with two prisoners
+function C008_DramaClass_Villain_FinalTwoPrisoners() {
+	C008_DramaClass_Theater_GlobalStage = 300;
+	C008_DramaClass_Theater_Ending = "TwoPrisoners";
 }
