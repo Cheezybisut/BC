@@ -9,6 +9,26 @@ var C008_DramaClass_Villain_CanIntimidate = false;
 var C008_DramaClass_Villain_IsGagged = false;
 var C008_DramaClass_Villain_DamselCanInteract = false;
 var C008_DramaClass_Villain_DamselCanBeg = false;
+var C008_DramaClass_Villain_CanConvinceJuliaToStrip = false;
+var C008_DramaClass_Villain_CanUntie = false;
+var C008_DramaClass_Villain_CanUngag = false;
+var C008_DramaClass_Villain_CanAbuse = false;
+var C008_DramaClass_Villain_CropDone = false;
+var C008_DramaClass_Villain_TickleDone = false;
+var C008_DramaClass_Villain_SpankDone = false;
+var C008_DramaClass_Villain_OrgasmDone = false;
+var C008_DramaClass_Villain_MastubateCount = 0;
+
+// Calculates the scene parameters
+function C008_DramaClass_Villain_CalcParams() {
+	C008_DramaClass_Villain_IsGagged = ActorIsGagged();
+	C008_DramaClass_Villain_CanUntie = (ActorHasInventory("Rope") && !Common_PlayerRestrained);
+	C008_DramaClass_Villain_CanUngag = (C008_DramaClass_Villain_IsGagged && !Common_PlayerRestrained);
+	C008_DramaClass_Villain_CanAbuse = (ActorIsRestrained() && !Common_PlayerRestrained);
+	C008_DramaClass_Villain_CanConvinceJuliaToStrip = (C008_DramaClass_Villain_PlayerIsDamsel && !C008_DramaClass_Villain_IsGagged && (C008_DramaClass_Julia_CurrentStage == 400) && ((ActorSpecificGetValue("Amanda", ActorLove) >= 10) || (ActorSpecificGetValue("Amanda", ActorSubmission) >= 10)));
+	C008_DramaClass_Villain_DamselCanInteract = (C008_DramaClass_Villain_PlayerIsDamsel && !Common_PlayerGagged);
+	C008_DramaClass_Villain_DamselCanBeg = (C008_DramaClass_Villain_PlayerIsDamsel && Common_PlayerGagged);
+}
 
 // Chapter 8 - Villain Load
 function C008_DramaClass_Villain_Load() {
@@ -24,9 +44,7 @@ function C008_DramaClass_Villain_Load() {
 	LoadInteractions();
 	LeaveIcon = "Leave";
 	LeaveScreen = "Theater";
-	C008_DramaClass_Villain_IsGagged = ActorIsGagged();
-	C008_DramaClass_Villain_DamselCanInteract = (C008_DramaClass_Villain_PlayerIsDamsel && !Common_PlayerGagged);
-	C008_DramaClass_Villain_DamselCanBeg = (C008_DramaClass_Villain_PlayerIsDamsel && Common_PlayerGagged);
+	C008_DramaClass_Villain_CalcParams();
 	
 	// The player can disarm if sub +2 vs Amanda and intimidate if sub + 10
 	C008_DramaClass_Villain_CanDisarm = (C008_DramaClass_Villain_PlayerIsVillain && (ActorSpecificGetValue("Amanda", ActorSubmission) >= 2));
@@ -50,6 +68,23 @@ function C008_DramaClass_Villain_Click() {
 	// A second rope can be applied on the fight loser before the play is over
 	if ((ClickInv == "Rope") && (C008_DramaClass_Villain_CurrentStage == 250) && C008_DramaClass_Villain_PlayerIsHeroine)
 		ActorApplyRestrain(ClickInv);
+
+	// The villain can be restrained on stage 400
+	if ((C008_DramaClass_Villain_CurrentStage == 400) && (ClickInv != "") && (ClickInv != "Player") && !Common_PlayerRestrained) {
+
+		// The damsel can tie up a knight if she's +10 submissive, the other knight can tie up a knight if she's +5 submissive
+		if ((ActorGetValue(ActorSubmission) < 10) && C008_DramaClass_Villain_PlayerIsDamsel && !ActorIsRestrained() && (ClickInv != "CuffsKey")) { OverridenIntroText = GetText("RefuseBondageFromDamsel"); return; }
+		if ((ActorGetValue(ActorSubmission) < 5) && C008_DramaClass_Villain_PlayerIsHeroine && !ActorIsRestrained() && (ClickInv != "CuffsKey")) { OverridenIntroText = GetText("RefuseBondageFromKnight"); return; }
+	
+		// A few items can change the actor attitude
+		if ((ClickInv == "Crop") && !C008_DramaClass_Villain_CropDone) { C008_DramaClass_Villain_CropDone = true; ActorChangeAttitude(-1, 1); }
+	
+		// Apply the clicked restrain
+		ActorApplyRestrain(ClickInv);
+		if (ActorHasInventory("Rope")) ActorSetCloth("Underwear");
+		C008_DramaClass_Villain_CalcParams();
+
+	}
 
 }
 
@@ -152,4 +187,47 @@ function C008_DramaClass_Villain_ReleasePlayer() {
 function C008_DramaClass_Villain_FinalTwoPrisoners() {
 	C008_DramaClass_Theater_GlobalStage = 300;
 	C008_DramaClass_Theater_Ending = "TwoPrisoners";
+}
+
+// Chapter 8 - Villain - The knight can convince Julia to strip for the player
+function C008_DramaClass_Villain_JuliaStrip() {
+	ActorSpecificSetCloth("Julia", "Underwear");
+	C008_DramaClass_Villain_CanConvinceJuliaToStrip = false;
+	C008_DramaClass_Julia_CurrentStage = 410;
+	CurrentTime = CurrentTime + 50000;
+}
+
+// Chapter 8 - Villain Untie
+function C008_DramaClass_Villain_Untie() {
+	ActorUntie();
+	C008_DramaClass_Villain_CalcParams();
+	ActorSetCloth("Villain");
+}
+
+// Chapter 8 - Villain Ungag
+function C008_DramaClass_Villain_Ungag() {
+	ActorUngag();
+	C008_DramaClass_Villain_CalcParams();
+}
+
+// Chapter 8 - Villain Tickle
+function C008_DramaClass_Villain_Tickle() {
+	if (!C008_DramaClass_Villain_TickleDone) { C008_DramaClass_Villain_TickleDone = true; ActorChangeAttitude(1, 0); }
+}
+
+// Chapter 8 - Villain Spank
+function C008_DramaClass_Villain_Spank() {
+	if (!C008_DramaClass_Villain_SpankDone) { C008_DramaClass_Villain_SpankDone = true; ActorChangeAttitude(-1, 0); }
+}
+
+// Chapter 8 - Villain Masturbate, Amanda can climax if she's bound with two ropes and gagged
+function C008_DramaClass_Villain_Masturbate() {
+	C008_DramaClass_Villain_MastubateCount++;
+	if ((C008_DramaClass_Damsel_MastubateCount >= 3) && !C008_DramaClass_Villain_OrgasmDone && ActorIsGagged() && ActorHasInventory("TwoRopes")) { 
+		C008_DramaClass_Villain_OrgasmDone = true;
+		ActorAddOrgasm();
+		ActorChangeAttitude(1, 0);
+		OverridenIntroText = GetText("Orgasm");
+		OverridenIntroImage = "BackgroundOrgasm.jpg";
+	}
 }

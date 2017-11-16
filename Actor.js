@@ -159,6 +159,13 @@ function ActorSpecificSetCloth(SpecificActor, NewCloth) {
 			Actor[A][ActorCloth] = NewCloth;
 }
 
+// Set the pose for the current actor
+function ActorSetPose(NewPose) {
+	for (var A = 0; A < Actor.length; A++)
+		if (Actor[A][ActorName] == CurrentActor)
+			Actor[A][ActorPose] = NewPose;
+}
+
 // Sets the pose for a specified actor (also works for the player if needed)
 function ActorSpecificSetPose(SpecificActor, NewPose) {
 	if (SpecificActor == "Player") {

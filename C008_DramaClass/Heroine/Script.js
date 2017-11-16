@@ -9,6 +9,25 @@ var C008_DramaClass_Heroine_CanProposeTrio = false;
 var C008_DramaClass_Heroine_IsGagged = false;
 var C008_DramaClass_Heroine_DamselCanInteract = false;
 var C008_DramaClass_Heroine_DamselCanBeg = false;
+var C008_DramaClass_Heroine_CanConvinceJuliaToStrip = false;
+var C008_DramaClass_Heroine_CanUntie = false;
+var C008_DramaClass_Heroine_CanUngag = false;
+var C008_DramaClass_Heroine_CanAbuse = false;
+var C008_DramaClass_Heroine_TickleDone = false;
+var C008_DramaClass_Heroine_OrgasmDone = false;
+var C008_DramaClass_Heroine_ViolenceDone = false;
+var C008_DramaClass_Heroine_MastubateCount = 0;
+
+// Calculates the scene parameters
+function C008_DramaClass_Heroine_CalcParams() {
+	C008_DramaClass_Heroine_IsGagged = ActorIsGagged();
+	C008_DramaClass_Heroine_CanUntie = (ActorHasInventory("Rope") && !Common_PlayerRestrained);
+	C008_DramaClass_Heroine_CanUngag = (C008_DramaClass_Heroine_IsGagged && !Common_PlayerRestrained);
+	C008_DramaClass_Heroine_CanAbuse = (ActorIsRestrained() && !Common_PlayerRestrained);
+	C008_DramaClass_Heroine_CanConvinceJuliaToStrip = (C008_DramaClass_Heroine_PlayerIsDamsel && !C008_DramaClass_Heroine_IsGagged && (C008_DramaClass_Julia_CurrentStage == 400) && ((ActorSpecificGetValue("Sarah", ActorLove) >= 10) || (ActorSpecificGetValue("Sarah", ActorSubmission) >= 10)));
+	C008_DramaClass_Heroine_DamselCanInteract = (C008_DramaClass_Heroine_PlayerIsDamsel && !Common_PlayerGagged);
+	C008_DramaClass_Heroine_DamselCanBeg = (C008_DramaClass_Heroine_PlayerIsDamsel && Common_PlayerGagged);
+}
 
 // Chapter 8 - Heroine Load
 function C008_DramaClass_Heroine_Load() {
@@ -26,9 +45,7 @@ function C008_DramaClass_Heroine_Load() {
 	LoadInteractions();
 	LeaveIcon = "Leave";
 	LeaveScreen = "Theater";
-	C008_DramaClass_Heroine_IsGagged = ActorIsGagged();
-	C008_DramaClass_Heroine_DamselCanInteract = (C008_DramaClass_Heroine_PlayerIsDamsel && !Common_PlayerGagged);
-	C008_DramaClass_Heroine_DamselCanBeg = (C008_DramaClass_Heroine_PlayerIsDamsel && Common_PlayerGagged);
+	C008_DramaClass_Heroine_CalcParams();
 
 }
 
@@ -49,6 +66,28 @@ function C008_DramaClass_Heroine_Click() {
 	if ((ClickInv == "Rope") && (C008_DramaClass_Heroine_CurrentStage == 280) && C008_DramaClass_Heroine_PlayerIsVillain)
 		ActorApplyRestrain(ClickInv);
 
+	// The heroine can be restrained on stage 400
+	if ((C008_DramaClass_Heroine_CurrentStage == 400) && (ClickInv != "") && (ClickInv != "Player") && !Common_PlayerRestrained) {
+
+		// The damsel can tie up a knight if she's +10 submissive, the other knight can tie up a knight if she's +5 submissive
+		if ((ActorGetValue(ActorSubmission) < 10) && C008_DramaClass_Heroine_PlayerIsDamsel && !ActorIsRestrained() && (ClickInv != "CuffsKey")) { OverridenIntroText = GetText("RefuseBondageFromDamsel"); return; }
+		if ((ActorGetValue(ActorSubmission) < 5) && C008_DramaClass_Heroine_PlayerIsVillain && !ActorIsRestrained() && (ClickInv != "CuffsKey")) { OverridenIntroText = GetText("RefuseBondageFromKnight"); return; }	
+		if (!C008_DramaClass_Damsel_ViolenceDone) { C008_DramaClass_Damsel_ViolenceDone = true; }
+
+		// Both heroines react differently to the crop
+		if ((ClickInv == "Crop") && !C008_DramaClass_Damsel_ViolenceDone) {
+			C008_DramaClass_Damsel_ViolenceDone = true;
+			if (CurrentActor == "Amanda") ActorChangeAttitude(-1, 0);
+			if (CurrentActor == "Sarah") ActorChangeAttitude(1, 0);
+		}
+
+		// Apply the clicked restrain
+		ActorApplyRestrain(ClickInv);
+		if (ActorHasInventory("Rope")) ActorSetCloth("Underwear");
+		C008_DramaClass_Heroine_CalcParams();
+
+	}
+	
 }
 
 // Chapter 8 - Heroine - Sets the global stage and can alter Julia's mood
@@ -123,4 +162,55 @@ function C008_DramaClass_Heroine_ReleasePlayer() {
 function C008_DramaClass_Heroine_FinalTwoPrisoners() {
 	C008_DramaClass_Theater_GlobalStage = 300;
 	C008_DramaClass_Theater_Ending = "TwoPrisoners";
+}
+
+// Chapter 8 - Heroine - The knight can convince Julia to strip for the player
+function C008_DramaClass_Heroine_JuliaStrip() {
+	ActorSpecificSetCloth("Julia", "Underwear");
+	C008_DramaClass_Heroine_CanConvinceJuliaToStrip = false;
+	C008_DramaClass_Julia_CurrentStage = 410;
+	CurrentTime = CurrentTime + 50000;
+}
+
+// Chapter 8 - Heroine Untie
+function C008_DramaClass_Heroine_Untie() {
+	ActorUntie();
+	C008_DramaClass_Heroine_CalcParams();
+	ActorSetCloth("Heroine");
+}
+
+// Chapter 8 - Heroine Ungag
+function C008_DramaClass_Heroine_Ungag() {
+	ActorUngag();
+	C008_DramaClass_Heroine_CalcParams();
+}
+
+// Chapter 8 - Heroine Tickle
+function C008_DramaClass_Heroine_Tickle() {
+	if ((CurrentActor == "Amanda") && !C008_DramaClass_Heroine_TickleDone) { C008_DramaClass_Heroine_TickleDone = true; ActorChangeAttitude(1, 0); }
+}
+
+// Chapter 8 - Heroine Spank
+function C008_DramaClass_Heroine_Spank() {
+	if ((CurrentActor == "Amanda") && !C008_DramaClass_Damsel_ViolenceDone) { C008_DramaClass_Damsel_ViolenceDone = true; ActorChangeAttitude(-1, 0); }
+	if ((CurrentActor == "Sarah") && !C008_DramaClass_Damsel_ViolenceDone) { C008_DramaClass_Damsel_ViolenceDone = true; ActorChangeAttitude(1, 0); }
+}
+
+// Chapter 8 - Heroine Masturbate, Sarah or Amanda can climax with different parameters
+function C008_DramaClass_Heroine_Masturbate() {
+	C008_DramaClass_Heroine_MastubateCount++;
+	if ((CurrentActor == "Amanda") && (C008_DramaClass_Heroine_MastubateCount >= 3) && !C008_DramaClass_Heroine_OrgasmDone && ActorIsGagged() && ActorHasInventory("TwoRopes")) { 
+		C008_DramaClass_Heroine_OrgasmDone = true;
+		ActorAddOrgasm();
+		ActorChangeAttitude(1, 0);
+		OverridenIntroText = GetText("Orgasm");
+		OverridenIntroImage = "BackgroundOrgasm.jpg";
+	}
+	if ((CurrentActor == "Sarah") && (C008_DramaClass_Heroine_MastubateCount >= 3) && !C008_DramaClass_Heroine_OrgasmDone && C008_DramaClass_Heroine_ViolenceDone) { 
+		C008_DramaClass_Heroine_OrgasmDone = true;
+		ActorAddOrgasm();
+		ActorChangeAttitude(1, 0);
+		OverridenIntroText = GetText("Orgasm");
+		OverridenIntroImage = "BackgroundOrgasm.jpg";
+	}
 }

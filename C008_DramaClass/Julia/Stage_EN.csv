@@ -19,6 +19,15 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 300,0,0,,I think drama|isn't for me.,"You did fine, don't be afraid of the stage.|And there is always room to improvise.",310,0,-1,
 310,0,0,,"If we can improvise,|you should join in.",Join the play after it's over?|But what role will I play?,320,0,0,
 310,0,0,,"True can improvise,|thee should join in.",Join the playeth after it's ov'r?|But what role wilt I playeth? ,320,1,0,
-320,0,0,IsDamsel,Be a damsel like me.|Owned by the knight.,Aye!  I shalt beest the sweet|damsel protected by the knight. ,400,0,0,JuliaEntersPlay()
-320,0,0,!IsDamsel,Be a second damsel.|Owned by the knight.,Aye!  I shalt beest the sweet|damsel protected by the knight. ,400,0,1,JuliaEntersPlay()
+320,0,0,IsDamsel,Be a damsel like me.|Owned by the knight.,Aye!  I shalt beest the sweet|damsel protected by the knight. ,330,0,0,JuliaEntersPlay()
+320,0,0,!IsDamsel,Be a second damsel.|Owned by the knight.,Aye!  I shalt beest the sweet|damsel protected by the knight. ,330,0,1,JuliaEntersPlay()
 320,0,0,,Be the queen who|rules the knights.,Aye!  I shalt beest the fair|queen who rules the land. ,500,0,-1,JuliaEntersPlay()
+400,0,5,IsDamsel,A proper damsel has|to reveal some more.,Aye!  Of course milady.|(She undresses a little.),410,0,0,Strip()
+400,5,0,IsDamsel,You should show us|your damsel charms.,Aye!  Of course milady.|(She undresses a little.),410,0,0,Strip()
+400,0,0,!IsDamsel,"Damsel, you should|show us your charms.",Aye!  Of course my knight.|(She undresses a little.),410,0,0,Strip()
+400,0,0,!IsDamsel,"Damsel, obey and|show me more skin.",Aye!  Of course my knight.|(She undresses a little.),410,0,1,Strip()
+410,0,0,CanUntie,(Untie her.)|(1 minute),(You undo the knots and release her from|the ropes while she stretches happily.),410,0,0,Untie()
+410,0,0,CanUngag,(Ungag her.)|(1 minute),(You remove the gag and she smiles.)|This damsel grant you mercy thee!,410,0,0,Ungag()
+410,0,0,CanAbuse,(Tickle her.)|(1 minute),"(She laughs and trashes in her restrains|while you tickle her, she's enjoying it.)",410,0,0,Tickle()
+410,0,0,CanAbuse,(Spank her.)|(1 minute),(You spank her pretty hard on the butt.|She seems to find it inappropriate.),410,0,0,Spank()
+410,0,0,CanAbuse,(Masturbate her.)|(1 minute),(She struggles but can't avoid your touch.|She seems to find it very inappropriate.),410,0,0,Masturbate()

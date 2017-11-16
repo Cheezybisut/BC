@@ -40,3 +40,12 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 285,0,0,,Thou shalt be thine|prisoner.  (1 minute),The damsel shakes her head no and giggles.|The play concludes with both of them as prisoners.,300,0,0,FinalTwoPrisoners()
 285,0,0,,You're my prisoner.|(1 minute),The damsel shakes her head no and giggles.|The play concludes with both of them as prisoners.,300,0,0,FinalTwoPrisoners()
 285,0,0,,Sorry Julia.|I forgot my line.,"Julia laughs out loud and says:|""Don't worry and improvise, we are off script.""",285,0,0,
+400,0,0,,I won't marry you.|Remove this dress.,"Of course fair knight, I'm sorry to hear that.|(She removes her gown and throws it away.)",410,-1,1,Strip()
+400,0,0,,Lovely damsel.  Show|us your perfect body.,Oh yes my fair knight!  Let me do this.|(She removes her gown and throws it away.),410,1,0,Strip()
+400,0,0,,You don't look|great in that gown.,It gives me a huge but?  I'll remove it.|(She removes her gown and throws it away.),410,-1,0,Strip()
+400,0,0,,It would be even|kinkier in your undies.,Yes!  That's a great idea.  I'll remove it.|(She removes her gown and throws it away.),410,1,-1,Strip()
+410,0,0,CanUntie,(Untie her.)|(1 minute),(She resists not to be untied but you're|able to undo the knots and release her.),410,0,0,Untie()
+410,0,0,CanUngag,(Ungag her.)|(1 minute),(You remove the gag and she looks at you.)|Can this lovely damsel get another gag?,410,0,0,Ungag()
+410,0,0,CanAbuse,(Tickle her.)|(1 minute),(She giggles and struggles lightly.|She doesn't seem very ticklish.),410,0,0,
+410,0,0,CanAbuse,(Spank her.)|(1 minute),(You spank her pretty hard on the butt.|She moans softly with each hit and enjoys it.),410,0,0,Spank()
+410,0,0,CanAbuse,(Masturbate her.)|(1 minute),(You mastubate her slowly while|she moans faster and faster.),410,0,0,Masturbate()

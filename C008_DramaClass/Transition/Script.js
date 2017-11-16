@@ -15,6 +15,10 @@ function C008_DramaClass_Transition_Load() {
 	ActorLoad("Sarah", "");
 	ActorSpecificSetCloth("Sarah", C008_DramaClass_JuliaIntro_SarahRole);
 	LeaveIcon = "";
+	
+	// Resets the last bondage chapter for each so it counts again for chapter 8 part 2
+	for (var A = 0; A < Actor.length; A++)
+		Actor[A][ActorLastBondageChapter] = "NONE";
 
 }
 

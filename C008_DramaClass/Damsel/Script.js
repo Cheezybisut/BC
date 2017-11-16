@@ -12,6 +12,20 @@ var C008_DramaClass_Damsel_CanKneelVillain = false;
 var C008_DramaClass_Damsel_CanHugHeroine = false;
 var C008_DramaClass_Damsel_CanHugVillain = false;
 var C008_DramaClass_Damsel_IsGagged = false;
+var C008_DramaClass_Damsel_CanUntie = false;
+var C008_DramaClass_Damsel_CanUngag = false;
+var C008_DramaClass_Damsel_CanAbuse = false;
+var C008_DramaClass_Damsel_OrgasmDone = false;
+var C008_DramaClass_Damsel_ViolenceDone = false;
+var C008_DramaClass_Damsel_MastubateCount = 0;
+
+// Calculates the scene parameters
+function C008_DramaClass_Damsel_CalcParams() {
+	C008_DramaClass_Damsel_IsGagged = ActorIsGagged();
+	C008_DramaClass_Damsel_CanUntie = (ActorHasInventory("Rope") && !Common_PlayerRestrained);
+	C008_DramaClass_Damsel_CanUngag = (C008_DramaClass_Damsel_IsGagged && !Common_PlayerRestrained);
+	C008_DramaClass_Damsel_CanAbuse = (ActorIsRestrained() && !Common_PlayerRestrained);
+}
 
 // Chapter 8 - Damsel Load
 function C008_DramaClass_Damsel_Load() {
@@ -33,11 +47,12 @@ function C008_DramaClass_Damsel_Load() {
 	LoadInteractions();
 	LeaveIcon = "Leave";
 	LeaveScreen = "Theater";
-	C008_DramaClass_Damsel_IsGagged = ActorIsGagged();
+	C008_DramaClass_Damsel_CalcParams();
 
 	// Other options for the villains & heroine when Sarah is in bondage
 	if (C008_DramaClass_Damsel_PlayerIsHeroine && (C008_DramaClass_Damsel_CurrentStage == 250) && ActorSpecificInBondage("Sarah")) C008_DramaClass_Damsel_CurrentStage = 255;
 	if (C008_DramaClass_Damsel_PlayerIsVillain && (C008_DramaClass_Damsel_CurrentStage == 280) && ActorSpecificInBondage("Sarah")) C008_DramaClass_Damsel_CurrentStage = 285;
+	if ((C008_DramaClass_Damsel_CurrentStage == 400) && C008_DramaClass_Damsel_IsGagged) C008_DramaClass_Damsel_CurrentStage = 410;
 
 }
 
@@ -69,6 +84,18 @@ function C008_DramaClass_Damsel_Click() {
 		C008_DramaClass_Theater_SetPose();
 	}
 
+	// The damsel can be restrained on stage 410
+	if ((C008_DramaClass_Damsel_CurrentStage == 410) && (ClickInv != "") && (ClickInv != "Player") && !Common_PlayerRestrained) {
+
+		// A few items can change the actor attitude
+		if ((ClickInv == "Crop") && !C008_DramaClass_Damsel_ViolenceDone) { C008_DramaClass_Damsel_ViolenceDone = true; ActorChangeAttitude(1, 0); }
+	
+		// Apply the clicked restrain
+		ActorApplyRestrain(ClickInv);
+		C008_DramaClass_Damsel_CalcParams();
+
+	}
+	
 }
 
 // Chapter 8 - Damsel - Sets the global stage and can alter Julia's mood
@@ -186,4 +213,39 @@ function C008_DramaClass_Damsel_FinalTwoPrisoners() {
 	ActorSpecificChangeAttitude("Julia", 0, 1);
 	C008_DramaClass_Theater_GlobalStage = 300;
 	C008_DramaClass_Theater_Ending = "TwoPrisoners";
+}
+
+// Chapter 8 - Damsel Strip
+function C008_DramaClass_Damsel_Strip() {
+	ActorSetCloth("Underwear");
+	CurrentTime = CurrentTime + 50000;
+}
+
+// Chapter 8 - Damsel Untie
+function C008_DramaClass_Damsel_Untie() {
+	ActorUntie();
+	C008_DramaClass_Damsel_CalcParams();
+}
+
+// Chapter 8 - Damsel Ungag
+function C008_DramaClass_Damsel_Ungag() {
+	ActorUngag();
+	C008_DramaClass_Damsel_CalcParams();
+}
+
+// Chapter 8 - Damsel Spank
+function C008_DramaClass_Damsel_Spank() {
+	if (!C008_DramaClass_Damsel_ViolenceDone) { C008_DramaClass_Damsel_ViolenceDone = true; ActorChangeAttitude(1, 0); }
+}
+
+// Chapter 8 - Damsel Masturbate, Sarah can climax if she was hit before (Spank or Crop)
+function C008_DramaClass_Damsel_Masturbate() {
+	C008_DramaClass_Damsel_MastubateCount++;
+	if ((C008_DramaClass_Damsel_MastubateCount >= 3) && !C008_DramaClass_Damsel_OrgasmDone && C008_DramaClass_Damsel_ViolenceDone) {
+		C008_DramaClass_Damsel_OrgasmDone = true;
+		ActorAddOrgasm();
+		ActorChangeAttitude(1, 0);
+		OverridenIntroText = GetText("Orgasm");
+		OverridenIntroImage = "BackgroundOrgasm.jpg";
+	}
 }

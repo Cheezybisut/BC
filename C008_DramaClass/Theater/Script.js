@@ -105,7 +105,7 @@ function C008_DramaClass_Theater_Load() {
 	if (C008_DramaClass_JuliaIntro_PlayerRole == "Heroine") C008_DramaClass_Theater_Heroine = "Player";
 	if (C008_DramaClass_JuliaIntro_SarahRole == "Heroine") C008_DramaClass_Theater_Heroine = "Sarah";
 	if (C008_DramaClass_JuliaIntro_AmandaRole == "Heroine") C008_DramaClass_Theater_Heroine = "Amanda";
-	Common_SelfBondageAllowed = (C008_DramaClass_Theater_GlobalStage >= 350);
+	Common_SelfBondageAllowed = (C008_DramaClass_Theater_GlobalStage >= 400);
 	C008_DramaClass_Theater_SetPose();
 	
 }

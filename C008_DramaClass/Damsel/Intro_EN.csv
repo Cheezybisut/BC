@@ -42,4 +42,7 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 400,0,0,PlayerIsHeroine,My hero!  What do you need from me?,Background.jpg
 400,0,0,PlayerIsVillain,"Oh lord, the black knight.|What do you require of me?",Background.jpg
 400,0,0,IsGagged,Uuurgmn!,Background.jpg
+410,0,0,PlayerIsHeroine,My hero!  What do you need from me?,Background.jpg
+410,0,0,PlayerIsVillain,"Oh lord, the black knight.|What do you require of me?",Background.jpg
+410,0,0,IsGagged,Uuurgmn!,Background.jpg
 500,0,0,,(It seems the play isn't totally over.|You can still interact with the others.),Background.jpg
