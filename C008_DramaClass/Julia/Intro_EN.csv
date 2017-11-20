@@ -42,11 +42,14 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 310,0,0,,It was great to see all of you acting.|And there was room to improvise.,Background.jpg
 320,0,0,,Join the play now?|But in what role?,Background.jpg
 330,0,0,,,Background.jpg
+340,0,0,,,Background.jpg
 400,0,0,IsDamsel,My sweet damsel friend.|What will happen to us?,Background.jpg
 400,0,0,IsHeroine,Oh my white hero!|What do you require of me?,Background.jpg
 400,0,0,IsVillain,Oh great black knight!|What do you require of me?,Background.jpg
 410,0,0,IsDamsel,My sweet damsel friend.|What will happen to us?,Background.jpg
 410,0,0,IsHeroine,Oh my white hero!|What do you require of me?,Background.jpg
 410,0,0,IsVillain,Oh great black knight!|What do you require of me?,Background.jpg
+410,0,0,Common_PlayerGagged,I guesseth thee won't be talking much.,Background.jpg
 410,0,0,IsGagged,Om nong!  Olog amogn!|(She plays with her gag.),Background.jpg
 500,0,0,,As fair queen of the land.|I expect respect and devotion.,Background.jpg
+500,0,0,Common_PlayerGagged,I guesseth thee won't be talking much.,Background.jpg

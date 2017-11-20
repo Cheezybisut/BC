@@ -12,9 +12,11 @@ var C008_DramaClass_Damsel_CanKneelVillain = false;
 var C008_DramaClass_Damsel_CanHugHeroine = false;
 var C008_DramaClass_Damsel_CanHugVillain = false;
 var C008_DramaClass_Damsel_IsGagged = false;
+var C008_DramaClass_Damsel_IsRestrained = false;
 var C008_DramaClass_Damsel_CanUntie = false;
 var C008_DramaClass_Damsel_CanUngag = false;
 var C008_DramaClass_Damsel_CanAbuse = false;
+var C008_DramaClass_Damsel_CanKiss = false;
 var C008_DramaClass_Damsel_OrgasmDone = false;
 var C008_DramaClass_Damsel_ViolenceDone = false;
 var C008_DramaClass_Damsel_MastubateCount = 0;
@@ -22,9 +24,12 @@ var C008_DramaClass_Damsel_MastubateCount = 0;
 // Calculates the scene parameters
 function C008_DramaClass_Damsel_CalcParams() {
 	C008_DramaClass_Damsel_IsGagged = ActorIsGagged();
+	C008_DramaClass_Damsel_IsRestrained = ActorIsRestrained();
 	C008_DramaClass_Damsel_CanUntie = (ActorHasInventory("Rope") && !Common_PlayerRestrained);
 	C008_DramaClass_Damsel_CanUngag = (C008_DramaClass_Damsel_IsGagged && !Common_PlayerRestrained);
-	C008_DramaClass_Damsel_CanAbuse = (ActorIsRestrained() && !Common_PlayerRestrained);
+	C008_DramaClass_Damsel_CanAbuse = (C008_DramaClass_Damsel_IsRestrained && !Common_PlayerRestrained);
+	C008_DramaClass_Damsel_CanKiss = ((C008_DramaClass_Damsel_IsRestrained || (ActorGetValue(ActorLove) >= 5)) && !Common_PlayerGagged && !C008_DramaClass_Damsel_IsGagged);
+	OverridenIntroImage = "";
 }
 
 // Chapter 8 - Damsel Load
@@ -240,6 +245,7 @@ function C008_DramaClass_Damsel_Spank() {
 
 // Chapter 8 - Damsel Masturbate, Sarah can climax if she was hit before (Spank or Crop)
 function C008_DramaClass_Damsel_Masturbate() {
+	OverridenIntroImage = "";
 	C008_DramaClass_Damsel_MastubateCount++;
 	if ((C008_DramaClass_Damsel_MastubateCount >= 3) && !C008_DramaClass_Damsel_OrgasmDone && C008_DramaClass_Damsel_ViolenceDone) {
 		C008_DramaClass_Damsel_OrgasmDone = true;

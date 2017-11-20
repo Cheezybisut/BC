@@ -36,9 +36,13 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 250,0,0,DamselCanInteract,(Go hug her.)|(1 minute),You go in her arms and|you hug for the final act.,260,0,0,FinalHug()
 250,2,0,DamselCanBeg,(Make pleading eyes.)|(1 minute),You make sweet pleading eyes and|she releases you from your bondage.,250,0,0,ReleasePlayer()
 250,0,0,DamselCanBeg,(Surrender to her.)|(1 minute),You surrender to her and she decides to|keep you both prisoners for the final act.,300,0,0,FinalTwoPrisoners()
+400,0,0,PlayerIsVillain,Next time you will|never find your damsel.,(She frowns at you and giggles right after.),400,0,0,
+400,0,0,PlayerIsDamsel,Your white armor|is so romantic!,(She looks at the armor and shrugs.),400,0,0,
 400,0,0,CanConvinceJuliaToStrip,Shouldn't damsel Julia|show her charms?,Very true milady.  Damsel Julia!|(Julia obeys and strips a little.),400,0,0,JuliaStrip()
 400,0,0,CanUntie,(Untie her.)|(1 minute),(You undo the knots and stash|the rope while she dresses back.),400,0,0,Untie()
 400,0,0,CanUngag,(Ungag her.)|(1 minute),(You remove the gag and she giggles.)|This is such a kinky play.,400,0,0,Ungag()
+400,0,0,CanKiss,(Kiss her.)|(1 minute),(You get close and give her a long kiss on the lips.)|(She stays silent and appreciates the moment.),400,0,0,Kiss()
 400,0,0,CanAbuse,(Tickle her.)|(1 minute),(She struggles to avoid your tickling|but can't do much but to laugh.),400,0,0,Tickle()
 400,0,0,CanAbuse,(Spank her.)|(1 minute),"(She whimpers with each hit, you're|not totally sure if she enjoys it or not.)",400,0,0,Spank()
 400,0,0,CanAbuse,(Masturbate her.)|(1 minute),"(You grab her and masturbate her lovingly.|She moans, trembles and breathes heavily.)",400,0,0,Masturbate()
+400,0,0,CanBeg,(Make pleading eyes.)|(1 minute),Thou art way too cute to be released.,400,0,0,BegRelease()

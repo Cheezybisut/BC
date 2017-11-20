@@ -13,11 +13,14 @@ var C008_DramaClass_Villain_CanConvinceJuliaToStrip = false;
 var C008_DramaClass_Villain_CanUntie = false;
 var C008_DramaClass_Villain_CanUngag = false;
 var C008_DramaClass_Villain_CanAbuse = false;
+var C008_DramaClass_Villain_CanKiss = false;
 var C008_DramaClass_Villain_CropDone = false;
+var C008_DramaClass_Villain_KissDone = false;
 var C008_DramaClass_Villain_TickleDone = false;
 var C008_DramaClass_Villain_SpankDone = false;
 var C008_DramaClass_Villain_OrgasmDone = false;
 var C008_DramaClass_Villain_MastubateCount = 0;
+var C008_DramaClass_Villain_RavishDone = false;
 
 // Calculates the scene parameters
 function C008_DramaClass_Villain_CalcParams() {
@@ -25,9 +28,11 @@ function C008_DramaClass_Villain_CalcParams() {
 	C008_DramaClass_Villain_CanUntie = (ActorHasInventory("Rope") && !Common_PlayerRestrained);
 	C008_DramaClass_Villain_CanUngag = (C008_DramaClass_Villain_IsGagged && !Common_PlayerRestrained);
 	C008_DramaClass_Villain_CanAbuse = (ActorIsRestrained() && !Common_PlayerRestrained);
+	C008_DramaClass_Villain_CanKiss = ((ActorIsRestrained() || (ActorGetValue(ActorLove) >= 5)) && !Common_PlayerGagged && !C008_DramaClass_Villain_IsGagged);
 	C008_DramaClass_Villain_CanConvinceJuliaToStrip = (C008_DramaClass_Villain_PlayerIsDamsel && !C008_DramaClass_Villain_IsGagged && (C008_DramaClass_Julia_CurrentStage == 400) && ((ActorSpecificGetValue("Amanda", ActorLove) >= 10) || (ActorSpecificGetValue("Amanda", ActorSubmission) >= 10)));
 	C008_DramaClass_Villain_DamselCanInteract = (C008_DramaClass_Villain_PlayerIsDamsel && !Common_PlayerGagged);
 	C008_DramaClass_Villain_DamselCanBeg = (C008_DramaClass_Villain_PlayerIsDamsel && Common_PlayerGagged);
+	OverridenIntroImage = "";
 }
 
 // Chapter 8 - Villain Load
@@ -210,24 +215,44 @@ function C008_DramaClass_Villain_Ungag() {
 	C008_DramaClass_Villain_CalcParams();
 }
 
+// Chapter 8 - Villain Kiss
+function C008_DramaClass_Villain_Kiss() {
+	if (!C008_DramaClass_Villain_KissDone) { C008_DramaClass_Villain_KissDone = true; ActorChangeAttitude(1, 0); }
+	C008_DramaClass_Villain_CalcParams();
+}
+
 // Chapter 8 - Villain Tickle
 function C008_DramaClass_Villain_Tickle() {
 	if (!C008_DramaClass_Villain_TickleDone) { C008_DramaClass_Villain_TickleDone = true; ActorChangeAttitude(1, 0); }
+	C008_DramaClass_Villain_CalcParams();
 }
 
 // Chapter 8 - Villain Spank
 function C008_DramaClass_Villain_Spank() {
 	if (!C008_DramaClass_Villain_SpankDone) { C008_DramaClass_Villain_SpankDone = true; ActorChangeAttitude(-1, 0); }
+	C008_DramaClass_Villain_CalcParams();
 }
 
 // Chapter 8 - Villain Masturbate, Amanda can climax if she's bound with two ropes and gagged
 function C008_DramaClass_Villain_Masturbate() {
+	OverridenIntroImage = "";
 	C008_DramaClass_Villain_MastubateCount++;
-	if ((C008_DramaClass_Damsel_MastubateCount >= 3) && !C008_DramaClass_Villain_OrgasmDone && ActorIsGagged() && ActorHasInventory("TwoRopes")) { 
+	if ((C008_DramaClass_Villain_MastubateCount >= 3) && !C008_DramaClass_Villain_OrgasmDone && ActorIsGagged() && ActorHasInventory("TwoRopes")) { 
 		C008_DramaClass_Villain_OrgasmDone = true;
 		ActorAddOrgasm();
 		ActorChangeAttitude(1, 0);
 		OverridenIntroText = GetText("Orgasm");
 		OverridenIntroImage = "BackgroundOrgasm.jpg";
 	}
+}
+
+// Chapter 8 - Villain Ravish
+function C008_DramaClass_Villain_Ravish() {
+	if (!C008_DramaClass_Villain_RavishDone) { C008_DramaClass_Villain_RavishDone = true; ActorChangeAttitude(0, -1); }
+	if ((ActorGetValue(ActorSubmission) < 5) && !ActorIsRestrained() && !ActorIsGagged() && (PlayerHasInventory("Rope") || PlayerHasInventory("Cuffs"))) {
+		CurrentTime = CurrentTime + 50000;
+		PlayerRandomBondage();
+		OverridenIntroText = GetText("Ravish");
+	}
+	C008_DramaClass_Villain_CalcParams();
 }

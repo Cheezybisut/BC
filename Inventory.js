@@ -151,6 +151,9 @@ function PlayerRandomBondage() {
 	if (R != "") { PlayerRemoveInventory(R, 1); PlayerLockInventory(R); }
 	if (G != "") { PlayerRemoveInventory(G, 1); PlayerLockInventory(G); }
 	
+	// If the player has rope, she must at least be in her underwear
+	if (PlayerHasLockedInventory("Rope") && Common_PlayerClothed) PlayerClothes("Underwear");
+
 }
 
 // Release the player from bondage and restore it's inventory
