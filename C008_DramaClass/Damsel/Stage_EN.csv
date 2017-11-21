@@ -42,7 +42,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 285,0,0,,Sorry Julia.|I forgot my line.,"Julia laughs out loud and says:|""Don't worry and improvise, we are off script.""",285,0,0,
 400,0,0,,I won't marry you.|Remove this dress.,"Of course fair knight, I'm sorry to hear that.|(She removes her gown and throws it away.)",410,-1,1,Strip()
 400,0,0,,Lovely damsel.  Show|us your perfect body.,Oh yes my fair knight!  Let me do this.|(She removes her gown and throws it away.),410,1,0,Strip()
-400,0,0,,You don't look|great in that gown.,It gives me a huge but?  I'll remove it.|(She removes her gown and throws it away.),410,-1,0,Strip()
+400,0,0,,You don't look|great in that gown.,It gives me a huge butt?  I'll remove it.|(She removes her gown and throws it away.),410,-1,0,Strip()
 400,0,0,,It would be even|kinkier in your undies.,Yes!  That's a great idea.  I'll remove it.|(She removes her gown and throws it away.),410,1,-1,Strip()
 410,0,0,!IsRestrained,Dance for me sweet|damsel.  (1 minute),(She giggles and performs a ballerina|tip toe dance in her damsel gown.),410,0,0,
 410,0,0,!IsRestrained,Danceth f'r me sweet|damoiselle.  (1 minute),(She giggles and performs a ballerina|tip toe dance in her damsel gown.),410,0,0,

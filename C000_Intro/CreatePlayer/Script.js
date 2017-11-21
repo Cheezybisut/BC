@@ -42,7 +42,7 @@ function C000_Intro_CreatePlayer_Validate() {
 	var letters = /^[a-zA-Z ]+$/;
 	if (NewName.match(letters) && (NewName.length > 0) && (NewName.length <= 20)) {
 		Common_PlayerName = NewName;
-		document.getElementById("InputName").remove();
+		document.getElementById("InputName").parentNode.removeChild(document.getElementById("InputName"));
 		SetScene(C000_Intro_CreatePlayer_ChapterToLoad, "Intro");
 	}
 }
