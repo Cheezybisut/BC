@@ -211,8 +211,13 @@ function C008_DramaClass_Heroine_Spank() {
 
 // Chapter 8 - Heroine Masturbate, Sarah or Amanda can climax with different parameters
 function C008_DramaClass_Heroine_Masturbate() {
+
+	// Cannot work if the girl is locked in a chastity belt
+	if (ActorIsChaste()) { OverridenIntroText = GetText("MasturbateChaste"); return; }	
 	OverridenIntroImage = "";
 	C008_DramaClass_Heroine_MastubateCount++;
+	
+	// Amanda will climax if she's properly tied up
 	if ((CurrentActor == "Amanda") && (C008_DramaClass_Heroine_MastubateCount >= 3) && !C008_DramaClass_Heroine_OrgasmDone && ActorIsGagged() && ActorHasInventory("TwoRopes")) { 
 		C008_DramaClass_Heroine_OrgasmDone = true;
 		ActorAddOrgasm();
@@ -220,6 +225,8 @@ function C008_DramaClass_Heroine_Masturbate() {
 		OverridenIntroText = GetText("Orgasm");
 		OverridenIntroImage = "BackgroundOrgasm.jpg";
 	}
+	
+	// Sarah will climax if she was beaten up
 	if ((CurrentActor == "Sarah") && (C008_DramaClass_Heroine_MastubateCount >= 3) && !C008_DramaClass_Heroine_OrgasmDone && C008_DramaClass_Heroine_ViolenceDone) { 
 		C008_DramaClass_Heroine_OrgasmDone = true;
 		ActorAddOrgasm();
@@ -227,6 +234,7 @@ function C008_DramaClass_Heroine_Masturbate() {
 		OverridenIntroText = GetText("Orgasm");
 		OverridenIntroImage = "BackgroundOrgasm.jpg";
 	}
+	
 }
 
 // Chapter 8 - The heroine can release the player depending of the relationship

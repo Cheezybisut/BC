@@ -36,8 +36,8 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 300,0,0,!PlayerIsHeroine,It was a really nice.  I hope|I was a good white knight.,Background.jpg
 300,0,0,IsGagged,Mnuh gnunmn n muh!,Background.jpg
 300,0,0,PlayerIsHeroine,(The play is over),Background.jpg
-400,0,0,PlayerIsVillain,Black knight!  You fellon!|What do you want now?,Background.jpg
-400,0,0,PlayerIsDamsel,My lovely fiancee.|What can I do for you?,Background.jpg
+400,0,0,PlayerIsVillain,Black knight!  You felon!|What do you want now?,Background.jpg
+400,0,0,PlayerIsDamsel,My lovely fiancée.|What can I do for you?,Background.jpg
 400,0,0,Common_PlayerGagged,(She looks at your gag and giggles.),Background.jpg
 400,0,0,IsGagged,Aaem mne nyyo!,Background.jpg
 500,0,0,,(It seems the play isn't totally over.|You can still interact with the others.),Background.jpg

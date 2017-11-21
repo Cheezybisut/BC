@@ -33,11 +33,11 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 230,0,0,PlayerIsDamsel,(Watch the fight.),Both knights charge on each other and|engage in a pretty neat sword fight.,235,0,0,NoLeave()
 235,0,0,CanIntimidate,(Intimidate her.)|(1 minute),You give a menacing look to Amanda which|barely fights and lets you disarm her.,270,0,0,"GlobalStage(270, 0, 1)"
 235,0,0,CanDisarm,(Disarm her.)|(1 minute),Amanda puts a pretty nice fight but|you're able to win by disarming her.,270,0,0,"GlobalStage(270, 0, 0)"
-235,0,0,PlayerIsVillain,(Play defensive.)|(1 minute),You stick to defensive moves and Amanda|takes advatange of it to disarm you.,240,0,0,"GlobalStage(240, 0, 0)"
+235,0,0,PlayerIsVillain,(Play defensive.)|(1 minute),You stick to defensive moves and Amanda|takes advantage of it to disarm you.,240,0,0,"GlobalStage(240, 0, 0)"
 235,0,0,PlayerIsVillain,(Let Amanda win.)|(1 minute),You don't put much of a fight|and Amanda easily disarms you.,240,0,0,"GlobalStage(240, 0, -1)"
 235,0,10,PlayerIsHeroine,(Intimidate her.)|(1 minute),You give a menacing look to Amanda which|barely fights and lets you disarm her.,240,0,0,"GlobalStage(240, 0, 1)"
 235,0,2,PlayerIsHeroine,(Disarm her.)|(1 minute),Amanda puts a pretty nice fight but|you're able to win by disarming her.,240,0,0,"GlobalStage(240, 0, 0)"
-235,0,0,PlayerIsHeroine,(Play defensive.)|(1 minute),You stick to defensive moves and Amanda|takes advatange of it to disarm you.,270,0,0,"GlobalStage(270, 0, 0)"
+235,0,0,PlayerIsHeroine,(Play defensive.)|(1 minute),You stick to defensive moves and Amanda|takes advantage of it to disarm you.,270,0,0,"GlobalStage(270, 0, 0)"
 235,0,0,PlayerIsHeroine,(Let Amanda win.)|(1 minute),You don't put much of a fight|and Amanda easily disarms you.,270,0,0,"GlobalStage(270, 0, -1)"
 235,0,0,PlayerIsDamsel,Hurray for thy|white champion!,,235,0,0,AmandaSarahFight(-4)
 235,0,0,PlayerIsDamsel,Hurray for thy|black champion!,,235,0,0,AmandaSarahFight(4)
@@ -65,5 +65,5 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 400,0,0,CanUngag,(Ungag her.)|(1 minute),(You remove the gag and she stares at you.)|Are you sure all of this was in the script?,400,0,0,Ungag()
 400,0,0,CanKiss,(Kiss her.)|(1 minute),(You get close and give her a long kiss on the lips.)|Oh COMMON_PLAYERNAME!  You give wonderful kisses.,400,0,0,Kiss()
 400,0,0,CanAbuse,(Tickle her.)|(1 minute),(You tickle her on the ribs and tummy.|She very ticklish and laughs out loud.),400,0,0,Tickle()
-400,0,0,CanAbuse,(Spank her.)|(1 minute),(She whimpers with each hit.|She clearly didn't enjoyed it.),400,0,0,Spank()
-400,0,0,CanAbuse,(Masturbate her.)|(1 minute),(You grab her and masturbate her slowly.|She blushes and tries to control her moanings.),400,0,0,Masturbate()
+400,0,0,CanAbuse,(Spank her.)|(1 minute),(She whimpers with each hit.|She clearly doesn't enjoy it.),400,0,0,Spank()
+400,0,0,CanAbuse,(Masturbate her.)|(1 minute),(You grab her and masturbate her slowly.|She blushes and tries to control her moaning.),400,0,0,Masturbate()

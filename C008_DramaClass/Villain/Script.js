@@ -235,8 +235,13 @@ function C008_DramaClass_Villain_Spank() {
 
 // Chapter 8 - Villain Masturbate, Amanda can climax if she's bound with two ropes and gagged
 function C008_DramaClass_Villain_Masturbate() {
+
+	// Cannot work if the girl is locked in a chastity belt
+	if (ActorIsChaste()) { OverridenIntroText = GetText("MasturbateChaste"); return; }
 	OverridenIntroImage = "";
 	C008_DramaClass_Villain_MastubateCount++;
+
+	// Amanda will climax if she's properly tied up
 	if ((C008_DramaClass_Villain_MastubateCount >= 3) && !C008_DramaClass_Villain_OrgasmDone && ActorIsGagged() && ActorHasInventory("TwoRopes")) { 
 		C008_DramaClass_Villain_OrgasmDone = true;
 		ActorAddOrgasm();
@@ -244,6 +249,7 @@ function C008_DramaClass_Villain_Masturbate() {
 		OverridenIntroText = GetText("Orgasm");
 		OverridenIntroImage = "BackgroundOrgasm.jpg";
 	}
+
 }
 
 // Chapter 8 - Villain Ravish

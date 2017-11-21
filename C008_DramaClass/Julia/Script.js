@@ -207,7 +207,7 @@ function C008_DramaClass_Julia_WeightComment() {
 	C008_DramaClass_Julia_CalcParams();
 }
 
-// Chapter 8 - Julia the queen will not accept a rebellion
+// Chapter 8 - Julia the queen will not accept a rebellion and put everyone in bondage
 function C008_DramaClass_Julia_Rebellion() {
 	C008_DramaClass_Julia_RebellionAvail = false;
 	CurrentTime = CurrentTime + 170000;

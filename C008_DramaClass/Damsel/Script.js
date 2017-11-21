@@ -245,8 +245,13 @@ function C008_DramaClass_Damsel_Spank() {
 
 // Chapter 8 - Damsel Masturbate, Sarah can climax if she was hit before (Spank or Crop)
 function C008_DramaClass_Damsel_Masturbate() {
+
+	// Cannot work if the girl is locked in a chastity belt
+	if (ActorIsChaste()) { OverridenIntroText = GetText("MasturbateChaste"); return; }
 	OverridenIntroImage = "";
 	C008_DramaClass_Damsel_MastubateCount++;
+
+	// Sarah will climax if she was beaten up
 	if ((C008_DramaClass_Damsel_MastubateCount >= 3) && !C008_DramaClass_Damsel_OrgasmDone && C008_DramaClass_Damsel_ViolenceDone) {
 		C008_DramaClass_Damsel_OrgasmDone = true;
 		ActorAddOrgasm();
@@ -254,4 +259,5 @@ function C008_DramaClass_Damsel_Masturbate() {
 		OverridenIntroText = GetText("Orgasm");
 		OverridenIntroImage = "BackgroundOrgasm.jpg";
 	}
+
 }
