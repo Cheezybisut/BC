@@ -17,7 +17,7 @@ function DrawGetImage(Source) {
 		
 // Draw a zoomed image from a source to the canvas
 function DrawImageZoom(ctx, Source, SX, SY, SWidth, SHeight, X, Y, Width, Height) {
-	ctx.drawImage(DrawGetImage(Source), SX, SY, SWidth, SHeight, X, Y, Width, Height);
+	ctx.drawImage(DrawGetImage(Source), SX, SY, Math.round(SWidth), Math.round(SHeight), X, Y, Width, Height);
 }
 
 // Draw an image from a source to the canvas
@@ -335,7 +335,7 @@ function DrawPlayerImage(X, Y) {
 // Draw the transparent player image (600x900) with a zoom if required
 function DrawTransparentPlayerImage(X, Y, Zoom) {
 	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawImageZoom(ctx, "Actors/Player/" + DrawGetPlayerImageName() + ".png", 0, 0, 600 / Zoom, 900 / Zoom, X, Y, 600, 900);	
+	DrawImageZoom(ctx, "Actors/Player/" + DrawGetPlayerImageName() + ".png", 0, 0, 600, 900, X, Y, 600 * Zoom, 900 * Zoom);
 }
 
 // Draw the transparent actor over the current background
@@ -369,7 +369,7 @@ function DrawActor(ActorToDraw, X, Y, Zoom) {
 
 		// Draw the full image from all parts
 		var ctx = document.getElementById("MainCanvas").getContext("2d");
-		DrawImageZoom(ctx, "Actors/" + ActorToDraw + "/" + ImageCloth + ImageBondage + ImageGag + ImagePose + ".png", 0, 0, 600 / Zoom, 900 / Zoom, X, Y, 600, 900);
+		DrawImageZoom(ctx, "Actors/" + ActorToDraw + "/" + ImageCloth + ImageBondage + ImageGag + ImagePose + ".png", 0, 0, 600, 900, X, Y, 600 * Zoom, 900 * Zoom);
 		
 	}
 

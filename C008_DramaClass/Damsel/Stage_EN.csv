@@ -44,8 +44,8 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 400,0,0,,Lovely damsel.  Show|us your perfect body.,Oh yes my fair knight!  Let me do this.|(She removes her gown and throws it away.),410,1,0,Strip()
 400,0,0,,You don't look|great in that gown.,It gives me a huge butt?  I'll remove it.|(She removes her gown and throws it away.),410,-1,0,Strip()
 400,0,0,,It would be even|kinkier in your undies.,Yes!  That's a great idea.  I'll remove it.|(She removes her gown and throws it away.),410,1,-1,Strip()
-410,0,0,!IsRestrained,Dance for me sweet|damsel.  (1 minute),(She giggles and performs a ballerina|tip toe dance in her damsel gown.),410,0,0,
-410,0,0,!IsRestrained,Danceth f'r me sweet|damoiselle.  (1 minute),(She giggles and performs a ballerina|tip toe dance in her damsel gown.),410,0,0,
+410,0,0,!IsRestrained,Dance for me sweet|damsel.  (1 minute),(She giggles and performs|a ballerina tip toe dance.),410,0,0,
+410,0,0,!IsRestrained,Danceth f'r me sweet|damoiselle.  (1 minute),(She giggles and performs|a ballerina tip toe dance.),410,0,0,
 410,0,0,IsRestrained,Dance for me sweet|damsel.  (1 minute),"(She does a very clumsy dance in|her restrains, laughing all the way.)",410,0,0,
 410,0,0,IsRestrained,Danceth f'r me sweet|damoiselle.  (1 minute),"(She does a very clumsy dance in|her restrains, laughing all the way.)",410,0,0,
 410,0,0,CanUntie,(Untie her.)|(1 minute),(She resists to stay tied up but you're|able to undo the knots and release her.),410,0,0,Untie()

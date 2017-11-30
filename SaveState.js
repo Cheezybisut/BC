@@ -1,6 +1,7 @@
 var SaveGameVersion = "8A";
 var SaveChapter = "";
 var SaveScreen = "";
+var SaveMaxSlot = 9;
 
 // Opens the save menu for a specific chapter
 function SaveMenu(NextChapter, NextScreen) {
@@ -37,7 +38,7 @@ function SaveStateSlotSummary() {
 
 			// For each save slots, we load the summary
 			var Slot = 1;	
-			while (Slot <= 5) {		
+			while (Slot <= SaveMaxSlot) {		
 				CurrentStage[Slot][StageInteractionText] = SaveStateGetSummary(Slot);
 				Slot++;		
 			}
