@@ -21,7 +21,7 @@ function SaveStateGetSummary(SlotNumber) {
 			var SaveStatePlayerName = localStorage.getItem("Common_PlayerName" + SN);
 			var SaveStateChapter = localStorage.getItem("CurrentChapter" + SN);
 			var SaveStateDateTime = localStorage.getItem("SaveGameDateTime" + SN);
-			Summary = SaveStatePlayerName.substr(0, 10) + " - " + GetText("Chapter") + " " + SaveStateChapter.substring(3, 4) + "|" + SaveStateDateTime;
+			Summary = SaveStatePlayerName.substr(0, 10) + " - " + GetText("Chapter") + " " + SaveStateChapter.substring(2, 4) + "|" + SaveStateDateTime;
 		}
 		
 	// Returns the summary

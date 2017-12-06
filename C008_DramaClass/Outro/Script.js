@@ -8,6 +8,12 @@ function C008_DramaClass_Outro_Load() {
 	ActorSpecificClearInventory("Sarah", true);
 	ActorSpecificClearInventory("Julia", true);
 	PlayerClothes("Clothed");
+	ActorSpecificSetCloth("Amanda", "Clothed");
+	ActorSpecificSetCloth("Sarah", "Clothed");
+	ActorSpecificSetCloth("Julia", "Clothed");
+	ActorSpecificSetPose("Amanda", "");
+	ActorSpecificSetPose("Sarah", "");
+	ActorSpecificSetPose("Julia", "");
 
 }
 
@@ -26,10 +32,9 @@ function C008_DramaClass_Outro_Run() {
 		if (TextPhase >= 1) DrawText(ctx, GetText("Outro2"), 400, 200, "White");
 		if ((TextPhase >= 2) && ((Common_PlayerCrime == "AmandaStranded") || (Common_PlayerCrime == "SarahStranded"))) DrawText(ctx, GetText("AmandaSarah3"), 400, 300, "White");
 		if ((TextPhase >= 3) && ((Common_PlayerCrime == "AmandaStranded") || (Common_PlayerCrime == "SarahStranded"))) DrawText(ctx, GetText("AmandaSarah4"), 400, 400, "White");
-		if ((TextPhase >= 4) && ((Common_PlayerCrime == "AmandaStranded") || (Common_PlayerCrime == "SarahStranded"))) DrawText(ctx, GetText("AmandaSarah5"), 400, 500, "White");
 		if ((TextPhase >= 2) && ((Common_PlayerCrime == "SidneyStranded") || (Common_PlayerCrime == "JenniferStranded"))) DrawText(ctx, GetText("SidneyJennifer3"), 400, 300, "White");
 		if ((TextPhase >= 3) && ((Common_PlayerCrime == "SidneyStranded") || (Common_PlayerCrime == "JenniferStranded"))) DrawText(ctx, GetText("SidneyJennifer4"), 400, 400, "White");
-		if ((TextPhase >= 4) && ((Common_PlayerCrime == "SidneyStranded") || (Common_PlayerCrime == "JenniferStranded"))) DrawText(ctx, GetText("SidneyJennifer5"), 400, 500, "White");
+		if ((TextPhase >= 3) && ((Common_PlayerCrime == "SidneyStranded") || (Common_PlayerCrime == "JenniferStranded"))) DrawText(ctx, GetText("SidneyJennifer5"), 400, 400, "White");
 
 		// The image changes to show the girls
 		if (TextPhase <= 1) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Bell.jpg", 800, 0);
@@ -53,6 +58,11 @@ function C008_DramaClass_Outro_Click() {
 
 	// Jump to the next animation
 	TextPhase++;
-	//if (TextPhase >= 3) SaveMenu("C009", "Intro");
+	//if ((Common_PlayerCrime == "AmandaStranded") || (Common_PlayerCrime == "SarahStranded") || (Common_PlayerCrime == "SidneyStranded") || (Common_PlayerCrime == "JenniferStranded")) {
+	if ((Common_PlayerCrime == "AmandaStranded") || (Common_PlayerCrime == "SarahStranded")) {
+		if (TextPhase >= 4) SaveMenu("C010_Revenge", "Intro");
+	} else {
+		//if (TextPhase >= 3) SaveMenu("C009_Library", "Intro");		
+	}
 
 }
