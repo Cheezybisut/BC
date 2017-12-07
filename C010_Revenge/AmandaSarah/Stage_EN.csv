@@ -28,22 +28,41 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 50,0,0,,What do you|want from me?,(Amanda steps forward.)  First you will|drop your stuff and surrender to us.,60,0,0,"SwitchFocus(""Amanda"")"
 50,0,0,,What is your|stupid plan?,(Amanda steps forward.)  First you will|drop your stuff and surrender to us.,60,-1,0,"SwitchFocus(""Amanda"")"
 50,0,0,,Let's make|peace ok?,(Amanda steps forward.)  Oh no!|You will drop your stuff and surrender to us.,60,0,-1,"SwitchFocus(""Amanda"")"
+50,0,20,,"Sarah, get on|your knees.",On my knees?  Yes Miss.  (She kneels|while Amanda gives her an angry stare.),51,0,1,SarahKneel()
 51,0,0,,"Get out of|my face, slave.",(Sarah runs away and Amanda is left alone.)|SARAH!!!  What the hell?  We had a plan!,52,0,1,SarahLeave()
 51,0,0,,Good little pet.|Now run away.,(Sarah runs away and Amanda is left alone.)|SARAH!!!  What the hell?  We had a plan!,52,1,0,SarahLeave()
-52,0,0,,So what was|your plan again?,(She calms downs and whipers.)  Well...|Errr...  We wanted to leave you in a locker.,53,0,0,AmandaCalmDown()
+52,0,0,,What plan loser?,(She calms downs and whipers.)  Well...|Errr...  We wanted to leave you in a locker.,53,-1,0,"CalmDown(""Amanda"")"
+52,0,0,,So what was|your plan again?,(She calms downs and whipers.)  Well...|Errr...  We wanted to leave you in a locker.,53,0,0,"CalmDown(""Amanda"")"
 52,0,0,,Get lost Amanda.|(Leave Amanda alone.),,52,0,1,"EarlyEnding(""Alone"")"
 53,0,10,,Then you will end|up in that locker.,"Oh no please!  Miss COMMON_PLAYERNAME!|I regret, I will never try that again.",54,0,1,
 53,0,0,,"Well you failed, now go.|(Leave Amanda alone.)",,53,0,0,"EarlyEnding(""Alone"")"
-54,0,0,,Don't resist Amanda.|(Push her in the locker.),"(You open a locker and push her inside.)|Please don't do that, I'm claustrophobic.",55,-1,1,AmandaLocker()
+54,0,0,,Don't resist Amanda.|(Push her in the locker.),"(You open a locker and push her inside.)|Please don't do that, I'm claustrophobic.",55,-1,1,"EnterLocker(""Amanda"")"
 54,0,0,,"I won't, but you owe me.|(Leave Amanda alone.)",,54,2,0,"EarlyEnding(""Alone"")"
-55,0,0,,Enjoy the locker.|(Close it.) (1 minute),(You close the locker and lock it.)|(You can barely hear her whimper inside.),56,0,0,AmandaCloseLocker()
+55,0,0,,Enjoy the locker.|(Close the locker.),(You close the locker and lock it.)|(You can barely hear her whimper inside.),56,0,0,"CloseLocker(""Amanda"")"
 55,0,0,,"Ok, get out and run.|(Leave Amanda alone.)",,55,1,1,"EarlyEnding(""Alone"")"
-56,0,0,,(Open the locker.)|(1 minute),(She breathes heavilty and looks at you|with pleading eyes.)  Please let me go.,55,0,0,AmandaOpenLocker()
-56,0,0,,(Leave her and go.),,56,-1,1,"EarlyEnding(""Locker"")"
+56,0,0,,(Open the locker.),(She breathes heavilty and looks at you|with pleading eyes.)  Please let me go.,55,0,0,"OpenLocker(""Amanda"")"
+56,0,0,,(Leave her and go.),,56,-3,1,"EarlyEnding(""Locker"")"
 60,0,0,,Forget it.  I'm|keeping my bag.,This is your last chance.  If you don't|surrender now we will beat you up.,70,0,0,
 60,0,0,,Get lost losers.|I have to go.,This is your last chance.  If you don't|surrender now we will beat you up.,70,-1,0,
 60,0,0,,"Ok, but don't steal.|(Drop your items.)","Very good, and now you|will strip for us, get naked.",80,1,-1,StealItems()
 60,0,0,,Yes Miss.|(Drop your items.),"Good girl, and now you|will strip for us, get naked.",80,1,-2,StealItems()
+60,0,20,,Amanda.  Shut up|and kneel for me.,Errr...   What Miss?  Kneel?|(She blushes and seems confused.),71,0,0,"CalmDown(""Amanda"")"
 70,0,0,,You want to fight?|Then let's fight!,,70,-2,1,StartFight()
 70,0,0,,You'll pay later.|(Drop your items.),"Shut up and strip, get naked.",80,0,0,StealItems()
-70,0,0,,"Ok, but don't steal.|(Drop your items.)","Very good, and now you|will strip for us, get naked.",80,0,-1,StealItems()
+70,0,0,,Ok but don't steal.|(Drop your items.),"Very good, and now you|will strip for us, get naked.",80,0,-1,StealItems()
+70,0,20,,Amanda.  Shut up|and kneel for me.,Errr...   What Miss?  Kneel?|(She blushes and seems confused.),71,0,0,"CalmDown(""Amanda"")"
+71,0,0,,Be a good submissive|and get on your knees.,Yes Miss.  I'm so sorry Sarah.|(She bows down and kneels for you.),72,1,0,AmandaKneel()
+71,0,0,,Don't make me repeat.|Get on your knees.,Yes Miss.  You don't have to repeat.|(She bows down and kneels for you.),72,0,1,AmandaKneel()
+72,0,0,,"Good girl, now|tell me your plan.",I'm so sorry Miss.  We thought|about leaving you in a locker.,73,0,0,
+72,0,0,,What the fuck did|you had in mind?,I'm so sorry Miss.  We thought|about leaving you in a locker.,73,-1,0,
+73,0,0,,Thanks for your honesty.|You may leave now.,(She walks away while Sarah gets mad at her.)|Amy!  You're a traitor!  You can't go!,74,1,0,AmandaLeave()
+73,0,0,,"Fine, now get lost|before I get mad.",(She walks away while Sarah gets mad at her.)|Amy!  You're a traitor!  You can't go!,74,0,1,AmandaLeave()
+74,0,10,,"Sarah, you will end|up in that locker.",This is kinky Miss COMMON_PLAYERNAME.|(She enters the locker and giggles.),75,0,0,"EnterLocker(""Sarah"")"
+74,5,0,,"My friend, I dare you|to get in the locker.",I'll never turn down a good dare!|(She enters the locker and giggles.),75,0,1,"EnterLocker(""Sarah"")"
+74,0,0,,I'll get you next time.|(Leave Sarah alone.),,74,0,0,"EarlyEnding(""Alone"")"
+75,0,0,,Enjoy the locker.|(Close the locker.),(You close the locker and lock it.)|(You can barely hear her giggling inside.),76,0,0,"CloseLocker(""Sarah"")"
+75,0,0,,"Ok, get out and run.|(Leave Sarah alone.)",,75,0,0,"EarlyEnding(""Alone"")"
+76,0,0,,(Open the locker.),(She looks at you and smiles.)|This is quite a thrill.,75,0,0,"OpenLocker(""Sarah"")"
+76,0,0,,(Leave her and go.),,76,-1,1,"EarlyEnding(""Locker"")"
+80,0,0,,Naked?  This is|going too far.,We're not asking you.  You will|strip up or we will beat you up.,90,0,0,
+80,0,0,,You perverts!|I'm not stripping.,We're not asking you.  You will|strip up or we will beat you up.,90,-1,0,

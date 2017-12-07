@@ -19,14 +19,15 @@ function C003_MorningDetention_Intro_Run() {
 	// Paints the background
 	var ctx = document.getElementById("MainCanvas").getContext("2d");
 	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
+	DrawPlayerTransition(ctx);
 
 	// Write the chapter introduction
-	DrawText(ctx, GetText("Intro1"), 600, 50, "White");
-	if (TextPhase >= 1) DrawText(ctx, GetText("Intro2"), 600, 150, "White");
-	if (TextPhase >= 2) DrawText(ctx, GetText("Intro3"), 600, 250, "White");
-	if (TextPhase >= 3) DrawText(ctx, GetText("Intro4"), 600, 350, "White");
-	if (TextPhase >= 4) DrawText(ctx, GetText("Intro5"), 600, 450, "White");
-	if (TextPhase >= 5) DrawText(ctx, GetText("Intro6"), 600, 550, "White");
+	DrawText(ctx, GetText("Intro1"), 450, 50, "White");
+	if (TextPhase >= 1) DrawText(ctx, GetText("Intro2"), 450, 150, "White");
+	if (TextPhase >= 2) DrawText(ctx, GetText("Intro3"), 450, 250, "White");
+	if (TextPhase >= 3) DrawText(ctx, GetText("Intro4"), 450, 350, "White");
+	if (TextPhase >= 4) DrawText(ctx, GetText("Intro5"), 450, 450, "White");
+	if (TextPhase >= 5) DrawText(ctx, GetText("Intro6"), 450, 550, "White");
 		
 }
 

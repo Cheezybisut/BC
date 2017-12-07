@@ -2,7 +2,7 @@ var C010_Revenge_EarlyEnding_Type = "";
 
 // Chapter 10 - Early Ending Load
 function C010_Revenge_EarlyEnding_Load() {
-	
+
 	// Stop the timer for the transition
 	StopTimer(CurrentTime);
 	PlayerReleaseBondage();
@@ -20,8 +20,8 @@ function C010_Revenge_EarlyEnding_Run() {
 	// Paints the background
 	var ctx = document.getElementById("MainCanvas").getContext("2d");
 	DrawRect(ctx, 0, 0, 800, 600, "black");
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", -150, 0);
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Player.jpg", 900, 0);
+	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
+	DrawPlayerTransition(ctx);
 
 	// Draw the outro text
 	DrawText(ctx, GetText(C010_Revenge_EarlyEnding_Type + "1"), 450, 150, "White");

@@ -11,6 +11,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 10,0,0,,Chapitre 6|L'isolement,,10,0,0,"LoadChapter(""C006_Isolation"")"
 10,0,0,,Chapitre 7|La pause déjeuner,,10,0,0,"LoadChapter(""C007_LunchBreak"")"
 10,0,0,,Chapitre 8|Le cours de Théâtre,,10,0,0,"LoadChapter(""C008_DramaClass"")"
+10,0,0,,Chapitre 10|la vengeance,,10,0,0,"LoadChapter(""C010_Revenge"")"
 10,0,0,,Menu principal,"Bienvenue à l'Université du Bondage.|Amusez-vous bien, soyez curieux(se) et coquin(e).",0,0,0,
 20,0,0,,Anglais,,0,0,0,"SetLanguage(""EN"")"
 20,0,0,,"Français (Chapitre 1 à 3)|Traduit par gottspende",,0,0,0,"SetLanguage(""FR"")"

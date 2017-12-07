@@ -11,8 +11,8 @@ function C000_Intro_Intro_Run() {
 	
 	// Paints the background
 	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", -150, 0);
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Player.jpg", 900, 0);
+	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
+	DrawPlayerTransition(ctx);
 
 	// Draw the intro text
 	DrawText(ctx, GetText("Intro1"), 450, 100, "White");

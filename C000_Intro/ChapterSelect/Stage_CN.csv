@@ -10,7 +10,8 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 10,0,0,,第五章|体育课,,10,0,0,"LoadChapter(""C005_GymClass"")"
 10,0,0,,第六章|独立监禁,,10,0,0,"LoadChapter(""C006_Isolation"")"
 10,0,0,,第七章|午餐时间,,10,0,0,"LoadChapter(""C007_LunchBreak"")"
-10,0,0,,Drama Class,,10,0,0,"LoadChapter(""C008_DramaClass"")"
+10,0,0,,Chapter 8|Drama Class,,10,0,0,"LoadChapter(""C008_DramaClass"")"
+10,0,0,,Chapter 10|Revenge,,10,0,0,"LoadChapter(""C010_Revenge"")"
 10,0,0,,主菜单,欢迎来到束缚学院。|希望各位绅士玩得开心，不断找到新惊喜。,0,0,0,
 20,0,0,,英文,,0,0,0,"SetLanguage(""EN"")"
 20,0,0,,法文 (暂时只有第一章)|感谢gottspende!,,0,0,0,"SetLanguage(""FR"")"

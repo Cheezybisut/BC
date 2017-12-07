@@ -384,3 +384,9 @@ function DrawInteractionActor() {
 		else DrawActor(CurrentActor, 600, 0, 1);
 	}
 }
+
+// Draw a ramdom image of the player as transition from chapter to chapter
+function DrawPlayerTransition(ctx) {
+	var ImgRnd = (Math.round(new Date().getTime() / 5000) % 5) + 1;
+	DrawImage(ctx, "Actors/PlayerTransition/Player0" + ImgRnd.toString() + ".png", 900, 0);
+}
