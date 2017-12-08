@@ -284,7 +284,7 @@ function BuildBottomBar() {
 }
 
 // Returns the name of the image file to use to draw the player
-function DrawGetPlayerImageName() {
+function DrawGetPlayerImageName(IncludePose) {
 	
 	// Get the first part of the image
 	var ImageCloth = "Clothed";
@@ -318,7 +318,7 @@ function DrawGetPlayerImageName() {
 
 	// Sixth part is the pose
 	var ImagePose = "";
-    if (Common_PlayerPose != "") ImagePose = "_" + Common_PlayerPose;
+    if ((Common_PlayerPose != "") && IncludePose) ImagePose = "_" + Common_PlayerPose;
 
 	// Return the constructed name
 	return ImageCloth + ImageBondage + ImageCollar + ImageGag + ImageBlindfold + ImagePose;
@@ -328,14 +328,14 @@ function DrawGetPlayerImageName() {
 // Draw the regular player image (600x600) (can zoom if an X and Y are provided)
 function DrawPlayerImage(X, Y) {
 	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	if ((X == 0) && (Y == 0)) DrawImage(ctx, "C999_Common/Player/" + DrawGetPlayerImageName() + ".jpg", 600, 0);
-	else DrawImageZoom(ctx, "C999_Common/Player/" + DrawGetPlayerImageName() + ".jpg", X, Y, 600, 600, 600, 0, 1200, 1200);
+	if ((X == 0) && (Y == 0)) DrawImage(ctx, "C999_Common/Player/" + DrawGetPlayerImageName(false) + ".jpg", 600, 0);
+	else DrawImageZoom(ctx, "C999_Common/Player/" + DrawGetPlayerImageName(false) + ".jpg", X, Y, 600, 600, 600, 0, 1200, 1200);
 }
 
 // Draw the transparent player image (600x900) with a zoom if required
 function DrawTransparentPlayerImage(X, Y, Zoom) {
 	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawImageZoom(ctx, "Actors/Player/" + DrawGetPlayerImageName() + ".png", 0, 0, 600, 900, X, Y, 600 * Zoom, 900 * Zoom);
+	DrawImageZoom(ctx, "Actors/Player/" + DrawGetPlayerImageName(true) + ".png", 0, 0, 600, 900, X, Y, 600 * Zoom, 900 * Zoom);
 }
 
 // Draw the transparent actor over the current background
