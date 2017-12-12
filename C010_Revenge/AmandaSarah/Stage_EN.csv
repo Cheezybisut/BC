@@ -92,7 +92,8 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 150,0,0,,You better have the key!,The key isn't your biggest problem.|Since we will lock you up now.,160,0,1,BeltComment()
 150,0,0,,(Moan of pleasure.),You're so kinky!  I love it.|And you will be cute all locked up.,160,1,0,BeltComment()
 160,0,0,,Oh yes!  How|will you do it?,(Amanda opens the locker and smiles.)|See that locker?  You will get in it.,170,1,-1,"SwitchFocus(""Amanda"")"
-160,0,0,,Lock me up?|Isn't that enough?,(Amanda opens the locker and frowns.)|See that locker?  You will get in it.,170,0,0,"SwitchFocus(""Amanda"")"
+160,0,0,Common_PlayerClothed,Lock me up?,(Amanda opens the locker and frowns.)|See that locker?  You will get in it.,170,0,0,"SwitchFocus(""Amanda"")"
+160,0,0,Common_PlayerNaked,Lock me up?|Naked is enough.,(Amanda opens the locker and frowns.)|See that locker?  You will get in it.,170,0,0,"SwitchFocus(""Amanda"")"
 160,0,0,,Take one more step|and you'll get hurt.,(Amanda is enraged and opens the locker.)|See that locker?  You will get in it.,170,-1,1,"SwitchFocus(""Amanda"")"
 170,0,0,,You can't|be serious!,Very serious.  Now step in|before we force you in.,180,0,0,
 170,0,0,,No way!  Are|you two insane?,Shut up and step in|before we force you.,180,-1,0,
@@ -104,7 +105,32 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 190,0,0,,Wait!  Let's negotiate!,Negotiation time is over!|(She slams the door and locks it.),200,0,-1,"CloseLocker(""Player"")"
 190,0,0,,Sleep with only|one eye open.,Sleep?  Try to sleep in here.|(She slams the door and locks it.),200,0,1,"CloseLocker(""Player"")"
 190,0,0,,(Stay silent.),(She closes the door and locks it.),200,0,0,"CloseLocker(""Player"")"
-200,0,0,,(Wait patiently.)|(1 minute),(You wait patiently inside the locker.|It's warm and not much is going on.),200,0,0,WaitLocker()
-200,0,0,,HELP!!!|(1 minute),(You yell for help but nobody answers.),200,0,0,WaitLocker()
-200,0,0,,(Hit the door.)|(1 minute),(You hit the door clumsily|but nobody seems to notice.),200,0,0,WaitLocker()
-200,0,0,,(Masturbate.)|(1 minute),(You slowly masturbate inside the locker.|Your body shivers with sexual pleasure.),200,0,0,MasturbateLocker()
+200,0,0,,(Wait patiently.),(You wait patiently inside the locker.|It's warm and not much is going on.),200,0,0,WaitLocker()
+200,0,0,,HELP!!!,(You yell for help but nobody answers.),200,0,0,WaitLocker()
+200,0,0,,(Hit the door.),(You hit the door clumsily|but nobody seems to notice.),200,0,0,WaitLocker()
+200,0,0,,(Masturbate.),(You slowly masturbate inside the locker.|Your body shivers with sexual pleasure.),200,0,0,MasturbateLocker()
+210,0,0,,Hey!  I was only|removing the sweat!,Liar!  We caught you!  (She pulls her tongue.)|So you enjoyed your trip in the locker?,220,-1,0,StopMasturbating()
+210,0,0,,Fuck you Sarah!|Can't you shup up?,(She frowns and shuts up only for a few seconds.)|Wow!  So you did not enjoy your trip in the locker?,220,-1,1,StopMasturbating()
+210,0,0,,What else could|I do in there?,I agree!  (She smiles and claps her hands.)|So you enjoyed your trip in the locker?,220,1,0,StopMasturbating()
+210,0,0,,(Blush red.),She was touching herself!  We caught her!|So you enjoyed your trip in the locker?,220,0,-1,StopMasturbating()
+210,0,0,,Yes!  Now close the|door so I can finish.,Ha!  Well you'll need to finish elsewhere.|But did you enjoyed your trip in the locker?,220,1,1,StopMasturbating()
+210,0,0,,(Continue to|masturbate.),That's amazing!  Beyond kinky!|So you enjoyed your trip in the locker?,220,2,0,
+220,0,0,,It was horrible!,It could have been much worse.|I do hope you've learned a lesson.,230,-1,-1,StopMasturbating()
+220,0,0,,Next time I will|lock you up.,Oh!  Well that could be interesting.|But did you learn a lesson from that?,230,0,1,StopMasturbating()
+220,0,0,,It was better than|going to class.,Well I guess we can agree on that.|But did you learn a lesson?,230,1,0,StopMasturbating()
+220,0,0,,I was scared|in there.,"I understand, but you deserved it.|I guess you learned your lesson.",230,0,-1,StopMasturbating()
+230,0,0,,A lesson?  I'm already|planning my revenge.,"(She giggles.)  Well it was worth a try.|Anyway, you're free to go now.",300,0,1,
+230,0,0,,I guess.|We'll see.,Well it was worth a try.|You're free to go now.,300,0,0,
+230,0,0,,"Yes, I learned|my lesson.","Good girl, you're free to go then.",300,0,-1,
+250,0,0,,What fucking lesson?,"The lesson is simple, if you hurt me|or Sarah, we will both hurt you.",260,-1,1,
+250,0,0,,"Yes, I learned|my lesson.","Good.  Now you know that if you hurt|me or Sarah, we will both hurt you.",260,0,-1,
+250,0,0,,A lesson?  I'm already|planning my revenge.,"I guess you won't learn anything.|Anyway, you're free to go now.",300,0,1,
+250,0,0,,I guess.|We'll see.,"Now you know that if you hurt me|or Sarah, we will both hurt you.",260,0,0,
+250,0,0,,Yes.  I won't hurt|any of you again.,That's exactly what I wanted to hear.|Well you're free to go now.,300,1,0,
+260,0,0,,You'll pay for|this someday.,"I guess you won't learn anything.|Anyway, you're free to go now.",300,-1,0,
+260,0,0,,(Make a peace sign|with your fingers.),(She also makes a peace sign.)|You're free to go now.,300,0,0,
+260,0,0,,You two make a|pretty good team.,(They give each other a high five.)|Great!  Well you're free to go now.,300,1,0,
+260,0,0,,Next time I tie you both.|It will be consensual.,"(She blushes.)  Well that's a good answer I guess.|You're free to go now, enjoy your day.",300,1,1,
+300,0,0,WasBelted,Wait!  What|about the belt?,"Oh yes, the belt.  Well come and see us|after class.  We'll talk about it some more.",300,0,0,RemoveWasBelted()
+300,0,0,Common_PlayerNaked,(Dress up and leave.),,300,0,0,EndChapter()
+300,0,0,Common_PlayerClothed,(Pick your items|and leave.),,300,0,0,EndChapter()

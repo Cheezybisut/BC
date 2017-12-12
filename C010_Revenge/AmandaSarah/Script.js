@@ -2,6 +2,9 @@ var C010_Revenge_AmandaSarah_CurrentStage = 0;
 var C010_Revenge_AmandaSarah_AmandaVictim = true;
 var C010_Revenge_AmandaSarah_AmandaGone = false;
 var C010_Revenge_AmandaSarah_SarahGone = false;
+var C010_Revenge_AmandaSarah_ItemStolen = false;
+var C010_Revenge_AmandaSarah_WasBelted = false;
+var C010_Revenge_AmandaSarah_MasturbateCount = 0;
 var C010_Revenge_AmandaSarah_IntroText = "";
 
 // Chapter 10 - Amanda and Sarah Revenge Load
@@ -58,9 +61,17 @@ function C010_Revenge_AmandaSarah_Run() {
 		DrawActor("Player", 600, 0, 1.0);
 	}
 
-	// Between 170 and 180, draw the player in front of the locker, at 190 or 200 she's inside
+	// Between 170 and 190, Amanda & Sarah are leaning on the lockers
+	if (((C010_Revenge_AmandaSarah_CurrentStage >= 170) && (C010_Revenge_AmandaSarah_CurrentStage <= 190)) || (C010_Revenge_AmandaSarah_CurrentStage >= 210)) {
+		ActorSpecificSetPose("Amanda", "LeaningRight");
+		ActorSpecificSetPose("Sarah", "LeaningLeft");
+		DrawActor("Amanda", 475, 25, 0.8);
+		DrawActor("Sarah", 850, 30, 0.8);
+	}
+	
+	// Between 170 and 180, draw the player in front of the locker, at 190 or more she's inside
 	if ((C010_Revenge_AmandaSarah_CurrentStage >= 170) && (C010_Revenge_AmandaSarah_CurrentStage <= 180)) DrawActor("Player", 600, 150, 1.0);
-	if ((C010_Revenge_AmandaSarah_CurrentStage >= 190) && (C010_Revenge_AmandaSarah_CurrentStage <= 200)) DrawActor("Player", 690, 20, 0.75);
+	if (C010_Revenge_AmandaSarah_CurrentStage >= 190) DrawActor("Player", 690, 20, 0.75);
 
 }
 
@@ -146,6 +157,7 @@ function C010_Revenge_AmandaSarah_StealItems() {
 	// Backup the player inventory
 	PlayerSaveAllInventory();
 	PlayerRemoveAllInventory();
+	C010_Revenge_AmandaSarah_ItemStolen = true;
 	CurrentTime = CurrentTime + 50000;
 	
 	// If Sarah and Amanda are not in belt, and they like (+20 total) or submit (+20 total) to the player, we skip the stripping part
@@ -186,6 +198,7 @@ function C010_Revenge_AmandaSarah_TestForBelt() {
 // Chapter 10 - Amanda and Sarah Revenge - When the player gets locked in a chastity belt
 function C010_Revenge_AmandaSarah_LockBelt() {
 	PlayerLockInventory("ChastityBelt");
+	C010_Revenge_AmandaSarah_WasBelted = true;
 	CurrentTime = CurrentTime + 50000;
 }
 
@@ -195,19 +208,73 @@ function C010_Revenge_AmandaSarah_BeltComment() {
 	if (ActorSpecificHasInventory("Amanada", "ChastityBelt")) OverridenIntroText = GetText("BeltAmanda");
 }
 
-// Chapter 10 - Amanda and Sarah Revenge - Wait in the locker
+// At 15:10, Amanda & Sarah return to the locker
+function C010_Revenge_AmandaSarah_ReturnToLocker() {
+	
+	// The player can be caught masturbating while she waits
+	if (Common_PlayerPose == "LockerMasturbate") {
+		ActorLoad("Sarah", "");
+		ActorChangeAttitude(1, 0);
+		OverridenIntroText = GetText("CaughtMasturbating");
+		C010_Revenge_AmandaSarah_CurrentStage = 210;
+	} else {
+		ActorLoad("Amanda", "");
+		OverridenIntroText = GetText("LearnLesson");
+		C010_Revenge_AmandaSarah_CurrentStage = 250;
+	}
+	LeaveIcon = "";
+	
+}
+
+// Chapter 10 - Amanda and Sarah Revenge - Wait in the locker (Spends 2 minutes)
 function C010_Revenge_AmandaSarah_WaitLocker() {
 	Common_PlayerPose = "Locker";
+	CurrentTime = CurrentTime + 110000;
+	if (CurrentTime >= 15.16667 * 60 * 60 * 1000) C010_Revenge_AmandaSarah_ReturnToLocker();
 }
 
 // Chapter 10 - Amanda and Sarah Revenge - When the player masturbates from inside the locker
 function C010_Revenge_AmandaSarah_MasturbateLocker() {
-	if (Common_PlayerChaste) OverridenIntroText = GetText("CannotMasturbate");
-	else Common_PlayerPose = "LockerMasturbate";
+
+	// Under a belt, not much can happen
+	if (Common_PlayerChaste) {
+		OverridenIntroText = GetText("CannotMasturbate");
+	} else {
+
+		// If the player has the egg, she can climax multiple times, if not, only 1 time
+		C010_Revenge_AmandaSarah_MasturbateCount++;
+		Common_PlayerPose = "LockerMasturbate";
+		if (C010_Revenge_AmandaSarah_MasturbateCount == 3) OverridenIntroText = GetText("Orgasm");
+		if ((C010_Revenge_AmandaSarah_MasturbateCount >= 4) && !PlayerHasLockedInventory("VibratingEgg")) OverridenIntroText = GetText("OrgasmEnough");
+		if ((C010_Revenge_AmandaSarah_MasturbateCount >= 4) && PlayerHasLockedInventory("VibratingEgg")) {
+			OverridenIntroText = GetText("OrgasmRepeat");
+			C010_Revenge_AmandaSarah_MasturbateCount = 0;
+		}
+
+	}
+	
+	// Spends 2 minutes
+	CurrentTime = CurrentTime + 110000;
+	if (CurrentTime >= 15.16667 * 60 * 60 * 1000) C010_Revenge_AmandaSarah_ReturnToLocker();
+}
+
+// Chapter 10 - Amanda and Sarah Revenge - When the player is caught and stops masturbating
+function C010_Revenge_AmandaSarah_StopMasturbating() {
+	Common_PlayerPose = "Locker";
+}
+
+// Chapter 10 - Amanda and Sarah Revenge - Remove the WasBelted dialog option
+function C010_Revenge_AmandaSarah_RemoveWasBelted() {
+	C010_Revenge_AmandaSarah_WasBelted = false;
 }
 
 // Chapter 10 - Amanda and Sarah Revenge - End the revenge and flag the end
 function C010_Revenge_AmandaSarah_EarlyEnding(EndingType) {
 	C010_Revenge_EarlyEnding_Type = EndingType;
 	SetScene(CurrentChapter, "EarlyEnding");
+}
+
+// Chapter 10 - Amanda and Sarah Revenge - End the chapter, the player is liberated
+function C010_Revenge_AmandaSarah_EndChapter() {
+	SetScene(CurrentChapter, "Outro");
 }
