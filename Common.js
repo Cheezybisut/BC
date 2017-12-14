@@ -16,6 +16,7 @@ var KeyPress = "";
 var IsMobile = false;
 var TextPhase = 0;
 var CSVCache = {};
+var MaxFightSequence = 500;
 
 // Array variables
 var IntroStage = 0;
@@ -36,6 +37,8 @@ var StageSubMod = 8;
 var StageFunction = 9;
 var TextTag = 0;
 var TextContent = 1;
+var FightMoveType = 0;
+var FightMoveTime = 1;
 
 // Common variables
 var Common_BondageAllowed = true;
@@ -221,6 +224,25 @@ function GetText(Tag) {
 		for (var T = 0; T < CurrentText.length; T++)
 			if (CurrentText[T][TextTag].trim().toUpperCase() == Tag)
 				return CurrentText[T][TextContent].trim();
+		
+		// Returns an error message
+		return "MISSING TEXT FOR TAG: " + Tag.trim();
+
+	} else return "";
+
+}
+
+// Returns the text for a specific CSV associated with the tag
+function GetCSVText(CSVText, Tag) {
+
+	// Make sure the text CSV file is loaded
+	if (CSVText != null) {
+		
+		// Cycle the text to find a matching tag and returns the text content
+		Tag = Tag.trim().toUpperCase();
+		for (var T = 0; T < CSVText.length; T++)
+			if (CSVText[T][TextTag].trim().toUpperCase() == Tag)
+				return CSVText[T][TextContent].trim();
 		
 		// Returns an error message
 		return "MISSING TEXT FOR TAG: " + Tag.trim();

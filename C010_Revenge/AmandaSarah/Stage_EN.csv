@@ -47,7 +47,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 60,0,0,,"Ok, but don't steal.|(Drop your items.)","Very good, and now you|will strip for us, get naked.",80,1,-1,StealItems()
 60,0,0,,Yes Miss.|(Drop your items.),"Good girl, and now you|will strip for us, get naked.",80,1,-2,StealItems()
 60,0,20,,Amanda.  Shut up|and kneel for me.,Errr...   What Miss?  Kneel?|(She blushes and seems confused.),71,0,0,"CalmDown(""Amanda"")"
-70,0,0,,You want to fight?|Then let's fight!,,70,0,0,StartFight()
+70,0,0,AllowFight,You want to fight?|Then let's fight!,,70,0,0,StartFight()
 70,0,0,,You'll pay later.|(Drop your items.),"Shut up and strip, get naked.",80,0,0,StealItems()
 70,0,0,,Ok but don't steal.|(Drop your items.),"Very good, and now you|will strip for us, get naked.",80,0,-1,StealItems()
 70,0,20,,Amanda.  Shut up|and kneel for me.,Errr...   What Miss?  Kneel?|(She blushes and seems confused.),71,0,0,"CalmDown(""Amanda"")"
@@ -68,7 +68,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 80,0,0,,You perverts!|I'm not stripping.,We're not asking you.  You will|strip up or we will beat you up.,90,-1,0,
 80,0,0,,Alright Miss.|(Strip naked.),Very good.  (They smile while you|strip in the empty school hall.),100,0,-1,PlayerStrip()
 80,0,0,,I guess it's fair.|(Strip naked.),Very fair.  (They smile while you|strip in the empty school hall.),100,1,-1,PlayerStrip()
-90,0,0,,You want to fight?|Then let's fight!,,90,0,0,StartFight()
+90,0,0,AllowFight,You want to fight?|Then let's fight!,,90,0,0,StartFight()
 90,0,0,,I'll get you later.|(Strip naked.),Shut up!  (They smile while you|strip in the empty school hall.),100,0,0,PlayerStrip()
 90,0,0,,"Ok, don't hurt me.|(Strip naked.)",We won't.  (They smile while you|strip in the empty school hall.),100,0,-1,PlayerStrip()
 100,0,0,Common_PlayerChaste,What's so funny?,The belt!  You're wearing a chastity belt!,110,0,-1,
@@ -85,8 +85,8 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 130,0,0,,What the fuck?,"It's a chastity belt, and it will|stay locked on you for a long while.",140,-1,0,
 130,0,0,,Sweet!  That's|a chastity belt?,Yes!  And it will be locked|on you for a long while.,140,1,-1,
 130,0,0,,Put that belt|back in your bag.,Oh hell no!   This chastity belt|will be locked on you for a long while.,140,0,1,
-140,0,0,,Fuck you!  I will|fight you both!,,140,0,0,StartFight()
-140,0,0,,Fine!  Lock the|stupid belt.,,150,0,0,LockBelt()
+140,0,0,AllowFight,Fuck you!  I will|fight you both!,,140,0,0,StartFight()
+140,0,0,,Fine!  Lock the|stupid belt.,(She hums a happy song while locks|the belt around your hips and crotch.),150,0,0,LockBelt()
 140,0,0,,Nice!  I love|chastity belts.,I love them too!  (She locks the|belt around your hips and crotch.),150,1,-1,LockBelt()
 150,0,0,,(Tug on the belt.),The belt isn't your biggest problem.|Since we will lock you up now.,160,0,0,BeltComment()
 150,0,0,,You better have the key!,The key isn't your biggest problem.|Since we will lock you up now.,160,0,1,BeltComment()
@@ -99,7 +99,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 170,0,0,,No way!  Are|you two insane?,Shut up and step in|before we force you.,180,-1,0,
 170,0,0,,"Ok, but not for long.|(Step in the locker.)",(You squeeze yourself in the locker.)|It will be fine.  Any last words?,190,1,-1,"EnterLocker(""Player"")"
 170,0,0,,I understand Miss.|(Step in the locker.),(You squeeze yourself in the locker.)|You will be alright.  Any last words?,190,0,-2,"EnterLocker(""Player"")"
-180,0,0,,Never!  I will|fight you both!,,180,0,0,StartFight()
+180,0,0,AllowFight,Never!  I will|fight you both!,,180,0,0,StartFight()
 180,0,0,,Fine!  I'll do it.|(Step in the locker.),(You squeeze yourself in the locker.)|You will be alright.  Any last words?,190,0,0,"EnterLocker(""Player"")"
 180,0,0,,"Ok, I surrender.|(Step in the locker.)",(You squeeze yourself in the locker.)|You will be alright.  Any last words?,190,0,-1,"EnterLocker(""Player"")"
 190,0,0,,Wait!  Let's negotiate!,Negotiation time is over!|(She slams the door and locks it.),200,0,-1,"CloseLocker(""Player"")"
@@ -134,3 +134,14 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 300,0,0,WasBelted,Wait!  What|about the belt?,"Oh yes, the belt.  Well come and see us|after class.  We'll talk about it some more.",300,0,0,RemoveWasBelted()
 300,0,0,Common_PlayerNaked,(Dress up and leave.),,300,0,0,EndChapter()
 300,0,0,Common_PlayerClothed,(Pick your items|and leave.),,300,0,0,EndChapter()
+400,0,0,WasBelted,Shut up and|unlock that belt.,"Sorry, I cannot unlock it now|but I will help you after class.",410,-1,1,
+400,0,0,WasBelted,Can you unlock|the belt now?,"Sorry, I cannot unlock it now|but I will help you after class.",410,0,0,
+400,0,0,,I'm not that strong.|You two are pathetic.,Oh my god.  I guess we|need to train with Jennifer.,410,-1,0,
+400,0,0,,I've been fighting|for years girl.,Oh my.  We never had a chance.,410,0,1,
+400,0,0,,I got lucky.,Wow!  That was some crazy luck.,410,1,-1,
+410,0,0,ItemStolen,Where are|my items?,"It's right here, you can have it.|(You take back all your possessions.)",410,0,0,RecoverItems()
+410,0,0,ItemStolen,Give me back|my stuff now!,Oh yes!  We were not going to steal it.|(You take back all your possessions.),410,0,1,RecoverItems()
+410,0,0,!ItemStolen,Now you know|who's the boss.,(Amanda nods and steps back.)|Yes Miss.  We won't try that again.,420,0,1,"SwitchFocus(""Sarah"")"
+410,0,0,!ItemStolen,I hope I did|not hurt you.,(Amanda shakes her head and steps back.)|It's fine.  All that was hurt is our pride.,420,1,0,"SwitchFocus(""Sarah"")"
+410,0,0,!ItemStolen,I need to go now.|(Leave them behind.),,410,0,0,"EarlyEnding(""FightVictory"")"
+420,0,0,,I need to go now.|(Leave them behind.),,420,0,0,"EarlyEnding(""FightVictory"")"

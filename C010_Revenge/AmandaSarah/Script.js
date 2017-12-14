@@ -6,6 +6,7 @@ var C010_Revenge_AmandaSarah_ItemStolen = false;
 var C010_Revenge_AmandaSarah_WasBelted = false;
 var C010_Revenge_AmandaSarah_MasturbateCount = 0;
 var C010_Revenge_AmandaSarah_IntroText = "";
+var C010_Revenge_AmandaSarah_AllowFight = true;
 
 // Chapter 10 - Amanda and Sarah Revenge Load
 function C010_Revenge_AmandaSarah_Load() {
@@ -34,8 +35,8 @@ function C010_Revenge_AmandaSarah_Run() {
 	// Build the text interactions
 	BuildInteraction(C010_Revenge_AmandaSarah_CurrentStage);
 
-	// Before 100 we don't show the player and the girls can leave
-	if (C010_Revenge_AmandaSarah_CurrentStage < 100) {
+	// Before 100 we don't show the player and the girls can leave, same for 400 or up
+	if ((C010_Revenge_AmandaSarah_CurrentStage < 100) || (C010_Revenge_AmandaSarah_CurrentStage >= 400)) {
 		if (!C010_Revenge_AmandaSarah_AmandaGone && !C010_Revenge_AmandaSarah_SarahGone) {
 			if (CurrentActor == "Amanda") {
 				DrawActor("Sarah", 800, 50, 0.8);
@@ -61,8 +62,8 @@ function C010_Revenge_AmandaSarah_Run() {
 		DrawActor("Player", 600, 0, 1.0);
 	}
 
-	// Between 170 and 190, Amanda & Sarah are leaning on the lockers
-	if (((C010_Revenge_AmandaSarah_CurrentStage >= 170) && (C010_Revenge_AmandaSarah_CurrentStage <= 190)) || (C010_Revenge_AmandaSarah_CurrentStage >= 210)) {
+	// Between 170 and 190, 210 and 300, Amanda & Sarah are leaning on the lockers
+	if (((C010_Revenge_AmandaSarah_CurrentStage >= 170) && (C010_Revenge_AmandaSarah_CurrentStage <= 190)) || ((C010_Revenge_AmandaSarah_CurrentStage >= 210) && (C010_Revenge_AmandaSarah_CurrentStage <= 300))) {
 		ActorSpecificSetPose("Amanda", "LeaningRight");
 		ActorSpecificSetPose("Sarah", "LeaningLeft");
 		DrawActor("Amanda", 475, 25, 0.8);
@@ -71,7 +72,7 @@ function C010_Revenge_AmandaSarah_Run() {
 	
 	// Between 170 and 180, draw the player in front of the locker, at 190 or more she's inside
 	if ((C010_Revenge_AmandaSarah_CurrentStage >= 170) && (C010_Revenge_AmandaSarah_CurrentStage <= 180)) DrawActor("Player", 600, 150, 1.0);
-	if (C010_Revenge_AmandaSarah_CurrentStage >= 190) DrawActor("Player", 690, 20, 0.75);
+	if ((C010_Revenge_AmandaSarah_CurrentStage >= 190) && (C010_Revenge_AmandaSarah_CurrentStage <= 300)) DrawActor("Player", 690, 20, 0.75);
 
 }
 
@@ -92,9 +93,9 @@ function C010_Revenge_AmandaSarah_Click() {
 
 // Chapter 10 - Amanda and Sarah Revenge - Switch the focus to another actor
 function C010_Revenge_AmandaSarah_SwitchFocus(ActorToFocus) {	
-	ActorSetPose("Angry");
+	if (C010_Revenge_AmandaSarah_CurrentStage < 400) ActorSetPose("Angry");
 	ActorLoad(ActorToFocus, "");
-	ActorSetPose("Furious");
+	if (C010_Revenge_AmandaSarah_CurrentStage < 400) ActorSetPose("Furious");
 	LeaveIcon = "";
 }
 
@@ -170,10 +171,45 @@ function C010_Revenge_AmandaSarah_StealItems() {
 	
 }
 
+// Chapter 10 - Amanda and Sarah Revenge - Recover the stolen items and clothes
+function C010_Revenge_AmandaSarah_RecoverItems() {
+	C010_Revenge_AmandaSarah_ItemStolen = false;
+	PlayerRestoreAllInventory();
+	CurrentTime = CurrentTime + 50000;
+	PlayerClothes("Clothed");
+}
+
 // Chapter 10 - Amanda and Sarah Revenge - Starts the fight 2 VS 1
 function C010_Revenge_AmandaSarah_StartFight() {
-	ActorSpecificChangeAttitude("Amanda", -2, 1);
-	ActorSpecificChangeAttitude("Sarah", -2, 1);
+		
+	// Sets the fight difficulty
+	var AmandaDifficulty = "Normal";
+	var SarahDifficulty = "Easy";
+	if (ActorSpecificGetValue("Amanda", ActorSubmission) < 0) AmandaDifficulty = "Hard";
+	if (ActorSpecificGetValue("Sarah", ActorSubmission) < 0) SarahDifficulty = "Normal";
+
+	// Launch the double fight
+	DoubleFightLoad("Amanda", AmandaDifficulty, "Punch", "Sarah", SarahDifficulty, "Punch", "Lockers", "C010_Revenge_AmandaSarah_EndFight");
+	
+}
+
+// Chapter 10 - Amanda and Sarah Revenge - When the fight ends
+function C010_Revenge_AmandaSarah_EndFight(Victory) {
+	
+	// Change the girls attitude depending on the victory or defeat
+	ActorSpecificChangeAttitude("Amanda", -2, Victory ? 2 : -2);
+	ActorSpecificChangeAttitude("Sarah", -2, Victory ? 2 : -2);
+	C010_Revenge_AmandaSarah_AllowFight = false;
+	
+	// On a victory, we jump to stage 400 right away, on a defeat, we show a custom text
+	if (Victory) {
+		ActorLoad("Amanda", "");
+		LeaveIcon = "";
+		ActorSpecificSetPose("Amanda", "Surrender");
+		ActorSpecificSetPose("Sarah", "Surrender");
+		C010_Revenge_AmandaSarah_CurrentStage = 400;
+	} else OverridenIntroText = GetText("FightDefeat" + C010_Revenge_AmandaSarah_CurrentStage.toString());
+
 }
 
 // Chapter 10 - Amanda and Sarah Revenge - When the player strips

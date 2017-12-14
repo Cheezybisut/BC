@@ -3,8 +3,6 @@ var MaxFightSequence = 500;
 var FightProgress = -1;
 var FightTimer = 0;
 var FightMove = [];
-var FightMoveType = 0;
-var FightMoveTime = 1;
 var FightAnim;
 var FightAnimFrom = 0;
 var FightAnimTo = 1;
