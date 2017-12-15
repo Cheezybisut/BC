@@ -7,6 +7,7 @@ var C010_Revenge_AmandaSarah_WasBelted = false;
 var C010_Revenge_AmandaSarah_MasturbateCount = 0;
 var C010_Revenge_AmandaSarah_IntroText = "";
 var C010_Revenge_AmandaSarah_AllowFight = true;
+var C010_Revenge_AmandaSarah_LockerListenStage = 0;
 
 // Chapter 10 - Amanda and Sarah Revenge Load
 function C010_Revenge_AmandaSarah_Load() {
@@ -36,7 +37,7 @@ function C010_Revenge_AmandaSarah_Run() {
 	BuildInteraction(C010_Revenge_AmandaSarah_CurrentStage);
 
 	// Before 100 we don't show the player and the girls can leave, same for 400 or up
-	if ((C010_Revenge_AmandaSarah_CurrentStage < 100) || (C010_Revenge_AmandaSarah_CurrentStage >= 400)) {
+	if ((C010_Revenge_AmandaSarah_CurrentStage < 100) || ((C010_Revenge_AmandaSarah_CurrentStage >= 400) && (C010_Revenge_AmandaSarah_CurrentStage <= 440))) {
 		if (!C010_Revenge_AmandaSarah_AmandaGone && !C010_Revenge_AmandaSarah_SarahGone) {
 			if (CurrentActor == "Amanda") {
 				DrawActor("Sarah", 800, 50, 0.8);
@@ -50,7 +51,7 @@ function C010_Revenge_AmandaSarah_Run() {
 				if ((C010_Revenge_AmandaSarah_CurrentStage == 55) || (C010_Revenge_AmandaSarah_CurrentStage == 75))
 					DrawActor(CurrentActor, 690, 20, 0.75);
 				else
-					DrawInteractionActor();			
+					DrawInteractionActor();
 			}
 		}		
 	}
@@ -74,6 +75,12 @@ function C010_Revenge_AmandaSarah_Run() {
 	if ((C010_Revenge_AmandaSarah_CurrentStage >= 170) && (C010_Revenge_AmandaSarah_CurrentStage <= 180)) DrawActor("Player", 600, 150, 1.0);
 	if ((C010_Revenge_AmandaSarah_CurrentStage >= 190) && (C010_Revenge_AmandaSarah_CurrentStage <= 300)) DrawActor("Player", 690, 20, 0.75);
 
+	// If both of them are squeezed in lockers on stage 450
+	if (C010_Revenge_AmandaSarah_CurrentStage == 450) {
+		DrawActor("Sarah", 600, 20, 0.75);
+		DrawActor("Amanda", 767, 25, 0.75);
+	}
+	
 }
 
 // Chapter 10 - Amanda and Sarah Revenge Click
@@ -134,21 +141,23 @@ function C010_Revenge_AmandaSarah_CalmDown(ActorToCalm) {
 
 // Chapter 10 - Amanda and Sarah Revenge - When the actor enters the locker
 function C010_Revenge_AmandaSarah_EnterLocker(ActorInLocker) {
-	ActorSpecificSetPose(ActorInLocker, "Locker");
+	if ((ActorInLocker == "Amanda") || (ActorInLocker == "Both")) ActorSpecificSetPose("Amanda", "Locker");
+	if ((ActorInLocker == "Sarah") || (ActorInLocker == "Both")) ActorSpecificSetPose("Sarah", "Locker");
 	CurrentTime = CurrentTime + 50000;
+	CurrentActor = "";
 }
 
 // Chapter 10 - Amanda and Sarah Revenge - When the player opens the locker
 function C010_Revenge_AmandaSarah_OpenLocker(ActorInLocker) {
-	if (ActorInLocker == "Amanda") C010_Revenge_AmandaSarah_AmandaGone = false;
-	if (ActorInLocker == "Sarah") C010_Revenge_AmandaSarah_SarahGone = false;
+	if ((ActorInLocker == "Amanda") || (ActorInLocker == "Both")) C010_Revenge_AmandaSarah_AmandaGone = false;
+	if ((ActorInLocker == "Sarah") || (ActorInLocker == "Both")) C010_Revenge_AmandaSarah_SarahGone = false;
 	CurrentTime = CurrentTime + 50000;
 }
 
 // Chapter 10 - Amanda and Sarah Revenge - When the player closer the locker
 function C010_Revenge_AmandaSarah_CloseLocker(ActorInLocker) {
-	if (ActorInLocker == "Amanda") C010_Revenge_AmandaSarah_AmandaGone = true;
-	if (ActorInLocker == "Sarah") C010_Revenge_AmandaSarah_SarahGone = true;
+	if ((ActorInLocker == "Amanda") || (ActorInLocker == "Both")) C010_Revenge_AmandaSarah_AmandaGone = true;
+	if ((ActorInLocker == "Sarah") || (ActorInLocker == "Both")) C010_Revenge_AmandaSarah_SarahGone = true;
 	CurrentTime = CurrentTime + 50000;
 }
 
@@ -304,8 +313,20 @@ function C010_Revenge_AmandaSarah_RemoveWasBelted() {
 	C010_Revenge_AmandaSarah_WasBelted = false;
 }
 
+// Chapter 10 - Amanda and Sarah Revenge - When the player listens in the locker
+function C010_Revenge_AmandaSarah_LockerListen() {
+	C010_Revenge_AmandaSarah_LockerListenStage++;
+	if (C010_Revenge_AmandaSarah_LockerListenStage > 4) C010_Revenge_AmandaSarah_LockerListenStage = 1;
+	OverridenIntroText = GetText("LockerListen" + C010_Revenge_AmandaSarah_LockerListenStage.toString());
+	CurrentTime = CurrentTime + 50000;
+}
+
 // Chapter 10 - Amanda and Sarah Revenge - End the revenge and flag the end
 function C010_Revenge_AmandaSarah_EarlyEnding(EndingType) {
+	if (EndingType == "DoubleLocker") {
+		ActorSpecificChangeAttitude("Amanda", -2, 1);
+		ActorSpecificChangeAttitude("Sarah", 0, 1);
+	}
 	C010_Revenge_EarlyEnding_Type = EndingType;
 	SetScene(CurrentChapter, "EarlyEnding");
 }
