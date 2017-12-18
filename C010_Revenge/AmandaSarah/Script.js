@@ -143,8 +143,9 @@ function C010_Revenge_AmandaSarah_CalmDown(ActorToCalm) {
 function C010_Revenge_AmandaSarah_EnterLocker(ActorInLocker) {
 	if ((ActorInLocker == "Amanda") || (ActorInLocker == "Both")) ActorSpecificSetPose("Amanda", "Locker");
 	if ((ActorInLocker == "Sarah") || (ActorInLocker == "Both")) ActorSpecificSetPose("Sarah", "Locker");
+	if (ActorInLocker == "Player") Common_PlayerPose = "Locker";
 	CurrentTime = CurrentTime + 50000;
-	CurrentActor = "";
+	if ((ActorInLocker != "Amanda") && (ActorInLocker != "Sarah")) CurrentActor = "";
 }
 
 // Chapter 10 - Amanda and Sarah Revenge - When the player opens the locker
@@ -257,6 +258,7 @@ function C010_Revenge_AmandaSarah_BeltComment() {
 function C010_Revenge_AmandaSarah_ReturnToLocker() {
 	
 	// The player can be caught masturbating while she waits
+	OverridenIntroImage = "";
 	if (Common_PlayerPose == "LockerMasturbate") {
 		ActorLoad("Sarah", "");
 		ActorChangeAttitude(1, 0);
@@ -273,6 +275,7 @@ function C010_Revenge_AmandaSarah_ReturnToLocker() {
 
 // Chapter 10 - Amanda and Sarah Revenge - Wait in the locker (Spends 2 minutes)
 function C010_Revenge_AmandaSarah_WaitLocker() {
+	OverridenIntroImage = "";
 	Common_PlayerPose = "Locker";
 	CurrentTime = CurrentTime + 110000;
 	if (CurrentTime >= 15.16667 * 60 * 60 * 1000) C010_Revenge_AmandaSarah_ReturnToLocker();
@@ -282,6 +285,7 @@ function C010_Revenge_AmandaSarah_WaitLocker() {
 function C010_Revenge_AmandaSarah_MasturbateLocker() {
 
 	// Under a belt, not much can happen
+	OverridenIntroImage = "";
 	if (Common_PlayerChaste) {
 		OverridenIntroText = GetText("CannotMasturbate");
 	} else {
@@ -289,7 +293,7 @@ function C010_Revenge_AmandaSarah_MasturbateLocker() {
 		// If the player has the egg, she can climax multiple times, if not, only 1 time
 		C010_Revenge_AmandaSarah_MasturbateCount++;
 		Common_PlayerPose = "LockerMasturbate";
-		if (C010_Revenge_AmandaSarah_MasturbateCount == 3) OverridenIntroText = GetText("Orgasm");
+		if (C010_Revenge_AmandaSarah_MasturbateCount == 3) { OverridenIntroText = GetText("Orgasm"); OverridenIntroImage = "LockerInsideOrgasm.jpg"; }
 		if ((C010_Revenge_AmandaSarah_MasturbateCount >= 4) && !PlayerHasLockedInventory("VibratingEgg")) OverridenIntroText = GetText("OrgasmEnough");
 		if ((C010_Revenge_AmandaSarah_MasturbateCount >= 4) && PlayerHasLockedInventory("VibratingEgg")) {
 			OverridenIntroText = GetText("OrgasmRepeat");
