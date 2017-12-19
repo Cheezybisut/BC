@@ -241,7 +241,7 @@ function DoubleFightCheckKey(Opponent) {
 // When a click is done on a mobile device, we send it to hit or miss
 function DoubleFightCheckClick(Opponent) {
 	var MoveType = -1;
-	if ((MouseX >= Opponent.FightXOffset) && (MouseX <= Opponent.FightXOffset + 300) && (MouseY >= 400) && (MouseY <= 500)) MoveType = Math.round((MouseX - Opponent.FightXOffset) / 75);
+	if ((MouseX >= Opponent.FightXOffset) && (MouseX <= Opponent.FightXOffset + 300) && (MouseY >= 400) && (MouseY <= 500)) MoveType = Math.floor((MouseX - Opponent.FightXOffset) / 75);
 	DoubleFightDoMove(Opponent, MoveType);
 }
 

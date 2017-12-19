@@ -8,6 +8,7 @@ var C010_Revenge_AmandaSarah_MasturbateCount = 0;
 var C010_Revenge_AmandaSarah_IntroText = "";
 var C010_Revenge_AmandaSarah_AllowFight = true;
 var C010_Revenge_AmandaSarah_LockerListenStage = 0;
+var C010_Revenge_AmandaSarah_CurrentActor = "Amanda";
 
 // Chapter 10 - Amanda and Sarah Revenge Load
 function C010_Revenge_AmandaSarah_Load() {
@@ -17,9 +18,8 @@ function C010_Revenge_AmandaSarah_Load() {
 	
 	// Load the scene parameters (loads Sarah first in case we are starting directly in chapter 10)
 	ActorLoad("Sarah", "");
-	ActorLoad("Amanda", "");
-	ActorSpecificSetPose("Amanda", "Furious");
-	ActorSpecificSetPose("Sarah", "Angry");
+	ActorLoad(C010_Revenge_AmandaSarah_CurrentActor, "");
+	if (C010_Revenge_AmandaSarah_CurrentStage == 0) { ActorSpecificSetPose("Amanda", "Furious"); ActorSpecificSetPose("Sarah", "Angry"); }	
 	LoadInteractions();
 	LeaveIcon = "";
 	Common_SelfBondageAllowed = false;
@@ -93,6 +93,7 @@ function C010_Revenge_AmandaSarah_Click() {
 	var ClickInv = GetClickedInventory();
 	if (ClickInv == "Player") {
 		C010_Revenge_AmandaSarah_IntroText = OverridenIntroText;
+		C010_Revenge_AmandaSarah_CurrentActor = CurrentActor; 
 		InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
 	}
 	
