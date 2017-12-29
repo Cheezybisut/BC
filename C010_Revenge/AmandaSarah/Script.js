@@ -200,8 +200,9 @@ function C010_Revenge_AmandaSarah_StartFight() {
 	if (ActorSpecificGetValue("Sarah", ActorSubmission) < 0) SarahDifficulty = "Normal";
 
 	// Launch the double fight
+	C010_Revenge_AmandaSarah_IntroText = "";
 	DoubleFightLoad("Amanda", AmandaDifficulty, "Punch", "Sarah", SarahDifficulty, "Punch", "Lockers", "C010_Revenge_AmandaSarah_EndFight");
-	
+
 }
 
 // Chapter 10 - Amanda and Sarah Revenge - When the fight ends

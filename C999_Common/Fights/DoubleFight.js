@@ -176,7 +176,7 @@ function DoubleFightEnd(Victory) {
 
 // When the player hits
 function DoubleFightHit(Opponent) {
-	Opponent.FightProgress = Opponent.FightProgress + 2;
+	Opponent.FightProgress = Opponent.FightProgress + 20;
 	if (Opponent.FightProgress >= 100) Opponent.NextImageTime = -1;
 	if ((DoubleFightOpponent1.FightProgress >= 100) && (DoubleFightOpponent2.FightProgress >= 100)) DoubleFightEnd(true);
 }

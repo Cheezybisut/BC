@@ -28,13 +28,12 @@ function C008_DramaClass_Outro_Run() {
 	if ((Common_PlayerCrime == "AmandaStranded") || (Common_PlayerCrime == "SarahStranded") || (Common_PlayerCrime == "SidneyStranded") || (Common_PlayerCrime == "JenniferStranded")) {
 
 		// Draw the outro text to lead to chapter 10
-		DrawText(ctx, GetText("Outro1"), 400, 100, "White");
-		if (TextPhase >= 1) DrawText(ctx, GetText("Outro2"), 400, 200, "White");
-		if ((TextPhase >= 2) && ((Common_PlayerCrime == "AmandaStranded") || (Common_PlayerCrime == "SarahStranded"))) DrawText(ctx, GetText("AmandaSarah3"), 400, 300, "White");
-		if ((TextPhase >= 3) && ((Common_PlayerCrime == "AmandaStranded") || (Common_PlayerCrime == "SarahStranded"))) DrawText(ctx, GetText("AmandaSarah4"), 400, 400, "White");
-		if ((TextPhase >= 2) && ((Common_PlayerCrime == "SidneyStranded") || (Common_PlayerCrime == "JenniferStranded"))) DrawText(ctx, GetText("SidneyJennifer3"), 400, 300, "White");
-		if ((TextPhase >= 3) && ((Common_PlayerCrime == "SidneyStranded") || (Common_PlayerCrime == "JenniferStranded"))) DrawText(ctx, GetText("SidneyJennifer4"), 400, 400, "White");
-		if ((TextPhase >= 3) && ((Common_PlayerCrime == "SidneyStranded") || (Common_PlayerCrime == "JenniferStranded"))) DrawText(ctx, GetText("SidneyJennifer5"), 400, 400, "White");
+		DrawText(ctx, GetText("Outro1"), 400, 150, "White");
+		if (TextPhase >= 1) DrawText(ctx, GetText("Outro2"), 400, 250, "White");
+		if ((TextPhase >= 2) && ((Common_PlayerCrime == "AmandaStranded") || (Common_PlayerCrime == "SarahStranded"))) DrawText(ctx, GetText("AmandaSarah3"), 400, 350, "White");
+		if ((TextPhase >= 3) && ((Common_PlayerCrime == "AmandaStranded") || (Common_PlayerCrime == "SarahStranded"))) DrawText(ctx, GetText("AmandaSarah4"), 400, 450, "White");
+		if ((TextPhase >= 2) && ((Common_PlayerCrime == "SidneyStranded") || (Common_PlayerCrime == "JenniferStranded"))) DrawText(ctx, GetText("SidneyJennifer3"), 400, 350, "White");
+		if ((TextPhase >= 3) && ((Common_PlayerCrime == "SidneyStranded") || (Common_PlayerCrime == "JenniferStranded"))) DrawText(ctx, GetText("SidneyJennifer4"), 400, 450, "White");
 
 		// The image changes to show the girls
 		if (TextPhase <= 1) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Bell.jpg", 800, 0);
@@ -58,8 +57,7 @@ function C008_DramaClass_Outro_Click() {
 
 	// Jump to the next animation
 	TextPhase++;
-	//if ((Common_PlayerCrime == "AmandaStranded") || (Common_PlayerCrime == "SarahStranded") || (Common_PlayerCrime == "SidneyStranded") || (Common_PlayerCrime == "JenniferStranded")) {
-	if ((Common_PlayerCrime == "AmandaStranded") || (Common_PlayerCrime == "SarahStranded")) {
+	if ((Common_PlayerCrime == "AmandaStranded") || (Common_PlayerCrime == "SarahStranded") || (Common_PlayerCrime == "SidneyStranded") || (Common_PlayerCrime == "JenniferStranded")) {
 		if (TextPhase >= 4) SaveMenu("C010_Revenge", "Intro");
 	} else {
 		//if (TextPhase >= 3) SaveMenu("C009_Library", "Intro");		

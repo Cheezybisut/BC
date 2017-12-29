@@ -1,0 +1,61 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,SidneyVictim,What are you|talking about?,Don't play the fool!  You left me|bound and gagged by the wall.,10,-1,0,
+0,0,0,!SidneyVictim,What are you|talking about?,Don't play the fool!  You left her|bound and gagged on the tennis court.,10,-1,0,
+0,0,0,SidneyVictim,Admit it girl.|You enjoyed it.,Fuck no!  You need to pay for that.,20,-1,1,
+0,0,0,!SidneyVictim,She enjoyed it.,(Jennifer tries to speak but is interrupted.)|She came to me crying!  You need to pay for that.,20,-1,0,
+0,0,0,SidneyVictim,I guess it|wasn't cool.,Wasn't cool?  You bitch!|You need to pay for that.,20,0,0,
+0,0,0,!SidneyVictim,I guess it|wasn't cool.,(Jennifer tries to speak but is interrupted.)|She came to me crying!  You need to pay for that.,20,0,0,
+0,0,0,,I'm sorry.,Being sorry isn't enough.|You need to pay for that.,20,1,-1,
+10,0,0,SidneyVictim,Admit it girl.|You enjoyed it.,Fuck no!  You need to pay for that.,20,-1,1,
+10,0,0,!SidneyVictim,She enjoyed it.,(Jennifer tries to speak but is interrupted.)|She came to me crying!  You need to pay for that.,20,-1,0,
+10,0,0,SidneyVictim,I guess it|wasn't cool.,Wasn't cool?  You bitch!|You need to pay for that.,20,0,0,
+10,0,0,!SidneyVictim,I guess it|wasn't cool.,(Jennifer tries to speak but is interrupted.)|She came to me crying!  You need to pay for that.,20,0,0,
+10,0,0,SidneyVictim,You deserved it|stupid bitch.,That's it!  I will break all of your bones.,90,-1,1,ProvokePose()
+10,0,0,!SidneyVictim,Why do you|protect her?,(Jennifer tries to speak but is interrupted.)|I do what I want.  And you need to pay for that.,20,1,0,
+10,0,0,,I'm sorry.,Being sorry isn't enough.|You need to pay for that.,20,1,-1,
+20,0,0,,So you two are|looking for revenge?,Exactly!  I'll make you my bitch.,30,1,0,
+20,0,0,,Move away punk.|This isn't funny.,Fuck yes it's funny.|I'll make you my bitch.,30,-1,1,
+20,0,0,,Please Miss Sidney.|I don't want trouble.,"Too late, you found trouble.|I'll make you my bitch.",30,0,-1,
+20,0,0,,Pay you?|How much?,"It's not about money, it's about|revenge.  I'll make you my bitch.",30,0,0,
+20,0,0,,Forget it girl.|I'm not paying.,"It's not about money, it's about|revenge.  I'll make you my bitch.",30,0,1,
+30,5,0,,"My friend, maybe|we can negotiate.",Negotiate?  What do you offer?,31,0,0,
+30,0,0,,You're the bitch.,Shut up bitch!  Now come outside|with us and don't cause any trouble.,40,-1,0,
+30,0,0,,What are you|two planning?,You'll see soon.  Now come outside|with us and don't cause any trouble.,40,0,0,
+30,0,0,,Forget it girl.|I won't be your bitch.,I'm not asking you.  Now come outside|with us and don't cause any trouble.,40,0,1,
+30,0,0,,Look!  I'm sorry ok?|What do you want?,It's too late for that.  Now come outside|with us and don't cause any trouble.,40,0,-1,
+30,0,0,,Get out of|my way pig.,That's it!  I will break all of your bones.,90,-1,1,ProvokePose()
+31,0,0,CanBribe,How about some items?|(Offer half of your items.),We have a deal!  You're on your own Jennifer.|(Sidney picks some items in your bag and leaves.),32,1,0,Bribe()
+31,0,0,,How about a kiss?,Are you stupid?  Now come outside|with us and don't cause any trouble.,40,-1,0,
+31,0,0,,I'll buy you dinner.,"Tempting, but it's not enough.  Now come|outside with us and don't cause any trouble.",40,1,0,
+31,0,0,,Forget it.,Stop wasting time.  Now come outside|with us and don't cause any trouble.,40,0,0,
+32,0,0,,Take it easy Jen.,(She calms down and looks around.)|Well it seems that we are alone.,33,1,0,"CalmDown(""Jennifer"")"
+32,0,0,,Calm down girl.,(She calms down and looks around.)|Well it seems that we are alone.,33,0,1,"CalmDown(""Jennifer"")"
+32,0,0,,Run Jennifer.|(Let her go.),,33,1,0,"EarlyEnding(""Bribe"")"
+33,0,0,,Girl.  Confess|your plan now.,"Well...  (She blushes red.)  Sidney|wanted to tie you up like a ""bitch"".",34,0,1,
+33,0,0,,So what did you|planned for me?,"Well...  (She blushes red.)  Sidney|wanted to tie you up like a ""bitch"".",34,0,0,
+33,0,0,,Run Jennifer.|(Let her go.),,34,1,0,"EarlyEnding(""Bribe"")"
+34,0,0,,Like a bitch?|What is that?,It's to fold and rope your arms and legs.|Forcing you to walk on your elbows and knees.,35,0,0,
+34,0,0,,So tied on|all fours?,"Yes, you fold and rope the arms and legs.|Forcing you to walk on your elbows and knees.",35,0,0,
+34,0,0,,Run Jennifer.|(Let her go.),,35,1,0,"EarlyEnding(""Bribe"")"
+35,0,0,,Give me your|ropes then.,Oh!  Well of course.|(She gives your her ropes.),36,0,0,GetTwoRopes()
+35,0,0,,You'll be my bitch.|Give me your ropes.,Gosh!  Of course Miss.|(She gives your her ropes.),36,-1,1,GetTwoRopes()
+35,0,0,,Run Jennifer.|(Let her go.),,36,1,0,"EarlyEnding(""Bribe"")"
+36,0,0,,Strip girl.,(She looks down and shakes her head no.)|(You need +5 submission to make her strip.),36,0,0,JenniferTestStrip()
+36,0,0,,Get naked Jennifer.,(She looks down and shakes her head no.)|(You need +5 submission to make her strip.),36,0,0,JenniferTestStrip()
+36,0,0,,Run Jennifer.|(Let her go.),,37,1,0,"EarlyEnding(""Bribe"")"
+37,0,0,,Payback bitch!|(Tie her up.),(She whimpers silently while you fold and|tie her arms and legs.  Forcing her on all fours.),38,-1,1,JenniferDog()
+37,0,0,,It won't hurt.|(Tie her up.),(She whimpers silently while you fold and|tie her arms and legs.  Forcing her on all fours.),38,1,0,JenniferDog()
+37,0,0,,Run Jennifer.|(Let her go.),,38,1,0,"EarlyEnding(""Bribe"")"
+38,0,0,,What a cute dog.,(She looks at the floor and whimpers.),38,0,0,JenniferCute()
+38,0,0,,Bark for me.,(She blushes and barks.)|Woof!  Woof!  Woof!,38,0,0,JenniferBark()
+38,0,0,,Walk around.,(She clumsily walks in the hallway.|She doesn't enjoy the humiliation.),38,0,0,JenniferCrawl()
+38,0,0,,I'll release you.|(Untie her.),(You untie her and she stands up.)|That was humiliating.  Can I go now?,39,1,0,JenniferUntie()
+38,0,0,,Have fun bitch.|(Leave her stranded.),,39,-2,1,"EarlyEnding(""JenniferDog"")"
+39,0,0,,You were pretty in ropes.|(Let her dress and go.),,39,1,0,"EarlyEnding(""Bribe"")"
+39,0,0,,Remember who's boss.|(Let her dress and go.),,39,0,1,"EarlyEnding(""Bribe"")"
+40,0,0,,Fine!  Let's go.|(Go outside.),(You all walk outside to the running track.)|(Jennifer finally steps forward to you.),100,0,0,GoOutside()
+40,0,0,,Yes Miss.|(Go outside.),(You all walk outside to the running track.)|(Jennifer finally steps forward to you.),100,0,-1,GoOutside()
+40,0,0,AllowFight,Fuck you pig!|I'm not going out.,That's it!  I will break all of your bones.,90,-1,1,ProvokePose()
+90,0,0,AllowFight,You want to fight?|Then let's fight.,,90,0,0,StartFight()
+90,0,0,,Don't hurt me!|I surrender.,You're a pathetic loser.  Now come outside.|(Jennifer opens the door and Sidney pushes you out.),100,0,-1,GoOutside()
+100,0,0,,TO DO,TO DO,100,,,

@@ -115,6 +115,16 @@ function PlayerRemoveAllInventory() {
 		PlayerInventory.splice(0, 1);
 }
 
+// Remove half of the inventory from the player (rounded up)
+function PlayerRemoveHalfInventory() {
+	for (var I = 0; I < PlayerInventory.length; I++) {
+		if (PlayerInventory[I][PlayerInventoryQuantity] <= 1) {
+			PlayerInventory.splice(I, 1);
+			I--;
+		} else PlayerInventory[I][PlayerInventoryQuantity] = Math.floor(PlayerInventory[I][PlayerInventoryQuantity] / 2);
+	}
+}
+
 // Returns true if the player has the queried inventory
 function PlayerHasInventory(QueryInventory) {
 	
@@ -179,6 +189,13 @@ function PlayerAddRandomItem() {
 	if ((Item == "Cuffs") && (Math.floor(Math.random() * 2) == 1)) PlayerAddInventory("CuffsKey", 1); // For cuffs, can randomly add keys
 }
 
+// Returns the total quantity of items that the player has
+function PlayerInventoryTotalQuantity() {
+	var TotalQuantity = 0;
+	for (var I = 0; I < PlayerInventory.length; I++)
+		TotalQuantity = TotalQuantity + PlayerInventory[I][PlayerInventoryQuantity];
+	return TotalQuantity;
+}
 
 // Returns the name of the inventory item that was clicked in the bottom menu
 function GetClickedInventory() {

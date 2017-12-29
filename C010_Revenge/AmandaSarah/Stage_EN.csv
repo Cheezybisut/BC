@@ -1,6 +1,6 @@
 Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
-0,0,0,AmandaVictim,What did I do?,You know what you did!  You left me|bound and gagged in the courtyard.,10,-1,0,
-0,0,0,!AmandaVictim,What did I do?,You know what you did!  You left her|bound and gagged in the restaurant.,10,-1,0,
+0,0,0,AmandaVictim,What did I do?,You know what you did!  You left|me bound and gagged in public.,10,-1,0,
+0,0,0,!AmandaVictim,What did I do?,You know what you did!  You left|her bound and gagged in public.,10,-1,0,
 0,0,0,AmandaVictim,Admit it girl.|You enjoyed it.,No!  Other girls found me|and it was very humiliating.,20,-1,1,
 0,0,0,!AmandaVictim,She enjoyed it.,"No way!  Another customer found her|naked and bound, she was humiliated.",20,-1,0,
 0,0,0,AmandaVictim,I guess it|wasn't cool.,Wasn't cool?  Other girls found|me and it was very humiliating.,20,0,0,

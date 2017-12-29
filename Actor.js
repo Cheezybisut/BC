@@ -306,6 +306,8 @@ function ActorSpecificClearInventory(QueryActor, Recover) {
 			while (Actor[A][ActorInventory].length > 0) {
 				if ((Actor[A][ActorInventory][0] != "VibratingEgg") && (Actor[A][ActorInventory][0] != "TwoRopes") && (Actor[A][ActorInventory][0] != "Collar") && (Actor[A][ActorInventory][0] != "ChastityBelt") && (Actor[A][ActorInventory][0] != "TapeGag") && Recover)
 					PlayerAddInventory(Actor[A][ActorInventory][0], 1);
+				if ((Actor[A][ActorInventory][0] == "TwoRopes") && Recover)
+					PlayerAddInventory("Rope", 1);
 				Actor[A][ActorInventory].splice(0, 1);
 			}
 			if (HadEgg) Actor[A][ActorInventory].push("VibratingEgg");
