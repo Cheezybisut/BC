@@ -47,8 +47,10 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 37,0,0,,It won't hurt.|(Tie her up.),(She whimpers silently while you fold and|tie her arms and legs.  Forcing her on all fours.),38,1,0,JenniferDog()
 37,0,0,,Run Jennifer.|(Let her go.),,38,1,0,"EarlyEnding(""Bribe"")"
 38,0,0,,What a cute dog.,(She looks at the floor and whimpers.),38,0,0,JenniferCute()
-38,0,0,,Bark for me.,(She blushes and barks.)|Woof!  Woof!  Woof!,38,0,0,JenniferBark()
 38,0,0,,Walk around.,(She clumsily walks in the hallway.|She doesn't enjoy the humiliation.),38,0,0,JenniferCrawl()
+38,0,0,!IsGagged,Bark for me.,(She blushes and barks.)|Woof!  Woof!  Woof!,38,0,0,JenniferBark()
+38,0,0,IsGagged,(Ungag her.),(You remove the gag while she whispers you.)|Thank you Miss COMMON_PLAYERNAME.,38,0,0,Ungag()
+38,0,0,,(Masturbate her.),(You barely slide a finger under her metal|undies but you're not able to masturbate her.),38,0,0,MasturbateJennifer()
 38,0,0,,I'll release you.|(Untie her.),(You untie her and she stands up.)|That was humiliating.  Can I go now?,39,1,0,JenniferUntie()
 38,0,0,,Have fun bitch.|(Leave her stranded.),,39,-2,1,"EarlyEnding(""JenniferDog"")"
 39,0,0,,You were pretty in ropes.|(Let her dress and go.),,39,1,0,"EarlyEnding(""Bribe"")"

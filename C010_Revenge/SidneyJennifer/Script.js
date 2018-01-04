@@ -9,6 +9,10 @@ var C010_Revenge_SidneyJennifer_JenniferCuteDone = false;
 var C010_Revenge_SidneyJennifer_SidneyGone = false;
 var C010_Revenge_SidneyJennifer_JenniferGone = false;
 var C010_Revenge_SidneyJennifer_FightVictory = false;
+var C010_Revenge_SidneyJennifer_CropDone = false;
+var C010_Revenge_SidneyJennifer_IsGagged = false;
+var C010_Revenge_SidneyJennifer_OrgasmDone = false;
+var C010_Revenge_SidneyJennifer_MastubateCount = 0;
 
 // Chapter 10 - Sidney and Jennifer Revenge Load
 function C010_Revenge_SidneyJennifer_Load() {
@@ -67,6 +71,24 @@ function C010_Revenge_SidneyJennifer_Click() {
 		InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
 	}
 	
+	// The heroine can be restrained on stage 400
+	if ((C010_Revenge_SidneyJennifer_CurrentStage == 38) && (ClickInv != "") && (ClickInv != "Player")) {
+
+		// Both heroines react differently to the crop
+		if ((ClickInv == "Crop") && !C010_Revenge_SidneyJennifer_CropDone) {
+			C010_Revenge_SidneyJennifer_CropDone = true;
+			ActorChangeAttitude(-1, 1);
+		}
+
+		// Apply the clicked restrain
+		ActorApplyRestrain(ClickInv);
+		OverridenIntroImage = "";
+		C010_Revenge_SidneyJennifer_IsGagged = ActorIsGagged();
+		if (C010_Revenge_SidneyJennifer_IsGagged) ActorSpecificSetPose("Jennifer", "Dog");
+		if (ClickInv == "Crop") OverridenIntroText = GetText("CropJennifer");
+
+	}
+	
 }
 
 // Chapter 10 - Sidney and Jennifer Revenge - Switch to a provoking pose 
@@ -117,6 +139,7 @@ function C010_Revenge_SidneyJennifer_JenniferDog() {
 
 // Chapter 10 - Sidney and Jennifer Revenge - Jennifer cute
 function C010_Revenge_SidneyJennifer_JenniferCute() {
+	OverridenIntroImage = "";
 	if (!C010_Revenge_SidneyJennifer_JenniferCuteDone) {
 		C010_Revenge_SidneyJennifer_JenniferCuteDone = true;
 		ActorChangeAttitude(1, 0);
@@ -125,21 +148,23 @@ function C010_Revenge_SidneyJennifer_JenniferCute() {
 
 // Chapter 10 - Sidney and Jennifer Revenge - Jennifer bark
 function C010_Revenge_SidneyJennifer_JenniferBark() {
+	OverridenIntroImage = "";
 	ActorSetPose("Bark");
 	CurrentTime = CurrentTime + 50000;
 }
 
 // Chapter 10 - Sidney and Jennifer Revenge - Jennifer crawl
 function C010_Revenge_SidneyJennifer_JenniferCrawl() {
+	OverridenIntroImage = "";
 	ActorSetPose("Dog");
 	CurrentTime = CurrentTime + 50000;
 }
 
 // Chapter 10 - Sidney and Jennifer Revenge - Jennifer untie
 function C010_Revenge_SidneyJennifer_JenniferUntie() {
-	ActorRemoveInventory("TwoRopes");
-	ActorRemoveInventory("Rope");
-	PlayerAddInventory("Rope", 2);
+	OverridenIntroImage = "";
+	ActorUntie();
+	ActorUngag();
 	ActorSetPose("");
 	CurrentTime = CurrentTime + 50000;
 }
@@ -228,6 +253,35 @@ function C010_Revenge_SidneyJennifer_EarlyEnding(EndingType) {
 	C010_Revenge_EarlyEnding_Type = EndingType;
 	if (C010_Revenge_SidneyJennifer_FightVictory) C010_Revenge_EarlyEnding_Type = "SidneyJenniferFightVictory";
 	SetScene(CurrentChapter, "EarlyEnding");
+}
+
+// Chapter 10 - Sidney and Jennifer Revenge - Ungag the current actor
+function C010_Revenge_SidneyJennifer_Ungag() {
+	OverridenIntroImage = "";
+	ActorUngag();
+	CurrentTime = CurrentTime + 50000;
+	C010_Revenge_SidneyJennifer_IsGagged = false;
+}
+
+// Chapter 10 - Sidney and Jennifer Revenge - Masturbate Jennifer
+function C010_Revenge_SidneyJennifer_MasturbateJennifer() {
+
+	// Doesn't work if she's wearing a chastity belt, with the egg and 3 tries, she will orgasm
+	CurrentTime = CurrentTime + 50000;
+	OverridenIntroImage = "";
+	if (!ActorIsChaste()) {
+		C010_Revenge_SidneyJennifer_MastubateCount++;
+		if (ActorHasInventory("VibratingEgg")) {
+			if ((C010_Revenge_SidneyJennifer_MastubateCount >= 3) && !C010_Revenge_SidneyJennifer_OrgasmDone) {
+				ActorAddOrgasm();
+				ActorChangeAttitude(1, 0);
+				C010_Revenge_SidneyJennifer_OrgasmDone = true;
+				OverridenIntroImage = "HallwayFloorOrgasm.jpg";
+				OverridenIntroText = GetText("MasturbateJenniferOrgasm");
+			} else OverridenIntroText = GetText("MasturbateJenniferEgg");
+		} else OverridenIntroText = GetText("MasturbateJenniferNoEgg");
+	}
+
 }
 
 // Chapter 10 - Sidney and Jennifer Revenge - End the chapter, the player is liberated

@@ -15,3 +15,4 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 10,0,0,,主菜单,欢迎来到束缚学院。|希望各位绅士玩得开心，不断找到新惊喜。,0,0,0,
 20,0,0,,英文,,0,0,0,"SetLanguage(""EN"")"
 20,0,0,,法文 (暂时只有第一章)|感谢gottspende!,,0,0,0,"SetLanguage(""FR"")"
+20,0,0,,抛光|感谢ugiel!,,0,0,0,"SetLanguage(""PL"")"

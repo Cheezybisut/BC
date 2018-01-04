@@ -92,7 +92,7 @@ function C008_DramaClass_Heroine_Click() {
 		C008_DramaClass_Heroine_CalcParams();
 
 	}
-	
+
 }
 
 // Chapter 8 - Heroine - Sets the global stage and can alter Julia's mood
@@ -234,7 +234,7 @@ function C008_DramaClass_Heroine_Masturbate() {
 		OverridenIntroText = GetText("Orgasm");
 		OverridenIntroImage = "BackgroundOrgasm.jpg";
 	}
-	
+
 }
 
 // Chapter 8 - The heroine can release the player depending of the relationship
