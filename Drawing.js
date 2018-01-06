@@ -357,11 +357,21 @@ function DrawActor(ActorToDraw, X, Y, Zoom) {
 		if (ActorSpecificHasInventory(ActorToDraw, "Rope")) ImageBondage = "_Rope";
 		if (ActorSpecificHasInventory(ActorToDraw, "TwoRopes")) ImageBondage = "_TwoRopes";
 
-		// Third part is the gag
+		// Third part is the collar, which only shows for certain clothes
+		var ImageCollar = "";
+		if ((ImageCloth == "Underwear") || (ImageCloth == "Naked") || (ImageCloth == "ChastityBelt") || (ImageCloth == "Damsel")) {
+			if (ActorSpecificHasInventory(ActorToDraw, "Collar")) ImageCollar = "_Collar";
+		}
+
+		// Fourth part is the gag
 		var ImageGag = "_NoGag";
 		if (ActorSpecificHasInventory(ActorToDraw, "BallGag")) ImageGag = "_BallGag";
 		if (ActorSpecificHasInventory(ActorToDraw, "TapeGag")) ImageGag = "_TapeGag";
 		if (ActorSpecificHasInventory(ActorToDraw, "ClothGag")) ImageGag = "_ClothGag";
+
+		// Fifth part is the blindfold
+		var ImageBlindfold = "";	
+		if (ActorSpecificHasInventory(ActorToDraw, "Blindfold")) ImageBlindfold = "_Blindfold";
 
 		// Fourth part is the pose
 		var ImagePose = "";
@@ -369,7 +379,7 @@ function DrawActor(ActorToDraw, X, Y, Zoom) {
 
 		// Draw the full image from all parts
 		var ctx = document.getElementById("MainCanvas").getContext("2d");
-		DrawImageZoom(ctx, "Actors/" + ActorToDraw + "/" + ImageCloth + ImageBondage + ImageGag + ImagePose + ".png", 0, 0, 600, 900, X, Y, 600 * Zoom, 900 * Zoom);
+		DrawImageZoom(ctx, "Actors/" + ActorToDraw + "/" + ImageCloth + ImageBondage + ImageCollar + ImageGag + ImageBlindfold + ImagePose + ".png", 0, 0, 600 / Zoom, 900 / Zoom, X, Y, 600, 900);
 		
 	}
 
