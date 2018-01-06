@@ -379,7 +379,7 @@ function DrawActor(ActorToDraw, X, Y, Zoom) {
 
 		// Draw the full image from all parts
 		var ctx = document.getElementById("MainCanvas").getContext("2d");
-		DrawImageZoom(ctx, "Actors/" + ActorToDraw + "/" + ImageCloth + ImageBondage + ImageCollar + ImageGag + ImageBlindfold + ImagePose + ".png", 0, 0, 600 / Zoom, 900 / Zoom, X, Y, 600, 900);
+		DrawImageZoom(ctx, "Actors/" + ActorToDraw + "/" + ImageCloth + ImageBondage + ImageCollar + ImageGag + ImageBlindfold + ImagePose + ".png", 0, 0, 600, 900, X, Y, 600 * Zoom, 900 * Zoom);
 		
 	}
 
