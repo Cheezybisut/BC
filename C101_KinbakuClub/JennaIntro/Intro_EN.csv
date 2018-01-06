@@ -1,0 +1,18 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,I knew you would come back.|I need to explain some things to you.,JennaWaiting.jpg
+10,0,0,,,JennaWaiting.jpg
+20,0,0,,,JennaWaiting.jpg
+30,0,0,,,JennaWaiting.jpg
+40,0,0,,,JennaWaiting.jpg
+50,0,0,,,JennaWaiting.jpg
+55,0,0,,,JennaWaiting.jpg
+56,0,0,,,JennaWaiting.jpg
+60,0,0,,,JennaWaiting.jpg
+70,0,0,,,JennaWaiting.jpg
+75,0,0,,,JennaWaiting.jpg
+80,0,0,,,JennaGone.jpg
+100,0,0,,"You have some nerve,|turning up here after what you've done.",JennaAngry.jpg
+110,0,0,,,JennaAngry.jpg
+120,0,0,,,JennaAngry.jpg
+130,0,0,,,ClubMenacing.jpg
+140,0,0,,,ClubMenacing.jpg
