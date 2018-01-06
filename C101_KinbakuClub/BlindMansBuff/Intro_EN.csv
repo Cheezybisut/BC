@@ -1,0 +1,8 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,"Hey club, looks like the new girl|wants to play Blind Man's Buff.",BlindMansBuff.jpg
+10,0,0,,Ready to play again?,BlindMansBuff.jpg
+15,0,0,,(The bright light hurts your eyes. The club|stops playing and goes back to normal.),TooBright.JPG
+20,0,0,,,BlindMansBuff.jpg
+30,0,0,,,BlindMansBuff.jpg
+40,0,0,,,BlindMansBuff.jpg
+50,0,0,,,BlindMansBuff.jpg
