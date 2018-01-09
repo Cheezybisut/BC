@@ -251,11 +251,25 @@ function ActorApplyRestrain(RestrainName) {
 			} else return;
 		}
 
+		// Collar
+		if (RestrainName == "Collar") {
+			PlayerRemoveInventory("Collar", 1);
+			ActorAddInventory("Collar");
+			CurrentTime = CurrentTime + 60000;
+		}
+
 		// Regular gags (gags can be swapped)
 		if ((RestrainName == "BallGag") || (RestrainName == "TapeGag") || (RestrainName == "ClothGag")) {
 			ActorUngag();
 			PlayerRemoveInventory(RestrainName, 1);
 			ActorAddInventory(RestrainName);
+			CurrentTime = CurrentTime + 60000;
+		}
+
+		// Blindfold
+		if (RestrainName == "Blindfold") {
+			PlayerRemoveInventory("Blindfold", 1);
+			ActorAddInventory("Blindfold");
 			CurrentTime = CurrentTime + 60000;
 		}
 
