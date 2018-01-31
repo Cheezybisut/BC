@@ -42,17 +42,26 @@ function C010_Revenge_SidneyJennifer_Run() {
 	BuildInteraction(C010_Revenge_SidneyJennifer_CurrentStage);
 
 	// Draw the actors with a different zoom based on who's focused
-	if (!C010_Revenge_SidneyJennifer_SidneyGone && !C010_Revenge_SidneyJennifer_JenniferGone) {
-		if (CurrentActor == "Sidney") {
-			DrawActor("Jennifer", 800, 50, 0.8);
-			DrawActor("Sidney", 500, 0, 1.0);
+	if (C010_Revenge_SidneyJennifer_CurrentStage < 160) {
+		if (!C010_Revenge_SidneyJennifer_SidneyGone && !C010_Revenge_SidneyJennifer_JenniferGone) {
+			if (CurrentActor == "Sidney") {
+				DrawActor("Jennifer", 800, 50, 0.8);
+				DrawActor("Sidney", 500, 0, 1.0);
+			} else {
+				DrawActor("Sidney", 525, 50, 0.8);
+				DrawActor("Jennifer", 700, 0, 1.0);		
+			}
 		} else {
-			DrawActor("Sidney", 525, 50, 0.8);
-			DrawActor("Jennifer", 700, 0, 1.0);		
-		}
-	} else {
-		if (C010_Revenge_SidneyJennifer_CurrentStage == 38) DrawActor(CurrentActor, 650, -100, 0.833);
-		else DrawActor(CurrentActor, 600, 0, 1.0);
+			if (C010_Revenge_SidneyJennifer_CurrentStage == 38) DrawActor(CurrentActor, 650, -100, 0.833);
+			else DrawActor(CurrentActor, 600, 0, 1.0);
+		}			
+	}
+
+	// Include the player once she's naked
+	if (C010_Revenge_SidneyJennifer_CurrentStage >= 160) {
+		DrawActor("Jennifer", 875, 50, 0.7);
+		DrawActor("Sidney", 500, 20, 0.8);
+		DrawActor("Player", 625, 100, 1);
 	}
 	
 }
@@ -102,6 +111,7 @@ function C010_Revenge_SidneyJennifer_Bribe() {
 	ActorLoad("Jennifer", "");
 	LeaveIcon = "";
 	C010_Revenge_SidneyJennifer_SidneyGone = true;
+	C010_Revenge_Outro_GoodEnding = true;
 	PlayerRemoveHalfInventory();
 	CurrentTime = CurrentTime + 50000;
 }
@@ -198,8 +208,8 @@ function C010_Revenge_SidneyJennifer_StartFight() {
 
 	// Launch the double fight
 	C010_Revenge_SidneyJennifer_IntroText = "";
-	DoubleFightLoad("Sidney", SidneyDifficulty, "Punch", "Jennifer", JenniferDifficulty, "Punch", "Hallway", "C010_Revenge_SidneyJennifer_EndFight");
-	
+	DoubleFightLoad("Sidney", SidneyDifficulty, "Punch", "Jennifer", JenniferDifficulty, "Punch", (C010_Revenge_SidneyJennifer_CurrentStage < 100)?"Hallwat":"RunningTrack", "C010_Revenge_SidneyJennifer_EndFight");
+
 }
 
 // Chapter 10 - Sidney and Jennifer Revenge - When the fight ends
@@ -222,6 +232,7 @@ function C010_Revenge_SidneyJennifer_EndFight(Victory) {
 			ActorLoad("Jennifer", "");
 			LeaveIcon = "";
 			C010_Revenge_SidneyJennifer_SidneyGone = true;
+			C010_Revenge_Outro_GoodEnding = true;
 			C010_Revenge_SidneyJennifer_CurrentStage = 32;
 		} else {
 			OverridenIntroText = GetText("FightDefeatHallway");
@@ -229,6 +240,23 @@ function C010_Revenge_SidneyJennifer_EndFight(Victory) {
 		}
 		
 	}
+	
+	// If this was the outside fight
+	if (C010_Revenge_SidneyJennifer_CurrentStage == 150) {
+
+		// On a victory Jennifer runs away, on a defeat we show a custom text
+		if (Victory) {
+			OverridenIntroText = GetText("FightVictoryJenniferRun");
+			C010_Revenge_SidneyJennifer_JenniferLeave();
+			C010_Revenge_SidneyJennifer_CurrentStage = 133;
+		} else {
+			OverridenIntroText = GetText("FightDefeatTrack");
+			C010_Revenge_SidneyJennifer_PlayerStrip();
+			C010_Revenge_SidneyJennifer_CurrentStage = 160;
+		}
+		
+	}
+	
 
 }
 
@@ -246,13 +274,6 @@ function C010_Revenge_SidneyJennifer_PlayerStrip() {
 	PlayerClothes("Naked");
 	Common_PlayerPose = "BackShy";
 	CurrentTime = CurrentTime + 50000;
-}
-
-// Chapter 10 - Sidney and Jennifer Revenge - End the revenge and flag the end
-function C010_Revenge_SidneyJennifer_EarlyEnding(EndingType) {
-	C010_Revenge_EarlyEnding_Type = EndingType;
-	if (C010_Revenge_SidneyJennifer_FightVictory) C010_Revenge_EarlyEnding_Type = "SidneyJenniferFightVictory";
-	SetScene(CurrentChapter, "EarlyEnding");
 }
 
 // Chapter 10 - Sidney and Jennifer Revenge - Ungag the current actor
@@ -282,6 +303,60 @@ function C010_Revenge_SidneyJennifer_MasturbateJennifer() {
 		} else OverridenIntroText = GetText("MasturbateJenniferNoEgg");
 	}
 
+}
+
+// Chapter 10 - Sidney and Jennifer Revenge - When the player strips
+function C010_Revenge_SidneyJennifer_PlayerStrip() {
+	PlayerClothes("Naked");
+	Common_PlayerPose = "BackShy";
+	ActorLoad("Sidney", "");
+	LeaveIcon = "";
+	CurrentTime = CurrentTime + 50000;
+}
+
+// Chapter 10 - Sidney and Jennifer Revenge - When Jennifer is convinced to leave
+function C010_Revenge_SidneyJennifer_JenniferLeave() {
+	ActorLoad("Sidney", "");
+	LeaveIcon = "";
+	C010_Revenge_SidneyJennifer_JenniferGone = true;
+	C010_Revenge_Outro_GoodEnding = true;
+	CurrentTime = CurrentTime + 50000;
+}
+
+// Chapter 10 - Sidney and Jennifer Revenge - Checks if Sidney will strip to her underwear (+5 submission is required)
+function C010_Revenge_SidneyJennifer_SidneyUnderwear() {
+	if (ActorGetValue(ActorSubmission) >= 5) {
+		OverridenIntroText = GetText("SidneyUnderwear");
+		ActorSpecificSetCloth("Sidney", "Underwear");
+		CurrentTime = CurrentTime + 50000;
+		C010_Revenge_SidneyJennifer_CurrentStage = 136;
+	}
+}
+
+// Chapter 10 - Sidney and Jennifer Revenge - When Sidney gets naked
+function C010_Revenge_SidneyJennifer_SidneyNaked() {
+	ActorSpecificSetCloth("Sidney", "Naked");
+	CurrentTime = CurrentTime + 50000;
+}
+
+// Chapter 10 - Sidney and Jennifer Revenge - When the player searches in Sidney's bag
+function C010_Revenge_SidneyJennifer_SearchSidneyBag() {
+	PlayerAddInventory("Rope", 2);
+	PlayerAddInventory("TapeGag", 6);
+	CurrentTime = CurrentTime + 50000;
+}
+
+// Chapter 10 - Sidney and Jennifer Revenge - When the player searches in Sidney's bag
+function C010_Revenge_SidneyJennifer_SidneyPig() {
+	ActorSpecificSetPose("Sidney", "Pig");
+	CurrentTime = CurrentTime + 50000;
+}
+
+// Chapter 10 - Sidney and Jennifer Revenge - End the revenge and flag the end
+function C010_Revenge_SidneyJennifer_EarlyEnding(EndingType) {
+	C010_Revenge_EarlyEnding_Type = EndingType;
+	if (C010_Revenge_SidneyJennifer_FightVictory) C010_Revenge_EarlyEnding_Type = "SidneyJenniferFightVictory";
+	SetScene(CurrentChapter, "EarlyEnding");
 }
 
 // Chapter 10 - Sidney and Jennifer Revenge - End the chapter, the player is liberated

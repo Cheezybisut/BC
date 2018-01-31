@@ -56,7 +56,7 @@ function C004_ArtClass_ArtRoom_Click() {
 	if ((MouseX >= 330) && (MouseX <= 570) && (MouseY >= 10) && (MouseY <= 590) && (C004_ArtClass_ArtRoom_ExtraModel != "")) SetScene(CurrentChapter, "Julia");
 	if ((MouseX >= 630) && (MouseX <= 850) && (MouseY >= 10) && (MouseY <= 590) && (C004_ArtClass_ArtRoom_ExtraModel == "Sarah")) SetScene(CurrentChapter, "Sarah");
 	if ((MouseX >= 630) && (MouseX <= 850) && (MouseY >= 10) && (MouseY <= 590) && (C004_ArtClass_ArtRoom_ExtraModel == "Jennifer")) SetScene(CurrentChapter, "Jennifer");
-	if ((MouseX >= 630) && (MouseX <= 850) && (MouseY >= 10) && (MouseY <= 590) && (C004_ArtClass_ArtRoom_ExtraModel == "Player")) InventoryCommonScene("Player", CurrentChapter, "ArtRoom");
+	if ((MouseX >= 630) && (MouseX <= 850) && (MouseY >= 10) && (MouseY <= 590) && (C004_ArtClass_ArtRoom_ExtraModel == "Player")) InventoryClick("Player", CurrentChapter, "ArtRoom");
 	if ((MouseX >= 930) && (MouseX <= 1170) && (MouseY >= 10) && (MouseY <= 590) && (C004_ArtClass_ArtRoom_ExtraModel != "Sarah")) SetScene(CurrentChapter, "Sarah");
 	if ((MouseX >= 850) && (MouseX <= 930) && (MouseY >= 260) && (MouseY <= 360)) SetScene(CurrentChapter, "HiddenEgg");
 

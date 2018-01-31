@@ -39,6 +39,8 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 150,0,0,,I will model with you.|(1 minute),Oh!  Very daring!  Come here.|Pupils!  We have an extra model.,160,0,0,"NewModel(""Player"")"
 150,0,0,,Sarah should model.|(1 minute),"Good idea, Sarah, step up please.|Time to paint, get your brushes!",160,0,0,"NewModel(""Sarah"")"
 150,0,0,,Jennifer should model.|(1 minute),"Interesting, Jennifer, step up please.|Time to paint, get your brushes!",160,0,0,"NewModel(""Jennifer"")"
+150,0,0,CanBegForRelease,@HUUIA!  HMMH EE!,Keep the pose new pupil.|I cannot understand a word.,150,0,0,GaggedSpeach()
+150,0,0,CanBegForRelease,(Whimper and make|sad puppy eyes.),,150,0,0,BegForRelease()
 170,0,1,Common_PlayerNotRestrained,Let's change|model again.,Again?  Who should model with me?,150,0,0,ChangeModel()
 170,0,-1,,Can I sit down please?,No!  Poor shy new pupil.  You need to|overcome your shyness first and get the flame.,170,0,0,
 170,0,0,CanBegForRelease,@HUUIA!  HMMH EE!,Keep the pose new pupil.|It's no time to chat.,170,0,0,GaggedSpeach()

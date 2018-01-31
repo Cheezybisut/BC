@@ -124,6 +124,7 @@ function C010_Revenge_AmandaSarah_SarahKneel() {
 // Chapter 10 - Amanda and Sarah Revenge - Amanda leaves
 function C010_Revenge_AmandaSarah_AmandaLeave() {
 	C010_Revenge_AmandaSarah_AmandaGone = true;
+	C010_Revenge_Outro_GoodEnding = true;
 	if (!C010_Revenge_AmandaSarah_SarahGone) C010_Revenge_AmandaSarah_SwitchFocus("Sarah");
 	CurrentTime = CurrentTime + 50000;
 }
@@ -131,6 +132,7 @@ function C010_Revenge_AmandaSarah_AmandaLeave() {
 // Chapter 10 - Amanda and Sarah Revenge - Sarah leaves
 function C010_Revenge_AmandaSarah_SarahLeave() {
 	C010_Revenge_AmandaSarah_SarahGone = true;
+	C010_Revenge_Outro_GoodEnding = true;
 	if (!C010_Revenge_AmandaSarah_AmandaGone) C010_Revenge_AmandaSarah_SwitchFocus("Amanda");
 	CurrentTime = CurrentTime + 50000;
 }
@@ -208,13 +210,14 @@ function C010_Revenge_AmandaSarah_StartFight() {
 // Chapter 10 - Amanda and Sarah Revenge - When the fight ends
 function C010_Revenge_AmandaSarah_EndFight(Victory) {
 	
-	// Change the girls attitude depending on the victory or defeat
+	// Change the girls attitude depending on the victory or defeat	
 	ActorSpecificChangeAttitude("Amanda", -2, Victory ? 2 : -2);
 	ActorSpecificChangeAttitude("Sarah", -2, Victory ? 2 : -2);
 	C010_Revenge_AmandaSarah_AllowFight = false;
 	
 	// On a victory, we jump to stage 400 right away, on a defeat, we show a custom text
 	if (Victory) {
+		C010_Revenge_Outro_GoodEnding = true;
 		ActorLoad("Amanda", "");
 		LeaveIcon = "";
 		ActorSpecificSetPose("Amanda", "Surrender");

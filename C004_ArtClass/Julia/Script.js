@@ -186,6 +186,9 @@ function C004_ArtClass_Julia_RecoverInventory(ActorToRecover) {
 // Chapter 4 - Julia Change Model
 function C004_ArtClass_Julia_NewModel(ModelName) {
 
+	// Recover the player ropes if needed
+	PlayerReleaseBondage();
+
 	// Reset Sarah model
 	C004_ArtClass_ArtRoom_SarahStage = 0;
 	if (C004_ArtClass_Sarah_CurrentStage > 130) C004_ArtClass_Sarah_CurrentStage = 130;
@@ -287,9 +290,7 @@ function C004_ArtClass_Julia_BegForRelease() {
 	if (!C004_ArtClass_Julia_IsRestrained) {
 		if (ActorGetValue(ActorLove) >= 3) {
 			OverridenIntroText = GetText("PlayerUngag");
-			if (PlayerHasLockedInventory("BallGag")) PlayerAddInventory("BallGag", 1);
-			PlayerUnlockInventory("BallGag");
-			PlayerUnlockInventory("TapeGag");
+			PlayerUngag();
 			C004_ArtClass_Julia_CanBegForRelease = false;
 			CurrentTime = CurrentTime + 60000;
 		} else {
