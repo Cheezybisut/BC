@@ -51,7 +51,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 38,0,0,!IsGagged,Bark for me.,(She blushes and barks.)|Woof!  Woof!  Woof!,38,0,0,JenniferBark()
 38,0,0,IsGagged,(Ungag her.),(You remove the gag while she whispers you.)|Thank you Miss COMMON_PLAYERNAME.,38,0,0,Ungag()
 38,0,0,,(Masturbate her.),(You barely slide a finger under her metal|undies but you're not able to masturbate her.),38,0,0,MasturbateJennifer()
-38,0,0,,I'll release you.|(Untie her.),(You untie her and she stands up.)|That was humiliating.  Can I go now?,39,1,0,JenniferUntie()
+38,0,0,,I'll release you.|(Untie her.),(You untie her and she stands up.)|That was humiliating.  Can I go now?,39,1,0,Untie()
 38,0,0,,Have fun bitch.|(Leave her stranded.),,39,-2,1,"EarlyEnding(""JenniferDog"")"
 39,0,0,,You were pretty in ropes.|(Let her dress and go.),,39,1,0,"EarlyEnding(""JenniferDog"")"
 39,0,0,,Remember who's boss.|(Let her dress and go.),,39,0,1,"EarlyEnding(""JenniferDog"")"
@@ -107,9 +107,18 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 140,0,0,,(Try not to laugh.),(She rolls her eyes up to the sky.)|That's enough?  You had your fun?,141,0,0,
 140,0,0,,Ha!  You were|born to be a pig.,Fuck you COMMON_PLAYERNAME!|So that's enough?  You had your fun?,141,-1,0,
 140,0,0,,That's enough.|(Let her go.),,141,0,0,"EarlyEnding(""JenniferFriend"")"
-141,0,0,,The fun has only begun.|(Tie her up as a pig.),TO DO,142,0,0,SidneyRope()
-141,0,0,,Give me your hands girl.|(Tie her up as a pig.),TO DO,142,0,1,SidneyRope()
-141,0,0,,That's enough.|(Let her go.),,141,0,0,"EarlyEnding(""JenniferFriend"")"
+141,0,0,,The fun has only begun.|(Tie her up as a pig.),(You grab her arms and rope them and do the|same with her legs.  Forcing her on all fours.),142,0,0,SidneyRope()
+141,0,0,,Give me your hands girl.|(Tie her up as a pig.),(You grab her arms and rope them and do the|same with her legs.  Forcing her on all fours.),142,0,1,SidneyRope()
+141,0,0,,That's enough.|(Let her go.),,142,0,0,"EarlyEnding(""JenniferFriend"")"
+142,0,0,,What a cute|little piggy.,(She grumbles and stares at you.),142,0,0,SidneyCute()
+142,0,0,,Walk around.,(She clumsily walks on the track.|Fuming with rage and humiliated.),142,0,0,SidneyWalk()
+142,0,0,!IsGagged,"Sidney, say|""Soooowee"".",(She gives you an angry look.)|Go to hell COMMON_PLAYERNAME.,142,0,0,SidneyPigTalk()
+142,0,0,IsGagged,(Ungag her.),(You remove the gag from her mouth.)|Fuck you and fuck that gag.,142,0,0,Ungag()
+142,0,0,,(Masturbate her.),(You barely slide a finger under her metal|undies but you're not able to masturbate her.),142,0,0,MasturbateSidney()
+142,0,0,,I'll release you.|(Untie her.),(You untie her and she ditches the pig costume.)|Someday you'll pay for that.  Can I go now?,143,1,0,Untie()
+142,0,0,,Have fun bitch.|(Leave her stranded.),,143,-2,1,"EarlyEnding(""SidneyPig"")"
+143,0,0,,You were pretty in ropes.|(Let her dress and go.),,143,1,0,"EarlyEnding(""SidneyPig"")"
+143,0,0,,Remember who's boss.|(Let her dress and go.),,143,0,1,"EarlyEnding(""SidneyPig"")"
 150,0,0,AllowFight,I'll show you force!|(Fight them both.),,150,-1,1,StartFight()
 150,0,0,AllowFight,Get ready to fight.|(Fight them both.),,150,0,0,StartFight()
 150,0,0,,Fine!  Do it quick.|(Strip naked.),"(You strip naked on the running track.)|Very good, all you have to do is one lap.",160,0,0,PlayerStrip()

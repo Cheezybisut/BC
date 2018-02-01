@@ -5,7 +5,7 @@ var C010_Revenge_SidneyJennifer_IntroText = "";
 var C010_Revenge_SidneyJennifer_ItemStolen = false;
 var C010_Revenge_SidneyJennifer_AllowFight = true;
 var C010_Revenge_SidneyJennifer_CanBribe = false;
-var C010_Revenge_SidneyJennifer_JenniferCuteDone = false;
+var C010_Revenge_SidneyJennifer_CuteDone = false;
 var C010_Revenge_SidneyJennifer_SidneyGone = false;
 var C010_Revenge_SidneyJennifer_JenniferGone = false;
 var C010_Revenge_SidneyJennifer_FightVictory = false;
@@ -52,7 +52,7 @@ function C010_Revenge_SidneyJennifer_Run() {
 				DrawActor("Jennifer", 700, 0, 1.0);		
 			}
 		} else {
-			if (C010_Revenge_SidneyJennifer_CurrentStage == 38) DrawActor(CurrentActor, 650, -100, 0.833);
+			if ((C010_Revenge_SidneyJennifer_CurrentStage == 38) || (C010_Revenge_SidneyJennifer_CurrentStage == 142)) DrawActor(CurrentActor, 650, -100, 0.833);
 			else DrawActor(CurrentActor, 600, 0, 1.0);
 		}			
 	}
@@ -80,21 +80,23 @@ function C010_Revenge_SidneyJennifer_Click() {
 		InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
 	}
 	
-	// The heroine can be restrained on stage 400
-	if ((C010_Revenge_SidneyJennifer_CurrentStage == 38) && (ClickInv != "") && (ClickInv != "Player")) {
+	// Can be restrained at stage 38 (Jennifer) or 142 (Sidney)
+	if (((C010_Revenge_SidneyJennifer_CurrentStage == 38) || (C010_Revenge_SidneyJennifer_CurrentStage == 142)) && (ClickInv != "") && (ClickInv != "Player")) {
 
 		// Both heroines react differently to the crop
 		if ((ClickInv == "Crop") && !C010_Revenge_SidneyJennifer_CropDone) {
 			C010_Revenge_SidneyJennifer_CropDone = true;
-			ActorChangeAttitude(-1, 1);
+			if (C010_Revenge_SidneyJennifer_CurrentStage == 38) ActorChangeAttitude(-1, 1);
+			if (C010_Revenge_SidneyJennifer_CurrentStage == 142) ActorChangeAttitude(0, 1);
 		}
 
 		// Apply the clicked restrain
 		ActorApplyRestrain(ClickInv);
 		OverridenIntroImage = "";
 		C010_Revenge_SidneyJennifer_IsGagged = ActorIsGagged();
-		if (C010_Revenge_SidneyJennifer_IsGagged) ActorSpecificSetPose("Jennifer", "Dog");
-		if (ClickInv == "Crop") OverridenIntroText = GetText("CropJennifer");
+		if (C010_Revenge_SidneyJennifer_IsGagged && (C010_Revenge_SidneyJennifer_CurrentStage == 38)) ActorSpecificSetPose("Jennifer", "Dog");
+		if ((ClickInv == "Crop") && (C010_Revenge_SidneyJennifer_CurrentStage == 38)) OverridenIntroText = GetText("CropJennifer");
+		if ((ClickInv == "Crop") && (C010_Revenge_SidneyJennifer_CurrentStage == 142)) OverridenIntroText = GetText("CropSidney");
 
 	}
 	
@@ -150,8 +152,8 @@ function C010_Revenge_SidneyJennifer_JenniferDog() {
 // Chapter 10 - Sidney and Jennifer Revenge - Jennifer cute
 function C010_Revenge_SidneyJennifer_JenniferCute() {
 	OverridenIntroImage = "";
-	if (!C010_Revenge_SidneyJennifer_JenniferCuteDone) {
-		C010_Revenge_SidneyJennifer_JenniferCuteDone = true;
+	if (!C010_Revenge_SidneyJennifer_CuteDone) {
+		C010_Revenge_SidneyJennifer_CuteDone = true;
 		ActorChangeAttitude(1, 0);
 	}
 }
@@ -171,7 +173,7 @@ function C010_Revenge_SidneyJennifer_JenniferCrawl() {
 }
 
 // Chapter 10 - Sidney and Jennifer Revenge - Jennifer untie
-function C010_Revenge_SidneyJennifer_JenniferUntie() {
+function C010_Revenge_SidneyJennifer_Untie() {
 	OverridenIntroImage = "";
 	ActorUntie();
 	ActorUngag();
@@ -208,7 +210,7 @@ function C010_Revenge_SidneyJennifer_StartFight() {
 
 	// Launch the double fight
 	C010_Revenge_SidneyJennifer_IntroText = "";
-	DoubleFightLoad("Sidney", SidneyDifficulty, "Punch", "Jennifer", JenniferDifficulty, "Punch", (C010_Revenge_SidneyJennifer_CurrentStage < 100)?"Hallwat":"RunningTrack", "C010_Revenge_SidneyJennifer_EndFight");
+	DoubleFightLoad("Sidney", SidneyDifficulty, "Punch", "Jennifer", JenniferDifficulty, "Punch", (C010_Revenge_SidneyJennifer_CurrentStage < 100)?"Hallway":"RunningTrack", "C010_Revenge_SidneyJennifer_EndFight");
 
 }
 
@@ -287,20 +289,20 @@ function C010_Revenge_SidneyJennifer_Ungag() {
 // Chapter 10 - Sidney and Jennifer Revenge - Masturbate Jennifer
 function C010_Revenge_SidneyJennifer_MasturbateJennifer() {
 
-	// Doesn't work if she's wearing a chastity belt, with the egg and 3 tries, she will orgasm
+	// Doesn't work if she's wearing a chastity belt or if she doesn't like the player, after 3 tries, she will orgasm
 	CurrentTime = CurrentTime + 50000;
 	OverridenIntroImage = "";
 	if (!ActorIsChaste()) {
 		C010_Revenge_SidneyJennifer_MastubateCount++;
-		if (ActorHasInventory("VibratingEgg")) {
+		if (ActorGetValue(ActorLove) >= 5) {
 			if ((C010_Revenge_SidneyJennifer_MastubateCount >= 3) && !C010_Revenge_SidneyJennifer_OrgasmDone) {
 				ActorAddOrgasm();
 				ActorChangeAttitude(1, 0);
 				C010_Revenge_SidneyJennifer_OrgasmDone = true;
 				OverridenIntroImage = "HallwayFloorOrgasm.jpg";
 				OverridenIntroText = GetText("MasturbateJenniferOrgasm");
-			} else OverridenIntroText = GetText("MasturbateJenniferEgg");
-		} else OverridenIntroText = GetText("MasturbateJenniferNoEgg");
+			} else OverridenIntroText = GetText("MasturbateJenniferLove");
+		} else OverridenIntroText = GetText("MasturbateJenniferNoLove");
 	}
 
 }
@@ -350,6 +352,57 @@ function C010_Revenge_SidneyJennifer_SearchSidneyBag() {
 function C010_Revenge_SidneyJennifer_SidneyPig() {
 	ActorSpecificSetPose("Sidney", "Pig");
 	CurrentTime = CurrentTime + 50000;
+}
+
+// Chapter 10 - Sidney and Jennifer Revenge - When applies the two ropes on Sidney
+function C010_Revenge_SidneyJennifer_SidneyRope() {
+	ActorAddInventory("Rope");
+	ActorAddInventory("TwoRopes");
+	PlayerRemoveInventory("Rope", 2);
+	CurrentTime = CurrentTime + 50000;
+}
+
+// Chapter 10 - Sidney and Jennifer Revenge - Sidney doesn't like to be called a cute little piggy
+function C010_Revenge_SidneyJennifer_SidneyCute() {
+	OverridenIntroImage = "";
+	if (C010_Revenge_SidneyJennifer_CuteDone) {
+		C010_Revenge_SidneyJennifer_CuteDone = true;
+		ActorChangeAttitude(-1, 1);		
+	}
+}
+
+// Chapter 10 - Sidney and Jennifer Revenge - When the player asks Sidney to walk
+function C010_Revenge_SidneyJennifer_SidneyWalk() {
+	OverridenIntroImage = "";
+	CurrentTime = CurrentTime + 50000;
+}
+
+// Chapter 10 - Sidney and Jennifer Revenge - When the player asks Sidney to say "Sooowee", at +10 submission she will do it
+function C010_Revenge_SidneyJennifer_SidneyPigTalk() {
+	OverridenIntroImage = "";
+	if (ActorGetValue(ActorSubmission) >= 10)
+		OverridenIntroText = GetText("SidneyPigTalk");
+}
+
+// Chapter 10 - Sidney and Jennifer Revenge - When the player masturbates Sidney
+function C010_Revenge_SidneyJennifer_MasturbateSidney() {
+
+	// Doesn't work if she's wearing a chastity belt, with the egg and 3 tries, she will orgasm
+	CurrentTime = CurrentTime + 50000;
+	OverridenIntroImage = "";
+	if (!ActorIsChaste()) {
+		C010_Revenge_SidneyJennifer_MastubateCount++;
+		if (ActorHasInventory("VibratingEgg")) {
+			if ((C010_Revenge_SidneyJennifer_MastubateCount >= 3) && !C010_Revenge_SidneyJennifer_OrgasmDone) {
+				ActorAddOrgasm();
+				ActorChangeAttitude(1, 0);
+				C010_Revenge_SidneyJennifer_OrgasmDone = true;
+				OverridenIntroImage = "TrackDownOrgasm.jpg";
+				OverridenIntroText = GetText("MasturbateSidneyOrgasm");
+			} else OverridenIntroText = GetText("MasturbateSidneyEgg");
+		} else OverridenIntroText = GetText("MasturbateSidneyNoEgg");
+	}
+
 }
 
 // Chapter 10 - Sidney and Jennifer Revenge - End the revenge and flag the end

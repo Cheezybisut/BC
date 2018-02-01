@@ -251,8 +251,8 @@ function ActorApplyRestrain(RestrainName) {
 			} else return;
 		}
 
-		// Collar
-		if (RestrainName == "Collar") {
+		// Collar (only available in the Kinbaku club for now)
+		if ((RestrainName == "Collar") && (CurrentChapter == "C101_KinbakuClub")) {
 			PlayerRemoveInventory("Collar", 1);
 			ActorAddInventory("Collar");
 			CurrentTime = CurrentTime + 60000;
@@ -266,8 +266,8 @@ function ActorApplyRestrain(RestrainName) {
 			CurrentTime = CurrentTime + 60000;
 		}
 
-		// Blindfold
-		if (RestrainName == "Blindfold") {
+		// Blindfold (only available in the Kinbaku club for now)
+		if ((RestrainName == "Blindfold") && (CurrentChapter == "C101_KinbakuClub")) {
 			PlayerRemoveInventory("Blindfold", 1);
 			ActorAddInventory("Blindfold");
 			CurrentTime = CurrentTime + 60000;
