@@ -6,10 +6,18 @@ function C010_Revenge_Outro_Load() {
 	// Time is always 15:15:00 in the outro, reset the poses if needed
 	StopTimer(15.25 * 60 * 60 * 1000);
 	if (C010_Revenge_AmandaSarah_ItemStolen) PlayerRestoreAllInventory();
+	PlayerReleaseBondage();
 	PlayerClothes("Clothed");
-	Common_PlayerPose = "";
+	ActorSpecificClearInventory("Amanda", true);
+	ActorSpecificClearInventory("Sarah", true);
+	ActorSpecificClearInventory("Sidney", true);
+	ActorSpecificClearInventory("Jennifer", true);
 	ActorSpecificSetPose("Amanda", "");
 	ActorSpecificSetPose("Sarah", "");
+	ActorSpecificSetPose("Sidney", "");
+	ActorSpecificSetPose("Jennifer", "");
+	Common_PlayerPose = "";
+	Common_PlayerCrime = "";
 
 }
 

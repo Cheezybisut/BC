@@ -119,8 +119,43 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 142,0,0,,Have fun bitch.|(Leave her stranded.),,143,-2,1,"EarlyEnding(""SidneyPig"")"
 143,0,0,,You were pretty in ropes.|(Let her dress and go.),,143,1,0,"EarlyEnding(""SidneyPig"")"
 143,0,0,,Remember who's boss.|(Let her dress and go.),,143,0,1,"EarlyEnding(""SidneyPig"")"
+150,0,0,!Common_PlayerChaste,Fine!  Do it quick.|(Strip naked.),"(You strip naked on the running track.)|Very good, all you have to do is one lap.",160,0,0,PlayerStrip()
+150,0,0,!Common_PlayerChaste,Yes Miss Jennifer.|(Strip naked.),"(You strip naked on the running track.)|Very good, all you have to do is one lap.",160,0,-1,PlayerStrip()
+150,0,0,Common_PlayerChaste,Fine!  Do it quick.|(Strip naked.),(You strip naked and the girls stare at your belt.)|Oh my!  Are you wearing a chastity belt?,155,0,0,PlayerStrip()
+150,0,0,Common_PlayerChaste,Yes Miss Jennifer.|(Strip naked.),(You strip naked and the girls stare at your belt.)|Oh my!  Are you wearing a chastity belt?,155,0,-1,PlayerStrip()
 150,0,0,AllowFight,I'll show you force!|(Fight them both.),,150,-1,1,StartFight()
 150,0,0,AllowFight,Get ready to fight.|(Fight them both.),,150,0,0,StartFight()
-150,0,0,,Fine!  Do it quick.|(Strip naked.),"(You strip naked on the running track.)|Very good, all you have to do is one lap.",160,0,0,PlayerStrip()
-150,0,0,,Yes Miss Jennifer.|(Strip naked.),"(You strip naked on the running track.)|Very good, all you have to do is one lap.",160,0,-1,PlayerStrip()
-160,0,0,,TO DO ,TO DO,160,0,0,
+155,0,0,,"Yes, and it's none|of your business.","Fine, I can understand why you're grumpy.|Time to run!  All you have to do is one lap.",160,-1,0,
+155,0,0,,"Yes, I kind of|locked myself.",I'm not sure if that's kinky or stupid.|Time to run!  All you have to do is one lap.,160,0,-1,
+155,0,0,,Do you know how|to unlock these?,"I have no idea, find a good locksmith.|Time to run!  All you have to do is one lap.",160,0,0,
+160,0,0,,"Ok, let's do|this quickly.",It's not that easy.  Sidney|wants you to run gagged.,170,0,0,
+160,0,0,,Move away.  I'll do|your stupid lap.,It's not that easy.  Sidney|wants you to run gagged.,170,0,1,
+160,0,0,,Please Miss.  This|is very humiliating.,"I know, and it might get worse.|Sidney wants you to run gagged.",170,0,-1,
+160,0,0,AllowFight,Over my dead body!|(Fight them both.),,160,-1,1,StartFight()
+170,0,0,,Gag me loser.|I don't care.,(Sidney steps forward and tapes your mouth.)|That's enough!  Give me the ropes Jen.,180,-1,0,GagPlayer()
+170,0,0,,I know you're better|than this petty revenge.,(Sidney steps forward and tapes your mouth.)|That's enough!  Give me the ropes Jen.,180,1,0,GagPlayer()
+170,0,0,,Great!  I love gags.,(Sidney steps forward and tapes your mouth.)|You pervert!  Give me the ropes Jen.,180,0,-1,GagPlayer()
+170,0,0,,(Stay silent.),(Sidney steps forward and tapes your mouth.)|You'll stay quiet!  Give me the ropes Jen.,180,0,0,GagPlayer()
+170,0,0,AllowFight,Over my dead body!|(Fight them both.),,170,-1,1,StartFight()
+180,0,0,,@UUHGN!,(They ignore you and rope your arms and legs.|Forcing you to stand on your knees and elbows.),190,0,0,RopePlayer()
+180,0,0,,(Stare at her|menacingly.),(They ignore you and rope your arms and legs.|Forcing you to stand on your knees and elbows.),190,0,1,RopePlayer()
+180,0,0,,(Whimper.),(They ignore you and rope your arms and legs.|Forcing you to stand on your knees and elbows.),190,0,-1,RopePlayer()
+180,0,0,AllowFight,(Put your fists up|and fight them both.),,180,-1,1,StartFight()
+190,0,0,,(Struggle madly.),"You won't escape girl, get on the track.|I'll film your race to immortalize it.",200,0,0,
+190,0,0,,@Mgo Mmmay!,Shut your mouth and get on the track.|I'll film your race to immortalize it.,200,0,0,
+190,0,0,,(Give them|the finger.),I like your guts but get on the track.|I'll film your race to immortalize it.,200,1,1,
+190,0,0,,(Whimper for mercy.),You're so pathetic.  Get on the track.|I'll film your race to immortalize it.,200,-1,-1,
+200,0,0,,(Start the race.),,200,0,0,StartRace()
+300,0,0,RaceVictory,(Do a thumbs up.),That's the spirit!|(She releases you.),310,1,0,ReleasePlayer()
+300,0,0,RaceVictory,(Give her|the finger.),(She frowns and releases you.),310,-1,1,ReleasePlayer()
+300,0,0,RaceVictory,(Fall to the ground|from exhaustion.),Let me help you.|(She releases you.),310,0,-1,ReleasePlayer()
+300,0,0,!RaceVictory,(Whimper for mercy.),Let me help you.|(She releases you.),310,0,-1,ReleasePlayer()
+300,0,0,!RaceVictory,(Struggle madly.),Let me help you.|(She releases you.),310,0,0,ReleasePlayer()
+300,0,0,!RaceVictory,(Give her|the finger.),(She frowns and releases you.),310,-1,1,ReleasePlayer()
+300,0,0,,(Stay silent.),I guess that's enough.|(She releases you.),310,0,0,ReleasePlayer()
+310,0,0,,Can I go now?,"Yes, you can grab your things and go.",320,0,0,
+310,0,0,,Give me the camera!,(Sidney flips you the finger.)|You should grab your things and go.,320,0,1,
+310,0,0,,That was stupid.,You paid for what you did.|Now grab your things and go.,320,-1,0,
+310,0,0,,It's a fair revenge.,"Well said, remember your lesson.|Now grab your things and go.",320,1,0,
+310,0,0,,That was kinky.|I had lots of fun.,"You seem to have missed the lesson.|Anyway, grab your things and go.",320,0,-1,
+320,0,0,,(Return to college.),,320,0,0,"EarlyEnding(""TrackRun"")"

@@ -9,6 +9,7 @@ var C010_Revenge_SidneyJennifer_CuteDone = false;
 var C010_Revenge_SidneyJennifer_SidneyGone = false;
 var C010_Revenge_SidneyJennifer_JenniferGone = false;
 var C010_Revenge_SidneyJennifer_FightVictory = false;
+var C010_Revenge_SidneyJennifer_RaceVictory = false;
 var C010_Revenge_SidneyJennifer_CropDone = false;
 var C010_Revenge_SidneyJennifer_IsGagged = false;
 var C010_Revenge_SidneyJennifer_OrgasmDone = false;
@@ -58,10 +59,17 @@ function C010_Revenge_SidneyJennifer_Run() {
 	}
 
 	// Include the player once she's naked
-	if (C010_Revenge_SidneyJennifer_CurrentStage >= 160) {
-		DrawActor("Jennifer", 875, 50, 0.7);
-		DrawActor("Sidney", 500, 20, 0.8);
+	if (C010_Revenge_SidneyJennifer_CurrentStage in {160:true, 170:true, 180:true, 310:true, 320:true}) {
+		DrawActor("Jennifer", 870, 35, 0.75);
+		DrawActor("Sidney", 500, 35, 0.75);
 		DrawActor("Player", 625, 100, 1);
+	}
+
+	// The player tied as a dog at both girls feet
+	if ((C010_Revenge_SidneyJennifer_CurrentStage >= 190) && (C010_Revenge_SidneyJennifer_CurrentStage <= 300)) {
+		DrawActor("Jennifer", 870, -350, 0.75);
+		DrawActor("Sidney", 500, -350, 0.75);
+		DrawActor("Player", 600, -150, 1);
 	}
 	
 }
@@ -72,9 +80,9 @@ function C010_Revenge_SidneyJennifer_Click() {
 	// Regular interactions
 	ClickInteraction(C010_Revenge_SidneyJennifer_CurrentStage);
 	
-	// The player can click on herself
+	// The player can click on herself in most stages
 	var ClickInv = GetClickedInventory();
-	if (ClickInv == "Player") {
+	if ((ClickInv == "Player") && (C010_Revenge_SidneyJennifer_CurrentStage <= 170)) {
 		C010_Revenge_SidneyJennifer_IntroText = OverridenIntroText;
 		C010_Revenge_SidneyJennifer_CurrentActor = CurrentActor; 
 		InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
@@ -248,17 +256,14 @@ function C010_Revenge_SidneyJennifer_EndFight(Victory) {
 
 		// On a victory Jennifer runs away, on a defeat we show a custom text
 		if (Victory) {
+			PlayerUngag();
+			PlayerClothes("Clothed");
 			OverridenIntroText = GetText("FightVictoryJenniferRun");
 			C010_Revenge_SidneyJennifer_JenniferLeave();
 			C010_Revenge_SidneyJennifer_CurrentStage = 133;
-		} else {
-			OverridenIntroText = GetText("FightDefeatTrack");
-			C010_Revenge_SidneyJennifer_PlayerStrip();
-			C010_Revenge_SidneyJennifer_CurrentStage = 160;
-		}
-		
+		} else OverridenIntroText = GetText("FightDefeatTrack");
+
 	}
-	
 
 }
 
@@ -305,15 +310,6 @@ function C010_Revenge_SidneyJennifer_MasturbateJennifer() {
 		} else OverridenIntroText = GetText("MasturbateJenniferNoLove");
 	}
 
-}
-
-// Chapter 10 - Sidney and Jennifer Revenge - When the player strips
-function C010_Revenge_SidneyJennifer_PlayerStrip() {
-	PlayerClothes("Naked");
-	Common_PlayerPose = "BackShy";
-	ActorLoad("Sidney", "");
-	LeaveIcon = "";
-	CurrentTime = CurrentTime + 50000;
 }
 
 // Chapter 10 - Sidney and Jennifer Revenge - When Jennifer is convinced to leave
@@ -405,14 +401,55 @@ function C010_Revenge_SidneyJennifer_MasturbateSidney() {
 
 }
 
+// Chapter 10 - Sidney and Jennifer Revenge - When the player gets gagged
+function C010_Revenge_SidneyJennifer_GagPlayer() {
+	CurrentTime = CurrentTime + 50000;
+	PlayerLockInventory("TapeGag");
+	ActorLoad("Sidney", "");
+	LeaveIcon = "";
+}
+
+// Chapter 10 - Sidney and Jennifer Revenge - When the player gets bound
+function C010_Revenge_SidneyJennifer_RopePlayer() {
+	CurrentTime = CurrentTime + 50000;
+	PlayerLockInventory("Rope");
+	Common_PlayerPose = "Dog";
+}
+
+// Chapter 10 - Sidney and Jennifer Revenge - When the player starts the race
+function C010_Revenge_SidneyJennifer_StartRace() {
+	CurrentTime = CurrentTime + 50000;
+	C010_Revenge_SidneyJennifer_EndRace(false);
+}
+
+// Chapter 10 - Sidney and Jennifer Revenge - When the race ends
+function C010_Revenge_SidneyJennifer_EndRace(Victory) {
+	
+	// Change the girls attitude depending on the victory or defeat
+	ActorSpecificChangeAttitude("Sidney", 0, Victory ? 2 : -2);
+	ActorSpecificChangeAttitude("Jennifer", Victory ? 2 : -2, 0);
+	ActorSpecificSetPose("Sidney", "Camera");
+	ActorSpecificSetPose("Jennifer", "");
+	C010_Revenge_SidneyJennifer_RaceVictory = Victory;
+	C010_Revenge_SidneyJennifer_CurrentStage = 300;
+	OverridenIntroText = GetText(Victory ? "RaceVictory" : "RaceDefeat");
+	ActorLoad("Jennifer", "");
+	LeaveIcon = "";
+
+}
+
+// Chapter 10 - Sidney and Jennifer Revenge - When the player gets untied
+function C010_Revenge_SidneyJennifer_ReleasePlayer() {
+	CurrentTime = CurrentTime + 50000;
+	Common_PlayerPose = "BackShy";
+	PlayerUnlockInventory("Rope");
+	PlayerUngag();
+}
+
 // Chapter 10 - Sidney and Jennifer Revenge - End the revenge and flag the end
 function C010_Revenge_SidneyJennifer_EarlyEnding(EndingType) {
+	CurrentTime = CurrentTime + 300000;
 	C010_Revenge_EarlyEnding_Type = EndingType;
 	if (C010_Revenge_SidneyJennifer_FightVictory) C010_Revenge_EarlyEnding_Type = "SidneyJenniferFightVictory";
 	SetScene(CurrentChapter, "EarlyEnding");
-}
-
-// Chapter 10 - Sidney and Jennifer Revenge - End the chapter, the player is liberated
-function C010_Revenge_SidneyJennifer_EndChapter() {
-	SetScene(CurrentChapter, "Outro");
 }
