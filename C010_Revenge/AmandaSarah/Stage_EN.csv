@@ -20,15 +20,15 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 30,0,0,,Pay?  I'm not|giving you anything.,"We don't want anything|from you, we want revenge!",40,0,0,
 30,0,0,,This isn't funny.|Move away now.,Of course it's not funny.|It's time for our revenge!,40,-1,1,
 30,0,10,,Shut up Sarah.|I'm speaking with her.,(Sarah bows her head and let Amanda speak.)|Enough!  Now drop your stuff and surrender.,60,-1,1,"SwitchFocus(""Amanda"")"
-30,0,20,,"Sarah, get on|your knees.",On my knees?  Yes Miss.  (She kneels|while Amanda looks at her speechless.),51,0,1,SarahKneel()
+30,0,15,,"Sarah, get on|your knees.",On my knees?  Yes Miss.  (She kneels|while Amanda looks at her speechless.),51,0,1,SarahKneel()
 40,0,0,,Please forgive me.,I might forgive.  But you still|need to pay for what you did.,50,1,-1,
 40,0,0,,Fuck you and|your revenge.,Big dirty words in such a small mouth.|I bet you get gagged pretty often.,50,-1,0,
 40,0,0,,What do you|want from me?,(Amanda steps forward.)  First you will|drop your stuff and surrender to us.,60,0,0,"SwitchFocus(""Amanda"")"
-40,0,20,,"Sarah, get on|your knees.",On my knees?  Yes Miss.  (She kneels|while Amanda looks at her speechless.),51,0,1,SarahKneel()
+40,0,15,,"Sarah, get on|your knees.",On my knees?  Yes Miss.  (She kneels|while Amanda looks at her speechless.),51,0,1,SarahKneel()
 50,0,0,,What do you|want from me?,(Amanda steps forward.)  First you will|drop your stuff and surrender to us.,60,0,0,"SwitchFocus(""Amanda"")"
 50,0,0,,What is your|stupid plan?,(Amanda steps forward.)  First you will|drop your stuff and surrender to us.,60,-1,0,"SwitchFocus(""Amanda"")"
 50,0,0,,Let's make|peace ok?,(Amanda steps forward.)  Oh no!|You will drop your stuff and surrender to us.,60,0,-1,"SwitchFocus(""Amanda"")"
-50,0,20,,"Sarah, get on|your knees.",On my knees?  Yes Miss.  (She kneels|while Amanda gives her an angry stare.),51,0,1,SarahKneel()
+50,0,15,,"Sarah, get on|your knees.",On my knees?  Yes Miss.  (She kneels|while Amanda gives her an angry stare.),51,0,1,SarahKneel()
 51,0,0,,"Get out of|my face, slave.",(Sarah runs away and Amanda is left alone.)|SARAH!!!  What the hell?  We had a plan!,52,0,1,SarahLeave()
 51,0,0,,Good little pet.|Now run away.,(Sarah runs away and Amanda is left alone.)|SARAH!!!  What the hell?  We had a plan!,52,1,0,SarahLeave()
 52,0,0,,What plan loser?,(She calms downs and whispers.)  Well...|Errr...  We wanted to leave you in a locker.,53,-1,0,"CalmDown(""Amanda"")"
@@ -46,11 +46,11 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 60,0,0,,Get lost losers.|I have to go.,This is your last chance.  If you don't|surrender now we will beat you up.,70,-1,0,
 60,0,0,,"Ok, but don't steal.|(Drop your items.)","Very good, and now you|will strip for us, get naked.",80,1,-1,StealItems()
 60,0,0,,Yes Miss.|(Drop your items.),"Good girl, and now you|will strip for us, get naked.",80,1,-2,StealItems()
-60,0,20,,Amanda.  Shut up|and kneel for me.,Errr...   What Miss?  Kneel?|(She blushes and seems confused.),71,0,0,"CalmDown(""Amanda"")"
+60,0,15,,Amanda.  Shut up|and kneel for me.,Errr...   What Miss?  Kneel?|(She blushes and seems confused.),71,0,0,"CalmDown(""Amanda"")"
 70,0,0,AllowFight,You want to fight?|Then let's fight!,,70,0,0,StartFight()
 70,0,0,,You'll pay later.|(Drop your items.),"Shut up and strip, get naked.",80,0,0,StealItems()
 70,0,0,,Ok but don't steal.|(Drop your items.),"Very good, and now you|will strip for us, get naked.",80,0,-1,StealItems()
-70,0,20,,Amanda.  Shut up|and kneel for me.,Errr...   What Miss?  Kneel?|(She blushes and seems confused.),71,0,0,"CalmDown(""Amanda"")"
+70,0,15,,Amanda.  Shut up|and kneel for me.,Errr...   What Miss?  Kneel?|(She blushes and seems confused.),71,0,0,"CalmDown(""Amanda"")"
 71,0,0,,Be a good submissive|and get on your knees.,Yes Miss.  I'm so sorry Sarah.|(She bows down and kneels for you.),72,1,0,AmandaKneel()
 71,0,0,,Don't make me repeat.|Get on your knees.,Yes Miss.  You don't have to repeat.|(She bows down and kneels for you.),72,0,1,AmandaKneel()
 72,0,0,,"Good girl, now|tell me your plan.",I'm so sorry Miss.  We thought|about leaving you in a locker.,73,0,0,

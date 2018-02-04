@@ -6,12 +6,18 @@ function C010_Revenge_EarlyEnding_Load() {
 	// Stop the timer for the transition
 	StopTimer(CurrentTime);
 	PlayerReleaseBondage();
+	PlayerClothes("Clothed");
 	ActorSpecificClearInventory("Amanda", true);
 	ActorSpecificClearInventory("Sarah", true);
+	ActorSpecificClearInventory("Sidney", true);
+	ActorSpecificClearInventory("Jennifer", true);
 	ActorSpecificSetPose("Amanda", "");
 	ActorSpecificSetPose("Sarah", "");
+	ActorSpecificSetPose("Sidney", "");
+	ActorSpecificSetPose("Jennifer", "");
 	LeaveIcon = "";
 	Common_PlayerCrime = "";
+	Common_PlayerPose = "";
 
 }
 
