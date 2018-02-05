@@ -416,10 +416,11 @@ function C010_Revenge_SidneyJennifer_RopePlayer() {
 	Common_PlayerPose = "Dog";
 }
 
-// Chapter 10 - Sidney and Jennifer Revenge - When the player starts the race
+// Chapter 10 - Sidney and Jennifer Revenge - When the player starts the race (5 minutes race)
 function C010_Revenge_SidneyJennifer_StartRace() {
 	CurrentTime = CurrentTime + 50000;
-	C010_Revenge_SidneyJennifer_EndRace(false);
+	C010_Revenge_SidneyJennifer_IntroText = "";
+	RaceLoad("Player", DrawGetPlayerImageName(true), 10, "Normal", 2640, GetText("RaceGoal"), "KneeBound", "ElbowBound", "RunningTrack", "C010_Revenge_SidneyJennifer_EndRace");
 }
 
 // Chapter 10 - Sidney and Jennifer Revenge - When the race ends
