@@ -37,28 +37,35 @@ function C101_KinbakuClub_Transition_Run() {
 		DrawRect(ctx, 0, 0, 800, 600, "black");
 		if (TextPhase >= 0) DrawText(ctx, GetText("ChairCuffed1"), 400, 100, "White");
 		if (TextPhase >= 1) DrawText(ctx, GetText("ChairCuffed2"), 400, 200, "White");
-		if (TextPhase >= 2 && C101_KinbakuClub_Lauren_PlayerChairCuffed) DrawText(ctx, GetText("ChairCuffed3"), 400, 300, "White");
-		if (TextPhase >= 2 && C101_KinbakuClub_Lauren_PlayerStrappado && !C101_KinbakuClub_Lauren_PlayerLegCuffs) DrawText(ctx, GetText("LaurenCuffedStrppado"), 400, 300, "White");
-		if (TextPhase >= 2 && C101_KinbakuClub_Lauren_PlayerLegCuffs) DrawText(ctx, GetText("LaurenCuffedStrppadoLegs"), 400, 300, "White");
+		if (TextPhase >= 2) {
+			if (C101_KinbakuClub_Lauren_PlayerChairCuffed) DrawText(ctx, GetText("ChairCuffed3"), 400, 300, "White");
+			if (C101_KinbakuClub_Lauren_PlayerStrappado) {
+				if (!C101_KinbakuClub_Lauren_PlayerLegCuffs) DrawText(ctx, GetText("LaurenCuffedStrppado"), 400, 300, "White");
+				if (C101_KinbakuClub_Lauren_PlayerLegCuffs) {
+					DrawText(ctx, GetText("LaurenCuffedStrppadoLegs"), 400, 300, "White");
+					PlayerUnlockInventory("Collar");
+				}
+			}
+		}
 		if (TextPhase >= 3) DrawText(ctx, GetText("ChairCuffed4"), 400, 400, "White");
 		if (TextPhase >= 4) DrawText(ctx, GetText("ChairCuffed5"), 400, 500, "White");
 	}
 
-	if (C101_KinbakuClub_Chloe_PlayingWithPlayer) {
-		DrawRect(ctx, 0, 0, 800, 600, "black");
-		if (TextPhase >= 0) DrawText(ctx, GetText("ChloeSub1"), 400, 120, "White");
-		if (TextPhase >= 1) DrawText(ctx, GetText("ChloeSub2"), 400, 240, "White");
-		if (TextPhase >= 2) DrawText(ctx, GetText("ChloeSub3"), 400, 360, "White");
-		if (TextPhase >= 3) DrawText(ctx, GetText("ChloeSub4"), 400, 480, "White");
-	}
+	//if (C101_KinbakuClub_Chloe_PlayingWithPlayer) {
+	//	DrawRect(ctx, 0, 0, 800, 600, "black");
+	//	if (TextPhase >= 0) DrawText(ctx, GetText("ChloeSub1"), 400, 120, "White");
+	//	if (TextPhase >= 1) DrawText(ctx, GetText("ChloeSub2"), 400, 240, "White");
+	//	if (TextPhase >= 2) DrawText(ctx, GetText("ChloeSub3"), 400, 360, "White");
+	//	if (TextPhase >= 3) DrawText(ctx, GetText("ChloeSub4"), 400, 480, "White");
+	//}
 	
-	if (C101_KinbakuClub_Chloe_PlayerLeftChairTied) {
-		DrawRect(ctx, 0, 0, 800, 600, "black");
-		if (TextPhase >= 0) DrawText(ctx, GetText("LeftChair1"), 400, 120, "White");
-		if (TextPhase >= 1) DrawText(ctx, GetText("LeftChair2"), 400, 240, "White");
-		if (TextPhase >= 2) DrawText(ctx, GetText("LeftChair3"), 400, 360, "White");
-		if (TextPhase >= 3) DrawText(ctx, GetText("LeftChair4"), 400, 480, "White");
-	}
+	//if (C101_KinbakuClub_Chloe_PlayerLeftChairTied) {
+	//	DrawRect(ctx, 0, 0, 800, 600, "black");
+	//	if (TextPhase >= 0) DrawText(ctx, GetText("LeftChair1"), 400, 120, "White");
+	//	if (TextPhase >= 1) DrawText(ctx, GetText("LeftChair2"), 400, 240, "White");
+	//	if (TextPhase >= 2) DrawText(ctx, GetText("LeftChair3"), 400, 360, "White");
+	//	if (TextPhase >= 3) DrawText(ctx, GetText("LeftChair4"), 400, 480, "White");
+	//}
 }
 
 // Chapter 101 - Kinbaku Club  Click
