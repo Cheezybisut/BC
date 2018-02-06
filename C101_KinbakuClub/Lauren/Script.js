@@ -406,11 +406,10 @@ function C101_KinbakuClub_Lauren_PlayerClothGagged() {
 // Chapter 101 - Lauren - Player waits while chair cuffed with Lauren
 function C101_KinbakuClub_Lauren_Wait() {
 	if (C101_KinbakuClub_Lauren_Waited) {
-		if (CurrentTime > C101_KinbakuClub_JennaIntro_TransitionTime * 60 * 60 * 1000) {
-			CurrentTime = (C101_KinbakuClub_JennaIntro_TransitionTime * 60 * 60 * 1000);
-		} else CurrentTime = (C101_KinbakuClub_JennaIntro_LeaveTime * 60 * 60 * 1000);
+		CurrentTime = (C101_KinbakuClub_JennaIntro_LeaveTime * 60 * 60 * 1000);
 	}
 	C101_KinbakuClub_Lauren_Waited = true;
+	CurrentTime = CurrentTime +120000;
 }
 
 // Chapter 101 - Lauren - player asks Lauren if she enjoyed being chair cuffed
