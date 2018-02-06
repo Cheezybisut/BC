@@ -17,7 +17,6 @@ function C010_Revenge_Outro_Load() {
 	ActorSpecificSetPose("Sidney", "");
 	ActorSpecificSetPose("Jennifer", "");
 	Common_PlayerPose = "";
-	Common_PlayerCrime = "";
 
 }
 
@@ -40,9 +39,8 @@ function C010_Revenge_Outro_Run() {
 	// Shows the text
 	if (C010_Revenge_Outro_GoodEnding) OutroText = OutroText + "Good";
 	DrawText(ctx, GetText(OutroText + "1"), 400, 150, "White");
-	if (TextPhase >= 1) DrawText(ctx, GetText(OutroText + "2"), 400, 250, "White");
-	if (TextPhase >= 2) DrawText(ctx, GetText(OutroText + "3"), 400, 350, "White");
-	if (TextPhase >= 3) DrawText(ctx, GetText(OutroText + "4"), 400, 450, "White");
+	if (TextPhase >= 1) DrawText(ctx, GetText(OutroText + "2"), 400, 300, "White");
+	if (TextPhase >= 2) DrawText(ctx, GetText(OutroText + "3"), 400, 450, "White");
 
 }
 
@@ -52,8 +50,8 @@ function C010_Revenge_Outro_Click() {
 	// Jump to the next animation
 	TextPhase++;
 	if (TextPhase >= 3) {
-		//Common_PlayerCrime = "";
 		//SaveMenu("C011", "Intro");
+		Common_PlayerCrime = "";
 		SaveMenu("C101_KinbakuClub", "Intro");
 	}
 

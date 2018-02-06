@@ -5,7 +5,6 @@ Hard,Hard
 StartsIn,Starts in
 Opponent,Opponent:
 Difficulty,Difficulty:
-Perfect,Perfect fight!
-Victory,You won!
-Defeat,You lost!
-ClickContinue,Click here to continue.
+Perfect,Perfect fight!  Click on any opponent to continue.
+Victory,You won!  Click on any opponent to continue.
+Defeat,You lost!  Click on any opponent to continue.
