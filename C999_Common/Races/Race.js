@@ -143,10 +143,9 @@ function RaceDrawBar(ctx) {
 
 // Draw the race progress in the bottom screen
 function RaceDrawStats(ctx) {
-	var RaceTimeLeft = msToTime(RaceEndTimer - RaceTimer);
-	DrawText(ctx, GetCSVText(RaceText, "Combo") + " " + RaceCombo.toString(), 400, 580, "white");
-	DrawText(ctx, GetCSVText(RaceText, "Speed") + " " + RaceSpeed.toString(), 575, 580, "white");
-	DrawText(ctx, GetCSVText(RaceText, "Timer") + " " + RaceTimeLeft, 800, 580, "white");
+	DrawText(ctx, GetCSVText(RaceText, "Combo") + " " + RaceCombo.toString(), 400, 25, "white");
+	DrawText(ctx, GetCSVText(RaceText, "Speed") + " " + RaceSpeed.toString(), 575, 25, "white");
+	DrawText(ctx, GetCSVText(RaceText, "Timer") + " " + msToTime(RaceEndTimer - RaceTimer), 800, 25, "white");
 }
 
 // Draw the actor on the screen
@@ -167,7 +166,7 @@ function RaceDrawActor(ctx) {
 		if (RaceActorImageFrame > 3) RaceActorImageFrame = 0;
 
 		// Sets the next frame time
-		if (RaceSpeed > 2) RaceActorImageFrameTime = RaceTimer + 3000 / RaceSpeed;
+		if (RaceSpeed > 0) RaceActorImageFrameTime = RaceTimer + 1500 / (RaceSpeed / 10);
 		else RaceActorImageFrameTime = RaceTimer + 1500;
 
 	};
@@ -288,18 +287,18 @@ function C999_Common_Race_Run() {
 			RaceDrawStats(ctx);
 		} 
 		else {
-			DrawText(ctx, RaceGoalText, 600, 550, "white");
-			DrawText(ctx, GetCSVText(RaceText, "Difficulty") + " " + GetCSVText(RaceText, RaceDifficultyText), 500, 580, "white");
-			DrawText(ctx, GetCSVText(RaceText, "StartsIn") + " " + (5 - Math.floor(RaceTimer / 1000)).toString(), 700, 580, "white");
+			DrawText(ctx, RaceGoalText, 600, 25, "white");
+			DrawText(ctx, GetCSVText(RaceText, "Difficulty") + " " + GetCSVText(RaceText, RaceDifficultyText), 500, 65, "white");
+			DrawText(ctx, GetCSVText(RaceText, "StartsIn") + " " + (5 - Math.floor(RaceTimer / 1000)).toString(), 700, 65, "white");
 		}
 	}
 
 	// Draw the end text
 	if (RaceEnded) {		
-		if ((RaceProgress >= RaceGoal) && RacePerfect) DrawText(ctx, GetCSVText(RaceText, "Perfect"), 600, 550, "white");
-		if ((RaceProgress >= RaceGoal) && !RacePerfect) DrawText(ctx, GetCSVText(RaceText, "Victory"), 600, 550, "white");
-		if (RaceProgress < RaceGoal) DrawText(ctx, GetCSVText(RaceText, "Defeat"), 600, 550, "white");
-		DrawText(ctx, GetCSVText(RaceText, "RaceTime") + " " + msToTime(RaceTimer - RaceStartTime), 600, 580, "white");
+		if ((RaceProgress >= RaceGoal) && RacePerfect) DrawText(ctx, GetCSVText(RaceText, "Perfect"), 600, 25, "white");
+		if ((RaceProgress >= RaceGoal) && !RacePerfect) DrawText(ctx, GetCSVText(RaceText, "Victory"), 600, 25, "white");
+		if (RaceProgress < RaceGoal) DrawText(ctx, GetCSVText(RaceText, "Defeat"), 600, 25, "white");
+		DrawText(ctx, GetCSVText(RaceText, "RaceTime") + " " + msToTime(RaceTimer - RaceStartTime), 600, 65, "white");
 	}
 
 }

@@ -43,7 +43,7 @@ function C010_Revenge_SidneyJennifer_Run() {
 	BuildInteraction(C010_Revenge_SidneyJennifer_CurrentStage);
 
 	// Draw the actors with a different zoom based on who's focused
-	if (C010_Revenge_SidneyJennifer_CurrentStage < 160) {
+	if (C010_Revenge_SidneyJennifer_CurrentStage < 155) {
 		if (!C010_Revenge_SidneyJennifer_SidneyGone && !C010_Revenge_SidneyJennifer_JenniferGone) {
 			if (CurrentActor == "Sidney") {
 				DrawActor("Jennifer", 800, 50, 0.8);
@@ -59,7 +59,7 @@ function C010_Revenge_SidneyJennifer_Run() {
 	}
 
 	// Include the player once she's naked
-	if (C010_Revenge_SidneyJennifer_CurrentStage in {160:true, 170:true, 180:true, 310:true, 320:true}) {
+	if (C010_Revenge_SidneyJennifer_CurrentStage in {155:true, 160:true, 170:true, 180:true, 310:true, 320:true}) {
 		DrawActor("Jennifer", 870, 35, 0.75);
 		DrawActor("Sidney", 500, 35, 0.75);
 		DrawActor("Player", 625, 100, 1);
