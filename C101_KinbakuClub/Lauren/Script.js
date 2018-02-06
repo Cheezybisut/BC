@@ -169,10 +169,13 @@ function C101_KinbakuClub_Lauren_AlreadyCuffed() {
 
 // Chapter 101 - Lauren - Player takes cuffs and cuffs themself.
 function C101_KinbakuClub_Lauren_PlayerCuffed() {
-	C101_KinbakuClub_Lauren_PlayerChairCuffed = true;
 	CurrentTime = CurrentTime + 30000;
 	PlayerLockInventory("Cuffs");
 	LeaveIcon = "";
+	if (C101_KinbakuClub_Lauren_CurrentStage > 150) {
+		C101_KinbakuClub_Lauren_PlayerChairCuffed = true;
+		CurrentTime = CurrentTime + 90000;
+	}
 }
 
 // Chapter 101 - Lauren - A subbie player gets the clip place somewhere kinkier.
@@ -437,8 +440,8 @@ function C101_KinbakuClub_Lauren_RemoveBlindfold() {
 
 // Chapter 101 - Lauren - Lauren comes back
 function C101_KinbakuClub_Lauren_LaurenReturn() {
-	CurrentTime = CurrentTime + 30000;
-	if (C101_KinbakuClub_Lauren_Return >= 3) {
+	CurrentTime = CurrentTime + 60000;
+	if (C101_KinbakuClub_Lauren_Return >= 4) {
 		C101_KinbakuClub_Lauren_CurrentStage = 700;
 		OverridenIntroText = GetText("LuarenReturned");
 	}
@@ -461,9 +464,9 @@ function C101_KinbakuClub_Lauren_ClipOptions() {
 
 // Chapter 101 - Lauren - player front flips to reach hair clips on panties
 function C101_KinbakuClub_Lauren_ReachingPanties() {
-	C101_KinbakuClub_Lauren_LaurenReturn()
 	C101_KinbakuClub_Lauren_CurrentStage = 640;
 	CurrentTime = CurrentTime + 10000;
+	C101_KinbakuClub_Lauren_LaurenReturn()
 }
 
 // Chapter 101 - Lauren - Player unlocks the handcuffs with a hair clip
