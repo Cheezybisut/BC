@@ -263,8 +263,8 @@ function C101_KinbakuClub_Lauren_GropeBreasts() {
 		OverridenIntroText = GetText("LikeGrope");
 	} else {
 		C101_KinbakuClub_Lauren_BullyCount++;
-		C101_KinbakuClub_Lauren_BullyCheck();
 		if (C101_KinbakuClub_Lauren_LaurenGagged) OverridenIntroText = GetText("GropeGag");
+		C101_KinbakuClub_Lauren_BullyCheck();
 	}
 }
 
@@ -277,8 +277,8 @@ function C101_KinbakuClub_Lauren_PinchNipples() {
 		if (C101_KinbakuClub_Lauren_LaurenGagged) OverridenIntroText = GetText("LikeNipplesGag");
 	} else {
 		C101_KinbakuClub_Lauren_BullyCount = C101_KinbakuClub_Lauren_BullyCount + 2;
-		C101_KinbakuClub_Lauren_BullyCheck();
 		if (C101_KinbakuClub_Lauren_LaurenGagged) OverridenIntroText = GetText("NipplesGag");
+		C101_KinbakuClub_Lauren_BullyCheck();
 	}
 }
 
@@ -288,12 +288,12 @@ function C101_KinbakuClub_Lauren_Kiss() {
 	if (ActorGetValue(ActorLove) >= 5) OverridenIntroText = GetText("LikeKiss");
 	if (C101_KinbakuClub_Lauren_LaurenGagged && ActorGetValue(ActorLove) < 5) OverridenIntroText = GetText("GagKiss");
 	if (C101_KinbakuClub_Lauren_LaurenGagged && ActorGetValue(ActorLove) >= 5) OverridenIntroText = GetText("LikeGagKiss");
+	if (C101_KinbakuClub_Lauren_LaurenGagged && ActorGetValue(ActorLove) >= 5 && ActorGetValue(ActorSubmission) >= 8) OverridenIntroText = GetText("LoveSubGagKiss");
 	if (C101_KinbakuClub_Lauren_LaurenGagged && ActorGetValue(ActorLove) < 5 && ActorGetValue(ActorSubmission) >= 8) {
 		OverridenIntroText = GetText("SubGagKiss");
 		C101_KinbakuClub_Lauren_BullyCount++;
 		C101_KinbakuClub_Lauren_BullyCheck();
 	}
-	if (C101_KinbakuClub_Lauren_LaurenGagged && ActorGetValue(ActorLove) >= 5 && ActorGetValue(ActorSubmission) >= 8) OverridenIntroText = GetText("LoveSubGagKiss");
 }
 
 // Chapter 101 - Lauren - When player caresses Lauren's bum
@@ -313,8 +313,8 @@ function C101_KinbakuClub_Lauren_SlapBum() {
 	} else {
 		ActorChangeAttitude(0, 1);
 		C101_KinbakuClub_Lauren_BullyCount++;
-		C101_KinbakuClub_Lauren_BullyCheck();
 		if (C101_KinbakuClub_Lauren_LaurenGagged) OverridenIntroText = GetText("SlapGag");
+		C101_KinbakuClub_Lauren_BullyCheck();
 	}
 }
 
@@ -327,8 +327,8 @@ function C101_KinbakuClub_Lauren_RubCrotch() {
 		if (C101_KinbakuClub_Lauren_LaurenGagged) OverridenIntroText = GetText("LikeRubGag");
 	} else {
 		C101_KinbakuClub_Lauren_BullyCount = C101_KinbakuClub_Lauren_BullyCount + 2;
-		C101_KinbakuClub_Lauren_BullyCheck();
 		if (C101_KinbakuClub_Lauren_LaurenGagged) OverridenIntroText = GetText("RubGag");
+		C101_KinbakuClub_Lauren_BullyCheck();
 	}
 }
 
@@ -341,8 +341,8 @@ function C101_KinbakuClub_Lauren_Masturbate() {
 		if (C101_KinbakuClub_Lauren_LaurenGagged) OverridenIntroText = GetText("LikeMasturbateGag");
 	} else {
 		C101_KinbakuClub_Lauren_BullyCount = C101_KinbakuClub_Lauren_BullyCount + 4;
+		if (C101_KinbakuClub_Lauren_LaurenGagged) OverridenIntroText = GetText("MasturbateGag");
 		C101_KinbakuClub_Lauren_BullyCheck();
-		if (C101_KinbakuClub_Lauren_LaurenGagged && C101_KinbakuClub_Lauren_BullyCount < 10) OverridenIntroText = GetText("MasturbateGag");
 	}
 	if (C101_KinbakuClub_Lauren_OrgasmDone) OverridenIntroText = GetText("LaurenOrgasmRep");
 	if (C101_KinbakuClub_Lauren_MasturbateCount >= 2 && !C101_KinbakuClub_Lauren_OrgasmDone && C101_KinbakuClub_Lauren_BullyCount < 10) {
