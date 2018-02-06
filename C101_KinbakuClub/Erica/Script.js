@@ -450,9 +450,7 @@ function C101_KinbakuClub_Erica_AloneTimeEgg() {
 
 // Chapter 101 - Erica - Player waits for help
 function C101_KinbakuClub_Erica_SkipToTransition() {
-	if (CurrentTime > C101_KinbakuClub_JennaIntro_TransitionTime * 60 * 60 * 1000) {
-		CurrentTime = (C101_KinbakuClub_JennaIntro_TransitionTime * 60 * 60 * 1000 - 1000);
-	} else CurrentTime = (C101_KinbakuClub_JennaIntro_LeaveTime * 60 * 60 * 1000);
+	CurrentTime = (C101_KinbakuClub_JennaIntro_LeaveTime * 60 * 60 * 1000);
 }
 
 // Chapter 101 - Erica - remove players Collar

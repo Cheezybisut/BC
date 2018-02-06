@@ -19,9 +19,11 @@ function SaveStateGetSummary(SlotNumber) {
 	if (localStorage.getItem("SaveGameVersion" + SN))
 		if (localStorage.getItem("SaveGameVersion" + SN) == SaveGameVersion) {
 			var SaveStatePlayerName = localStorage.getItem("Common_PlayerName" + SN);
-			var SaveStateChapter = localStorage.getItem("CurrentChapter" + SN);
+			var SaveStateChapter = localStorage.getItem("CurrentChapter" + SN).substr(1, 3);
 			var SaveStateDateTime = localStorage.getItem("SaveGameDateTime" + SN);
-			Summary = SaveStatePlayerName.substr(0, 10) + " - " + GetText("Chapter") + " " + SaveStateChapter.substring(2, 4) + "|" + SaveStateDateTime;
+			while (SaveStateChapter.substr(0, 1) == "0")
+				SaveStateChapter = SaveStateChapter.substr(1, 100);
+			Summary = SaveStatePlayerName.substr(0, 10) + " - " + GetText("Chapter") + " " + SaveStateChapter + "|" + SaveStateDateTime;
 		}
 		
 	// Returns the summary

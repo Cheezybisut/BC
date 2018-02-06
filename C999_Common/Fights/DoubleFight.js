@@ -176,7 +176,7 @@ function DoubleFightEnd(Victory) {
 
 // When the player hits
 function DoubleFightHit(Opponent) {
-	Opponent.FightProgress = Opponent.FightProgress + 20;
+	Opponent.FightProgress = Opponent.FightProgress + 2;
 	if (Opponent.FightProgress >= 100) Opponent.NextImageTime = -1;
 	if ((DoubleFightOpponent1.FightProgress >= 100) && (DoubleFightOpponent2.FightProgress >= 100)) DoubleFightEnd(true);
 }
@@ -205,6 +205,7 @@ function DoubleFightDoMove(Opponent, MoveType) {
 			if ((Opponent.FightMoves[Seq][FightMoveTime] <= DoubleFightTimer + 300) && (Opponent.FightMoves[Seq][FightMoveTime] >= DoubleFightTimer - 300) && (MoveType == Opponent.FightMoves[Seq][FightMoveType])) {
 				Opponent.FightMoves.splice(Seq, 1);
 				Hit = true;
+				Seq = Opponent.FightMoves.length;
 			}
 			else Seq++;
 			

@@ -5,3 +5,4 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 10,0,0,,(Tu essayes de les|enlever.) (1 minute),Tu essayes de faire glisser tes mains en dehors|des menottes mais tu échoues lamentablement.,10,0,0,
 10,0,0,,(Tu essayes de les|casser.) (1 minute),Tu essayes de casser les menottes|mais elles n'ont pas une égratignure.,10,0,0,
 10,0,0,HasKey,(Tu te libères)|(1 minute),Tu farfouilles un moment pour trouver|la clé et tu te libères.,0,0,0,Unlock()
+10,0,0,CanEscape,(Tu t'évades.)|(1 minute),"Tu travails maladroitement avec la pince|à cheveux mais tu arrives à te libérer.",0,0,0,Escape()

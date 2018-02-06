@@ -32,9 +32,8 @@ function C010_Revenge_EarlyEnding_Run() {
 
 	// Draw the outro text
 	DrawText(ctx, GetText(C010_Revenge_EarlyEnding_Type + "1"), 450, 150, "White");
-	if (TextPhase >= 1) DrawText(ctx, GetText(C010_Revenge_EarlyEnding_Type + "2"), 450, 250, "White");
-	if (TextPhase >= 2) DrawText(ctx, GetText(C010_Revenge_EarlyEnding_Type + "3"), 450, 350, "White");
-	if (TextPhase >= 3) DrawText(ctx, GetText(C010_Revenge_EarlyEnding_Type + "4"), 450, 450, "White");
+	if (TextPhase >= 1) DrawText(ctx, GetText(C010_Revenge_EarlyEnding_Type + "2"), 450, 300, "White");
+	if (TextPhase >= 2) DrawText(ctx, GetText(C010_Revenge_EarlyEnding_Type + "3"), 450, 450, "White");
 
 }
 
@@ -43,6 +42,10 @@ function C010_Revenge_EarlyEnding_Click() {
 
 	// Jump to the next animation
 	TextPhase++;
-	//if (TextPhase >= 4) SetScene("C009_Library", "Intro");
+	if (TextPhase >= 3) {
+		//SaveMenu("C009_Library", "Intro");
+		Common_PlayerCrime = "";
+		SaveMenu("C101_KinbakuClub", "Intro");
+	}
 
 }

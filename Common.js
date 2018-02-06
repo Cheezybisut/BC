@@ -17,6 +17,7 @@ var IsMobile = false;
 var TextPhase = 0;
 var CSVCache = {};
 var MaxFightSequence = 500;
+var MaxRaceSequence = 1000;
 
 // Array variables
 var IntroStage = 0;
@@ -39,6 +40,8 @@ var TextTag = 0;
 var TextContent = 1;
 var FightMoveType = 0;
 var FightMoveTime = 1;
+var RaceMoveType = 0;
+var RaceMoveTime = 1;
 
 // Common variables
 var Common_BondageAllowed = true;
