@@ -205,6 +205,7 @@ function DoubleFightDoMove(Opponent, MoveType) {
 			if ((Opponent.FightMoves[Seq][FightMoveTime] <= DoubleFightTimer + 300) && (Opponent.FightMoves[Seq][FightMoveTime] >= DoubleFightTimer - 300) && (MoveType == Opponent.FightMoves[Seq][FightMoveType])) {
 				Opponent.FightMoves.splice(Seq, 1);
 				Hit = true;
+				Seq = Opponent.FightMoves.length;
 			}
 			else Seq++;
 			
