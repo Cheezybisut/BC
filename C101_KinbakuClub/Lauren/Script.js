@@ -169,10 +169,13 @@ function C101_KinbakuClub_Lauren_AlreadyCuffed() {
 
 // Chapter 101 - Lauren - Player takes cuffs and cuffs themself.
 function C101_KinbakuClub_Lauren_PlayerCuffed() {
-	C101_KinbakuClub_Lauren_PlayerChairCuffed = true;
 	CurrentTime = CurrentTime + 30000;
 	PlayerLockInventory("Cuffs");
 	LeaveIcon = "";
+	if (C101_KinbakuClub_Lauren_CurrentStage > 150) {
+		C101_KinbakuClub_Lauren_PlayerChairCuffed = true;
+		CurrentTime = CurrentTime + 90000;
+	}
 }
 
 // Chapter 101 - Lauren - A subbie player gets the clip place somewhere kinkier.
@@ -263,8 +266,8 @@ function C101_KinbakuClub_Lauren_GropeBreasts() {
 		OverridenIntroText = GetText("LikeGrope");
 	} else {
 		C101_KinbakuClub_Lauren_BullyCount++;
-		C101_KinbakuClub_Lauren_BullyCheck();
 		if (C101_KinbakuClub_Lauren_LaurenGagged) OverridenIntroText = GetText("GropeGag");
+		C101_KinbakuClub_Lauren_BullyCheck();
 	}
 }
 
@@ -277,8 +280,8 @@ function C101_KinbakuClub_Lauren_PinchNipples() {
 		if (C101_KinbakuClub_Lauren_LaurenGagged) OverridenIntroText = GetText("LikeNipplesGag");
 	} else {
 		C101_KinbakuClub_Lauren_BullyCount = C101_KinbakuClub_Lauren_BullyCount + 2;
-		C101_KinbakuClub_Lauren_BullyCheck();
 		if (C101_KinbakuClub_Lauren_LaurenGagged) OverridenIntroText = GetText("NipplesGag");
+		C101_KinbakuClub_Lauren_BullyCheck();
 	}
 }
 
@@ -288,12 +291,12 @@ function C101_KinbakuClub_Lauren_Kiss() {
 	if (ActorGetValue(ActorLove) >= 5) OverridenIntroText = GetText("LikeKiss");
 	if (C101_KinbakuClub_Lauren_LaurenGagged && ActorGetValue(ActorLove) < 5) OverridenIntroText = GetText("GagKiss");
 	if (C101_KinbakuClub_Lauren_LaurenGagged && ActorGetValue(ActorLove) >= 5) OverridenIntroText = GetText("LikeGagKiss");
+	if (C101_KinbakuClub_Lauren_LaurenGagged && ActorGetValue(ActorLove) >= 5 && ActorGetValue(ActorSubmission) >= 8) OverridenIntroText = GetText("LoveSubGagKiss");
 	if (C101_KinbakuClub_Lauren_LaurenGagged && ActorGetValue(ActorLove) < 5 && ActorGetValue(ActorSubmission) >= 8) {
 		OverridenIntroText = GetText("SubGagKiss");
 		C101_KinbakuClub_Lauren_BullyCount++;
 		C101_KinbakuClub_Lauren_BullyCheck();
 	}
-	if (C101_KinbakuClub_Lauren_LaurenGagged && ActorGetValue(ActorLove) >= 5 && ActorGetValue(ActorSubmission) >= 8) OverridenIntroText = GetText("LoveSubGagKiss");
 }
 
 // Chapter 101 - Lauren - When player caresses Lauren's bum
@@ -313,8 +316,8 @@ function C101_KinbakuClub_Lauren_SlapBum() {
 	} else {
 		ActorChangeAttitude(0, 1);
 		C101_KinbakuClub_Lauren_BullyCount++;
-		C101_KinbakuClub_Lauren_BullyCheck();
 		if (C101_KinbakuClub_Lauren_LaurenGagged) OverridenIntroText = GetText("SlapGag");
+		C101_KinbakuClub_Lauren_BullyCheck();
 	}
 }
 
@@ -327,8 +330,8 @@ function C101_KinbakuClub_Lauren_RubCrotch() {
 		if (C101_KinbakuClub_Lauren_LaurenGagged) OverridenIntroText = GetText("LikeRubGag");
 	} else {
 		C101_KinbakuClub_Lauren_BullyCount = C101_KinbakuClub_Lauren_BullyCount + 2;
-		C101_KinbakuClub_Lauren_BullyCheck();
 		if (C101_KinbakuClub_Lauren_LaurenGagged) OverridenIntroText = GetText("RubGag");
+		C101_KinbakuClub_Lauren_BullyCheck();
 	}
 }
 
@@ -341,8 +344,8 @@ function C101_KinbakuClub_Lauren_Masturbate() {
 		if (C101_KinbakuClub_Lauren_LaurenGagged) OverridenIntroText = GetText("LikeMasturbateGag");
 	} else {
 		C101_KinbakuClub_Lauren_BullyCount = C101_KinbakuClub_Lauren_BullyCount + 4;
+		if (C101_KinbakuClub_Lauren_LaurenGagged) OverridenIntroText = GetText("MasturbateGag");
 		C101_KinbakuClub_Lauren_BullyCheck();
-		if (C101_KinbakuClub_Lauren_LaurenGagged && C101_KinbakuClub_Lauren_BullyCount < 10) OverridenIntroText = GetText("MasturbateGag");
 	}
 	if (C101_KinbakuClub_Lauren_OrgasmDone) OverridenIntroText = GetText("LaurenOrgasmRep");
 	if (C101_KinbakuClub_Lauren_MasturbateCount >= 2 && !C101_KinbakuClub_Lauren_OrgasmDone && C101_KinbakuClub_Lauren_BullyCount < 10) {
@@ -406,11 +409,10 @@ function C101_KinbakuClub_Lauren_PlayerClothGagged() {
 // Chapter 101 - Lauren - Player waits while chair cuffed with Lauren
 function C101_KinbakuClub_Lauren_Wait() {
 	if (C101_KinbakuClub_Lauren_Waited) {
-		if (CurrentTime > C101_KinbakuClub_JennaIntro_TransitionTime * 60 * 60 * 1000) {
-			CurrentTime = (C101_KinbakuClub_JennaIntro_TransitionTime * 60 * 60 * 1000);
-		} else CurrentTime = (C101_KinbakuClub_JennaIntro_LeaveTime * 60 * 60 * 1000);
+		CurrentTime = (C101_KinbakuClub_JennaIntro_LeaveTime * 60 * 60 * 1000);
 	}
 	C101_KinbakuClub_Lauren_Waited = true;
+	CurrentTime = CurrentTime +120000;
 }
 
 // Chapter 101 - Lauren - player asks Lauren if she enjoyed being chair cuffed
@@ -438,8 +440,8 @@ function C101_KinbakuClub_Lauren_RemoveBlindfold() {
 
 // Chapter 101 - Lauren - Lauren comes back
 function C101_KinbakuClub_Lauren_LaurenReturn() {
-	CurrentTime = CurrentTime + 30000;
-	if (C101_KinbakuClub_Lauren_Return >= 3) {
+	CurrentTime = CurrentTime + 60000;
+	if (C101_KinbakuClub_Lauren_Return >= 4) {
 		C101_KinbakuClub_Lauren_CurrentStage = 700;
 		OverridenIntroText = GetText("LuarenReturned");
 	}
@@ -462,9 +464,9 @@ function C101_KinbakuClub_Lauren_ClipOptions() {
 
 // Chapter 101 - Lauren - player front flips to reach hair clips on panties
 function C101_KinbakuClub_Lauren_ReachingPanties() {
-	C101_KinbakuClub_Lauren_LaurenReturn()
 	C101_KinbakuClub_Lauren_CurrentStage = 640;
 	CurrentTime = CurrentTime + 10000;
+	C101_KinbakuClub_Lauren_LaurenReturn()
 }
 
 // Chapter 101 - Lauren - Player unlocks the handcuffs with a hair clip
