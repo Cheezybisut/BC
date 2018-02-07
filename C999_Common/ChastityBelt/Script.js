@@ -34,14 +34,19 @@ function C999_Common_ChastityBelt_Click() {
 
 // Chapter Common - Chastity Belt Lock (the user needs to confirm he wants to lock)
 function C999_Common_ChastityBelt_LockSelf() {
-	if (!C999_Common_ChastityBelt_ConfirmLock) {
-		C999_Common_ChastityBelt_ConfirmLock = true;
-		OverridenIntroText = GetText("ConfirmLock");
+	if ((Common_BondageAllowed) && (Common_SelfBondageAllowed)) {
+		if (!C999_Common_ChastityBelt_ConfirmLock) {
+			C999_Common_ChastityBelt_ConfirmLock = true;
+			OverridenIntroText = GetText("ConfirmLock");
+		} else {
+			PlayerRemoveInventory("ChastityBelt", 1);
+			PlayerLockInventory("ChastityBelt");
+			C999_Common_ChastityBelt_HasLooseBelt = PlayerHasInventory("ChastityBelt");
+			C999_Common_ChastityBelt_CurrentStage = 10;
+		}
 	} else {
-		PlayerRemoveInventory("ChastityBelt", 1);
-		PlayerLockInventory("ChastityBelt");
-		C999_Common_ChastityBelt_HasLooseBelt = PlayerHasInventory("ChastityBelt");
-		C999_Common_ChastityBelt_CurrentStage = 10;
+		OverridenIntroText = GetText("BadTiming");
+		C999_Common_ChastityBelt_CurrentStage = 0;
 	}
 }
 
