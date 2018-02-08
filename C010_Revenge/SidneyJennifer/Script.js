@@ -252,7 +252,7 @@ function C010_Revenge_SidneyJennifer_EndFight(Victory) {
 	}
 	
 	// If this was the outside fight
-	if (C010_Revenge_SidneyJennifer_CurrentStage == 150) {
+	if ((C010_Revenge_SidneyJennifer_CurrentStage >= 150) && (C010_Revenge_SidneyJennifer_CurrentStage <= 180)) {
 
 		// On a victory Jennifer runs away, on a defeat we show a custom text
 		if (Victory) {
