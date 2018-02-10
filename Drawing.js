@@ -400,3 +400,31 @@ function DrawPlayerTransition(ctx) {
 	var ImgRnd = (Math.round(new Date().getTime() / 5000) % 5) + 1;
 	DrawImage(ctx, "Actors/PlayerTransition/Player0" + ImgRnd.toString() + ".png", 900, 0);
 }
+
+/**
+ * Returns a the path to a icon.
+ * iconName can be preceeded by additional paths.
+ * @param {*} iconName Name of the icon.
+ */
+function GetIconPath(iconName) {
+    return GetPath.apply(undefined, arguments) + ".png";
+}
+
+/**
+ * Returns a the path to an icon for the current screen.
+ * iconName can be preceeded by additional paths.
+ * @param {*} iconName Name of the icon.
+ */
+function GetIconScreenPath(...iconName) {
+    return GetIconPath(GetPath(CurrentChapter, CurrentScreen, ...iconName));
+}
+
+var Icons = new function () {
+    this.Path = GetPath("Icons");
+    this.Fight = new function (parent) {
+        this.Path = GetPath("C999_Common", "Fights", "Icons");
+        this.Punch = GetIconPath(this.Path, "Punch");
+        this.Rope = GetIconPath(this.Path, "Rope");
+        this.TennisBall = GetIconPath(this.Path, "TennisBall");
+    }(this);
+}();
