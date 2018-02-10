@@ -1,6 +1,6 @@
 // Chapter 7 - Jennifer Tennis Fight Load
 function C007_LunchBreak_JenniferTennis_Load() {
-	LoadFight("Jennifer", C007_LunchBreak_Jennifer_TennisDifficulty, 0);
+	LoadFight("Jennifer", C007_LunchBreak_Jennifer_TennisDifficulty, 0, Icons.Fight.TennisBall);
 }
 
 // Chapter 7 - Jennifer Tennis Fight Run
