@@ -415,8 +415,8 @@ function GetIconPath(iconName) {
  * iconName can be preceeded by additional paths.
  * @param {*} iconName Name of the icon.
  */
-function GetIconScreenPath(...iconName) {
-    return GetIconPath(GetPath(CurrentChapter, CurrentScreen, ...iconName));
+function GetIconScreenPath(iconName) {
+    return GetIconPath(GetPath.apply(undefined, [CurrentChapter, CurrentScreen].concat(Array.from(arguments))));
 }
 
 var Icons = new function () {
