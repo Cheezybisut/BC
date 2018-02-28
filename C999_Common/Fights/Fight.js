@@ -18,6 +18,8 @@ var FightPerfect = true;
 var FightMoveTypeKeyUpper = [65, 83, 75, 76]; 
 var FightMoveTypeKeyLower = [97, 115, 107, 108];
 
+var FightIcons = [];
+
 // Generates a full fight sequence
 function GenerateFightSequence(FightStartTime) {
 	
@@ -36,8 +38,14 @@ function GenerateFightSequence(FightStartTime) {
 
 }
 
-// Load the fight animations and full sequence
-function LoadFight(EndScreen, DifficultyText, IconOffset) {
+/**
+ * Load the fight animations and full sequence
+ * @param {*} EndScreen 
+ * @param {*} DifficultyText 
+ * @param {*} IconOffset 
+ * @param {*} fightIcon Name of the fight icon to use. Or Array of each fight icon to use.
+ */
+function LoadFight(EndScreen, DifficultyText, IconOffset, fightIcon) {
 	
 	// Creates a brand new fight with the current screen animations
 	LeaveIcon = "";
@@ -58,7 +66,14 @@ function LoadFight(EndScreen, DifficultyText, IconOffset) {
 	FightDifficultyRatio = 1;
 	if (FightDifficultyText == "Easy") FightDifficultyRatio = 0.6;
 	if (FightDifficultyText == "Hard") FightDifficultyRatio = 1.6667;
-	
+
+    if (Array.isArray(fightIcon)) {
+        FightIcons = fightIcon;
+    } else {
+        for (var iconIndex = 0; iconIndex < 4; iconIndex++) {
+            FightIcons.push(fightIcon);
+        }
+    }
 }
 
 // Find the image file related to the current fight progress
@@ -78,11 +93,13 @@ function DrawFightIcons(ctx) {
 	// Scroll the fight icons with time
 	var Seq = 0;
 	while (Seq < FightMoves.length) {
-	
+
 		// Draw the move from 3 seconds before to 1 second after
-		if ((FightMoves[Seq][FightMoveTime] <= FightTimer + 3000) && (FightMoves[Seq][FightMoveTime] >= FightTimer - 1000))
-			DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/HitIcon" + FightMoves[Seq][FightMoveType].toString() + ".png", 811 + (FightMoves[Seq][FightMoveType] * 100) + FightIconOffset, 410 + Math.floor((FightTimer - FightMoves[Seq][FightMoveTime]) / 6));  
-		
+        var currentIconTime = FightMoves[Seq][FightMoveTime];
+        var currentIconType = FightMoves[Seq][FightMoveType];
+        if ((currentIconTime <= FightTimer + 3000) && (currentIconTime >= FightTimer - 1000))
+            DrawImage(ctx, FightIcons[currentIconType], 811 + (currentIconType * 100) + FightIconOffset, 410 + Math.floor((FightTimer - currentIconTime) / 6));
+
 		// Remove the move from the sequence if it's past due
 		if (FightMoves[Seq][FightMoveTime] < FightTimer - 1000) {
 			FightMoves.splice(Seq, 1);

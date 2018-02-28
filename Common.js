@@ -270,3 +270,19 @@ function LeaveButtonClick() {
 			SetScene(LeaveChapter, LeaveScreen);
 
 }
+
+/**
+ * Creates a path from the supplied paths.
+ * 
+ * Example:
+ *   GetPath("foo") Returns "foo"
+ *   GetPath("foo", "bar") Returns "foo/bar"
+ * @param {*} paths Param Array of paths.
+ */
+function GetPath(paths) {
+    var path = arguments[0];
+    for (var index = 1; index < arguments.length; index++) {
+        path += "/" + arguments[index];
+    }
+    return path;
+}
