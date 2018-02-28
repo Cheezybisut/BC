@@ -332,7 +332,7 @@ function C999_Common_Race_Click() {
 	if ((RaceTimer > RaceStartTime) && !RaceEnded && IsMobile) {
 		var MoveType = -1;
 		if ((MouseX >= 0) && (MouseX <= 300) && (MouseY >= 400) && (MouseY <= 500)) MoveType = Math.floor((MouseX) / 75);
-		if ((MouseX >= 900) && (MouseX <= 1200) && (MouseY >= 400) && (MouseY <= 500)) MoveType = Math.floor((MouseX - 900) / 75);
+		if ((MouseX >= 900) && (MouseX <= 1200) && (MouseY >= 400) && (MouseY <= 500)) MoveType = Math.floor((MouseX - 900) / 75) + 4;
 		RaceDoMove(MoveType);
 	}
 
