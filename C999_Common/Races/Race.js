@@ -98,9 +98,9 @@ function RaceDrawIcons(ctx) {
 		// Draw the move from 3 seconds before to 1 second after
 		if ((RaceMoves[Seq][RaceMoveTime] <= RaceTimer + 3000) && (RaceMoves[Seq][RaceMoveTime] >= RaceTimer - 1000)) {			
 			if (RaceMoves[Seq][RaceMoveType] <= 3)
-				DrawImage(ctx, "C999_Common/Races/Icons/" + RaceIconLeft + ".png", 3 + (RaceMoves[Seq][RaceMoveType] * 75), 410 + Math.floor((RaceTimer - RaceMoves[Seq][RaceMoveTime]) / 6));
+				DrawImage(ctx, RaceIconLeft, 3 + (RaceMoves[Seq][RaceMoveType] * 75), 410 + Math.floor((RaceTimer - RaceMoves[Seq][RaceMoveTime]) / 6));
 			else 
-				DrawImage(ctx, "C999_Common/Races/Icons/" + RaceIconRight + ".png", 603 + (RaceMoves[Seq][RaceMoveType] * 75), 410 + Math.floor((RaceTimer - RaceMoves[Seq][RaceMoveTime]) / 6));
+				DrawImage(ctx, RaceIconRight, 603 + (RaceMoves[Seq][RaceMoveType] * 75), 410 + Math.floor((RaceTimer - RaceMoves[Seq][RaceMoveTime]) / 6));
 		}
 		
 		// Remove the move from the sequence if it's past due

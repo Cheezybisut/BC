@@ -1,6 +1,22 @@
 // A bank of all the chached images
 var CacheImage = {};
 
+// Icons bank and paths
+var Icons = new function () {
+    this.Path = GetPath("Icons");
+    this.Fight = new function (parent) {
+        this.Path = GetPath("C999_Common", "Fights", "Icons");
+        this.Punch = GetIconPath(this.Path, "Punch");
+        this.Rope = GetIconPath(this.Path, "Rope");
+        this.TennisBall = GetIconPath(this.Path, "TennisBall");
+    }(this);
+    this.Race = new function (parent) {
+        this.Path = GetPath("C999_Common", "Races", "Icons");
+        this.ElbowBound = GetIconPath(this.Path, "ElbowBound");
+        this.KneeBound = GetIconPath(this.Path, "KneeBound");
+    }(this);
+}();
+
 // Returns the image file or build it from the source
 function DrawGetImage(Source) {
 
@@ -401,30 +417,12 @@ function DrawPlayerTransition(ctx) {
 	DrawImage(ctx, "Actors/PlayerTransition/Player0" + ImgRnd.toString() + ".png", 900, 0);
 }
 
-/**
- * Returns a the path to a icon.
- * iconName can be preceeded by additional paths.
- * @param {*} iconName Name of the icon.
- */
-function GetIconPath(iconName) {
+// Returns a the path to a icon.  IconName can be preceeded by additional paths.
+function GetIconPath(IconName) {
     return GetPath.apply(undefined, arguments) + ".png";
 }
 
-/**
- * Returns a the path to an icon for the current screen.
- * iconName can be preceeded by additional paths.
- * @param {*} iconName Name of the icon.
- */
-function GetIconScreenPath(iconName) {
+// Returns a the path to an icon for the current screen.  IconName can be preceeded by additional paths.
+function GetIconScreenPath(IconName) {
     return GetIconPath(GetPath.apply(undefined, [CurrentChapter, CurrentScreen].concat(Array.from(arguments))));
 }
-
-var Icons = new function () {
-    this.Path = GetPath("Icons");
-    this.Fight = new function (parent) {
-        this.Path = GetPath("C999_Common", "Fights", "Icons");
-        this.Punch = GetIconPath(this.Path, "Punch");
-        this.Rope = GetIconPath(this.Path, "Rope");
-        this.TennisBall = GetIconPath(this.Path, "TennisBall");
-    }(this);
-}();

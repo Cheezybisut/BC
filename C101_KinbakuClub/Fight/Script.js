@@ -1,6 +1,6 @@
 // Chapter 101 - Erica Fight Load
 function C101_KinbakuClub_Fight_Load() {
-	LoadFight("Erica", "Hard", -6, Icons.Fight.Punch);
+	LoadFight("Erica", "Hard", Icons.Fight.Punch);
 }
 
 // Chapter 101 - Erica Fight Run

@@ -271,14 +271,7 @@ function LeaveButtonClick() {
 
 }
 
-/**
- * Creates a path from the supplied paths.
- * 
- * Example:
- *   GetPath("foo") Returns "foo"
- *   GetPath("foo", "bar") Returns "foo/bar"
- * @param {*} paths Param Array of paths.
- */
+// Creates a path from the supplied paths parts
 function GetPath(paths) {
     var path = arguments[0];
     for (var index = 1; index < arguments.length; index++) {

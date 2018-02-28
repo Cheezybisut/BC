@@ -1,7 +1,7 @@
 // Chapter 5 - Gym Fight Load
 function C005_GymClass_GymFight_Load() {
-	if (C005_GymClass_Jennifer_PracticeMode) LoadFight("Jennifer", "Easy", -6, Icons.Fight.Punch);
-	else LoadFight("Jennifer", "Normal", -6, Icons.Fight.Punch);
+	if (C005_GymClass_Jennifer_PracticeMode) LoadFight("Jennifer", "Easy", Icons.Fight.Punch);
+	else LoadFight("Jennifer", "Normal", Icons.Fight.Punch);
 }
 
 // Chapter 5 - Gym Fight Run

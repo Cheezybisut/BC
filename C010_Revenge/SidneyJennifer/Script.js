@@ -420,7 +420,7 @@ function C010_Revenge_SidneyJennifer_RopePlayer() {
 function C010_Revenge_SidneyJennifer_StartRace() {
 	CurrentTime = CurrentTime + 50000;
 	C010_Revenge_SidneyJennifer_IntroText = "";
-	RaceLoad("Player", DrawGetPlayerImageName(true), 10, "Normal", 2640, GetText("RaceGoal"), "KneeBound", "ElbowBound", "RunningTrack", "C010_Revenge_SidneyJennifer_EndRace");
+	RaceLoad("Player", DrawGetPlayerImageName(true), 10, "Normal", 2640, GetText("RaceGoal"), Icons.Race.KneeBound, Icons.Race.ElbowBound, "RunningTrack", "C010_Revenge_SidneyJennifer_EndRace");
 }
 
 // Chapter 10 - Sidney and Jennifer Revenge - When the race ends
