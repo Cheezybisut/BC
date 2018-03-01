@@ -34,3 +34,21 @@ function C999_Common_Rope_Click() {
 function C999_Common_Rope_ShowImage() {
 	OverridenIntroImage = "Rope.jpg";
 }
+
+// Chapter Common - When the player wants to tie herself, she can do it with rope mastery level 1
+function C999_Common_Rope_QuerySelfBondage() {
+	if ((Common_BondageAllowed) && (Common_SelfBondageAllowed)) {
+		if (PlayerGetSkillLevel("RopeMastery") >= 1) {
+			C999_Common_Rope_CurrentStage = 20;
+			OverridenIntroText = GetText("ConfirmSelfBondage");
+		}
+	} else OverridenIntroText = GetText("BadTiming");
+}
+
+// Chapter Common - When does self bondage with ropes (strips from any costume before that)
+function C999_Common_Rope_DoSelfBondage() {
+	if (Common_PlayerCostume != "") PlayerClothes("Underwear");
+	PlayerLockInventory("Rope");
+	PlayerRemoveInventory("Rope", 1);
+	C999_Common_Rope_HasLooseRope = PlayerHasInventory("Rope");
+}

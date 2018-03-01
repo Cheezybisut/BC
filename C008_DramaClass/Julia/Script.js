@@ -193,7 +193,11 @@ function C008_DramaClass_Julia_Masturbate() {
 
 // Chapter 8 - Julia can be flattered with a "quiant" comment
 function C008_DramaClass_Julia_QuaintComment() {
-	if (!C008_DramaClass_Julia_QuaintCommentDone) { C008_DramaClass_Julia_QuaintCommentDone = true; ActorChangeAttitude(1, 0); }
+	if (!C008_DramaClass_Julia_QuaintCommentDone) { 
+		C008_DramaClass_Julia_QuaintCommentDone = true;
+		if (PlayerGetSkillLevel("Seduction") >= 1) ActorChangeAttitude(2, 0);
+		else ActorChangeAttitude(1, 0);
+	}
 	C008_DramaClass_Julia_CalcParams();
 }
 

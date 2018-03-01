@@ -23,6 +23,7 @@ var RaceProgress = -1;
 var RaceGoal = -1;
 var RaceGoalText = "";
 var RaceMoves;
+var RaceSkillBonus = 0;
 var RaceMovesTypeKeyUpper = [65, 83, 68, 70, 72, 74, 75, 76];
 var RaceMovesTypeKeyLower = [97, 115, 100, 102, 104, 106, 107, 108];
 var RaceCombo = 0;
@@ -52,7 +53,7 @@ function RaceGenerateMoves(StartTime, DifficultyText) {
 }
 
 // Load the race animations and full sequence
-function RaceLoad(Racer, RacerImageSet, AllowedMinutes, Difficulty, EndGoal, EndGoalText, IconLeft, IconRight, BackgroundImage, EndFunction) {
+function RaceLoad(Racer, RacerImageSet, AllowedMinutes, Difficulty, EndGoal, EndGoalText, IconLeft, IconRight, BackgroundImage, EndFunction, SkillBonus) {
 	
 	// Creates a brand new race 
 	LeaveIcon = "";
@@ -66,6 +67,7 @@ function RaceLoad(Racer, RacerImageSet, AllowedMinutes, Difficulty, EndGoal, End
 	RacePerfect = true;
 	RaceLastMoveType = -1;
 	RaceLastMoveTypeTimer = -1;
+	RaceSkillBonus = SkillBonus;
 	if (RaceText == null) ReadCSV("RaceText", "C999_Common/Races/Text_" + CurrentLanguageTag + ".csv");
 
 	// Loads the parameters
@@ -205,6 +207,7 @@ function RaceHit() {
 	if ((RaceCombo >= 80) && (RaceCombo <= 89)) RaceSpeed = 36;
 	if ((RaceCombo >= 90) && (RaceCombo <= 99)) RaceSpeed = 38;
 	if (RaceCombo >= 100) RaceSpeed = 40;
+	RaceSpeed = Math.round(RaceSpeed * (1.0 + RaceSkillBonus / 2));
 }
 
 // When the player misses (we reset the combo and the speed)

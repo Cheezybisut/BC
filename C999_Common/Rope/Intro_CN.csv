@@ -1,3 +1,4 @@
 Stage,LoveReq,SubReq,VarReq,IntroText,Image
 0,0,0,,这条长麻绳看上去十分强韧。|你可以用它玩绳艺。,Rope.jpg
 10,0,0,,这条长麻绳十分强韧。|你需要别人帮你解绑才能恢复自由。,Rope.jpg
+20,0,0,,,Rope.jpg

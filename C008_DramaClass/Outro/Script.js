@@ -3,6 +3,7 @@ function C008_DramaClass_Outro_Load() {
 	
 	// Time is always 14:00:00 in the outro, unlock if needed
 	StopTimer(14 * 60 * 60 * 1000);
+	PlayerReleaseBondage();
 	PlayerUnlockAllInventory();
 	ActorSpecificClearInventory("Amanda", true);
 	ActorSpecificClearInventory("Sarah", true);

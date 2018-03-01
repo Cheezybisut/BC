@@ -20,6 +20,7 @@ function C001_BeforeClass_Fight_KeyDown() {
 
 // Chapter 5 - Before Class Fight End
 function C001_BeforeClass_Fight_FightEnd(Victory) {
+	if (Victory) PlayerAddSkill("Fighting", 1);
 	if (Victory) C001_BeforeClass_FightOutro_FightResult = 1;
 	else C001_BeforeClass_FightOutro_FightResult = 2;
 }

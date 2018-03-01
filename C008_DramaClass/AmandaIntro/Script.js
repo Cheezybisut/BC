@@ -176,7 +176,8 @@ function C008_DramaClass_AmandaIntro_CheatedCover() {
 function C008_DramaClass_AmandaIntro_PrettyComment() {
 	if (!C008_DramaClass_AmandaIntro_PrettyCommentDone) {
 		C008_DramaClass_AmandaIntro_PrettyCommentDone = true;
-		ActorChangeAttitude(1, 0);		
+		if (PlayerGetSkillLevel("Seduction") >= 1) ActorChangeAttitude(2, 0);
+		else ActorChangeAttitude(1, 0);
 	}
 }
 

@@ -165,5 +165,9 @@ function C002_FirstClass_Amanda_Separate() {
 
 // Chapter 2 - Amanda Kiss Sarah
 function C002_FirstClass_Amanda_KissSarah() {
-	if (C002_FirstClass_Amanda_KissSarahDone == false) { C002_FirstClass_Amanda_KissSarahDone = true; ActorChangeAttitude(1, 0); }
+	if (C002_FirstClass_Amanda_KissSarahDone == false) { 
+		C002_FirstClass_Amanda_KissSarahDone = true; 
+		ActorChangeAttitude(1, 0);
+		PlayerAddSkill("Seduction", 1);
+	}
 }

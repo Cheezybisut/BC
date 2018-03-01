@@ -420,7 +420,7 @@ function C010_Revenge_SidneyJennifer_RopePlayer() {
 function C010_Revenge_SidneyJennifer_StartRace() {
 	CurrentTime = CurrentTime + 50000;
 	C010_Revenge_SidneyJennifer_IntroText = "";
-	RaceLoad("Player", DrawGetPlayerImageName(true), 10, "Normal", 2640, GetText("RaceGoal"), Icons.Race.KneeBound, Icons.Race.ElbowBound, "RunningTrack", "C010_Revenge_SidneyJennifer_EndRace");
+	RaceLoad("Player", DrawGetPlayerImageName(true), 10, "Normal", 2640, GetText("RaceGoal"), Icons.Race.KneeBound, Icons.Race.ElbowBound, "RunningTrack", "C010_Revenge_SidneyJennifer_EndRace", PlayerGetSkillLevel("Sports"));
 }
 
 // Chapter 10 - Sidney and Jennifer Revenge - When the race ends
@@ -434,6 +434,7 @@ function C010_Revenge_SidneyJennifer_EndRace(Victory) {
 	C010_Revenge_SidneyJennifer_RaceVictory = Victory;
 	C010_Revenge_SidneyJennifer_CurrentStage = 300;
 	OverridenIntroText = GetText(Victory ? "RaceVictory" : "RaceDefeat");
+	if (Victory) PlayerAddSkill("Sports", 1);
 	ActorLoad("Jennifer", "");
 	LeaveIcon = "";
 

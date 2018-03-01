@@ -261,6 +261,7 @@ function C007_LunchBreak_Amanda_Ungag() {
 // Chapter 7 - Amanda Test Make Love (Amanda will only make love if +8 or more)
 function C007_LunchBreak_Amanda_TestMakeLove() {
 	if (ActorGetValue(ActorLove) >= 8) {
+		if (PlayerGetSkillLevel("Seduction") >= 1) ActorChangeAttitude(1, 0);
 		OverridenIntroText = GetText("LoveStart");
 		C007_LunchBreak_Amanda_CurrentStage = 240;
 	} else {
@@ -276,6 +277,7 @@ function C007_LunchBreak_Amanda_LoveMasturbate() {
 		OverridenIntroText = GetText("LoveMasturbate");
 		ActorAddOrgasm();
 		ActorChangeAttitude(1, 0);
+		PlayerAddSkill("Seduction", 1);
 		C007_LunchBreak_Amanda_CurrentStage = 250;
 	}
 }

@@ -14,6 +14,7 @@ var C004_ArtClass_Jennifer_CanBegForRelease = false;
 var C004_ArtClass_Jennifer_PityDone = false;
 var C004_ArtClass_Jennifer_EggConfirm = false;
 var C004_ArtClass_Jennifer_EggInside = false;
+var C004_ArtClass_Jennifer_StunningBeautyReady = true;
 
 // Chapter 4 - Jennifer Load
 function C004_ArtClass_Jennifer_Load() {
@@ -30,6 +31,9 @@ function C004_ArtClass_Jennifer_Load() {
 
 	// If we allow the player to beg to be released
 	C004_ArtClass_Jennifer_CanBegForRelease = ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && Common_PlayerRestrained && Common_PlayerNotGagged);
+	
+	// A player with seduction has an extra option
+	if (PlayerGetSkillLevel("Seduction") == 0) C004_ArtClass_Jennifer_StunningBeautyReady = false;
 	
 }
 
@@ -220,4 +224,10 @@ function C004_ArtClass_Jennifer_PityComment() {
 		ActorChangeAttitude(1, 0);
 		C004_ArtClass_Jennifer_PityDone = true;
 	}
+}
+
+// Chapter 4 - Jennifer stunning beauty comment
+function C004_ArtClass_Jennifer_StunningBeauty() {
+	C004_ArtClass_Jennifer_StunningBeautyReady = false;
+	ActorChangeAttitude(1, 0);
 }

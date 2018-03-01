@@ -68,19 +68,26 @@ function C999_Common_Player_Run() {
 
 	// Draw the profile tab (show the player name, title and skills)
 	if (C999_Common_Player_ActiveTab == "Profile") {
+
+		// Shows the basic info
 		DrawRect(ctx, 300, 0, 300, 50, "black");
 		DrawRect(ctx, 301, 0, 298, 49, "silver");
 		DrawText(ctx, GetText("Profile"), 150, 25, "black");
 		DrawText(ctx, GetText("Relationships"), 450, 25, "white");
 		DrawText(ctx, GetText("Name") + " " + Common_PlayerName, 300, 90, "black");
 		DrawText(ctx, GetText("Title") + " " + C999_Common_Player_GetTitle(), 300, 130, "black");
-		DrawText(ctx, GetText("Skills"), 200, 180, "black");
-		DrawText(ctx, GetText("Level"), 500, 180, "black");
-		DrawRect(ctx, 30, 200, 539, 1, "Black");
+		if (Common_PlayerOwner != "") DrawText(ctx, GetText("Owner") + " " + Common_PlayerOwner, 300, 170, "black");
+		else DrawText(ctx, GetText("Owner") + " " + GetText("NoOwner"), 300, 170, "black");
+
+		// List the skills
+		DrawText(ctx, GetText("Skills"), 200, 230, "black");
+		DrawText(ctx, GetText("Level"), 500, 230, "black");
+		DrawRect(ctx, 30, 250, 539, 1, "Black");
 		for (var S = 0; S < PlayerSkill.length; S++) {
-			DrawText(ctx, PlayerSkill[S][PlayerSkillName], 200, 230 + S * 40, "black");
-			DrawText(ctx, PlayerSkill[S][PlayerSkillLevel].toString(), 500, 230 + S * 40, "black");
+			DrawText(ctx, GetText("Skill" + PlayerSkill[S][PlayerSkillName]), 200, 280 + S * 40, "black");
+			DrawText(ctx, PlayerSkill[S][PlayerSkillLevel].toString(), 500, 280 + S * 40, "black");
 		}
+
 	}
 
 	// Draw the relationships tab (show all known actors and their relationship with the player)
