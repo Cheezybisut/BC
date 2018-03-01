@@ -61,6 +61,7 @@ function SaveState(SlotNumber) {
 	localStorage.setItem("Common_PlayerName" + SN, Common_PlayerName);
 	localStorage.setItem("PlayerInventory" + SN, JSON.stringify(PlayerInventory));
 	localStorage.setItem("PlayerLockedInventory" + SN, JSON.stringify(PlayerLockedInventory));
+	localStorage.setItem("PlayerSkill" + SN, JSON.stringify(PlayerSkill));
 	localStorage.setItem("Actor" + SN, JSON.stringify(Actor));
 	localStorage.setItem("Common_PlayerCrime" + SN, Common_PlayerCrime);
 	localStorage.setItem("Common_ClubStatus" + SN, Common_ClubStatus);
@@ -95,6 +96,12 @@ function LoadState(SlotNumber) {
 			for (var A = 0; A < Actor.length; A++)
 				if (Actor[A].length == 8)
 					Actor[A] = [Actor[A][0], Actor[A][1], Actor[A][2], Actor[A][3], Actor[A][4], Actor[A][5], Actor[A][6], Actor[A][7], ""];
+				
+			// Loads the skill, since the skills were introduced in chapter 9, we make sure the previous save games are compatible
+			if (Array.isArray(JSON.parse(localStorage.getItem("PlayerSkill" + SN))))
+				PlayerSkill = JSON.parse(localStorage.getItem("PlayerSkill" + SN));
+			else
+				PlayerSkill = [];
 
 		}
 

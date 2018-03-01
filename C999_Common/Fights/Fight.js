@@ -13,6 +13,7 @@ var FightIcon;
 var FightDifficultyRatio = 1;
 var FightDifficultyText = "";
 var FightPerfect = true;
+var FightSkillBonus = 0;
 
 // Fighting is done using the A, S, K, L keys
 var FightMoveTypeKeyUpper = [65, 83, 75, 76]; 
@@ -37,7 +38,7 @@ function GenerateFightSequence(FightStartTime) {
 }
 
 // Load the fight animations and full sequence
-function LoadFight(EndScreen, DifficultyText, IconImage) {
+function LoadFight(EndScreen, DifficultyText, IconImage, SkillBonus) {
 	
 	// Creates a brand new fight with the current screen animations
 	LeaveIcon = "";
@@ -48,6 +49,7 @@ function LoadFight(EndScreen, DifficultyText, IconImage) {
 	FightAnim = null;
 	FightEndScreen = EndScreen;
     FightIcon = IconImage;
+	FightSkillBonus = SkillBonus;
 	FightPerfect = true;
 	ReadCSV("FightAnim", CurrentChapter + "/" + CurrentScreen + "/Fight.csv");
 	LoadText();
@@ -182,7 +184,7 @@ function FightEnd(Victory) {
 
 // When the player hits
 function FightHit() {
-	FightProgress = FightProgress + 2;
+	FightProgress = FightProgress + 2 + FightSkillBonus;
 	if (FightProgress >= 100)
 		FightEnd(true);
 }

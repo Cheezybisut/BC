@@ -218,7 +218,7 @@ function C010_Revenge_SidneyJennifer_StartFight() {
 
 	// Launch the double fight
 	C010_Revenge_SidneyJennifer_IntroText = "";
-	DoubleFightLoad("Sidney", SidneyDifficulty, Icons.Fight.Punch, "Jennifer", JenniferDifficulty, Icons.Fight.Punch, (C010_Revenge_SidneyJennifer_CurrentStage < 100)?"Hallway":"RunningTrack", "C010_Revenge_SidneyJennifer_EndFight");
+	DoubleFightLoad("Sidney", SidneyDifficulty, Icons.Fight.Punch, "Jennifer", JenniferDifficulty, Icons.Fight.Punch, (C010_Revenge_SidneyJennifer_CurrentStage < 100)?"Hallway":"RunningTrack", "C010_Revenge_SidneyJennifer_EndFight", PlayerGetSkillLevel("Fighting"));
 
 }
 

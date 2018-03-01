@@ -10,6 +10,7 @@ var DoubleFightOpponent2 = {};
 var DoubleFightText;
 var DoubleFightBackupChapter = "";
 var DoubleFightBackupScreen = "";
+var DoubleFightSkillBonus = 0;
 
 // Generates a full fight sequence
 function DoubleFightGenerateMoves(StartTime, DifficultyText) {
@@ -38,7 +39,7 @@ function DoubleFightGenerateMoves(StartTime, DifficultyText) {
 }
 
 // Load the fight animations and full sequence
-function DoubleFightLoad(Opp1ActorName, Opp1Difficulty, Opp1Icon, Opp2ActorName, Opp2Difficulty, Opp2Icon, BackgroundImage, EndFunction) {
+function DoubleFightLoad(Opp1ActorName, Opp1Difficulty, Opp1Icon, Opp2ActorName, Opp2Difficulty, Opp2Icon, BackgroundImage, EndFunction, SkillBonus) {
 	
 	// Creates a brand new fight 
 	LeaveIcon = "";
@@ -47,6 +48,7 @@ function DoubleFightLoad(Opp1ActorName, Opp1Difficulty, Opp1Icon, Opp2ActorName,
 	DoubleFightPerfect = true;
 	DoubleFightEndFunction = EndFunction;
 	DoubleFightBackgroundImage = BackgroundImage;
+	DoubleFightSkillBonus = SkillBonus;
 	if (DoubleFightText == null) ReadCSV("DoubleFightText", "C999_Common/Fights/Text_" + CurrentLanguageTag + ".csv");
 
 	// Setup the 2 opponents
@@ -177,7 +179,7 @@ function DoubleFightEnd(Victory) {
 
 // When the player hits
 function DoubleFightHit(Opponent) {
-	Opponent.FightProgress = Opponent.FightProgress + 2;
+	Opponent.FightProgress = Opponent.FightProgress + 2 + DoubleFightSkillBonus;
 	if (Opponent.FightProgress >= 100) Opponent.NextImageTime = -1;
 	if ((DoubleFightOpponent1.FightProgress >= 100) && (DoubleFightOpponent2.FightProgress >= 100)) DoubleFightEnd(true);
 }

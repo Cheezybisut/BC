@@ -1,6 +1,6 @@
 // Chapter 5 - Before Class Fight Load
 function C001_BeforeClass_Fight_Load() {
-	LoadFight("FightOutro", "Hard", Icons.Fight.Punch);
+	LoadFight("FightOutro", "Hard", Icons.Fight.Punch, PlayerGetSkillLevel("Fighting"));
 }
 
 // Chapter 5 - Before Class Fight Run

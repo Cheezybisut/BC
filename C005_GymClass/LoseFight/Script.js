@@ -1,7 +1,7 @@
 // Chapter 5 - Lose Fight Load
 function C005_GymClass_LoseFight_Load() {
-	if (C005_GymClass_Jennifer_EasyMode) LoadFight("Jennifer", "Easy", Icons.Fight.Rope);
-	else LoadFight("Jennifer", "Normal", Icons.Fight.Rope);
+	if (C005_GymClass_Jennifer_EasyMode) LoadFight("Jennifer", "Easy", Icons.Fight.Rope, PlayerGetSkillLevel("Fighting"));
+	else LoadFight("Jennifer", "Normal", Icons.Fight.Rope, PlayerGetSkillLevel("Fighting"));
 }
 
 // Chapter 5 - Lose Fight Run
