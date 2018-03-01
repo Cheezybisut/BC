@@ -13,6 +13,14 @@ var StruggleDone = false;
 var StruggleImageFrame = 0;
 var StruggleImageFrameMax = 1;
 var StruggleImageFrameTime = 0;
+var StruggleSkillBonus = 0;
+
+// For each Rope Mastery level, it's 50% easier to struggle out
+function StruggleLoad() {
+	StruggleDone = false;
+	StruggleProgress = 0;
+	StruggleSkillBonus = PlayerGetSkillLevel("RopeMastery");
+}
 
 // The next tick to lower the struggle time comes faster with harder levels
 function StruggleGetNextTick() {
@@ -53,7 +61,7 @@ function StruggleClick(SType, SDifficulty, SMessage, SDoneMessage, SX, SY, SRadi
 		
 		// Raise the progress by 2 for each click, 100 is done
 		if (StruggleProgress <= 0) StruggleProgress = 8;
-		StruggleProgress = StruggleProgress + 2;
+		StruggleProgress = StruggleProgress + 2 + StruggleSkillBonus;
 		if (StruggleProgress >= 100) {
 			StruggleProgress = 100;
 			StruggleDone = true;

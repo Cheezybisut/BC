@@ -44,6 +44,12 @@ function C008_DramaClass_Julia_Load() {
 	ActorLoad("Julia", "Theater");
 	LoadInteractions();
 	
+	// On a perfect play, the player gains a level in arts
+	if ((C008_DramaClass_Julia_CurrentStage == 300) && C008_DramaClass_Theater_PerfectPlay) {
+		C008_DramaClass_Theater_PerfectPlay = false;
+		PlayerAddSkill("Arts");
+	}
+	
 	// Cannot leave before Julia gave her instructions
 	if (C008_DramaClass_Julia_CurrentStage < 100) LeaveIcon = "";
 	if (C008_DramaClass_Julia_CurrentStage == 330) C008_DramaClass_Julia_CurrentStage = 400;
@@ -193,10 +199,9 @@ function C008_DramaClass_Julia_Masturbate() {
 
 // Chapter 8 - Julia can be flattered with a "quiant" comment
 function C008_DramaClass_Julia_QuaintComment() {
-	if (!C008_DramaClass_Julia_QuaintCommentDone) { 
+	if (!C008_DramaClass_Julia_QuaintCommentDone) {
 		C008_DramaClass_Julia_QuaintCommentDone = true;
-		if (PlayerGetSkillLevel("Seduction") >= 1) ActorChangeAttitude(2, 0);
-		else ActorChangeAttitude(1, 0);
+		ActorChangeAttitude(1 + PlayerGetSkillLevel("Seduction"), 0);
 	}
 	C008_DramaClass_Julia_CalcParams();
 }

@@ -1,4 +1,10 @@
 Tag,Content
-EnterName,Enter a name for your character.
+EnterName,Enter a name and select a skill for your character.
 ValidChars,You can only use letters & spaces.
 Validate,Start the game
+Skill0,No skill
+Skill1,Arts
+Skill2,Fighting
+Skill3,Rope Mastery
+Skill4,Sports
+Skill5,Seduction

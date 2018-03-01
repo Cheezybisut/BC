@@ -1,9 +1,13 @@
 var PlayerSkill = [];
 var PlayerSkillName = 0;
 var PlayerSkillLevel = 1;
+var PlayerSkillShowLevelUp = 0;
 
 // Add a new skill or raise the skill level if the skill is already known
 function PlayerAddSkill(SkillToAdd, LevelToAdd) {
+
+	// Shows the new skill warning for 15 seconds
+	PlayerSkillShowLevelUp = Math.round(15 * 1000 / RunInterval);
 
 	// If the skill is already known, we raise the level
 	for (var I = 0; I < PlayerSkill.length; I++)

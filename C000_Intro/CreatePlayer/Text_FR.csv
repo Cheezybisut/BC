@@ -1,4 +1,10 @@
 Tag,Content
-EnterName,Entrez un nom pour votre personnage.
+EnterName,Choisissez un nom et un talent pour votre personnage.
 ValidChars,Seulement des lettres et des espaces.
 Validate,Démarrer la partie
+Skill0,No skill
+Skill1,Arts
+Skill2,Combat
+Skill3,Maîtrise des Cordes
+Skill4,Sports
+Skill5,Séduction

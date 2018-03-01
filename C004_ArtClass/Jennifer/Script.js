@@ -15,6 +15,7 @@ var C004_ArtClass_Jennifer_PityDone = false;
 var C004_ArtClass_Jennifer_EggConfirm = false;
 var C004_ArtClass_Jennifer_EggInside = false;
 var C004_ArtClass_Jennifer_StunningBeautyReady = true;
+var C004_ArtClass_Jennifer_PaintAvail = true;
 
 // Chapter 4 - Jennifer Load
 function C004_ArtClass_Jennifer_Load() {
@@ -230,4 +231,20 @@ function C004_ArtClass_Jennifer_PityComment() {
 function C004_ArtClass_Jennifer_StunningBeauty() {
 	C004_ArtClass_Jennifer_StunningBeautyReady = false;
 	ActorChangeAttitude(1, 0);
+}
+
+// Chapter 4 - Jennifer Paint, can only be done if there's 30 minutes left for the class
+function C004_ArtClass_Jennifer_Paint() {
+	if (CurrentTime <= 9.75 * 60 * 60 * 1000) {
+		C004_ArtClass_Sarah_PaintAvail = false;
+		C004_ArtClass_Jennifer_PaintAvail = false;
+		ActorChangeAttitude(0, 2);
+		CurrentTime = CurrentTime + 0.5 * 60 * 60 * 1000;
+		PlayerAddSkill("Arts", 1);
+		if (PlayerGetSkillLevel("Arts") >= 1) {
+			ActorSpecificChangeAttitude("Julia", PlayerGetSkillLevel("Arts"), 0);
+			ActorSpecificChangeAttitude("Sarah", PlayerGetSkillLevel("Arts"), 0);
+			ActorSpecificChangeAttitude("Jennifer", PlayerGetSkillLevel("Arts"), 0);
+		}
+	} else OverridenIntroText = GetText("NoTimeToPaint");
 }

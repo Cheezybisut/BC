@@ -18,6 +18,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 20,0,0,,The loser will be the|winner slave for lunch.,Slave?  You mean the loser pays for lunch?,30,0,1,
 20,0,0,,The loser submits to|the winner for lunch.,Submits?  You mean the loser pays for lunch?,30,0,0,
 20,0,0,,On second thoughts.|I don't want to play.,"Alright then, see you later.|(She packs and leaves for tennis.)",90,0,0,EndLunch()
+30,0,0,HasSeduction,Lovely Jennifer.  You|can't resist a challenge.,(She blushes and looks at the floor.)|Indeed.  Are you ready to play now?,40,1,1,
 30,0,0,,"Yes, whoever loses|will pay and obey.",You have a strange way to phrase your|bet but I'm up for it!  Should we go now?,40,0,0,
 30,0,0,,Don't make me repeat.|Are you game or not?,(She frowns at you and gets competitive.)|Alright then!  Are you ready to play now?,40,-1,0,
 30,0,0,,On second thoughts.|I don't want to play.,"Alright then, see you later.|(She packs and leaves for tennis.)",90,0,0,EndLunch()

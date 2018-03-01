@@ -5,6 +5,7 @@ function C999_Common_Player_Load() {
 	C999_Common_Player_ActiveTab = "Profile";
 	LeaveIcon = "Leave";
 	LoadText();
+	PlayerSkillShowLevelUp = 0;
 }
 
 // Returns the title for the player based on actor interactions

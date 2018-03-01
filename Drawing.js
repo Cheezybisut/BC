@@ -248,6 +248,9 @@ function DrawInventory(ctx) {
 	else
 		DrawImage(ctx, "Icons/" + GetPlayerIconImage() + "_Inactive.png", 0, 601);
 	
+	// Draw an arrow over the player head if there's a skill level up
+	if (PlayerSkillShowLevelUp > 0) DrawImage(ctx, "Icons/SkillLevelUp.png", 0, 601);
+	
 	// Scroll in the full inventory to draw the icons and quantity, draw a padlock over the item if it's locked
 	var Pos = 1;
 	for (var I = 0; I < PlayerInventory.length; I++) {

@@ -19,8 +19,7 @@ function C006_Isolation_IsolationRoom_DropInventory() {
 // Chapter 6 - Isolation Room Load
 function C006_Isolation_IsolationRoom_Load() {
 	LeaveIcon = "Wait";
-	StruggleDone = false;
-	StruggleProgress = 0;
+	StruggleLoad();
 	C006_Isolation_IsolationRoom_OrgasmReady = (PlayerHasLockedInventory("VibratingEgg"));
 	LoadText();
 }
