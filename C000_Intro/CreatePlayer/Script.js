@@ -34,7 +34,7 @@ function C000_Intro_CreatePlayer_Run() {
 		var SelectSkill = document.createElement('select');
 		SelectSkill.setAttribute("ID", "SelectSkill");
 		SelectSkill.setAttribute("name", "SelectSkill");
-		SelectSkill.setAttribute("style", "font-size:24px; font-family:Arial; position:absolute; padding-left:10px; left:300px; top:320px; width:300px; height:50px;");
+		SelectSkill.setAttribute("style", "font-size:24px; font-family:Arial; position:absolute; padding-left:10px; left:300px; top:330px; width:300px; height:50px;");
 		for(var S = 0; S <= 5; S++)
 			SelectSkill.appendChild(new Option(GetText("Skill" + S.toString()), S.toString()));
 		document.body.appendChild(SelectSkill);
@@ -50,8 +50,8 @@ function C000_Intro_CreatePlayer_Run() {
 	DrawText(ctx, GetText("ValidChars"), 450, 180, "black");
 
 	// Creates the "validate" button
-	DrawRect(ctx, 300, 430, 300, 70, "#8c304e");
-	DrawText(ctx, GetText("Validate"), 450, 465, "white");
+	DrawRect(ctx, 300, 450, 300, 70, "#8c304e");
+	DrawText(ctx, GetText("Validate"), 450, 485, "white");
 	
 }
 
@@ -81,5 +81,5 @@ function C000_Intro_CreatePlayer_KeyDown() {
 
 // Create Player Click
 function C000_Intro_CreatePlayer_Click() {	
-	if ((MouseX >= 300) && (MouseX <= 600) && (MouseY >= 430) && (MouseY <= 500)) C000_Intro_CreatePlayer_Validate();
+	if ((MouseX >= 300) && (MouseX <= 600) && (MouseY >= 450) && (MouseY <= 520)) C000_Intro_CreatePlayer_Validate();
 }

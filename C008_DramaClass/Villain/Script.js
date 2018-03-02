@@ -272,4 +272,6 @@ function C008_DramaClass_Villain_SwordDance() {
 	ActorSpecificChangeAttitude("Julia", PlayerGetSkillLevel("Arts"), 0);
 	ActorSpecificChangeAttitude("Amanda", 0, 1);
 	ActorSpecificChangeAttitude("Sarah", 0, 1);
+	LeaveIcon = "Leave";
+	C008_DramaClass_Theater_SetPose();
 }

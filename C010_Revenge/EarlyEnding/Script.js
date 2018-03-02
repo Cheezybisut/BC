@@ -43,9 +43,8 @@ function C010_Revenge_EarlyEnding_Click() {
 	// Jump to the next animation
 	TextPhase++;
 	if (TextPhase >= 3) {
-		//SaveMenu("C009_Library", "Intro");
 		Common_PlayerCrime = "";
-		SaveMenu("C101_KinbakuClub", "Intro");
+		SaveMenu("C009_Library", "Intro");
 	}
 
 }

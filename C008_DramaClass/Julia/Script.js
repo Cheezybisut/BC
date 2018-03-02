@@ -47,7 +47,7 @@ function C008_DramaClass_Julia_Load() {
 	// On a perfect play, the player gains a level in arts
 	if ((C008_DramaClass_Julia_CurrentStage == 300) && C008_DramaClass_Theater_PerfectPlay) {
 		C008_DramaClass_Theater_PerfectPlay = false;
-		PlayerAddSkill("Arts");
+		PlayerAddSkill("Arts", 1);
 	}
 	
 	// Cannot leave before Julia gave her instructions
