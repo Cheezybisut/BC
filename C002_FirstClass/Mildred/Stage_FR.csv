@@ -47,7 +47,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 220,0,0,,"Allez-vous faire foutre|sale garce !","(Tu prends 10 coup sec, elle te menotte et te bâillonne.)|Puisque tu ne sais pas te tenir, tu resteras attachée.",220,-1,0,RestrainPlayer()
 220,0,0,,"Non ! S'il vous plaît !|Je suis tellement désolée.","(Tu prends 2 coup sec, elle te menotte et te bâillonne.)|C'est trop tard pour les excuses, tu resteras attachée.",220,0,-1,RestrainPlayer()
 220,0,0,,"(Tu restes silencieuse.)","(Tu prends 4 coup sec, elle te menotte et te bâillonne.)|Puisque tu ne sais pas te tenir, tu resteras attachée.",220,0,0,RestrainPlayer()
-300,0,0,,"Mildred, Je deviens la|responsable maintenant.","La responsable ? Mais c'est moi l'enseignante.|Vous allez au-devant de grands soucis mademoiselle.",310,0,1,
+300,0,0,,"Mildred, c'est moi qui|commande à présent.","Toi ? Mais c'est moi l'enseignante.|Vous allez au-devant de grands soucis mademoiselle.",310,0,1,
 300,0,0,,"""Madame"", ce cours va|enfin devenir intéressant.","Non-sens ! Je suis la responsable de cette classe.|Vous allez au-devant de grands soucis mademoiselle.",310,0,0,
 300,0,0,,"Si vous coopérez,|Ça sera vite finis.",(Elle hocha la tête et reste silencieuse.),310,0,1,
 300,0,0,,"Je ne m'attendais pas à|ce que vous soyez si jolie".,"(Elle rougit.) Jeune fille,|Qu'est-ce que tu as prévu exactement ?",310,1,0,
