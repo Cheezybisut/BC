@@ -30,7 +30,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 100,0,0,Common_PlayerGagged,(Tu mâches la boule.),(Elle chuchote.) Tu as l'air d'une idiote.,100,0,0,
 100,1,0,Common_PlayerGagged,(Tu essayes de montrer|du doigt la boule.),(Elle chuchote) La ferme.|Je t'aiderai après le cours.,100,0,0,
 100,-1,0,Common_PlayerGagged,(Tu essayes de montrer|du doigt la boule.),(Elle chuchote.) Reste bâillonnée pétasse.,100,0,0,
-100,0,0,Common_PlayerRestrained,(Tu tires sur les menottes.),(Elle chuchote.) Tu n'arriveras jamais à te libérer.,100,0,0,
+100,0,0,Common_PlayerRestrained,(Tu essais de|te libérer.),(Elle chuchote.) Tu n'arriveras jamais à te libérer.,100,0,0,
 100,0,-2,BowRemarkReady,(Tu baisses la tête.),(Elle chuchotte.) Tu es pitoyable.,100,0,-1,BowRemark()
 110,0,0,Common_PlayerGagged,"@Uuuummph, mmph !",(Elle lève les yeux au ciel.),110,0,0,
 110,0,0,Common_PlayerNotRestrained,(Tu la débâillonnes.)|(1 minute),(Tu détaches le bâillon et retires la grosse boule.)|Putain de bâillon !,100,0,0,Ungag()

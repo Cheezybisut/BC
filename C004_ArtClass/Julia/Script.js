@@ -13,6 +13,7 @@ var C004_ArtClass_Julia_CanBegForRelease = false;
 var C004_ArtClass_Julia_EggConfirm = false;
 var C004_ArtClass_Julia_EggInside = false;
 var C004_ArtClass_Julia_WorkOfArtReady = true;
+var C004_ArtClass_Julia_PaintAvail = true;
 
 // New image depending on Julia's bondage
 function C004_ArtClass_Julia_GetImage() {
@@ -315,4 +316,21 @@ function C004_ArtClass_Julia_GaggedSpeach() {
 function C004_ArtClass_Julia_WorkOfArt() {
 	C004_ArtClass_Julia_WorkOfArtReady = false;
 	ActorChangeAttitude(1, 0);
+}
+
+// Chapter 4 - Julia Paint, can only be done if there's 30 minutes left for the class
+function C004_ArtClass_Julia_Paint() {
+	if (CurrentTime <= 9.75 * 60 * 60 * 1000) {
+		C004_ArtClass_Sarah_PaintAvail = false;
+		C004_ArtClass_Jennifer_PaintAvail = false;
+		C004_ArtClass_Julia_PaintAvail = false;
+		ActorChangeAttitude(2, 0);
+		CurrentTime = CurrentTime + 0.5 * 60 * 60 * 1000;
+		if (PlayerGetSkillLevel("Arts") >= 1) {
+			ActorSpecificChangeAttitude("Julia", PlayerGetSkillLevel("Arts"), 0);
+			ActorSpecificChangeAttitude("Sarah", PlayerGetSkillLevel("Arts"), 0);
+			ActorSpecificChangeAttitude("Jennifer", PlayerGetSkillLevel("Arts"), 0);
+		}
+		PlayerAddSkill("Arts", 1);
+	} else OverridenIntroText = GetText("NoTimeToPaint");
 }

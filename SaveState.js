@@ -64,6 +64,7 @@ function SaveState(SlotNumber) {
 	localStorage.setItem("PlayerLockedInventory" + SN, JSON.stringify(PlayerLockedInventory));
 	localStorage.setItem("PlayerSkill" + SN, JSON.stringify(PlayerSkill));
 	localStorage.setItem("Actor" + SN, JSON.stringify(Actor));
+	localStorage.setItem("CurrentTime" + SN, CurrentTime.toString());
 	localStorage.setItem("Common_PlayerCrime" + SN, Common_PlayerCrime);
 	localStorage.setItem("Common_ClubStatus" + SN, Common_ClubStatus);
 
@@ -89,6 +90,7 @@ function LoadState(SlotNumber) {
 			PlayerInventory = JSON.parse(localStorage.getItem("PlayerInventory" + SN));
 			PlayerLockedInventory = JSON.parse(localStorage.getItem("PlayerLockedInventory" + SN));
 			Actor = JSON.parse(localStorage.getItem("Actor" + SN));
+			if (localStorage.getItem("CurrentTime" + SN) != null) CurrentTime = parseFloat(localStorage.getItem("CurrentTime" + SN));
 			Common_PlayerCrime = localStorage.getItem("Common_PlayerCrime" + SN);
 			Common_ClubStatus = localStorage.getItem("Common_ClubStatus" + SN);
 			LoadRestrainStatus();
