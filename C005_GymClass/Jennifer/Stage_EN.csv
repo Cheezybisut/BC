@@ -72,7 +72,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 500,0,0,,Fuck!  You cheated|in that last fight.,You need to learn to accept defeat.|(She checks a knot and tightens it.),510,-1,0,
 500,0,0,,I don't think I like judo.,Martial art isn't for everyone.|But self-defense is a valuable lesson.,510,0,-1,
 510,0,0,,Can you check the crotch|rope?  (1 minute),"What's wrong with it?  Does it hurt?|(She plays with the rope, giving a nice stimulation.)",510,0,0,CrotchRopePlayer()
-510,0,0,PlayerHasBallgag,Shouldn't you gag me?|I have a gag in my stuff.,I guess you can gag your opponent for|self-defense.  (She straps the ballgag on you.),520,0,0,BallgagPlayer()
+510,0,0,PlayerHasBallGag,Shouldn't you gag me?|I have a gag in my stuff.,I guess you can gag your opponent for|self-defense.  (She straps the BallGag on you.),520,0,0,BallGagPlayer()
 510,0,0,PlayerHasTapeGag,Shouldn't you gag me?|I have tape in my stuff.,I guess you can gag your opponent for|self-defense.  (She puts tape over your mouth.),530,0,0,TapeGagPlayer()
 510,0,0,,Can you release me?,"Mmh, no.  I don't think so.|I like you better like that.",510,0,0,CheckReleasePlayer()
 510,0,0,,(Struggle playfully.)|(1 minute),My!  Are you enjoying that?,510,0,0,
@@ -100,4 +100,5 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 570,2,0,,(Cuddle in her|arms.) (1 minute),Stay here for as long as you need.|Just let me know when you're ok.,570,0,0,Cuddle()
 570,0,0,,(Shake your head in|panic.) (1 minute),"Poor little thing.  Here, let me help you.|(She carefully unties you and let you dress back.)",600,0,-1,ReleasePlayer()
 600,0,0,,"Ok, another practice.|(Start a practice.)",,600,0,0,StartPractice()
+600,0,0,TrainingReady,"(Train in fighting.)|(30 minutes)",,600,0,0,TrainFighting()
 600,0,0,,"That's enough, let's|go eat. (Leave gym.)",,600,0,0,EndChapter()

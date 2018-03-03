@@ -20,17 +20,35 @@ function C999_Common_Rope_Load() {
 // Chapter Common - Rope Run, we draw the regular player image if the item is on
 function C999_Common_Rope_Run() {
 	BuildInteraction(C999_Common_Rope_CurrentStage);
-	if (PlayerHasLockedInventory("Rope") && (OveridenIntroImage == "")) DrawPlayerImage(150, 240);
+	if (PlayerHasLockedInventory("Rope") && (OverridenIntroImage == "")) DrawPlayerImage(150, 240);
 }
 
 // Chapter Common - Rope Click, allow regular interactions and clicking on another item
 function C999_Common_Rope_Click() {
-	OveridenIntroImage = "";
+	OverridenIntroImage = "";
 	ClickInteraction(C999_Common_Rope_CurrentStage);
 	InventoryClick(GetClickedInventory(), LeaveChapter, LeaveScreen);
 }
 
 // Chapter Common - Show the item image
 function C999_Common_Rope_ShowImage() {
-	OveridenIntroImage = "Rope.jpg";
+	OverridenIntroImage = "Rope.jpg";
+}
+
+// Chapter Common - When the player wants to tie herself, she can do it with rope mastery level 1
+function C999_Common_Rope_QuerySelfBondage() {
+	if ((Common_BondageAllowed) && (Common_SelfBondageAllowed)) {
+		if (PlayerGetSkillLevel("RopeMastery") >= 1) {
+			C999_Common_Rope_CurrentStage = 20;
+			OverridenIntroText = GetText("ConfirmSelfBondage");
+		}
+	} else OverridenIntroText = GetText("BadTiming");
+}
+
+// Chapter Common - When does self bondage with ropes (strips from any costume before that)
+function C999_Common_Rope_DoSelfBondage() {
+	if (Common_PlayerCostume != "") PlayerClothes("Underwear");
+	PlayerLockInventory("Rope");
+	PlayerRemoveInventory("Rope", 1);
+	C999_Common_Rope_HasLooseRope = PlayerHasInventory("Rope");
 }

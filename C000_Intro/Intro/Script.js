@@ -11,8 +11,8 @@ function C000_Intro_Intro_Run() {
 	
 	// Paints the background
 	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", -150, 0);
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Player.jpg", 900, 0);
+	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
+	DrawPlayerTransition(ctx);
 
 	// Draw the intro text
 	DrawText(ctx, GetText("Intro1"), 450, 100, "White");
@@ -31,14 +31,15 @@ function C000_Intro_Intro_Click() {
 // Intro Key Down
 function C000_Intro_Intro_KeyDown() {
 
-	// Special "z" cheat to get lots of items
-	if (KeyPress == 122) {
+	// Special "z" cheat to get lots of items, only used for developers
+	if ((KeyPress == 122) && (window.location.hostname != "ben987.x10host.com")) {
 		PlayerRemoveAllInventory();
 		PlayerAddInventory("Cuffs", 4);
 		PlayerAddInventory("CuffsKey", 1);
 		PlayerAddInventory("Rope", 4);
-		PlayerAddInventory("Ballgag", 4);
+		PlayerAddInventory("BallGag", 4);
 		PlayerAddInventory("TapeGag", 8);
+		PlayerAddInventory("ClothGag", 4);
 		PlayerAddInventory("Collar", 4);
 		PlayerAddInventory("Crop", 1);
 		PlayerAddInventory("VibratingEgg", 4);

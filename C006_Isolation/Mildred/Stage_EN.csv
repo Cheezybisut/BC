@@ -49,16 +49,16 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 140,0,0,,Ow!  I can't move!,Of course you can't.  Any last|words before I gag and isolate you?,150,0,0,
 140,0,0,,Someday you'll|pay for that!,Keep on dreaming girl.  Any last|words before I gag and isolate you?,150,0,1,
 140,0,0,,I do admire your|restraining skills.,I disciplined other students before you.|Any last words before I gag and isolate you?,150,1,0,
-150,0,0,,(Stay silent.),(She straps a ballgag on you.)|Try to learn from your time in isolation.,200,0,0,AddGag()
-150,0,0,,One day you will pay.,(She sighs and straps a ballgag on you.)|Try to learn from your time in isolation.,200,0,0,AddGag()
-150,0,0,,Miss Mildred!,(She shakes her head and straps a ballgag on you.)|Try to learn from your time in isolation.,200,0,0,AddGag()
+150,0,0,,(Stay silent.),(She straps a BallGag on you.)|Try to learn from your time in isolation.,200,0,0,AddGag()
+150,0,0,,One day you will pay.,(She sighs and straps a BallGag on you.)|Try to learn from your time in isolation.,200,0,0,AddGag()
+150,0,0,,Miss Mildred!,(She shakes her head and straps a BallGag on you.)|Try to learn from your time in isolation.,200,0,0,AddGag()
 150,5,0,,"Miss Mildred, I learned|my lesson.  I'll be good.",(She smiles at you.)  So you|promise to stop causing trouble?,160,0,0,
 150,1,-5,,Oh please Miss Mildred.|(Whimper and cry.),Poor girl.  Maybe I was too harsh.|Do you promise to be good for now on?,160,0,0,
 150,0,6,,If you leave me here|my dad will sue your ass.,"Mmh.  I cannot afford a lawsuit.  Alright young|lady, I will release you if you promise to be good.",160,0,0,
 160,0,0,,"Yes, I promise|to be good Miss.",Very well.  (She releases you.)|Now get dressed and go get an early lunch.,170,0,0,Release()
 160,0,0,,I won't cause|any more trouble.,Alright.  (She releases you.)|Now get dressed and go get an early lunch.,170,0,0,Release()
-160,0,0,,I don't want pity.|Do your worse!,(She shakes her head and straps a ballgag on you.)|Try to learn from your time in isolation.,200,0,1,AddGag()
-160,0,0,,FUCK YOU PIG!,(She shakes her head and straps a ballgag on you.)|Try to learn from your time in isolation.,200,-1,0,AddGag()
+160,0,0,,I don't want pity.|Do your worse!,(She shakes her head and straps a BallGag on you.)|Try to learn from your time in isolation.,200,0,1,AddGag()
+160,0,0,,FUCK YOU PIG!,(She shakes her head and straps a BallGag on you.)|Try to learn from your time in isolation.,200,-1,0,AddGag()
 170,0,0,,Yes Miss.|(Leave isolation.),,170,0,0,LeaveIsolation()
 170,0,0,,(Nod and smile.)|(Leave isolation.),,170,0,0,LeaveIsolation()
 200,0,0,,UUMPH!  UGN!,(She slowly walks away.)|I will be back at 11:30.,210,0,0,AllowLeave()

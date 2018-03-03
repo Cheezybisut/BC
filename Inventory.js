@@ -16,7 +16,7 @@ function PlayerClothes(NewCloth) {
 // Set the restrained and gagged common variables, used by many scenes
 function LoadRestrainStatus() {
 	Common_PlayerRestrained = (PlayerHasLockedInventory("Cuffs") || PlayerHasLockedInventory("Rope"));
-	Common_PlayerGagged = (PlayerHasLockedInventory("Ballgag") || PlayerHasLockedInventory("TapeGag"));
+	Common_PlayerGagged = (PlayerHasLockedInventory("BallGag") || PlayerHasLockedInventory("TapeGag") || PlayerHasLockedInventory("ClothGag") || PlayerHasLockedInventory("DoubleOpenGag"));
 	Common_PlayerChaste = PlayerHasLockedInventory("ChastityBelt");
 	Common_PlayerNotRestrained = !Common_PlayerRestrained;
 	Common_PlayerNotGagged = !Common_PlayerGagged;
@@ -115,6 +115,16 @@ function PlayerRemoveAllInventory() {
 		PlayerInventory.splice(0, 1);
 }
 
+// Remove half of the inventory from the player (rounded up)
+function PlayerRemoveHalfInventory() {
+	for (var I = 0; I < PlayerInventory.length; I++) {
+		if (PlayerInventory[I][PlayerInventoryQuantity] <= 1) {
+			PlayerInventory.splice(I, 1);
+			I--;
+		} else PlayerInventory[I][PlayerInventoryQuantity] = Math.floor(PlayerInventory[I][PlayerInventoryQuantity] / 2);
+	}
+}
+
 // Returns true if the player has the queried inventory
 function PlayerHasInventory(QueryInventory) {
 	
@@ -131,20 +141,29 @@ function PlayerRandomBondage() {
 	
 	// Selects the restrain type
 	var R = "";
-	if (PlayerHasInventory("Rope") && PlayerHasInventory("Cuffs") && PlayerHasInventory("CuffsKey")) { if (Math.floor(Math.random() * 2) == 1) R = "Rope"; else R = "Cuffs"; }
-	if (PlayerHasInventory("Rope") && !PlayerHasInventory("Cuffs")) { R = "Rope"; }
-	if (!PlayerHasInventory("Rope") && PlayerHasInventory("Cuffs") && PlayerHasInventory("CuffsKey")) { R = "Cuffs"; }
+	if (!Common_PlayerRestrained) {
+		if (PlayerHasInventory("Rope") && PlayerHasInventory("Cuffs")) { if (Math.floor(Math.random() * 2) == 1) R = "Rope"; else R = "Cuffs"; }
+		if (PlayerHasInventory("Rope") && !PlayerHasInventory("Cuffs")) { R = "Rope"; }
+		if (!PlayerHasInventory("Rope") && PlayerHasInventory("Cuffs")) { R = "Cuffs"; }
+	}
 
 	// Selects the gag type
 	var G = "";
-	if (PlayerHasInventory("Ballgag") && PlayerHasInventory("TapeGag")) { if (Math.floor(Math.random() * 2) == 1) G = "Ballgag"; else G = "TapeGag"; }
-	if (PlayerHasInventory("Ballgag") && !PlayerHasInventory("TapeGag")) { G = "Ballgag"; }
-	if (!PlayerHasInventory("Ballgag") && PlayerHasInventory("TapeGag")) { G = "TapeGag"; }
+	if (!Common_PlayerGagged) {
+		var GT = [];
+		if (PlayerHasInventory("BallGag")) GT.push("BallGag");
+		if (PlayerHasInventory("TapeGag")) GT.push("TapeGag");
+		if (PlayerHasInventory("ClothGag")) GT.push("ClothGag");
+		if (GT.length > 0) G = GT[Math.floor(Math.random() * GT.length)];
+	}
 
 	// Applies them on the player
 	if (R != "") { PlayerRemoveInventory(R, 1); PlayerLockInventory(R); }
 	if (G != "") { PlayerRemoveInventory(G, 1); PlayerLockInventory(G); }
 	
+	// If the player has rope, she must at least be in her underwear
+	if (PlayerHasLockedInventory("Rope") && Common_PlayerClothed) PlayerClothes("Underwear");
+
 }
 
 // Release the player from bondage and restore it's inventory
@@ -156,8 +175,26 @@ function PlayerReleaseBondage() {
 
 // Ungag the player and restore it's inventory
 function PlayerUngag() {
-	if (PlayerHasLockedInventory("Ballgag")) { PlayerUnlockInventory("Ballgag"); PlayerAddInventory("Ballgag", 1); }
+	if (PlayerHasLockedInventory("BallGag")) { PlayerUnlockInventory("BallGag"); PlayerAddInventory("BallGag", 1); }
+	if (PlayerHasLockedInventory("ClothGag")) { PlayerUnlockInventory("ClothGag"); PlayerAddInventory("ClothGag", 1); }
 	if (PlayerHasLockedInventory("TapeGag")) { PlayerUnlockInventory("TapeGag"); }
+}
+
+// Add a random item in the player inventory
+function PlayerAddRandomItem() {
+	var ItemList = ["BallGag", "TapeGag", "ClothGag", "Cuffs", "Rope", "ChastityBelt", "VibratingEgg", "Crop", "Collar", "SleepingPill"];
+	var Item = ItemList[Math.floor(Math.random() * 10)];
+	PlayerAddInventory(Item, 1);
+	if (Item == "TapeGag") PlayerAddInventory(Item, 7); // For tape gag, add a bonus + 7 quantity
+	if ((Item == "Cuffs") && (Math.floor(Math.random() * 2) == 1)) PlayerAddInventory("CuffsKey", 1); // For cuffs, can randomly add keys
+}
+
+// Returns the total quantity of items that the player has
+function PlayerInventoryTotalQuantity() {
+	var TotalQuantity = 0;
+	for (var I = 0; I < PlayerInventory.length; I++)
+		TotalQuantity = TotalQuantity + PlayerInventory[I][PlayerInventoryQuantity];
+	return TotalQuantity;
 }
 
 // Returns the name of the inventory item that was clicked in the bottom menu
@@ -185,7 +222,7 @@ function GetClickedInventory() {
 					if ((MouseX >= 1 + (I + 1) * 75) && (MouseX <= 74 + (I + 1) * 75))
 						Inv = "Locked_" + PlayerLockedInventory[L];
 					I++;
-				}				
+				}
 
 	}
 

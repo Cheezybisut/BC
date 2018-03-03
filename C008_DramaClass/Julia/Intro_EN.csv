@@ -1,0 +1,55 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,IsDamsel,You look adorable as a damsel.|I hope you're ready for teatro!,JuliaShow.jpg
+0,0,0,IsHeroine,The terrible black knight is here.|I hope you're ready for teatro!,JuliaShow.jpg
+0,0,0,IsVillain,Oh!  The heroic white knight.|I hope you're ready for teatro!,JuliaShow.jpg
+10,0,0,,,Julia.jpg
+20,0,0,,,JuliaShow.jpg
+100,0,0,IsHeroine,(She whispers to you.)  Don't look at me.|This is your time to shine like a star.,JuliaLookPlayer.jpg
+100,0,0,!IsHeroine,(She looks at the white knight.),JuliaLookAway.jpg
+110,0,0,IsVillain,(She whispers to you.)  Don't look at me.|This is your time to shine like a star.,JuliaLookPlayer.jpg
+110,0,0,!IsVillain,(She looks at the black knight.),JuliaLookAway.jpg
+120,0,0,IsHeroine,(She whispers to you.)  Don't look at me.|This is your time to shine like a star.,JuliaLookPlayer.jpg
+120,0,0,!IsHeroine,(She looks at the white knight.),JuliaLookAway.jpg
+130,0,0,IsVillain,(She whispers to you.)  Don't look at me.|This is your time to shine like a star.,JuliaLookPlayer.jpg
+130,0,0,!IsVillain,(She looks at the black knight.),JuliaLookAway.jpg
+140,0,0,IsDamsel,(She whispers to you.)  Don't look at me.|This is your time to shine like a star.,JuliaLookPlayer.jpg
+140,0,0,!IsDamsel,(She looks at the damsel.),JuliaLookAway.jpg
+150,0,0,IsDamsel,(She whispers to you.)  Don't look at me.|This is your time to shine like a star.,JuliaLookPlayer.jpg
+150,0,0,!IsDamsel,(She looks at the damsel.),JuliaLookAway.jpg
+160,0,0,IsDamsel,(She whispers to you.)  Don't look at me.|This is your time to shine like a star.,JuliaLookPlayer.jpg
+160,0,0,!IsDamsel,(She looks at the damsel.),JuliaLookAway.jpg
+200,0,0,IsVillain,(She whispers to you.)  Don't look at me.|This is your time to shine like a star.,JuliaLookPlayer.jpg
+200,0,0,!IsVillain,(She looks at the black knight.),JuliaLookAway.jpg
+210,0,0,IsVillain,(She whispers to you.)  Don't look at me.|This is your time to shine like a star.,JuliaLookPlayer.jpg
+210,0,0,!IsVillain,(She looks at the black knight.),JuliaLookAway.jpg
+220,0,0,IsHeroine,(She whispers to you.)  Don't look at me.|This is your time to shine like a star.,JuliaLookPlayer.jpg
+220,0,0,!IsHeroine,(She looks at the white knight.),JuliaLookAway.jpg
+230,0,0,IsVillain,(She whispers to you.)  Don't look at me.|This is your time to shine like a star.,JuliaLookPlayer.jpg
+230,0,0,!IsVillain,(She looks at the black knight.),JuliaLookAway.jpg
+240,0,0,IsHeroine,(She whispers to you.)  Don't look at me.|This is your time to shine like a star.,JuliaLookPlayer.jpg
+240,0,0,!IsHeroine,(She looks at the white knight.),JuliaLookAway.jpg
+250,0,0,IsDamsel,(She whispers to you.)  Don't look at me.|This is your time to shine like a star.,JuliaLookPlayer.jpg
+250,0,0,!IsDamsel,(She looks at the damsel.),JuliaLookAway.jpg
+270,0,0,IsVillain,(She whispers to you.)  Don't look at me.|This is your time to shine like a star.,JuliaLookPlayer.jpg
+270,0,0,!IsVillain,(She looks at the black knight.),JuliaLookAway.jpg
+280,0,0,IsDamsel,(She whispers to you.)  Don't look at me.|This is your time to shine like a star.,JuliaLookPlayer.jpg
+280,0,0,!IsDamsel,(She looks at the damsel.),JuliaLookAway.jpg
+300,0,0,EndingKiss,Bravo!  Bravo!  Bravisimo!|What a wonderful final kiss!,Background.jpg
+300,0,0,EndingHug,Bravo!  Mille Bravo!|And what a nice hug at the end.,Background.jpg
+300,0,0,EndingDomme,Bravo!  The dominant ending was|unexpected but theater can be chaotic.,Background.jpg
+300,0,0,EndingTwoPrisoners,Bravo!  The ending with the two prisoners|was unexpected but theater can be chaotic.,Background.jpg
+300,0,0,EndingTrio,In years of doing that play I've never|seen it end in a ménage à trois.  Bravo!,Background.jpg
+310,0,0,,It was great to see all of you acting.|And there was room to improvise.,Background.jpg
+320,0,0,,Join the play now?|But in what role?,Background.jpg
+330,0,0,,,Background.jpg
+340,0,0,,,Background.jpg
+400,0,0,IsDamsel,My sweet damsel friend.|What will happen to us?,Background.jpg
+400,0,0,IsHeroine,Oh my white hero!|What do you require of me?,Background.jpg
+400,0,0,IsVillain,Oh great black knight!|What do you require of me?,Background.jpg
+410,0,0,IsDamsel,My sweet damsel friend.|What will happen to us?,Background.jpg
+410,0,0,IsHeroine,Oh my white hero!|What do you require of me?,Background.jpg
+410,0,0,IsVillain,Oh great black knight!|What do you require of me?,Background.jpg
+410,0,0,Common_PlayerGagged,I guesseth thee won't be talking much.,Background.jpg
+410,0,0,IsGagged,Om nong!  Olog amogn!|(She plays with her gag.),Background.jpg
+500,0,0,,As fair queen of the land.|I expect respect and devotion.,Background.jpg
+500,0,0,Common_PlayerGagged,I guesseth thee won't be talking much.,Background.jpg

@@ -33,7 +33,7 @@ function C003_MorningDetention_Glass_BreakPill() {
 		PlayerRemoveInventory("SleepingPill", 1);
 		Common_PlayerCrime = "DrugYuki";
 	} else {
-		OveridenIntroText = GetText("CannotWithCuffs");
+		OverridenIntroText = GetText("CannotWithCuffs");
 	}
 	
 }

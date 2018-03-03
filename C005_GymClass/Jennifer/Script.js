@@ -15,9 +15,10 @@ var C005_GymClass_Jennifer_SpankDone = false;
 var C005_GymClass_Jennifer_CropDone = false;
 var C005_GymClass_Jennifer_CrotchRopePlayerDone = false;
 var C005_GymClass_Jennifer_CuddleDone = false;
-var C005_GymClass_Jennifer_PlayerHasBallgag = false;
+var C005_GymClass_Jennifer_PlayerHasBallGag = false;
 var C005_GymClass_Jennifer_PlayerHasTapeGag = false;
 var C005_GymClass_Jennifer_Turnabout = false;
+var C005_GymClass_Jennifer_TrainingReady = true;
 
 // Chapter 5 - Jennifer Load
 function C005_GymClass_Jennifer_Load() {
@@ -31,14 +32,14 @@ function C005_GymClass_Jennifer_Load() {
 	// Jennifer scene specific parameters
 	C005_GymClass_Jennifer_EggInside = (ActorHasInventory("VibratingEgg"));
 	C005_GymClass_Jennifer_EggConfirm = false;
-	C005_GymClass_Jennifer_PlayerHasBallgag = (PlayerHasInventory("Ballgag"));
+	C005_GymClass_Jennifer_PlayerHasBallGag = (PlayerHasInventory("BallGag"));
 	C005_GymClass_Jennifer_PlayerHasTapeGag = (PlayerHasInventory("TapeGag"));
 	
 	// If the player can collect the hard mode bonus (better bonus if the match was perfect)
 	if (C005_GymClass_Jennifer_DefeatedHardMode && !C005_GymClass_Jennifer_DefeatedHardModeBonus) {
 		ActorChangeAttitude(1, 1);
 		if (C005_GymClass_Jennifer_DefeatedHardModePerfect) {
-			PlayerAddInventory("Ballgag", 1);
+			PlayerAddInventory("BallGag", 1);
 			ActorChangeAttitude(0, 1);
 		}
 		C005_GymClass_Jennifer_DefeatedHardModeBonus = true;
@@ -90,24 +91,24 @@ function C005_GymClass_Jennifer_Click() {
 
 		// When the user wants to use the crop
 		if ((ClickInv == "Crop") && ActorHasInventory("Rope") && Common_PlayerNotRestrained) {
-			OveridenIntroText = GetText("Crop");
+			OverridenIntroText = GetText("Crop");
 			if (C005_GymClass_Jennifer_CropDone == false) { C005_GymClass_Jennifer_CropDone = true; ActorChangeAttitude(-1, 1); }
 			CurrentTime = CurrentTime + 60000;
 		}
 		
-		// When the user wants to use a ballgag	
-		if ((ClickInv == "Ballgag") && ActorHasInventory("Rope") && !ActorHasInventory("Ballgag") && Common_PlayerNotRestrained && ((C005_GymClass_Jennifer_CurrentStage == 400) || (C005_GymClass_Jennifer_CurrentStage == 410) || (C005_GymClass_Jennifer_CurrentStage == 430))) {
-			OveridenIntroText = GetText("Ballgag");
+		// When the user wants to use a BallGag	
+		if ((ClickInv == "BallGag") && ActorHasInventory("Rope") && !ActorHasInventory("BallGag") && Common_PlayerNotRestrained && ((C005_GymClass_Jennifer_CurrentStage == 400) || (C005_GymClass_Jennifer_CurrentStage == 410) || (C005_GymClass_Jennifer_CurrentStage == 430))) {
+			OverridenIntroText = GetText("BallGag");
 			C005_GymClass_Jennifer_CurrentStage = 420;
 			C005_GymClass_Jennifer_Ungag();
-			ActorAddInventory("Ballgag");
-			PlayerRemoveInventory("Ballgag", 1);
+			ActorAddInventory("BallGag");
+			PlayerRemoveInventory("BallGag", 1);
 			CurrentTime = CurrentTime + 60000;
 		}
 
 		// When the user wants to use a tape gag
 		if ((ClickInv == "TapeGag") && ActorHasInventory("Rope") && !ActorHasInventory("TapeGag") && Common_PlayerNotRestrained && ((C005_GymClass_Jennifer_CurrentStage == 400) ||(C005_GymClass_Jennifer_CurrentStage == 410) || (C005_GymClass_Jennifer_CurrentStage == 420))) {
-			OveridenIntroText = GetText("TapeGag");
+			OverridenIntroText = GetText("TapeGag");
 			C005_GymClass_Jennifer_CurrentStage = 430;
 			C005_GymClass_Jennifer_Ungag();
 			ActorAddInventory("TapeGag");
@@ -119,12 +120,12 @@ function C005_GymClass_Jennifer_Click() {
 		if ((ClickInv == "VibratingEgg") && !ActorHasInventory("VibratingEgg") && ActorHasInventory("Rope") && Common_PlayerNotRestrained) {		
 			if (C005_GymClass_Jennifer_EggConfirm == false) {
 				C005_GymClass_Jennifer_EggConfirm = true;
-				OveridenIntroText = GetText("VibratingEggWarning");
+				OverridenIntroText = GetText("VibratingEggWarning");
 			} else {
 				ActorAddInventory("VibratingEgg");
 				PlayerRemoveInventory("VibratingEgg", 1);
 				ActorChangeAttitude(-1, 0);
-				OveridenIntroText = GetText("VibratingEggInsert");
+				OverridenIntroText = GetText("VibratingEggInsert");
 				C005_GymClass_Jennifer_EggInside = true;
 			}
 		}
@@ -141,7 +142,7 @@ function C005_GymClass_Jennifer_StartPractice() {
 // Chapter 5 - Jennifer Explain Mobile
 function C005_GymClass_Jennifer_ExplainMobile() {
 	if (IsMobile) 
-		OveridenIntroText = GetText("ExplainMobile");
+		OverridenIntroText = GetText("ExplainMobile");
 }
 
 // Chapter 5 - Jennifer Get Rope
@@ -204,7 +205,7 @@ function C005_GymClass_Jennifer_Spank() {
 function C005_GymClass_Jennifer_CrotchRope() {
 	if (C005_GymClass_Jennifer_CrotchRopeDone == false) {
 		C005_GymClass_Jennifer_CrotchRopeDone = true;
-		OveridenIntroText = GetText("CrotchRope");
+		OverridenIntroText = GetText("CrotchRope");
 		C005_GymClass_Jennifer_CurrentStage = parseInt(C005_GymClass_Jennifer_CurrentStage) + 40;
 	}
 }
@@ -212,9 +213,9 @@ function C005_GymClass_Jennifer_CrotchRope() {
 // Chapter 5 - Jennifer Ungag
 function C005_GymClass_Jennifer_Ungag() {
 	ActorRemoveInventory("TapeGag");
-	if (ActorHasInventory("Ballgag")) {
-		ActorRemoveInventory("Ballgag");
-		PlayerAddInventory("Ballgag", 1);
+	if (ActorHasInventory("BallGag")) {
+		ActorRemoveInventory("BallGag");
+		PlayerAddInventory("BallGag", 1);
 	}
 }
 
@@ -238,21 +239,21 @@ function C005_GymClass_Jennifer_TapeGagPlayer() {
 	CurrentTime = CurrentTime + 50000;
 }
 
-// Chapter 5 - Ballgag Player
-function C005_GymClass_Jennifer_BallgagPlayer() {
-	PlayerRemoveInventory("Ballgag", 1);
-	PlayerLockInventory("Ballgag");
-	C005_GymClass_Jennifer_PlayerHasBallgag = (PlayerHasInventory("Ballgag"));
+// Chapter 5 - BallGag Player
+function C005_GymClass_Jennifer_BallGagPlayer() {
+	PlayerRemoveInventory("BallGag", 1);
+	PlayerLockInventory("BallGag");
+	C005_GymClass_Jennifer_PlayerHasBallGag = (PlayerHasInventory("BallGag"));
 	CurrentTime = CurrentTime + 50000;
 }
 
 // Chapter 5 - Ungag Player (Jennifer only does if the player is likeable and not submissive))
 function C005_GymClass_Jennifer_UngagPlayer() {
 	if (ActorGetValue(ActorLove) + ActorGetValue(ActorSubmission) >= 0) {
-		OveridenIntroText = GetText("UngagPlayer");
-		if (PlayerHasLockedInventory("Ballgag")) {
-			PlayerUnlockInventory("Ballgag");
-			PlayerAddInventory("Ballgag", 1);
+		OverridenIntroText = GetText("UngagPlayer");
+		if (PlayerHasLockedInventory("BallGag")) {
+			PlayerUnlockInventory("BallGag");
+			PlayerAddInventory("BallGag", 1);
 		}
 		PlayerUnlockInventory("TapeGag");
 		C005_GymClass_Jennifer_CurrentStage = 510;
@@ -262,9 +263,9 @@ function C005_GymClass_Jennifer_UngagPlayer() {
 // Chapter 5 - Release Player
 function C005_GymClass_Jennifer_ReleasePlayer() {
 	CurrentTime = CurrentTime + 50000;
-	if (PlayerHasLockedInventory("Ballgag")) {
-		PlayerUnlockInventory("Ballgag");
-		PlayerAddInventory("Ballgag", 1);
+	if (PlayerHasLockedInventory("BallGag")) {
+		PlayerUnlockInventory("BallGag");
+		PlayerAddInventory("BallGag", 1);
 	}
 	PlayerUnlockInventory("TapeGag");
 	PlayerUnlockInventory("Rope");
@@ -275,13 +276,13 @@ function C005_GymClass_Jennifer_ReleasePlayer() {
 // Chapter 5 - Check to Release Player (Jennifer helps or put the player in trouble depending on the relationship)
 function C005_GymClass_Jennifer_CheckReleasePlayer() {
 	if (ActorGetValue(ActorLove) + ActorGetValue(ActorSubmission) >= 0) {
-		OveridenIntroText = GetText("ReleasePlayer");
+		OverridenIntroText = GetText("ReleasePlayer");
 		C005_GymClass_Jennifer_ReleasePlayer();
 	} else {
 		if ((ActorGetValue(ActorLove) < 0) && (ActorGetValue(ActorSubmission) < 0)) {
-			PlayerLockInventory("Ballgag");
+			PlayerLockInventory("BallGag");
 			C005_GymClass_Jennifer_CurrentStage = 520;
-			OveridenIntroText = GetText("GagPlayer");
+			OverridenIntroText = GetText("GagPlayer");
 		}
 	}
 }
@@ -289,8 +290,8 @@ function C005_GymClass_Jennifer_CheckReleasePlayer() {
 // Chapter 5 - Crotch Rope Player
 function C005_GymClass_Jennifer_CrotchRopePlayer() {
 	if ((C005_GymClass_Jennifer_CrotchRopePlayerDone == false) && PlayerHasLockedInventory("VibratingEgg")) {
-		if (Common_PlayerGagged) OveridenIntroText = GetText("PlayerOrgasmGagged");
-		else OveridenIntroText = GetText("PlayerOrgasm");
+		if (Common_PlayerGagged) OverridenIntroText = GetText("PlayerOrgasmGagged");
+		else OverridenIntroText = GetText("PlayerOrgasm");
 		ActorAddOrgasm();
 		CurrentTime = CurrentTime + 50000;
 		C005_GymClass_Jennifer_CrotchRopePlayerDone = true;
@@ -309,4 +310,14 @@ function C005_GymClass_Jennifer_Cuddle() {
 // Chapter 5 - Jennifer Orgasm
 function C005_GymClass_Jennifer_Orgasm() {
 	ActorAddOrgasm();
+}
+
+// Chapter 5 - Jennifer fighting skill training, the player can learn the figthing skill if there's 30 or more left
+function C005_GymClass_Jennifer_TrainFighting() {
+	if (CurrentTime <= 11 * 60 * 60 * 1000) {
+		OverridenIntroText = GetText("TrainFighting");
+		PlayerAddSkill("Fighting", 1);
+		CurrentTime = CurrentTime + 0.5 * 60 * 60 * 1000;
+		C005_GymClass_Jennifer_TrainingReady = false;
+	} else OverridenIntroText = GetText("TrainFightingNoTime");
 }

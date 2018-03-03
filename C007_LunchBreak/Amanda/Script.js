@@ -13,6 +13,7 @@ var C007_LunchBreak_Amanda_IntroText = "";
 var C007_LunchBreak_Amanda_LeaveIcon = "";
 var C007_LunchBreak_Amanda_IsBoundAndGagged = false;
 var C007_LunchBreak_Amanda_ConfirmEvil = false;
+var C007_LunchBreak_Amanda_HasSeduction = false;
 
 // Calculates the screen parameters
 function C007_LunchBreak_Amanda_CalcParams() {
@@ -21,14 +22,14 @@ function C007_LunchBreak_Amanda_CalcParams() {
 	C007_LunchBreak_Amanda_NoOption = ((ActorGetValue(ActorLove) < 5) && (ActorGetValue(ActorSubmission) < 5) && ((ActorGetValue(ActorLove) < 1) || (ActorGetValue(ActorSubmission) > -3)));
 
 	// No special images by default
-	OveridenIntroImage = "";
+	OverridenIntroImage = "";
 	
 	// Between 100 and 200, the image evolves with the number of matches
 	if ((C007_LunchBreak_Amanda_CurrentStage >= 100) && (C007_LunchBreak_Amanda_CurrentStage < 200)) {
 		var Img = "0";
 		if ((C007_LunchBreak_Amanda_MatchCount == 2) || (C007_LunchBreak_Amanda_MatchCount == 3)) Img = "1";
 		if (C007_LunchBreak_Amanda_MatchCount >= 4) Img = "2";
-		OveridenIntroImage = "AmandaPlayerLunch" + Img + ".jpg";
+		OverridenIntroImage = "AmandaPlayerLunch" + Img + ".jpg";
 	}
 
 	// At 330, the player can dominate Amanda with many restrains, the image changes accordingly
@@ -36,13 +37,13 @@ function C007_LunchBreak_Amanda_CalcParams() {
 		var Img = "";
 		if (ActorHasInventory("Rope")) Img = Img + "Rope";
 		if (ActorHasInventory("Cuffs")) Img = Img + "Cuffs";
-		if (ActorHasInventory("Ballgag")) Img = Img + "Ballgag";
+		if (ActorHasInventory("BallGag")) Img = Img + "BallGag";
 		if (ActorHasInventory("TapeGag")) Img = Img + "TapeGag";
-		OveridenIntroImage = "AmandaPlayerIsDommeTouch" + Img + ".jpg";
+		OverridenIntroImage = "AmandaPlayerIsDommeTouch" + Img + ".jpg";
 	}
 
 	// Keep the status of Amanda
-	C007_LunchBreak_Amanda_IsBoundAndGagged = ((ActorHasInventory("Rope") || ActorHasInventory("Cuffs")) && (ActorHasInventory("Ballgag") || ActorHasInventory("TapeGag")));
+	C007_LunchBreak_Amanda_IsBoundAndGagged = ((ActorHasInventory("Rope") || ActorHasInventory("Cuffs")) && (ActorHasInventory("BallGag") || ActorHasInventory("TapeGag")));
 	
 }
 
@@ -53,6 +54,7 @@ function C007_LunchBreak_Amanda_Load() {
 	ActorLoad("Amanda", "ActorSelect");
 	LoadInteractions();
 	C007_LunchBreak_Amanda_CalcParams();
+	C007_LunchBreak_Amanda_HasSeduction = (PlayerGetSkillLevel("Seduction") >= 1);
 	
 	// If Amanda doesn't like the player and isn't subbie enough, she leaves and don't talk
 	if ((ActorGetValue(ActorLove) <= -3) && (ActorGetValue(ActorSubmission) <= 2) && (C007_LunchBreak_Amanda_CurrentStage == 0)) {
@@ -62,7 +64,7 @@ function C007_LunchBreak_Amanda_Load() {
 
 	// If we must put the previous text back
 	if ((C007_LunchBreak_Amanda_IntroText != "") && (C007_LunchBreak_Amanda_CurrentStage > 0)) {
-		OveridenIntroText = C007_LunchBreak_Amanda_IntroText;
+		OverridenIntroText = C007_LunchBreak_Amanda_IntroText;
 		LeaveIcon = C007_LunchBreak_Amanda_LeaveIcon;
 	}
 
@@ -80,7 +82,7 @@ function C007_LunchBreak_Amanda_Click() {
 	ClickInteraction(C007_LunchBreak_Amanda_CurrentStage);
 	var ClickInv = GetClickedInventory();
 	if (ClickInv == "Player") {
-		C007_LunchBreak_Amanda_IntroText = OveridenIntroText;
+		C007_LunchBreak_Amanda_IntroText = OverridenIntroText;
 		C007_LunchBreak_Amanda_LeaveIcon = LeaveIcon;
 		InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
 	}
@@ -88,7 +90,7 @@ function C007_LunchBreak_Amanda_Click() {
 	// When the user wants to use the rope on Amanda - Time and item are consumed
 	if ((C007_LunchBreak_Amanda_CurrentStage >= 300) && (C007_LunchBreak_Amanda_CurrentStage <= 330) && (ClickInv == "Rope") && !ActorHasInventory("Rope") && !ActorHasInventory("Cuffs")) {
 		C007_LunchBreak_Amanda_CurrentStage = 330;
-		OveridenIntroText = GetText("Rope");
+		OverridenIntroText = GetText("Rope");
 		ActorAddInventory("Rope");
 		PlayerRemoveInventory("Rope", 1);
 		CurrentTime = CurrentTime + 60000;
@@ -98,19 +100,19 @@ function C007_LunchBreak_Amanda_Click() {
 	// When the user wants to use cuffs on Amanda - Time and item are consumed
 	if ((C007_LunchBreak_Amanda_CurrentStage >= 300) && (C007_LunchBreak_Amanda_CurrentStage <= 330) && (ClickInv == "Cuffs") && !ActorHasInventory("Rope") && !ActorHasInventory("Cuffs")) {
 		C007_LunchBreak_Amanda_CurrentStage = 330;
-		OveridenIntroText = GetText("Cuffs");
+		OverridenIntroText = GetText("Cuffs");
 		ActorAddInventory("Cuffs");
 		PlayerRemoveInventory("Cuffs", 1);
 		CurrentTime = CurrentTime + 60000;
 	}
 	
-	// When the user wants to use the ballgag on Amanda - Time and item are consumed
-	if ((C007_LunchBreak_Amanda_CurrentStage >= 300) && (C007_LunchBreak_Amanda_CurrentStage <= 330) && (ClickInv == "Ballgag") && !ActorHasInventory("Ballgag")) {
+	// When the user wants to use the BallGag on Amanda - Time and item are consumed
+	if ((C007_LunchBreak_Amanda_CurrentStage >= 300) && (C007_LunchBreak_Amanda_CurrentStage <= 330) && (ClickInv == "BallGag") && !ActorHasInventory("BallGag")) {
 		C007_LunchBreak_Amanda_CurrentStage = 330;
-		OveridenIntroText = GetText("Ballgag");
+		OverridenIntroText = GetText("BallGag");
 		ActorRemoveInventory("TapeGag");
-		ActorAddInventory("Ballgag");
-		PlayerRemoveInventory("Ballgag", 1);
+		ActorAddInventory("BallGag");
+		PlayerRemoveInventory("BallGag", 1);
 		CurrentTime = CurrentTime + 60000;
 		C007_LunchBreak_Amanda_IsGagged = true;
 	}
@@ -118,7 +120,7 @@ function C007_LunchBreak_Amanda_Click() {
 	// When the user wants to use the tape gag on Amanda - Time and item are consumed
 	if ((C007_LunchBreak_Amanda_CurrentStage >= 300) && (C007_LunchBreak_Amanda_CurrentStage <= 330) && (ClickInv == "TapeGag") && !ActorHasInventory("TapeGag")) {
 		C007_LunchBreak_Amanda_CurrentStage = 330;
-		OveridenIntroText = GetText("TapeGag");
+		OverridenIntroText = GetText("TapeGag");
 		C007_LunchBreak_Amanda_Ungag();
 		ActorAddInventory("TapeGag");
 		PlayerRemoveInventory("TapeGag", 1);
@@ -128,7 +130,7 @@ function C007_LunchBreak_Amanda_Click() {
 
 	// When the user wants to use the crop on Amanda
 	if ((C007_LunchBreak_Amanda_CurrentStage >= 300) && (C007_LunchBreak_Amanda_CurrentStage <= 330) && (ClickInv == "Crop")) {
-		OveridenIntroText = GetText("Crop");
+		OverridenIntroText = GetText("Crop");
 		if (!C007_LunchBreak_Amanda_CropDone) {
 			C007_LunchBreak_Amanda_CropDone = true;
 			ActorChangeAttitude(-1, 0);
@@ -138,7 +140,7 @@ function C007_LunchBreak_Amanda_Click() {
 	
 	// When the user wants to use the egg on Amanda (Amanda isn't affected by the egg but can still have one)
 	if ((C007_LunchBreak_Amanda_CurrentStage >= 300) && (C007_LunchBreak_Amanda_CurrentStage <= 330) && (ClickInv == "VibratingEgg") && !ActorHasInventory("VibratingEgg")) {
-		OveridenIntroText = GetText("VibratingEgg");
+		OverridenIntroText = GetText("VibratingEgg");
 		ActorChangeAttitude(-1, 1);
 		ActorAddInventory("VibratingEgg");
 		PlayerRemoveInventory("VibratingEgg", 1);
@@ -147,7 +149,7 @@ function C007_LunchBreak_Amanda_Click() {
 
 	// When the user wants to use the cuffs keys
 	if ((C007_LunchBreak_Amanda_CurrentStage >= 300) && (C007_LunchBreak_Amanda_CurrentStage <= 330) && (ClickInv == "CuffsKey") && ActorHasInventory("Cuffs")) {
-		OveridenIntroText = GetText("Uncuff");
+		OverridenIntroText = GetText("Uncuff");
 		ActorRemoveInventory("Cuffs");
 		PlayerAddInventory("Cuffs", 1);
 		CurrentTime = CurrentTime + 60000;
@@ -155,15 +157,15 @@ function C007_LunchBreak_Amanda_Click() {
 
 	// When the user wants to use the collar (+20 submission and a ceremony is required)
 	if ((C007_LunchBreak_Amanda_CurrentStage >= 300) && (C007_LunchBreak_Amanda_CurrentStage <= 330) && (ClickInv == "Collar") && !ActorHasInventory("Collar"))
-		OveridenIntroText = GetText("Collar");
+		OverridenIntroText = GetText("Collar");
 
 	// When the user wants to use a bondage item in the love scenes
-	if ((C007_LunchBreak_Amanda_CurrentStage >= 200) && (C007_LunchBreak_Amanda_CurrentStage < 300) && ((ClickInv == "Collar") || (ClickInv == "Cuffs") || (ClickInv == "VibratingEgg") || (ClickInv == "Crop") || (ClickInv == "TapeGag") || (ClickInv == "Ballgag") || (ClickInv == "Cuffs") || (ClickInv == "Rope")))
-		OveridenIntroText = GetText("LoveNoItem");
+	if ((C007_LunchBreak_Amanda_CurrentStage >= 200) && (C007_LunchBreak_Amanda_CurrentStage < 300) && ((ClickInv == "Collar") || (ClickInv == "Cuffs") || (ClickInv == "VibratingEgg") || (ClickInv == "Crop") || (ClickInv == "TapeGag") || (ClickInv == "BallGag") || (ClickInv == "Cuffs") || (ClickInv == "Rope")))
+		OverridenIntroText = GetText("LoveNoItem");
 
 	// When the user wants to use a bondage item when subbie
-	if ((C007_LunchBreak_Amanda_CurrentStage >= 400) && (C007_LunchBreak_Amanda_CurrentStage < 440) && ((ClickInv == "Collar") || (ClickInv == "Cuffs") || (ClickInv == "VibratingEgg") || (ClickInv == "Crop") || (ClickInv == "TapeGag") || (ClickInv == "Ballgag") || (ClickInv == "Cuffs") || (ClickInv == "Rope")))
-		OveridenIntroText = GetText("SubbieNoItem");
+	if ((C007_LunchBreak_Amanda_CurrentStage >= 400) && (C007_LunchBreak_Amanda_CurrentStage < 440) && ((ClickInv == "Collar") || (ClickInv == "Cuffs") || (ClickInv == "VibratingEgg") || (ClickInv == "Crop") || (ClickInv == "TapeGag") || (ClickInv == "BallGag") || (ClickInv == "Cuffs") || (ClickInv == "Rope")))
+		OverridenIntroText = GetText("SubbieNoItem");
 	
 	// Recalculates the scene parameters
 	C007_LunchBreak_Amanda_CalcParams();
@@ -212,7 +214,7 @@ function C007_LunchBreak_Amanda_TestMatch() {
 	if ((ActorGetValue(ActorLove) >= 1) && (ActorGetValue(ActorSubmission) <= -3) && (C007_LunchBreak_Amanda_MatchCount >= 4)) C007_LunchBreak_Amanda_CurrentStage = 400; // Player is subbie mode
 	if (C007_LunchBreak_Amanda_CurrentStage == -1) SetScene(CurrentChapter, "Outro"); // No mode, we end the chapter
 	else C007_LunchBreak_ActorSelect_BonusDone = true; // With a mode, we flag the bonus scene
-	OveridenIntroImage = "";
+	OverridenIntroImage = "";
 }
 
 // Chapter 7 - Amanda Tickle
@@ -228,14 +230,14 @@ function C007_LunchBreak_Amanda_Masturbate() {
 	
 	// The count goes up, after 3 times she can have an orgasm but only if she's bound and gagged
 	C007_LunchBreak_Amanda_MasturbateCount++;
-	if ((ActorHasInventory("Rope") || ActorHasInventory("Cuffs")) && (ActorHasInventory("Ballgag") || ActorHasInventory("TapeGag"))) {
+	if ((ActorHasInventory("Rope") || ActorHasInventory("Cuffs")) && (ActorHasInventory("BallGag") || ActorHasInventory("TapeGag"))) {
 		if ((C007_LunchBreak_Amanda_MasturbateCount >= 3) && !C007_LunchBreak_Amanda_OrgasmDone) {
-			OveridenIntroText = GetText("Orgasm");
+			OverridenIntroText = GetText("Orgasm");
 			ActorAddOrgasm();
 			ActorChangeAttitude(1, 1);
 			C007_LunchBreak_Amanda_OrgasmDone = true;
 		} else {
-			OveridenIntroText = GetText("Masturbate");
+			OverridenIntroText = GetText("Masturbate");
 		}
 	}
 	
@@ -251,9 +253,9 @@ function C007_LunchBreak_Amanda_Untie() {
 // Chapter 7 - Amanda Ungag
 function C007_LunchBreak_Amanda_Ungag() {
 	ActorRemoveInventory("TapeGag");
-	if (ActorHasInventory("Ballgag")) {
-		ActorRemoveInventory("Ballgag");
-		PlayerAddInventory("Ballgag", 1);
+	if (ActorHasInventory("BallGag")) {
+		ActorRemoveInventory("BallGag");
+		PlayerAddInventory("BallGag", 1);
 	}
 	C007_LunchBreak_Amanda_IsGagged = false;
 }
@@ -261,7 +263,7 @@ function C007_LunchBreak_Amanda_Ungag() {
 // Chapter 7 - Amanda Test Make Love (Amanda will only make love if +8 or more)
 function C007_LunchBreak_Amanda_TestMakeLove() {
 	if (ActorGetValue(ActorLove) >= 8) {
-		OveridenIntroText = GetText("LoveStart");
+		OverridenIntroText = GetText("LoveStart");
 		C007_LunchBreak_Amanda_CurrentStage = 240;
 	} else {
 		C007_LunchBreak_Amanda_MakeLoveReady = false;
@@ -273,9 +275,10 @@ function C007_LunchBreak_Amanda_TestMakeLove() {
 function C007_LunchBreak_Amanda_LoveMasturbate() {
 	C007_LunchBreak_Amanda_MasturbateCount++;
 	if (C007_LunchBreak_Amanda_MasturbateCount >= 3) {
-		OveridenIntroText = GetText("LoveMasturbate");
+		OverridenIntroText = GetText("LoveMasturbate");
 		ActorAddOrgasm();
 		ActorChangeAttitude(1, 0);
+		PlayerAddSkill("Seduction", 1);
 		C007_LunchBreak_Amanda_CurrentStage = 250;
 	}
 }
@@ -284,7 +287,7 @@ function C007_LunchBreak_Amanda_LoveMasturbate() {
 function C007_LunchBreak_Amanda_SubbieMasturbate() {
 	C007_LunchBreak_Amanda_MasturbateCount++;
 	if (C007_LunchBreak_Amanda_MasturbateCount >= 3) {
-		OveridenIntroText = GetText("SubbieMasturbate");
+		OverridenIntroText = GetText("SubbieMasturbate");
 		ActorAddOrgasm();
 		ActorChangeAttitude(1, 0);
 		C007_LunchBreak_Amanda_CurrentStage = 470;
@@ -311,12 +314,12 @@ function C007_LunchBreak_Amanda_SubbieRope() {
 
 // Chapter 7 - Amanda - Player Subbie Gag
 function C007_LunchBreak_Amanda_SubbieGag() {
-	PlayerLockInventory("Ballgag");
+	PlayerLockInventory("BallGag");
 }
 
 // Chapter 7 - Amanda - Player Subbie Ungag
 function C007_LunchBreak_Amanda_SubbieUngag() {
-	PlayerUnlockInventory("Ballgag");
+	PlayerUnlockInventory("BallGag");
 }
 
 // Chapter 7 - Amanda - Player Release
@@ -338,7 +341,7 @@ function C007_LunchBreak_Amanda_EvilEnd() {
 		ActorChangeAttitude(-5, 1);
 		SetScene(CurrentChapter, "Outro");		
 	} else {
-		OveridenIntroText = GetText("LeaveBoundAndGagged");
+		OverridenIntroText = GetText("LeaveBoundAndGagged");
 		C007_LunchBreak_Amanda_ConfirmEvil = true;
 	}
 }

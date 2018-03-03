@@ -77,6 +77,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 200,0,0,,We still have time|before the bell?,(She giggles.)  Time for what?,210,0,0,
 200,0,0,,Thanks for showing|me this lovely cafe.,My pleasure!  We had a good time.,210,1,-1,
 200,0,0,,I wanted you to know|that I had a great time.,I did too!  We seem to fit well together.,210,1,0,
+200,0,0,HasSeduction,"Amy, you're the sweetest|thing in this college.",(She blushes red and giggles.)|You're also sweet COMMON_PLAYERNAME.,210,2,0,
 200,0,0,,Can I kiss you?|(1 minute),(She nods and puts her lips against yours.),220,1,0,
 200,0,0,,(Stay silent and kiss her.)|(1 minute),,220,0,1,
 200,0,0,,Better not be late.|(Back to college.),,0,0,0,EndBonus()

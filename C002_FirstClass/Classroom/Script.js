@@ -11,7 +11,7 @@ var C002_FirstClass_Classroom_MildredSubdueFailed = false;
 // Calculate the current stage depending on what the actor is wearing
 function C002_FirstClass_Classroom_CalcStage() {
 	var NewStage = 100;
-	if (ActorHasInventory("Ballgag")) NewStage = NewStage + 10;
+	if (ActorHasInventory("BallGag")) NewStage = NewStage + 10;
 	if (ActorHasInventory("Cuffs")) NewStage = NewStage + 20;
 	if (ActorHasInventory("Rope")) NewStage = NewStage + 40;
 	return NewStage;
@@ -23,6 +23,9 @@ function C002_FirstClass_Classroom_Load() {
 	// Set the classroom timer limits at 8:30 or 9:00
 	if (C002_FirstClass_Classroom_Sarah == "SarahEmpty") StartTimer(8.5 * 60 * 60 * 1000, "C002_FirstClass", "SarahIntro");
 	else StartTimer(9 * 60 * 60 * 1000, "C002_FirstClass", "Outro");
+	
+	// Self bondage is only allowed if Mildred was subdued
+	Common_SelfBondageAllowed = C002_FirstClass_Classroom_MildredSubdueSuccess;
 	
 	// Get the image file for each girls
 	C002_FirstClass_Classroom_Sidney = ActorSpecificGetImage("Sidney");

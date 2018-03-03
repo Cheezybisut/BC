@@ -12,13 +12,14 @@ function C002_FirstClass_Intro_Run() {
 	// Paints the background
 	var ctx = document.getElementById("MainCanvas").getContext("2d");
 	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
+	DrawPlayerTransition(ctx);
 
 	// Write the chapter introduction
-	DrawText(ctx, GetText("Intro1"), 600, 100, "White");
-	if (TextPhase >= 1) DrawText(ctx, GetText("Intro2"), 600, 200, "White");
-	if (TextPhase >= 2) DrawText(ctx, GetText("Intro3"), 600, 300, "White");
-	if (TextPhase >= 3) DrawText(ctx, GetText("Intro4"), 600, 400, "White");
-	if (TextPhase >= 4) DrawText(ctx, GetText("Intro5"), 600, 500, "White");
+	DrawText(ctx, GetText("Intro1"), 450, 100, "White");
+	if (TextPhase >= 1) DrawText(ctx, GetText("Intro2"), 450, 200, "White");
+	if (TextPhase >= 2) DrawText(ctx, GetText("Intro3"), 450, 300, "White");
+	if (TextPhase >= 3) DrawText(ctx, GetText("Intro4"), 450, 400, "White");
+	if (TextPhase >= 4) DrawText(ctx, GetText("Intro5"), 450, 500, "White");
 
 }
 

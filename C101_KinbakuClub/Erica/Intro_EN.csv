@@ -1,0 +1,41 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,Hello. You must be the new girl.|I'm Erica and these are today's slaves.,Erica.jpg
+10,0,0,,Can I interest you in a slave?|I only trade the finest specimens.,Erica.jpg
+20,0,0,,"It's kind of hard for them to ask when they|have already been kidnapped, bound and gagged.",Erica.jpg
+25,0,0,,Kidnapping and Slavery are|active parts of this club.,Erica.jpg
+30,0,0,,So are you interest in slaves.,Erica.jpg
+40,0,0,,Have you considered getting|into slavery by kidnapping?,Erica.jpg
+50,0,0,,You should try kidnapping.,Erica.jpg
+60,0,0,,,Erica.jpg
+90,0,0,,Come back when you ready to wear this.,EricaSlaver.jpg
+100,0,0,First,"What's this, has another helpless damsel|strayed into the slavers domain?",EricaSlaver.jpg
+100,0,0,Again,Looks whose back. Are you|ready to become my slave now?,EricaSlaver.jpg
+110,0,0,,Just kidnapping a helpless damsel.|(Erica removes your blindfold.),EricaPlayerCollared.jpg
+111,0,0,,"Sorry cutie, your a just my slave now.|(Erica removes your blindfold.)",EricaPlayerCollared.jpg
+112,0,0,,You'll make a cute slave.|(Erica removes your blindfold.),EricaPlayerCollared.jpg
+150,0,0,,"Nice try, but you picked the wrong fight too loose.|You're my slave now.",EricaKidnapper.jpg
+160,0,0,,,EricaPlayerFloored.jpg
+165,0,0,,,EricaPlayerFloored.jpg
+170,0,0,,,EricaPlayerCaptured.jpg
+180,0,0,,,EricaPlayerLegsTied.jpg
+200,0,0,PlayerClothGag,,EricaPlayerSlaveCloth.jpg
+200,0,0,PlayerBallGag,,EricaPlayerSlaveBall.jpg
+210,0,0,,,EricaPlayerKneelingCloth.jpg
+220,0,0,,,EricaPleasure.jpg
+230,0,0,,,EricaPlayerKneelingRing.jpg
+240,0,0,PlayerNotGagged,,EricaPlayerKneeling.jpg
+240,0,0,PlayerRingGag,,EricaPlayerKneelingRing.jpg
+250,0,0,PlayerNotGagged,,EricaPlayerKneeling.jpg
+250,0,0,PlayerRingGag,,EricaPlayerKneelingRing.jpg
+260,0,0,,,EricaPlayerKneelingBall.jpg
+270,0,0,,,EricaPlayerSlaveBall.jpg
+280,0,0,,,EricaFedUp.jpg
+290,0,0,,I though I told you to go away.,EricaFedUp.jpg
+300,0,0,,"(You have Erica at your mercy,|but she still struggles to escape your grip.)",EricaCaptured.jpg
+310,0,0,,(What will you do to her now?),Background.jpg
+315,0,0,,,Background.jpg
+320,0,0,,,Slaves.jpg
+325,0,0,,"(Erica is helpless, but there is not|much you can do about that now.)",Background.jpg
+330,0,0,,,SlaveDancerGagged.jpg
+340,0,0,,,SlaveHood.jpg
+350,0,0,,"(Erica watches at you nervously.  She won't|trouble you any more, but is best left alone for now.)",EricaNervious.jpg

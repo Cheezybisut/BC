@@ -42,14 +42,14 @@ function C006_Isolation_Mildred_AddRope() {
 
 // Chapter 6 - Mildred Add Gag
 function C006_Isolation_Mildred_AddGag() {
-	PlayerLockInventory("Ballgag");
+	PlayerLockInventory("BallGag");
 }
 
 // Chapter 6 - Mildred Release
 function C006_Isolation_Mildred_Release() {
 	PlayerUnlockInventory("Collar");
 	PlayerUnlockInventory("Rope");
-	PlayerUnlockInventory("Ballgag");
+	PlayerUnlockInventory("BallGag");
 }
 
 // Chapter 6 - Mildred Leave Isolation
@@ -66,13 +66,13 @@ function C006_Isolation_Mildred_AllowLeave() {
 // Chapter 6 - Mildred, if she doesn't like the player, she crops
 function C006_Isolation_Mildred_CheckForCrop() {	
 	if (ActorGetValue(ActorLove) <= -3) {
-		OveridenIntroText = GetText("CropStartHate");
+		OverridenIntroText = GetText("CropStartHate");
 		C006_Isolation_Mildred_CurrentStage = 300;
 		C006_Isolation_Mildred_CropMaxCount = ActorGetValue(ActorLove) * -2;
 		if (C006_Isolation_Mildred_CropMaxCount > 12) C006_Isolation_Mildred_CropMaxCount = 12;
 	} else {
 		if (ActorGetValue(ActorSubmission) <= -3) {
-			OveridenIntroText = GetText("CropStartSub");
+			OverridenIntroText = GetText("CropStartSub");
 			C006_Isolation_Mildred_CurrentStage = 300;
 			C006_Isolation_Mildred_CropMaxCount = ActorGetValue(ActorSubmission) * -2;
 			if (C006_Isolation_Mildred_CropMaxCount > 12) C006_Isolation_Mildred_CropMaxCount = 12;
@@ -89,13 +89,13 @@ function C006_Isolation_Mildred_DoCrop() {
 		// The text is random and the image rotates
 		C006_Isolation_Mildred_CropCount++;
 		var P = Math.floor(Math.random() * 6);
-		OveridenIntroText = GetText("Count" + C006_Isolation_Mildred_CropCount) + " !  " + GetText("CropEvent" + P.toString());
-		OveridenIntroImage = "MildredPlayerHorseCrop" + (C006_Isolation_Mildred_CropCount % 3).toString() + ".jpg";
+		OverridenIntroText = GetText("Count" + C006_Isolation_Mildred_CropCount) + " !  " + GetText("CropEvent" + P.toString());
+		OverridenIntroImage = "MildredPlayerHorseCrop" + (C006_Isolation_Mildred_CropCount % 3).toString() + ".jpg";
 		
 	} else {
-		OveridenIntroText = GetText("CropStop");
+		OverridenIntroText = GetText("CropStop");
 		C006_Isolation_Mildred_CurrentStage = 330;
-		OveridenIntroImage = "";
+		OverridenIntroImage = "";
 	}
 	
 }

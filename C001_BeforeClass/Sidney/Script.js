@@ -34,7 +34,7 @@ function C001_BeforeClass_Sidney_Click() {
 	if ((C001_BeforeClass_Sidney_CurrentStage < 200) && (GetClickedInventory() == "Rope")) {
 		C001_BeforeClass_Sidney_BackupStage = C001_BeforeClass_Sidney_CurrentStage;
 		C001_BeforeClass_Sidney_CurrentStage = 200;
-		OveridenIntroText = GetText("MyRopes");
+		OverridenIntroText = GetText("MyRopes");
 	}
 	
 }
@@ -60,7 +60,7 @@ function C001_BeforeClass_Sidney_Tie() {
 	PlayerRemoveInventory("Rope", 1);
 	if (C001_BeforeClass_Sidney_BondageFlag == false) {
 		ActorChangeAttitude(-1, 0);
-		OveridenIntroText = GetText("Bondage");
+		OverridenIntroText = GetText("Bondage");
 		C001_BeforeClass_Sidney_BondageFlag = true;
 	}	
 }
@@ -69,7 +69,7 @@ function C001_BeforeClass_Sidney_Tie() {
 function C001_BeforeClass_Sidney_Tickle() {
 	if (C001_BeforeClass_Sidney_TickleDone == false) {
 		ActorChangeAttitude(-1, 0);
-		OveridenIntroText = GetText("Tickle");
+		OverridenIntroText = GetText("Tickle");
 		C001_BeforeClass_Sidney_TickleDone = true;
 	}
 }
@@ -96,6 +96,6 @@ function C001_BeforeClass_Sidney_PantiesRemark() {
 	if (C001_BeforeClass_Sidney_PantiesRemark_Done == false) {
 		C001_BeforeClass_Sidney_PantiesRemark_Done = true;
 		ActorChangeAttitude(0, 1);
-		OveridenIntroText = GetText("Panties");
+		OverridenIntroText = GetText("Panties");
 	}
 }

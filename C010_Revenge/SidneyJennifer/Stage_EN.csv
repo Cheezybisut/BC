@@ -1,0 +1,161 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,SidneyVictim,What are you|talking about?,Don't play the fool!  You left me|bound and gagged by the wall.,10,-1,0,
+0,0,0,!SidneyVictim,What are you|talking about?,Don't play the fool!  You left her|bound and gagged on the tennis court.,10,-1,0,
+0,0,0,SidneyVictim,Admit it girl.|You enjoyed it.,Fuck no!  You need to pay for that.,20,-1,1,
+0,0,0,!SidneyVictim,She enjoyed it.,(Jennifer tries to speak but is interrupted.)|She came to me crying!  You need to pay for that.,20,-1,0,
+0,0,0,SidneyVictim,I guess it|wasn't cool.,Wasn't cool?  You bitch!|You need to pay for that.,20,0,0,
+0,0,0,!SidneyVictim,I guess it|wasn't cool.,(Jennifer tries to speak but is interrupted.)|She came to me crying!  You need to pay for that.,20,0,0,
+0,0,0,,I'm sorry.,Being sorry isn't enough.|You need to pay for that.,20,1,-1,
+10,0,0,SidneyVictim,Admit it girl.|You enjoyed it.,Fuck no!  You need to pay for that.,20,-1,1,
+10,0,0,!SidneyVictim,She enjoyed it.,(Jennifer tries to speak but is interrupted.)|She came to me crying!  You need to pay for that.,20,-1,0,
+10,0,0,SidneyVictim,I guess it|wasn't cool.,Wasn't cool?  You bitch!|You need to pay for that.,20,0,0,
+10,0,0,!SidneyVictim,I guess it|wasn't cool.,(Jennifer tries to speak but is interrupted.)|She came to me crying!  You need to pay for that.,20,0,0,
+10,0,0,SidneyVictim,You deserved it|stupid bitch.,That's it!  I will break all of your bones.,90,-1,1,ProvokePose()
+10,0,0,!SidneyVictim,Why do you|protect her?,(Jennifer tries to speak but is interrupted.)|I do what I want.  And you need to pay for that.,20,1,0,
+10,0,0,,I'm sorry.,Being sorry isn't enough.|You need to pay for that.,20,1,-1,
+20,0,0,,So you two are|looking for revenge?,Exactly!  I'll make you my bitch.,30,1,0,
+20,0,0,,Move away punk.|This isn't funny.,Fuck yes it's funny.|I'll make you my bitch.,30,-1,1,
+20,0,0,,Please Miss Sidney.|I don't want trouble.,"Too late, you found trouble.|I'll make you my bitch.",30,0,-1,
+20,0,0,,Pay you?|How much?,"It's not about money, it's about|revenge.  I'll make you my bitch.",30,0,0,
+20,0,0,,Forget it girl.|I'm not paying.,"It's not about money, it's about|revenge.  I'll make you my bitch.",30,0,1,
+30,5,0,,"My friend, maybe|we can negotiate.",Negotiate?  What do you offer?,31,0,0,
+30,0,0,,You're the bitch.,Shut up bitch!  Now come outside|with us and don't cause any trouble.,40,-1,0,
+30,0,0,,What are you|two planning?,You'll see soon.  Now come outside|with us and don't cause any trouble.,40,0,0,
+30,0,0,,Forget it girl.|I won't be your bitch.,I'm not asking you.  Now come outside|with us and don't cause any trouble.,40,0,1,
+30,0,0,,Look!  I'm sorry ok?|What do you want?,It's too late for that.  Now come outside|with us and don't cause any trouble.,40,0,-1,
+30,0,0,,Get out of|my way pig.,That's it!  I will break all of your bones.,90,-1,1,ProvokePose()
+31,0,0,CanBribe,How about some items?|(Offer half of your items.),We have a deal!  You're on your own Jennifer.|(Sidney picks some items in your bag and leaves.),32,1,0,Bribe()
+31,0,0,,How about a kiss?,Are you stupid?  Now come outside|with us and don't cause any trouble.,40,-1,0,
+31,0,0,,I'll buy you dinner.,"Tempting, but it's not enough.  Now come|outside with us and don't cause any trouble.",40,1,0,
+31,0,0,,Forget it.,Stop wasting time.  Now come outside|with us and don't cause any trouble.,40,0,0,
+32,0,0,,Take it easy Jen.,(She calms down and looks around.)|Well it seems that we are alone.,33,1,0,"CalmDown(""Jennifer"")"
+32,0,0,,Calm down girl.,(She calms down and looks around.)|Well it seems that we are alone.,33,0,1,"CalmDown(""Jennifer"")"
+32,0,0,,Run Jennifer.|(Let her go.),,33,1,0,"EarlyEnding(""Bribe"")"
+33,0,0,,Girl.  Confess|your plan now.,"Well...  (She blushes red.)  Sidney|wanted to tie you up like a ""bitch"".",34,0,1,
+33,0,0,,So what did you|planned for me?,"Well...  (She blushes red.)  Sidney|wanted to tie you up like a ""bitch"".",34,0,0,
+33,0,0,,Run Jennifer.|(Let her go.),,34,1,0,"EarlyEnding(""Bribe"")"
+34,0,0,,Like a bitch?|What is that?,It's to fold and rope your arms and legs.|Forcing you to walk on your elbows and knees.,35,0,0,
+34,0,0,,So tied on|all fours?,"Yes, you fold and rope the arms and legs.|Forcing you to walk on your elbows and knees.",35,0,0,
+34,0,0,,Run Jennifer.|(Let her go.),,35,1,0,"EarlyEnding(""Bribe"")"
+35,0,0,,Give me your|ropes then.,Oh!  Well of course.|(She gives your her ropes.),36,0,0,GetTwoRopes()
+35,0,0,,You'll be my bitch.|Give me your ropes.,Gosh!  Of course Miss.|(She gives your her ropes.),36,-1,1,GetTwoRopes()
+35,0,0,,Run Jennifer.|(Let her go.),,36,1,0,"EarlyEnding(""Bribe"")"
+36,0,0,,Strip girl.,(She looks down and shakes her head no.)|(You need +5 submission to make her strip.),36,0,0,JenniferTestStrip()
+36,0,0,,Get naked Jennifer.,(She looks down and shakes her head no.)|(You need +5 submission to make her strip.),36,0,0,JenniferTestStrip()
+36,0,0,,Run Jennifer.|(Let her go.),,37,1,0,"EarlyEnding(""Bribe"")"
+37,0,0,,Payback bitch!|(Tie her up.),(She whimpers silently while you fold and|tie her arms and legs.  Forcing her on all fours.),38,-1,1,JenniferDog()
+37,0,0,,It won't hurt.|(Tie her up.),(She whimpers silently while you fold and|tie her arms and legs.  Forcing her on all fours.),38,1,0,JenniferDog()
+37,0,0,,Run Jennifer.|(Let her go.),,38,1,0,"EarlyEnding(""Bribe"")"
+38,0,0,,What a cute dog.,(She looks at the floor and whimpers.),38,0,0,JenniferCute()
+38,0,0,,Walk around.,(She clumsily walks in the hallway.|She doesn't enjoy the humiliation.),38,0,0,JenniferCrawl()
+38,0,0,!IsGagged,Bark for me.,(She blushes and barks.)|Woof!  Woof!  Woof!,38,0,0,JenniferBark()
+38,0,0,IsGagged,(Ungag her.),(You remove the gag while she whispers you.)|Thank you Miss COMMON_PLAYERNAME.,38,0,0,Ungag()
+38,0,0,,(Masturbate her.),(You barely slide a finger under her metal|undies but you're not able to masturbate her.),38,0,0,MasturbateJennifer()
+38,0,0,,I'll release you.|(Untie her.),(You untie her and she stands up.)|That was humiliating.  Can I go now?,39,1,0,Untie()
+38,0,0,,Have fun bitch.|(Leave her stranded.),,39,-2,1,"EarlyEnding(""JenniferDog"")"
+39,0,0,,You were pretty in ropes.|(Let her dress and go.),,39,1,0,"EarlyEnding(""JenniferDog"")"
+39,0,0,,Remember who's boss.|(Let her dress and go.),,39,0,1,"EarlyEnding(""JenniferDog"")"
+40,0,0,,Fine!  Let's go.|(Go outside.),(You all walk outside to the running track.)|(Jennifer finally steps forward to you.),100,0,0,GoOutside()
+40,0,0,,Yes Miss.|(Go outside.),(You all walk outside to the running track.)|(Jennifer finally steps forward to you.),100,0,-1,GoOutside()
+40,0,0,AllowFight,Fuck you pig!|I'm not going out.,That's it!  I will break all of your bones.,90,-1,1,ProvokePose()
+90,0,0,AllowFight,You want to fight?|Then let's fight.,,90,0,0,StartFight()
+90,0,0,,Don't hurt me!|I surrender.,You're a pathetic loser.  Now come outside.|(Jennifer opens the door and Sidney pushes you out.),100,0,-1,GoOutside()
+100,0,0,,Where are we?,"At the running track, this is|where you... well... get punished.",110,0,0,
+100,0,0,,"Girl, you better have a|good reason to go out.",Sidney and I picked the running|track for... well... your punishment.,110,0,1,
+100,0,0,,Why go outside?,Sidney and I picked the running|track for... well... your punishment.,110,0,0,
+100,0,0,,"Please, can we|go back inside?",No.  Sidney and I picked the running|track for... well... your punishment.,110,0,-1,
+110,0,0,,What punishment?,You're going to do a lap around the track.,120,0,0,
+110,0,0,,"Jen, don't you think|this is going too far?","Don't worry, it will be over pretty soon.|All you need to do is a lap around the track.",120,1,0,
+110,0,0,,(Bow your head)|I guess this is fair.,It's fair and it will be over pretty soon.|All you need to do is a lap around the track.,120,1,-1,
+110,0,0,,Fuck you and|your punishment.,(She frowns at you.)  It will be over soon.|All you need to do is a lap around the track.,120,-1,1,
+120,0,0,,That's it?  One lap?|Who had this stupid idea?,There's a catch though.|You need to do it naked.,130,-1,0,
+120,0,0,,One lap?  That's a|poor punishment.,There's a catch though.|You need to do it naked.,130,0,1,
+120,0,0,,Easy enough.,It's not that easy.|You need to do it naked.,130,0,0,
+130,0,0,,Naked?  I can't|strip outside.,Please don't make a scene.|I don't want to force you.,150,0,0,
+130,0,0,,I bet you're much|cuter naked than me.,(She blushes.)  Please get naked.|I don't want to force you.,150,1,1,
+130,0,0,,Fuck no!  I'm|not stripping.,Please don't make a scene.|I don't want to force you.,150,-1,1,
+130,10,0,,"Jen, we are good|friends aren't we?",Friends?  I don't have any fr...|I mean...  I guess we are.,131,0,0,
+130,0,0,,Fine!  Do it quick.|(Strip naked.),"(You strip naked on the running track.)|Very good, all you have to do is one lap.",160,0,0,PlayerStrip()
+130,0,0,,Yes Miss Jennifer.|(Strip naked.),"(You strip naked on the running track.)|Very good, all you have to do is one lap.",160,0,-1,PlayerStrip()
+131,0,0,,"Yes, and friends needs|to protect each other.",That's...  That's very true.|I'm not a good friend I guess.,132,1,0,
+131,0,0,,Our friendship|is over Jennifer.,"I'm sorry, please get naked.|I don't want to force you.",150,-2,0,
+132,0,0,,"It's fine, go back to|school my friend.","Yes!  I'm so sorry Sidney, I need to go.|(Sidney steps forward with an angry look.)",133,0,0,JenniferLeave()
+132,0,0,,Our friendship|is over Jennifer.,"I'm sorry, please get naked.|I don't want to force you.",150,-2,0,
+133,0,0,,Take it easy Sidney.,"Mmmmh, fine, fuck Jennifer anyway.|(She calms down and lowers her fists.)",134,1,0,"CalmDown(""Sidney"")"
+133,0,0,,Calm down girl.,"Mmmmh, fine, fuck Jennifer anyway.|(She calms down and lowers her fists.)",134,0,1,"CalmDown(""Sidney"")"
+133,0,0,,Get lost Sidney.|(Let her go.),,134,0,0,"EarlyEnding(""JenniferFriend"")"
+134,0,0,,So you wanted to|humiliate me outside?,That shitty plan is over.|Can we forget all of this?,135,0,0,
+134,0,0,,You're not so tough|when you're alone.,Look COMMON_PLAYERNAME.|Can we forget all of this?,135,0,1,
+134,0,0,,Get lost Sidney.|(Let her go.),,135,0,0,"EarlyEnding(""JenniferFriend"")"
+135,0,5,,Strip Bitch.  I'm|not done with you.,Fucky you COMMON_PLAYERNAME!|(You need +5 submission to force her to strip.),135,-1,1,SidneyUnderwear()
+135,0,0,,It won't be that easy.|Remove your clothes.,Fucky you COMMON_PLAYERNAME!|(You need +5 submission to force her to strip.),135,0,0,SidneyUnderwear()
+135,0,0,,"Fine, get lost.|(Let her go.)",,136,0,0,"EarlyEnding(""JenniferFriend"")"
+136,0,0,,Remove your undies.,You're a pervert COMMON_PLAYERNAME.|(She strips and puts all of her clothes in a bag.),137,0,0,SidneyNaked()
+136,0,0,,You're cute Sidney.|Show more curves.,"Mmmh, thanks, I guess you're not too bad.|(She strips and puts all of her clothes in a bag.)",137,1,0,SidneyNaked()
+136,0,0,,Show more skin fatty.,Remember these words: someday you will pay.|(She strips and puts all of her clothes in a bag.),137,-1,0,SidneyNaked()
+136,0,0,,That's enough.|(Let her go.),,137,0,0,"EarlyEnding(""JenniferFriend"")"
+137,0,0,,What's in that bag?,It's none of your business.,137,0,0,
+137,0,0,,(Search her bag.),"(While searching in her bag you find some clothes,|two ropes, some tape and plastic pig ears and tail.)",138,0,0,SearchSidneyBag()
+137,0,0,,That's enough.|(Let her go.),,138,0,0,"EarlyEnding(""JenniferFriend"")"
+138,0,0,,That's a pig|costume?,"Fuck no!  Well, yes, I guess.|But it's for S... someone else.",139,0,0,
+138,0,0,,Do you do|piggy cosplay?,Piggy cosplay?  Are you insane?|This is for S... someone else.,139,-1,0,
+138,0,0,,That's enough.|(Let her go.),,139,0,0,"EarlyEnding(""JenniferFriend"")"
+139,0,0,,It's for you piggy.|Wear it now.,Don't ever call me...  Fuck this.|(She puts the costume on reluctantly.),140,-1,1,SidneyPig()
+139,0,0,,Let's see that costume.|Put it on Sidney.,"Damn, you can't be fucking serious.|(She puts the costume on reluctantly.)",140,0,0,SidneyPig()
+139,0,0,,That's enough.|(Let her go.),,140,0,0,"EarlyEnding(""JenniferFriend"")"
+140,0,0,,It's not that bad.|You look kind of cute.,"(She blushes slightly.)  Thanks, I guess.|So that's enough?  You had your fun?",141,1,0,
+140,0,0,,(Try not to laugh.),(She rolls her eyes up to the sky.)|That's enough?  You had your fun?,141,0,0,
+140,0,0,,Ha!  You were|born to be a pig.,Fuck you COMMON_PLAYERNAME!|So that's enough?  You had your fun?,141,-1,0,
+140,0,0,,That's enough.|(Let her go.),,141,0,0,"EarlyEnding(""JenniferFriend"")"
+141,0,0,,The fun has only begun.|(Tie her up as a pig.),(You grab her arms and rope them and do the|same with her legs.  Forcing her on all fours.),142,0,0,SidneyRope()
+141,0,0,,Give me your hands girl.|(Tie her up as a pig.),(You grab her arms and rope them and do the|same with her legs.  Forcing her on all fours.),142,0,1,SidneyRope()
+141,0,0,,That's enough.|(Let her go.),,142,0,0,"EarlyEnding(""JenniferFriend"")"
+142,0,0,,What a cute|little piggy.,(She grumbles and stares at you.),142,0,0,SidneyCute()
+142,0,0,,Walk around.,(She clumsily walks on the track.|Fuming with rage and humiliated.),142,0,0,SidneyWalk()
+142,0,0,!IsGagged,"Sidney, say|""Soooowee"".",(She gives you an angry look.)|Go to hell COMMON_PLAYERNAME.,142,0,0,SidneyPigTalk()
+142,0,0,IsGagged,(Ungag her.),(You remove the gag from her mouth.)|Fuck you and fuck that gag.,142,0,0,Ungag()
+142,0,0,,(Masturbate her.),(You barely slide a finger under her metal|undies but you're not able to masturbate her.),142,0,0,MasturbateSidney()
+142,0,0,,I'll release you.|(Untie her.),(You untie her and she ditches the pig costume.)|Someday you'll pay for that.  Can I go now?,143,1,0,Untie()
+142,0,0,,Have fun bitch.|(Leave her stranded.),,143,-2,1,"EarlyEnding(""SidneyPig"")"
+143,0,0,,You were pretty in ropes.|(Let her dress and go.),,143,1,0,"EarlyEnding(""SidneyPig"")"
+143,0,0,,Remember who's boss.|(Let her dress and go.),,143,0,1,"EarlyEnding(""SidneyPig"")"
+150,0,0,!Common_PlayerChaste,Fine!  Do it quick.|(Strip naked.),"(You strip naked on the running track.)|Very good, all you have to do is one lap.",160,0,0,PlayerStrip()
+150,0,0,!Common_PlayerChaste,Yes Miss Jennifer.|(Strip naked.),"(You strip naked on the running track.)|Very good, all you have to do is one lap.",160,0,-1,PlayerStrip()
+150,0,0,Common_PlayerChaste,Fine!  Do it quick.|(Strip naked.),(You strip naked and the girls stare at your belt.)|Oh my!  Are you wearing a chastity belt?,155,0,0,PlayerStrip()
+150,0,0,Common_PlayerChaste,Yes Miss Jennifer.|(Strip naked.),(You strip naked and the girls stare at your belt.)|Oh my!  Are you wearing a chastity belt?,155,0,-1,PlayerStrip()
+150,0,0,AllowFight,I'll show you force!|(Fight them both.),,150,-1,1,StartFight()
+150,0,0,AllowFight,Get ready to fight.|(Fight them both.),,150,0,0,StartFight()
+155,0,0,,"Yes, and it's none|of your business.","Fine, I can understand why you're grumpy.|Time to run!  All you have to do is one lap.",160,-1,0,
+155,0,0,,"Yes, I kind of|locked myself.",I'm not sure if that's kinky or stupid.|Time to run!  All you have to do is one lap.,160,0,-1,
+155,0,0,,Do you know how|to unlock these?,"I have no idea, find a good locksmith.|Time to run!  All you have to do is one lap.",160,0,0,
+160,0,0,,"Ok, let's do|this quickly.",It's not that easy.  Sidney|wants you to run gagged.,170,0,0,
+160,0,0,,Move away.  I'll do|your stupid lap.,It's not that easy.  Sidney|wants you to run gagged.,170,0,1,
+160,0,0,,Please Miss.  This|is very humiliating.,"I know, and it might get worse.|Sidney wants you to run gagged.",170,0,-1,
+160,0,0,AllowFight,Over my dead body!|(Fight them both.),,160,-1,1,StartFight()
+170,0,0,,Gag me loser.|I don't care.,(Sidney steps forward and tapes your mouth.)|That's enough!  Give me the ropes Jen.,180,-1,0,GagPlayer()
+170,0,0,,I know you're better|than this petty revenge.,(Sidney steps forward and tapes your mouth.)|That's enough!  Give me the ropes Jen.,180,1,0,GagPlayer()
+170,0,0,,Great!  I love gags.,(Sidney steps forward and tapes your mouth.)|You pervert!  Give me the ropes Jen.,180,0,-1,GagPlayer()
+170,0,0,,(Stay silent.),(Sidney steps forward and tapes your mouth.)|You'll stay quiet!  Give me the ropes Jen.,180,0,0,GagPlayer()
+170,0,0,AllowFight,Over my dead body!|(Fight them both.),,170,-1,1,StartFight()
+180,0,0,,@UUHGN!,(They ignore you and rope your arms and legs.|Forcing you to stand on your knees and elbows.),190,0,0,RopePlayer()
+180,0,0,,(Stare at her|menacingly.),(They ignore you and rope your arms and legs.|Forcing you to stand on your knees and elbows.),190,0,1,RopePlayer()
+180,0,0,,(Whimper.),(They ignore you and rope your arms and legs.|Forcing you to stand on your knees and elbows.),190,0,-1,RopePlayer()
+180,0,0,AllowFight,(Put your fists up|and fight them both.),,180,-1,1,StartFight()
+190,0,0,,(Struggle madly.),"You won't escape girl, get on the track.|I'll film your race to immortalize it.",200,0,0,
+190,0,0,,@Mgo Mmmay!,Shut your mouth and get on the track.|I'll film your race to immortalize it.,200,0,0,
+190,0,0,,(Give them|the finger.),I like your guts but get on the track.|I'll film your race to immortalize it.,200,1,1,
+190,0,0,,(Whimper for mercy.),You're so pathetic.  Get on the track.|I'll film your race to immortalize it.,200,-1,-1,
+200,0,0,,(Start the race.),,200,0,0,StartRace()
+300,0,0,RaceVictory,(Do a thumbs up.),That's the spirit!|(She releases you.),310,1,0,ReleasePlayer()
+300,0,0,RaceVictory,(Give her|the finger.),(She frowns and releases you.),310,-1,1,ReleasePlayer()
+300,0,0,RaceVictory,(Fall to the ground|from exhaustion.),Let me help you.|(She releases you.),310,0,-1,ReleasePlayer()
+300,0,0,!RaceVictory,(Whimper for mercy.),Let me help you.|(She releases you.),310,0,-1,ReleasePlayer()
+300,0,0,!RaceVictory,(Struggle madly.),Let me help you.|(She releases you.),310,0,0,ReleasePlayer()
+300,0,0,!RaceVictory,(Give her|the finger.),(She frowns and releases you.),310,-1,1,ReleasePlayer()
+300,0,0,,(Stay silent.),I guess that's enough.|(She releases you.),310,0,0,ReleasePlayer()
+310,0,0,,Can I go now?,"Yes, you can grab your things and go.",320,0,0,
+310,0,0,,Give me the camera!,(Sidney flips you the finger.)|You should grab your things and go.,320,0,1,
+310,0,0,,That was stupid.,You paid for what you did.|Now grab your things and go.,320,-1,0,
+310,0,0,,It's a fair revenge.,"Well said, remember your lesson.|Now grab your things and go.",320,1,0,
+310,0,0,,That was kinky.|I had lots of fun.,"You seem to have missed the lesson.|Anyway, grab your things and go.",320,0,-1,
+320,0,0,,(Return to college.),,320,0,0,"EarlyEnding(""TrackRun"")"

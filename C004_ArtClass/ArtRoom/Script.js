@@ -28,7 +28,7 @@ function C004_ArtClass_ArtRoom_Load() {
 	if ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && (Common_PlayerUnderwear)) C004_ArtClass_ArtRoom_ExtraModelImage = "Player_Underwear";
 	if ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && (Common_PlayerNaked)) C004_ArtClass_ArtRoom_ExtraModelImage = "Player_Naked";
 	if ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && (PlayerHasLockedInventory("Rope"))) C004_ArtClass_ArtRoom_ExtraModelImage = "Player_Rope";
-	if ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && (PlayerHasLockedInventory("Rope")) && (PlayerHasLockedInventory("Ballgag"))) C004_ArtClass_ArtRoom_ExtraModelImage = "Player_Rope_Ballgag";
+	if ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && (PlayerHasLockedInventory("Rope")) && (PlayerHasLockedInventory("BallGag"))) C004_ArtClass_ArtRoom_ExtraModelImage = "Player_Rope_BallGag";
 	if ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && (PlayerHasLockedInventory("Rope")) && (PlayerHasLockedInventory("TapeGag"))) C004_ArtClass_ArtRoom_ExtraModelImage = "Player_Rope_TapeGag";
 	if (C004_ArtClass_ArtRoom_ExtraModel == "Jennifer") C004_ArtClass_ArtRoom_ExtraModelImage = C004_ArtClass_ArtRoom_ExtraModelImage + "_" + C004_ArtClass_ArtRoom_JenniferStage.toString();
 	if (C004_ArtClass_ArtRoom_ExtraModel == "Sarah") C004_ArtClass_ArtRoom_ExtraModelImage = C004_ArtClass_ArtRoom_ExtraModelImage + "_" + C004_ArtClass_ArtRoom_SarahStage.toString();
@@ -56,7 +56,7 @@ function C004_ArtClass_ArtRoom_Click() {
 	if ((MouseX >= 330) && (MouseX <= 570) && (MouseY >= 10) && (MouseY <= 590) && (C004_ArtClass_ArtRoom_ExtraModel != "")) SetScene(CurrentChapter, "Julia");
 	if ((MouseX >= 630) && (MouseX <= 850) && (MouseY >= 10) && (MouseY <= 590) && (C004_ArtClass_ArtRoom_ExtraModel == "Sarah")) SetScene(CurrentChapter, "Sarah");
 	if ((MouseX >= 630) && (MouseX <= 850) && (MouseY >= 10) && (MouseY <= 590) && (C004_ArtClass_ArtRoom_ExtraModel == "Jennifer")) SetScene(CurrentChapter, "Jennifer");
-	if ((MouseX >= 630) && (MouseX <= 850) && (MouseY >= 10) && (MouseY <= 590) && (C004_ArtClass_ArtRoom_ExtraModel == "Player")) InventoryCommonScene("Player", CurrentChapter, "ArtRoom");
+	if ((MouseX >= 630) && (MouseX <= 850) && (MouseY >= 10) && (MouseY <= 590) && (C004_ArtClass_ArtRoom_ExtraModel == "Player")) InventoryClick("Player", CurrentChapter, "ArtRoom");
 	if ((MouseX >= 930) && (MouseX <= 1170) && (MouseY >= 10) && (MouseY <= 590) && (C004_ArtClass_ArtRoom_ExtraModel != "Sarah")) SetScene(CurrentChapter, "Sarah");
 	if ((MouseX >= 850) && (MouseX <= 930) && (MouseY >= 260) && (MouseY <= 360)) SetScene(CurrentChapter, "HiddenEgg");
 

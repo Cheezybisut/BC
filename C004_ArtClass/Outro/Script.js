@@ -67,9 +67,9 @@ function C004_ArtClass_Outro_Click() {
 		}
 
 		// if gagged, unlock it	
-		if (PlayerHasLockedInventory("Ballgag")) {
-			PlayerUnlockInventory("Ballgag");
-			PlayerAddInventory("Ballgag", 1);
+		if (PlayerHasLockedInventory("BallGag")) {
+			PlayerUnlockInventory("BallGag");
+			PlayerAddInventory("BallGag", 1);
 		}
 		PlayerUnlockInventory("TapeGag");
 		

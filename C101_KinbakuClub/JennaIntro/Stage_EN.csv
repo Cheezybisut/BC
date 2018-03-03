@@ -1,0 +1,41 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,What is it?,It's about this club and also about Natalie.,10,0,0,
+0,0,0,,I already know about the|birds and the bees.,"We'll see about that, I meant the club and also Natalie.",10,-1,0,
+0,0,0,,"Don't bother explaining,|it's all pretty obvious.",I'll let you work it out for yourself then.,70,-1,0,SkipExplanation()
+5,0,0,,"Hello, what's|happening here?",This is the college's Kinbaku Club.|Your welcome to stay for the evening.,15,0,0,
+10,0,0,,Is there an issue|with the club?,"No issue, but I don't think Natalie|explained much about the club to you.",30,0,0,
+10,0,0,,"Is Natalie here, I would|like to see here again?","Not at the moment. She lost a bet with|another member, but should be here later.",20,1,0,Asked()
+15,0,0,,"Sounds interesting,|yeah I'll stay.",That's great. I'm Jenna.,25,1,0,
+15,0,0,,Sorry I need|to be going.,"Come on stay a while, you might like it.|I'm Jenna by the way.",25,0,0,
+15,0,0,Natalie,I think Natalie mentioned|this place at lunch break.,"Ah yes Natalie, she will be here later.|I'm the other club rep, Jenna",25,0,0,Asked()
+20,0,0,,So what was that|about the club?,It's just Natalie didn't explain much|about the club at lunch time.,30,0,0,
+20,0,0,,A bet? Is she OK?,"She's fine. The bet was to find a new member, but she|forgot the important bit about a proper explanation.",30,0,0,
+25,0,0,,I'm COMMON_PLAYERNAME.,Cool. I should explain a bit about this club.,30,0,0,
+25,0,0,,My name is COMMON_PLAYERNAME.|Pleased to meet you.,You're so formal it's cute.|I do have to explain a few things though first.,30,0,-1,
+30,0,0,,What is there to explain?,"For a start, the college thinks this club is about|""Cultural art forms, practical skills and exercise"".",40,0,0,
+40,0,0,,Seriously?,"Yeah officially, a few of the teachers know better.|Also it's not just Kinbaku with ropes.",50,0,0,
+50,0,0,,What do you mean?,The club is very inclusive and we use|a wide range of equipment and techniques.,55,0,0,
+55,0,0,,So anything goes?,"No, there are standards and consent.  The club|will internally discipline anyone who goes too far.",56,0,0,
+56,0,0,,"Consent, you all freely|joined this club?","Even so we tend to use safe words such as 'Banana',|just to make sure everyone is OK and enjoying it.",60,0,0,
+60,0,0,,Is that all?,"Pretty much, Natalie could have saved herself a lot of|trouble quite easily.  Oh and have a complimentary rope.",70,0,0,GetRope()
+70,0,0,,What is the|complimentary rope for?,Seriously? Take a wild guess.,70,0,0,
+70,0,0,,What do I do now?,There will be a friendly competition later.  You can|get to know the club before then. (She leaves.),80,0,0,Done()
+70,0,0,,Can I be tied up now?,"Sure, but I prefer to use steel restraints.  (She cuffs and|gags you, makes sure you have no keys, then leaves.)",80,0,-1,CuffPlayer()
+70,0,0,,Can I tie you up now?,No. I have someone else to see now.|(Jenna leaves the room.),80,0,0,Done()
+70,0,0,NotAsked,"Oh, what was|that about Natalie?","She lost a bet with another member,|but will be here later.",70,-1,0,Asked()
+70,0,0,Concerned,Trouble? I hope|Natalie is OK.,Don't worry she'll be fine. As long as|someone is tied up she is normally happy.,70,1,0,ShowConcern()
+70,0,0,Chloe,Is Chloe here?,She would be tied up the whole time given the choice.|I've told her to have an evening without for once.,75,0,0,
+75,0,0,,I was looking forward|to tying her up.,I've told the whole club they must not tie her up|and that goes for you too.,70,0,0,AskChloe()
+75,0,0,,Why does she need|an evening off?,"I'm concerned she is getting too submissive.|It's OK in the club, but she has to grow up sometime.",70,0,0,AskChloe()
+100,0,0,,What have I done now?,"Besides abusing my friend and leaving her|helplessly bound and gagged, you tell me.",110,0,0,
+100,0,0,,So what? Cross me and|it will be you next.,Don't even go there.|You have just walked into the dragon's lair.,110,-1,0,
+100,0,0,,Where has my|bitch got too?,My FRIEND is recovering after what YOU did to her.,110,-2,0,
+100,0,0,,"I'm sorry, I didn't|mean to go that far.",Just saying sorry won't help|after what happened to Natalie.,110,0,-1,
+110,0,0,,What happened to her?,Her next class was Math and she was|discovered afterwards by a furious Mildred.,120,0,0,
+110,0,0,,You were bound to find|her sooner or later.,"If only, she was discovered by Mildred|after missing a Math class.",120,-1,0,
+120,0,0,,Can I see Natalie please?|I want to make it up to her.,"Not just now, but you can start making it up to her.",130,1,-1,
+120,0,0,,"Out of my way, I'm going to|get intimate with this club.","No, they are about to get very intimate with you first.",130,-1,0,
+120,0,0,,"It was only a joke,|she'll get over it.",I'm sure you will have no trouble|getting over this practical joke then.,130,0,0,
+130,0,0,,"Wait, please can we|just talk about this.",,130,0,-1,Discipline()
+130,0,0,,"I'm really sorry,|I'll leave now.",,130,0,-1,Discipline()
+130,0,0,,Bring it on I'll|take all of you.,,130,-1,1,Discipline()

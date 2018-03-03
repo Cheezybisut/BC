@@ -5,3 +5,4 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 10,0,0,,(尝试脱下手铐)|(1 分钟),你尝试脱下手铐，|然而你失败了。,10,0,0,
 10,0,0,,(尝试砸开手铐)|(1 分钟),你尝试砸开手铐，|然而手铐毫发无损。,10,0,0,
 10,0,0,HasKey,(解开手铐)|(1 分钟),你笨拙地试了一会，|终于解开了锁。,0,0,0,Unlock()
+10,0,0,CanEscape,(Escape the cuffs.)|(1 minute),"You fumble with a hair clip for a while, but eventually|force the mechanisum to open with a hair clip.",0,0,0,Escape()

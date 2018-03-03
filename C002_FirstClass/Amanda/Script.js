@@ -37,11 +37,11 @@ function C002_FirstClass_Amanda_Run() {
 	
 	// Bondage hug
 	if ((C002_FirstClass_Amanda_CurrentStage == 160) || (C002_FirstClass_Amanda_CurrentStage == 170)) {
-		OveridenIntroImage = "";
-		if ((ActorSpecificHasInventory("Amanda", "Ballgag")) && (ActorSpecificHasInventory("Sarah", "Ballgag"))) OveridenIntroImage = "Hug_Amanda_Rope_Ballgag_Sarah_Rope_Ballgag.jpg";
-		if ((ActorSpecificHasInventory("Amanda", "Ballgag")) && (!ActorSpecificHasInventory("Sarah", "Ballgag"))) OveridenIntroImage = "Hug_Amanda_Rope_Ballgag_Sarah_Rope.jpg";
-		if ((!ActorSpecificHasInventory("Amanda", "Ballgag")) && (ActorSpecificHasInventory("Sarah", "Ballgag"))) OveridenIntroImage = "Hug_Amanda_Rope_Sarah_Rope_Ballgag.jpg";
-		if ((!ActorSpecificHasInventory("Amanda", "Ballgag")) && (!ActorSpecificHasInventory("Sarah", "Ballgag"))) OveridenIntroImage = "Hug_Amanda_Rope_Sarah_Rope.jpg";		
+		OverridenIntroImage = "";
+		if ((ActorSpecificHasInventory("Amanda", "BallGag")) && (ActorSpecificHasInventory("Sarah", "BallGag"))) OverridenIntroImage = "Hug_Amanda_Rope_BallGag_Sarah_Rope_BallGag.jpg";
+		if ((ActorSpecificHasInventory("Amanda", "BallGag")) && (!ActorSpecificHasInventory("Sarah", "BallGag"))) OverridenIntroImage = "Hug_Amanda_Rope_BallGag_Sarah_Rope.jpg";
+		if ((!ActorSpecificHasInventory("Amanda", "BallGag")) && (ActorSpecificHasInventory("Sarah", "BallGag"))) OverridenIntroImage = "Hug_Amanda_Rope_Sarah_Rope_BallGag.jpg";
+		if ((!ActorSpecificHasInventory("Amanda", "BallGag")) && (!ActorSpecificHasInventory("Sarah", "BallGag"))) OverridenIntroImage = "Hug_Amanda_Rope_Sarah_Rope.jpg";		
 	}
 	
 }
@@ -57,34 +57,34 @@ function C002_FirstClass_Amanda_Click() {
 	var ClickedInv = GetClickedInventory();
 	
 	// If the player wants to gag Amanda
-	if ((C002_FirstClass_Amanda_CurrentStage >= 100) && (ClickedInv == "Ballgag") && (ActorHasInventory("Ballgag") == false) && (Common_PlayerNotRestrained)) {
+	if ((C002_FirstClass_Amanda_CurrentStage >= 100) && (ClickedInv == "BallGag") && (ActorHasInventory("BallGag") == false) && (Common_PlayerNotRestrained)) {
 		if ((ActorGetValue(ActorSubmission) >= 2) || (ActorHasInventory("Rope")) || (ActorHasInventory("Cuffs"))) {
-			if (ActorGetValue(ActorSubmission) >= 4) OveridenIntroText = GetText("BallgagWilling");
-			else OveridenIntroText = GetText("BallgagReluctant");
-			PlayerRemoveInventory("Ballgag", 1);
-			ActorAddInventory("Ballgag");
+			if (ActorGetValue(ActorSubmission) >= 4) OverridenIntroText = GetText("BallGagWilling");
+			else OverridenIntroText = GetText("BallGagReluctant");
+			PlayerRemoveInventory("BallGag", 1);
+			ActorAddInventory("BallGag");
 			if (C002_FirstClass_Amanda_CurrentStage == 160) C002_FirstClass_Amanda_CurrentStage = 170;
 			else C002_FirstClass_Amanda_CurrentStage = C002_FirstClass_Classroom_CalcStage();
-		} else OveridenIntroText = GetText("BallgagRefuse");
+		} else OverridenIntroText = GetText("BallGagRefuse");
 		CurrentTime = CurrentTime + 60000;
 	}
 
 	// If the player wants to cuff Amanda
 	if ((C002_FirstClass_Amanda_CurrentStage >= 100) && (ClickedInv == "Cuffs") && (ActorHasInventory("Cuffs") == false) && (Common_PlayerNotRestrained)) {
 		if ((ActorGetValue(ActorSubmission) >= 2) || (ActorHasInventory("Rope"))) {
-			if (ActorHasInventory("Rope")) { OveridenIntroText = GetText("CuffsReplaceRope"); PlayerAddInventory("Rope", 1); ActorRemoveInventory("Rope"); }
-			else if (ActorGetValue(ActorSubmission) >= 4) OveridenIntroText = GetText("CuffsWilling");
-			else OveridenIntroText = GetText("CuffsReluctant");
+			if (ActorHasInventory("Rope")) { OverridenIntroText = GetText("CuffsReplaceRope"); PlayerAddInventory("Rope", 1); ActorRemoveInventory("Rope"); }
+			else if (ActorGetValue(ActorSubmission) >= 4) OverridenIntroText = GetText("CuffsWilling");
+			else OverridenIntroText = GetText("CuffsReluctant");
 			PlayerRemoveInventory("Cuffs", 1);
 			ActorAddInventory("Cuffs");
 			C002_FirstClass_Amanda_CurrentStage = C002_FirstClass_Classroom_CalcStage();
-		} else OveridenIntroText = GetText("CuffsRefuse");
+		} else OverridenIntroText = GetText("CuffsRefuse");
 		CurrentTime = CurrentTime + 60000;
 	}
 
 	// If the player wants to uncuff Amanda
 	if ((C002_FirstClass_Amanda_CurrentStage >= 100) && (ClickedInv == "CuffsKey") && (ActorHasInventory("Cuffs") == true) && (Common_PlayerNotRestrained)) {
-		OveridenIntroText = GetText("CuffsUnlock");
+		OverridenIntroText = GetText("CuffsUnlock");
 		PlayerAddInventory("Cuffs", 1);
 		ActorRemoveInventory("Cuffs");
 		C002_FirstClass_Amanda_CurrentStage = C002_FirstClass_Classroom_CalcStage();
@@ -94,34 +94,34 @@ function C002_FirstClass_Amanda_Click() {
 	// If the player wants to rope Amanda
 	if ((C002_FirstClass_Amanda_CurrentStage >= 100) && (ClickedInv == "Rope") && (ActorHasInventory("Rope") == false) && (Common_PlayerNotRestrained)) {
 		if ((ActorGetValue(ActorSubmission) >= 2) || (ActorHasInventory("Cuffs"))) {
-			if (ActorHasInventory("Cuffs")) { OveridenIntroText = GetText("RopeReplaceCuffs"); PlayerAddInventory("Cuffs", 1); ActorRemoveInventory("Cuffs"); }
-			else if (ActorGetValue(ActorSubmission) >= 4) OveridenIntroText = GetText("RopeWilling");
-			else OveridenIntroText = GetText("RopeReluctant");
+			if (ActorHasInventory("Cuffs")) { OverridenIntroText = GetText("RopeReplaceCuffs"); PlayerAddInventory("Cuffs", 1); ActorRemoveInventory("Cuffs"); }
+			else if (ActorGetValue(ActorSubmission) >= 4) OverridenIntroText = GetText("RopeWilling");
+			else OverridenIntroText = GetText("RopeReluctant");
 			PlayerRemoveInventory("Rope", 1);
 			ActorAddInventory("Rope");
 			C002_FirstClass_Amanda_CurrentStage = C002_FirstClass_Classroom_CalcStage();
-		} else OveridenIntroText = GetText("RopeRefuse");
+		} else OverridenIntroText = GetText("RopeRefuse");
 		CurrentTime = CurrentTime + 60000;
 	}
 
 	// If the player wants to crop Amanda
 	if ((C002_FirstClass_Amanda_CurrentStage >= 100) && (ClickedInv == "Crop") && (Common_PlayerNotRestrained)) {
-		if (ActorHasInventory("Ballgag")) OveridenIntroText = GetText("CropGagged");
-		else OveridenIntroText = GetText("Crop");
+		if (ActorHasInventory("BallGag")) OverridenIntroText = GetText("CropGagged");
+		else OverridenIntroText = GetText("Crop");
 		if (C002_FirstClass_Amanda_CropDone == false) { C002_FirstClass_Amanda_CropDone = true; ActorChangeAttitude(-2, 0); }
 		CurrentTime = CurrentTime + 60000;
 	}
 	
-	// If the stage changed, we remove the overiden image, also check for the bondage hug
-	if (EntryStage != C002_FirstClass_Amanda_CurrentStage) OveridenIntroImage = "";
+	// If the stage changed, we remove the Overriden image, also check for the bondage hug
+	if (EntryStage != C002_FirstClass_Amanda_CurrentStage) OverridenIntroImage = "";
 	C002_FirstClass_Amanda_BondageHugReady = ((C002_FirstClass_Amanda_CurrentStage > 100) && (Common_PlayerNotRestrained) && (Common_PlayerNotGagged) && (C002_FirstClass_Classroom_MildredSubdueSuccess) && (ActorSpecificHasInventory("Amanda", "Rope")) && (ActorSpecificHasInventory("Sarah", "Rope")));
 
 }
 
 // Chapter 2 - Amanda Ungag
 function C002_FirstClass_Amanda_Ungag() {
-	PlayerAddInventory("Ballgag", 1);
-	ActorRemoveInventory("Ballgag");
+	PlayerAddInventory("BallGag", 1);
+	ActorRemoveInventory("BallGag");
 }
 
 // Chapter 2 - Amanda Untie
@@ -160,10 +160,14 @@ function C002_FirstClass_Amanda_BondageHug() {
 
 // Chapter 2 - Amanda Separate from Sarah hug
 function C002_FirstClass_Amanda_Separate() {
-	OveridenIntroImage = "";
+	OverridenIntroImage = "";
 }
 
 // Chapter 2 - Amanda Kiss Sarah
 function C002_FirstClass_Amanda_KissSarah() {
-	if (C002_FirstClass_Amanda_KissSarahDone == false) { C002_FirstClass_Amanda_KissSarahDone = true; ActorChangeAttitude(1, 0); }
+	if (C002_FirstClass_Amanda_KissSarahDone == false) { 
+		C002_FirstClass_Amanda_KissSarahDone = true; 
+		ActorChangeAttitude(1, 0);
+		PlayerAddSkill("Seduction", 1);
+	}
 }

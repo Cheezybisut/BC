@@ -1,0 +1,36 @@
+Tag,Content
+Touching,(Your reaching hands touch what|feels like a shirt and an arm.)
+Feeling,(You hear a giggle and feel someone brush past you.)
+Wrestle,(You grasp and wrestle them frantically.  Someone|else passes you some cuffs and helps you capture.)
+Pin,(You push against them and into something hard.|You sense the others rushing to help the capture.)
+Dodged,"(They dodged you attempt to capture and you fall,|land in a heap on the floor.)"
+Marco0,Polo.|(That came from the other side of the room.)
+Marco1,Polo.|(It sounded like that from just to the right of you.)
+Marco2,Polo.|(That was someone close behind you.)
+Marco3,"Polo.  (That was defiantly in|front of you, but a few strides away.)"
+Listen0,(You can hear giggling to your left|and someone hit a table in front of you.)
+Listen1,(One of the girls yells Polo in your|right ear before running it away.)
+Listen2,(Someone is pushing tables around forwards|and right a bit from where you are.)
+Listen3,"(An eerie hush fills the room,|broken by unsubtle tiptoeing and laughter.)"
+Turn0,(You turn and take a stride.)
+Turn1,"(You turn and find a chair left in the way,|taking care to step around it.)"
+Turn2,"(Sudden noises cause you to spin round sharply.|Nothings there, but how far did you just turn?)"
+Turn3,"(You edge round slowly, sure a table should|have been there, but its not now.)"
+Forwards0,"(Taking a confident stride forwards,|you clatter into some desks.)"
+Forwards1,(As you move forward someone shouts behind you.)|No were over here.
+Forwards2,"(You glance a chair as you walk forwards. To you|left someone exclaims.) Rats, she missed it."
+Forwards3,(There is nothing there as you walk forwards.)
+Backwards0,"(Creeping steadily backwards, you find nothing there.)"
+Backwards1,"(Hearing a sound, you spin round quickly,|but find only empty space.)"
+Backwards2,"(A table gets in your way, creaking loudly as you feel your way around it.)"
+Backwards3,"Shh, she'll hear us.  (Was that a couple of|girls to you left or more in front of you?)"
+Lost0,(You tumble over a chair and fall down.)|Another one bites the dust. Give her a penalty.
+Lost1,"(You are shoved backwards and over another person|crouching behind you.)  She's down, that's a penalty."
+Lost2,"(As you stumble into a desk, a push sends you down.)|Looks like this game has gone into penalty time."
+Lost3,"(In the confusion you trip over your own feet,|landing on the floor.)  That's a penalty."
+Cuffed,"(As you stand up, someone pulls your arms behind|you, cuffs them together and then runs off.)"
+StealItems,"(Group of them pin you down, find all your items|and run off with them before you can get up.)"
+Gagged,"(As you stand up, someone forces a ball gag into|your mouth, buckles it tight and then runs off.)"
+ShutUp,Oh just shut up.  (A ball gag is rammed into your|mouth and strapped tight.)  Now get on with it.
+GameOver,"Bad luck, you're out of lives.  You can always|try to try again, but first you have a forfeit."
+Helped,(Someone removes your gag.)|Were you trying to say something?

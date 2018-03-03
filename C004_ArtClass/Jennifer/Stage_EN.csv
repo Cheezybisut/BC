@@ -25,6 +25,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 80,0,0,CanBegForRelease,"Please Jennifer, can|you help me out?",,80,0,0,BegForRelease()
 80,0,0,Common_PlayerGagged,@Eehmmo ehm ehher!,"I'm sorry, I cannot understand.",80,0,0,
 80,0,0,Common_PlayerGagged,(Whimper and tremble.),"Trust me, I feel for you.  You must be|humiliated now.  I'll cheer you up later.",80,0,0,PityComment()
+100,0,0,StunningBeautyReady,"Don't be shy, you're|a stunning beauty.","Me?  A beauty?  On my,|you're so kind and sweet.",100,0,0,StunningBeauty()
 100,0,1,,Shouldn't you undress|like Julia? (1 minute),I... I guess I can.|(She slowly undresses.),110,0,0,"SetCloth(1, 0, 0)"
 100,0,1,,Take your clothes|off. (1 minute),I... Yes... Sorry.|(She slowly undresses.),110,0,0,"SetCloth(1, 0, 1)"
 100,0,1,,You should show your|pretty body.  (1 minute),I really think I'm pretty?|(She slowly undresses.),110,0,0,"SetCloth(1, 1, 0)"
@@ -41,9 +42,12 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 130,0,0,,(Tighten the ropes.)|(1 minute),(This bondage is already|as tight as it can be.),130,0,0,Tighten()
 130,0,0,,(Tickle her.)|(1 minute),(She cowers in shame|to avoid your tickling.),130,0,0,Tickle()
 130,0,0,Common_PlayerNotRestrained,(Untie her.)|(1 minute),(You untie her and she throws the|ropes at you.)  Can I go sit now?,120,0,0,Untie()
+130,0,0,PaintAvail,(Paint Jennifer.)|(30 minutes),(You carefully paint her and show the result.)|Please destroy this painting once class is over.,130,0,0,Paint()
 140,0,0,,(Tighten the ropes.)|(1 minute),(This bondage is already|as tight as it can be.),140,0,0,Tighten()
 140,0,0,,(Tickle her.)|(1 minute),(She cowers in shame|to avoid your tickling.),140,0,0,Tickle()
 140,0,0,Common_PlayerNotRestrained,(Ungag her.)|(1 minute),(You unbuckle the gag and release it|from her mouth)  Can you untie me now?,130,0,0,Ungag()
+140,0,0,PaintAvail,(Paint Jennifer.)|(30 minutes),(You carefully paint her and show the result.)|(She looks at your work of art and whimpers.),140,0,0,Paint()
 150,0,0,,(Tighten the ropes.)|(1 minute),(This bondage is already|as tight as it can be.),150,0,0,Tighten()
 150,0,0,,(Tickle her.)|(1 minute),(She cowers in shame|to avoid your tickling.),150,0,0,Tickle()
 150,0,0,Common_PlayerNotRestrained,(Ungag her.)|(1 minute),"(You remove the tape from her mouth.)|Alright, can you untie me now?",130,0,0,Ungag()
+150,0,0,PaintAvail,(Paint Jennifer.)|(30 minutes),(You carefully paint her and show the result.)|(She looks at your work of art and whimpers.),150,0,0,Paint()

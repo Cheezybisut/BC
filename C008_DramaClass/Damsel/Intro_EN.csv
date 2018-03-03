@@ -1,0 +1,50 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+100,0,0,PlayerIsDamsel,(The white knight is starting the play.),Background.jpg
+100,0,0,!PlayerIsDamsel,(She's watching the white knight.),Background.jpg
+110,0,0,PlayerIsDamsel,(The black knight is next.),Background.jpg
+110,0,0,!PlayerIsDamsel,(She's watching the black knight.),Background.jpg
+120,0,0,PlayerIsDamsel,(The white knight is next.),Background.jpg
+120,0,0,!PlayerIsDamsel,(She's watching the white knight.),Background.jpg
+130,0,0,PlayerIsDamsel,(The black knight is next.),Background.jpg
+130,0,0,!PlayerIsDamsel,(She's watching the black knight.),Background.jpg
+140,0,0,PlayerIsDamsel,"(As the damsel, this is your line.)",Background.jpg
+140,0,0,!PlayerIsDamsel,(She's about to say her line.),Background.jpg
+150,0,0,PlayerIsDamsel,"(As the damsel, this is your line.)",Background.jpg
+150,0,0,!PlayerIsDamsel,(She's about to say her line.),Background.jpg
+160,0,0,PlayerIsDamsel,"(As the damsel, this is your line.)",Background.jpg
+160,0,0,!PlayerIsDamsel,(She's about to say her line.),Background.jpg
+200,0,0,PlayerIsDamsel,(The black knight is next.),Background.jpg
+200,0,0,!PlayerIsDamsel,(She's watching the black knight.),Background.jpg
+210,0,0,PlayerIsDamsel,(The black knight is next.),Background.jpg
+210,0,0,!PlayerIsDamsel,(She's watching the black knight.),Background.jpg
+220,0,0,PlayerIsDamsel,(The white knight is next.),Background.jpg
+220,0,0,!PlayerIsDamsel,(She's watching the white knight.),Background.jpg
+230,0,0,PlayerIsDamsel,(The black knight is next.),Background.jpg
+230,0,0,!PlayerIsDamsel,(She's watching the black knight.),Background.jpg
+240,0,0,PlayerIsDamsel,(The white knight is next.),Background.jpg
+240,0,0,!PlayerIsDamsel,(She's watching the white knight.),Background.jpg
+250,0,0,PlayerIsDamsel,"(As the damsel, this should be your|line but you can't talk much right now.)",Background.jpg
+250,0,0,CanHugHeroine,"(As the damsel, this is your line.)",Background.jpg
+250,0,0,!PlayerIsDamsel,(She's ready for the final act.),Background.jpg
+251,0,0,,,Background.jpg
+255,0,0,,(She's ready for the final act.),Background.jpg
+260,0,0,,,Background.jpg
+270,0,0,PlayerIsDamsel,(The black knight is next.),Background.jpg
+270,0,0,!PlayerIsDamsel,(She's watching the black knight.),Background.jpg
+280,0,0,PlayerIsDamsel,"(As the damsel, this should be your|line but you can't talk much right now.)",Background.jpg
+280,0,0,CanHugVillain,"(As the damsel, this is your line.)",Background.jpg
+280,0,0,!PlayerIsDamsel,(She's ready for the final act.),Background.jpg
+285,0,0,,(She's ready for the final act.),Background.jpg
+290,0,0,,,Background.jpg
+300,0,0,!PlayerIsDamsel,It was a fun play.  I really|enjoyed being the damsel.,Background.jpg
+300,0,0,IsGagged,(She hums a happy song in her gag.),Background.jpg
+300,0,0,PlayerIsDamsel,(The play is over.),Background.jpg
+400,0,0,PlayerIsHeroine,My hero!  What do you need from me?,Background.jpg
+400,0,0,PlayerIsVillain,"Oh lord, the black knight.|What do you require of me?",Background.jpg
+400,0,0,Common_PlayerGagged,"Sir knight, this gag looks good on you.",Background.jpg
+400,0,0,IsGagged,Uuurgmn!,Background.jpg
+410,0,0,PlayerIsHeroine,My hero!  What do you need from me?,Background.jpg
+410,0,0,PlayerIsVillain,"Oh lord, the black knight.|What do you require of me?",Background.jpg
+410,0,0,Common_PlayerGagged,"Sir knight, this gag looks good on you.",Background.jpg
+410,0,0,IsGagged,Uuurgmn!,Background.jpg
+500,0,0,,(It seems the play isn't totally over.|You can still interact with the others.),Background.jpg

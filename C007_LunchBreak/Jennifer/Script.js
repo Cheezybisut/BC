@@ -24,19 +24,20 @@ var C007_LunchBreak_Jennifer_PushUpQuality = 0;
 var C007_LunchBreak_Jennifer_PushUpCount = 0;
 var C007_LunchBreak_Jennifer_RacketQuality = 0;
 var C007_LunchBreak_Jennifer_HasRestrainsAvail = false;
+var C007_LunchBreak_Jennifer_HasSeduction = false;
 
 // Calculates the screen parameters
 function C007_LunchBreak_Jennifer_CalcParams() {
 
 	// No special images by default
-	OveridenIntroImage = "";
+	OverridenIntroImage = "";
 
 	// Between 100 and 199, the image evolves with the number of matches
 	if ((C007_LunchBreak_Jennifer_CurrentStage >= 100) && (C007_LunchBreak_Jennifer_CurrentStage <= 199)) {
 		var Img = "0";
 		if ((C007_LunchBreak_Jennifer_MatchCount == 2) || (C007_LunchBreak_Jennifer_MatchCount == 3)) Img = "1";
 		if (C007_LunchBreak_Jennifer_MatchCount >= 4) Img = "2";
-		OveridenIntroImage = "JenniferPlayerLunch" + Img + ".jpg";
+		OverridenIntroImage = "JenniferPlayerLunch" + Img + ".jpg";
 	}
 	
 	// At 240 the player can restrain Jennifer
@@ -44,9 +45,9 @@ function C007_LunchBreak_Jennifer_CalcParams() {
 		var Img = "";
 		if (ActorHasInventory("Rope")) Img = Img + "Rope";
 		if (ActorHasInventory("Cuffs")) Img = Img + "Cuffs";
-		if (ActorHasInventory("Ballgag")) Img = Img + "Ballgag";
+		if (ActorHasInventory("BallGag")) Img = Img + "BallGag";
 		if (ActorHasInventory("TapeGag")) Img = Img + "TapeGag";
-		OveridenIntroImage = "JenniferStrip" + Img + ".jpg";
+		OverridenIntroImage = "JenniferStrip" + Img + ".jpg";
 	}
 
 	// At 460 the player can be restrained
@@ -54,13 +55,13 @@ function C007_LunchBreak_Jennifer_CalcParams() {
 		var Img = "";
 		if (PlayerHasLockedInventory("Rope")) Img = Img + "Rope";
 		if (PlayerHasLockedInventory("Cuffs")) Img = Img + "Cuffs";
-		if (PlayerHasLockedInventory("Ballgag")) Img = Img + "Ballgag";
+		if (PlayerHasLockedInventory("BallGag")) Img = Img + "BallGag";
 		if (PlayerHasLockedInventory("TapeGag")) Img = Img + "TapeGag";
-		OveridenIntroImage = "JenniferPlayerPunishRacket" + Img + ".jpg";
+		OverridenIntroImage = "JenniferPlayerPunishRacket" + Img + ".jpg";
 	}
 	
 	// If love and submission are below 4, there's no option for lunch
-	C007_LunchBreak_Jennifer_IsBoundAndGagged = ((ActorHasInventory("Rope") || ActorHasInventory("Cuffs")) && (ActorHasInventory("Ballgag") || ActorHasInventory("TapeGag")));
+	C007_LunchBreak_Jennifer_IsBoundAndGagged = ((ActorHasInventory("Rope") || ActorHasInventory("Cuffs")) && (ActorHasInventory("BallGag") || ActorHasInventory("TapeGag")));
 	C007_LunchBreak_Jennifer_NoOption = ((ActorGetValue(ActorLove) <= 3) && (ActorGetValue(ActorSubmission) <= 3));
 	C007_LunchBreak_Jennifer_HasEgg = ActorHasInventory("VibratingEgg");
 	C007_LunchBreak_Jennifer_HasRestrainsAvail = ((PlayerHasInventory("Rope") || (PlayerHasInventory("Cuffs") && PlayerHasInventory("CuffsKey"))) && Common_PlayerNotRestrained)
@@ -74,23 +75,24 @@ function C007_LunchBreak_Jennifer_Load() {
 	ActorLoad("Jennifer", "ActorSelect");
 	LoadInteractions();
 	C007_LunchBreak_Jennifer_CalcParams();
+	C007_LunchBreak_Jennifer_HasSeduction = (PlayerGetSkillLevel("Seduction") >= 1);
 	
 	// If Jennifer doesn't like the player, she will run away from the start
 	if ((ActorGetValue(ActorLove) <= -3) && (ActorGetValue(ActorSubmission) <= 3)) {
-		OveridenIntroText = GetText("SkipIntro");
+		OverridenIntroText = GetText("SkipIntro");
 		C007_LunchBreak_Jennifer_CurrentStage = 90;
 		C007_LunchBreak_ActorSelect_JenniferAvail = false;
 	}
 
 	// If Jennifer had the egg from before chapter 7, there's a special intro
 	if ((C007_LunchBreak_Jennifer_CurrentStage == 0) && ActorHasInventory("VibratingEgg")) {
-		OveridenIntroText = GetText("IntroEgg");
+		OverridenIntroText = GetText("IntroEgg");
 		C007_LunchBreak_Jennifer_EggRemarkAvail = !C007_LunchBreak_Jennifer_EggRemarkDone;
 	}
 
 	// If we must put the previous text back
 	if ((C007_LunchBreak_Jennifer_IntroText != "") && (C007_LunchBreak_Jennifer_CurrentStage > 0)) {
-		OveridenIntroText = C007_LunchBreak_Jennifer_IntroText;
+		OverridenIntroText = C007_LunchBreak_Jennifer_IntroText;
 		LeaveIcon = C007_LunchBreak_Jennifer_LeaveIcon;
 	}
 
@@ -113,14 +115,14 @@ function C007_LunchBreak_Jennifer_Click() {
 	ClickInteraction(C007_LunchBreak_Jennifer_CurrentStage);
 	var ClickInv = GetClickedInventory();
 	if (ClickInv == "Player") {
-		C007_LunchBreak_Jennifer_IntroText = OveridenIntroText;
+		C007_LunchBreak_Jennifer_IntroText = OverridenIntroText;
 		C007_LunchBreak_Jennifer_LeaveIcon = LeaveIcon;
 		InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
 	}
 	
 	// When the user wants to use the rope
 	if ((C007_LunchBreak_Jennifer_CurrentStage == 240) && (ClickInv == "Rope") && !ActorHasInventory("Rope") && !ActorHasInventory("Cuffs")) {
-		OveridenIntroText = GetText("Rope");
+		OverridenIntroText = GetText("Rope");
 		ActorAddInventory("Rope");
 		PlayerRemoveInventory("Rope", 1);
 		CurrentTime = CurrentTime + 60000;
@@ -129,25 +131,25 @@ function C007_LunchBreak_Jennifer_Click() {
 	
 	// When the user wants to use the cuffs
 	if ((C007_LunchBreak_Jennifer_CurrentStage == 240) && (ClickInv == "Cuffs") && !ActorHasInventory("Rope") && !ActorHasInventory("Cuffs")) {
-		OveridenIntroText = GetText("Cuffs");
+		OverridenIntroText = GetText("Cuffs");
 		ActorAddInventory("Cuffs");
 		PlayerRemoveInventory("Cuffs", 1);
 		CurrentTime = CurrentTime + 60000;
 	}
 	
-	// When the user wants to use the ballgag
-	if ((C007_LunchBreak_Jennifer_CurrentStage == 240) && (ClickInv == "Ballgag") && !ActorHasInventory("Ballgag")) {
-		OveridenIntroText = GetText("Ballgag");
+	// When the user wants to use the BallGag
+	if ((C007_LunchBreak_Jennifer_CurrentStage == 240) && (ClickInv == "BallGag") && !ActorHasInventory("BallGag")) {
+		OverridenIntroText = GetText("BallGag");
 		ActorRemoveInventory("TapeGag");
-		ActorAddInventory("Ballgag");
-		PlayerRemoveInventory("Ballgag", 1);
+		ActorAddInventory("BallGag");
+		PlayerRemoveInventory("BallGag", 1);
 		CurrentTime = CurrentTime + 60000;
 		C007_LunchBreak_Jennifer_IsGagged = true;
 	}
 	
 	// When the user wants to use the tape gag
 	if ((C007_LunchBreak_Jennifer_CurrentStage == 240) && (ClickInv == "TapeGag") && !ActorHasInventory("TapeGag")) {
-		OveridenIntroText = GetText("TapeGag");		
+		OverridenIntroText = GetText("TapeGag");		
 		C007_LunchBreak_Jennifer_Ungag();
 		ActorAddInventory("TapeGag");
 		PlayerRemoveInventory("TapeGag", 1);
@@ -157,7 +159,7 @@ function C007_LunchBreak_Jennifer_Click() {
 	
 	// When the user wants to use the cuffs keys
 	if ((C007_LunchBreak_Jennifer_CurrentStage == 240) && (ClickInv == "CuffsKey") && ActorHasInventory("Cuffs")) {
-		OveridenIntroText = GetText("Uncuff");
+		OverridenIntroText = GetText("Uncuff");
 		ActorRemoveInventory("Cuffs");
 		PlayerAddInventory("Cuffs", 1);
 		CurrentTime = CurrentTime + 60000;
@@ -165,7 +167,7 @@ function C007_LunchBreak_Jennifer_Click() {
 	
 	// When the user wants to use the crop
 	if ((C007_LunchBreak_Jennifer_CurrentStage == 240) && (ClickInv == "Crop")) {
-		OveridenIntroText = GetText("Crop");
+		OverridenIntroText = GetText("Crop");
 		if (C007_LunchBreak_Jennifer_CropDone == false) { C007_LunchBreak_Jennifer_CropDone = true; ActorChangeAttitude(-1, 1); }
 		CurrentTime = CurrentTime + 60000;
 	}
@@ -175,19 +177,19 @@ function C007_LunchBreak_Jennifer_Click() {
 		
 		// It only works if Jennifer is restrained
 		if (ActorHasInventory("Rope") || ActorHasInventory("Cuffs")) {
-			OveridenIntroText = GetText("VibratingEgg");
+			OverridenIntroText = GetText("VibratingEgg");
 			ActorAddInventory("VibratingEgg");
 			PlayerRemoveInventory("VibratingEgg", 1);
 			ActorChangeAttitude(-1, 0);
 		} else {
-			OveridenIntroText = GetText("VibratingEggFail");
+			OverridenIntroText = GetText("VibratingEggFail");
 		}
 		CurrentTime = CurrentTime + 60000;
 	}	
 
 	// When the user wants to use the collar (+20 submission and a ceremony is required)
 	if ((C007_LunchBreak_Jennifer_CurrentStage == 240) && (ClickInv == "Collar") && !ActorHasInventory("Collar"))
-		OveridenIntroText = GetText("Collar");
+		OverridenIntroText = GetText("Collar");
 		
 	// Recalculates the scene parameters
 	C007_LunchBreak_Jennifer_CalcParams();
@@ -236,8 +238,8 @@ function C007_LunchBreak_Jennifer_EatLunch() {
 function C007_LunchBreak_Jennifer_TestObey() {
 	if (C007_LunchBreak_Jennifer_MatchCount >= 4) {
 		C007_LunchBreak_Jennifer_AllowObey = true;
-		if (C007_LunchBreak_Jennifer_TennisVictory) OveridenIntroText = GetText("JenniferObey");
-		else OveridenIntroText = GetText("PlayerObey");
+		if (C007_LunchBreak_Jennifer_TennisVictory) OverridenIntroText = GetText("JenniferObey");
+		else OverridenIntroText = GetText("PlayerObey");
 	}
 }
 
@@ -253,9 +255,9 @@ function C007_LunchBreak_Jennifer_Untie() {
 // Chapter 7 - Jennifer Ungag
 function C007_LunchBreak_Jennifer_Ungag() {
 	ActorRemoveInventory("TapeGag");
-	if (ActorHasInventory("Ballgag")) {
-		ActorRemoveInventory("Ballgag");
-		PlayerAddInventory("Ballgag", 1);
+	if (ActorHasInventory("BallGag")) {
+		ActorRemoveInventory("BallGag");
+		PlayerAddInventory("BallGag", 1);
 	}
 	C007_LunchBreak_Jennifer_IsGagged = false;
 }
@@ -312,7 +314,7 @@ function C007_LunchBreak_Jennifer_Spank() {
 			ActorChangeAttitude(0, 1);
 			C007_LunchBreak_Jennifer_SpankDone = true;
 		}
-		OveridenIntroText = GetText("Spank");
+		OverridenIntroText = GetText("Spank");
 	}
 }
 
@@ -327,9 +329,9 @@ function C007_LunchBreak_Jennifer_Masturbate() {
 				C007_LunchBreak_ActorSelect_BonusDone = true;
 				C007_LunchBreak_Jennifer_OrgasmDone = true;
 				C007_LunchBreak_Jennifer_OrgasmCommentAvail = true;
-				OveridenIntroText = GetText("MasturbateOrgasm");
-			} else OveridenIntroText = GetText("MasturbateEgg");
-		} else OveridenIntroText = GetText("MasturbateNoEgg");
+				OverridenIntroText = GetText("MasturbateOrgasm");
+			} else OverridenIntroText = GetText("MasturbateEgg");
+		} else OverridenIntroText = GetText("MasturbateNoEgg");
 	}
 }
 
@@ -341,7 +343,7 @@ function C007_LunchBreak_Jennifer_EvilEnd() {
 		ActorChangeAttitude(-5, 1);
 		SetScene(CurrentChapter, "Outro");
 	} else {
-		OveridenIntroText = GetText("LeaveBoundAndGagged");
+		OverridenIntroText = GetText("LeaveBoundAndGagged");
 		C007_LunchBreak_Jennifer_ConfirmEvil = true;
 	}
 }
@@ -358,17 +360,17 @@ function C007_LunchBreak_Jennifer_PushUp(Quality) {
 	// Keeps the count and shows it
 	C007_LunchBreak_Jennifer_PushUpQuality = C007_LunchBreak_Jennifer_PushUpQuality + Quality;
 	C007_LunchBreak_Jennifer_PushUpCount++;
-	OveridenIntroText = GetText("Count" + C007_LunchBreak_Jennifer_PushUpCount.toString()) + " " + GetText("PushUpQuality" + Quality.toString());
+	OverridenIntroText = GetText("Count" + C007_LunchBreak_Jennifer_PushUpCount.toString()) + " " + GetText("PushUpQuality" + Quality.toString());
 
 	// Stops at 10, if quality isn't great the player gets punished
 	if (C007_LunchBreak_Jennifer_PushUpCount >= 10) {
 		if (C007_LunchBreak_Jennifer_PushUpQuality >= 20) {
 			C007_LunchBreak_Jennifer_CurrentStage = 340;
 			C007_LunchBreak_ActorSelect_BonusDone = true;
-			OveridenIntroText = GetText("PushUpSuccess");
+			OverridenIntroText = GetText("PushUpSuccess");
 		} else {
 			C007_LunchBreak_Jennifer_CurrentStage = 400;
-			OveridenIntroText = GetText("PushUpFail");			
+			OverridenIntroText = GetText("PushUpFail");			
 		}
 	}
 
@@ -391,8 +393,8 @@ function C007_LunchBreak_Jennifer_RacketHit(Quality) {
 		C007_LunchBreak_Jennifer_CurrentStage = 470;
 		C007_LunchBreak_ActorSelect_BonusDone = true;
 		ActorChangeAttitude(0, -1);
-		if (PlayerHasLockedInventory("Cuffs") || PlayerHasLockedInventory("Rope")) OveridenIntroText = GetText("ReleaseRacket");
-		else OveridenIntroText = GetText("StopRacket");
+		if (PlayerHasLockedInventory("Cuffs") || PlayerHasLockedInventory("Rope")) OverridenIntroText = GetText("ReleaseRacket");
+		else OverridenIntroText = GetText("StopRacket");
 		PlayerReleaseBondage();
 	}
 }

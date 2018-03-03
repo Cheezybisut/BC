@@ -18,11 +18,12 @@
 <script src="Drawing.js"></script>
 <script src="Actor.js"></script>
 <script src="Inventory.js"></script>
+<script src="Skill.js"></script>
 <script src="Time.js"></script>
-<script src="Fight.js"></script>
 <script src="Struggle.js"></script>
 <script src="C000_Intro/Intro/Script.js"></script>
 <script src="C000_Intro/ChapterSelect/Script.js"></script>
+<script src="C000_Intro/CreatePlayer/Script.js"></script>
 <script src="C001_BeforeClass/Intro/Script.js"></script>
 <script src="C001_BeforeClass/Classroom/Script.js"></script>
 <script src="C001_BeforeClass/Bag/Script.js"></script>
@@ -78,6 +79,7 @@
 <script src="C007_LunchBreak/Sidney/Script.js"></script>
 <script src="C007_LunchBreak/Jennifer/Script.js"></script>
 <script src="C007_LunchBreak/JenniferTennis/Script.js"></script>
+<script src="C007_LunchBreak/Natalie/Script.js"></script>
 <script src="C007_LunchBreak/Outro/Script.js"></script>
 <script src="C008_DramaClass/Intro/Script.js"></script>
 <script src="C008_DramaClass/JuliaIntro/Script.js"></script>
@@ -85,24 +87,57 @@
 <script src="C008_DramaClass/AmandaIntro/Script.js"></script>
 <script src="C008_DramaClass/DressingRoom/Script.js"></script>
 <script src="C008_DramaClass/Dressing/Script.js"></script>
-<script src="C008_DramaClass/HiddenCollar/Script.js"></script>
+<script src="C008_DramaClass/DressingHiddenItem/Script.js"></script>
 <script src="C008_DramaClass/Transition/Script.js"></script>
+<script src="C008_DramaClass/Theater/Script.js"></script>
+<script src="C008_DramaClass/Julia/Script.js"></script>
+<script src="C008_DramaClass/Damsel/Script.js"></script>
+<script src="C008_DramaClass/Heroine/Script.js"></script>
+<script src="C008_DramaClass/Villain/Script.js"></script>
 <script src="C008_DramaClass/Outro/Script.js"></script>
+<script src="C009_Library/Intro/Script.js"></script>
+<script src="C009_Library/Library/Script.js"></script>
+<script src="C009_Library/Outro/Script.js"></script>
+<script src="C010_Revenge/Intro/Script.js"></script>
+<script src="C010_Revenge/AmandaSarah/Script.js"></script>
+<script src="C010_Revenge/SidneyJennifer/Script.js"></script>
+<script src="C010_Revenge/EarlyEnding/Script.js"></script>
+<script src="C010_Revenge/Outro/Script.js"></script>
+<script src="C101_KinbakuClub/Intro/Script.js"></script>
+<script src="C101_KinbakuClub/JennaIntro/Script.js"></script>
+<script src="C101_KinbakuClub/Discipline/Script.js"></script>
+<script src="C101_KinbakuClub/ClubRoom1/Script.js"></script>
+<script src="C101_KinbakuClub/ClubRoom2/Script.js"></script>
+<script src="C101_KinbakuClub/ClubRoom3/Script.js"></script>
+<script src="C101_KinbakuClub/BlindMansBuff/Script.js"></script>
+<script src="C101_KinbakuClub/Erica/Script.js"></script>
+<script src="C101_KinbakuClub/Fight/Script.js"></script>
+<script src="C101_KinbakuClub/EricaBadEnd/Script.js"></script>
+<script src="C101_KinbakuClub/Lauren/Script.js"></script>
+<script src="C101_KinbakuClub/Transition/Script.js"></script>
+<script src="C101_KinbakuClub/Door/Script.js"></script>
+<script src="C101_KinbakuClub/Outro/Script.js"></script>
 <script src="C999_Common/GameLoad/Script.js"></script>
 <script src="C999_Common/GameSave/Script.js"></script>
 <script src="C999_Common/Player/Script.js"></script>
 <script src="C999_Common/Cuffs/Script.js"></script>
 <script src="C999_Common/CuffsKey/Script.js"></script>
 <script src="C999_Common/Rope/Script.js"></script>
-<script src="C999_Common/Ballgag/Script.js"></script>
+<script src="C999_Common/BallGag/Script.js"></script>
 <script src="C999_Common/TapeGag/Script.js"></script>
+<script src="C999_Common/ClothGag/Script.js"></script>
+<script src="C999_Common/DoubleOpenGag/Script.js"></script>
 <script src="C999_Common/Collar/Script.js"></script>
+<script src="C999_Common/Blindfold/Script.js"></script>
 <script src="C999_Common/VibratingEgg/Script.js"></script>
 <script src="C999_Common/ChastityBelt/Script.js"></script>
 <script src="C999_Common/Crop/Script.js"></script>
 <script src="C999_Common/SleepingPill/Script.js"></script>
 <script src="C999_Common/RustyHook/Script.js"></script>
 <script src="C999_Common/MetalSheet/Script.js"></script>
+<script src="C999_Common/Fights/Fight.js"></script>
+<script src="C999_Common/Fights/DoubleFight.js"></script>
+<script src="C999_Common/Races/Race.js"></script>
 <script>
 
 // When the code is loaded, start on "Chapter 0" to select a chapter and loads the default language
@@ -117,7 +152,7 @@ window.onload = function() {
 
 // Main game running state, runs the current screen code and bottom bar
 function MainRun() {
-	document.getElementById("MainCanvas").focus();
+	if (CurrentScreen != "CreatePlayer") document.getElementById("MainCanvas").focus();
 	ProcessTimer();
 	DynamicFunction(CurrentChapter + "_" + CurrentScreen + "_Run()");
 	BuildBottomBar();
@@ -153,7 +188,7 @@ function Touch(event) {
 function MouseMove(event) {
 	var rect = document.getElementById("MainCanvas").getBoundingClientRect();
 	MouseX = event.clientX - rect.left;
-	MouseY = event.clientY - rect.top;	
+	MouseY = event.clientY - rect.top;
 }
 
 // When the mouse is away from the control, we stop keeping the coordinates

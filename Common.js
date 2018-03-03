@@ -5,8 +5,8 @@ var CurrentText;
 var CurrentChapter;
 var CurrentScreen;
 var CurrentLanguageTag = "EN";
-var OveridenIntroText;
-var OveridenIntroImage;
+var OverridenIntroText;
+var OverridenIntroImage;
 var LeaveChapter = "";
 var LeaveScreen = "";
 var LeaveIcon = "";
@@ -15,6 +15,9 @@ var MouseY = 0;
 var KeyPress = "";
 var IsMobile = false;
 var TextPhase = 0;
+var CSVCache = {};
+var MaxFightSequence = 500;
+var MaxRaceSequence = 1000;
 
 // Array variables
 var IntroStage = 0;
@@ -35,20 +38,30 @@ var StageSubMod = 8;
 var StageFunction = 9;
 var TextTag = 0;
 var TextContent = 1;
+var FightMoveType = 0;
+var FightMoveTime = 1;
+var RaceMoveType = 0;
+var RaceMoveTime = 1;
 
 // Common variables
 var Common_BondageAllowed = true;
 var Common_SelfBondageAllowed = true;
+var Common_PlayerName = "";
+var Common_PlayerOwner = "";
 var Common_PlayerRestrained = false;
 var Common_PlayerGagged = false;
+var Common_PlayerBlinded = false;
 var Common_PlayerChaste = false;
 var Common_PlayerNotRestrained = true;
 var Common_PlayerNotGagged = true;
+var Common_PlayerNotBlinded = true;
 var Common_PlayerClothed = true;
 var Common_PlayerUnderwear = false;
 var Common_PlayerNaked = false;
 var Common_PlayerCostume = "";
+var Common_PlayerPose = "";
 var Common_PlayerCrime = "";
+var Common_ClubStatus = "";
 
 // Returns the current date and time in a yyyy-mm-dd hh:mm:ss format
 function GetFormatDate() {
@@ -112,21 +125,28 @@ function ParseCSV(str) {
 
 // Read a CSV file from the web site
 function ReadCSV(Array, FileName) {
-	
+	if (CSVCache[FileName]) {
+        window[Array] = CSVCache[FileName];
+        return;
+    }
+
 	// Opens the file, parse it and returns the result in an array
-	var Reader = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');	
-    Reader.open('get', FileName, true); 
+	var Reader = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
+    Reader.open('get', FileName, true);
     Reader.onreadystatechange = function() {
-		if (Reader.readyState == 4)
-			window[Array] = ParseCSV(Reader.responseText);
+		if (Reader.readyState == 4) {
+            CSVCache[FileName] = ParseCSV(Reader.responseText);
+            window[Array] = CSVCache[FileName];
+		}
 	};
-    Reader.send(null);	
-	
+    
+    Reader.send(null);
 }
 
 // Returns a working language if translation isn't fully ready
 function GetWorkingLanguage() {
 	if ((CurrentLanguageTag == "FR") && ((CurrentChapter == "C000_Intro") || (CurrentChapter == "C001_BeforeClass") || (CurrentChapter == "C002_FirstClass") || (CurrentChapter == "C003_MorningDetention") || (CurrentChapter == "C999_Common"))) return "FR";
+	if ((CurrentLanguageTag == "PL") && ((CurrentChapter == "C000_Intro"))) return "PL";
 	if ((CurrentLanguageTag == "CN") && ((CurrentChapter == "C000_Intro") || (CurrentChapter == "C005_GymClass") || (CurrentChapter == "C999_Common"))) return "CN";
 	return "EN";
 }
@@ -161,8 +181,8 @@ function SetScene(Chapter, Screen) {
 	CurrentActor = "";
 	CurrentChapter = Chapter;
 	CurrentScreen = Screen;
-	OveridenIntroText = "";
-	OveridenIntroImage = "";
+	OverridenIntroText = "";
+	OverridenIntroImage = "";
 	LeaveIcon = "";
 	LeaveScreen = "";
 	LeaveChapter = Chapter;
@@ -185,9 +205,9 @@ function ClickInteraction(CurrentStagePosition) {
 				if (ActorInteractionAvailable(CurrentStage[L][StageLoveReq], CurrentStage[L][StageSubReq], CurrentStage[L][StageVarReq], CurrentStage[L][StageInteractionText], false)) {
 					if ((MouseX >= (Pos % 2) * 300) && (MouseX <= ((Pos % 2) * 300) + 299) && (MouseY >= 151 + (Math.round((Pos - 1) / 2) * 90)) && (MouseY <= 240 + (Math.round((Pos - 1) / 2) * 90))) {
 						window[CurrentChapter + "_" + CurrentScreen + "_CurrentStage"] = CurrentStage[L][StageNextStage];
-						OveridenIntroText = CurrentStage[L][StageInteractionResult];
+						OverridenIntroText = CurrentStage[L][StageInteractionResult];
 						ActorChangeAttitude(CurrentStage[L][StageLoveMod], CurrentStage[L][StageSubMod]);					
-						if (CurrentStage[L][StageInteractionText].indexOf("(1 minute)") >= 0 || CurrentStage[L][StageInteractionText].indexOf("(1 分钟)") >= 0) CurrentTime = CurrentTime + 60000;
+						if (CurrentStage[L][StageInteractionText].indexOf("(1 minute)") >= 0) CurrentTime = CurrentTime + 60000;
 						else CurrentTime = CurrentTime + 10000;
 						if (CurrentStage[L][StageFunction].trim() != "") DynamicFunction(CurrentChapter + "_" + CurrentScreen + "_" + CurrentStage[L][StageFunction].trim());
 						return;
@@ -212,7 +232,26 @@ function GetText(Tag) {
 				return CurrentText[T][TextContent].trim();
 		
 		// Returns an error message
-		return "MISSING TEXT FOR TAG: " + Tag;
+		return "MISSING TEXT FOR TAG: " + Tag.trim();
+
+	} else return "";
+
+}
+
+// Returns the text for a specific CSV associated with the tag
+function GetCSVText(CSVText, Tag) {
+
+	// Make sure the text CSV file is loaded
+	if (CSVText != null) {
+		
+		// Cycle the text to find a matching tag and returns the text content
+		Tag = Tag.trim().toUpperCase();
+		for (var T = 0; T < CSVText.length; T++)
+			if (CSVText[T][TextTag].trim().toUpperCase() == Tag)
+				return CSVText[T][TextContent].trim();
+		
+		// Returns an error message
+		return "MISSING TEXT FOR TAG: " + Tag.trim();
 
 	} else return "";
 
@@ -231,4 +270,13 @@ function LeaveButtonClick() {
 		if ((MouseX >= 1125) && (MouseX <= 1200) && (MouseY >= 600) && (MouseY <= 675)) 
 			SetScene(LeaveChapter, LeaveScreen);
 
+}
+
+// Creates a path from the supplied paths parts
+function GetPath(paths) {
+    var path = arguments[0];
+    for (var index = 1; index < arguments.length; index++) {
+        path += "/" + arguments[index];
+    }
+    return path;
 }

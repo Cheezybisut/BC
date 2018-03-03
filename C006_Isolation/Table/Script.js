@@ -21,7 +21,7 @@ function C006_Isolation_Table_Click() {
 	// The metal sheet can be used on the table
 	if (GetClickedInventory() == "MetalSheet") {
 		C006_Isolation_Table_CurrentStage = 10;
-		OveridenIntroText = GetText("UseSheet");
+		OverridenIntroText = GetText("UseSheet");
 		PlayerRemoveInventory("MetalSheet", 1);
 		C006_Isolation_IsolationRoom_AllowCutRope = true;
 	}

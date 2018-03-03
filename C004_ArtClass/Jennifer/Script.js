@@ -14,6 +14,8 @@ var C004_ArtClass_Jennifer_CanBegForRelease = false;
 var C004_ArtClass_Jennifer_PityDone = false;
 var C004_ArtClass_Jennifer_EggConfirm = false;
 var C004_ArtClass_Jennifer_EggInside = false;
+var C004_ArtClass_Jennifer_StunningBeautyReady = true;
+var C004_ArtClass_Jennifer_PaintAvail = true;
 
 // Chapter 4 - Jennifer Load
 function C004_ArtClass_Jennifer_Load() {
@@ -31,6 +33,9 @@ function C004_ArtClass_Jennifer_Load() {
 	// If we allow the player to beg to be released
 	C004_ArtClass_Jennifer_CanBegForRelease = ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && Common_PlayerRestrained && Common_PlayerNotGagged);
 	
+	// A player with seduction has an extra option
+	if (PlayerGetSkillLevel("Seduction") == 0) C004_ArtClass_Jennifer_StunningBeautyReady = false;
+	
 }
 
 // Chapter 4 - Jennifer Run
@@ -46,13 +51,13 @@ function C004_ArtClass_Jennifer_Click() {
 	var ClickInv = GetClickedInventory();
 
 	// When the user wants to use any item and bondage isn't allowed
-	if (!Common_BondageAllowed && ((ClickInv == "Rope") || (ClickInv == "Ballgag") || (ClickInv == "TapeGag") || (ClickInv == "Crop") || (ClickInv == "Cuffs") || (ClickInv == "VibratingEgg")) && Common_PlayerNotRestrained)
-		OveridenIntroText = GetText("NoBondage");
+	if (!Common_BondageAllowed && ((ClickInv == "Rope") || (ClickInv == "BallGag") || (ClickInv == "TapeGag") || (ClickInv == "Crop") || (ClickInv == "Cuffs") || (ClickInv == "VibratingEgg")) && Common_PlayerNotRestrained)
+		OverridenIntroText = GetText("NoBondage");
 
 	// The player can convince Jennifer to help with a crop
 	if (!Common_BondageAllowed && (C004_ArtClass_Jennifer_CurrentStage == 50) && (ClickInv == "Crop") && Common_PlayerNotRestrained) {
 		C004_ArtClass_Jennifer_SandroComment();
-		OveridenIntroText = GetText("CropForInfo");
+		OverridenIntroText = GetText("CropForInfo");
 		ActorChangeAttitude(-1, 1);
 		C004_ArtClass_Jennifer_CurrentStage = 60;
 		CurrentTime = CurrentTime + 60000;
@@ -61,9 +66,9 @@ function C004_ArtClass_Jennifer_Click() {
 	// When the user wants to use the rope
 	if (Common_BondageAllowed && (C004_ArtClass_Jennifer_CurrentStage >= 120) && (ClickInv == "Rope") && !ActorHasInventory("Rope") && Common_PlayerNotRestrained) {
 		if (ActorGetValue(ActorSubmission) < 3) {
-			OveridenIntroText = GetText("RefuseBondage");
+			OverridenIntroText = GetText("RefuseBondage");
 		} else {
-			OveridenIntroText = GetText("Bondage");
+			OverridenIntroText = GetText("Bondage");
 			C004_ArtClass_Jennifer_CurrentStage = 130;
 			C004_ArtClass_ArtRoom_JenniferStage = 3;
 			ActorAddInventory("Rope");
@@ -73,23 +78,23 @@ function C004_ArtClass_Jennifer_Click() {
 	}
 	
 	// When the user wants to use a gag without tying her
-	if (Common_BondageAllowed && ((ClickInv == "Ballgag") || (ClickInv == "TapeGag")) && !ActorHasInventory("Rope") && !ActorHasInventory("Ballgag") && !ActorHasInventory("TapeGag") && Common_PlayerNotRestrained)
-		OveridenIntroText = GetText("NoGag");
+	if (Common_BondageAllowed && ((ClickInv == "BallGag") || (ClickInv == "TapeGag")) && !ActorHasInventory("Rope") && !ActorHasInventory("BallGag") && !ActorHasInventory("TapeGag") && Common_PlayerNotRestrained)
+		OverridenIntroText = GetText("NoGag");
 		
-	// When the user wants to use a ballgag	
-	if (Common_BondageAllowed && (ClickInv == "Ballgag") && ActorHasInventory("Rope") && !ActorHasInventory("Ballgag") && Common_PlayerNotRestrained) {
-		OveridenIntroText = GetText("Ballgag");
+	// When the user wants to use a BallGag	
+	if (Common_BondageAllowed && (ClickInv == "BallGag") && ActorHasInventory("Rope") && !ActorHasInventory("BallGag") && Common_PlayerNotRestrained) {
+		OverridenIntroText = GetText("BallGag");
 		C004_ArtClass_Jennifer_CurrentStage = 140;
 		C004_ArtClass_Jennifer_Ungag();
 		C004_ArtClass_ArtRoom_JenniferStage = 4;
-		ActorAddInventory("Ballgag");
-		PlayerRemoveInventory("Ballgag", 1);
+		ActorAddInventory("BallGag");
+		PlayerRemoveInventory("BallGag", 1);
 		CurrentTime = CurrentTime + 60000;
 	}
 
 	// When the user wants to use a tape gag
 	if (Common_BondageAllowed && (ClickInv == "TapeGag") && ActorHasInventory("Rope") && !ActorHasInventory("TapeGag") && Common_PlayerNotRestrained) {
-		OveridenIntroText = GetText("TapeGag");
+		OverridenIntroText = GetText("TapeGag");
 		C004_ArtClass_Jennifer_CurrentStage = 150;
 		C004_ArtClass_Jennifer_Ungag();
 		C004_ArtClass_ArtRoom_JenniferStage = 5;
@@ -100,7 +105,7 @@ function C004_ArtClass_Jennifer_Click() {
 
 	// When the user wants to use the crop
 	if (Common_BondageAllowed && (ClickInv == "Crop") && ActorHasInventory("Rope") && Common_PlayerNotRestrained) {
-		OveridenIntroText = GetText("Crop");
+		OverridenIntroText = GetText("Crop");
 		if (C004_ArtClass_Jennifer_CropDone == false) { C004_ArtClass_Jennifer_CropDone = true; ActorChangeAttitude(-1, 1); }
 		CurrentTime = CurrentTime + 60000;
 	}
@@ -109,12 +114,12 @@ function C004_ArtClass_Jennifer_Click() {
 	if (Common_BondageAllowed && (ClickInv == "VibratingEgg") && !ActorHasInventory("VibratingEgg") && ActorHasInventory("Rope") && Common_PlayerNotRestrained) {		
 		if (C004_ArtClass_Jennifer_EggConfirm == false) {
 			C004_ArtClass_Jennifer_EggConfirm = true;
-			OveridenIntroText = GetText("VibratingEggWarning");
+			OverridenIntroText = GetText("VibratingEggWarning");
 		} else {
 			ActorAddInventory("VibratingEgg");
 			PlayerRemoveInventory("VibratingEgg", 1);
 			ActorChangeAttitude(-1, 0);
-			OveridenIntroText = GetText("VibratingEggInsert");
+			OverridenIntroText = GetText("VibratingEggInsert");
 			C004_ArtClass_Jennifer_EggInside = true;
 		}
 	}
@@ -146,9 +151,9 @@ function C004_ArtClass_Jennifer_Untie() {
 // Chapter 4 - Jennifer Ungag
 function C004_ArtClass_Jennifer_Ungag() {
 	C004_ArtClass_ArtRoom_JenniferStage = 3;
-	if (ActorHasInventory("Ballgag")) {
-		PlayerAddInventory("Ballgag", 1);
-		ActorRemoveInventory("Ballgag");
+	if (ActorHasInventory("BallGag")) {
+		PlayerAddInventory("BallGag", 1);
+		ActorRemoveInventory("BallGag");
 	}
 	ActorRemoveInventory("TapeGag");
 }
@@ -156,28 +161,28 @@ function C004_ArtClass_Jennifer_Ungag() {
 // Chapter 4 - Jennifer Kiss
 function C004_ArtClass_Jennifer_Kiss() {
 	C004_ArtClass_Jennifer_KissReady = false;
-	if (Common_PlayerGagged) OveridenIntroText = GetText("GaggedKiss");
+	if (Common_PlayerGagged) OverridenIntroText = GetText("GaggedKiss");
 }
 
 // Chapter 4 - Jennifer Tighten
 function C004_ArtClass_Jennifer_Tighten() {
 	if (Common_PlayerNotRestrained) {
 		if (C004_ArtClass_Jennifer_TightenDone == false) {
-			if (C004_ArtClass_Jennifer_CurrentStage >= 140) OveridenIntroText = GetText("TightenGagged");
-			else OveridenIntroText = GetText("Tighten");
+			if (C004_ArtClass_Jennifer_CurrentStage >= 140) OverridenIntroText = GetText("TightenGagged");
+			else OverridenIntroText = GetText("Tighten");
 			ActorChangeAttitude(-1, 1);
 			C004_ArtClass_Jennifer_TightenDone = true;
 		}
 	} else {
-		OveridenIntroText = GetText("TightenFail");
+		OverridenIntroText = GetText("TightenFail");
 	}
 }
 
 // Chapter 4 - Jennifer Tickle
 function C004_ArtClass_Jennifer_Tickle() {
 	if (C004_ArtClass_Jennifer_TickleDone == false) {
-		if (Common_PlayerNotRestrained) OveridenIntroText = GetText("Tickle");
-		else OveridenIntroText = GetText("TickleFail");
+		if (Common_PlayerNotRestrained) OverridenIntroText = GetText("Tickle");
+		else OverridenIntroText = GetText("TickleFail");
 		ActorChangeAttitude(-1, 0);
 		C004_ArtClass_Jennifer_TickleDone = true;
 	}
@@ -188,7 +193,7 @@ function C004_ArtClass_Jennifer_TrustComment() {
 	if (C004_ArtClass_Jennifer_TrustCommentDone == false) {
 		C004_ArtClass_Jennifer_TrustCommentDone = true;
 		ActorChangeAttitude(1, 0);
-		OveridenIntroText = GetText("EarnTrust");
+		OverridenIntroText = GetText("EarnTrust");
 	}
 }
 
@@ -197,20 +202,20 @@ function C004_ArtClass_Jennifer_EggComment() {
 	if (C004_ArtClass_Jennifer_EggCommentDone == false) {
 		C004_ArtClass_Jennifer_EggCommentDone = true;
 		ActorChangeAttitude(0, 1);
-		OveridenIntroText = GetText("EggComment");
+		OverridenIntroText = GetText("EggComment");
 	}
 }
 
 // Chapter 4 - Jennifer Beg for Release
 function C004_ArtClass_Jennifer_BegForRelease() {
 	if (ActorGetValue(ActorLove) >= 3) {
-		OveridenIntroText = GetText("PlayerUntie");
+		OverridenIntroText = GetText("PlayerUntie");
 		PlayerUnlockInventory("Rope");
 		PlayerAddInventory("Rope", 1);
 		C004_ArtClass_Jennifer_CanBegForRelease = false;
 		CurrentTime = CurrentTime + 60000;
 	} else {
-		OveridenIntroText = GetText("PlayerStayTied");
+		OverridenIntroText = GetText("PlayerStayTied");
 	}
 }
 
@@ -220,4 +225,27 @@ function C004_ArtClass_Jennifer_PityComment() {
 		ActorChangeAttitude(1, 0);
 		C004_ArtClass_Jennifer_PityDone = true;
 	}
+}
+
+// Chapter 4 - Jennifer stunning beauty comment
+function C004_ArtClass_Jennifer_StunningBeauty() {
+	C004_ArtClass_Jennifer_StunningBeautyReady = false;
+	ActorChangeAttitude(1, 0);
+}
+
+// Chapter 4 - Jennifer Paint, can only be done if there's 30 minutes left for the class
+function C004_ArtClass_Jennifer_Paint() {
+	if (CurrentTime <= 9.75 * 60 * 60 * 1000) {
+		C004_ArtClass_Sarah_PaintAvail = false;
+		C004_ArtClass_Jennifer_PaintAvail = false;
+		C004_ArtClass_Julia_PaintAvail = false;
+		ActorChangeAttitude(0, 2);
+		CurrentTime = CurrentTime + 0.5 * 60 * 60 * 1000;
+		if (PlayerGetSkillLevel("Arts") >= 1) {
+			ActorSpecificChangeAttitude("Julia", PlayerGetSkillLevel("Arts"), 0);
+			ActorSpecificChangeAttitude("Sarah", PlayerGetSkillLevel("Arts"), 0);
+			ActorSpecificChangeAttitude("Jennifer", PlayerGetSkillLevel("Arts"), 0);
+		}
+		PlayerAddSkill("Arts", 1);
+	} else OverridenIntroText = GetText("NoTimeToPaint");
 }

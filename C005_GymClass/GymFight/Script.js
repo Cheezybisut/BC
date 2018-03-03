@@ -1,7 +1,7 @@
 // Chapter 5 - Gym Fight Load
 function C005_GymClass_GymFight_Load() {
-	if (C005_GymClass_Jennifer_PracticeMode) LoadFight("Jennifer", "Easy", -6);
-	else LoadFight("Jennifer", "Normal", -6);
+	if (C005_GymClass_Jennifer_PracticeMode) LoadFight("Jennifer", "Easy", Icons.Fight.Punch, PlayerGetSkillLevel("Fighting"));
+	else LoadFight("Jennifer", "Normal", Icons.Fight.Punch, PlayerGetSkillLevel("Fighting"));
 }
 
 // Chapter 5 - Gym Fight Run

@@ -20,7 +20,7 @@ function C007_LunchBreak_Sarah_CalcParams() {
 	C007_LunchBreak_Sarah_NoOption = ((ActorGetValue(ActorLove) < 5) && (ActorGetValue(ActorSubmission) < 5));
 
 	// No special images by default
-	OveridenIntroImage = "";
+	OverridenIntroImage = "";
 	
 	// Between 100 and 200, the image evolves with the number of matches
 	if ((C007_LunchBreak_Sarah_CurrentStage == 100) ||
@@ -37,7 +37,7 @@ function C007_LunchBreak_Sarah_CalcParams() {
 		var Img = "0";
 		if ((C007_LunchBreak_Sarah_MatchCount == 2) || (C007_LunchBreak_Sarah_MatchCount == 3)) Img = "1";
 		if (C007_LunchBreak_Sarah_MatchCount >= 4) Img = "2";
-		OveridenIntroImage = "SarahPlayerLunch" + Img + ".jpg";
+		OverridenIntroImage = "SarahPlayerLunch" + Img + ".jpg";
 	}
 
 	// At 250 & 260 the player and Sarah make love, many restrains can be applied
@@ -46,13 +46,13 @@ function C007_LunchBreak_Sarah_CalcParams() {
 		if (ActorHasInventory("Rope") && !C007_LunchBreak_Sarah_TwoRopes) Img = Img + "Rope";
 		if (ActorHasInventory("Rope") && C007_LunchBreak_Sarah_TwoRopes) Img = Img + "TwoRopes";
 		if (ActorHasInventory("Cuffs")) Img = Img + "Cuffs";
-		if (ActorHasInventory("Ballgag")) Img = Img + "Ballgag";
+		if (ActorHasInventory("BallGag")) Img = Img + "BallGag";
 		if (ActorHasInventory("TapeGag")) Img = Img + "TapeGag";
-		OveridenIntroImage = "SarahPlayerRestroomLove" + Img + ".jpg";
+		OverridenIntroImage = "SarahPlayerRestroomLove" + Img + ".jpg";
 	}
 	
 	// Keep the status of Sarah
-	C007_LunchBreak_Sarah_IsBoundAndGagged = ((ActorHasInventory("Rope") || ActorHasInventory("Cuffs")) && (ActorHasInventory("Ballgag") || ActorHasInventory("TapeGag")));
+	C007_LunchBreak_Sarah_IsBoundAndGagged = ((ActorHasInventory("Rope") || ActorHasInventory("Cuffs")) && (ActorHasInventory("BallGag") || ActorHasInventory("TapeGag")));
 	C007_LunchBreak_Sarah_HasEgg = ActorHasInventory("VibratingEgg");
 	
 }
@@ -73,7 +73,7 @@ function C007_LunchBreak_Sarah_Load() {
 
 	// If we must put the previous text back
 	if ((C007_LunchBreak_Sarah_IntroText != "") && (C007_LunchBreak_Sarah_CurrentStage > 0)) {
-		OveridenIntroText = C007_LunchBreak_Sarah_IntroText;
+		OverridenIntroText = C007_LunchBreak_Sarah_IntroText;
 		LeaveIcon = C007_LunchBreak_Sarah_LeaveIcon;
 	}
 
@@ -91,14 +91,14 @@ function C007_LunchBreak_Sarah_Click() {
 	ClickInteraction(C007_LunchBreak_Sarah_CurrentStage);
 	var ClickInv = GetClickedInventory();
 	if (ClickInv == "Player") {
-		C007_LunchBreak_Sarah_IntroText = OveridenIntroText;
+		C007_LunchBreak_Sarah_IntroText = OverridenIntroText;
 		C007_LunchBreak_Sarah_LeaveIcon = LeaveIcon;
 		InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
 	}
 
 	// When the user wants to use a second rope
 	if ((C007_LunchBreak_Sarah_CurrentStage == 250) && (ClickInv == "Rope") && ActorHasInventory("Rope") && !ActorHasInventory("Cuffs") && !C007_LunchBreak_Sarah_TwoRopes) {
-		OveridenIntroText = GetText("SecondRope");
+		OverridenIntroText = GetText("SecondRope");
 		PlayerRemoveInventory("Rope", 1);
 		CurrentTime = CurrentTime + 60000;
 		C007_LunchBreak_Sarah_TwoRopes = true;
@@ -106,7 +106,7 @@ function C007_LunchBreak_Sarah_Click() {
 	
 	// When the user wants to use the rope
 	if ((C007_LunchBreak_Sarah_CurrentStage == 250) && (ClickInv == "Rope") && !ActorHasInventory("Rope") && !ActorHasInventory("Cuffs")) {
-		OveridenIntroText = GetText("FirstRope");
+		OverridenIntroText = GetText("FirstRope");
 		ActorAddInventory("Rope");
 		PlayerRemoveInventory("Rope", 1);
 		CurrentTime = CurrentTime + 60000;
@@ -115,25 +115,25 @@ function C007_LunchBreak_Sarah_Click() {
 	
 	// When the user wants to use the cuffs
 	if ((C007_LunchBreak_Sarah_CurrentStage == 250) && (ClickInv == "Cuffs") && !ActorHasInventory("Rope") && !ActorHasInventory("Cuffs")) {
-		OveridenIntroText = GetText("Cuffs");
+		OverridenIntroText = GetText("Cuffs");
 		ActorAddInventory("Cuffs");
 		PlayerRemoveInventory("Cuffs", 1);
 		CurrentTime = CurrentTime + 60000;
 	}
 	
-	// When the user wants to use the ballgag
-	if ((C007_LunchBreak_Sarah_CurrentStage == 250) && (ClickInv == "Ballgag") && !ActorHasInventory("Ballgag")) {
-		OveridenIntroText = GetText("Ballgag");
+	// When the user wants to use the BallGag
+	if ((C007_LunchBreak_Sarah_CurrentStage == 250) && (ClickInv == "BallGag") && !ActorHasInventory("BallGag")) {
+		OverridenIntroText = GetText("BallGag");
 		ActorRemoveInventory("TapeGag");
-		ActorAddInventory("Ballgag");
-		PlayerRemoveInventory("Ballgag", 1);
+		ActorAddInventory("BallGag");
+		PlayerRemoveInventory("BallGag", 1);
 		CurrentTime = CurrentTime + 60000;
 		C007_LunchBreak_Sarah_IsGagged = true;
 	}
 	
 	// When the user wants to use the tape gag
 	if ((C007_LunchBreak_Sarah_CurrentStage == 250) && (ClickInv == "TapeGag") && !ActorHasInventory("TapeGag")) {
-		OveridenIntroText = GetText("TapeGag");		
+		OverridenIntroText = GetText("TapeGag");		
 		C007_LunchBreak_Sarah_Ungag();
 		ActorAddInventory("TapeGag");
 		PlayerRemoveInventory("TapeGag", 1);
@@ -143,7 +143,7 @@ function C007_LunchBreak_Sarah_Click() {
 	
 	// When the user wants to use the cuffs keys
 	if ((C007_LunchBreak_Sarah_CurrentStage == 250) && (ClickInv == "CuffsKey") && ActorHasInventory("Cuffs")) {
-		OveridenIntroText = GetText("Uncuff");
+		OverridenIntroText = GetText("Uncuff");
 		ActorRemoveInventory("Cuffs");
 		PlayerAddInventory("Cuffs", 1);
 		CurrentTime = CurrentTime + 60000;
@@ -151,14 +151,14 @@ function C007_LunchBreak_Sarah_Click() {
 	
 	// When the user wants to use the crop
 	if ((C007_LunchBreak_Sarah_CurrentStage == 250) && (ClickInv == "Crop")) {
-		OveridenIntroText = GetText("Crop");
+		OverridenIntroText = GetText("Crop");
 		C007_LunchBreak_Sarah_Violence();
 		CurrentTime = CurrentTime + 60000;
 	}
 	
 	// When the user wants to use the egg
 	if ((C007_LunchBreak_Sarah_CurrentStage == 250) && (ClickInv == "VibratingEgg") && !ActorHasInventory("VibratingEgg")) {
-		OveridenIntroText = GetText("VibratingEgg");
+		OverridenIntroText = GetText("VibratingEgg");
 		ActorChangeAttitude(1, 0);
 		ActorAddInventory("VibratingEgg");
 		PlayerRemoveInventory("VibratingEgg", 1);
@@ -167,7 +167,7 @@ function C007_LunchBreak_Sarah_Click() {
 
 	// When the user wants to use the collar (+20 submission and a ceremony is required)
 	if ((C007_LunchBreak_Sarah_CurrentStage == 250) && (ClickInv == "Collar") && !ActorHasInventory("Collar"))
-		OveridenIntroText = GetText("Collar");
+		OverridenIntroText = GetText("Collar");
 
 	// Recalculates the scene parameters
 	C007_LunchBreak_Sarah_CalcParams();
@@ -213,7 +213,7 @@ function C007_LunchBreak_Sarah_RestroomTimerStart(GoodMatch) {
 // Chapter 7 - Sarah Restroom Timer Run (it will run for 7 minutes)
 function C007_LunchBreak_Sarah_RestroomTimerRun() {
 	if (CurrentTime >= C007_LunchBreak_Sarah_RestroomTimer) {
-		OveridenIntroText = GetText("BackFromRestroom");
+		OverridenIntroText = GetText("BackFromRestroom");
 		C007_LunchBreak_Sarah_CurrentStage = 190;
 		C007_LunchBreak_Sarah_CalcParams();
 	}
@@ -222,7 +222,7 @@ function C007_LunchBreak_Sarah_RestroomTimerRun() {
 // Chapter 7 - Sarah Test Restroom door (Sarah will let the player enter if there's a good match +3 or more)
 function C007_LunchBreak_Sarah_RestroomTestDoor() {
 	if (C007_LunchBreak_Sarah_MatchCount >= 4) {
-		OveridenIntroText = GetText("OpenRestroomDoor");
+		OverridenIntroText = GetText("OpenRestroomDoor");
 		C007_LunchBreak_Sarah_CurrentStage = 200;
 		C007_LunchBreak_Sarah_CalcParams();
 	}
@@ -250,8 +250,8 @@ function C007_LunchBreak_Sarah_BonusDone() {
 function C007_LunchBreak_Sarah_MakeLove() {
 	C007_LunchBreak_Sarah_LoveCount++;
 	if ((C007_LunchBreak_Sarah_LoveCount >= 3) && (C007_LunchBreak_Sarah_ViolenceDone || ActorHasInventory("VibratingEgg"))) {
-		OveridenIntroText = GetText("Orgasm");
-		ActorAddOrgasm();		
+		OverridenIntroText = GetText("Orgasm");
+		ActorAddOrgasm();
 		C007_LunchBreak_Sarah_CurrentStage = 260;
 	}
 }
@@ -280,9 +280,9 @@ function C007_LunchBreak_Sarah_Untie() {
 // Chapter 7 - Sarah Ungag
 function C007_LunchBreak_Sarah_Ungag() {
 	ActorRemoveInventory("TapeGag");
-	if (ActorHasInventory("Ballgag")) {
-		ActorRemoveInventory("Ballgag");
-		PlayerAddInventory("Ballgag", 1);
+	if (ActorHasInventory("BallGag")) {
+		ActorRemoveInventory("BallGag");
+		PlayerAddInventory("BallGag", 1);
 	}
 	C007_LunchBreak_Sarah_IsGagged = false;
 }
@@ -315,7 +315,7 @@ function C007_LunchBreak_Sarah_EvilEnd() {
 		ActorChangeAttitude(-5, 1);
 		SetScene(CurrentChapter, "Outro");		
 	} else {
-		OveridenIntroText = GetText("LeaveBoundAndGagged");
+		OverridenIntroText = GetText("LeaveBoundAndGagged");
 		C007_LunchBreak_Sarah_ConfirmEvil = true;
 	}
 }

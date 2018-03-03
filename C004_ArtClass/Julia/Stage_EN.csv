@@ -34,11 +34,14 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 120,0,0,,The great Venus|was fully naked.,Very true!  For Botticelli and Venus then!|(She strips completely.)  Get your brush!,130,0,0,Strip()
 120,0,0,,Do like Venus|and strip completely.,"Si, si, si!  For Botticelli and Venus then!|(She strips completely.)  Get your brush!",130,0,1,Strip()
 120,0,0,,Can you remove even|more? (Giggle shyly.),"You shy pupil, I'll show you the artist flame.|(She strips completely.)  Get your brush!",130,0,-1,Strip()
+140,0,0,WorkOfArtReady,You truly are|a work of art.,So kind of you COMMON_PLAYERNAME.|You are a charming new pupil.,140,0,0,WorkOfArt()
 140,0,0,,Maybe we should|add another model.,You think?  I'm intrigued.|Who should model with me?,150,0,0,QueryNewModel()
 140,0,0,,It would be prettier|if we added a model.,"So I'm not pretty enough by myself?  Nonsense!|But I'm intrigued, who should model with me?",150,-1,0,QueryNewModel()
 150,0,0,,I will model with you.|(1 minute),Oh!  Very daring!  Come here.|Pupils!  We have an extra model.,160,0,0,"NewModel(""Player"")"
 150,0,0,,Sarah should model.|(1 minute),"Good idea, Sarah, step up please.|Time to paint, get your brushes!",160,0,0,"NewModel(""Sarah"")"
 150,0,0,,Jennifer should model.|(1 minute),"Interesting, Jennifer, step up please.|Time to paint, get your brushes!",160,0,0,"NewModel(""Jennifer"")"
+150,0,0,CanBegForRelease,@HUUIA!  HMMH EE!,Keep the pose new pupil.|I cannot understand a word.,150,0,0,GaggedSpeach()
+150,0,0,CanBegForRelease,(Whimper and make|sad puppy eyes.),,150,0,0,BegForRelease()
 170,0,1,Common_PlayerNotRestrained,Let's change|model again.,Again?  Who should model with me?,150,0,0,ChangeModel()
 170,0,-1,,Can I sit down please?,No!  Poor shy new pupil.  You need to|overcome your shyness first and get the flame.,170,0,0,
 170,0,0,CanBegForRelease,@HUUIA!  HMMH EE!,Keep the pose new pupil.|It's no time to chat.,170,0,0,GaggedSpeach()
@@ -51,3 +54,4 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 170,0,0,IsRestrained,(Tighten the ropes.)|(1 minute),The ropes are already|as tight as they can be.,170,0,0,Tighten()
 170,0,0,IsRestrained,(Release her.)|(1 minute),(You undo the knots and release her.)|So you didn't like Shibari after all?,170,0,0,Release()
 170,0,0,IsGagged,(Ungag her.)|(1 minute),(You remove the gag and she smiles.)|Art can be crazy sometimes.  Now paint!,170,0,0,TryUngag()
+170,0,0,PaintAvail,(Paint Julia.)|(30 minutes),(You carefully paint her and show the result.)|(She looks at your painting and jumps of joy.),170,0,0,Paint()

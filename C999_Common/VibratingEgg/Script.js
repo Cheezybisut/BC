@@ -23,11 +23,12 @@ function C999_Common_VibratingEgg_Load() {
 // Chapter Common - Egg Run, we draw the regular player image if the item is on
 function C999_Common_VibratingEgg_Run() {
 	BuildInteraction(C999_Common_VibratingEgg_CurrentStage);
-	if (PlayerHasLockedInventory("VibratingEgg")) DrawPlayerImage(0, 0);
+	if (PlayerHasLockedInventory("VibratingEgg") && (OverridenIntroImage == "")) DrawPlayerImage(0, 0);
 }
 
 // Chapter Common - Egg Click, allow regular interactions and clicking on another item
 function C999_Common_VibratingEgg_Click() {
+	OverridenIntroImage = "";
 	ClickInteraction(C999_Common_VibratingEgg_CurrentStage);
 	InventoryClick(GetClickedInventory(), LeaveChapter, LeaveScreen);
 }
@@ -37,7 +38,7 @@ function C999_Common_VibratingEgg_Insert() {
 	if (!Common_PlayerChaste) {
 		if (!C999_Common_VibratingEgg_ConfirmInsert) {
 			C999_Common_VibratingEgg_ConfirmInsert = true;
-			OveridenIntroText = GetText("ConfirmInsert");
+			OverridenIntroText = GetText("ConfirmInsert");
 		} else {
 			PlayerRemoveInventory("VibratingEgg", 1);
 			PlayerLockInventory("VibratingEgg");
@@ -45,11 +46,11 @@ function C999_Common_VibratingEgg_Insert() {
 			C999_Common_VibratingEgg_HasLooseEgg = PlayerHasInventory("VibratingEgg");
 		}		
 	} else {
-		OveridenIntroText = GetText("ChastityBelt");
+		OverridenIntroText = GetText("ChastityBelt");
 	}
 }
 
 // Chapter Common - Show the item image
 function C999_Common_VibratingEgg_ShowImage() {
-	OveridenIntroImage = "Egg.jpg";
+	OverridenIntroImage = "Egg.jpg";
 }

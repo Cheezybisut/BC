@@ -1,8 +1,8 @@
 Stage,LoveReq,SubReq,VarReq,IntroText,Image
-0,0,0,,It's lunch time!  Are you hungry?,SarahIntro.jpg
-0,5,0,,Sweet!  It's great to see you again.|It's lunch time.  Are you hungry?,SarahIntroHappy.jpg
-0,0,5,,Hi Miss.  (She looks at the floor.)|It's lunch time.  Are you hungry?,SarahIntroSubbie.jpg
-0,0,0,HasEgg,It's you!  The egg is still inside and I love the|random buzzes.  (She giggles.)  Are you hungry?,SarahIntroHappy.jpg
+0,0,0,,It's lunch time COMMON_PLAYERNAME.|Are you feeling hungry?,SarahIntro.jpg
+0,5,0,,COMMON_PLAYERNAME!  It's great to see|you at lunch time.  Are you hungry?,SarahIntroHappy.jpg
+0,0,5,,Hi Miss COMMON_PLAYERNAME.  (She looks at the floor.)|It's lunch time.  Are you feeling hungry?,SarahIntroSubbie.jpg
+0,0,0,HasEgg,COMMON_PLAYERNAME!  The egg is still inside and I love|the random buzzes.  (She giggles.)  Are you hungry?,SarahIntroHappy.jpg
 5,0,0,,(Sarah sees you but run away.|She pretends to be in a hurry.),SarahIntroGone.jpg
 10,0,0,,You can try the college cafeteria|if you want but the food isn't great.,SarahIntro.jpg
 10,0,5,,If you're really hungry you can try|the cafeteria but I don't recommend it Miss.,SarahIntroSubbie.jpg

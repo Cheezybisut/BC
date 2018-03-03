@@ -38,7 +38,7 @@ function C001_BeforeClass_Amanda_Click() {
 	if ((C001_BeforeClass_Amanda_CurrentStage < 200) && (GetClickedInventory() == "Rope")) {
 		C001_BeforeClass_Amanda_BackupStage = C001_BeforeClass_Amanda_CurrentStage;
 		C001_BeforeClass_Amanda_CurrentStage = 200;
-		OveridenIntroText = GetText("RopeInquiry");
+		OverridenIntroText = GetText("RopeInquiry");
 	}
 	
 }
@@ -71,12 +71,13 @@ function C001_BeforeClass_Amanda_ConfrontBondage() {
 	C001_BeforeClass_Amanda_BondageNotConfronted = false;
 }
 
-// Chapter 1 - Amanda Kiss
+// Chapter 1 - Amanda Kiss (extra love if the player has seduction)
 function C001_BeforeClass_Amanda_Kiss() {
 	if (C001_BeforeClass_Amanda_Kiss_Done == false) {
 		C001_BeforeClass_Amanda_Kiss_Done = true;
-		ActorChangeAttitude(1, 0);
-		OveridenIntroText = GetText("Kiss");
+		if (PlayerGetSkillLevel("Seduction") >= 1) ActorChangeAttitude(2, 0);
+		else ActorChangeAttitude(1, 0);
+		OverridenIntroText = GetText("Kiss");
 	}
 }
 
@@ -85,7 +86,7 @@ function C001_BeforeClass_Amanda_ForceKiss() {
 	if (C001_BeforeClass_Amanda_ForceKiss_Done == false) {
 		C001_BeforeClass_Amanda_ForceKiss_Done = true;
 		ActorChangeAttitude(-1, 0);
-		OveridenIntroText = GetText("KissSidney");
+		OverridenIntroText = GetText("KissSidney");
 	}
 }
 
@@ -94,7 +95,7 @@ function C001_BeforeClass_Amanda_Spank() {
 	if (C001_BeforeClass_Amanda_Spank_Done == false) {
 		C001_BeforeClass_Amanda_Spank_Done = true;
 		ActorChangeAttitude(-1, 1);
-		OveridenIntroText = GetText("Spank");
+		OverridenIntroText = GetText("Spank");
 	}
 }
 
@@ -103,7 +104,7 @@ function C001_BeforeClass_Amanda_Strip() {
 	if (C001_BeforeClass_Amanda_Strip_Done == false) {
 		C001_BeforeClass_Amanda_Strip_Done = true;
 		ActorChangeAttitude(-1, 0);
-		OveridenIntroText = GetText("Strip");
+		OverridenIntroText = GetText("Strip");
 	}
 }
 

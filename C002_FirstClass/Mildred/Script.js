@@ -38,30 +38,30 @@ function C002_FirstClass_Mildred_Click() {
 	
 	// Beyond -3 love, the teacher spank the player
 	if ((C002_FirstClass_Mildred_CurrentStage <= 50) && (ActorGetValue(ActorLove) <= -3) && !C002_FirstClass_Mildred_BeatingDone) {
-		OveridenIntroText = GetText("SurpriseAttack");
+		OverridenIntroText = GetText("SurpriseAttack");
 		C002_FirstClass_Mildred_CurrentStage = 100;
 		C002_FirstClass_Mildred_BeatingDone = true;
 	}	
 
 	// When the user wants to use the gag
-	if ((C002_FirstClass_Mildred_CurrentStage >= 310) && (ClickedInv == "Ballgag") && (ActorHasInventory("Ballgag") == false) && (Common_PlayerNotRestrained)) {
+	if ((C002_FirstClass_Mildred_CurrentStage >= 310) && (ClickedInv == "BallGag") && (ActorHasInventory("BallGag") == false) && (Common_PlayerNotRestrained)) {
 		C002_FirstClass_Mildred_CurrentStage = parseInt(C002_FirstClass_Mildred_CurrentStage) + 10;
-		OveridenIntroText = GetText("Ballgag");
-		PlayerRemoveInventory("Ballgag", 1);
-		ActorAddInventory("Ballgag");
+		OverridenIntroText = GetText("BallGag");
+		PlayerRemoveInventory("BallGag", 1);
+		ActorAddInventory("BallGag");
 		CurrentTime = CurrentTime + 60000;
 	}
 
 	// When the user wants to use the key
 	if (((C002_FirstClass_Mildred_CurrentStage == 310) || (C002_FirstClass_Mildred_CurrentStage == 320) || (C002_FirstClass_Mildred_CurrentStage == 410) || (C002_FirstClass_Mildred_CurrentStage == 420)) && (ClickedInv == "CuffsKey")) {
 		if (C002_FirstClass_Mildred_ConfirmUnlock == false) {
-			OveridenIntroText = GetText("UnlockWarning");
+			OverridenIntroText = GetText("UnlockWarning");
 			C002_FirstClass_Mildred_ConfirmUnlock = true;
 		} else {
-			OveridenIntroText = GetText("Unlock");
+			OverridenIntroText = GetText("Unlock");
 			CurrentTime = CurrentTime + 60000;
 			ActorRemoveInventory("Cuffs");
-			ActorRemoveInventory("Ballgag");
+			ActorRemoveInventory("BallGag");
 			ActorChangeAttitude(2, 0);
 			C002_FirstClass_Mildred_RestrainPlayer();
 			Common_PlayerCrime = "";
@@ -71,14 +71,14 @@ function C002_FirstClass_Mildred_Click() {
 	// When the user wants to use the crop
 	if ((C002_FirstClass_Mildred_CurrentStage >= 310) && (C002_FirstClass_Mildred_CurrentStage <= 340) && (ClickedInv == "Crop") && (Common_PlayerNotRestrained) && (Common_PlayerNotGagged)) {
 		C002_FirstClass_Mildred_CurrentStage = parseInt(C002_FirstClass_Mildred_CurrentStage) + 100;
-		OveridenIntroText = ""
+		OverridenIntroText = ""
 		CurrentTime = CurrentTime + 60000;
 	}
 
 	// When the user wants to use the rope
 	if (((C002_FirstClass_Mildred_CurrentStage == 310) || (C002_FirstClass_Mildred_CurrentStage == 320) || (C002_FirstClass_Mildred_CurrentStage == 410) || (C002_FirstClass_Mildred_CurrentStage == 420)) && (ClickedInv == "Rope") && (Common_PlayerNotRestrained)) {
 		C002_FirstClass_Mildred_CurrentStage = parseInt(C002_FirstClass_Mildred_CurrentStage) + 20;
-		OveridenIntroText = GetText("Rope");
+		OverridenIntroText = GetText("Rope");
 		PlayerRemoveInventory("Rope", 1);
 		ActorAddInventory("Rope");
 		PlayerAddInventory("Cuffs", 1);
@@ -89,7 +89,7 @@ function C002_FirstClass_Mildred_Click() {
 	// When the user wants to use the cuffs
 	if (((C002_FirstClass_Mildred_CurrentStage == 330) || (C002_FirstClass_Mildred_CurrentStage == 340) || (C002_FirstClass_Mildred_CurrentStage == 430) || (C002_FirstClass_Mildred_CurrentStage == 440)) && (ClickedInv == "Cuffs") && (Common_PlayerNotRestrained)) {
 		C002_FirstClass_Mildred_CurrentStage = parseInt(C002_FirstClass_Mildred_CurrentStage) - 20;
-		OveridenIntroText = GetText("Cuffs");
+		OverridenIntroText = GetText("Cuffs");
 		PlayerAddInventory("Rope", 1);
 		ActorRemoveInventory("Rope");
 		PlayerRemoveInventory("Cuffs", 1);
@@ -104,13 +104,14 @@ function C002_FirstClass_Mildred_Click() {
 }
 
 // Chapter 2 - Mildred Restrain Player
-function C002_FirstClass_Mildred_RestrainPlayer() {	
+function C002_FirstClass_Mildred_RestrainPlayer() {
+	PlayerReleaseBondage();
 	PlayerLockInventory("Cuffs");
-	PlayerLockInventory("Ballgag");
+	PlayerLockInventory("BallGag");
 	PlayerRemoveAllInventory();
 	C002_FirstClass_Classroom_MildredSubdueFailed = true;
 	C002_FirstClass_Mildred_CurrentStage = 200;
-	OveridenIntroImage = "MildredGagPlayer.jpg";
+	OverridenIntroImage = "MildredGagPlayer.jpg";
 	LeaveIcon = "Leave";
 }
 
@@ -119,11 +120,11 @@ function C002_FirstClass_Mildred_Disturb() {
 	
 	// After 4 attempts to disturb Mildred, she cuffs and gags the player
 	C002_FirstClass_Mildred_DisturbCount++;
-	if (C002_FirstClass_Mildred_DisturbCount == 1) OveridenIntroText = GetText("Disturb1");
-	if (C002_FirstClass_Mildred_DisturbCount == 2) OveridenIntroText = GetText("Disturb2");
-	if (C002_FirstClass_Mildred_DisturbCount == 3) OveridenIntroText = GetText("Disturb3");
+	if (C002_FirstClass_Mildred_DisturbCount == 1) OverridenIntroText = GetText("Disturb1");
+	if (C002_FirstClass_Mildred_DisturbCount == 2) OverridenIntroText = GetText("Disturb2");
+	if (C002_FirstClass_Mildred_DisturbCount == 3) OverridenIntroText = GetText("Disturb3");
 	if (C002_FirstClass_Mildred_DisturbCount == 4) {
-		OveridenIntroText = GetText("Disturb4");
+		OverridenIntroText = GetText("Disturb4");
 		C002_FirstClass_Mildred_CurrentStage = 220;
 		LeaveIcon = "";
 	}
@@ -141,16 +142,16 @@ function C002_FirstClass_Mildred_Subdue() {
 
 	// With no helper
 	if (AgreeCount == 0) {
-		OveridenIntroText = GetText("SubdueAlone");
+		OverridenIntroText = GetText("SubdueAlone");
 		C002_FirstClass_Mildred_CurrentStage = 220;
 		LeaveIcon = "";		
 	}
 	
 	// With one helper, both the player and the helper end up bound and gagged
 	if (AgreeCount == 1) {
-		if (C002_FirstClass_Classroom_SidneyAgree) { OveridenIntroText = GetText("SubdueSidney"); CurrentActor = "Sidney"; ActorAddInventory("Cuffs"); ActorAddInventory("Ballgag"); }
-		if (C002_FirstClass_Classroom_AmandaAgree) { OveridenIntroText = GetText("SubdueAmanda"); CurrentActor = "Amanda"; ActorAddInventory("Cuffs"); ActorAddInventory("Ballgag"); }
-		if (C002_FirstClass_Classroom_SarahAgree) { OveridenIntroText = GetText("SubdueSarah"); CurrentActor = "Sarah"; ActorAddInventory("Cuffs"); ActorAddInventory("Ballgag"); }
+		if (C002_FirstClass_Classroom_SidneyAgree) { OverridenIntroText = GetText("SubdueSidney"); CurrentActor = "Sidney"; ActorAddInventory("Cuffs"); ActorAddInventory("BallGag"); }
+		if (C002_FirstClass_Classroom_AmandaAgree) { OverridenIntroText = GetText("SubdueAmanda"); CurrentActor = "Amanda"; ActorAddInventory("Cuffs"); ActorAddInventory("BallGag"); }
+		if (C002_FirstClass_Classroom_SarahAgree) { OverridenIntroText = GetText("SubdueSarah"); CurrentActor = "Sarah"; ActorAddInventory("Cuffs"); ActorAddInventory("BallGag"); }
 		CurrentActor = "Mildred";
 		C002_FirstClass_Mildred_CurrentStage = 220;
 		LeaveIcon = "";
@@ -158,7 +159,7 @@ function C002_FirstClass_Mildred_Subdue() {
 
 	// With many helpers
 	if (AgreeCount >= 2) {
-		OveridenIntroText = GetText("SubdueSuccess");
+		OverridenIntroText = GetText("SubdueSuccess");
 		ActorAddInventory("Cuffs");
 		C002_FirstClass_Classroom_MildredSubdueSuccess = true;
 		C002_FirstClass_Mildred_CurrentStage = 300;
@@ -173,13 +174,13 @@ function C002_FirstClass_Mildred_Search() {
 	PlayerAddInventory("Crop", 1);
 	PlayerAddInventory("Cuffs", 1);
 	PlayerAddInventory("CuffsKey", 1);
-	PlayerAddInventory("Ballgag", 2);
+	PlayerAddInventory("BallGag", 2);
 }
 
 // Chapter 2 - Mildred Ungag
 function C002_FirstClass_Mildred_Ungag() {
-	ActorRemoveInventory("Ballgag");
-	PlayerAddInventory("Ballgag", 1);
+	ActorRemoveInventory("BallGag");
+	PlayerAddInventory("BallGag", 1);
 }
 
 // Chapter 2 - Mildred Whip, it only changes her attitude once

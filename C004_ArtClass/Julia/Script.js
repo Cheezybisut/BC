@@ -12,13 +12,15 @@ var C004_ArtClass_Julia_TightenDone = false;
 var C004_ArtClass_Julia_CanBegForRelease = false;
 var C004_ArtClass_Julia_EggConfirm = false;
 var C004_ArtClass_Julia_EggInside = false;
+var C004_ArtClass_Julia_WorkOfArtReady = true;
+var C004_ArtClass_Julia_PaintAvail = true;
 
 // New image depending on Julia's bondage
 function C004_ArtClass_Julia_GetImage() {
-	if (C004_ArtClass_Julia_CurrentStage != 60) OveridenIntroImage = "";
-	if ((C004_ArtClass_ArtRoom_JuliaStage == 5) && (C004_ArtClass_Julia_CurrentStage >= 150)) OveridenIntroImage = "JuliaRope.jpg";
-	if ((C004_ArtClass_ArtRoom_JuliaStage == 6) && (C004_ArtClass_Julia_CurrentStage >= 150)) OveridenIntroImage = "JuliaRopeBallgag.jpg";
-	if ((C004_ArtClass_ArtRoom_JuliaStage == 7) && (C004_ArtClass_Julia_CurrentStage >= 150)) OveridenIntroImage = "JuliaRopeTapeGag.jpg";
+	if (C004_ArtClass_Julia_CurrentStage != 60) OverridenIntroImage = "";
+	if ((C004_ArtClass_ArtRoom_JuliaStage == 5) && (C004_ArtClass_Julia_CurrentStage >= 150)) OverridenIntroImage = "JuliaRope.jpg";
+	if ((C004_ArtClass_ArtRoom_JuliaStage == 6) && (C004_ArtClass_Julia_CurrentStage >= 150)) OverridenIntroImage = "JuliaRopeBallGag.jpg";
+	if ((C004_ArtClass_ArtRoom_JuliaStage == 7) && (C004_ArtClass_Julia_CurrentStage >= 150)) OverridenIntroImage = "JuliaRopeTapeGag.jpg";
 }
 
 // Chapter 4 - Julia Load
@@ -50,6 +52,9 @@ function C004_ArtClass_Julia_Load() {
 	// If we allow the player to beg to be released
 	C004_ArtClass_Julia_CanBegForRelease = ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && Common_PlayerRestrained && Common_PlayerGagged);
 
+	// A player with seduction has an extra option
+	if (PlayerGetSkillLevel("Seduction") == 0) C004_ArtClass_Julia_WorkOfArtReady = false;
+	
 }
 
 // Chapter 4 - Julia Run
@@ -68,22 +73,22 @@ function C004_ArtClass_Julia_Click() {
 	if (C004_ArtClass_Julia_CurrentStage >= 60) LeaveIcon = "Leave";
 
 	// When the user wants to use any item and bondage isn't allowed
-	if (!Common_BondageAllowed && ((ClickInv == "Rope") || (ClickInv == "Ballgag") || (ClickInv == "TapeGag") || (ClickInv == "Crop") || (ClickInv == "Cuffs") || (ClickInv == "VibratingEgg")) && Common_PlayerNotRestrained)
-		OveridenIntroText = GetText("NoBondage");
+	if (!Common_BondageAllowed && ((ClickInv == "Rope") || (ClickInv == "BallGag") || (ClickInv == "TapeGag") || (ClickInv == "Crop") || (ClickInv == "Cuffs") || (ClickInv == "VibratingEgg")) && Common_PlayerNotRestrained)
+		OverridenIntroText = GetText("NoBondage");
 
 	// When the user wants to use the rope on Julia
 	if (Common_BondageAllowed && (ClickInv == "Rope") && !ActorHasInventory("Rope") && Common_PlayerNotRestrained) {
 	
 		// It can work if Julia is submissive, else the player gets tied up
 		if (ActorGetValue(ActorSubmission) > 0) {
-			OveridenIntroText = GetText("RopeJulia");
+			OverridenIntroText = GetText("RopeJulia");
 			C004_ArtClass_Julia_CurrentStage = 170;
 			C004_ArtClass_ArtRoom_JuliaStage = 5;
 			C004_ArtClass_Julia_IsRestrained = true;
 			ActorAddInventory("Rope");
 		} else {
-			if (Common_PlayerNaked) OveridenIntroText = GetText("RopePlayer");
-			else OveridenIntroText = GetText("RopeStripPlayer");
+			if (Common_PlayerNaked) OverridenIntroText = GetText("RopePlayer");
+			else OverridenIntroText = GetText("RopeStripPlayer");
 			PlayerClothes("Naked");
 			PlayerLockInventory("Rope");
 			PlayerRemoveInventory("Rope", 1);
@@ -94,21 +99,21 @@ function C004_ArtClass_Julia_Click() {
 		CurrentTime = CurrentTime + 60000;		
 	}
 
-	// When the user wants to use the ballgag
-	if (Common_BondageAllowed && (ClickInv == "Ballgag") && (C004_ArtClass_ArtRoom_JuliaStage >= 5) && !ActorHasInventory("Ballgag") && Common_PlayerNotRestrained) {
-		OveridenIntroText = GetText("Ballgag");
+	// When the user wants to use the BallGag
+	if (Common_BondageAllowed && (ClickInv == "BallGag") && (C004_ArtClass_ArtRoom_JuliaStage >= 5) && !ActorHasInventory("BallGag") && Common_PlayerNotRestrained) {
+		OverridenIntroText = GetText("BallGag");
 		C004_ArtClass_Julia_CurrentStage = 170;
 		C004_ArtClass_Julia_Ungag();
 		C004_ArtClass_ArtRoom_JuliaStage = 6;
-		ActorAddInventory("Ballgag");
-		PlayerRemoveInventory("Ballgag", 1);
+		ActorAddInventory("BallGag");
+		PlayerRemoveInventory("BallGag", 1);
 		C004_ArtClass_Julia_IsGagged = true;
 		CurrentTime = CurrentTime + 60000;
 	}
 
 	// When the user wants to use the tape gag
 	if (Common_BondageAllowed && (ClickInv == "TapeGag") && (C004_ArtClass_ArtRoom_JuliaStage >= 5) && !ActorHasInventory("TapeGag") && Common_PlayerNotRestrained) {
-		OveridenIntroText = GetText("TapeGag");
+		OverridenIntroText = GetText("TapeGag");
 		C004_ArtClass_Julia_CurrentStage = 170;
 		C004_ArtClass_Julia_Ungag();
 		C004_ArtClass_ArtRoom_JuliaStage = 7;
@@ -120,7 +125,7 @@ function C004_ArtClass_Julia_Click() {
 	
 	// When the user wants to use the crop
 	if (Common_BondageAllowed && (ClickInv == "Crop") && ActorHasInventory("Rope") && Common_PlayerNotRestrained) {
-		OveridenIntroText = GetText("Crop");
+		OverridenIntroText = GetText("Crop");
 		CurrentTime = CurrentTime + 60000;
 	}
 
@@ -128,11 +133,11 @@ function C004_ArtClass_Julia_Click() {
 	if (Common_BondageAllowed && (ClickInv == "VibratingEgg") && !ActorHasInventory("VibratingEgg") && ActorHasInventory("Rope") && Common_PlayerNotRestrained) {		
 		if (C004_ArtClass_Julia_EggConfirm == false) {
 			C004_ArtClass_Julia_EggConfirm = true;
-			OveridenIntroText = GetText("VibratingEggWarning");
+			OverridenIntroText = GetText("VibratingEggWarning");
 		} else {
 			ActorAddInventory("VibratingEgg");
 			PlayerRemoveInventory("VibratingEgg", 1);
-			OveridenIntroText = GetText("VibratingEggInsert");
+			OverridenIntroText = GetText("VibratingEggInsert");
 			C004_ArtClass_Julia_EggInside = true;
 		}
 	}
@@ -148,7 +153,7 @@ function C004_ArtClass_Julia_BigHug() {
 		C004_ArtClass_Julia_BigHugDone = true;
 		ActorChangeAttitude(1, 0);
 		C004_ArtClass_Julia_BigHugReady = false;
-		OveridenIntroImage = "JuliaHug.jpg";
+		OverridenIntroImage = "JuliaHug.jpg";
 	}
 }
 
@@ -167,7 +172,7 @@ function C004_ArtClass_Julia_Strip() {
 // Chapter 4 - Julia Query New Model
 function C004_ArtClass_Julia_QueryNewModel() {
 	if (ActorGetValue(ActorSubmission) <= 0) {
-		OveridenIntroText = GetText("NewModelAgree");
+		OverridenIntroText = GetText("NewModelAgree");
 		ActorChangeAttitude(0, -1);
 		C004_ArtClass_Julia_CurrentStage = 160;
 		C004_ArtClass_ArtRoom_ExtraModel = "Player";
@@ -178,13 +183,16 @@ function C004_ArtClass_Julia_QueryNewModel() {
 // Chapter 4 - Julia Recover all inventory from an actor (except the egg)
 function C004_ArtClass_Julia_RecoverInventory(ActorToRecover) {
 	CurrentActor = ActorToRecover;
-	if (ActorHasInventory("Ballgag")) { PlayerAddInventory("Ballgag", 1); ActorRemoveInventory("Ballgag"); }
+	if (ActorHasInventory("BallGag")) { PlayerAddInventory("BallGag", 1); ActorRemoveInventory("BallGag"); }
 	if (ActorHasInventory("Rope")) { PlayerAddInventory("Rope", 1); ActorRemoveInventory("Rope"); }
 	ActorRemoveInventory("TapeGag");
 }
 
 // Chapter 4 - Julia Change Model
 function C004_ArtClass_Julia_NewModel(ModelName) {
+
+	// Recover the player ropes if needed
+	PlayerReleaseBondage();
 
 	// Reset Sarah model
 	C004_ArtClass_ArtRoom_SarahStage = 0;
@@ -200,20 +208,20 @@ function C004_ArtClass_Julia_NewModel(ModelName) {
 	CurrentActor = "Julia";
 	C004_ArtClass_ArtRoom_ExtraModel = ModelName;
 	PlayerClothes("Clothed");
-	if (C004_ArtClass_Julia_IsGagged) OveridenIntroText = GetText("NewModelGagged");
+	if (C004_ArtClass_Julia_IsGagged) OverridenIntroText = GetText("NewModelGagged");
 
 }
 
 // Chapter 4 - Julia Player Remove Outfit
 function C004_ArtClass_Julia_PlayerRemoveOutfit() {
 	PlayerClothes("Underwear");
-	if (C004_ArtClass_Julia_IsGagged) OveridenIntroText = GetText("PlayerUndressGagged");
+	if (C004_ArtClass_Julia_IsGagged) OverridenIntroText = GetText("PlayerUndressGagged");
 }
 
 // Chapter 4 - Julia Player Strip
 function C004_ArtClass_Julia_PlayerStrip() {
 	PlayerClothes("Naked");
-	if (C004_ArtClass_Julia_IsGagged) OveridenIntroText = GetText("PlayerStripGagged");
+	if (C004_ArtClass_Julia_IsGagged) OverridenIntroText = GetText("PlayerStripGagged");
 }
 
 // Chapter 4 - Julia Shibari Start
@@ -225,9 +233,9 @@ function C004_ArtClass_Julia_ShibariStart() {
 
 // Chapter 4 - Julia Ungag
 function C004_ArtClass_Julia_Ungag() {
-	if (ActorHasInventory("Ballgag")) {
-		PlayerAddInventory("Ballgag", 1);
-		ActorRemoveInventory("Ballgag");
+	if (ActorHasInventory("BallGag")) {
+		PlayerAddInventory("BallGag", 1);
+		ActorRemoveInventory("BallGag");
 	}
 	ActorRemoveInventory("TapeGag");
 	C004_ArtClass_Julia_IsGagged = false;
@@ -237,7 +245,7 @@ function C004_ArtClass_Julia_Ungag() {
 // Chapter 4 - Julia Try Ungag
 function C004_ArtClass_Julia_TryUngag() {
 	if (Common_PlayerNotRestrained) C004_ArtClass_Julia_Ungag();
-	else OveridenIntroText = GetText("FailUngag");
+	else OverridenIntroText = GetText("FailUngag");
 }
 
 // Chapter 4 - Julia Release
@@ -249,7 +257,7 @@ function C004_ArtClass_Julia_Release() {
 		C004_ArtClass_Julia_Ungag();
 		C004_ArtClass_ArtRoom_JuliaStage = 4;
 	} else {
-		OveridenIntroText = GetText("FailUntie");
+		OverridenIntroText = GetText("FailUntie");
 	}
 }
 
@@ -257,21 +265,21 @@ function C004_ArtClass_Julia_Release() {
 function C004_ArtClass_Julia_Tighten() {
 	if (Common_PlayerNotRestrained) {
 		if (C004_ArtClass_Julia_TightenDone == false) {
-			if (C004_ArtClass_Julia_IsGagged) OveridenIntroText = GetText("TightenGagged");
-			else OveridenIntroText = GetText("Tighten");
+			if (C004_ArtClass_Julia_IsGagged) OverridenIntroText = GetText("TightenGagged");
+			else OverridenIntroText = GetText("Tighten");
 			ActorChangeAttitude(0, 1);
 			C004_ArtClass_Julia_TightenDone = true;
 		}
 	} else {
-		OveridenIntroText = GetText("FailTighten");
+		OverridenIntroText = GetText("FailTighten");
 	}
 }
 
 // Chapter 4 - Julia Tickle
 function C004_ArtClass_Julia_Tickle() {
 	if (C004_ArtClass_Julia_TickleDone == false) {
-		if (Common_PlayerNotRestrained) OveridenIntroText = GetText("Tickle");
-		else OveridenIntroText = GetText("TickleRestrained");
+		if (Common_PlayerNotRestrained) OverridenIntroText = GetText("Tickle");
+		else OverridenIntroText = GetText("TickleRestrained");
 		ActorChangeAttitude(1, 0);
 		C004_ArtClass_Julia_TickleDone = true;
 	}	
@@ -279,29 +287,50 @@ function C004_ArtClass_Julia_Tickle() {
 
 // Chapter 4 - Julia Change Model
 function C004_ArtClass_Julia_ChangeModel() {
-	if (C004_ArtClass_Julia_IsGagged) OveridenIntroText = GetText("AskNewModelGagged");
+	if (C004_ArtClass_Julia_IsGagged) OverridenIntroText = GetText("AskNewModelGagged");
 }
 
 // Chapter 4 - Julia Beg For Release
 function C004_ArtClass_Julia_BegForRelease() {
 	if (!C004_ArtClass_Julia_IsRestrained) {
 		if (ActorGetValue(ActorLove) >= 3) {
-			OveridenIntroText = GetText("PlayerUngag");
-			if (PlayerHasLockedInventory("Ballgag")) PlayerAddInventory("Ballgag", 1);
-			PlayerUnlockInventory("Ballgag");
-			PlayerUnlockInventory("TapeGag");
+			OverridenIntroText = GetText("PlayerUngag");
+			PlayerUngag();
 			C004_ArtClass_Julia_CanBegForRelease = false;
 			CurrentTime = CurrentTime + 60000;
 		} else {
-			OveridenIntroText = GetText("PlayerStayGagged");
+			OverridenIntroText = GetText("PlayerStayGagged");
 		}		
 	} else {
-		OveridenIntroText = GetText("JuliaRestrainedPlayerGagged");
+		OverridenIntroText = GetText("JuliaRestrainedPlayerGagged");
 	}	
 }
 
 // Chapter 4 - Julia Gagged Speach
 function C004_ArtClass_Julia_GaggedSpeach() {
 	if ((C004_ArtClass_ArtRoom_JuliaStage == 6) || (C004_ArtClass_ArtRoom_JuliaStage == 7))
-		OveridenIntroText = GetText("GaggedSpeach");
+		OverridenIntroText = GetText("GaggedSpeach");
+}
+
+// Chapter 4 - Julia Work of Art comment
+function C004_ArtClass_Julia_WorkOfArt() {
+	C004_ArtClass_Julia_WorkOfArtReady = false;
+	ActorChangeAttitude(1, 0);
+}
+
+// Chapter 4 - Julia Paint, can only be done if there's 30 minutes left for the class
+function C004_ArtClass_Julia_Paint() {
+	if (CurrentTime <= 9.75 * 60 * 60 * 1000) {
+		C004_ArtClass_Sarah_PaintAvail = false;
+		C004_ArtClass_Jennifer_PaintAvail = false;
+		C004_ArtClass_Julia_PaintAvail = false;
+		ActorChangeAttitude(2, 0);
+		CurrentTime = CurrentTime + 0.5 * 60 * 60 * 1000;
+		if (PlayerGetSkillLevel("Arts") >= 1) {
+			ActorSpecificChangeAttitude("Julia", PlayerGetSkillLevel("Arts"), 0);
+			ActorSpecificChangeAttitude("Sarah", PlayerGetSkillLevel("Arts"), 0);
+			ActorSpecificChangeAttitude("Jennifer", PlayerGetSkillLevel("Arts"), 0);
+		}
+		PlayerAddSkill("Arts", 1);
+	} else OverridenIntroText = GetText("NoTimeToPaint");
 }

@@ -11,10 +11,10 @@ function C001_BeforeClass_Intro_Run() {
 	
 	// Draw the background and player
 	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	if (TextPhase <= 2) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background1.jpg", -150, 0);
-	else DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background2.jpg", -150, 0);
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Player.jpg", 900, 0);
-		
+	if (TextPhase <= 2) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background1.jpg", 0, 0);
+	else DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background2.jpg", 0, 0);
+	DrawPlayerTransition(ctx);
+	
 	// Introduce chapter 1 with each clicks
 	DrawText(ctx, GetText("Intro1"), 450, 50, "White");
 	if (TextPhase >= 1) DrawText(ctx, GetText("Intro2"), 450, 150, "White");

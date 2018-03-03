@@ -32,6 +32,7 @@ function ProcessTimer() {
 	// Ticks the timer every for the screen refresh and events
 	clearInterval(CurrentTimer);
 	CurrentTimer = setInterval("MainRun()", RunInterval);
+	if (PlayerSkillShowLevelUp > 0) PlayerSkillShowLevelUp--;
 
 	// If the timer must run
 	if (RunTimer) {
