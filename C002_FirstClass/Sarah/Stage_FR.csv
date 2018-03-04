@@ -31,7 +31,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 20,0,0,SubdueNotDone,"Comment tuer le temps ?",Je pense aux évenements d'hier soir. (Elle rit.)|Madame Mildred est plutôt ennuyante n'est-ce pas ?,30,0,0,
 20,0,0,SubdueNotDone,Est-ce que tu t'ennuies|autant que moi ?,"Totalement, Madame Mildred est une bonne|prof, mais elle est plutôt ennuyante.",30,1,0,
 20,0,0,SubdueNotDone,"Et sinon, la prof|ne t'aime pas.",Je sais ! Pas besoin de me le rappeler.|Madame Mildred est rude avec moi.,30,-1,0,
-30,0,0,SubdueNotDone,Tu veux l'être aussi ?,Etre sévère ? Avec Madame Mildred ?|Qu'as-tu en tête ?,40,0,0,
+30,0,0,SubdueNotDone,Tu veux te venger ?,Me venger ? De Madame Mildred ?|Qu'as-tu en tête ?,40,0,0,
 30,0,0,SubdueNotDone,"Silence, j'ai un plan.",(elle se tait et écoute.),40,0,1,
 40,0,0,SubdueNotDone,Nous devrions|kidnapper Mildred.,La kidnapper ? comme l'attacher et la bâilloner ?|C'est une idée démente !,50,1,0,
 40,0,0,SubdueNotDone,Tu m'aideras à|soumettre la prof.,Oh mon... Soumettre Madame Mildred ?,50,0,1,
