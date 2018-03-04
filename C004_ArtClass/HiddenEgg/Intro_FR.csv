@@ -1,0 +1,4 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,Common_PlayerNotRestrained,Il semble qu'il y ai un objet rose|caché derrière le pot de peinture rouge.,HiddenEgg.jpg
+0,0,0,Common_PlayerRestrained,Il y a un objet rose caché derrière le pot de peinture|mais tu ne peux pas l'atteindre en étant ligotée.,HiddenEgg.jpg
+10,0,0,,Il n'y a plus rien d'intéressant ici.,NoEgg.jpg
