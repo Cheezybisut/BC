@@ -42,12 +42,26 @@ function C999_Common_VibratingEgg_Insert() {
 		} else {
 			PlayerRemoveInventory("VibratingEgg", 1);
 			PlayerLockInventory("VibratingEgg");
-			C999_Common_VibratingEgg_CurrentStage = 10;			
+			C999_Common_VibratingEgg_CurrentStage = 10;
 			C999_Common_VibratingEgg_HasLooseEgg = PlayerHasInventory("VibratingEgg");
 		}		
 	} else {
 		OverridenIntroText = GetText("ChastityBelt");
 	}
+}
+
+// Chapter Common - Egg Contract, the egg can be removed if the player isn't chaste and has "Sports" at level 1 or more
+function C999_Common_VibratingEgg_Contract() {
+	if (!Common_PlayerChaste) {
+		if (PlayerGetSkillLevel("Sports") >= 1) {
+			PlayerUnlockInventory("VibratingEgg");
+			PlayerAddInventory("VibratingEgg", 1);
+			C999_Common_VibratingEgg_CurrentStage = 0;
+			C999_Common_VibratingEgg_HasLooseEgg = true;
+			OverridenIntroText = GetText("ContractSuccess");
+		}
+	}
+	else OverridenIntroText = GetText("ContractBelt");
 }
 
 // Chapter Common - Show the item image
