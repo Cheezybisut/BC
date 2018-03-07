@@ -1,6 +1,8 @@
 Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 10,0,0,!Common_PlayerRestrained,(Search.)|(1 minute),You search in the bookshelves but all|you can find are books about chemistry.,10,0,0,
 10,0,0,,(Sit down.)|(1 minute),You sit down and relax on|the chair for a little while.,10,0,0,
+20,0,0,!Common_PlayerRestrained,(Search.)|(1 minute),You search in the bookshelves but|all you can find are history books.,20,0,0,
+20,0,0,,(Sit down.)|(1 minute),You sit down and relax on the big couch.|It's pretty comfy and there's room for two.,20,0,0,
 30,0,0,!Common_PlayerRestrained,(Search.)|(1 minute),You search in the shelves but all you|can find are boring books on mathematics.,30,0,0,
 31,0,0,!Common_PlayerRestrained,(Search.)|(1 minute),You search the dead end part of the|corridor but don't find anything interesting.,31,0,0,SearchCounter()
 32,0,0,!Common_PlayerRestrained,(Search.)|(1 minute),You search in the shelves and find a|comic book hidden in between the books.,33,0,0,

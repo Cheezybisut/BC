@@ -1,0 +1,25 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,HasEgg,How did you|remove it?,This is humiliating but I had|to contract really hard to fetch it.,0,0,0,
+0,0,0,HasEgg,Can I have|the egg back?,"It's too late, I threw it away.",0,0,0,QueryEgg()
+0,0,0,HasEgg,"Jen, I want|the egg back.","It's too late, I threw it away.",0,-1,1,QueryEgg()
+0,0,0,,What are you|doing here?,I'm reading on the|history of the Olympics.,10,0,0,
+0,0,0,,How are you?,"I'm fine thanks, I'm reading on|the history of the Olympic games.",10,1,0,
+0,0,0,,This library is|pretty boring.,"I disagree, I found an interesting book|on the history of the Olympic games.",10,-1,0,
+10,0,0,,The Olympics?|That's intesting.,"Indeed, the Games are also very political.|And you?  What are you looking for?",20,1,0,
+10,0,0,,I need to|find a book.,Oh?  What book are you looking for?,20,0,0,
+10,0,0,,Who cares about|the Olympics?,(She frowns.)  Millions of people care.|Anyway.  What are you looking for?,20,-1,0,
+10,0,0,,Don't get doped|like the athletes.,(She shakes her head.)  Of course not.|And you?  What are you looking for?,20,0,1,
+10,0,0,,You would be a|great Olympian.,Well that's very kind of you.|And you?  What are you looking for?,20,1,-1,
+20,0,0,,The Count of|Monte Cristo.,"You'll probably find it in the litterature section.|Walk back from here, go straight and turn right.",40,0,0,
+20,0,0,,Fifty Shades of Grey.,(She giggles.)  I really doubt that|you will find this book here.,30,0,-1,
+20,0,0,,The Marquis de Sade.,"Oh my!  It could be in the restricted section.|You can ask Teacher Yuki, I've seen her around.",30,0,1,
+30,0,0,,"I also need ""The Count|of Monte Cristo.""","You'll probably find it in the litterature section.|Walk back from here, go straight and turn right.",40,0,0,
+30,0,0,,Thanks Jen!|(Walk away.),,100,0,0,PlayerLeave()
+30,0,0,,(Walk away.),,100,-1,0,PlayerLeave()
+40,0,0,,Thanks Jen!|(Walk away.),,100,0,0,PlayerLeave()
+40,0,0,,(Walk away.),,100,-1,0,PlayerLeave()
+100,0,0,,Why are you|sitting like that?,,110,0,0,
+100,0,0,,You don't look comfy.,,110,0,0,
+100,0,0,,Can I sit with you?,"I'm sorry, I prefer to read alone.",100,0,0,TestSitTogether()
+100,0,0,,"Move it, I want|to sit here.","Fine, you can have my seat.|(She stands up and walks away.)",190,-1,1,JenniferLeave()
+110,0,0,,"Move it, I want|to sit here.","Fine, you can have my seat.|(She stands up and walks away.)",190,-1,1,JenniferLeave()

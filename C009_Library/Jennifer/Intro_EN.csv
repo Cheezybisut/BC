@@ -1,0 +1,15 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,"(Jennifer is reading in a library corner, she puts|down her book.)  Hello COMMON_PLAYERNAME.",CouchZoom.jpg
+0,5,0,,"(Jennifer is reading in a library corner, she puts|down her book.)  COMMON_PLAYERNAME!  How nice.",CouchZoom.jpg
+0,0,5,,"(Jennifer is reading in a library corner, she puts|down her book.)  Greetings Miss COMMON_PLAYERNAME.",CouchZoom.jpg
+0,0,0,HasEgg,"(Jennifer is reading in a library corner, she puts|down her book.)  I was able to remove your egg.",CouchZoom.jpg
+10,0,0,,I found an interesting book on|the history of the Olympic games.,CouchZoom.jpg
+20,0,0,,So which book are you looking for?,CouchZoom.jpg
+30,0,0,,So which book are you looking for?,CouchZoom.jpg
+40,0,0,,"You'll probably find it in the littérature section.|Walk back from here, go straight and turn right.",CouchZoom.jpg
+100,0,0,,Is there anything else you want?,CouchZoom.jpg
+100,5,0,,Hey COMMON_PLAYERNAME!|Is there anything else you want?,CouchZoom.jpg
+100,0,5,,Hello again Miss COMMON_PLAYERNAME.|Is there anything else you want?,CouchZoom.jpg
+110,0,0,,"What's wrong with the way I'm sitting?|Don't worry, I'm comfy enough.",CouchZoom.jpg
+190,0,0,,(Jennifer is gone.),CouchZoom.jpg
+200,0,0,,(You sit down next to Jennifer.)|So what's up COMMON_PLAYERNAME?,Couch.jpg
