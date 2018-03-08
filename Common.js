@@ -48,6 +48,7 @@ var Common_BondageAllowed = true;
 var Common_SelfBondageAllowed = true;
 var Common_PlayerName = "";
 var Common_PlayerOwner = "";
+var Common_PlayerLover = "";
 var Common_PlayerRestrained = false;
 var Common_PlayerGagged = false;
 var Common_PlayerBlinded = false;

@@ -60,6 +60,7 @@ function SaveState(SlotNumber) {
 	localStorage.setItem("CurrentScreen" + SN, SaveScreen);
 	localStorage.setItem("Common_PlayerName" + SN, Common_PlayerName);
 	localStorage.setItem("Common_PlayerOwner" + SN, Common_PlayerOwner);
+	localStorage.setItem("Common_PlayerLover" + SN, Common_PlayerLover);
 	localStorage.setItem("PlayerInventory" + SN, JSON.stringify(PlayerInventory));
 	localStorage.setItem("PlayerLockedInventory" + SN, JSON.stringify(PlayerLockedInventory));
 	localStorage.setItem("PlayerSkill" + SN, JSON.stringify(PlayerSkill));
@@ -87,6 +88,7 @@ function LoadState(SlotNumber) {
 			CurrentScreen = localStorage.getItem("CurrentScreen" + SN);
 			Common_PlayerName = localStorage.getItem("Common_PlayerName" + SN);
 			if (localStorage.getItem("Common_PlayerOwner" + SN) != null) Common_PlayerOwner = localStorage.getItem("Common_PlayerOwner" + SN);
+			if (localStorage.getItem("Common_PlayerLover" + SN) != null) Common_PlayerOwner = localStorage.getItem("Common_PlayerLover" + SN);
 			PlayerInventory = JSON.parse(localStorage.getItem("PlayerInventory" + SN));
 			PlayerLockedInventory = JSON.parse(localStorage.getItem("PlayerLockedInventory" + SN));
 			Actor = JSON.parse(localStorage.getItem("Actor" + SN));

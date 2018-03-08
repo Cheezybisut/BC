@@ -15,6 +15,17 @@ var Icons = new function () {
         this.ElbowBound = GetIconPath(this.Path, "ElbowBound");
         this.KneeBound = GetIconPath(this.Path, "KneeBound");
     }(this);
+    this.Navigation = new function (parent) {
+        this.Path = GetPath("Icons", "Navigation");
+        this.ArrowLeftActive = GetIconPath(this.Path, "ArrowLeftActive");
+        this.ArrowRightActive = GetIconPath(this.Path, "ArrowRightActive");
+        this.ArrowUpActive = GetIconPath(this.Path, "ArrowUpActive");
+        this.ArrowDownActive = GetIconPath(this.Path, "ArrowDownActive");
+        this.ArrowLeftInactive = GetIconPath(this.Path, "ArrowLeftInactive");
+        this.ArrowRightInactive = GetIconPath(this.Path, "ArrowRightInactive");
+        this.ArrowUpInactive = GetIconPath(this.Path, "ArrowUpInactive");
+        this.ArrowDownInactive = GetIconPath(this.Path, "ArrowDownInactive");
+    }(this);
 }();
 
 // Returns the image file or build it from the source
