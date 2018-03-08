@@ -10,6 +10,24 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 100,0,0,,Is there anything else you want?,CouchZoom.jpg
 100,5,0,,Hey COMMON_PLAYERNAME!|Is there anything else you want?,CouchZoom.jpg
 100,0,5,,Hello again Miss COMMON_PLAYERNAME.|Is there anything else you want?,CouchZoom.jpg
-110,0,0,,"What's wrong with the way I'm sitting?|Don't worry, I'm comfy enough.",CouchZoom.jpg
-190,0,0,,(Jennifer is gone.),CouchZoom.jpg
+110,0,0,,"So what's wrong with the way I'm sitting?|Don't worry, I'm comfy enough.",CouchZoom.jpg
+120,0,0,,I cannot lay on the whole couch.|What if someone wants to sit here?,CouchZoom.jpg
+130,0,0,,(She lays on the couch and looks you.)|Do I look relaxed enough now?,Couch.jpg
+140,0,0,,(She lays on the couch and looks you.)|Is there something else you want?,Couch.jpg
+150,0,0,,I know that I don't have many friends.,Couch.jpg
+150,5,0,,I know that I don't have many friends.|But I'm always happy to talk with you.,Couch.jpg
+155,0,0,,"If you want, we could be|friends and help each other?",Couch.jpg
+160,0,0,,I know I'm shy but it's not easy to change.|Can you help me be more confident?,Couch.jpg
+170,0,0,,Did you really mean it?|Do you think I'm pretty?,Couch.jpg
+171,0,0,,,Couch.jpg
+172,0,0,,,Couch.jpg
+173,0,0,,,Couch.jpg
+174,0,0,,,Couch.jpg
+175,0,0,,,Couch.jpg
+176,0,0,,,Couch.jpg
+177,0,0,,,Couch.jpg
+178,0,0,,,Couch.jpg
+179,0,0,,,Couch.jpg
+180,0,0,,Maybe we should talk later.|I would like to finish this book.,CouchZoom.jpg
+190,0,0,,(Jennifer is gone.),Couch.jpg
 200,0,0,,(You sit down next to Jennifer.)|So what's up COMMON_PLAYERNAME?,Couch.jpg

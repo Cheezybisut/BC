@@ -32,6 +32,8 @@ Profile,Profile
 Relationships,Relationships
 Owner,Mistress:
 NoOwner,Unowned
+Lover,Girlfriend:
+NoLover,Single
 SkillArts,Arts
 SkillFighting,Fighting
 SkillRopeMastery,Rope Mastery

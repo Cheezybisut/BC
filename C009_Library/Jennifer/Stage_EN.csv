@@ -18,8 +18,45 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 30,0,0,,(Walk away.),,100,-1,0,PlayerLeave()
 40,0,0,,Thanks Jen!|(Walk away.),,100,0,0,PlayerLeave()
 40,0,0,,(Walk away.),,100,-1,0,PlayerLeave()
-100,0,0,,Why are you|sitting like that?,,110,0,0,
-100,0,0,,You don't look comfy.,,110,0,0,
+100,0,0,,Why are you|sitting like that?,What's wrong with the way I'm sitting?,110,0,0,
+100,0,0,,You don't look comfy.,"I'm fine, I'm sitting comfy enough.",110,0,0,
 100,0,0,,Can I sit with you?,"I'm sorry, I prefer to read alone.",100,0,0,TestSitTogether()
-100,0,0,,"Move it, I want|to sit here.","Fine, you can have my seat.|(She stands up and walks away.)",190,-1,1,JenniferLeave()
-110,0,0,,"Move it, I want|to sit here.","Fine, you can have my seat.|(She stands up and walks away.)",190,-1,1,JenniferLeave()
+100,0,5,,"Move it, I want|to sit here.","Fine, you can have my seat.|(She stands up and walks away.)",190,-1,1,JenniferLeave()
+110,0,0,,"You should relax more,|use the whole couch.",I cannot lay on the whole couch.|What if someone wants to sit here?,120,0,0,
+110,0,0,,You're only using one|third of the couch.,I cannot lay on the whole couch.|What if someone wants to sit here?,120,0,0,
+110,0,0,,You look shy and lonely.|Use the whole couch.,I cannot lay on the whole couch.|What if someone wants to sit here?,120,0,0,
+110,0,0,,Can I sit with you?,"I'm sorry, I prefer to read alone.",110,0,0,TestSitTogether()
+110,0,5,,"Move it, I want|to sit here.","Fine, you can have my seat.|(She stands up and walks away.)",190,-1,1,JenniferLeave()
+120,0,0,,"Try to lay down, you|will look less lonely.",Lonely?  I look that lonely?|(She lays on the couch.),130,-1,0,NewPose()
+120,0,0,,"Lay down, it will|be less awkward.",It didn't meant to look awkward.|(She lays on the couch.),130,0,0,NewPose()
+120,0,5,,Lay down girl.,Yes Miss COMMON_PLAYERNAME.|(She lays on the couch.),130,0,1,NewPose()
+120,0,0,,Can I sit with you?,"I'm sorry, I prefer to read alone.",120,0,0,TestSitTogether()
+120,0,5,,"Move it, I want|to sit here.","Fine, you can have my seat.|(She stands up and walks away.)",190,-1,1,JenniferLeave()
+130,0,0,,Now you look better.,I do?  Well thanks.|That was a friendly advice.,140,0,0,
+130,0,0,,Are you comfy now?,"I guess so, thanks.|That was a friendly advice.",140,1,0,
+130,0,0,,Can I sit with you?,"I'm sorry, I prefer to read alone.",140,0,0,TestSitTogether()
+130,0,5,,"Move it, I want|to sit here.","Fine, you can have my seat.|(She stands up and walks away.)",190,-1,1,JenniferLeave()
+140,0,0,,Why are you|always alone?,I'm not!  I'm in many sport teams.|But I guess I don't have any real friends.,150,-1,0,
+140,0,0,,You don't seem to|have many friends.,Well there's Sidney... when she needs money.|(She sighs)  I guess I don't have any real friends.,150,0,0,
+140,0,0,,"You seem kind of|lonely, like me.",So you're also lonely?  It's true|that I don't have many friends.,150,1,-1,
+140,0,0,,Can I sit with you?,"I'm sorry, I prefer to read alone.",150,0,0,TestSitTogether()
+140,0,5,,"Move it, I want|to sit here.","Fine, you can have my seat.|(She stands up and walks away.)",190,-1,1,JenniferLeave()
+150,0,0,,We could be friends|if you want.,I would love that.  We could be|friends that help each other.,155,1,-1,
+150,0,0,,Lets be friends then.,I would love that.  We could be|friends that help each other.,155,1,0,
+150,0,0,,You must overcome|your shyness first.,I know I'm shy but it's not easy to change.|Can you help me be more confident?,160,0,0,
+150,0,0,,Can I sit with you?,"I'm sorry, I prefer to read alone.",150,0,0,TestSitTogether()
+150,0,5,,"Move it, I want|to sit here.","Fine, you can have my seat.|(She stands up and walks away.)",190,-1,1,JenniferLeave()
+155,0,0,,"Yes, I will help you|overcome your shyness.",I know I'm shy but it's not easy to change.|Can you help me be more confident?,160,0,0,
+155,0,0,,"Yes, soon you'll be|confident like me.",Gaining confidence isn't easy.|Can you really help me?,160,0,1,
+160,0,0,,"First, you need to|be proud of your body.",Proud of my body?|You really think I'm pretty?,170,0,0,
+160,0,0,,"You're pretty, you|should not hide it.",You're so kind COMMON_PLAYERNAME.|You really think I'm pretty?,170,1,0,
+160,0,0,,Can I sit with you?,"I'm sorry, I prefer to read alone.",160,0,0,TestSitTogether()
+160,0,5,,"Move it, I want|to sit here.","Fine, you can have my seat.|(She stands up and walks away.)",190,-1,1,JenniferLeave()
+170,10,0,,You're adorable.  You|should strip and show me.,"Are you sure my friend?  Ok, I'll do it.|(She blushes and slowly strips to her underwear.)",171,0,0,StripUnderwear()
+170,0,10,,Stop being shy.  Strip|and show me your body.,"Yes Miss, I'm sure it's for my best interest.|(She blushes and slowly strips to her underwear.)",171,0,0,StripUnderwear()
+170,0,0,,"Yes, you should|show more skin.",Show skin here?  Teacher Yuki would be angry.|(You need +10 love or submission to convince her.),170,0,0,
+170,5,0,CanAskDate,You're very pretty Jen.|We should go out tonight.,"Me?  Go out tonight?  With you?|It's interesting, I'll think about it.",170,1,0,AskDate()
+170,0,0,,"You're pretty, we'll|talk about it later.","Yes, we should probably talk later.|I would love to read a little more.",180,0,0,NewPose()
+170,0,0,,Can I sit with you?,"I'm sorry, I prefer to read alone.",170,0,0,TestSitTogether()
+170,0,5,,"Move it, I want|to sit here.","Fine, you can have my seat.|(She stands up and walks away.)",190,-1,1,JenniferLeave()
+180,0,0,,Talk to you later!|(Walk away.),,180,0,0,PlayerLeave()

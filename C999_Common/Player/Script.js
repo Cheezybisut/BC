@@ -77,16 +77,20 @@ function C999_Common_Player_Run() {
 		DrawText(ctx, GetText("Relationships"), 450, 25, "white");
 		DrawText(ctx, GetText("Name") + " " + Common_PlayerName, 300, 90, "black");
 		DrawText(ctx, GetText("Title") + " " + C999_Common_Player_GetTitle(), 300, 130, "black");
-		if (Common_PlayerOwner != "") DrawText(ctx, GetText("Owner") + " " + Common_PlayerOwner, 300, 170, "black");
-		else DrawText(ctx, GetText("Owner") + " " + GetText("NoOwner"), 300, 170, "black");
+
+		// Shows the current lover and owner
+		if (Common_PlayerOwner != "") DrawText(ctx, GetText("Lover") + " " + Common_PlayerLover, 300, 170, "black");
+		else DrawText(ctx, GetText("Lover") + " " + GetText("NoLover"), 300, 170, "black");
+		if (Common_PlayerOwner != "") DrawText(ctx, GetText("Owner") + " " + Common_PlayerOwner, 300, 210, "black");
+		else DrawText(ctx, GetText("Owner") + " " + GetText("NoOwner"), 300, 210, "black");
 
 		// List the skills
-		DrawText(ctx, GetText("Skills"), 200, 230, "black");
-		DrawText(ctx, GetText("Level"), 500, 230, "black");
-		DrawRect(ctx, 30, 250, 539, 1, "Black");
+		DrawText(ctx, GetText("Skills"), 200, 270, "black");
+		DrawText(ctx, GetText("Level"), 500, 270, "black");
+		DrawRect(ctx, 30, 290, 539, 1, "Black");
 		for (var S = 0; S < PlayerSkill.length; S++) {
-			DrawText(ctx, GetText("Skill" + PlayerSkill[S][PlayerSkillName]), 200, 280 + S * 40, "black");
-			DrawText(ctx, PlayerSkill[S][PlayerSkillLevel].toString(), 500, 280 + S * 40, "black");
+			DrawText(ctx, GetText("Skill" + PlayerSkill[S][PlayerSkillName]), 200, 320 + S * 40, "black");
+			DrawText(ctx, PlayerSkill[S][PlayerSkillLevel].toString(), 500, 320 + S * 40, "black");
 		}
 
 	}
