@@ -1,0 +1,22 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,Bienvenue au cours d'arts plastiques.|Tu es une nouvelle étudiante ?,Jennifer.jpg
+10,0,0,,"Je m'appelle Jennifer, ravie de te rencontrer.",Jennifer.jpg
+20,0,0,,"Le cours d'art, c'est bien, mais je préfère le sport.",Jennifer.jpg
+30,0,0,,Tu veux quelque chose ?,Jennifer.jpg
+40,0,0,,"Alors dis-moi, qu'est-ce que tu as en tête ?",Jennifer.jpg
+50,0,0,,Tu veux voir la prof dévêtue ?|("""+2""" en amour ou en soumission pour la convaincre.),Jennifer.jpg
+60,0,0,,"Parle-lui de ""La Naissance de Vénus"" de Sandro|Botticelli. Ça pourrait la convaincre d'enlever sa robe.",Jennifer.jpg
+60,0,0,JuliaStrip,Ça a marché ! C'est assez incroyable.,Jennifer.jpg
+70,0,0,,Je ne savais pas que Julia était si audacieuse.,Jennifer.jpg
+80,0,0,,Deux modèles ! Je ne m'attendais pas à ça.,Jennifer.jpg
+80,0,0,Common_PlayerGagged,Pourquoi es-tu bâillonnée ?,Jennifer.jpg
+80,0,0,Common_PlayerRestrained,Tu ne te sens pas humiliée ?,Jennifer.jpg
+100,0,0,,"Je ne suis pas très à l'aise à l'idée de poser.|(""+1"" en soumission pour la déshabiller.)",JenniferPose.jpg
+110,0,0,,"Je ne suis pas très à l'aise à l'idée de poser.|(""+2"" en soumission pour qu'elle soit nue.)",JenniferUnderwear.jpg
+120,0,0,,"C'est assez humiliant.|(""+3"" en soumission pour la ligoter.)",JenniferNaked.jpg
+130,0,0,,C'est très humiliant.|(Elle n'a pas l'air de s'amuser.),JenniferRope.jpg
+130,0,0,EggInside,Peux-tu enlever cette chose rose s'il te plaît ?|(Elle tremble par moment à cause de l'oeuf.),JenniferRope.jpg
+140,0,0,,Mhu nugin hm ! (Elle n'a pas l'air|d'apprécier d'être attachée devant la classe.),JenniferRopeBallGag.jpg
+140,0,0,EggInside,"(Elle transpire et tremble, elle n'a pas l'air|d'apprécier d'être attachée devant la classe.)",JenniferRopeBallGag.jpg
+150,0,0,,Mhu nugin hm ! (Elle n'a pas l'air|d'apprécier d'être attachée devant la classe.),JenniferRopeTapeGag.jpg
+150,0,0,EggInside,"(Elle transpire et tremble, elle n'a pas l'air|d'apprécier d'être attachée devant la classe.)",JenniferRopeTapeGag.jpg
