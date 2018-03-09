@@ -27,7 +27,10 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 176,0,0,,,Couch.jpg
 177,0,0,,,Couch.jpg
 178,0,0,,,Couch.jpg
-179,0,0,,,Couch.jpg
 180,0,0,,Maybe we should talk later.|I would like to finish this book.,CouchZoom.jpg
 190,0,0,,(Jennifer is gone.),Couch.jpg
 200,0,0,,(You sit down next to Jennifer.)|So what's up COMMON_PLAYERNAME?,Couch.jpg
+300,0,0,,,Couch.jpg
+310,0,0,,(She stares at you and seems to worry.),Couch.jpg
+400,0,0,,,Couch.jpg
+410,0,0,,"(She giggles.)  The bondage adventurer!|Please, I would like to finish this book.",CouchZoom.jpg
