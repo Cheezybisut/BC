@@ -28,10 +28,12 @@ Name,Nom :
 Title,Titre :
 Skills,Talents
 Level,Niveau
-Profile,Profile
+Profile,Profil
 Relationships,Relations
 Owner,Maîtresse :
 NoOwner,Aucune
+Lover,Petite amie :
+NoLover,Célibataire
 SkillArts,Arts
 SkillFighting,Combat
 SkillRopeMastery,Maîtrise des Cordes
