@@ -1,7 +1,7 @@
 Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 0,0,0,,"Oui, c'est mon|premier jour.","J'espère que tu te plaira ici, on a une bonne salle de|gym. Je m'appelle Jennifer, heureuse de te rencontrer.",10,0,0,
 0,0,0,,Ouais ! Nouveau départ !| Nouvelle université !,"J'aime ton état d'esprit, tu sauras te débrouiller ici.|Je m'appelle Jennifer, heureuse de te rencontrer.",10,1,0,
-0,0,0,,"Mon ancienne école et|mes amis me manquent.","Allez. Tu te feras de meilleurs amies ici !|Je m'appelle Jennifer, ravie de te rencontrer.",10,0,-1,
+0,0,0,,"Mon ancienne école et|mes amis me manquent.","Allez. Tu te feras de meilleures amies ici !|Je m'appelle Jennifer, ravie de te rencontrer.",10,0,-1,
 10,0,0,,Alors comme ça|tu es artiste ?,"Moi ? C'est la meilleure.|Non, je suis bien meilleure en sport.",20,0,0,
 10,0,0,,Tu peux m'aider|à peindre ?,"T'aider ? Oh, tu t'en sortiras bien mieux que moi. Je ne|suis pas une artiste, je suis bien meilleure en sport.",20,0,-1,
 10,0,0,,Tu ne ressembles pas à|une artiste-peintre.,"C'est on ne peut plus vrai, je suis très loin|d'être une artiste. Je suis bien meilleure en sport.",20,0,1,
