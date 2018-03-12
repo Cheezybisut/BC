@@ -146,7 +146,7 @@ function ReadCSV(Array, FileName) {
 
 // Returns a working language if translation isn't fully ready
 function GetWorkingLanguage() {
-	if ((CurrentLanguageTag == "FR") && ((CurrentChapter == "C000_Intro") || (CurrentChapter == "C001_BeforeClass") || (CurrentChapter == "C002_FirstClass") || (CurrentChapter == "C003_MorningDetention") || (CurrentChapter == "C999_Common"))) return "FR";
+	if ((CurrentLanguageTag == "FR") && ((CurrentChapter == "C000_Intro") || (CurrentChapter == "C001_BeforeClass") || (CurrentChapter == "C002_FirstClass") || (CurrentChapter == "C004_ArtClass") || (CurrentChapter == "C003_MorningDetention") || (CurrentChapter == "C999_Common"))) return "FR";
 	if ((CurrentLanguageTag == "PL") && ((CurrentChapter == "C000_Intro"))) return "PL";
 	if ((CurrentLanguageTag == "CN") && ((CurrentChapter == "C000_Intro") || (CurrentChapter == "C005_GymClass") || (CurrentChapter == "C999_Common"))) return "CN";
 	return "EN";
