@@ -89,10 +89,20 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 180,0,0,Common_PlayerRestrained,(Get on your|knees and beg.),"Sorry, I will not help you.",180,0,0,TestRelease()
 180,0,0,,Talk to you later!|(Walk away.),,180,0,0,PlayerLeave()
 180,0,5,,"Move it, I want|to sit here.","Fine, you can have my seat.|(She stands up and walks away.)",190,-1,1,JenniferLeave()
-300,0,0,,Would you like|to play a game?,A game?  What kind of game?,310,0,0,TestTurnTables()
+300,0,0,,Would you like|to play a game?,A game?  What kind of game?,310,1,0,TestTurnTables()
 300,0,0,,I found a few|items today.,Oh!  And what did you found?,310,0,0,TestTurnTables()
-300,0,0,,"Girl, you will|submit to me now.",(She bows her head.)  Yes Miss.,310,0,1,TestTurnTables()
-300,0,0,,Would you like|to tie me up?,I guess you can have a bondage adventure.|(She uses your own items to restrain you.),310,0,-1,RestrainPlayer()
+300,0,0,,"Girl, you will|submit to me now.",(She bows her head and looks down.)|What do you want from me?,310,-1,1,TestTurnTables()
+300,0,0,,Would you like|to tie me up?,I guess you can have a bondage adventure.|(She uses your own items to restrain you.),300,0,-1,RestrainPlayer()
+310,0,0,,You will be my|bitch right now.,,320,-1,1,
+310,0,0,,It will use some|kinky items on you.,,320,-1,0,
+310,0,0,,"Don't worry, I will tie|you up for a little while.",,320,0,1,
+310,0,0,,Would you like|to restrain me?,I guess you can have a bondage adventure.|(She uses your own items to restrain you.),300,0,-1,RestrainPlayer()
+320,0,0,CanUntie,(Untie her.)|(1 minute),(You untie her while she|struggles of discomfort.),320,0,0,Untie()
+320,0,0,CanUngag,(Ungag her.)|(1 minute),"(You remove the gag and she stares at you.)|Please, why did you had to gag me?",320,0,0,Ungag()
+320,0,0,CanKiss,(Kiss her.)|(1 minute),(You kiss her slowly while|she stares at you speachless.),320,0,0,Kiss()
+320,0,0,CanAbuse,(Tickle her.)|(1 minute),(She giggles and struggles lightly.|She doesn't seem very ticklish.),320,0,0,Tickle()
+320,0,0,CanAbuse,(Spank her.)|(1 minute),(You spank her pretty hard on the butt.|She frowns at you but seems in pain.),320,0,0,Spank()
+320,0,0,CanAbuse,(Masturbate her.)|(1 minute),,320,0,0,Masturbate()
 400,0,0,Common_PlayerGagged,@Uuumph!,(She giggles.)  You'll have quite an|adventure wandering in the library now.,400,0,0,
 400,0,0,Common_PlayerGagged,@Nnoong gnoou!,Since you're new in school.|It's a good time to explore.,400,0,0,
 400,0,0,Common_PlayerRestrained,(Struggle in|your restrains.),"You came with these, you should try them.|Go and have fun little bondage adventurer.",400,0,0,

@@ -6,6 +6,28 @@ var C009_Library_Jennifer_IsArtist = false;
 var C009_Library_Jennifer_CropDone = false;
 var C009_Library_Jennifer_AlreadyReleased = false;
 var C009_Library_Jennifer_LoadFromPlayerScreen = false;
+var C009_Library_Jennifer_IsGagged = false;
+var C009_Library_Jennifer_IsRestrained = false;
+var C009_Library_Jennifer_CanUntie = false;
+var C009_Library_Jennifer_CanUngag = false;
+var C009_Library_Jennifer_CanAbuse = false;
+var C009_Library_Jennifer_CanKiss = false;
+var C009_Library_Jennifer_OrgasmDone = false;
+var C009_Library_Jennifer_MastubateCount = 0;
+var C009_Library_Jennifer_TickleDone = false;
+var C009_Library_Jennifer_KissDone = false;
+var C009_Library_Jennifer_SpankDone = false;
+
+// Calculates the scene parameters
+function C009_Library_Jennifer_CalcParams() {
+	C009_Library_Jennifer_IsGagged = ActorIsGagged();
+	C009_Library_Jennifer_IsRestrained = ActorIsRestrained();
+	C009_Library_Jennifer_CanUntie = (ActorHasInventory("Rope") && !Common_PlayerRestrained);
+	C009_Library_Jennifer_CanUngag = (C009_Library_Jennifer_IsGagged && !Common_PlayerRestrained);
+	C009_Library_Jennifer_CanAbuse = (C009_Library_Jennifer_IsRestrained && !Common_PlayerRestrained);
+	C009_Library_Jennifer_CanKiss = ((C009_Library_Jennifer_IsRestrained || (ActorGetValue(ActorLove) >= 5) || (PlayerGetSkillLevel("Seduction") >= 1)) && !Common_PlayerGagged && !C009_Library_Jennifer_IsGagged);
+	OverridenIntroImage = "";
+}
 
 // Sets Jennifer pose depending on the stage
 function C009_Library_Jennifer_SetPose() {
@@ -73,7 +95,7 @@ function C009_Library_Jennifer_Click() {
 	if ((C009_Library_Jennifer_CurrentStage >= 300) && (C009_Library_Jennifer_CurrentStage < 400) && (ClickInv != "") && (ClickInv != "Player") && !Common_PlayerRestrained) {
 	
 		// If we must skip the chit chat to get to the action
-		if (C009_Library_Jennifer_CurrentStage == 300) C009_Library_Jennifer_CurrentStage = 310;
+		if (C009_Library_Jennifer_CurrentStage < 320) C009_Library_Jennifer_CurrentStage = 320;
 	
 		// Jennifer doesn't like the crop but becomes more submissive
 		if ((ClickInv == "Crop") && (!C009_Library_Jennifer_CropDone)) {
@@ -98,6 +120,7 @@ function C009_Library_Jennifer_Click() {
 		
 		// Apply the clicked restrain
 		ActorApplyRestrain(ClickInv);
+		C009_Library_Jennifer_CalcParams();
 
 	}
 
@@ -191,5 +214,60 @@ function C009_Library_Jennifer_TestRelease() {
 		PlayerReleaseBondage();
 		ActorChangeAttitude(0, -2);
 		C009_Library_Jennifer_AlreadyReleased = true;
+	}
+}
+
+// Chapter 9 Library - Jennifer Tickle
+function C009_Library_Jennifer_Tickle() {
+	C009_Library_Jennifer_CalcParams();
+	if (!C009_Library_Jennifer_TickleDone) {
+		ActorChangeAttitude(-1, 0);
+		C009_Library_Jennifer_TickleDone = true;
+	}
+}
+
+// Chapter 9 Library - Jennifer Masturbate
+function C009_Library_Jennifer_Masturbate() {
+	C009_Library_Jennifer_CalcParams();
+	C009_Library_Jennifer_MastubateCount++;
+	if (ActorGetValue(ActorLove) >= 5) {
+		if ((C009_Library_Jennifer_MastubateCount >= 3) && !C009_Library_Jennifer_OrgasmDone) {
+			ActorAddOrgasm();
+			ActorChangeAttitude(1, 0);
+			C009_Library_Jennifer_OrgasmDone = true;
+			OverridenIntroImage = "CouchLove.jpg";
+			OverridenIntroText = GetText("MasturbateJenniferOrgasm");
+		} else OverridenIntroText = GetText("MasturbateJenniferLove");
+	} else OverridenIntroText = GetText("MasturbateJenniferNoLove");
+}
+
+// Chapter 9 Library - Jennifer untie
+function C009_Library_Jennifer_Untie() {
+	C009_Library_Jennifer_CalcParams();
+	ActorUntie();
+}
+
+// Chapter 9 Library - Jennifer ungag
+function C009_Library_Jennifer_Ungag() {
+	C009_Library_Jennifer_CalcParams();
+	ActorUngag();
+}
+
+// Chapter 9 Library - Jennifer kiss
+function C009_Library_Jennifer_Kiss() {
+	C009_Library_Jennifer_CalcParams();
+	if (!C009_Library_Jennifer_KissDone && (PlayerGetSkillLevel("Seduction") >= 1)) {
+		ActorChangeAttitude(1, 0);
+		C009_Library_Jennifer_KissDone = true;
+		OverridenIntroText = GetText("GreatKiss");
+	}
+}
+
+// Chapter 9 Library - Jennifer spank
+function C009_Library_Jennifer_Spank() {
+	C009_Library_Jennifer_CalcParams();
+	if (!C009_Library_Jennifer_SpankDone) {
+		ActorChangeAttitude(-1, 1);
+		C009_Library_Jennifer_SpankDone = true;
 	}
 }
