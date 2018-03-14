@@ -65,3 +65,20 @@ function C009_Library_Search_LearnRopeMastery() {
 		C009_Library_Search_CanLearnRopeMastery = false;
 	} else OverridenIntroText = GetText("TrainRopeMasteryNoTime");
 }
+
+// Chapter 9 - Library Set Read Progression
+function C009_Library_Search_SetReadProgress() {
+	C009_Library_Library_BookProgress = C009_Library_Search_CurrentStage;
+}
+
+// Chapter 9 - Library Read Time
+function C009_Library_Search_ReadTime() {
+	C009_Library_Library_BookProgress = C009_Library_Search_CurrentStage;
+	CurrentTime = CurrentTime + 170000;
+}
+
+// Chapter 9 - Library Read Full Book
+function C009_Library_Search_ReadFull() {
+	C009_Library_Library_BookProgress = C009_Library_Search_CurrentStage;
+	CurrentTime = CurrentTime + 890000;
+}

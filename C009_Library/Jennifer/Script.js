@@ -12,8 +12,13 @@ var C009_Library_Jennifer_CanUntie = false;
 var C009_Library_Jennifer_CanUngag = false;
 var C009_Library_Jennifer_CanAbuse = false;
 var C009_Library_Jennifer_CanKiss = false;
+var C009_Library_Jennifer_ArtDone = false;
 var C009_Library_Jennifer_OrgasmDone = false;
+var C009_Library_Jennifer_PlayerOrgasmDone = false;
 var C009_Library_Jennifer_MastubateCount = 0;
+var C009_Library_Jennifer_PlayerMastubateCount = 0;
+var C009_Library_Jennifer_OrgasmCount = 0;
+var C009_Library_Jennifer_ThreeOrgasmDone = false;
 var C009_Library_Jennifer_TickleDone = false;
 var C009_Library_Jennifer_KissDone = false;
 var C009_Library_Jennifer_SpankDone = false;
@@ -38,7 +43,9 @@ function C009_Library_Jennifer_SetPose() {
 	if ((C009_Library_Jennifer_CurrentStage >= 155) && (C009_Library_Jennifer_CurrentStage < 180)) ActorSetPose("LayCouch");
 	if ((C009_Library_Jennifer_CurrentStage == 171) || (C009_Library_Jennifer_CurrentStage == 174)) ActorSetPose("LayCouchShy");
 	if (C009_Library_Jennifer_CurrentStage == 177) ActorSetPose("LayCouchSexy");
-	if ((C009_Library_Jennifer_CurrentStage >= 200) && (C009_Library_Jennifer_CurrentStage < 300)) { ActorSetPose("SitCouchLookRight");	Common_PlayerPose = "SitCouchLookLeft"; }
+	if ((C009_Library_Jennifer_CurrentStage >= 200) && (C009_Library_Jennifer_CurrentStage < 270)) { ActorSetPose("SitCouchLookRight");	Common_PlayerPose = "SitCouchLookLeft"; }
+	if (C009_Library_Jennifer_CurrentStage == 270) Common_PlayerPose = "KneelPleasureToJennifer";
+	if (C009_Library_Jennifer_CurrentStage == 280) Common_PlayerPose = "SitPleasureFromJennifer";
 }
 
 // Chapter 9 Library - Jennifer Load
@@ -55,6 +62,7 @@ function C009_Library_Jennifer_Load() {
 		// If the player left Jennifer while she was stripping, she will be clothed when the player comes back, she will also run if left unrestrained
 		if (C009_Library_Jennifer_CurrentStage == 400) { ActorSetCloth("Clothed"); C009_Library_Jennifer_CurrentStage = 410; }
 		if ((C009_Library_Jennifer_CurrentStage >= 171) && (C009_Library_Jennifer_CurrentStage <= 179)) { ActorSetCloth("Clothed"); C009_Library_Jennifer_CurrentStage = 180; }
+		if ((C009_Library_Jennifer_CurrentStage >= 235) && (C009_Library_Jennifer_CurrentStage < 300)) { ActorSetCloth("Clothed"); C009_Library_Jennifer_CurrentStage = 190; }
 		if ((C009_Library_Jennifer_CurrentStage >= 300) && (C009_Library_Jennifer_CurrentStage < 400) && !ActorIsRestrained()) { C009_Library_Library_JenniferGone = true; C009_Library_Jennifer_CurrentStage = 190; }
 		C009_Library_Jennifer_SetPose();
 
@@ -75,7 +83,8 @@ function C009_Library_Jennifer_Run() {
 	BuildInteraction(C009_Library_Jennifer_CurrentStage);
 	if ((C009_Library_Jennifer_CurrentStage < 130) || (C009_Library_Jennifer_CurrentStage == 180) || (C009_Library_Jennifer_CurrentStage == 410)) DrawActor("Jennifer", 600, -150, 1);
 	if ((C009_Library_Jennifer_CurrentStage >= 130) && (C009_Library_Jennifer_CurrentStage < 180)) DrawActor("Jennifer", 700, -20, 0.667);
-	if ((C009_Library_Jennifer_CurrentStage >= 200) && (C009_Library_Jennifer_CurrentStage < 300)) { DrawActor("Jennifer", 600, 30, 0.6); DrawActor("Player", 850, 30, 0.6); }
+	if ((C009_Library_Jennifer_CurrentStage >= 200) && (C009_Library_Jennifer_CurrentStage < 270)) { DrawActor("Jennifer", 600, 30, 0.6); DrawActor("Player", 850, 30, 0.6); }
+	if ((C009_Library_Jennifer_CurrentStage >= 270) && (C009_Library_Jennifer_CurrentStage < 300)) DrawActor("Player", 675, -50, 0.75);
 	if ((C009_Library_Jennifer_CurrentStage >= 300) && (C009_Library_Jennifer_CurrentStage <= 400)) DrawInteractionActor();
 }
 
@@ -124,14 +133,28 @@ function C009_Library_Jennifer_Click() {
 
 	}
 
+	// On stage 270, the player can sneak a vibrating egg inside Jennifer
+	if ((ClickInv == "VibratingEgg") && (C009_Library_Jennifer_CurrentStage == 270)) {
+		if (!ActorHasInventory("VibratingEgg")) {
+			ClickInv = "";
+			ActorAddInventory("VibratingEgg");
+			PlayerRemoveInventory("VibratingEgg", 1);
+			OverridenIntroText = GetText("SneakyEgg");
+			C009_Library_Jennifer_MastubateCount = 0;
+			C009_Library_Jennifer_OrgasmDone = false;
+		}
+	}
+
 	// On specific stages where Jennifer is naked, the player can get items to restrain her
-	if (((ClickInv == "Rope") || (ClickInv == "Cuffs") || (ClickInv == "BallGag") || (ClickInv == "ClothGag") || (ClickInv == "TapeGag") || (ClickInv == "ChastityBelt") || (ClickInv == "VibratingEgg") || (ClickInv == "Crop") || (ClickInv == "Collar")) && (C009_Library_Jennifer_CurrentStage in {174:1,175:1,176:1,177:1,178:1})) {
+	if (((ClickInv == "Rope") || (ClickInv == "Cuffs") || (ClickInv == "BallGag") || (ClickInv == "ClothGag") || (ClickInv == "TapeGag") || (ClickInv == "ChastityBelt") || (ClickInv == "VibratingEgg") || (ClickInv == "Crop") || (ClickInv == "Collar")) && (C009_Library_Jennifer_CurrentStage in {174:1,175:1,176:1,177:1,178:1,250:1,260:1,270:1,280:1})) {
 		C009_Library_Jennifer_CurrentStage = 300;
 		OverridenIntroText = GetText("JumpOffWorry");
 		C009_Library_Jennifer_SetPose();
 		ActorChangeAttitude(-1, 0);
+		C009_Library_Jennifer_MastubateCount = 0;
+		C009_Library_Jennifer_OrgasmDone = false;
 	}
-
+	
 }
 
 // Chapter 9 Library - Jennifer query to get the egg back
@@ -189,6 +212,7 @@ function C009_Library_Jennifer_DrawJennifer(MinutesSpent) {
 		if (MinutesSpent == 30) ActorChangeAttitude(PlayerGetSkillLevel("Arts") + 1, 0);
 		if ((MinutesSpent == 15) || (MinutesSpent == 30)) PlayerAddSkill("Arts", 1);
 		C009_Library_Jennifer_SetPose();
+		C009_Library_Jennifer_ArtDone = true;
 	} else OverridenIntroText = GetText("NoTimeToDraw");
 }
 
@@ -226,31 +250,48 @@ function C009_Library_Jennifer_Tickle() {
 	}
 }
 
-// Chapter 9 Library - Jennifer Masturbate
+// Chapter 9 Library - Returns TRUE if Jennifer is ready to orgasm
+function C009_Library_Jennifer_ReadyToOrgasm() {
+	return (!C009_Library_Jennifer_OrgasmDone && ((C009_Library_Jennifer_MastubateCount >= 4) || ((C009_Library_Jennifer_MastubateCount >= 2) && ActorHasInventory("VibratingEgg"))));
+}
+
+// Chapter 9 Library - When Jennifer gets an orgasm (If the player manages to give her 3 orgasms then +1 seduction)
+function C009_Library_Jennifer_Orgasm() {
+	ActorAddOrgasm();
+	C009_Library_Jennifer_OrgasmCount++;
+	ActorChangeAttitude(1, 0);
+	C009_Library_Jennifer_OrgasmDone = true;
+	if (C009_Library_Jennifer_OrgasmCount == 3) {
+		C009_Library_Jennifer_ThreeOrgasmDone = true;
+		PlayerAddSkill("Seduction", 1);
+	}
+}
+
+// Chapter 9 Library - Jennifer Masturbate, she will climax if she loves the player enough
 function C009_Library_Jennifer_Masturbate() {
 	C009_Library_Jennifer_CalcParams();
-	C009_Library_Jennifer_MastubateCount++;
-	if (ActorGetValue(ActorLove) >= 5) {
-		if ((C009_Library_Jennifer_MastubateCount >= 3) && !C009_Library_Jennifer_OrgasmDone) {
-			ActorAddOrgasm();
-			ActorChangeAttitude(1, 0);
-			C009_Library_Jennifer_OrgasmDone = true;
-			OverridenIntroImage = "CouchLove.jpg";
-			OverridenIntroText = GetText("MasturbateJenniferOrgasm");
-		} else OverridenIntroText = GetText("MasturbateJenniferLove");
-	} else OverridenIntroText = GetText("MasturbateJenniferNoLove");
+	if (!ActorIsChaste()) {
+		C009_Library_Jennifer_MastubateCount++;
+		if (ActorGetValue(ActorLove) >= 5) {
+			if (C009_Library_Jennifer_ReadyToOrgasm()) {
+				C009_Library_Jennifer_Orgasm();
+				OverridenIntroImage = "CouchLove.jpg";
+				OverridenIntroText = GetText("MasturbateOrgasm");
+			} else OverridenIntroText = GetText("MasturbateLove");
+		} else OverridenIntroText = GetText("MasturbateNoLove");
+	} else OverridenIntroText = GetText("MasturbateBelt");
 }
 
 // Chapter 9 Library - Jennifer untie
 function C009_Library_Jennifer_Untie() {
-	C009_Library_Jennifer_CalcParams();
 	ActorUntie();
+	C009_Library_Jennifer_CalcParams();
 }
 
 // Chapter 9 Library - Jennifer ungag
 function C009_Library_Jennifer_Ungag() {
-	C009_Library_Jennifer_CalcParams();
 	ActorUngag();
+	C009_Library_Jennifer_CalcParams();
 }
 
 // Chapter 9 Library - Jennifer kiss
@@ -270,4 +311,93 @@ function C009_Library_Jennifer_Spank() {
 		ActorChangeAttitude(-1, 1);
 		C009_Library_Jennifer_SpankDone = true;
 	}
+}
+
+// Chapter 9 Library - When Jennifer is released
+function C009_Library_Jennifer_ReleaseJennifer() {
+	ActorUntie();
+	ActorUngag();
+	ActorSetCloth("Clothed");
+	CurrentTime = CurrentTime + 50000;
+	C009_Library_Jennifer_CalcParams();
+	C009_Library_Jennifer_SetPose();
+}
+
+// Chapter 9 Library - When Jennifer is asked to make love (+10 love with seduction * 3, or +5/+5 will do)
+function C009_Library_Jennifer_TestMakeLove() {
+	if ((ActorGetValue(ActorLove) + (PlayerGetSkillLevel("Seduction") * 3) < 10) && ((ActorGetValue(ActorLove) < 5) || (ActorGetValue(ActorSubmission) < 5))) {
+		C009_Library_Jennifer_JenniferLeave();
+		OverridenIntroText = GetText("TestMakeLoveFail");
+		C009_Library_Jennifer_CurrentStage = 190;
+	}
+}
+
+// Chapter 9 Library - When Jennifer and the player strips to undies, can fork if the player has a chastity belt
+function C009_Library_Jennifer_StripBoth(NewCloth) {
+	ActorSetCloth(NewCloth);
+	PlayerClothes(NewCloth);
+	if (Common_PlayerChaste) {
+		OverridenIntroText = GetText("StripRevealBelt");
+		C009_Library_Jennifer_CurrentStage = 235;
+	}
+	CurrentTime = CurrentTime + 50000;
+}
+
+// Chapter 9 Library - Jennifer can want to be pleasured first if the player is submissive
+function C009_Library_Jennifer_TestPleasurePlayer() {
+	if ((ActorGetValue(ActorSubmission) <= -3) && (!C009_Library_Jennifer_OrgasmDone)) {
+		OverridenIntroText = GetText("PleasureMeFirst");
+		C009_Library_Jennifer_CurrentStage = 270;
+	}
+	C009_Library_Jennifer_SetPose();
+}
+
+// Chapter 9 Library - When the player pleasures Jennifer
+function C009_Library_Jennifer_PleasureJennifer() {
+	OverridenIntroImage = "";
+	C009_Library_Jennifer_MastubateCount++;
+	CurrentTime = CurrentTime + 50000;
+	if (C009_Library_Jennifer_ReadyToOrgasm()) {
+		C009_Library_Jennifer_Orgasm();
+		OverridenIntroImage = "CouchCenterLove.jpg";
+		OverridenIntroText = GetText("JenniferOralOrgasm");
+	}
+}
+
+// Chapter 9 Library - When Jennifer pleasures the player (multiple orgasms are possible with an egg)
+function C009_Library_Jennifer_PleasurePlayer() {
+	OverridenIntroImage = "";
+	C009_Library_Jennifer_PlayerMastubateCount++;
+	CurrentTime = CurrentTime + 50000;
+	if ((C009_Library_Jennifer_PlayerMastubateCount >= 4) && !C009_Library_Jennifer_PlayerOrgasmDone) {
+		C009_Library_Jennifer_PlayerOrgasmDone = true;
+		OverridenIntroImage = "CouchCenterLove.jpg";
+		OverridenIntroText = GetText("PlayerOralOrgasm");
+		if (PlayerHasLockedInventory("VibratingEgg")) {
+			C009_Library_Jennifer_PlayerMastubateCount = 0;
+			C009_Library_Jennifer_PlayerOrgasmDone = false;
+		}
+	}
+}
+
+// Chapter 9 Library - When the player wants to switch to herself
+function C009_Library_Jennifer_TestSwitchPlayer() {
+	OverridenIntroImage = "";
+	CurrentTime = CurrentTime + 50000;
+	if ((ActorGetValue(ActorSubmission) <= -3) && (!C009_Library_Jennifer_OrgasmDone)) {
+		OverridenIntroText = GetText("PleasureMeFirst");
+		C009_Library_Jennifer_CurrentStage = 270;
+	}
+	C009_Library_Jennifer_SetPose();
+}
+
+// Chapter 9 Library - When the player wants to switch to Jennifer
+function C009_Library_Jennifer_TestSwitchJennifer() {
+	OverridenIntroImage = "";
+	CurrentTime = CurrentTime + 50000;
+	if ((ActorGetValue(ActorSubmission) < 5) && C009_Library_Jennifer_OrgasmDone) {
+		OverridenIntroText = GetText("JenniferIsDone");
+		C009_Library_Jennifer_CurrentStage = 280;
+	}
+	C009_Library_Jennifer_SetPose();
 }
