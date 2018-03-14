@@ -1,0 +1,4 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,Un pilori est fixé dans la pièce.,Pillory.jpg
+10,0,0,,Tu veux essayer d'enfoncer ta tête ?,PilloryHead.jpg
+20,0,0,,,PilloryLocked.jpg
