@@ -2,6 +2,7 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 0,0,0,,"(Jennifer is reading in a library corner, she puts|down her book.)  Hello COMMON_PLAYERNAME.",CouchLeft.jpg
 0,5,0,,"(Jennifer is reading in a library corner, she puts|down her book.)  COMMON_PLAYERNAME!  How nice.",CouchLeft.jpg
 0,0,5,,"(Jennifer is reading in a library corner, she puts|down her book.)  Greetings Miss COMMON_PLAYERNAME.",CouchLeft.jpg
+0,0,0,Common_PlayerRestrained,"(Jennifer looks intrigued by your situation.)|What happened, why are you restrained?",CouchLeft.jpg
 0,0,0,HasEgg,"(Jennifer is reading in a library corner, she puts|down her book.)  I was able to remove your egg.",CouchLeft.jpg
 10,0,0,,I found an interesting book on|the history of the Olympic games.,CouchLeft.jpg
 20,0,0,,So which book are you looking for?,CouchLeft.jpg
@@ -28,9 +29,11 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 177,0,0,,,Couch.jpg
 178,0,0,,,Couch.jpg
 180,0,0,,Maybe we should talk later.|I would like to finish this book.,CouchLeft.jpg
+180,0,0,IsChaste,I would like to finish this book now.|But you have to unlock that belt later.,CouchLeft.jpg
 180,0,0,ArtDone,I would like to finish this book now.|But I really enjoyed the art you did.,CouchLeft.jpg
 180,0,0,OrgasmDone,I had a wonderful time today.|I hope we can meet after school.,CouchLeft.jpg
 180,0,0,ThreeOrgasmDone,(She whispers.)  I've never had three orgasms.|I really hope we can meet again after school.,CouchLeft.jpg
+181,0,0,,So how do I remove that belt?,CouchLeft.jpg
 190,0,0,,(Jennifer is gone.),Couch.jpg
 200,0,0,,(You sit down next to Jennifer.)|So what's up COMMON_PLAYERNAME?,Couch.jpg
 210,0,0,,(You sit down next to Jennifer.)|This is a nice place to read.,Couch.jpg

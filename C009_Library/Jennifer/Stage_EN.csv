@@ -1,4 +1,5 @@
 Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,Common_PlayerGagged,@Mnaaaeg mmh!,(She looks at your gag and giggles.),0,0,0,
 0,0,0,HasEgg,How did you|remove it?,This is humiliating but I had|to contract really hard to fetch it.,0,0,0,
 0,0,0,HasEgg,Can I have|the egg back?,"It's too late, I threw it away.",0,0,0,QueryEgg()
 0,0,0,HasEgg,"Jen, I want|the egg back.","It's too late, I threw it away.",0,-1,1,QueryEgg()
@@ -85,12 +86,17 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 178,0,0,,"Dress up, all good|things have to end.",(She smiles at you and dresses back up.)|It was thrilling but I'd like to read some more.,180,1,0,"Strip(""Clothed"")"
 178,0,0,,Sadly it's time|to dress up.,(She nods at you and dresses back up.)|It was fun but I'd like to read some more.,180,0,0,"Strip(""Clothed"")"
 178,0,0,,"You can dress, next|time I'll get naked.",(She giggles and dresses back up.)|I'll get back to my book then.,180,0,-1,"Strip(""Clothed"")"
+180,0,0,Common_PlayerGagged,@Mnaaaeg mmh!,(She looks at your gag and giggles.),180,0,0,
 180,0,0,Common_PlayerRestrained,"Jen, can you|help me out?","Sorry, I will not help you.",180,0,0,TestRelease()
 180,0,0,Common_PlayerRestrained,(Get on your|knees and beg.),"Sorry, I will not help you.",180,0,0,TestRelease()
 180,0,0,OrgasmDone,So you did enjoy|our kinky time?,"(She blushes a little.)  Yes, I did.|It was wonderful to share it with you.",180,0,0,
 180,0,0,PlayerOrgasmDone,You gave me lots|of pleasure today.,I'm very glad I was good.|I have so little experience.,180,0,0,
 180,0,0,,Talk to you later!|(Walk away.),,180,0,0,PlayerLeave()
 180,0,5,,"Move it, I want|to sit here.","Fine, you can have my seat.|(She stands up and walks away.)",190,-1,1,JenniferLeave()
+181,0,0,,I will unlock|it tonight.,"Alright, I'll be patient then.",180,0,0,NewPose()
+181,0,0,,I have no idea|how to unlock it.,What?  This is not funny!|I'll call a locksmith later.,180,-2,0,NewPose()
+181,0,0,,It stays locked until|I decide otherwise.,Oh please!  You cannot be serious!|I trust you will unlock it soon.,180,-1,1,NewPose()
+181,0,0,,I'll find a way.|(Walk away.),,181,0,0,PlayerLeave()
 200,0,0,,You found a|great couch.,"Indeed, this is a pretty nice place to read.",210,0,0,
 200,0,0,,This is comfy.,"Indeed, this is a pretty nice place to read.",210,0,0,
 200,0,0,,This isn't|very comfy.,You think so?  I love this couch.|This is my favorite place to read.,210,-1,0,
@@ -158,7 +164,8 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 320,0,0,CanAbuse,(Tickle her.)|(1 minute),(She giggles and struggles lightly.|She doesn't seem very ticklish.),320,0,0,Tickle()
 320,0,0,CanAbuse,(Spank her.)|(1 minute),(You spank her pretty hard on the butt.|She frowns at you but seems in pain.),320,0,0,Spank()
 320,0,0,CanAbuse,(Masturbate her.)|(1 minute),,320,0,0,Masturbate()
-320,0,0,,That's enough.|Dress back up.,"(She nods and you help her to dress back.)|That was quite an experience, very daring.",180,0,0,ReleaseJennifer()
+320,0,0,!IsChaste,That's enough.|Dress back up.,"(She nods and you help her to dress back.)|That was quite an experience, very daring.",180,0,0,ReleaseJennifer()
+320,0,0,IsChaste,That's enough.|Dress back up.,(She nods and you help her to dress back.)|Do you want the belt back?  How do I remove it?,181,0,0,ReleaseJennifer()
 400,0,0,Common_PlayerGagged,@Uuumph!,(She giggles.)  You'll have quite an|adventure wandering in the library now.,400,0,0,
 400,0,0,Common_PlayerGagged,@Nnoong gnoou!,Since you're new in school.|It's a good time to explore.,400,0,0,
 400,0,0,Common_PlayerRestrained,(Struggle in|your restrains.),"You came with these, you should try them.|Go and have fun little bondage adventurer.",400,0,0,

@@ -1,5 +1,6 @@
 Stage,LoveReq,SubReq,VarReq,IntroText,Image
 10,0,0,,You find an empty corner in the library.|There's an old chair and books on chemistry.,10.jpg
+15,0,0,,,10Sit.jpg
 30,0,0,,"On the left side of the corridor, there's|a shelve full of books on mathematics.",30.jpg
 31,0,0,,"On the right side of the corridor, there's|a shelve full of books on physics.",31.jpg
 32,0,0,,This corridor is a dead end but there are a|few books left and a huge wooden counter.,32.jpg
@@ -17,3 +18,4 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 46,0,0,,"You found the book: ""The Count of Monte Cristo"".|You've already read up to chapter 5, you're ready.",41.jpg
 60,0,0,,You find an empty corner in the library.|There's an old couch and books on history.,60.jpg
 61,0,0,,There are lots of old books in|the shelves of this corridor.,61.jpg
+65,0,0,,,60Sit.jpg

@@ -59,6 +59,9 @@ function C009_Library_Library_Run() {
 	C009_Library_Library_Navigation(ctx, "006", "Left", 400, 200);
 	C009_Library_Library_Navigation(ctx, "006", "Down", 500, 400);
 	C009_Library_Library_Navigation(ctx, "007", "Down", 500, 400);
+	
+	// TO REMOVE
+	if ((C009_Library_Library_CurrentZone == "005") || (C009_Library_Library_CurrentZone == "007")) DrawText(ctx, "This zone will be available in another version", 600, 175, "white");
 
 }
 

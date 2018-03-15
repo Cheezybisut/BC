@@ -22,11 +22,13 @@ var C009_Library_Jennifer_ThreeOrgasmDone = false;
 var C009_Library_Jennifer_TickleDone = false;
 var C009_Library_Jennifer_KissDone = false;
 var C009_Library_Jennifer_SpankDone = false;
+var C009_Library_Jennifer_IsChaste = false;
 
 // Calculates the scene parameters
 function C009_Library_Jennifer_CalcParams() {
 	C009_Library_Jennifer_IsGagged = ActorIsGagged();
 	C009_Library_Jennifer_IsRestrained = ActorIsRestrained();
+	C009_Library_Jennifer_IsChaste = ActorIsChaste();
 	C009_Library_Jennifer_CanUntie = (ActorHasInventory("Rope") && !Common_PlayerRestrained);
 	C009_Library_Jennifer_CanUngag = (C009_Library_Jennifer_IsGagged && !Common_PlayerRestrained);
 	C009_Library_Jennifer_CanAbuse = (C009_Library_Jennifer_IsRestrained && !Common_PlayerRestrained);
@@ -38,7 +40,7 @@ function C009_Library_Jennifer_CalcParams() {
 function C009_Library_Jennifer_SetPose() {
 	ActorSetPose("");
 	Common_PlayerPose = "";
-	if ((C009_Library_Jennifer_CurrentStage < 130) || (C009_Library_Jennifer_CurrentStage == 180) || (C009_Library_Jennifer_CurrentStage == 410)) ActorSetPose("SitCouchLookFront");
+	if ((C009_Library_Jennifer_CurrentStage < 130) || (C009_Library_Jennifer_CurrentStage == 180) || (C009_Library_Jennifer_CurrentStage == 181) || (C009_Library_Jennifer_CurrentStage == 410)) ActorSetPose("SitCouchLookFront");
 	if ((C009_Library_Jennifer_CurrentStage >= 130) && (C009_Library_Jennifer_CurrentStage < 155)) ActorSetPose("LayCouchShy");
 	if ((C009_Library_Jennifer_CurrentStage >= 155) && (C009_Library_Jennifer_CurrentStage < 180)) ActorSetPose("LayCouch");
 	if ((C009_Library_Jennifer_CurrentStage == 171) || (C009_Library_Jennifer_CurrentStage == 174)) ActorSetPose("LayCouchShy");
@@ -54,7 +56,8 @@ function C009_Library_Jennifer_Load() {
 	// Load the scene parameters
 	ActorLoad("Jennifer", "Library");
 	LoadInteractions();
-	C009_Library_Jennifer_IsArtist = (PlayerGetSkillLevel("Arts") >= 1);
+	C009_Library_Jennifer_IsArtist = ((PlayerGetSkillLevel("Arts") >= 1) && !Common_PlayerRestrained);
+	Common_SelfBondageAllowed = false;
 
 	// Do not change the scene parameters if we are loading from the player screen
 	if (!C009_Library_Jennifer_LoadFromPlayerScreen) {
@@ -62,6 +65,7 @@ function C009_Library_Jennifer_Load() {
 		// If the player left Jennifer while she was stripping, she will be clothed when the player comes back, she will also run if left unrestrained
 		if (C009_Library_Jennifer_CurrentStage == 400) { ActorSetCloth("Clothed"); C009_Library_Jennifer_CurrentStage = 410; }
 		if ((C009_Library_Jennifer_CurrentStage >= 171) && (C009_Library_Jennifer_CurrentStage <= 179)) { ActorSetCloth("Clothed"); C009_Library_Jennifer_CurrentStage = 180; }
+		if ((C009_Library_Jennifer_CurrentStage >= 200) && (C009_Library_Jennifer_CurrentStage < 235) && Common_PlayerRestrained) { ActorSetCloth("Clothed"); C009_Library_Jennifer_CurrentStage = 180; }
 		if ((C009_Library_Jennifer_CurrentStage >= 235) && (C009_Library_Jennifer_CurrentStage < 300)) { ActorSetCloth("Clothed"); C009_Library_Jennifer_CurrentStage = 190; }
 		if ((C009_Library_Jennifer_CurrentStage >= 300) && (C009_Library_Jennifer_CurrentStage < 400) && !ActorIsRestrained()) { C009_Library_Library_JenniferGone = true; C009_Library_Jennifer_CurrentStage = 190; }
 		C009_Library_Jennifer_SetPose();
@@ -81,7 +85,7 @@ function C009_Library_Jennifer_Load() {
 // Chapter 9 Library - Jennifer Run
 function C009_Library_Jennifer_Run() {
 	BuildInteraction(C009_Library_Jennifer_CurrentStage);
-	if ((C009_Library_Jennifer_CurrentStage < 130) || (C009_Library_Jennifer_CurrentStage == 180) || (C009_Library_Jennifer_CurrentStage == 410)) DrawActor("Jennifer", 600, -150, 1);
+	if ((C009_Library_Jennifer_CurrentStage < 130) || (C009_Library_Jennifer_CurrentStage == 180) || (C009_Library_Jennifer_CurrentStage == 181) || (C009_Library_Jennifer_CurrentStage == 410)) DrawActor("Jennifer", 600, -150, 1);
 	if ((C009_Library_Jennifer_CurrentStage >= 130) && (C009_Library_Jennifer_CurrentStage < 180)) DrawActor("Jennifer", 700, -20, 0.667);
 	if ((C009_Library_Jennifer_CurrentStage >= 200) && (C009_Library_Jennifer_CurrentStage < 270)) { DrawActor("Jennifer", 600, 30, 0.6); DrawActor("Player", 850, 30, 0.6); }
 	if ((C009_Library_Jennifer_CurrentStage >= 270) && (C009_Library_Jennifer_CurrentStage < 300)) DrawActor("Player", 675, -50, 0.75);
@@ -180,9 +184,13 @@ function C009_Library_Jennifer_JenniferLeave() {
 // Chapter 9 Library - Jennifer - When the player wants to sit with her
 function C009_Library_Jennifer_TestSitTogether() {
 	if ((ActorGetValue(ActorLove) >= 5) || (ActorGetValue(ActorSubmission) >= 5) || (PlayerGetSkillLevel("Seduction") >= 1)) {
-		OverridenIntroText = GetText("SitTogether");
-		C009_Library_Jennifer_CurrentStage = 200;
-		C009_Library_Jennifer_SetPose();
+		if (Common_PlayerRestrained) {			
+			OverridenIntroText = GetText("CannottSitRestrained");
+		} else {
+			OverridenIntroText = GetText("SitTogether");
+			C009_Library_Jennifer_CurrentStage = 200;
+			C009_Library_Jennifer_SetPose();			
+		}
 	}
 }
 

@@ -1,6 +1,7 @@
 var C009_Library_Search_CurrentStage = 0;
 var C009_Library_Search_SearchCounterDone = false;
 var C009_Library_Search_CanLearnRopeMastery = true;
+var C009_Library_Search_CanSit = false;
 var C009_Library_Search_MasturbateCount = 0;
 var C009_Library_Search_IntroText = "";
 
@@ -11,6 +12,8 @@ function C009_Library_Search_Load() {
 	LoadInteractions();
 	if (C009_Library_Search_IntroText != "") OverridenIntroText = C009_Library_Search_IntroText;
 	C009_Library_Search_IntroText = "";
+	Common_SelfBondageAllowed = false;
+	C009_Library_Search_CanSit = (!Common_PlayerGagged && !Common_PlayerRestrained);
 }
 
 // Chapter 9 Library - Search Area Run
