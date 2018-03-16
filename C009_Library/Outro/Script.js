@@ -31,5 +31,6 @@ function C009_Library_Outro_Click() {
 
 	// Jump to the next animation
 	TextPhase++;
+	if (TextPhase >= 3) SaveMenu("C101_KinbakuClub", "Intro");
 
 }

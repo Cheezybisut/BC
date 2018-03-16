@@ -7,14 +7,14 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 10,0,0,,I found an interesting book on|the history of the Olympic games.,CouchLeft.jpg
 20,0,0,,So which book are you looking for?,CouchLeft.jpg
 30,0,0,,So which book are you looking for?,CouchLeft.jpg
-40,0,0,,"You'll probably find it in the litterature section.|Walk back from here, go straight and turn right.",CouchLeft.jpg
+40,0,0,,"You'll probably find it in the literature section.|Walk back from here, go straight and turn right.",CouchLeft.jpg
 100,0,0,,Is there anything else you want?,CouchLeft.jpg
 100,5,0,,Hey COMMON_PLAYERNAME!|Is there anything else you want?,CouchLeft.jpg
 100,0,5,,Hello again Miss COMMON_PLAYERNAME.|Is there anything else you want?,CouchLeft.jpg
 110,0,0,,"So what's wrong with the way I'm sitting?|Don't worry, I'm comfy enough.",CouchLeft.jpg
-120,0,0,,I cannot lay on the whole couch.|What if someone wants to sit here?,CouchLeft.jpg
-130,0,0,,(She lays on the couch and looks you.)|Do I look relaxed enough now?,Couch.jpg
-140,0,0,,(She lays on the couch and looks you.)|Is there something else you want?,Couch.jpg
+120,0,0,,I cannot lie on the whole couch.|What if someone wants to sit here?,CouchLeft.jpg
+130,0,0,,(She lies on the couch and looks you.)|Do I look relaxed enough now?,Couch.jpg
+140,0,0,,(She lies on the couch and looks you.)|Is there something else you want?,Couch.jpg
 150,0,0,,I know that I don't have many friends.,Couch.jpg
 150,5,0,,I know that I don't have many friends.|But I'm always happy to talk with you.,Couch.jpg
 155,0,0,,"If you want, we could be|friends and help each other?",Couch.jpg

@@ -5,7 +5,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 30,0,0,!Common_PlayerRestrained,(Search.)|(1 minute),You search in the shelves but all you|can find are boring books on mathematics.,30,0,0,
 31,0,0,!Common_PlayerRestrained,(Search.)|(1 minute),You search the dead end part of the|corridor but don't find anything interesting.,31,0,0,SearchCounter()
 32,0,0,!Common_PlayerRestrained,(Search.)|(1 minute),You search in the shelves and find a|comic book hidden in between the books.,33,0,0,
-33,0,0,,(Fetch the comic.)|(1 minute),"It's an old comic called ""Sweet Gwendoline"".|It was written and drawned by John Willie.",34,0,0,
+33,0,0,,(Fetch the comic.)|(1 minute),"It's an old comic called ""Sweet Gwendoline"".|It was written and drawn by John Willie.",34,0,0,
 33,0,0,,(Leave it there.),You leave the comic between the books.,32,0,0,
 34,0,0,,(Open the comic.)|(1 minute),"You flip a few pages.  It tells the story of|Gwendoline, a blond who gets tied up often.",35,0,0,
 34,0,0,,(Put it back.),You leave the comic between the books.,32,0,0,
