@@ -23,6 +23,8 @@ var C009_Library_Jennifer_TickleDone = false;
 var C009_Library_Jennifer_KissDone = false;
 var C009_Library_Jennifer_SpankDone = false;
 var C009_Library_Jennifer_IsChaste = false;
+var C009_Library_Jennifer_CanRemoveUnderwear = false;
+var C009_Library_Jennifer_CanAddUnderwear = false;
 
 // Calculates the scene parameters
 function C009_Library_Jennifer_CalcParams() {
@@ -33,6 +35,8 @@ function C009_Library_Jennifer_CalcParams() {
 	C009_Library_Jennifer_CanUngag = (C009_Library_Jennifer_IsGagged && !Common_PlayerRestrained);
 	C009_Library_Jennifer_CanAbuse = (C009_Library_Jennifer_IsRestrained && !Common_PlayerRestrained);
 	C009_Library_Jennifer_CanKiss = ((C009_Library_Jennifer_IsRestrained || (ActorGetValue(ActorLove) >= 5) || (PlayerGetSkillLevel("Seduction") >= 1)) && !Common_PlayerGagged && !C009_Library_Jennifer_IsGagged);
+	C009_Library_Jennifer_CanRemoveUnderwear = ((ActorGetValue(ActorCloth) == "Underwear") && !C009_Library_Jennifer_IsRestrained && !C009_Library_Jennifer_IsChaste);
+	C009_Library_Jennifer_CanAddUnderwear = ((ActorGetValue(ActorCloth) == "Naked") && !C009_Library_Jennifer_IsRestrained && !C009_Library_Jennifer_IsChaste);
 	OverridenIntroImage = "";
 }
 
@@ -150,10 +154,11 @@ function C009_Library_Jennifer_Click() {
 	}
 
 	// On specific stages where Jennifer is naked, the player can get items to restrain her
-	if (((ClickInv == "Rope") || (ClickInv == "Cuffs") || (ClickInv == "BallGag") || (ClickInv == "ClothGag") || (ClickInv == "TapeGag") || (ClickInv == "ChastityBelt") || (ClickInv == "VibratingEgg") || (ClickInv == "Crop") || (ClickInv == "Collar")) && (C009_Library_Jennifer_CurrentStage in {174:1,175:1,176:1,177:1,178:1,250:1,260:1,270:1,280:1})) {
+	if (((ClickInv == "Rope") || (ClickInv == "Cuffs") || (ClickInv == "BallGag") || (ClickInv == "ClothGag") || (ClickInv == "TapeGag") || (ClickInv == "ChastityBelt") || (ClickInv == "VibratingEgg") || (ClickInv == "Crop") || (ClickInv == "Collar")) && (C009_Library_Jennifer_CurrentStage in {171:1,172:1,173:1,174:1,175:1,176:1,177:1,178:1,235:1,240:1,250:1,260:1,270:1,280:1})) {
 		C009_Library_Jennifer_CurrentStage = 300;
 		OverridenIntroText = GetText("JumpOffWorry");
 		C009_Library_Jennifer_SetPose();
+		C009_Library_Jennifer_CalcParams();
 		ActorChangeAttitude(-1, 0);
 		C009_Library_Jennifer_MastubateCount = 0;
 		C009_Library_Jennifer_OrgasmDone = false;
@@ -203,6 +208,7 @@ function C009_Library_Jennifer_NewPose() {
 function C009_Library_Jennifer_Strip(NewCloth) {
 	ActorSetCloth(NewCloth);
 	C009_Library_Jennifer_SetPose();
+	C009_Library_Jennifer_CalcParams();
 	CurrentTime = CurrentTime + 50000;
 }
 
