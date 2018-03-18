@@ -1,0 +1,82 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,Je ne l'ai pas fait !,Arrête de mentir pour une fois et accepte|ta punition comme une dame.,10,0,0,
+0,0,0,,C'est Sidney qui l'a fait !,"Si elle a un quelconque lien avec cette|affaire, elle sera punie tout comme toi.",10,0,0,
+0,0,0,,Je sais. Je suppose|que c'était mal.,En effet. Et c'est pourquoi tu seras punie.,10,1,0,
+0,0,0,,"Je suis désolée,|professeur Yuki.",Être désolée n'est pas suffisant.|Et c'est pourquoi tu seras punie.,10,0,-1,
+0,0,0,,C'était votre pilule|de toute façon.,Ce n'est pas la question.|Tu m'as drogué et tu seras punie.,10,0,0,
+0,0,0,,J'aurais pu faire bien pire.,Tu vas devoir apprendre à rester à ta place.|Et c'est pourquoi tu seras punie.,10,-1,1,
+10,0,0,,Punie comment ?,Tu resteras attachée et bâillonnée|dans cette cellule pendant une heure.,20,0,0,
+10,0,0,,Qu'attendez-vous de moi ?,Tu resteras attachée et bâillonnée|dans cette cellule pendant une heure.,20,0,0,
+10,0,0,,"Je vous donne de l'argent,|et on oublie tout ?",Tu ne peux pas me soudoyer. Tu resteras attachée|et bâillonnée dans cette cellule pendant une heure.,20,-1,0,
+20,0,0,,Attachée et bâillonnée ?|Vous êtes sérieuse ?,Je le suis. Pour commencer tu vas|me donner ceci. (Elle confisque ton sac.),30,0,0,StealItems()
+20,0,0,,"Ce sera moins pénible,|si je ne résiste pas.",C'est très sage de ta part. Pour commencer|tu vas me donner ceci. (Elle confisque ton sac.),30,1,0,StealItems()
+20,0,0,,Génial ! J'adore|le bondage.,"Cette heure ne sera pas agréable. Maintenant,|tu vas me donner ce sac. (Elle confisque ton sac.)",30,-1,-1,StealItems()
+20,0,0,,Oubliez ça !|Je ne le ferai pas.,Tu n'as pas le choix. Pour commencer tu vas|me donner ceci. (Elle confisque ton sac.),30,0,1,StealItems()
+30,0,0,,"Ne volez rien,|s'il vous plaît.","Je ne le ferai pas, t'inquiéte. Maintenant,|tu vas enlever ton uniforme.",40,0,-1,
+30,0,0,,Sale voleuse !,"Arrête de te plaindre, Maintenant|tu vas enlever ton uniforme.",40,-1,0,
+30,0,0,,Vous ne pouvez|pas faire ça.,Bien sûr que je le peux. Maintenant|tu vas enlever ton uniforme.,40,0,0,
+40,0,0,,"Désolée, mais vous êtes|trop moche pour moi.","(Elle te met au pilori et referme la planche.)|Puisque tu résistes, je vais devoir utiliser ces appareils.",70,-1,0,
+40,0,0,,"Oubliez ça, madame.|Je ne me déshabillerai pas.","(Elle te met au pilori et referme la planche.)|Puisque tu résistes, je vais devoir utiliser ces appareils.",70,0,0,
+40,0,0,,"Bon sang ! Ok, ok. (Tu|te déshabilles.) (1 minute)",Très bien. Et tu es censée porter ceci.|(Elle te montre un collier en cuir.),50,0,0,
+40,0,0,,Juste pour vos yeux. (Tu|te déshabilles.) (1 minute),Évidemment. Et tu es censée porter ceci.|(Elle te montre un collier en cuir.),50,1,0,
+50,0,0,,Oui Madame.|(Tu inclines la tête.),(Elle te met le collier autour du cou.)|Comment tu te sens maintenant ? Vulnérable ?,100,0,-1,AddCollar()
+50,0,0,,Un collier ?|J'ai l'air d'un chien ?,"(Elle te met au pilori et referme la planche.)|Puisque tu résistes, je vais devoir utiliser ces appareils.",80,0,0,
+50,0,0,,Mmm. D'accord.|(Tu inclines la tête.),(Elle te met le collier autour du cou.)|Comment tu te sens maintenant ? Vulnérable ?,100,0,0,AddCollar()
+50,0,0,,Il gèlera en enfer|avant que je porte ça.,"(Elle te met au pilori et referme la planche.)|Puisque tu résistes, je vais devoir utiliser ces appareils.",80,0,1,
+70,0,0,,(Tu garde le silence.),Le silence est d'or. (Elle enlève ton uniforme.)|Tu devras également porter un collier en cuir.,80,0,0,
+70,0,0,,"Me déshabiller ? Vous êtes|une lesbienne tarée ?",Quelle vulgarité. (Elle enlève ton uniforme.)|Tu devras également porter un collier en cuir.,80,-1,0,
+70,0,0,,Je suppose que ce|n'est que justice.,"En effet, ça l'est. (Elle enlève ton uniforme.)|Tu devras également porter un collier en cuir.",80,1,0,
+70,0,0,,"Un jour, j'aurai|ma revanche.",(Elle soupire et enlève ton uniforme.)|Tu devras également porter un collier en cuir.,80,0,1,
+80,0,0,,(Tu garde le silence.),(Elle te met le collier et te libère.)|Comment tu te sens maintenant ? Vulnérable ?,100,0,0,AddCollar()
+80,0,0,,Rangez ce collier !,Chut. (Elle te met le collier et te libère.)|Comment tu te sens maintenant ? Vulnérable ?,100,0,0,AddCollar()
+80,0,0,,Je suppose qu'il est|inutile de résister.,Exactement. (Elle te met le collier et te libère.)|Comment tu te sens maintenant ? Vulnérable ?,100,0,0,AddCollar()
+100,0,0,,J'ai connue des|jours meilleurs.,Et ça ne va pas s'arranger.|Tourne-toi et fait voir tes mains.,110,0,0,
+100,0,0,,Très vulnérable.|(Tu inclines la tête.),"Ce n'est pas facile, mais c'est pour ton bien.|Tourne-toi et fait voir tes mains.",110,0,-1,
+100,0,0,,"(Tu bailles.) En fait,|je m'ennuie un peu.",Tu te crois intelligente ?|Tourne-toi et fait voir tes mains.,110,-1,0,
+100,0,0,,Pourquoi le collier ?|Je ne vous suis pas.,Tu comprendras bien assez tôt.|Tourne-toi et fait voir tes mains.,110,0,0,
+110,0,0,,Ne me touchez pas !,Tu n'es pas en position de donner des ordres.|(Elle prend une corde et l'enroule autour de toi.),120,0,0,AddRope()
+110,0,0,,Allez vous faire foutre !|Vous ne m'attacherez pas.,Hmm. J'aurai besoin d'un bâillon aussi.|(Elle prend une corde et l'enroule autour de toi.),120,-1,0,AddRope()
+110,0,0,,"D'accord, mais ne me|serrez pas trop fort.",Ça sera assez serré pour que tu ne puisses pas t'enfuir.|(Elle prend une corde et l'enroule autour de toi.),120,1,0,AddRope()
+110,0,0,,(Tu acquiesces et te|retourne en silence.),Tu vois que tu peux être sympas quand tu veux.|(Elle prend une corde et l'enroule autour de toi.),120,0,-1,AddRope()
+120,0,0,,C'est trop serré !,Et ce n'est que le début.|(Elle te pousse dans une cellule en acier.),130,0,0,
+120,0,0,,(Tu luttes joyeusement|et tu rigoles.),Tu n'es pas censée te réjouir.|(Elle te pousse dans une cellule en acier.),130,0,0,
+120,0,0,,Où avez-vous appris|à faire ça ?,Disons que j'ai eu de très bons professeurs.|(Elle te pousse dans une cellule en acier.),130,0,0,
+130,0,0,,"Au début, c'était amusant,|mais là, c'est effrayant.",Oh ! Mais le plaisir ne fait que commencer.|(Elle te met à genoux.),140,0,0,
+130,0,0,,"Pitié Madame, vous ne|pouvez pas m'abandonner.","Ce n'est que pour une heure, tu sais.|(Elle te met à genoux.)",140,0,-1,
+130,0,0,,"Vous êtes une vraie salope,|vous le savez ça ?",Tu ne fais que t'enfoncer jeune fille.|(Elle te met à genoux.),140,-1,0,
+130,0,0,,"Un jour, vous pourrirez|dans cette cellule.",Peut-être que tu vas passer toute la journée ici.|(Elle te met à genoux.),140,0,1,
+140,0,0,,Ahhahh !|Le sol est si froid.,"Sache, qu'il ne se réchauffera pas.|(Elle prend plus de cordes et t'attache les jambes.)",150,0,-1,CheckToEat()
+140,0,0,,Qu'est-ce que|vous me voulez ?,Je veux que tu apprennes une leçon de vie.|(Elle prend plus de cordes et t'attache les jambes.),150,0,0,CheckToEat()
+140,3,0,,"Yuki, vous voulez jouir ?","(Elle te regarde de haut.) Oh, plutôt, oui !|(Elle baisse sa culotte, et te place sous sa jupe.)",200,1,0,
+140,0,-3,,"Madame,|voulez-vous un orgasme ?","(Elle te regarde de haut.) Oh, mon Dieu, oui !|(Elle baisse sa culotte, et te place sous sa jupe.)",200,0,-1,
+150,0,0,,Mais enfin !|Ça va trop loin.,Trop loin ? Comme droguer son professeur ?|(Elle relie le collier à un grand anneau en métal.),160,0,0,
+150,0,0,,"Me lier les jambes ?| Vous avez pas mieux ?","Oh, je peux faire bien pire que ça.|(Elle relie le collier à un grand anneau en métal.)",160,0,1,
+150,0,0,,Écoutez Yuki !|J'ai compris la leçon.,J'espère que tu as compris la leçon.|(Elle relie le collier à un grand anneau en métal.),160,0,0,
+150,0,0,,Ce ligotage est incroyable !,Tu pourrais changer d'avis après une heure.|(Elle relie le collier à un grand anneau en métal.),160,0,-1,
+160,0,0,,Espèce de petite salope !|Comment osez-vous ?,"Quel horrible language, ceci devrait aider.|(Elle attache un bâillon autour de ta tête.)",170,-1,0,AddGag()
+160,0,0,,Laissez-moi partir ou|j'appelle la police.,"Appelle qui tu veux, jeune fille.|(Elle attache un bâillon autour de ta tête.)",170,0,0,AddGag()
+160,0,0,,J'admire vos compétences|en bondage.,"Merci. Maintenant, tu vas voir mes talents de|bâillonneuse. (Elle attache un bâillon autour de ta tête.)",170,1,0,AddGag()
+160,0,0,,Admettez-le. Vous n'allez|pas me laisser ici.,Tu penses toujours que je bluffe ?|(Elle attache un bâillon autour de ta tête.),170,0,0,AddGag()
+160,0,0,,(Tu essayes de te libérer.),"Tu n'iras nulle part, ma petite demoiselle.|(Elle attache un bâillon autour de ta tête.)",170,0,0,AddGag()
+170,0,0,,(Tu lui fais un|regard furieux.),Tu es si mignonne. Je serai de retour à 11h30.|(Elle se lève et quitte la pièce.),180,0,0,AllowLeave()
+170,0,0,,(Tu lui fais un regard|suppliant et tu gémis.),"Pleure autant que tu veux, je serai de retour à 11h30.|(Elle se lève et quitte la pièce.)",180,0,-1,AllowLeave()
+170,0,0,,(Tu mâches le bâillon.),Profite de ton bâillon. Je serai de retour à 11h30.|(Elle se lève et quitte la pièce.),180,0,0,AllowLeave()
+170,0,0,,(Tu inclines la tête.),"Bonne petite, je serai de retour à 11h30.|(Elle se lève et quitte la pièce.)",180,0,-1,AllowLeave()
+170,0,0,,@UUHEE !,Tu es si mignonne. Je serai de retour à 11h30.|(Elle se lève et quitte la pièce.),180,0,0,AllowLeave()
+170,0,0,,@Heesee ehhem.,Tu es si mignonne. Je serai de retour à 11h30.|(Elle se lève et quitte la pièce.),180,0,0,AllowLeave()
+200,0,0,,(Tu pousses ton nez contre|sa chatte.) (1 minute),(Elle ouvre les jambes et gémit doucement.),200,0,0,Pleasure(1)
+200,0,0,,(Tu lèches son clitoris.)|(1 minute),(Elle te tire par les cheveux et tremble.),200,0,0,Pleasure(2)
+200,0,0,,(Tu pousses ta langue|à l'intérieur.) (1 minute),(Elle te tire la tête en avant et|en arrière avec les deux mains.),200,0,0,Pleasure(3)
+200,0,0,AllowPullBack,(Tu arrêtes et te retires.),"(Tu te retires et elle a l'air désappointé.)|Alors, tu vas abandonner ?",210,0,0,CheckToStop()
+210,0,0,,Je ne faisais que reprendre|mon souffle. (Tu t'y remets.),Très bien. (Elle t'aggripe par les|cheveux et te ramène à l'intérieur.),200,0,0,
+210,0,0,,"Désolée Madame,|Je ne peux pas le faire.","Bien, Ce n'est pas grave.|(Elle prend plus de cordes et t'attache les jambes.)",150,-1,0,
+210,0,0,,Votre dernier bain| remonte à quand ?,Tu vas payer pour ça !|(Elle prend plus de cordes et t'attache les jambes.),150,-2,0,
+220,0,0,,(Tu lèches son jus.),"C'est suffisant., tu as fait un travail merveilleux.|Si je te laisse partir, tu le referas plus tard ?",230,1,0,
+220,0,0,,(Tu reprends ton souffle.),"Jeune fille, tu as fait un travail merveilleux.|Si je te laisse partir, tu le referas plus tard ?",230,0,0,
+220,0,0,,"(Tu tousses, la|mine dégoutée.)","Ne prétends pas que tu n'as pas aimé ça.|Si je te laisse partir, tu le referas plus tard ?",230,-1,0,
+230,0,0,,Oui. Marché conclu.,Parfait ! (Elle te détache et te sors de la celulle.)|Habille-toi et va déjeuner de bonne heure.,240,0,-1,Release()
+230,0,0,,Non. Je ne referai|plus jamais ça.,"Bien, revenons à ton isolement alors.|(Elle prend plus de cordes et t'attache les jambes.)",150,-1,0,
+240,0,0,,Très bien !|(Tu quittes le sous-sol.),,240,0,0,LeaveIsolation()
+250,0,0,,Désolée Madame Yuki.|Puis-je réessayer ?,Non. C'est l'heure de ton isolement maintenant.|(Elle prend plus de cordes et t'attache les jambes.),150,-1,-1,
+250,0,0,,(Tu gardes le silence.),C'est l'heure de ton isolement maintenant.|(Elle prend plus de cordes et t'attache les jambes.),150,-1,0,
+250,0,0,,Vous êtes frigide ?,"(Elle te gifle sur le visage, puis prend|plus de cordes et t'attache les jambes.)",150,-2,1,
