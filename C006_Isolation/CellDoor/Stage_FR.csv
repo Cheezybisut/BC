@@ -1,0 +1,6 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Tu tentes de forcer|la porte.) (1 minute),"Tu essayes de forcer la porte, mais tu|échoues lamentablement dans ta position actuelle.",0,0,0,
+0,0,0,,(Tu examines la serrure.)|(1 minute),La serrure est assez ancienne et assez basique.|Tu auras besoin d'une grosse clé ronde pour l'ouvrir.,0,0,0,
+0,0,0,,@UUUUMMP !,Il n'y a personne qui puisse t'entendre.,0,0,0,
+10,0,0,,(Tu essayes de crocheter|la serrure.),,0,0,0,PickLock()
+10,0,0,,(Tu tentes de forcer|la porte.) (1 minute),"Tu essayes de forcer la porte, mais tu|échoues lamentablement dans ta position actuelle.",10,0,0,
