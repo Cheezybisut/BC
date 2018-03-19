@@ -5,6 +5,8 @@ function C009_Library_Outro_Load() {
 	StopTimer(15.25 * 60 * 60 * 1000);
 	PlayerReleaseBondage();
 	PlayerUnlockAllInventory();
+	ActorSpecificClearInventory("Jennifer", false);
+	ActorSpecificSetPose("Jennifer", "");
 	Common_PlayerCrime = "";
 
 }
@@ -29,5 +31,6 @@ function C009_Library_Outro_Click() {
 
 	// Jump to the next animation
 	TextPhase++;
+	if (TextPhase >= 3) SaveMenu("C101_KinbakuClub", "Intro");
 
 }
