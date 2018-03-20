@@ -1,6 +1,33 @@
 // A bank of all the chached images
 var CacheImage = {};
 
+// Icons bank and paths
+var Icons = new function () {
+    this.Path = GetPath("Icons");
+    this.Fight = new function (parent) {
+        this.Path = GetPath("C999_Common", "Fights", "Icons");
+        this.Punch = GetIconPath(this.Path, "Punch");
+        this.Rope = GetIconPath(this.Path, "Rope");
+        this.TennisBall = GetIconPath(this.Path, "TennisBall");
+    }(this);
+    this.Race = new function (parent) {
+        this.Path = GetPath("C999_Common", "Races", "Icons");
+        this.ElbowBound = GetIconPath(this.Path, "ElbowBound");
+        this.KneeBound = GetIconPath(this.Path, "KneeBound");
+    }(this);
+    this.Navigation = new function (parent) {
+        this.Path = GetPath("Icons", "Navigation");
+        this.ArrowLeftActive = GetIconPath(this.Path, "ArrowLeftActive");
+        this.ArrowRightActive = GetIconPath(this.Path, "ArrowRightActive");
+        this.ArrowUpActive = GetIconPath(this.Path, "ArrowUpActive");
+        this.ArrowDownActive = GetIconPath(this.Path, "ArrowDownActive");
+        this.ArrowLeftInactive = GetIconPath(this.Path, "ArrowLeftInactive");
+        this.ArrowRightInactive = GetIconPath(this.Path, "ArrowRightInactive");
+        this.ArrowUpInactive = GetIconPath(this.Path, "ArrowUpInactive");
+        this.ArrowDownInactive = GetIconPath(this.Path, "ArrowDownInactive");
+    }(this);
+}();
+
 // Returns the image file or build it from the source
 function DrawGetImage(Source) {
 
@@ -232,6 +259,9 @@ function DrawInventory(ctx) {
 	else
 		DrawImage(ctx, "Icons/" + GetPlayerIconImage() + "_Inactive.png", 0, 601);
 	
+	// Draw an arrow over the player head if there's a skill level up
+	if (PlayerSkillShowLevelUp > 0) DrawImage(ctx, "Icons/SkillLevelUp.png", 0, 601);
+	
 	// Scroll in the full inventory to draw the icons and quantity, draw a padlock over the item if it's locked
 	var Pos = 1;
 	for (var I = 0; I < PlayerInventory.length; I++) {
@@ -399,4 +429,14 @@ function DrawInteractionActor() {
 function DrawPlayerTransition(ctx) {
 	var ImgRnd = (Math.round(new Date().getTime() / 5000) % 5) + 1;
 	DrawImage(ctx, "Actors/PlayerTransition/Player0" + ImgRnd.toString() + ".png", 900, 0);
+}
+
+// Returns a the path to a icon.  IconName can be preceeded by additional paths.
+function GetIconPath(IconName) {
+    return GetPath.apply(undefined, arguments) + ".png";
+}
+
+// Returns a the path to an icon for the current screen.  IconName can be preceeded by additional paths.
+function GetIconScreenPath(IconName) {
+    return GetIconPath(GetPath.apply(undefined, [CurrentChapter, CurrentScreen].concat(Array.from(arguments))));
 }

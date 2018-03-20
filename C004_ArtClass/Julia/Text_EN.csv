@@ -24,3 +24,5 @@ PlayerUngag,Oh!  Why are you gagged poor new pupil?|(She releases you from the g
 PlayerStayGagged,Someone gagged you?  Cute!  Art is chaos!|(You need 3 love or more to be ungagged by her.)
 JuliaRestrainedPlayerGagged,"(She tugs on her ropes, it seems|she won't be able to help you much.)"
 GaggedSpeach,Eep ah hoze eew wuwii!
+NoTimeToPaint,(There's not enough time left in|class to produce a work of art.)
+CantPaintIfModel,(You cannot paint while you're modelling.)

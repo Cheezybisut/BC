@@ -1,0 +1,22 @@
+Tag,Content
+CropStartHate,"Si l'isolement ne t'apprend rien, ma cravache le fera.|(Elle te pousse sur une monture triangulaire en bois.)"
+CropStartSub,"Avant l'isolement, ""soumise"", tu vas goûter à la douleur.|(Elle te pousse sur une monture triangulaire en bois.)"
+CropEvent0,(Elle te donne un rapide coup de fouet|dans le dos en partant de la gauche vers la droite.)
+CropEvent1,"(Elle te donne un coup|vraiment fort, droit sur tes fesses.)"
+CropEvent2,"(Elle te donne un léger coup sur|un de tes seins, frollant un mamelon.)"
+CropEvent3,"(Elle te frappe sur tes bras liés,|t'en faisant bien baver.)"
+CropEvent4,(Elle pivote et te frappe sur|ton ventre. Tu en perds ton souflfe.)
+CropEvent5,(Elle te frappe fort sur ta cuisse.|Un bruit fort résonne.)
+Count1,Un
+Count2,Deux
+Count3,Trois
+Count4,Quatre
+Count5,Cinq
+Count6,Six
+Count7,Sept
+Count8,Huit
+Count9,Neuf
+Count10,Dix
+Count11,Onze
+Count12,Douze
+CropStop,"Ça suffit comme ça. (Elle s'arrête.)|Alors, as-tu compris la leçon ?"

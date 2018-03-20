@@ -1,0 +1,5 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,RopeAvail,(Tu ramasses la corde.),Tu ramasses la corde.,0,0,0,TakeRope()
+0,0,0,CollarAvail,(Tu ramasses le collier.),Tu ramasses le collier.,0,0,0,TakeCollar()
+0,0,0,,(Tu ramasses la chaîne.),Tu essayes de prendre la chaîne mais|mais elle est fermement attachée au sol.,0,0,0,
+0,0,0,HookAvail,(Tu ramasses le crochet.),Tu ramasses un vieux crochet en métal.,0,0,0,TakeHook()

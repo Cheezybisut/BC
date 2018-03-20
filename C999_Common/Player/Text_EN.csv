@@ -26,4 +26,16 @@ HateSub2,Black sheep
 HateSub3,Reject
 Name,Name:
 Title,Title:
-Records,Personal records
+Skills,Skills
+Level,Level
+Profile,Profile
+Relationships,Relationships
+Owner,Mistress:
+NoOwner,Unowned
+Lover,Girlfriend:
+NoLover,Single
+SkillArts,Arts
+SkillFighting,Fighting
+SkillRopeMastery,Rope Mastery
+SkillSports,Sports
+SkillSeduction,Seduction

@@ -10,6 +10,7 @@ var DoubleFightOpponent2 = {};
 var DoubleFightText;
 var DoubleFightBackupChapter = "";
 var DoubleFightBackupScreen = "";
+var DoubleFightSkillBonus = 0;
 
 // Generates a full fight sequence
 function DoubleFightGenerateMoves(StartTime, DifficultyText) {
@@ -38,7 +39,7 @@ function DoubleFightGenerateMoves(StartTime, DifficultyText) {
 }
 
 // Load the fight animations and full sequence
-function DoubleFightLoad(Opp1ActorName, Opp1Difficulty, Opp1Icon, Opp2ActorName, Opp2Difficulty, Opp2Icon, BackgroundImage, EndFunction) {
+function DoubleFightLoad(Opp1ActorName, Opp1Difficulty, Opp1Icon, Opp2ActorName, Opp2Difficulty, Opp2Icon, BackgroundImage, EndFunction, SkillBonus) {
 	
 	// Creates a brand new fight 
 	LeaveIcon = "";
@@ -47,6 +48,7 @@ function DoubleFightLoad(Opp1ActorName, Opp1Difficulty, Opp1Icon, Opp2ActorName,
 	DoubleFightPerfect = true;
 	DoubleFightEndFunction = EndFunction;
 	DoubleFightBackgroundImage = BackgroundImage;
+	DoubleFightSkillBonus = SkillBonus;
 	if (DoubleFightText == null) ReadCSV("DoubleFightText", "C999_Common/Fights/Text_" + CurrentLanguageTag + ".csv");
 
 	// Setup the 2 opponents
@@ -68,12 +70,13 @@ function DoubleFightDrawIcons(ctx, Opponent) {
 	var Seq = 0;
 	while (Seq < Opponent.FightMoves.length) {
 	
-		// Draw the move from 3 seconds before to 1 second after
-		if ((Opponent.FightMoves[Seq][FightMoveTime] <= DoubleFightTimer + 3000) && (Opponent.FightMoves[Seq][FightMoveTime] >= DoubleFightTimer - 1000))
-			DrawImage(ctx, "C999_Common/Fights/Icons/" + Opponent.FightIcon + ".png", Opponent.FightXOffset + 3 + (Opponent.FightMoves[Seq][FightMoveType] * 75), 410 + Math.floor((DoubleFightTimer - Opponent.FightMoves[Seq][FightMoveTime]) / 6));  
+        // Draw the move from 3 seconds before to 1 second after
+        var currentOpponentIconTime = Opponent.FightMoves[Seq][FightMoveTime];
+        if ((currentOpponentIconTime <= DoubleFightTimer + 3000) && (currentOpponentIconTime >= DoubleFightTimer - 1000))
+            DrawImage(ctx, Opponent.FightIcon, Opponent.FightXOffset + 3 + (Opponent.FightMoves[Seq][FightMoveType] * 75), 410 + Math.floor((DoubleFightTimer - currentOpponentIconTime) / 6));  
 		
 		// Remove the move from the sequence if it's past due
-		if (Opponent.FightMoves[Seq][FightMoveTime] < DoubleFightTimer - 1000) {
+		if (currentOpponentIconTime < DoubleFightTimer - 1000) {
 			Opponent.FightMoves.splice(Seq, 1);
 			DoubleFightMiss(Opponent);
 		}	
@@ -176,7 +179,7 @@ function DoubleFightEnd(Victory) {
 
 // When the player hits
 function DoubleFightHit(Opponent) {
-	Opponent.FightProgress = Opponent.FightProgress + 2;
+	Opponent.FightProgress = Opponent.FightProgress + 2 + DoubleFightSkillBonus;
 	if (Opponent.FightProgress >= 100) Opponent.NextImageTime = -1;
 	if ((DoubleFightOpponent1.FightProgress >= 100) && (DoubleFightOpponent2.FightProgress >= 100)) DoubleFightEnd(true);
 }

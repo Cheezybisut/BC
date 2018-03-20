@@ -100,4 +100,5 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 570,2,0,,(Cuddle in her|arms.) (1 minute),Stay here for as long as you need.|Just let me know when you're ok.,570,0,0,Cuddle()
 570,0,0,,(Shake your head in|panic.) (1 minute),"Poor little thing.  Here, let me help you.|(She carefully unties you and let you dress back.)",600,0,-1,ReleasePlayer()
 600,0,0,,"Ok, another practice.|(Start a practice.)",,600,0,0,StartPractice()
+600,0,0,TrainingReady,"(Train in fighting.)|(30 minutes)",,600,0,0,TrainFighting()
 600,0,0,,"That's enough, let's|go eat. (Leave gym.)",,600,0,0,EndChapter()

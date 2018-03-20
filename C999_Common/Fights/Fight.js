@@ -9,10 +9,11 @@ var FightAnimTo = 1;
 var FightAnimImage = 2;
 var FightEnded = false;
 var FightEndScreen = "";
-var FightIconOffset = 0;
+var FightIcon;
 var FightDifficultyRatio = 1;
 var FightDifficultyText = "";
 var FightPerfect = true;
+var FightSkillBonus = 0;
 
 // Fighting is done using the A, S, K, L keys
 var FightMoveTypeKeyUpper = [65, 83, 75, 76]; 
@@ -37,7 +38,7 @@ function GenerateFightSequence(FightStartTime) {
 }
 
 // Load the fight animations and full sequence
-function LoadFight(EndScreen, DifficultyText, IconOffset) {
+function LoadFight(EndScreen, DifficultyText, IconImage, SkillBonus) {
 	
 	// Creates a brand new fight with the current screen animations
 	LeaveIcon = "";
@@ -47,7 +48,8 @@ function LoadFight(EndScreen, DifficultyText, IconOffset) {
 	FightEnded = false;	
 	FightAnim = null;
 	FightEndScreen = EndScreen;
-	FightIconOffset = IconOffset;
+    FightIcon = IconImage;
+	FightSkillBonus = SkillBonus;
 	FightPerfect = true;
 	ReadCSV("FightAnim", CurrentChapter + "/" + CurrentScreen + "/Fight.csv");
 	LoadText();
@@ -56,9 +58,9 @@ function LoadFight(EndScreen, DifficultyText, IconOffset) {
 	// 1 is the regular difficulty, the higher it goes, the harder it gets
 	FightDifficultyText = DifficultyText;	
 	FightDifficultyRatio = 1;
-	if (FightDifficultyText == "Easy") FightDifficultyRatio = 0.6;
+	if (FightDifficultyText == "Easy") FightDifficultyRatio = 0.6667;
 	if (FightDifficultyText == "Hard") FightDifficultyRatio = 1.6667;
-	
+
 }
 
 // Find the image file related to the current fight progress
@@ -78,11 +80,13 @@ function DrawFightIcons(ctx) {
 	// Scroll the fight icons with time
 	var Seq = 0;
 	while (Seq < FightMoves.length) {
-	
+
 		// Draw the move from 3 seconds before to 1 second after
-		if ((FightMoves[Seq][FightMoveTime] <= FightTimer + 3000) && (FightMoves[Seq][FightMoveTime] >= FightTimer - 1000))
-			DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/HitIcon" + FightMoves[Seq][FightMoveType].toString() + ".png", 811 + (FightMoves[Seq][FightMoveType] * 100) + FightIconOffset, 410 + Math.floor((FightTimer - FightMoves[Seq][FightMoveTime]) / 6));  
-		
+        var currentIconTime = FightMoves[Seq][FightMoveTime];
+        var currentIconType = FightMoves[Seq][FightMoveType];
+        if ((currentIconTime <= FightTimer + 3000) && (currentIconTime >= FightTimer - 1000))
+            DrawImage(ctx, FightIcon, 812 + (currentIconType * 100), 410 + Math.floor((FightTimer - currentIconTime) / 6));
+
 		// Remove the move from the sequence if it's past due
 		if (FightMoves[Seq][FightMoveTime] < FightTimer - 1000) {
 			FightMoves.splice(Seq, 1);
@@ -180,7 +184,7 @@ function FightEnd(Victory) {
 
 // When the player hits
 function FightHit() {
-	FightProgress = FightProgress + 2;
+	FightProgress = FightProgress + 2 + FightSkillBonus;
 	if (FightProgress >= 100)
 		FightEnd(true);
 }

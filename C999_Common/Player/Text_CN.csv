@@ -26,4 +26,16 @@ HateSub2,众矢之的
 HateSub3,过街老鼠
 Name,名称:
 Title,标题：
-Records,个人记录
+Skills,Skills
+Level,Level
+Profile,Profile
+Relationships,Relationships
+Owner,Mistress:
+NoOwner,Unowned
+Lover,Girlfriend:
+NoLover,Single
+SkillArts,Arts
+SkillFighting,Fighting
+SkillRopeMastery,Rope Mastery
+SkillSports,Sports
+SkillSeduction,Seduction

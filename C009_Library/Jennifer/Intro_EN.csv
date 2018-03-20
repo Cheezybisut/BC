@@ -1,0 +1,56 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,"(Jennifer is reading in a library corner, she puts|down her book.)  Hello COMMON_PLAYERNAME.",CouchLeft.jpg
+0,5,0,,"(Jennifer is reading in a library corner, she puts|down her book.)  COMMON_PLAYERNAME!  How nice.",CouchLeft.jpg
+0,0,5,,"(Jennifer is reading in a library corner, she puts|down her book.)  Greetings Miss COMMON_PLAYERNAME.",CouchLeft.jpg
+0,0,0,Common_PlayerRestrained,"(Jennifer looks intrigued by your situation.)|What happened, why are you restrained?",CouchLeft.jpg
+0,0,0,HasEgg,"(Jennifer is reading in a library corner, she puts|down her book.)  I was able to remove your egg.",CouchLeft.jpg
+10,0,0,,I found an interesting book on|the history of the Olympic games.,CouchLeft.jpg
+20,0,0,,So which book are you looking for?,CouchLeft.jpg
+30,0,0,,So which book are you looking for?,CouchLeft.jpg
+40,0,0,,"You'll probably find it in the literature section.|Walk back from here, go straight and turn right.",CouchLeft.jpg
+100,0,0,,Is there anything else you want?,CouchLeft.jpg
+100,5,0,,Hey COMMON_PLAYERNAME!|Is there anything else you want?,CouchLeft.jpg
+100,0,5,,Hello again Miss COMMON_PLAYERNAME.|Is there anything else you want?,CouchLeft.jpg
+110,0,0,,"So what's wrong with the way I'm sitting?|Don't worry, I'm comfy enough.",CouchLeft.jpg
+120,0,0,,I cannot lie on the whole couch.|What if someone wants to sit here?,CouchLeft.jpg
+130,0,0,,(She lies on the couch and looks you.)|Do I look relaxed enough now?,Couch.jpg
+140,0,0,,(She lies on the couch and looks you.)|Is there something else you want?,Couch.jpg
+150,0,0,,I know that I don't have many friends.,Couch.jpg
+150,5,0,,I know that I don't have many friends.|But I'm always happy to talk with you.,Couch.jpg
+155,0,0,,"If you want, we could be|friends and help each other?",Couch.jpg
+160,0,0,,I know I'm shy but it's not easy to change.|Can you help me be more confident?,Couch.jpg
+170,0,0,,Did you really mean it?|Do you think I'm pretty?,Couch.jpg
+171,0,0,,,Couch.jpg
+172,0,0,,,Couch.jpg
+173,0,0,,,Couch.jpg
+174,0,0,,,Couch.jpg
+175,0,0,,,Couch.jpg
+176,0,0,,,Couch.jpg
+177,0,0,,,Couch.jpg
+178,0,0,,,Couch.jpg
+180,0,0,,Maybe we should talk later.|I would like to finish this book.,CouchLeft.jpg
+180,0,0,IsChaste,I would like to finish this book now.|But you have to unlock that belt later.,CouchLeft.jpg
+180,0,0,ArtDone,I would like to finish this book now.|But I really enjoyed the art you did.,CouchLeft.jpg
+180,0,0,OrgasmDone,I had a wonderful time today.|I hope we can meet after school.,CouchLeft.jpg
+180,0,0,ThreeOrgasmDone,(She whispers.)  I've never had three orgasms.|I really hope we can meet again after school.,CouchLeft.jpg
+181,0,0,,So how do I remove that belt?,CouchLeft.jpg
+190,0,0,,(Jennifer is gone.),Couch.jpg
+200,0,0,,(You sit down next to Jennifer.)|So what's up COMMON_PLAYERNAME?,Couch.jpg
+210,0,0,,(You sit down next to Jennifer.)|This is a nice place to read.,Couch.jpg
+211,0,0,,(You sit down next to Jennifer.)|Is there something you would like to talk about?,Couch.jpg
+212,0,0,,(You sit down next to Jennifer.)|What were we talking about?  (She blushes.),Couch.jpg
+213,0,0,,(You sit down next to Jennifer.)|What were we talking about?  (She blushes.),Couch.jpg
+220,0,0,,(You sit down next to Jennifer.)|What were we talking about?  (She blushes.),Couch.jpg
+230,0,0,,(You sit down next to Jennifer.)|You really want to make love with me?,Couch.jpg
+235,0,0,,,Couch.jpg
+240,0,0,,,Couch.jpg
+245,0,0,,,Couch.jpg
+250,0,0,,,Couch.jpg
+260,0,0,,,Couch.jpg
+270,0,0,,,CouchCenter.jpg
+280,0,0,,,CouchCenter.jpg
+300,0,0,,,Couch.jpg
+310,0,0,,,Couch.jpg
+320,0,0,,(She stares at you and seems to worry.),Couch.jpg
+400,0,0,,,Couch.jpg
+410,0,0,,"(She giggles.)  The bondage adventurer!|Please, I would like to finish this book.",CouchLeft.jpg

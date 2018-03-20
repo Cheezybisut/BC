@@ -18,6 +18,7 @@ var C004_ArtClass_Sarah_EggConfirm = false;
 var C004_ArtClass_Sarah_EggInside = false;
 var C004_ArtClass_Sarah_CrotchRopeReady = false;
 var C004_ArtClass_Sarah_OrgasmDone = false;
+var C004_ArtClass_Sarah_PaintAvail = true;
 
 // Chapter 4 - Sarah Load
 function C004_ArtClass_Sarah_Load() {
@@ -226,4 +227,21 @@ function C004_ArtClass_Sarah_OrgasmStart() {
 // Chapter 4 - Sarah Orgasm
 function C004_ArtClass_Sarah_Orgasm() {
 	ActorAddOrgasm();
+}
+
+// Chapter 4 - Sarah Paint, can only be done if there's 30 minutes left for the class
+function C004_ArtClass_Sarah_Paint() {
+	if (CurrentTime <= 9.75 * 60 * 60 * 1000) {
+		C004_ArtClass_Sarah_PaintAvail = false;
+		C004_ArtClass_Jennifer_PaintAvail = false;
+		C004_ArtClass_Julia_PaintAvail = false;
+		ActorChangeAttitude(1, 1);
+		CurrentTime = CurrentTime + 0.5 * 60 * 60 * 1000;
+		if (PlayerGetSkillLevel("Arts") >= 1) {
+			ActorSpecificChangeAttitude("Julia", PlayerGetSkillLevel("Arts"), 0);
+			ActorSpecificChangeAttitude("Sarah", PlayerGetSkillLevel("Arts"), 0);
+			ActorSpecificChangeAttitude("Jennifer", PlayerGetSkillLevel("Arts"), 0);
+		}
+		PlayerAddSkill("Arts", 1);
+	} else OverridenIntroText = GetText("NoTimeToPaint");
 }

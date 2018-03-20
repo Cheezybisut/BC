@@ -1,7 +1,7 @@
 // Chapter 5 - Win Fight Load
 function C005_GymClass_WinFight_Load() {
-	if (C005_GymClass_Jennifer_EasyMode) LoadFight("Jennifer", "Normal", 0);
-	else LoadFight("Jennifer", "Hard", 0);
+	if (C005_GymClass_Jennifer_EasyMode) LoadFight("Jennifer", "Normal", Icons.Fight.Rope, PlayerGetSkillLevel("RopeMastery"));
+	else LoadFight("Jennifer", "Hard", Icons.Fight.Rope, PlayerGetSkillLevel("RopeMastery"));
 }
 
 // Chapter 5 - Win Fight Run

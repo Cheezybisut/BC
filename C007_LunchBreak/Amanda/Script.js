@@ -13,6 +13,7 @@ var C007_LunchBreak_Amanda_IntroText = "";
 var C007_LunchBreak_Amanda_LeaveIcon = "";
 var C007_LunchBreak_Amanda_IsBoundAndGagged = false;
 var C007_LunchBreak_Amanda_ConfirmEvil = false;
+var C007_LunchBreak_Amanda_HasSeduction = false;
 
 // Calculates the screen parameters
 function C007_LunchBreak_Amanda_CalcParams() {
@@ -53,6 +54,7 @@ function C007_LunchBreak_Amanda_Load() {
 	ActorLoad("Amanda", "ActorSelect");
 	LoadInteractions();
 	C007_LunchBreak_Amanda_CalcParams();
+	C007_LunchBreak_Amanda_HasSeduction = (PlayerGetSkillLevel("Seduction") >= 1);
 	
 	// If Amanda doesn't like the player and isn't subbie enough, she leaves and don't talk
 	if ((ActorGetValue(ActorLove) <= -3) && (ActorGetValue(ActorSubmission) <= 2) && (C007_LunchBreak_Amanda_CurrentStage == 0)) {
@@ -276,6 +278,7 @@ function C007_LunchBreak_Amanda_LoveMasturbate() {
 		OverridenIntroText = GetText("LoveMasturbate");
 		ActorAddOrgasm();
 		ActorChangeAttitude(1, 0);
+		PlayerAddSkill("Seduction", 1);
 		C007_LunchBreak_Amanda_CurrentStage = 250;
 	}
 }

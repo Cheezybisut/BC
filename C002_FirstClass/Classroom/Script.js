@@ -24,6 +24,9 @@ function C002_FirstClass_Classroom_Load() {
 	if (C002_FirstClass_Classroom_Sarah == "SarahEmpty") StartTimer(8.5 * 60 * 60 * 1000, "C002_FirstClass", "SarahIntro");
 	else StartTimer(9 * 60 * 60 * 1000, "C002_FirstClass", "Outro");
 	
+	// Self bondage is only allowed if Mildred was subdued
+	Common_SelfBondageAllowed = C002_FirstClass_Classroom_MildredSubdueSuccess;
+	
 	// Get the image file for each girls
 	C002_FirstClass_Classroom_Sidney = ActorSpecificGetImage("Sidney");
 	C002_FirstClass_Classroom_Mildred = ActorSpecificGetImage("Mildred");

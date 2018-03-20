@@ -24,6 +24,7 @@ var C007_LunchBreak_Jennifer_PushUpQuality = 0;
 var C007_LunchBreak_Jennifer_PushUpCount = 0;
 var C007_LunchBreak_Jennifer_RacketQuality = 0;
 var C007_LunchBreak_Jennifer_HasRestrainsAvail = false;
+var C007_LunchBreak_Jennifer_HasSeduction = false;
 
 // Calculates the screen parameters
 function C007_LunchBreak_Jennifer_CalcParams() {
@@ -74,6 +75,7 @@ function C007_LunchBreak_Jennifer_Load() {
 	ActorLoad("Jennifer", "ActorSelect");
 	LoadInteractions();
 	C007_LunchBreak_Jennifer_CalcParams();
+	C007_LunchBreak_Jennifer_HasSeduction = (PlayerGetSkillLevel("Seduction") >= 1);
 	
 	// If Jennifer doesn't like the player, she will run away from the start
 	if ((ActorGetValue(ActorLove) <= -3) && (ActorGetValue(ActorSubmission) <= 3)) {

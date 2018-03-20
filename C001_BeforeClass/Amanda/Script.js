@@ -71,11 +71,12 @@ function C001_BeforeClass_Amanda_ConfrontBondage() {
 	C001_BeforeClass_Amanda_BondageNotConfronted = false;
 }
 
-// Chapter 1 - Amanda Kiss
+// Chapter 1 - Amanda Kiss (extra love if the player has seduction)
 function C001_BeforeClass_Amanda_Kiss() {
 	if (C001_BeforeClass_Amanda_Kiss_Done == false) {
 		C001_BeforeClass_Amanda_Kiss_Done = true;
-		ActorChangeAttitude(1, 0);
+		if (PlayerGetSkillLevel("Seduction") >= 1) ActorChangeAttitude(2, 0);
+		else ActorChangeAttitude(1, 0);
 		OverridenIntroText = GetText("Kiss");
 	}
 }

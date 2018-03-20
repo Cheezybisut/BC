@@ -1,0 +1,182 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,Common_PlayerGagged,@Mnaaaeg mmh!,(She looks at your gag and giggles.),0,0,0,
+0,0,0,HasEgg,How did you|remove it?,This is humiliating but I had|to contract really hard to fetch it.,0,0,0,
+0,0,0,HasEgg,Can I have|the egg back?,"It's too late, I threw it away.",0,0,0,QueryEgg()
+0,0,0,HasEgg,"Jen, I want|the egg back.","It's too late, I threw it away.",0,-1,1,QueryEgg()
+0,0,0,,What are you|doing here?,I'm reading on the|history of the Olympics.,10,0,0,
+0,0,0,,How are you?,"I'm fine thanks, I'm reading on|the history of the Olympic games.",10,1,0,
+0,0,0,,This library is|pretty boring.,I disagree.  I found an interesting book|on the history of the Olympic games.,10,-1,0,
+10,0,0,,The Olympics?|That's interesting.,"Indeed, the Games are also very political.|And you?  What are you looking for?",20,1,0,
+10,0,0,,I need to|find a book.,Oh?  What book are you looking for?,20,0,0,
+10,0,0,,Who cares about|the Olympics?,(She frowns.)  Millions of people care.|Anyway.  What are you looking for?,20,-1,0,
+10,0,0,,Don't get doped|like the athletes.,(She shakes her head.)  Of course not.|And you?  What are you looking for?,20,0,1,
+10,0,0,,You would be a|great Olympian.,Well that's very kind of you.|And you?  What are you looking for?,20,1,-1,
+20,0,0,,The Count of|Monte Cristo.,"You'll probably find it in the literature section.|Walk back from here, go straight and turn right.",40,0,0,
+20,0,0,,Fifty Shades of Grey.,(She giggles.)  I really doubt that|you will find this book here.,30,0,-1,
+20,0,0,,Justine from the|Marquis de Sade.,"Oh my!  It could be in the restricted section.|You can ask Teacher Yuki, I've seen her around.",30,0,1,
+30,0,0,,"I also need ""The Count|of Monte Cristo.""","You'll probably find it in the literature section.|Walk back from here, go straight and turn right.",40,0,0,
+30,0,0,,Thanks Jen!|(Walk away.),,100,0,0,PlayerLeave()
+30,0,0,,(Walk away.),,100,-1,0,PlayerLeave()
+40,0,0,,Thanks Jen!|(Walk away.),,100,0,0,PlayerLeave()
+40,0,0,,(Walk away.),,100,-1,0,PlayerLeave()
+100,0,0,,Why are you|sitting like that?,What's wrong with the way I'm sitting?,110,0,0,
+100,0,0,,You don't look comfy.,"I'm fine, I'm sitting comfy enough.",110,0,0,
+100,0,0,,Can I sit with you?,"I'm sorry, I prefer to read alone.",100,0,0,TestSitTogether()
+100,0,5,,"Move it, I want|to sit here.","Fine, you can have my seat.|(She stands up and walks away.)",190,-1,1,JenniferLeave()
+110,0,0,,"You should relax more,|use the whole couch.",I cannot lie on the whole couch.|What if someone wants to sit here?,120,0,0,
+110,0,0,,You're only using one|third of the couch.,I cannot lie on the whole couch.|What if someone wants to sit here?,120,0,0,
+110,0,0,,You look shy and lonely.|Use the whole couch.,I cannot lie on the whole couch.|What if someone wants to sit here?,120,0,0,
+110,0,0,,Can I sit with you?,"I'm sorry, I prefer to read alone.",110,0,0,TestSitTogether()
+110,0,5,,"Move it, I want|to sit here.","Fine, you can have my seat.|(She stands up and walks away.)",190,-1,1,JenniferLeave()
+120,0,0,,"Try to lie down, you|will look less lonely.",Lonely?  I look that lonely?|(She lies on the couch.),130,-1,0,NewPose()
+120,0,0,,"Lie down, it will|be less awkward.",I don't mean to look awkward.|(She lies on the couch.),130,0,0,NewPose()
+120,0,5,,Lie down girl.,Yes Miss COMMON_PLAYERNAME.|(She lies on the couch.),130,0,1,NewPose()
+120,0,0,,Can I sit with you?,"I'm sorry, I prefer to read alone.",120,0,0,TestSitTogether()
+120,0,5,,"Move it, I want|to sit here.","Fine, you can have my seat.|(She stands up and walks away.)",190,-1,1,JenniferLeave()
+130,0,0,,Now you look better.,I do?  Well thanks.|That was a friendly advice.,140,0,0,
+130,0,0,,Are you comfy now?,"I guess so, thanks.|That was a friendly advice.",140,1,0,
+130,0,0,,Can I sit with you?,"I'm sorry, I prefer to read alone.",140,0,0,TestSitTogether()
+130,0,5,,"Move it, I want|to sit here.","Fine, you can have my seat.|(She stands up and walks away.)",190,-1,1,JenniferLeave()
+140,0,0,,Why are you|always alone?,I'm not!  I'm in many sport teams.|But I guess I don't have any real friends.,150,-1,0,
+140,0,0,,You don't seem to|have many friends.,Well there's Sidney... when she needs money.|(She sighs)  I guess I don't have any real friends.,150,0,0,
+140,0,0,,"You seem kind of|lonely, like me.",So you're also lonely?  It's true|that I don't have many friends.,150,1,-1,
+140,0,0,,Can I sit with you?,"I'm sorry, I prefer to read alone.",150,0,0,TestSitTogether()
+140,0,5,,"Move it, I want|to sit here.","Fine, you can have my seat.|(She stands up and walks away.)",190,-1,1,JenniferLeave()
+150,0,0,,We could be friends|if you want.,I would love that.  We could be|friends that help each other.,155,1,-1,NewPose()
+150,0,0,,Let's be friends then.,I would love that.  We could be|friends that help each other.,155,1,0,NewPose()
+150,0,0,,You must overcome|your shyness first.,I know I'm shy but it's not easy to change.|Can you help me be more confident?,160,0,0,NewPose()
+150,0,0,,Can I sit with you?,"I'm sorry, I prefer to read alone.",150,0,0,TestSitTogether()
+150,0,5,,"Move it, I want|to sit here.","Fine, you can have my seat.|(She stands up and walks away.)",190,-1,1,JenniferLeave()
+155,0,0,,"Yes, I will help you|overcome your shyness.",I know I'm shy but it's not easy to change.|Can you help me be more confident?,160,0,0,
+155,0,0,,"Yes, soon you'll be|confident like me.",Gaining confidence isn't easy.|Can you really help me?,160,0,1,
+160,0,0,,"First, you need to|be proud of your body.",Proud of my body?|You really think I'm pretty?,170,0,0,
+160,0,0,,You're pretty.  You|should not hide it.,You're so kind COMMON_PLAYERNAME.|You really think I'm pretty?,170,1,0,
+160,0,0,,Can I sit with you?,"I'm sorry, I prefer to read alone.",160,0,0,TestSitTogether()
+160,0,5,,"Move it, I want|to sit here.","Fine, you can have my seat.|(She stands up and walks away.)",190,-1,1,JenniferLeave()
+170,10,0,,You're adorable.  You|should strip and show me.,"Are you sure my friend?  Ok, I'll do it.|(She blushes and slowly strips to her underwear.)",171,0,0,"Strip(""Underwear"")"
+170,0,10,,Stop being shy.  Strip|and show me your body.,"Yes Miss, I'm sure it's for my best interest.|(She blushes and slowly strips to her underwear.)",171,0,0,"Strip(""Underwear"")"
+170,0,0,,"Yes, you should|show more skin.",Show skin here?  Teacher Yuki would be angry.|(You need +10 love or submission to convince her.),170,0,0,
+170,5,0,CanAskDate,You're very pretty Jen.|We should go out tonight.,"Me?  Go out tonight?  With you?|It's interesting, I'll think about it.",170,1,0,AskDate()
+170,0,0,,"You're pretty, we'll|talk about it later.","Yes, we should probably talk later.|I would love to read a little more.",180,0,0,NewPose()
+170,0,0,,Can I sit with you?,"I'm sorry, I prefer to read alone.",170,0,0,TestSitTogether()
+171,0,0,,Common girl.|Don't hide yourself.,"I...  Yes, there's nothing to be ashamed.|(She lies down and starts to relax a little.)",172,0,1,NewPose()
+171,0,0,,Relax my friend.|Nobody is staring.,"I...  Yes, you're right, I should relax.|(She lies down and starts to relax a little.)",172,1,0,NewPose()
+171,0,0,,Try to chill Jen.,"I...  Yes, you're right, I should chill.|(She lies down and starts to relax a little.)",172,0,0,NewPose()
+172,0,10,,"Girl, get rid of|these undies.","Yes Miss, I guess there's no turning back.|(She strips completely and gets nervous.)",174,-1,1,"Strip(""Naked"")"
+172,0,0,,Wow!  I wish I had|a body like yours.,"You're also pretty COMMON_PLAYERNAME.|I can't believe this situation, this is so daring.",173,1,-1,
+172,0,0,,You look great Jen.,"Thanks a lot COMMON_PLAYERNAME.|I can't believe this situation, this is so daring.",173,0,0,
+173,0,0,,There is one more|step to perfection.,"Mmmh, I guess there's no turning back.|(She strips completely and gets nervous.)",174,0,0,"Strip(""Naked"")"
+173,0,0,,To overcome your shyness.|You should get naked.,"Yes, I guess there's no turning back now.|(She strips completely and gets nervous.)",174,0,0,"Strip(""Naked"")"
+174,0,0,,Are you cold skinny girl?|Why are you covering up?,Cold?  Oh on.  I should calm down.|(She slowly opens up and relaxes again.),175,-1,0,NewPose()
+174,0,0,,Calm down Jen.|You look great.,Absolutely.  I should calm down.|(She slowly opens up and relaxes again.),175,0,0,NewPose()
+174,0,0,,Are you certain|you're fine with this?,"Yes, yes, I'm fine.  I should calm down.|(She slowly opens up and relaxes again.)",175,0,-1,NewPose()
+174,0,0,,Open your arms my friend.|Show me your beauty.,"(She smiles.)  Yes, I should calm down.|(She slowly opens up and relaxes again.)",175,1,0,NewPose()
+175,0,0,,I'm proud of you girl.,You really mean that?|It means a lot to me.,176,0,1,
+175,0,0,,(Do a thumb up.),(She giggles and relaxes some more.)|I never thought I could be so daring.,176,0,0,
+175,0,0,,(Grab your phone and|quickly take pictures.),(You quickly grab your phone and take pictures|of her while she dresses back and leaves crying.),190,-3,1,JenniferLeave()
+176,0,0,IsArtist,If you take a pose.|I will draw you.,That's thrilling!  Just like in the movies.|(She removes her glasses and takes a pose.),177,0,0,NewPose()
+176,0,0,,Do you feel|more confident?,"I think I do, I'm still nervous but I feel better.|Should I dress back up?  I don't want to get caught.",178,0,0,
+176,0,0,,You have guts|for a loner.,"Please don't call me a loner, I don't like that.|Should I dress back up?  I don't want to get caught.",178,-1,0,
+176,0,0,,Congrats Jen.|You made it.,"Thanks COMMON_PLAYERNAME, I appreciate.|Should I dress back up?  I don't want to get caught.",178,0,0,
+177,0,0,,(Draw a quick sketch.)|(5 minutes),(You quickly draw her and show her the result.)|This is nice.  You could show it to Julia.,178,0,0,DrawJennifer(5)
+177,0,0,,(Draw her fully.)|(15 minutes),"(You draw her carefully and show her the result.)|Very nice and flattering, I would love a copy.",178,0,0,DrawJennifer(15)
+177,0,0,,(Draw a work of art.)|(30 minutes),(You draw her masterfully and show her the result.)|Wow!  I didn't know you had so much talent.,178,0,0,DrawJennifer(30)
+177,0,0,,It might take too long.|We should do it later.,"Yes, and we could get caught.|Should I dress back up now?",178,0,0,NewPose()
+178,0,0,,"Get dressed, I've|seen enough bones.",(She frowns and dresses back up.)|I'll get back to my book then.,180,-1,0,"Strip(""Clothed"")"
+178,0,0,,"Dress up, all good|things have to end.",(She smiles at you and dresses back up.)|It was thrilling but I'd like to read some more.,180,1,0,"Strip(""Clothed"")"
+178,0,0,,Sadly it's time|to dress up.,(She nods at you and dresses back up.)|It was fun but I'd like to read some more.,180,0,0,"Strip(""Clothed"")"
+178,0,0,,"You can dress, next|time I'll get naked.",(She giggles and dresses back up.)|I'll get back to my book then.,180,0,-1,"Strip(""Clothed"")"
+180,0,0,Common_PlayerGagged,@Mnaaaeg mmh!,(She looks at your gag and giggles.),180,0,0,
+180,0,0,Common_PlayerRestrained,"Jen, can you|help me out?","Sorry, I will not help you.",180,0,0,TestRelease()
+180,0,0,Common_PlayerRestrained,(Get on your|knees and beg.),"Sorry, I will not help you.",180,0,0,TestRelease()
+180,0,0,OrgasmDone,So you did enjoy|our kinky time?,"(She blushes a little.)  Yes, I did.|It was wonderful to share it with you.",180,0,0,
+180,0,0,PlayerOrgasmDone,You gave me lots|of pleasure today.,I'm very glad I was good.|I have so little experience.,180,0,0,
+180,0,0,,Talk to you later!|(Walk away.),,180,0,0,PlayerLeave()
+180,0,5,,"Move it, I want|to sit here.","Fine, you can have my seat.|(She stands up and walks away.)",190,-1,1,JenniferLeave()
+181,0,0,,I will unlock|it tonight.,"Alright, I'll be patient then.",180,0,0,NewPose()
+181,0,0,,I have no idea|how to unlock it.,What?  This is not funny!|I'll call a locksmith later.,180,-2,0,NewPose()
+181,0,0,,It stays locked until|I decide otherwise.,Oh please!  You cannot be serious!|I trust you will unlock it soon.,180,-1,1,NewPose()
+181,0,0,,I'll find a way.|(Walk away.),,181,0,0,PlayerLeave()
+200,0,0,,You found a|great couch.,"Indeed, this is a pretty nice place to read.",210,0,0,
+200,0,0,,This is comfy.,"Indeed, this is a pretty nice place to read.",210,0,0,
+200,0,0,,This isn't|very comfy.,You think so?  I love this couch.|This is my favorite place to read.,210,-1,0,
+200,0,0,,(Sink in the couch.),(You both sink and relax on the couch.)|This is a pretty good place to read.,210,1,0,
+210,0,0,,I'd like to know|more about you.,Oh!  What would you like to know?,211,0,0,
+210,0,0,,(Stare at her.),(She gets uneasy looking at you and bows her head.)|Is there something you would like to talk about?,211,0,1,
+210,0,0,,I like you Jen.,I like you too COMMON_PLAYERNAME.,220,1,0,
+210,0,0,,I should go.|(Walk away.),,180,-1,0,PlayerLeave()
+211,0,0,,Do you like girls?,Oh gosh!  Well...  Sure...  I guess.|I admit I've never had a date though.,212,0,0,
+211,0,0,,Do you think|I'm pretty?,"Of course, you're pretty.|I like your look and your attitude.",213,0,0,
+211,0,0,,(Giggle and look down.)|Do you like me?,Absolutely.  We've only known each|other for a day but you seem fine.,213,0,-1,
+212,0,0,,Do you think|I'm pretty?,"Of course, you're pretty.|I like your look and your attitude.",213,0,0,
+212,0,0,,(Giggle and look down.)|Do you like me?,Absolutely.  We've only known each|other for a day but you seem fine.,213,0,-1,
+213,15,0,,I love you Jen.,I love you COMMON_PLAYERNAME.,220,1,0,
+213,0,0,,I like you Jen.,I like you too COMMON_PLAYERNAME.,220,0,0,
+213,0,0,,I should go.|(Walk away.),,180,-1,0,PlayerLeave()
+220,0,0,,Do you want to|make love with me?,Really?  In the library?  (She looks around.)|Yes COMMON_PLAYERNAME.  I will do it.,230,0,0,TestMakeLove()
+220,0,0,,Do you wanna cum?,For real?  In the library?  (She looks around.)|Ok COMMON_PLAYERNAME.  I will do it.,230,-1,0,TestMakeLove()
+220,0,0,,"Girl, I will|have you now.",Have me?  (She looks around nervously.)|I guess we could do that.,230,-1,1,TestMakeLove()
+230,0,0,,"Don't worry, it will|be fun.  (Strip.)",(She nods and you both|strip to your underwear.),240,0,0,"StripBoth(""Underwear"")"
+230,0,0,,We have to remove|some clothes first.,(She nods and you both|strip to your underwear.),240,0,0,"StripBoth(""Underwear"")"
+230,0,0,,(Giggle.)  So we|strip together?,(She nods and you both|strip to your underwear.),240,0,-1,"StripBoth(""Underwear"")"
+230,0,0,,Show me your|sexy body.,(She nods and you both|strip to your underwear.),240,-1,0,"StripBoth(""Underwear"")"
+235,0,0,,"This belt?  Yeah,|it might be a problem.",This is harsh.  But I guess we|can share a good time anyway.,240,0,-1,
+235,0,0,,Never mind the belt.|We'll have fun anyway.,Yes!  A silly metallic belt will not|prevent us from sharing a good time.,240,0,0,
+235,0,0,,(Tug on the|belt and sigh.),You poor little thing.  Don't worry.|We can share a good moment anyway.,240,1,-2,
+240,0,0,!Common_PlayerChaste,"Girl, you look|smoking hot.",Oh my!  Thanks a lot.|You're also pretty you know.,245,0,1,
+240,0,0,!Common_PlayerChaste,You're beautiful Jen.,"That means a lot to me, I appreciate.|You're also very pretty you know.",245,1,0,
+240,0,0,!Common_PlayerChaste,No time to waste.|(Strip naked.),(She nods and you both strip naked.)|This is scary!  What if we get caught?,250,0,0,"StripBoth(""Naked"")"
+240,0,0,Common_PlayerChaste,It's your turn now.,(She nods and nervously strips naked.)|This is scary!  What if we get caught?,250,0,0,"Strip(""Naked"")"
+240,0,0,Common_PlayerChaste,No time to waste.|Get naked Jen.,(She nods and nervously strips naked.)|This is scary!  What if we get caught?,250,0,1,"Strip(""Naked"")"
+245,0,0,,I'm kind of nervous but|there's no turning back.,(She nods and you both strip naked.)|This is scary!  What if we get caught?,250,0,-1,"StripBoth(""Naked"")"
+245,0,0,,No time to waste.|(Strip naked.),(She nods and you both strip naked.)|This is scary!  What if we get caught?,250,0,0,"StripBoth(""Naked"")"
+250,0,0,,"If someone|comes, we run.",Yes!  Good plan.  But now I|admit I'm not sure what to do.,260,0,-1,
+250,0,0,,Nobody will come here.,You're right.  But now I|admit I'm not sure what to do.,260,0,0,
+250,0,0,,I will protect you.,That's awesome!  But now I|admit I'm not sure what to do.,260,0,1,
+260,0,-5,,Miss?  Can I|pleasure you?,(She nods and opens her legs|while you get down on your knees.),270,0,-1,NewPose()
+260,0,0,Common_PlayerChaste,Since I'm in a belt.|I will pleasure you.,(She nods and opens her legs|while you get down on your knees.),270,0,0,NewPose()
+260,0,0,!Common_PlayerChaste,I will pleasure you.,(She nods and opens her legs|while you get down on your knees.),270,0,0,NewPose()
+260,0,0,!Common_PlayerChaste,Will you pleasure me?,(She nods and gets down on her|knees while you open your legs.) ,280,0,0,TestPleasurePlayer()
+260,0,5,!Common_PlayerChaste,Get on your knees|and use your tongue.,(She nods and gets down on her|knees while you open your legs.) ,280,0,1,TestPleasurePlayer()
+270,0,0,,(Nuzzle her clitoris.),(You nuzzle your nose and mouth against|her clitoris while she moans softly.),270,0,0,PleasureJennifer()
+270,0,0,,(Lick her pussy lips.),(You lovingly lick her pussy lips|while she breathes faster and faster.),270,0,0,PleasureJennifer()
+270,0,0,,(Insert your tongue.),(You slide your tongue in and out|while she pushes you deeper inside.),270,0,0,PleasureJennifer()
+270,0,0,,(Use both your|mouth and finger.),(You use both your mouth and finger to|stimulate her while she trembles of joy.),270,0,0,PleasureJennifer()
+270,0,0,!Common_PlayerChaste,Let's switch.,"Yes, it's your turn now.|(You both switch places.)",280,0,0,TestSwitchPlayer()
+270,0,0,,That's enough.|(Stop everything.),"Yes, we could get caught.|(You both dress back up.)",180,0,0,ReleaseJennifer()
+280,0,0,,(Moan of pleasure.),(You moan slowly while she|clumsily licks your pussy lips.),280,0,0,PleasurePlayer()
+280,0,0,,(Breathe heavily.),(You breathe harder and harder while|she licks and sucks your clitoris.),280,0,0,PleasurePlayer()
+280,0,0,,(Squeeze her head.),(You squeeze her head into your legs|while she licks and struggles for air.),280,0,0,PleasurePlayer()
+280,0,0,,(Grab her hair.),(You grab her hair and force her inside|while she plays slowly with her tongue.),280,0,0,PleasurePlayer()
+280,0,0,,Let's switch.,"Sure, I guess it's my turn.|(You both switch places.)",270,0,0,TestSwitchJennifer()
+280,0,0,,That's enough.|(Stop everything.),"Yes, we could get caught.|(You both dress back up.)",180,0,0,ReleaseJennifer()
+300,0,0,,Would you like|to play a game?,A game?  What kind of game?,310,1,0,TestTurnTables()
+300,0,0,,I found a few|items today.,Oh!  And what did you found?,310,0,0,TestTurnTables()
+300,0,0,,"Girl, you will|submit to me now.",(She bows her head and looks down.)|What do you want from me?,310,-1,1,TestTurnTables()
+300,0,0,,Would you like|to tie me up?,I guess you can have a bondage adventure.|(She uses your own items to restrain you.),300,0,-1,RestrainPlayer()
+310,0,0,,You will be my|bitch right now.,,320,-1,1,
+310,0,0,,It will use some|kinky items on you.,,320,-1,0,
+310,0,0,,You will be restrained|for a little while.,,320,0,1,
+310,0,0,,Would you like|to restrain me?,I guess you can have a bondage adventure.|(She uses your own items to restrain you.),300,0,-1,RestrainPlayer()
+320,0,0,CanUntie,(Untie her.)|(1 minute),(You untie her while she|struggles of discomfort.),320,0,0,Untie()
+320,0,0,CanUngag,(Ungag her.)|(1 minute),"(You remove the gag and she stares at you.)|Please, was this gag really necessary?",320,0,0,Ungag()
+320,0,0,CanKiss,(Kiss her.)|(1 minute),(You kiss her slowly while|she stares at you speechless.),320,0,0,Kiss()
+320,0,0,CanAbuse,(Tickle her.)|(1 minute),(She giggles and struggles lightly.|She doesn't seem very ticklish.),320,0,0,Tickle()
+320,0,0,CanAbuse,(Spank her.)|(1 minute),(You spank her pretty hard on the butt.|She frowns at you but seems in pain.),320,0,0,Spank()
+320,0,0,CanAbuse,(Masturbate her.)|(1 minute),,320,0,0,Masturbate()
+320,0,0,CanAddUnderwear,"Jen, put your|underwear back.",(She nods slowly and puts|her underwar back on.),320,0,0,"Strip(""Underwear"")"
+320,0,0,CanRemoveUnderwear,Get naked girl.,(She nods slowly and gets naked.),320,0,0,"Strip(""Naked"")"
+320,0,0,!IsChaste,That's enough.|Dress back up.,"(She nods and you help her to dress back.)|That was quite an experience, very daring.",180,0,0,ReleaseJennifer()
+320,0,0,IsChaste,That's enough.|Dress back up.,(She nods and you help her to dress back.)|Do you want the belt back?  How do I remove it?,181,0,0,ReleaseJennifer()
+400,0,0,Common_PlayerGagged,@Uuumph!,(She giggles.)  You'll have quite an|adventure wandering in the library now.,400,0,0,
+400,0,0,Common_PlayerGagged,@Nnoong gnoou!,Since you're new in school.|It's a good time to explore.,400,0,0,
+400,0,0,Common_PlayerRestrained,(Struggle in|your restrains.),"You came with these, you should try them.|Go and have fun little bondage adventurer.",400,0,0,
+400,0,0,Common_PlayerRestrained,(Tug to escape.),"If you don't mind, I|would like to finish this book.",400,0,0,
+400,0,0,,(Walk away.),,400,0,0,PlayerLeave()
+410,0,0,Common_PlayerGagged,@Uuumph!,(She giggles.)  You'll have quite an|adventure wandering in the library now.,410,0,0,
+410,0,0,Common_PlayerGagged,@Nnoong gnoou!,Since you're new in school.|It's a good time to explore.,410,0,0,
+410,0,0,Common_PlayerRestrained,(Struggle in|your restrains.),"You came with these, you should try them.|Go and have fun little bondage adventurer.",410,0,0,
+410,0,0,Common_PlayerRestrained,(Tug to escape.),"If you don't mind, I|would like to finish this book.",410,0,0,
+410,0,0,Common_PlayerRestrained,"Jen, can you|help me out?","Sorry, I will not help you.",410,0,0,TestRelease()
+410,0,0,Common_PlayerRestrained,(Get on your|knees and beg.),"Sorry, I will not help you.",410,0,0,TestRelease()
+410,0,0,,Let's speak later.|(Walk away.),,410,0,0,PlayerLeave()

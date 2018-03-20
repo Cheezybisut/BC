@@ -1,0 +1,53 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,"Oui, c'est mon|premier jour.","J'espère que tu te plaira ici, on a une bonne salle de|gym. Je m'appelle Jennifer, heureuse de te rencontrer.",10,0,0,
+0,0,0,,Ouais ! Nouveau départ !| Nouvelle université !,"J'aime ton état d'esprit, tu sauras te débrouiller ici.|Je m'appelle Jennifer, heureuse de te rencontrer.",10,1,0,
+0,0,0,,"Mon ancienne école et|mes amis me manquent.","Allez. Tu te feras de meilleures amies ici !|Je m'appelle Jennifer, ravie de te rencontrer.",10,0,-1,
+10,0,0,,Alors comme ça|tu es artiste ?,"Moi ? C'est la meilleure.|Non, je suis bien meilleure en sport.",20,0,0,
+10,0,0,,Tu peux m'aider|à peindre ?,"T'aider ? Oh, tu t'en sortiras bien mieux que moi. Je ne|suis pas une artiste, je suis bien meilleure en sport.",20,0,-1,
+10,0,0,,Tu ne ressembles pas à|une artiste-peintre.,"C'est on ne peut plus vrai, je suis très loin|d'être une artiste. Je suis bien meilleure en sport.",20,0,1,
+10,0,0,,Ce cours est|sans intérêt.,"Tu es très négative. Le cours de gymnastique|serait plus amusant, Je suis meilleure en sport.",20,-1,0,
+20,0,0,,En sport ? Notre grosse|prof ne connaît pas ce mot.,"Chut ! Elle est plus forte qu'elle n'en a l'air.|Julia est une artiste, pas une athlète.",30,-1,0,
+20,0,0,,Tu es trop maigre|pour faire du sport.,"Ne me juge pas, j'ai une bonne condition physique.",30,-1,1,
+20,0,0,,J'ai hâte d'être|en cours de gym !,(Elle lève son pouce.),30,1,0,
+20,0,0,,Je suppose que ce sera|relaxant de peindre.,Bien sûr. Et Sarah semble bien s'amuser.,30,0,0,
+30,0,0,,Peut-on rendre ce cours|plus intéressant ?,Plus intéressant ?|Qu'est-ce que tu as en tête ?,40,0,0,
+30,0,0,,C'est si ennuyeux.|(Bâillement.),Courage ! Ce n'est pas aussi mauvais que tu le penses.,40,-1,0,
+30,0,0,,Ça pourrait être|plus amusant !,Plus amusant ? Je suis curieuse.|Où veux-tu en venir ?,40,1,0,
+40,0,0,,Notre professeur devrait|dévoiler ses formes.,Ses formes ? (Elle rit.)|Tu veux dire qu'elle devrait enlever sa robe ?,50,1,0,
+40,0,0,,Ce serait mieux si|Julia enlevait sa robe.,Un portrait sexy ? Je ne sais pas trop.,50,0,0,
+40,0,0,,Donne-moi une astuce|pour retirer sa robe.,Oh ! C'est assez sournois.|Tu crois qu'on peut faire ça ?,50,0,1,
+50,2,0,,"Mon amie, aide-moi |à la convaincre.","Hmm... Elle adore les peintres italiens. Parle-lui de|""La Naissance de Vénus"" de Sandro Botticelli.",60,0,0,SandroComment()
+50,0,2,,Tu vas m'aider|à la convaincre !,"Hmm... Elle adore les peintres italiens. Parle-lui de|""La Naissance de Vénus"" de Sandro Botticelli.",60,0,0,SandroComment()
+50,0,0,,Peux-tu la convaincre|de se déshabiller ?,"Moi ? Oh non, je ne le ferai pas.",50,0,0,
+60,0,0,JuliaStrip,Le cours n'est-il pas|meilleur maintenant ?,"Ce sera mémorable, c'est sûr.|Je ne savais pas que Julia était si audacieuse.",70,0,0,
+60,0,0,JuliaStrip,On forme une|bonne équipe !,(Vous vous tapez dans les mains.) Au travail d'équipe !|Je ne savais pas que Julia était si audacieuse.,70,1,0,
+60,0,0,JuliaStrip,Sa poitrine|est monstrueuse.,"Ne sois pas trop dure avec elle, perdre du poids|n'est pas facile. Et c'est très osée de sa part.",70,-1,0,
+80,0,0,CanBegForRelease,"S'il te plaît Jennifer,|peux-tu m'aider ?",,80,0,0,BegForRelease()
+80,0,0,Common_PlayerGagged,@Eehmmo ehm ehher !,"Je suis désolée, je ne peux pas te comprendre.",80,0,0,
+80,0,0,Common_PlayerGagged,(Tu gémis et trembles.),"Crois-moi, j'ai de la peine pour toi. Tu dois te sentir|humiliée. Je te réconforterai après la scéance.",80,0,0,PityComment()
+100,0,0,StunningBeautyReady,"Ne sois pas timide, tu es|d'une beauté stupéfiante.","Moi ? Une beauté ? Oh,|tu es si gentille et adorable.",100,0,0,StunningBeauty()
+100,0,1,,Ne devrais-tu pas te|déshabiller ? (1 minute),Je... Je suppose que je peux.|(Elle se déshabille lentement.),110,0,0,"SetCloth(1, 0, 0)"
+100,0,1,,Ôte tes vêtements.| (1 minute),Je... Oui... Désolée.|(Elle se déshabille lentement.),110,0,0,"SetCloth(1, 0, 1)"
+100,0,1,,Tu devrais nous dévoiler|ton joli corps. (1 minute),Tu penses vraiment que je suis jolie ?|(Elle se déshabille lentement.),110,0,0,"SetCloth(1, 1, 0)"
+110,0,2,,Dois-je les enlever|moi-même ? (1 minute),"NON ! Oups, Je ne voulais pas crier, je vais le faire.|(Elle s'empourpre et enlève ses sous-vêtements.)",120,0,0,"SetCloth(2, -1, 1)"
+110,0,2,,Plus que quelques effets|à enlever. (1 minute),"Oui, si Julia a pu le faire, je le peux aussi.|(Elle s'empourpre et enlève ses sous-vêtements.)",120,0,0,"SetCloth(2, 0, 0)"
+110,0,2,,"Si Julia peut se déshabiller,|tu peux le faire. (1 minute)","Oui, si Julia a pu le faire, je le peux aussi.|(Elle s'empourpre et enlève ses sous-vêtements.)",120,0,0,"SetCloth(2, 0, 0)"
+110,0,2,,Montre-nous plus de peau|et des os. (1 minute),Des os ? Je ne suis pas si maigre que ça.|(Elle s'empourpre et enlève ses sous-vêtements.),120,0,0,"SetCloth(2, -1, 0)"
+110,0,0,,Peut-être que tu devrais|te rhabiller. (1 minute),"Tu le penses ? Oui, on est à l'université après tout.|(Elle ramasse ses vêtements et se rhabille.)",100,0,0,"SetCloth(0, 0, 0)"
+120,0,0,,Peut-être que tu devrais|te rhabiller. (1 minute),"Tu le penses ? Oui, on est à l'université après tout.|(Elle ramasse ses vêtements et se rhabille.)",100,0,0,"SetCloth(0, 0, 0)"
+120,0,0,,Réessayons avec tes|sous-vêtements. (1 minute),(Elle soupire.) Je ne comprendrai jamais l'art.|(Elle se remet en sous-vêtements.),110,0,0,"SetCloth(1, 0, 0)"
+130,0,0,,Ne t'inquiète pas Jennifer.|Tout ira bien.,(Elle acquiesce lentement.),130,0,0,TrustComment()
+130,0,0,EggInside,Cet oeuf te rappellera|qui est la chef.,(Elle incline sa tête.),130,0,0,EggComment()
+130,2,0,KissReady,(Tu l'embrasses.)|(1 minute),"S'il te plaît, non. Ce n'est pas mon truc.|(Elle n'a pas l'air d'apprécier le baiser.)",130,-1,0,Kiss()
+130,0,0,,(Tu resserres les cordes.)|(1 minute),(Les cordes sont déjà|aussi serrées qu'elles peuvent l'être.),130,0,0,Tighten()
+130,0,0,,(Tu la chatouilles.)|(1 minute),"(Embarrassée, elle se recroqueville|pour éviter tes chatouilles.)",130,0,0,Tickle()
+130,0,0,Common_PlayerNotRestrained,(Tu la détaches.)|(1 minute),(Tu la détaches et elle te jette les cordes.)|Je peux aller m'asseoir maintenant ?,120,0,0,Untie()
+130,0,0,PaintAvail,(Tu peins Jennifer.)|(30 minutes),(Tu la peins soigneusement et lui montre le tableau.)|S'il te plaît détruis ce tableau une fois le cours terminé.,130,0,0,Paint()
+140,0,0,,(Tu resserres les cordes.)|(1 minute),(Les cordes sont déjà|aussi serrées qu'elles peuvent l'être.),140,0,0,Tighten()
+140,0,0,,(Tu la chatouilles.)|(1 minute),"(Embarrassée, elle se recroqueville|pour éviter tes chatouilles.)",140,0,0,Tickle()
+140,0,0,Common_PlayerNotRestrained,(Tu la débâillones.)|(1 minute),"(Tu détaches le bâillon et libère sa bouche)|Tu peux me détacher maintenant ?",130,0,0,Ungag()
+140,0,0,PaintAvail,(Tu peins Jennifer.)|(30 minutes),(Tu la peins soigneusement et lui montre le tableau.)|(Elle regarde ton oeuvre d'art et gémit.),140,0,0,Paint()
+150,0,0,,(Tu resserres les cordes.)|(1 minute),(Les cordes sont déjà|aussi serrées qu'elles peuvent l'être.),150,0,0,Tighten()
+150,0,0,,(Tu la chatouilles.)|(1 minute),"(Embarrassée, elle se recroqueville|pour éviter tes chatouilles.)",150,0,0,Tickle()
+150,0,0,Common_PlayerNotRestrained,(Tu la débâillones.)|(1 minute),"(Tu enlèves le ruban adhésif de sa bouche.)|Tu peux me détacher maintenant ?",130,0,0,Ungag()
+150,0,0,PaintAvail,(Tu peins Jennifer.)|(30 minutes),(Tu la peins soigneusement et lui montre le tableau.)|(Elle regarde ton oeuvre d'art et gémit.),150,0,0,Paint()

@@ -23,6 +23,7 @@ var RaceProgress = -1;
 var RaceGoal = -1;
 var RaceGoalText = "";
 var RaceMoves;
+var RaceSkillBonus = 0;
 var RaceMovesTypeKeyUpper = [65, 83, 68, 70, 72, 74, 75, 76];
 var RaceMovesTypeKeyLower = [97, 115, 100, 102, 104, 106, 107, 108];
 var RaceCombo = 0;
@@ -52,7 +53,7 @@ function RaceGenerateMoves(StartTime, DifficultyText) {
 }
 
 // Load the race animations and full sequence
-function RaceLoad(Racer, RacerImageSet, AllowedMinutes, Difficulty, EndGoal, EndGoalText, IconLeft, IconRight, BackgroundImage, EndFunction) {
+function RaceLoad(Racer, RacerImageSet, AllowedMinutes, Difficulty, EndGoal, EndGoalText, IconLeft, IconRight, BackgroundImage, EndFunction, SkillBonus) {
 	
 	// Creates a brand new race 
 	LeaveIcon = "";
@@ -66,6 +67,7 @@ function RaceLoad(Racer, RacerImageSet, AllowedMinutes, Difficulty, EndGoal, End
 	RacePerfect = true;
 	RaceLastMoveType = -1;
 	RaceLastMoveTypeTimer = -1;
+	RaceSkillBonus = SkillBonus;
 	if (RaceText == null) ReadCSV("RaceText", "C999_Common/Races/Text_" + CurrentLanguageTag + ".csv");
 
 	// Loads the parameters
@@ -98,9 +100,9 @@ function RaceDrawIcons(ctx) {
 		// Draw the move from 3 seconds before to 1 second after
 		if ((RaceMoves[Seq][RaceMoveTime] <= RaceTimer + 3000) && (RaceMoves[Seq][RaceMoveTime] >= RaceTimer - 1000)) {			
 			if (RaceMoves[Seq][RaceMoveType] <= 3)
-				DrawImage(ctx, "C999_Common/Races/Icons/" + RaceIconLeft + ".png", 3 + (RaceMoves[Seq][RaceMoveType] * 75), 410 + Math.floor((RaceTimer - RaceMoves[Seq][RaceMoveTime]) / 6));
+				DrawImage(ctx, RaceIconLeft, 3 + (RaceMoves[Seq][RaceMoveType] * 75), 410 + Math.floor((RaceTimer - RaceMoves[Seq][RaceMoveTime]) / 6));
 			else 
-				DrawImage(ctx, "C999_Common/Races/Icons/" + RaceIconRight + ".png", 603 + (RaceMoves[Seq][RaceMoveType] * 75), 410 + Math.floor((RaceTimer - RaceMoves[Seq][RaceMoveTime]) / 6));
+				DrawImage(ctx, RaceIconRight, 603 + (RaceMoves[Seq][RaceMoveType] * 75), 410 + Math.floor((RaceTimer - RaceMoves[Seq][RaceMoveTime]) / 6));
 		}
 		
 		// Remove the move from the sequence if it's past due
@@ -205,6 +207,7 @@ function RaceHit() {
 	if ((RaceCombo >= 80) && (RaceCombo <= 89)) RaceSpeed = 36;
 	if ((RaceCombo >= 90) && (RaceCombo <= 99)) RaceSpeed = 38;
 	if (RaceCombo >= 100) RaceSpeed = 40;
+	RaceSpeed = Math.round(RaceSpeed * (1.0 + RaceSkillBonus / 2));
 }
 
 // When the player misses (we reset the combo and the speed)
@@ -332,7 +335,7 @@ function C999_Common_Race_Click() {
 	if ((RaceTimer > RaceStartTime) && !RaceEnded && IsMobile) {
 		var MoveType = -1;
 		if ((MouseX >= 0) && (MouseX <= 300) && (MouseY >= 400) && (MouseY <= 500)) MoveType = Math.floor((MouseX) / 75);
-		if ((MouseX >= 900) && (MouseX <= 1200) && (MouseY >= 400) && (MouseY <= 500)) MoveType = Math.floor((MouseX - 900) / 75);
+		if ((MouseX >= 900) && (MouseX <= 1200) && (MouseY >= 400) && (MouseY <= 500)) MoveType = Math.floor((MouseX - 900) / 75) + 4;
 		RaceDoMove(MoveType);
 	}
 

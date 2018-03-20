@@ -1,6 +1,8 @@
 // Chapter 8 - Dressing Room Load
 function C008_DramaClass_DressingRoom_Load() {
 	LeaveIcon = "Wait";
+	Common_SelfBondageAllowed = true;
+	Common_BondageAllowed = true;
 }
 
 // Chapter 8 - Dressing Room Run

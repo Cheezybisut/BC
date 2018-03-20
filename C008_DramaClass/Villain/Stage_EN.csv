@@ -31,6 +31,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 230,0,0,PlayerIsHeroine,(Do a sword fight.),You charge each other and start|a funny but intense sword fight.,235,0,0,NoLeave()
 230,0,0,PlayerIsHeroine,(Surrender without a fight.),You drop your sword and the black|knight steps forward with a grin.,270,0,0,Surrender()
 230,0,0,PlayerIsDamsel,(Watch the fight.),Both knights charge on each other and|engage in a pretty neat sword fight.,235,0,0,NoLeave()
+235,0,0,CanDoSwordDance,(Do a sword dance.)|(1 minute),You dance gracefully around your opponent and|easily disarm her while she's dazzled by you.,270,0,0,SwordDance()
 235,0,0,CanIntimidate,(Intimidate her.)|(1 minute),You give a menacing look to Amanda which|barely fights and lets you disarm her.,270,0,0,"GlobalStage(270, 0, 1)"
 235,0,0,CanDisarm,(Disarm her.)|(1 minute),Amanda puts a pretty nice fight but|you're able to win by disarming her.,270,0,0,"GlobalStage(270, 0, 0)"
 235,0,0,PlayerIsVillain,(Play defensive.)|(1 minute),You stick to defensive moves and Amanda|takes advantage of it to disarm you.,240,0,0,"GlobalStage(240, 0, 0)"

@@ -104,7 +104,8 @@ function C002_FirstClass_Mildred_Click() {
 }
 
 // Chapter 2 - Mildred Restrain Player
-function C002_FirstClass_Mildred_RestrainPlayer() {	
+function C002_FirstClass_Mildred_RestrainPlayer() {
+	PlayerReleaseBondage();
 	PlayerLockInventory("Cuffs");
 	PlayerLockInventory("BallGag");
 	PlayerRemoveAllInventory();

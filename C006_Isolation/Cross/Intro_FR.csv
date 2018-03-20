@@ -1,0 +1,5 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,"Une croix en forme de ""X"" est boulonnée sur le mur.",Cross.jpg
+10,0,0,,Tu veux y sangler ta cheville ?,Cross.jpg
+20,0,0,,,Cross1Ankle.jpg
+30,0,0,,,Cross2Ankles.jpg

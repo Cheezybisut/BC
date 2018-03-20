@@ -18,6 +18,7 @@ var C005_GymClass_Jennifer_CuddleDone = false;
 var C005_GymClass_Jennifer_PlayerHasBallGag = false;
 var C005_GymClass_Jennifer_PlayerHasTapeGag = false;
 var C005_GymClass_Jennifer_Turnabout = false;
+var C005_GymClass_Jennifer_TrainingReady = true;
 
 // Chapter 5 - Jennifer Load
 function C005_GymClass_Jennifer_Load() {
@@ -309,4 +310,14 @@ function C005_GymClass_Jennifer_Cuddle() {
 // Chapter 5 - Jennifer Orgasm
 function C005_GymClass_Jennifer_Orgasm() {
 	ActorAddOrgasm();
+}
+
+// Chapter 5 - Jennifer fighting skill training, the player can learn the figthing skill if there's 30 or more left
+function C005_GymClass_Jennifer_TrainFighting() {
+	if (CurrentTime <= 11 * 60 * 60 * 1000) {
+		OverridenIntroText = GetText("TrainFighting");
+		PlayerAddSkill("Fighting", 1);
+		CurrentTime = CurrentTime + 0.5 * 60 * 60 * 1000;
+		C005_GymClass_Jennifer_TrainingReady = false;
+	} else OverridenIntroText = GetText("TrainFightingNoTime");
 }

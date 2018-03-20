@@ -26,4 +26,16 @@ HateSub2,Mouton noir
 HateSub3,Rejetée
 Name,Nom :
 Title,Titre :
-Records,Scores personnels 
+Skills,Talents
+Level,Niveau
+Profile,Profil
+Relationships,Relations
+Owner,Maîtresse :
+NoOwner,Aucune
+Lover,Petite amie :
+NoLover,Célibataire
+SkillArts,Arts
+SkillFighting,Combat
+SkillRopeMastery,Maîtrise des Cordes
+SkillSports,Sports
+SkillSeduction,Séduction

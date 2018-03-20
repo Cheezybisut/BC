@@ -12,6 +12,8 @@ var C004_ArtClass_Julia_TightenDone = false;
 var C004_ArtClass_Julia_CanBegForRelease = false;
 var C004_ArtClass_Julia_EggConfirm = false;
 var C004_ArtClass_Julia_EggInside = false;
+var C004_ArtClass_Julia_WorkOfArtReady = true;
+var C004_ArtClass_Julia_PaintAvail = true;
 
 // New image depending on Julia's bondage
 function C004_ArtClass_Julia_GetImage() {
@@ -50,6 +52,9 @@ function C004_ArtClass_Julia_Load() {
 	// If we allow the player to beg to be released
 	C004_ArtClass_Julia_CanBegForRelease = ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && Common_PlayerRestrained && Common_PlayerGagged);
 
+	// A player with seduction has an extra option
+	if (PlayerGetSkillLevel("Seduction") == 0) C004_ArtClass_Julia_WorkOfArtReady = false;
+	
 }
 
 // Chapter 4 - Julia Run
@@ -305,4 +310,29 @@ function C004_ArtClass_Julia_BegForRelease() {
 function C004_ArtClass_Julia_GaggedSpeach() {
 	if ((C004_ArtClass_ArtRoom_JuliaStage == 6) || (C004_ArtClass_ArtRoom_JuliaStage == 7))
 		OverridenIntroText = GetText("GaggedSpeach");
+}
+
+// Chapter 4 - Julia Work of Art comment
+function C004_ArtClass_Julia_WorkOfArt() {
+	C004_ArtClass_Julia_WorkOfArtReady = false;
+	ActorChangeAttitude(1, 0);
+}
+
+// Chapter 4 - Julia Paint, can only be done if there's 30 minutes left for the class
+function C004_ArtClass_Julia_Paint() {
+	if (C004_ArtClass_ArtRoom_ExtraModel != "Player") {
+		if (CurrentTime <= 9.75 * 60 * 60 * 1000) {
+			C004_ArtClass_Sarah_PaintAvail = false;
+			C004_ArtClass_Jennifer_PaintAvail = false;
+			C004_ArtClass_Julia_PaintAvail = false;
+			ActorChangeAttitude(2, 0);
+			CurrentTime = CurrentTime + 0.5 * 60 * 60 * 1000;
+			if (PlayerGetSkillLevel("Arts") >= 1) {
+				ActorSpecificChangeAttitude("Julia", PlayerGetSkillLevel("Arts"), 0);
+				ActorSpecificChangeAttitude("Sarah", PlayerGetSkillLevel("Arts"), 0);
+				ActorSpecificChangeAttitude("Jennifer", PlayerGetSkillLevel("Arts"), 0);
+			}
+			PlayerAddSkill("Arts", 1);
+		} else OverridenIntroText = GetText("NoTimeToPaint");
+	} else OverridenIntroText = GetText("CantPaintIfModel");
 }

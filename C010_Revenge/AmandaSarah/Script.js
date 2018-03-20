@@ -203,7 +203,7 @@ function C010_Revenge_AmandaSarah_StartFight() {
 
 	// Launch the double fight
 	C010_Revenge_AmandaSarah_IntroText = "";
-	DoubleFightLoad("Amanda", AmandaDifficulty, "Punch", "Sarah", SarahDifficulty, "Punch", "Lockers", "C010_Revenge_AmandaSarah_EndFight");
+	DoubleFightLoad("Amanda", AmandaDifficulty, Icons.Fight.Punch, "Sarah", SarahDifficulty, Icons.Fight.Punch, "Lockers", "C010_Revenge_AmandaSarah_EndFight", PlayerGetSkillLevel("Fighting"));
 
 }
 

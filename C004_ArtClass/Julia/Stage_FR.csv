@@ -1,0 +1,57 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,Ravie de vous|rencontrer Julia.,Oui ! C'est ça ! Maintenant viens me faire un gros câlin.,10,1,0,
+0,0,0,,Heureuse de vous|rencontrer Mme Giuliana.,"Non, non, non, non, appelle-moi Julia.|Maintenant viens me faire un gros câlin.",10,0,-1,
+0,0,0,,L'art plastique ? Oh là là.|(Tu lèves les yeux au ciel.),"L'art est en feu ! Et j'en suis la flame.|Maintenant viens me faire un gros câlin.",10,-1,1,
+0,0,0,,(Tu regardes ailleurs.),"Regarde par ici, rapproche-toi.|Et viens me faire un gros câlin.",10,-1,0,
+10,0,0,,"Un câlin ? Bien sûr,|pourquoi pas.","""Si"" ! (Elle te serre fort et ta tête est|quasi compressée entre ses seins.)",20,0,0,
+10,0,0,,Bien sûr !|(Tu ouvres les bras.),"""Si"" ! (Elle te serre très fort et|ta tête est compressée entre ses seins.)",20,1,0,
+10,0,0,,"Non, merci.","D'accord, pas de câlin pour toi.|Mais j'espère que tu es prête à peindre.",30,0,0,
+10,0,0,,Vous faire un câlin ?|Oubliez ça.,"Et bien, tu as la flamme et la rage.|Ce cours de peinture est fait pour toi !",30,-1,0,
+20,0,0,,C'est un accueil|chaleureux.,"""Si"" ! (Elle te libère.)|J'espère que tu es prête à peindre.",30,0,0,
+20,0,0,,(Tu enfonces ton visage|dans sa poitrine.),"Non, non, non, non, ne fais pas ça.|Prépares-toi plutôt à peindre.",30,-1,1,
+20,0,0,,Je ne peux pas respirer !,(Elle te libère.) Je suis terriblement désolé ma petite.|J'espère que tu es prête à peindre.,30,0,-1,
+30,0,0,,"Mmm, ok.","Tu auras besoin de plus de feu sacré que ça !|Parce que tu vas me peindre comme ""Da Vinci"" !",40,0,0,
+30,0,0,,Peindre ? Ça va|être un désastre.,"Le seul désastre est le manque de confiance en soi.|Aujourd'hui tu vas me peindre comme ""Da Vinci"".",40,-1,0,
+30,0,0,,D'accord ! J'adore|la peinture.,"Fabuleux ! Et aujourd'hui est un jour spécial.|Tu vas me peindre comme ""Da Vinci"".",40,1,0,
+30,0,0,,Je ne sais pas peindre.,"Inepties ! Tout le monde peut peindre.|Et aujourd'hui, tu vas me peindre comme ""Da Vinci"".",40,0,-1,
+40,0,0,,Vous peindre ? Il me|faut une plus grande toile.,(Elle te fixe.) Je suppose que tu dis ça|à cause de ma robe traditionnelle.,50,-1,1,
+40,0,0,,Oh ! Je vais avoir besoin|de beaucoup de couleurs.,"""Si"" ! Surtout si tu veux saisir tous|les détails de ma robe traditionnelle.",50,1,0,
+40,0,0,,Ça risque d'être|trop dure pour moi.,Il y a beaucoup de détails dans ma robe traditionnelle|Mais je suis sûre que tu peux faire un bon travail.,50,0,-1,
+50,0,0,,Voyons voir|ce pinceau.,"Bien. Montre-moi tes talents de ""Michelangelo"".|(Elle prend la pose.)",60,0,0,
+50,0,0,,Je suppose que je peux|essayer. (Tu soupires.),"""Michelangelo"" n'essaye pas. ""Michelangelo"" fait !|Vas-y ! (Elle prend la pose.)",60,0,-1,
+50,0,0,,Très bien alors ! Prenez|votre meilleure pose !,"Génial ! Montre-moi tes talents de ""Michelangelo"".|(Elle prend la pose.)",60,0,1,
+60,2,0,BigHugReady,Puis-je avoir|un autre câlin ?,"""Si"" ! (Elle serre ta tête contre son sein.|Tu ne peux pratiquement plus respirer.)",60,0,0,BigHug()
+60,0,0,Sandro,"Avez-vous déjà vue|""La Naissance de Vénus"" ?","De ""Botticelli"" ? ""Si"" ! Tu as pu voir|le chef-d'oeuvre de Sandro Botticelli ?",70,0,0,
+60,0,0,Sandro,"""La Naissance de Vénus"" ?|...(Rire embarrassée.)",,70,0,-1,
+70,0,0,,Je parie que vous seriez|une magnifique Vénus.,(Elle sourit.) Moi ?|Une magnifique Vénus ?,80,1,0,
+70,0,0,,Vous pourriez|poser comme Vénus.,Moi ? Comme Vénus ?|Comme la Vénus de ""Botticelli"" ?,80,0,0,
+80,0,0,,"Oui, mais vous devez|montrer plus de peau.",Pour la belle Vénus ! (Elle défait son haut|et dévoile sa poitrine.) A ton pinceau !,100,0,0,RemoveTop()
+80,0,0,,"Oui, dévoilez vos|courbes comme Vénus.",Pour la belle Vénus ! (Elle défait son haut|et dévoile sa poitrine.) A ton pinceau !,100,0,1,RemoveTop()
+110,0,0,,Vous êtes bien.,"Bien ? Ce n'est pas géniale.|Bien ce n'est pas de l'art.",120,0,0,
+110,0,0,,"""Magnifico !""|Presque parfaite.","""Si !"" Mais presque parfaite ce n'est pas suffisant.",120,1,0,
+110,0,0,,Ça pourrait être mieux.,Mieux ? Tu n'aimes pas ?,120,0,1,
+110,0,0,,Une Vénus trapue.|(Tu tousses.),(Elle te regarde méchamment.)|Ce n'est pas à ton goût la nouvelle ?,120,-1,0,
+120,0,0,,La belle Vénus|était entièrement nue.,"Tout à fait ! Pour ""Botticelli"" et Vénus alors !|(Elle se déshabille complètement.) A ton pinceau !",130,0,0,Strip()
+120,0,0,,"Faites comme Vénus,|soyez entièrement nue.","""Si, si, si !"" Pour ""Botticelli"" et Vénus alors !|(Elle se déshabille complètement.) A ton pinceau !",130,0,1,Strip()
+120,0,0,,Pouvez-vous aller encore|plus loin ? (Rire timide.),"Tu es timide, je vais te montrer la flamme de l'artiste.|(Elle se déshabille complètement.) A ton pinceau !",130,0,-1,Strip()
+140,0,0,WorkOfArtReady,Vous êtes vraiment|une oeuvre d'art.,C'est gentil de ta part COMMON_PLAYERNAME.|Tu es charmante.,140,0,0,WorkOfArt()
+140,0,0,,Peut-être qu'on devrait|ajouter un autre modèle.,Tu le penses ? Je suis intriguée.|Qui devrait poser avec moi ?,150,0,0,QueryNewModel()
+140,0,0,,Ce serait plus joli|si on ajoutait un modèle.,"Je ne suis donc pas assez jolie ? Sottises !|Mais je suis intriguée, qui devrait poser avec moi ?",150,-1,0,QueryNewModel()
+150,0,0,,Je vais poser avec vous.|(1 minute),Oh ! C'est très audacieux ! Approche. Votre attention !|Nous avons un modèle supplémentaire.,160,0,0,"NewModel(""Player"")"
+150,0,0,,Sarah devrait poser.|(1 minute),"C'est une bonne idée, Sarah, avance-toi s'il te plaît.|Il est temps de peindre, à vos pinceaux !",160,0,0,"NewModel(""Sarah"")"
+150,0,0,,Jennifer devrait poser.|(1 minute),"Intéressant, Jennifer, avance-toi s'il te plaît.|Il est temps de peindre, à vos pinceaux !",160,0,0,"NewModel(""Jennifer"")"
+150,0,0,CanBegForRelease,@HUUIA ! HMMH EE !,Tiens la pose.|Je ne comprends pas un seul mot.,150,0,0,GaggedSpeach()
+150,0,0,CanBegForRelease,(Tu gémis et fait un|regard de chien battu.),,150,0,0,BegForRelease()
+170,0,1,Common_PlayerNotRestrained,Changeons de modèle|à nouveau.,Alors ? Qui devrait poser avec moi ?,150,0,0,ChangeModel()
+170,0,-1,,Je peux m'asseoir|s'il vous plaît ?,Non ! Ma pauvre petite réservée. Tu dois d'abord|surmonter ta timidité et t'enflammer.,170,0,0,
+170,0,0,CanBegForRelease,@HUUIA ! HMMH EE !,Tiens la pose.|Ce n'est pas le moment de bavarder.,170,0,0,GaggedSpeach()
+170,0,0,CanBegForRelease,(Tu gémis et fais un|regard de chien battu.),,170,0,0,BegForRelease()
+170,0,0,AllowUnderwear,Nos tenues sont|différentes. (1 minute),"""Si !"" C'est bizarre que tu sois vêtue. (Tu enlèves|lentement ton uniforme.) Maintenant peignez !",180,0,0,PlayerRemoveOutfit()
+170,0,0,AllowNaked,Nous sommes toujours|différentes. (1 minute),Très audacieuse ! Tu devrais aussi être nue. (Tu retires|lentement tes sous-vêtements.) Maintenant peignez !,180,0,0,PlayerStrip()
+170,0,0,AllowShibari,"Avez-vous entendu|parler de ""Shibari"" ?","""Si !"" Le Shibari est l'art japonais du bondage à la corde.|Prends ces cordes, on peut les utiliser pour la séance.",170,0,0,ShibariStart()
+170,0,1,AllowShibari,"Julia, avez-vous déjà|essayé le ""Shibari"" ?","L'art japonais du bondage à la corde, jamais essayé.|Prends ces cordes, on peut les utiliser pour la séance.",170,0,1,ShibariStart()
+170,0,0,IsRestrained,(Tu la chatouilles.)|(1 minute),(Elle rit légèrement et semble apprécier.),170,0,0,Tickle()
+170,0,0,IsRestrained,(Tu resserres les cordes.)|(1 minute),Les cordes sont déjà|aussi serrées qu'elles peuvent l'être.,170,0,0,Tighten()
+170,0,0,IsRestrained,(Tu la libères.)|(1 minute),(Tu défais les noeuds et tu la reläches.)|Tu n'aimais pas le Shibari après tout ?,170,0,0,Release()
+170,0,0,IsGagged,(Tu la débâillones.)|(1 minute),(Tu enlèves le bâillon et elle sourit.)|L'art peut être fou parfois. Maintenant peignez !,170,0,0,TryUngag()
+170,0,0,PaintAvail,(Tu peins Julia.)|(30 minutes),(Tu la peins soigneusement et lui montre le tableau.)|(Elle regarde ton tableau et saute de joie.),170,0,0,Paint()

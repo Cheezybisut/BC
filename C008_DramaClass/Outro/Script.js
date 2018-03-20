@@ -3,6 +3,7 @@ function C008_DramaClass_Outro_Load() {
 	
 	// Time is always 14:00:00 in the outro, unlock if needed
 	StopTimer(14 * 60 * 60 * 1000);
+	PlayerReleaseBondage();
 	PlayerUnlockAllInventory();
 	ActorSpecificClearInventory("Amanda", true);
 	ActorSpecificClearInventory("Sarah", true);
@@ -44,9 +45,8 @@ function C008_DramaClass_Outro_Run() {
 
 		// Draw the outro text to lead to chapter 9
 		DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Bell.jpg", 800, 0);
-		DrawText(ctx, GetText("Outro1"), 400, 150, "White");
-		if (TextPhase >= 1) DrawText(ctx, GetText("Outro2"), 400, 300, "White");
-		if (TextPhase >= 2) DrawText(ctx, GetText("Outro3"), 400, 450, "White");
+		DrawText(ctx, GetText("Outro1"), 400, 200, "White");
+		if (TextPhase >= 1) DrawText(ctx, GetText("Outro2"), 400, 400, "White");
 
 	}
 
@@ -60,8 +60,7 @@ function C008_DramaClass_Outro_Click() {
 	if ((Common_PlayerCrime == "AmandaStranded") || (Common_PlayerCrime == "SarahStranded") || (Common_PlayerCrime == "SidneyStranded") || (Common_PlayerCrime == "JenniferStranded")) {
 		if (TextPhase >= 4) SaveMenu("C010_Revenge", "Intro");
 	} else {
-		//if (TextPhase >= 3) SaveMenu("C009_Library", "Intro");
-		if (TextPhase >= 3) SaveMenu("C101_KinbakuClub", "Intro");
+		if (TextPhase >= 2) SaveMenu("C009_Library", "Intro");
 	}
 
 }

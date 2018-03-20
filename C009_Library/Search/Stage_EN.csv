@@ -1,0 +1,31 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+10,0,0,!Common_PlayerRestrained,(Search.)|(1 minute),You search in the bookshelves but all|you can find are books about chemistry.,10,0,0,
+10,0,0,CanSit,(Sit down.)|(1 minute),You sit down and relax on|the chair for a little while.,15,0,0,
+15,0,0,,(Stand up.)|(1 minute),You stand up from the chair.,10,0,0,
+30,0,0,!Common_PlayerRestrained,(Search.)|(1 minute),You search in the shelves but all you|can find are boring books on mathematics.,30,0,0,
+31,0,0,!Common_PlayerRestrained,(Search.)|(1 minute),You search the dead end part of the|corridor but don't find anything interesting.,31,0,0,SearchCounter()
+32,0,0,!Common_PlayerRestrained,(Search.)|(1 minute),You search in the shelves and find a|comic book hidden in between the books.,33,0,0,
+33,0,0,,(Fetch the comic.)|(1 minute),"It's an old comic called ""Sweet Gwendoline"".|It was written and drawn by John Willie.",34,0,0,
+33,0,0,,(Leave it there.),You leave the comic between the books.,32,0,0,
+34,0,0,,(Open the comic.)|(1 minute),"You flip a few pages.  It tells the story of|Gwendoline, a blond who gets tied up often.",35,0,0,
+34,0,0,,(Put it back.),You leave the comic between the books.,32,0,0,
+35,0,0,,(Read some more.)|(1 minute),"You read a little more, the damsel|gets roped in many inescapable positions.",36,0,0,
+35,0,0,,(Masturbate.)|(1 minute),You silently masturbate while looking at|the magazine and get a nice warm feeling.,35,0,0,Masturbate()
+35,0,0,,(Put it back.),You leave the comic between the books.,32,0,0,
+36,0,0,,(Read some more.)|(1 minute),"In the comic, there's a guide on|how to do advanced rope bondage.",37,0,0,
+36,0,0,,(Masturbate.)|(1 minute),You silently masturbate while looking at|the magazine and get a nice warm feeling.,36,0,0,Masturbate()
+36,0,0,,(Put it back.),You leave the comic between the books.,32,0,0,
+37,0,0,CanLearnRopeMastery,(Study the comic.)|(15 minutes),You study the rope bondage techniques from|the comic and might have learned a few tricks.,37,0,0,LearnRopeMastery()
+37,0,0,,(Masturbate.)|(1 minute),You silently masturbate while looking at|the magazine and get a nice warm feeling.,37,0,0,Masturbate()
+37,0,0,,(Put it back.),You leave the comic between the books.,32,0,0,
+40,0,0,!Common_PlayerRestrained,(Search.)|(1 minute),You search in the shelves and find|the book you're supposed to read.,41,0,0,SetReadProgress()
+41,0,0,,(Read chapter 1.),"You read the first chapter.|""Marseilles - The Arrival""",42,0,0,ReadTime()
+42,0,0,,(Read chapter 2.),"You read the second chapter.|""Father and Son""",43,0,0,ReadTime()
+43,0,0,,(Read chapter 3.),"You read the third chapter.|""The Catalans""",44,0,0,ReadTime()
+44,0,0,,(Read chapter 4.),"You read the fourth chapter.|""Conspiracy""",45,0,0,ReadTime()
+45,0,0,,(Read chapter 5.),"You read the fifth chapter: ""The Marriage Feast"".|You're now ready for your next class.",46,0,0,ReadTime()
+46,0,0,,(Read all|over again.),"As a good student, your read|the whole thing all over again.",46,0,0,ReadFull()
+60,0,0,!Common_PlayerRestrained,(Search.)|(1 minute),You search in the bookshelves but|all you can find are history books.,60,0,0,
+60,0,0,CanSit,(Sit down.)|(1 minute),You sit down and relax on the big couch.|It's pretty comfy and there's room for two.,65,0,0,
+61,0,0,!Common_PlayerRestrained,(Search.)|(1 minute),You search in the bookshelves but|all you can find are history books.,61,0,0,
+65,0,0,,(Stand up.)|(1 minute),You stand up from the couch.,60,0,0,

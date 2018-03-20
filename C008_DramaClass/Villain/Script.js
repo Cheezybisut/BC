@@ -21,6 +21,7 @@ var C008_DramaClass_Villain_SpankDone = false;
 var C008_DramaClass_Villain_OrgasmDone = false;
 var C008_DramaClass_Villain_MastubateCount = 0;
 var C008_DramaClass_Villain_RavishDone = false;
+var C008_DramaClass_Villain_CanDoSwordDance = false;
 
 // Calculates the scene parameters
 function C008_DramaClass_Villain_CalcParams() {
@@ -32,6 +33,7 @@ function C008_DramaClass_Villain_CalcParams() {
 	C008_DramaClass_Villain_CanConvinceJuliaToStrip = (C008_DramaClass_Villain_PlayerIsDamsel && !C008_DramaClass_Villain_IsGagged && (C008_DramaClass_Julia_CurrentStage == 400) && ((ActorSpecificGetValue("Amanda", ActorLove) >= 10) || (ActorSpecificGetValue("Amanda", ActorSubmission) >= 10)));
 	C008_DramaClass_Villain_DamselCanInteract = (C008_DramaClass_Villain_PlayerIsDamsel && !Common_PlayerGagged);
 	C008_DramaClass_Villain_DamselCanBeg = (C008_DramaClass_Villain_PlayerIsDamsel && Common_PlayerGagged);
+	C008_DramaClass_Villain_CanDoSwordDance = (!C008_DramaClass_Villain_PlayerIsDamsel && PlayerGetSkillLevel("Arts"));
 	OverridenIntroImage = "";
 }
 
@@ -261,4 +263,15 @@ function C008_DramaClass_Villain_Ravish() {
 		OverridenIntroText = GetText("Ravish");
 	}
 	C008_DramaClass_Villain_CalcParams();
+}
+
+// Chapter 8 - Sword Dance, a special option to disarm the opponent using art
+function C008_DramaClass_Villain_SwordDance() {
+	if (C008_DramaClass_Villain_PlayerIsHeroine) { C008_DramaClass_Villain_CurrentStage = 240; C008_DramaClass_Theater_GlobalStage = 240; }
+	if (C008_DramaClass_Villain_PlayerIsVillain) { C008_DramaClass_Villain_CurrentStage = 270; C008_DramaClass_Theater_GlobalStage = 270; }
+	ActorSpecificChangeAttitude("Julia", PlayerGetSkillLevel("Arts"), 0);
+	ActorSpecificChangeAttitude("Amanda", 0, 1);
+	ActorSpecificChangeAttitude("Sarah", 0, 1);
+	LeaveIcon = "Leave";
+	C008_DramaClass_Theater_SetPose();
 }
