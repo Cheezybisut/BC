@@ -23,7 +23,7 @@ function C009_Library_Library_Load() {
 function C009_Library_Library_Navigation(ctx, Zone, Direction, X, Y) {
 	if (C009_Library_Library_CurrentZone == Zone) {
 		var Active = false;
-		if ((MouseX >= X) && (MouseX <= X + 200) && (MouseY >= Y) && (MouseY <= Y + 200)) Active = true;
+		if ((MouseX >= X) && (MouseX <= X + 200) && (MouseY >= Y) && (MouseY <= Y + 200) && !IsMobile) Active = true;
 		if ((Direction == "Up") && Active) DrawImage(ctx, Icons.Navigation.ArrowUpActive, X, Y);
 		if ((Direction == "Up") && !Active) DrawImage(ctx, Icons.Navigation.ArrowUpInactive, X, Y);
 		if ((Direction == "Down") && Active) DrawImage(ctx, Icons.Navigation.ArrowDownActive, X, Y);

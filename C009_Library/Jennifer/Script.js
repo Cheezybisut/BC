@@ -25,6 +25,7 @@ var C009_Library_Jennifer_SpankDone = false;
 var C009_Library_Jennifer_IsChaste = false;
 var C009_Library_Jennifer_CanRemoveUnderwear = false;
 var C009_Library_Jennifer_CanAddUnderwear = false;
+var C009_Library_Jennifer_BookAlreadyFound = false;
 
 // Calculates the scene parameters
 function C009_Library_Jennifer_CalcParams() {
@@ -62,6 +63,7 @@ function C009_Library_Jennifer_Load() {
 	LoadInteractions();
 	C009_Library_Jennifer_IsArtist = ((PlayerGetSkillLevel("Arts") >= 1) && !Common_PlayerRestrained);
 	Common_SelfBondageAllowed = false;
+	C009_Library_Jennifer_BookAlreadyFound = (C009_Library_Library_BookProgress > 40);
 
 	// Do not change the scene parameters if we are loading from the player screen
 	if (!C009_Library_Jennifer_LoadFromPlayerScreen) {
@@ -79,7 +81,7 @@ function C009_Library_Jennifer_Load() {
 	// Recalls the previous text if needed
 	if (C009_Library_Jennifer_IntroText != "") OverridenIntroText = C009_Library_Jennifer_IntroText;
 	C009_Library_Jennifer_IntroText = "";
-	if (ActorHasInventory("VibratingEgg")) {
+	if (ActorHasInventory("VibratingEgg") && (C009_Library_Jennifer_CurrentStage == 0)) {
 		C009_Library_Jennifer_HasEgg = true;
 		ActorRemoveInventory("VibratingEgg");
 	}
@@ -171,7 +173,7 @@ function C009_Library_Jennifer_QueryEgg() {
 	C009_Library_Jennifer_HasEgg = false;
 	if ((ActorGetValue(ActorLove) >= 5) || (ActorGetValue(ActorSubmission) >= 5) || (PlayerGetSkillLevel("Seduction") >= 1)) {
 		OverridenIntroText = GetText("GetEgg");
-		PlayerAddInventory("VibratingEgg");
+		PlayerAddInventory("VibratingEgg", 1);
 	}		
 }
 

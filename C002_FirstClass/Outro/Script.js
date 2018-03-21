@@ -49,17 +49,8 @@ function C002_FirstClass_Outro_Click() {
 			PlayerRemoveAllInventory();
 		}
 
-		// if cuffed, unlock it
-		if (Common_PlayerRestrained) {
-			PlayerUnlockInventory("Cuffs");
-			PlayerAddInventory("Cuffs", 1);
-		}
-
-		// if gagged, unlock it	
-		if (Common_PlayerGagged) {
-			PlayerUnlockInventory("BallGag");
-			PlayerAddInventory("BallGag", 1);
-		}
+		// Remove all remaining restrains
+		PlayerReleaseBondage();
 
 	}
 
