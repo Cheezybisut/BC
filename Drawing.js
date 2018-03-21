@@ -327,6 +327,7 @@ function DrawGetPlayerImageName(IncludePose) {
 	var ImageBondage = "_NoBondage";	
 	if (PlayerHasLockedInventory("Cuffs") == true) ImageBondage = "_Cuffs";
 	if (PlayerHasLockedInventory("Rope") == true) ImageBondage = "_Rope";
+	if (PlayerHasLockedInventory("Armbinder") == true) ImageBondage = "_Armbinder";
 
 	// Third part is the collar, which only shows for certain clothes
 	var ImageCollar = "";
@@ -386,6 +387,7 @@ function DrawActor(ActorToDraw, X, Y, Zoom) {
 		if (ActorSpecificHasInventory(ActorToDraw, "Cuffs")) ImageBondage = "_Cuffs";
 		if (ActorSpecificHasInventory(ActorToDraw, "Rope")) ImageBondage = "_Rope";
 		if (ActorSpecificHasInventory(ActorToDraw, "TwoRopes")) ImageBondage = "_TwoRopes";
+		if (ActorSpecificHasInventory(ActorToDraw, "Armbinder")) ImageBondage = "_Armbinder";
 
 		// Third part is the collar, which only shows for certain clothes
 		var ImageCollar = "";

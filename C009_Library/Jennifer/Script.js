@@ -32,7 +32,7 @@ function C009_Library_Jennifer_CalcParams() {
 	C009_Library_Jennifer_IsGagged = ActorIsGagged();
 	C009_Library_Jennifer_IsRestrained = ActorIsRestrained();
 	C009_Library_Jennifer_IsChaste = ActorIsChaste();
-	C009_Library_Jennifer_CanUntie = (ActorHasInventory("Rope") && !Common_PlayerRestrained);
+	C009_Library_Jennifer_CanUntie = ((ActorHasInventory("Rope") || ActorHasInventory("Armbinder")) && !Common_PlayerRestrained);
 	C009_Library_Jennifer_CanUngag = (C009_Library_Jennifer_IsGagged && !Common_PlayerRestrained);
 	C009_Library_Jennifer_CanAbuse = (C009_Library_Jennifer_IsRestrained && !Common_PlayerRestrained);
 	C009_Library_Jennifer_CanKiss = ((C009_Library_Jennifer_IsRestrained || (ActorGetValue(ActorLove) >= 5) || (PlayerGetSkillLevel("Seduction") >= 1)) && !Common_PlayerGagged && !C009_Library_Jennifer_IsGagged);
@@ -156,7 +156,7 @@ function C009_Library_Jennifer_Click() {
 	}
 
 	// On specific stages where Jennifer is naked, the player can get items to restrain her
-	if (((ClickInv == "Rope") || (ClickInv == "Cuffs") || (ClickInv == "BallGag") || (ClickInv == "ClothGag") || (ClickInv == "TapeGag") || (ClickInv == "ChastityBelt") || (ClickInv == "VibratingEgg") || (ClickInv == "Crop") || (ClickInv == "Collar")) && (C009_Library_Jennifer_CurrentStage in {171:1,172:1,173:1,174:1,175:1,176:1,177:1,178:1,235:1,240:1,250:1,260:1,270:1,280:1})) {
+	if (((ClickInv == "Rope") || (ClickInv == "Armbinder") || (ClickInv == "Cuffs") || (ClickInv == "BallGag") || (ClickInv == "ClothGag") || (ClickInv == "TapeGag") || (ClickInv == "ChastityBelt") || (ClickInv == "VibratingEgg") || (ClickInv == "Crop") || (ClickInv == "Collar")) && (C009_Library_Jennifer_CurrentStage in {171:1,172:1,173:1,174:1,175:1,176:1,177:1,178:1,235:1,240:1,250:1,260:1,270:1,280:1})) {
 		C009_Library_Jennifer_CurrentStage = 300;
 		OverridenIntroText = GetText("JumpOffWorry");
 		C009_Library_Jennifer_SetPose();
