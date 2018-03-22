@@ -9,6 +9,7 @@ var C009_Library_Jennifer_LoadFromPlayerScreen = false;
 var C009_Library_Jennifer_IsGagged = false;
 var C009_Library_Jennifer_IsRestrained = false;
 var C009_Library_Jennifer_CanUntie = false;
+var C009_Library_Jennifer_CanUnstrap = false;
 var C009_Library_Jennifer_CanUngag = false;
 var C009_Library_Jennifer_CanAbuse = false;
 var C009_Library_Jennifer_CanKiss = false;
@@ -32,7 +33,8 @@ function C009_Library_Jennifer_CalcParams() {
 	C009_Library_Jennifer_IsGagged = ActorIsGagged();
 	C009_Library_Jennifer_IsRestrained = ActorIsRestrained();
 	C009_Library_Jennifer_IsChaste = ActorIsChaste();
-	C009_Library_Jennifer_CanUntie = ((ActorHasInventory("Rope") || ActorHasInventory("Armbinder")) && !Common_PlayerRestrained);
+	C009_Library_Jennifer_CanUntie = (ActorHasInventory("Rope") && !Common_PlayerRestrained);
+	C009_Library_Jennifer_CanUnstrap = (ActorHasInventory("Armbinder") && !Common_PlayerRestrained);
 	C009_Library_Jennifer_CanUngag = (C009_Library_Jennifer_IsGagged && !Common_PlayerRestrained);
 	C009_Library_Jennifer_CanAbuse = (C009_Library_Jennifer_IsRestrained && !Common_PlayerRestrained);
 	C009_Library_Jennifer_CanKiss = ((C009_Library_Jennifer_IsRestrained || (ActorGetValue(ActorLove) >= 5) || (PlayerGetSkillLevel("Seduction") >= 1)) && !Common_PlayerGagged && !C009_Library_Jennifer_IsGagged);
@@ -298,7 +300,7 @@ function C009_Library_Jennifer_Masturbate() {
 	} else OverridenIntroText = GetText("MasturbateBelt");
 }
 
-// Chapter 9 Library - Jennifer untie
+// Chapter 9 Library - Jennifer untie (or unstrap)
 function C009_Library_Jennifer_Untie() {
 	ActorUntie();
 	C009_Library_Jennifer_CalcParams();
