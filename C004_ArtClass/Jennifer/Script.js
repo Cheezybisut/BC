@@ -162,6 +162,7 @@ function C004_ArtClass_Jennifer_Ungag() {
 function C004_ArtClass_Jennifer_Kiss() {
 	C004_ArtClass_Jennifer_KissReady = false;
 	if (Common_PlayerGagged) OverridenIntroText = GetText("GaggedKiss");
+	GameLogAdd("Kiss");
 }
 
 // Chapter 4 - Jennifer Tighten
@@ -240,6 +241,7 @@ function C004_ArtClass_Jennifer_Paint() {
 		C004_ArtClass_Jennifer_PaintAvail = false;
 		C004_ArtClass_Julia_PaintAvail = false;
 		ActorChangeAttitude(0, 2);
+		GameLogAdd("Paint");
 		CurrentTime = CurrentTime + 0.5 * 60 * 60 * 1000;
 		if (PlayerGetSkillLevel("Arts") >= 1) {
 			ActorSpecificChangeAttitude("Julia", PlayerGetSkillLevel("Arts"), 0);

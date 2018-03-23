@@ -49,7 +49,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 230,0,0,,"Si je te libère, je pourrais|te rattacher ? (1 min)",Ça me semble juste. Affaire conclue.|(Tu la détaches et lui serre la main.),310,1,1,Untie()
 230,0,0,,"Si je te libère, plus tard|tu me ligoteras ? (1 min)",Ça marche ! La vengeance sera douce.|(Tu la détaches et lui serre la main.),310,1,-2,Untie()
 240,0,0,,(Tu les sépares.),Enfin ! C'était une mauvaise idée !,220,0,0,
-240,0,0,,(Tu les forces à|s'embrasser.) (1 min),"(Tu les forces à s'embrasser, Sidney à l'air furieuse.)|Amanda, si tu mets la langue je te la coupe.",250,0,0,
+240,0,0,,(Tu les forces à|s'embrasser.) (1 min),"(Tu les forces à s'embrasser, Sidney à l'air furieuse.)|Amanda, si tu mets la langue je te la coupe.",250,0,0,KissAmanda()
 240,0,0,,Vous faites un joli|couple de bondage.,"(Elles te fixent, leurs regards en dit long.)",240,0,0,
 250,0,0,,(Tu les sépares.),Enfin ! C'était une idée pourrie !,220,0,0,
 250,0,0,,(Tu stoppes les baisers.),"Admets-le ! Je suis meilleure que cette stupide blonde.|(Elle essaye d'intimider Amanda qui détourne le regard.)",240,0,0,

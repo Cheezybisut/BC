@@ -331,14 +331,19 @@ function C009_Library_Jennifer_Spank() {
 	}
 }
 
-// Chapter 9 Library - When Jennifer is released
+// Chapter 9 Library - When Jennifer is released (she must be unlocked first)
 function C009_Library_Jennifer_ReleaseJennifer() {
-	ActorUntie();
-	ActorUngag();
-	ActorSetCloth("Clothed");
-	CurrentTime = CurrentTime + 50000;
-	C009_Library_Jennifer_CalcParams();
-	C009_Library_Jennifer_SetPose();
+	if (!ActorHasInventory("Cuffs")) {
+		ActorUntie();
+		ActorUngag();
+		ActorSetCloth("Clothed");
+		CurrentTime = CurrentTime + 50000;
+		C009_Library_Jennifer_CalcParams();
+		C009_Library_Jennifer_SetPose();		
+	} else {
+		OverridenIntroText = GetText("UnlockBeforeRelease");
+		C009_Library_Jennifer_CurrentStage = 320;
+	}
 }
 
 // Chapter 9 Library - When Jennifer is asked to make love (+10 love with seduction * 3, or +5/+5 will do)

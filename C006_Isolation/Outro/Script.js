@@ -12,13 +12,20 @@ function C006_Isolation_Outro_Load() {
 		PlayerAddInventory("Rope", 1);
 		PlayerAddInventory("BallGag", 1);
 		PlayerAddSkill("RopeMastery", 1);
+		GameLogSpecificAdd(CurrentChapter, "", "Escape");
 		if (C006_Isolation_CellGround_CollarAvail) PlayerAddInventory("Collar", 1);
 		if (C006_Isolation_CellGround_RopeAvail) PlayerAddInventory("Rope", 1);
 	}
+
+	// Saves the events
+	if ((CurrentTime < 11.5 * 60 * 60 * 1000) && C006_Isolation_Outro_EarlyRelease) GameLogSpecificAdd(CurrentChapter, "", "Release");
+	if (C006_Isolation_Outro_StuckPillory) GameLogSpecificAdd(CurrentChapter, "", "Pillory");
+	if (C006_Isolation_Outro_StuckCross) GameLogSpecificAdd(CurrentChapter, "", "Cross");
 	
 	// Time is always 11:30:00 in the outro, unlock if needed
 	StopTimer(11.5 * 60 * 60 * 1000);
 	PlayerUnlockAllInventory();
+	PlayerUnlockInventory("Collar");
 	PlayerClothes("Clothed");
 
 }
@@ -26,16 +33,11 @@ function C006_Isolation_Outro_Load() {
 // Chapter 6 - Outro Run
 function C006_Isolation_Outro_Run() {
 
-	// Gets the teacher name
-	var Teacher = "Mildred";
-	if (Common_PlayerCrime == "DrugYuki") Teacher = "Yuki";
-
 	// Paints the background	
 	var ctx = document.getElementById("MainCanvas").getContext("2d");
 	DrawRect(ctx, 0, 0, 800, 600, "black");	
 	if (C006_Isolation_Outro_EarlyEscape) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Player.jpg", 800, 0);
-	if (!C006_Isolation_Outro_EarlyEscape && (Common_PlayerCrime == "RestrainMildred")) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Mildred.jpg", 800, 0);
-	if (!C006_Isolation_Outro_EarlyEscape && (Common_PlayerCrime == "DrugYuki")) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Yuki.jpg", 800, 0);
+	if (!C006_Isolation_Outro_EarlyEscape) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/" + C006_Isolation_Intro_Teacher + ".jpg", 800, 0);
 
 	// Draw the outro text
 	if (!C006_Isolation_Outro_EarlyRelease && !C006_Isolation_Outro_EarlyEscape) {
@@ -57,15 +59,9 @@ function C006_Isolation_Outro_Click() {
 
 	// Jump to the next animation
 	TextPhase++;
-	
-	// Restore the player inventory on phase 2
-	if (TextPhase == 1)
-		PlayerRestoreAllInventory();
-		
-	// Jump to lunch on phase 3
-	if (TextPhase >= 3) {
-		Common_PlayerCrime = "";
-		SaveMenu("C007_LunchBreak", "Intro");
-	}
+
+	// Restore the player inventory on phase 2, jump to lunch on 3
+	if (TextPhase == 1) PlayerRestoreAllInventory();
+	if (TextPhase >= 3) SaveMenu("C007_LunchBreak", "Intro");
 
 }

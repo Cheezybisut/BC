@@ -3,8 +3,8 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 0,0,0,,Pleased to meet|you Miss Giuliana.,"No, no, no, no, call me Julia.|Now give me a big hug new pupil.",10,0,-1,
 0,0,0,,Art?  Oh my.|(Roll your eyes up.),Art is fire!  And I am the flame.||Now give me a big hug new pupil.,10,-1,1,
 0,0,0,,(Look elsewhere.),Look here new pupil.  Come|closer and give me a big hug.,10,-1,0,
-10,0,0,,"A hug?  Sure, why not.",Si!  (She hugs you close and almost|squeezes your head between her breasts.),20,0,0,
-10,0,0,,Of course!|(Open your arms.),Si!  (She hugs you really tight and|squeezes your head between her breasts.),20,1,0,
+10,0,0,,"A hug?  Sure, why not.",Si!  (She hugs you close and almost|squeezes your head between her breasts.),20,0,0,Hug()
+10,0,0,,Of course!|(Open your arms.),Si!  (She hugs you really tight and|squeezes your head between her breasts.),20,1,0,Hug()
 10,0,0,,"No, thanks.","Alright new pupil, no hug for you.|But I hope you're ready to paint.",30,0,0,
 10,0,0,,Hug you?|Forget it.,So you have the flame and the rage.|This painting class is made for you then.,30,-1,0,
 20,0,0,,This is a|warm welcome.,Si!  (She releases you.)|I hope you're ready to paint.,30,0,0,
@@ -44,6 +44,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 150,0,0,CanBegForRelease,(Whimper and make|sad puppy eyes.),,150,0,0,BegForRelease()
 170,0,1,Common_PlayerNotRestrained,Let's change|model again.,Again?  Who should model with me?,150,0,0,ChangeModel()
 170,0,-1,,Can I sit down please?,No!  Poor shy new pupil.  You need to|overcome your shyness first and get the flame.,170,0,0,
+170,0,0,CanDoSelfBondage,I'll show you self|shibari!  (Tie yourself.),"(Naked in front of the class, you struggle and|manage to wrap and tie the rope on yourself.)",170,0,0,SelfBondage()
 170,0,0,CanBegForRelease,@HUUIA!  HMMH EE!,Keep the pose new pupil.|It's no time to chat.,170,0,0,GaggedSpeach()
 170,0,0,CanBegForRelease,(Whimper and make|sad puppy eyes.),,170,0,0,BegForRelease()
 170,0,0,AllowUnderwear,Our clothing is|different.  (1 minute),Si!  It's weird that you're clothed.|(You slowly remove your outfit.) Now paint!,180,0,0,PlayerRemoveOutfit()

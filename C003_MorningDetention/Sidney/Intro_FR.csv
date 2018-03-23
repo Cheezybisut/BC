@@ -2,11 +2,8 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 0,0,0,,Toi tu sais en créer des emmerdes.|Qu'est-ce que tu veux ? (Elle te fixe.),SidneyFace.jpg
 0,-1,0,,Abrutie ! Regarde les emmerdes que tu nous as créé.|Qu'est-ce que tu me veux ! (Elle te fixe.),SidneyFace.jpg
 0,1,0,,Ah ! Ce bondage en classe était assez audacieux.|Alors ? Qu'est-ce que tu veux ?,SidneyFace.jpg
-0,0,0,Fighting,C'était un bon combat.|Qu'est-ce que tu veux ? (Elle te fixe.),SidneyFace.jpg
-0,-1,0,Fighting,"Si tu veux encore te battre, Je t'écraserai après|les cours. Qu'est-ce que tu me veux ! (Elle te fixe.)",SidneyFace.jpg
-0,1,0,Fighting,J'espère qu'on sera dans le même camp|la prochaine fois. Tu veux quelque chose ?,SidneyFace.jpg
-0,0,0,FightWon,C'était si facile de t'écraser.|Alors ? Qu'est-ce que tu veux ?,SidneyFace.jpg
-0,0,0,FightLost,"Bordel, tu as juste eu de la chance.|Qu'est-ce que tu veux ?",SidneyFace.jpg
+0,0,0,FightDefeat,C'était si facile de t'écraser.|Alors ? Qu'est-ce que tu veux ?,SidneyFace.jpg
+0,0,0,FightVictory,"Bordel, tu as juste eu de la chance.|Qu'est-ce que tu veux ?",SidneyFace.jpg
 0,0,0,Common_PlayerGagged,Ah ! Tu t'es fait menotter et baîlloner.|Quelle délinquante !,SidneyFace.jpg
 10,0,0,,Arrête de fixer ces stupides menottes.,SidneyCuffs.jpg
 10,0,0,Common_PlayerGagged,Ah ! Tu t'es fait menotter et baîlloner.|Quelle délinquante !,SidneyFace.jpg

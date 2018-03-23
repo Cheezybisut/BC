@@ -3,8 +3,8 @@ var GameLogChapter = 0;
 var GameLogActor = 1;
 var GameLogEvent = 2;
 
-// Logs a specific event that happened in the game to be consulted by other scripts afterward
-function GameLogAdd(ChapterToLog, ActorToLog, EventToLog) {
+// Log a specific event that happened in the game to be consulted by other scripts afterward
+function GameLogSpecificAdd(ChapterToLog, ActorToLog, EventToLog) {
 
 	// Do not log the same event twice
 	for (var L = 0; L < GameLog.length; L++)
@@ -15,6 +15,11 @@ function GameLogAdd(ChapterToLog, ActorToLog, EventToLog) {
 	GameLog[GameLog.length] = [ChapterToLog, ActorToLog, EventToLog];
 
 }
+
+// Log a specific event for the current chapter and actor, to be consulted by other scripts afterward
+function GameLogAdd(EventToLog) {
+	GameLogSpecificAdd(CurrentChapter, CurrentActor, EventToLog);
+} 
 
 // Returns TRUE if the event happened based on the query parameters, none of them are mandatory
 function GameLogQuery(ChapterToQuery, ActorToQuery, EventToQuery) {

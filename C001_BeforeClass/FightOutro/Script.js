@@ -6,9 +6,9 @@ function C001_BeforeClass_FightOutro_Load() {
 	
 	// Sidney attitude changes if the player won or not
 	CurrentActor = "Sidney";
-	if (C001_BeforeClass_FightOutro_FightResult == 1) ActorChangeAttitude(0, 2);
-	if (C001_BeforeClass_FightOutro_FightResult == 2) ActorChangeAttitude(0, -2);
-	CurrentActor = "";	
+	if (C001_BeforeClass_FightOutro_FightResult == 1) { GameLogAdd("FightVictory"); ActorChangeAttitude(0, 2); }
+	if (C001_BeforeClass_FightOutro_FightResult == 2) { GameLogAdd("FightDefeat"); ActorChangeAttitude(0, -2); }
+	CurrentActor = "";
 
 	// Time is always 8:00 on the fight outro, no timer
 	StopTimer(8 * 60 * 60 * 1000);
@@ -35,8 +35,5 @@ function C001_BeforeClass_FightOutro_Run() {
 // Chapter 1 - Fight Outro Click
 function C001_BeforeClass_FightOutro_Click() {
 	TextPhase++;
-	if (TextPhase >= 3) {
-		Common_PlayerCrime = "Fighting";
-		SaveMenu("C003_MorningDetention", "Intro");
-	}
+	if (TextPhase >= 3) SaveMenu("C003_MorningDetention", "Intro");
 }

@@ -133,7 +133,7 @@ function C003_MorningDetention_Yuki_GagPlayer() {
 // Chapter 3 - Yuki No Crime
 function C003_MorningDetention_Yuki_NoCrime() {
 	C003_MorningDetention_DetentionRoom_SidneyStrip = false;
-	Common_PlayerCrime = "";
+	GameLogAdd("DrugAwake");
 	LeaveIcon = "Leave";
 }
 
@@ -162,6 +162,7 @@ function C003_MorningDetention_Yuki_FullRestrain() {
 	PlayerLockInventory("Cuffs");
 	PlayerLockInventory("TapeGag");
 	C003_MorningDetention_Yuki_NoCrime();
+	GameLogAdd("DrugAdmit");
 }
 
 // Chapter 3 - Yuki Ungag Player

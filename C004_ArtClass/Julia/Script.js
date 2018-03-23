@@ -14,6 +14,8 @@ var C004_ArtClass_Julia_EggConfirm = false;
 var C004_ArtClass_Julia_EggInside = false;
 var C004_ArtClass_Julia_WorkOfArtReady = true;
 var C004_ArtClass_Julia_PaintAvail = true;
+var C004_ArtClass_Julia_CanDoSelfBondage = true;
+var C004_ArtClass_Julia_SelfBondageDone = false;
 
 // New image depending on Julia's bondage
 function C004_ArtClass_Julia_GetImage() {
@@ -49,8 +51,9 @@ function C004_ArtClass_Julia_Load() {
 	C004_ArtClass_Julia_BigHugReady = (!C004_ArtClass_Julia_BigHugDone && Common_PlayerNotGagged && (C004_ArtClass_Julia_CurrentStage >= 60));
 	C004_ArtClass_Julia_AllowShibari = ((Common_BondageAllowed == false) && (C004_ArtClass_ArtRoom_JuliaStage >= 4));
 	
-	// If we allow the player to beg to be released
+	// If we allow the player to beg to be released or do self bondage
 	C004_ArtClass_Julia_CanBegForRelease = ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && Common_PlayerRestrained && Common_PlayerGagged);
+	C004_ArtClass_Julia_CanDoSelfBondage = ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && !Common_PlayerRestrained && !Common_PlayerGagged && Common_PlayerNaked && Common_BondageAllowed && PlayerHasInventory("Rope") && (PlayerGetSkillLevel("RopeMastery") >= 1));
 
 	// A player with seduction has an extra option
 	if (PlayerGetSkillLevel("Seduction") == 0) C004_ArtClass_Julia_WorkOfArtReady = false;
@@ -92,6 +95,7 @@ function C004_ArtClass_Julia_Click() {
 			PlayerClothes("Naked");
 			PlayerLockInventory("Rope");
 			PlayerRemoveInventory("Rope", 1);
+			C004_ArtClass_Julia_CanDoSelfBondage = false;
 		}
 
 		// Time and item are consumed
@@ -154,6 +158,7 @@ function C004_ArtClass_Julia_BigHug() {
 		ActorChangeAttitude(1, 0);
 		C004_ArtClass_Julia_BigHugReady = false;
 		OverridenIntroImage = "JuliaHug.jpg";
+		GameLogAdd("Hug");
 	}
 }
 
@@ -326,6 +331,7 @@ function C004_ArtClass_Julia_Paint() {
 			C004_ArtClass_Jennifer_PaintAvail = false;
 			C004_ArtClass_Julia_PaintAvail = false;
 			ActorChangeAttitude(2, 0);
+			GameLogAdd("Paint");
 			CurrentTime = CurrentTime + 0.5 * 60 * 60 * 1000;
 			if (PlayerGetSkillLevel("Arts") >= 1) {
 				ActorSpecificChangeAttitude("Julia", PlayerGetSkillLevel("Arts"), 0);
@@ -335,4 +341,22 @@ function C004_ArtClass_Julia_Paint() {
 			PlayerAddSkill("Arts", 1);
 		} else OverridenIntroText = GetText("NoTimeToPaint");
 	} else OverridenIntroText = GetText("CantPaintIfModel");
+}
+
+// Chapter 4 - Julia, the player can do "Self-Shibari" with the rope mastery skill
+function C004_ArtClass_Julia_SelfBondage() {
+	PlayerLockInventory("Rope");
+	PlayerRemoveInventory("Rope", 1);
+	C004_ArtClass_Julia_CanDoSelfBondage = false;
+	CurrentTime = CurrentTime + 50000;
+	if (!C004_ArtClass_Julia_SelfBondageDone) {
+		C004_ArtClass_Julia_SelfBondageDone = true;
+		ActorChangeAttitude(1, 1);
+		GameLogAdd("SelfBondage");
+	}
+}
+
+// Chapter 4 - Julia Hug
+function C004_ArtClass_Julia_Hug() {
+	GameLogAdd("Hug");
 }

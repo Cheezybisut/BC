@@ -36,7 +36,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 150,0,0,IsModel,Essayons à nouveau avec|ton uniforme. (1 minute),Vraiment ? Je ne suis pas assez jolie ?|(Elle remet son uniforme et boude.),130,0,0,"SetCloth(0, 0, 0)"
 160,0,5,CollarRemarkReady,Tu es suffisament prête|pour porter un collier.,Vous croyez ? Merci Madame.|(Elle rougit et sourit.),160,1,1,CollarRemark()
 160,0,0,EggInside,Sarah.|Tu apprécies l'oeuf ?,Carrément ! Merci beaucoup.|Ça bourdonne et ça me fait penser à toi.,160,0,0,
-160,2,0,Common_PlayerNotGagged,(Tu l'embrasses.)|(1 minute),"(Elle rougit.) Tu es si bonne,|tu me rappelles Amanda.",160,0,0,
+160,2,0,Common_PlayerNotGagged,(Tu l'embrasses.)|(1 minute),"(Elle rougit.) Tu es si bonne,|tu me rappelles Amanda.",160,0,0,Kiss()
 160,0,0,,(Tu resserres les cordes.)|(1 minute),Les cordes sont déjà|aussi serrées qu'elles peuvent l'être.,160,0,0,Tighten()
 160,0,0,Common_PlayerNotRestrained,(Tu la détaches.)|(1 minute),"Ooooooh, pourquoi tu m'as détaché ?|(Elle tire la langue et prend la pose.)",150,0,0,Untie()
 160,0,0,Common_PlayerNotRestrained,(Tu la chatouilles.)|(1 minute),Tu es drôle. Mais est-ce le mieux que tu puisses faire ?|(Elle rit mais n'est pas impressionnée par tes chatouilles.),160,0,0,

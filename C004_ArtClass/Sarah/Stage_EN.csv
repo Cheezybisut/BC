@@ -36,7 +36,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 150,0,0,IsModel,Let's try your outfit|again.  (1 minute),Really?  I'm not pretty enough?|(She puts back her outfit and pouts.),130,0,0,"SetCloth(0, 0, 0)"
 160,0,5,CollarRemarkReady,You're good enough|to be collared.,You think?  Thanks Miss.|(She blushes and smiles.),160,1,1,CollarRemark()
 160,0,0,EggInside,Sarah.  Are you|enjoying the egg?,I am!  Thank you so much.|It's buzzing remind me of you.,160,0,0,
-160,2,0,Common_PlayerNotGagged,(Kiss her.)|(1 minute),"(She blushes.)  You're so|nice, you remind me of Amanda.",160,0,0,
+160,2,0,Common_PlayerNotGagged,(Kiss her.)|(1 minute),"(She blushes.)  You're so|nice, you remind me of Amanda.",160,0,0,Kiss()
 160,0,0,,(Tighten the ropes.)|(1 minute),The ropes are as tight as they can be.,160,0,0,Tighten()
 160,0,0,Common_PlayerNotRestrained,(Untie her.)|(1 minute),"Ooooooh, why did you untie me?|(She pulls her tongue and takes her pose.)",150,0,0,Untie()
 160,0,0,Common_PlayerNotRestrained,(Tickle her.)|(1 minute),You're funny.  But is that the best you can do?|(She giggles but isn't impressed by your tickling.),160,0,0,

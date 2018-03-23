@@ -68,12 +68,14 @@ function C006_Isolation_Mildred_CheckForCrop() {
 	if (ActorGetValue(ActorLove) <= -3) {
 		OverridenIntroText = GetText("CropStartHate");
 		C006_Isolation_Mildred_CurrentStage = 300;
+		GameLogAdd("CropPlayer");
 		C006_Isolation_Mildred_CropMaxCount = ActorGetValue(ActorLove) * -2;
 		if (C006_Isolation_Mildred_CropMaxCount > 12) C006_Isolation_Mildred_CropMaxCount = 12;
 	} else {
 		if (ActorGetValue(ActorSubmission) <= -3) {
 			OverridenIntroText = GetText("CropStartSub");
 			C006_Isolation_Mildred_CurrentStage = 300;
+			GameLogAdd("CropPlayer");
 			C006_Isolation_Mildred_CropMaxCount = ActorGetValue(ActorSubmission) * -2;
 			if (C006_Isolation_Mildred_CropMaxCount > 12) C006_Isolation_Mildred_CropMaxCount = 12;
 		}

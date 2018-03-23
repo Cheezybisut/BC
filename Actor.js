@@ -72,7 +72,7 @@ function ActorAddOrgasm() {
 	for (var L = 0; L < Actor.length; L++)
 		if (CurrentActor == Actor[L][ActorName])
 			Actor[L][ActorOrgasmCount]++;
-	GameLogAdd(CurrentChapter, CurrentActor, "Orgasm");
+	GameLogAdd("Orgasm");
 }
 
 // Validates that a specific interaction stage is available for the player
@@ -111,6 +111,7 @@ function ActorAddInventory(NewInventory) {
 				if (Actor[A][ActorLastBondageChapter] != CurrentChapter) {
 					Actor[A][ActorLastBondageChapter] = CurrentChapter;
 					Actor[A][ActorBondageCount]++;
+					GameLogAdd("Bondage");
 				}
 			}
 
@@ -119,8 +120,10 @@ function ActorAddInventory(NewInventory) {
 // Add 1 to the bondage count of a specific actor
 function ActorSpecificAddBondage(SpecificActor) {
 	for (var A = 0; A < Actor.length; A++)
-		if (Actor[A][ActorName] == SpecificActor)
+		if (Actor[A][ActorName] == SpecificActor) {
 			Actor[A][ActorBondageCount]++;
+			GameLogSpecificAdd(CurrentChapter, SpecificActor, "Bondage");
+		}
 }
 
 // Remove inventory from the current actor
