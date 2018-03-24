@@ -29,8 +29,8 @@ function C010_Revenge_Outro_Run() {
 	
 	// Sets the correct text to fetch
 	var OutroText = "";
-	if ((Common_PlayerCrime == "AmandaStranded") || (Common_PlayerCrime == "SarahStranded")) OutroText = "AmandaSarah";
-	if ((Common_PlayerCrime == "SidneyStranded") || (Common_PlayerCrime == "JenniferStranded")) OutroText = "SidneyJennifer";
+	if (GameLogQuery("C007_LunchBreak", "Amanda", "Stranded") || GameLogQuery("C007_LunchBreak", "Sarah", "Stranded")) OutroText = "AmandaSarah";
+	if (GameLogQuery("C007_LunchBreak", "Sidney", "Stranded") || GameLogQuery("C007_LunchBreak", "Jennifer", "Stranded")) OutroText = "SidneyJennifer";
 
 	// Draw the background image
 	if (TextPhase >= 2) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Bell.jpg", 800, 0);
@@ -49,10 +49,6 @@ function C010_Revenge_Outro_Click() {
 
 	// Jump to the next animation
 	TextPhase++;
-	if (TextPhase >= 3) {
-		//SaveMenu("C011", "Intro");
-		Common_PlayerCrime = "";
-		SaveMenu("C101_KinbakuClub", "Intro");
-	}
+	if (TextPhase >= 3) SaveMenu("C101_KinbakuClub", "Intro");
 
 }

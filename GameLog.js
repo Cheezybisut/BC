@@ -6,6 +6,9 @@ var GameLogEvent = 2;
 // Log a specific event that happened in the game to be consulted by other scripts afterward
 function GameLogSpecificAdd(ChapterToLog, ActorToLog, EventToLog) {
 
+	// If no actor is specified, we imply the player
+	if (ActorToLog == "") ActorToLog = "Player";
+
 	// Do not log the same event twice
 	for (var L = 0; L < GameLog.length; L++)
 		if ((ChapterToLog == GameLog[L][GameLogChapter]) && (ActorToLog == GameLog[L][GameLogActor]) && (EventToLog == GameLog[L][GameLogEvent]))

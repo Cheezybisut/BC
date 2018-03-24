@@ -175,6 +175,7 @@ function C007_LunchBreak_Sidney_EndLunch() {
 
 // Chapter 7 - Sidney - The player is stuck in the pillory
 function C007_LunchBreak_Sidney_Pillory() {
+	GameLogAdd("Pillory");
 	C007_LunchBreak_ActorSelect_NoFood = true;
 	C007_LunchBreak_ActorSelect_Actor = "Sidney";
 	PlayerSaveAllInventory();
@@ -197,6 +198,7 @@ function C007_LunchBreak_Sidney_PilloryFree() {
 
 // Chapter 7 - Sidney Start Lunch
 function C007_LunchBreak_Sidney_StartLunch() {	
+	GameLogAdd("Lunch");
 	CurrentTime = CurrentTime + 480000;
 	LeaveIcon = "";
 }
@@ -228,6 +230,7 @@ function C007_LunchBreak_Sidney_CheckForSmoke() {
 
 // Chapter 7 - Sidney Smoke (1 minute)
 function C007_LunchBreak_Sidney_Smoke() {
+	GameLogAdd("Smoke");
 	CurrentTime = CurrentTime + 60000;
 }
 
@@ -300,7 +303,7 @@ function C007_LunchBreak_Sidney_Masturbate() {
 function C007_LunchBreak_Sidney_EvilEnd() {
 	if (C007_LunchBreak_Sidney_ConfirmEvil) {
 		C007_LunchBreak_ActorSelect_EvilEnding = true;
-		Common_PlayerCrime = "SidneyStranded";
+		GameLogAdd("Stranded");
 		ActorChangeAttitude(-5, 1);
 		SetScene(CurrentChapter, "Outro");
 	} else {
@@ -334,12 +337,13 @@ function C007_LunchBreak_Sidney_TieUp(TieUpActor) {
 
 // Chapter 7 - Beat Up Amanda or Sarah
 function C007_LunchBreak_Sidney_BeatUp(BeatUpActor) {
+	GameLogSpecificAdd(CurrentChapter, BeatUpActor, "Beat");
 	ActorSpecificChangeAttitude(BeatUpActor, -1, 1);
 }
 
 // Chapter 7 - Crime Stranded (When the player leaves Amanda or Sarah bound and gagged in Sidney's chapter)
 function C007_LunchBreak_Sidney_CrimeStranded(CrimeActor) {
-	Common_PlayerCrime = CrimeActor + "Stranded";
+	GameLogSpecificAdd(CurrentChapter, CrimeActor, "Stranded");
 	C007_LunchBreak_ActorSelect_EvilEnding = true;
 	ActorSpecificChangeAttitude(CrimeActor, -3, 1);
 	C007_LunchBreak_Sidney_EndChapter();

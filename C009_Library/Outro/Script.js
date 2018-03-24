@@ -8,7 +8,6 @@ function C009_Library_Outro_Load() {
 	PlayerClothes("Clothed");
 	ActorSpecificClearInventory("Jennifer", false);
 	ActorSpecificSetPose("Jennifer", "");
-	Common_PlayerCrime = "";
 
 }
 

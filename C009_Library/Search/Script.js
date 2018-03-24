@@ -51,7 +51,7 @@ function C009_Library_Search_Masturbate() {
 		OverridenIntroText = GetText("CannotMasturbate");
 	} else {
 		C009_Library_Search_MasturbateCount++;
-		if (C009_Library_Search_MasturbateCount == 3) OverridenIntroText = GetText("Orgasm");
+		if (C009_Library_Search_MasturbateCount == 3) { GameLogSpecificAdd("C009_Library", "", "SweetGwendolineOrgasm"); OverridenIntroText = GetText("Orgasm"); }
 		if ((C009_Library_Search_MasturbateCount >= 4) && !PlayerHasLockedInventory("VibratingEgg")) OverridenIntroText = GetText("OrgasmEnough");
 		if ((C009_Library_Search_MasturbateCount >= 4) && PlayerHasLockedInventory("VibratingEgg")) {
 			OverridenIntroText = GetText("OrgasmRepeat");
@@ -76,12 +76,14 @@ function C009_Library_Search_SetReadProgress() {
 
 // Chapter 9 - Library Read Time
 function C009_Library_Search_ReadTime() {
+	GameLogSpecificAdd("C009_Library", "", "ReadChapter" + (C009_Library_Search_CurrentStage - 41).toString());
 	C009_Library_Library_BookProgress = C009_Library_Search_CurrentStage;
 	CurrentTime = CurrentTime + 170000;
 }
 
 // Chapter 9 - Library Read Full Book
 function C009_Library_Search_ReadFull() {
+	GameLogSpecificAdd("C009_Library", "", "ReadTwice");
 	C009_Library_Library_BookProgress = C009_Library_Search_CurrentStage;
 	CurrentTime = CurrentTime + 890000;
 }

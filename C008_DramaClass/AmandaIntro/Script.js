@@ -31,7 +31,7 @@ function C008_DramaClass_AmandaIntro_CalcParams() {
 	C008_DramaClass_AmandaIntro_IsGagged = ActorIsGagged();
 	C008_DramaClass_AmandaIntro_IsChaste = (ActorHasInventory("ChastityBelt"));
 	C008_DramaClass_AmandaIntro_IsBothFree = (!C008_DramaClass_AmandaIntro_IsRestrained && !C008_DramaClass_AmandaIntro_IsGagged && !Common_PlayerRestrained && !Common_PlayerGagged);
-	C008_DramaClass_AmandaIntro_IsPlayReady = (C008_DramaClass_AmandaIntro_IsBothFree && ((Common_PlayerCrime == "SarahStranded") || (C008_DramaClass_SarahIntro_CurrentStage == 30)) && (Common_PlayerCostume != ""));
+	C008_DramaClass_AmandaIntro_IsPlayReady = (C008_DramaClass_AmandaIntro_IsBothFree && (C008_DramaClass_AmandaIntro_SarahMissing || (C008_DramaClass_SarahIntro_CurrentStage == 30)) && (Common_PlayerCostume != ""));
 	C008_DramaClass_AmandaIntro_CanUntie = (ActorHasInventory("Rope") && !Common_PlayerRestrained);
 	C008_DramaClass_AmandaIntro_CanUngag = (C008_DramaClass_AmandaIntro_IsGagged && !Common_PlayerRestrained);
 	C008_DramaClass_AmandaIntro_PlayerIsRoped = (PlayerHasLockedInventory("Rope"));
@@ -49,7 +49,7 @@ function C008_DramaClass_AmandaIntro_Load() {
 	C008_DramaClass_AmandaIntro_CalcParams();
 	
 	// Check if Sarah is missing for this scene and if Amanda is the Heroine
-	C008_DramaClass_AmandaIntro_SarahMissing = (Common_PlayerCrime == "SarahStranded");
+	C008_DramaClass_AmandaIntro_SarahMissing = GameLogQuery("C007_LunchBreak", "Sarah", "Stranded");
 	C008_DramaClass_AmandaIntro_IsHeroine = (C008_DramaClass_JuliaIntro_AmandaRole == "Heroine");
 	C008_DramaClass_AmandaIntro_TakeKey();
 
@@ -163,6 +163,7 @@ function C008_DramaClass_AmandaIntro_Changing() {
 function C008_DramaClass_AmandaIntro_CheatedCover() {
 	if (ActorGetValue(ActorSubmission) <= 0) {
 		OverridenIntroText = GetText("CheaterPunishment");
+		GameLogAdd("CheaterPunishment");
 		CurrentTime = CurrentTime + 60000;
 		PlayerClothes("Underwear");
 		if (PlayerHasInventory("Rope")) PlayerRemoveInventory("Rope", 1);
@@ -302,6 +303,8 @@ function C008_DramaClass_AmandaIntro_StartHugs() {
 
 // Chapter 8 - Amanda Hug
 function C008_DramaClass_AmandaIntro_Hug(HugImage) {
+	if (HugImage.slice(-3) == "Hug") GameLogAdd("Hug");
+	if (HugImage.slice(-4) == "Kiss") GameLogAdd("Kiss");
 	C008_DramaClass_AmandaIntro_HugImage = CurrentChapter + "/HugImages/" + HugImage + ".png";
 	if (!C008_DramaClass_AmandaIntro_HugDone) {
 		C008_DramaClass_AmandaIntro_HugDone = true;

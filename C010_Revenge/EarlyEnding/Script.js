@@ -16,7 +16,6 @@ function C010_Revenge_EarlyEnding_Load() {
 	ActorSpecificSetPose("Sidney", "");
 	ActorSpecificSetPose("Jennifer", "");
 	LeaveIcon = "";
-	Common_PlayerCrime = "";
 	Common_PlayerPose = "";
 
 }

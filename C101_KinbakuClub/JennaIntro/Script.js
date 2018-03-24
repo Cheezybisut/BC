@@ -29,7 +29,7 @@ function C101_KinbakuClub_JennaIntro_Load() {
 		C101_KinbakuClub_JennaIntro_Concerned = true;
 		C101_KinbakuClub_JennaIntro_Chloe = true;
 		}
-		if (Common_PlayerCrime == "NatalieStranded") C101_KinbakuClub_JennaIntro_CurrentStage = 100;
+		if (GameLogQuery("C007_LunchBreak", "Natalie", "Stranded")) C101_KinbakuClub_JennaIntro_CurrentStage = 100;
 		C101_KinbakuClub_JennaIntro_FirstLoad = false;
 	}
 

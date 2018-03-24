@@ -15,7 +15,7 @@ function C009_Library_Library_Load() {
 	if (!Common_PlayerRestrained) PlayerClothes("Clothed");
 	
 	// Jennifer can be gone from the start if chapter 10 was triggered for her or Sidney
-	if ((Common_PlayerCrime == "JenniferStranded") || (Common_PlayerCrime == "SidneyStranded")) C009_Library_Library_JenniferGone = true;
+	if (GameLogQuery("C007_LunchBreak", "Jennifer", "Stranded") || GameLogQuery("C007_LunchBreak", "Sidney", "Stranded")) C009_Library_Library_JenniferGone = true;
 
 }
 

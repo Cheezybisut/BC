@@ -209,6 +209,7 @@ function C007_LunchBreak_Jennifer_EndLunch() {
 
 // Chapter 7 - Jennifer Play Tennis (adds 5 minutes)
 function C007_LunchBreak_Jennifer_PlayTennis(Difficulty) {
+	GameLogAdd("Lunch");
 	CurrentTime = CurrentTime + 300000;
 	C007_LunchBreak_Jennifer_IntroText = "";
 	C007_LunchBreak_Jennifer_LeaveIcon = "";
@@ -274,6 +275,7 @@ function C007_LunchBreak_Jennifer_Release() {
 
 // Chapter 7 - Jennifer Enter Tennis Court (Adds 5 minutes)
 function C007_LunchBreak_Jennifer_EnterTennis() {
+	GameLogAdd("LunchBonus");
 	CurrentTime = CurrentTime + 300000;
 }
 
@@ -339,7 +341,7 @@ function C007_LunchBreak_Jennifer_Masturbate() {
 function C007_LunchBreak_Jennifer_EvilEnd() {
 	if (C007_LunchBreak_Jennifer_ConfirmEvil) {
 		C007_LunchBreak_ActorSelect_EvilEnding = true;
-		Common_PlayerCrime = "JenniferStranded";
+		GameLogAdd("Stranded");
 		ActorChangeAttitude(-5, 1);
 		SetScene(CurrentChapter, "Outro");
 	} else {
@@ -367,9 +369,11 @@ function C007_LunchBreak_Jennifer_PushUp(Quality) {
 		if (C007_LunchBreak_Jennifer_PushUpQuality >= 20) {
 			C007_LunchBreak_Jennifer_CurrentStage = 340;
 			C007_LunchBreak_ActorSelect_BonusDone = true;
+			GameLogAdd("PushUpSuccess");
 			OverridenIntroText = GetText("PushUpSuccess");
 		} else {
 			C007_LunchBreak_Jennifer_CurrentStage = 400;
+			GameLogAdd("PushUpFail");
 			OverridenIntroText = GetText("PushUpFail");			
 		}
 	}
@@ -409,4 +413,9 @@ function C007_LunchBreak_Jennifer_CheckBag() {
 function C007_LunchBreak_Jennifer_EndChapter() {
 	C007_LunchBreak_Jennifer_Release();
 	SetScene(CurrentChapter, "Outro");
+}
+
+// Chapter 7 - Jennifer Kiss
+function C007_LunchBreak_Jennifer_Kiss() {
+	GameLogAdd("Kiss");
 }

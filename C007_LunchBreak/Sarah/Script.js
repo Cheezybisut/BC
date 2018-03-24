@@ -176,6 +176,7 @@ function C007_LunchBreak_Sarah_Click() {
 
 // Chapter 7 - Sarah Start Lunch
 function C007_LunchBreak_Sarah_StartLunch() {	
+	GameLogAdd("Lunch");
 	CurrentTime = CurrentTime + 480000;
 	LeaveIcon = "";
 }
@@ -222,6 +223,7 @@ function C007_LunchBreak_Sarah_RestroomTimerRun() {
 // Chapter 7 - Sarah Test Restroom door (Sarah will let the player enter if there's a good match +3 or more)
 function C007_LunchBreak_Sarah_RestroomTestDoor() {
 	if (C007_LunchBreak_Sarah_MatchCount >= 4) {
+		GameLogAdd("LunchBonus");
 		OverridenIntroText = GetText("OpenRestroomDoor");
 		C007_LunchBreak_Sarah_CurrentStage = 200;
 		C007_LunchBreak_Sarah_CalcParams();
@@ -311,11 +313,16 @@ function C007_LunchBreak_Sarah_EndChapter() {
 function C007_LunchBreak_Sarah_EvilEnd() {
 	if (C007_LunchBreak_Sarah_ConfirmEvil) {
 		C007_LunchBreak_ActorSelect_EvilEnding = true;
-		Common_PlayerCrime = "SarahStranded";
+		GameLogAdd("Stranded");
 		ActorChangeAttitude(-5, 1);
 		SetScene(CurrentChapter, "Outro");		
 	} else {
 		OverridenIntroText = GetText("LeaveBoundAndGagged");
 		C007_LunchBreak_Sarah_ConfirmEvil = true;
 	}
+}
+
+// Chapter 7 - Sarah Kiss
+function C007_LunchBreak_Sarah_Kiss() {
+	GameLogAdd("Kiss");
 }

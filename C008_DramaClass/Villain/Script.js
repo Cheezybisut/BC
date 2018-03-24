@@ -119,6 +119,7 @@ function C008_DramaClass_Villain_Surrender() {
 	ActorSpecificChangeAttitude("Amanda", 0, -2);
 	ActorSpecificChangeAttitude("Sarah", 0, -2);
 	ActorSpecificChangeAttitude("Julia", 0, -2);
+	GameLogSpecificAdd(CurrentChapter, "", "FightSurrender");
 	C008_DramaClass_Theater_GlobalStage = C008_DramaClass_Villain_CurrentStage;
 	C008_DramaClass_Theater_SetPose();
 }
@@ -156,6 +157,7 @@ function C008_DramaClass_Villain_AmandaSarahFight(CheerFactor) {
 
 // Chapter 8 - Villain - When the villain kisses the damsel, it finishes the play
 function C008_DramaClass_Villain_FinalKiss() {
+	GameLogSpecificAdd(CurrentChapter, "", "FinalKiss");
 	OverridenIntroImage = "../HugImages/VillainAmandaDamselPlayerKiss.jpg"; 
 	ActorSpecificChangeAttitude("Amanda", 2, 0); 
 	ActorSpecificChangeAttitude("Sarah", -3, 0);
@@ -165,6 +167,7 @@ function C008_DramaClass_Villain_FinalKiss() {
 
 // Chapter 8 - Villain - When the villain hugs the damsel, it finishes the play
 function C008_DramaClass_Villain_FinalHug() {
+	GameLogSpecificAdd(CurrentChapter, "", "FinalHug");
 	OverridenIntroImage = "../HugImages/VillainAmandaDamselPlayerHug.jpg"; 
 	ActorSpecificChangeAttitude("Amanda", 1, 0); 
 	ActorSpecificChangeAttitude("Sarah", -1, 0);
@@ -174,6 +177,7 @@ function C008_DramaClass_Villain_FinalHug() {
 
 // Chapter 8 - Villain - When the damsel kneels for the villain, it finishes the play
 function C008_DramaClass_Villain_FinalDomme() {
+	GameLogSpecificAdd(CurrentChapter, "", "FinalDomme");
 	OverridenIntroImage = "../HugImages/VillainAmandaDamselPlayerDomme.jpg"; 
 	ActorSpecificChangeAttitude("Amanda", 1, -2);
 	ActorSpecificChangeAttitude("Sarah", -1, 0);
@@ -192,6 +196,7 @@ function C008_DramaClass_Villain_ReleasePlayer() {
 
 // Chapter 8 - Villain - When the damsel surrenders and the play ends with two prisoners
 function C008_DramaClass_Villain_FinalTwoPrisoners() {
+	GameLogSpecificAdd(CurrentChapter, "", "FinalTwoPrisoners");
 	C008_DramaClass_Theater_GlobalStage = 300;
 	C008_DramaClass_Theater_Ending = "TwoPrisoners";
 }
@@ -218,8 +223,8 @@ function C008_DramaClass_Villain_Ungag() {
 }
 
 // Chapter 8 - Villain Kiss
-function C008_DramaClass_Villain_Kiss() {
-	if (!C008_DramaClass_Villain_KissDone) { C008_DramaClass_Villain_KissDone = true; ActorChangeAttitude(1, 0); }
+function C008_DramaClass_Villain_Kiss() {	
+	if (!C008_DramaClass_Villain_KissDone) { GameLogAdd("Kiss"); C008_DramaClass_Villain_KissDone = true; ActorChangeAttitude(1, 0); }
 	C008_DramaClass_Villain_CalcParams();
 }
 
@@ -269,6 +274,7 @@ function C008_DramaClass_Villain_Ravish() {
 function C008_DramaClass_Villain_SwordDance() {
 	if (C008_DramaClass_Villain_PlayerIsHeroine) { C008_DramaClass_Villain_CurrentStage = 240; C008_DramaClass_Theater_GlobalStage = 240; }
 	if (C008_DramaClass_Villain_PlayerIsVillain) { C008_DramaClass_Villain_CurrentStage = 270; C008_DramaClass_Theater_GlobalStage = 270; }
+	GameLogSpecificAdd(CurrentChapter, "", "FightSwordDance");
 	ActorSpecificChangeAttitude("Julia", PlayerGetSkillLevel("Arts"), 0);
 	ActorSpecificChangeAttitude("Amanda", 0, 1);
 	ActorSpecificChangeAttitude("Sarah", 0, 1);

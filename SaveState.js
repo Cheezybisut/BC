@@ -67,7 +67,6 @@ function SaveState(SlotNumber) {
 	localStorage.setItem("Actor" + SN, JSON.stringify(Actor));
 	localStorage.setItem("GameLog" + SN, JSON.stringify(GameLog));
 	localStorage.setItem("CurrentTime" + SN, CurrentTime.toString());
-	localStorage.setItem("Common_PlayerCrime" + SN, Common_PlayerCrime);
 	localStorage.setItem("Common_ClubStatus" + SN, Common_ClubStatus);
 
 	// Reload the summaries
@@ -96,7 +95,6 @@ function LoadState(SlotNumber) {
 			GameLog = JSON.parse(localStorage.getItem("GameLog" + SN));
 			PlayerSkill = JSON.parse(localStorage.getItem("PlayerSkill" + SN));
 			CurrentTime = parseFloat(localStorage.getItem("CurrentTime" + SN));			
-			Common_PlayerCrime = localStorage.getItem("Common_PlayerCrime" + SN);
 			Common_ClubStatus = localStorage.getItem("Common_ClubStatus" + SN);
 			LoadRestrainStatus();
 			SetScene(CurrentChapter, CurrentScreen);

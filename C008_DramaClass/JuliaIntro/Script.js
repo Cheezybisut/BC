@@ -67,3 +67,8 @@ function C008_DramaClass_JuliaIntro_SetRole(NewRole) {
 function C008_DramaClass_JuliaIntro_DressingRoom() {
 	SetScene("C008_DramaClass", "DressingRoom");
 }
+
+// Chapter 8 - Julia Intro - Hug
+function C008_DramaClass_JuliaIntro_Hug() {
+	GameLogAdd("Hug");
+}

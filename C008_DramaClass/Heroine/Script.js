@@ -115,6 +115,7 @@ function C008_DramaClass_Heroine_ForgetLine() {
 
 // Chapter 8 - Heroine - When the heroine kisses the damsel, it finishes the play
 function C008_DramaClass_Heroine_FinalKiss() {
+	GameLogSpecificAdd(CurrentChapter, "", "FinalKiss");
 	OverridenIntroImage = "../HugImages/HeroineSarahDamselPlayerKiss.jpg";
 	ActorSpecificChangeAttitude("Sarah", 2, 0);
 	ActorSpecificChangeAttitude("Amanda", -3, 0);
@@ -124,6 +125,7 @@ function C008_DramaClass_Heroine_FinalKiss() {
 
 // Chapter 8 - Heroine - When the heroine hugs the damsel, it finishes the play
 function C008_DramaClass_Heroine_FinalHug() {
+	GameLogSpecificAdd(CurrentChapter, "", "FinalHug");
 	OverridenIntroImage = "../HugImages/HeroineSarahDamselPlayerHug.jpg";
 	ActorSpecificChangeAttitude("Sarah", 1, 0);
 	ActorSpecificChangeAttitude("Amanda", -1, 0);
@@ -133,6 +135,7 @@ function C008_DramaClass_Heroine_FinalHug() {
 
 // Chapter 8 - Heroine - When the damsel kneels for the heroine, it finishes the play
 function C008_DramaClass_Heroine_FinalDomme() {
+	GameLogSpecificAdd(CurrentChapter, "", "FinalDomme");
 	OverridenIntroImage = "../HugImages/HeroineSarahDamselPlayerDomme.jpg";
 	ActorSpecificChangeAttitude("Sarah", 1, -2);
 	ActorSpecificChangeAttitude("Amanda", -1, 0);
@@ -142,6 +145,7 @@ function C008_DramaClass_Heroine_FinalDomme() {
 
 // Chapter 8 - Heroine - When the heroine proposes a menage a trois, it finishes the play
 function C008_DramaClass_Heroine_FinalTrio() {
+	GameLogSpecificAdd(CurrentChapter, "", "FinalTrio");
 	OverridenIntroImage = "../HugImages/HeroinePlayerVillainAmandaDamselSarahKiss.jpg";
 	ActorSpecificChangeAttitude("Sarah", 1, 0);
 	ActorSpecificChangeAttitude("Amanda", 1, 0);
@@ -165,6 +169,7 @@ function C008_DramaClass_Heroine_ReleasePlayer() {
 
 // Chapter 8 - Heroine - When the damsel surrenders and the play ends with two prisoners
 function C008_DramaClass_Heroine_FinalTwoPrisoners() {
+	GameLogSpecificAdd(CurrentChapter, "", "FinalTwoPrisoners");
 	C008_DramaClass_Theater_GlobalStage = 300;
 	C008_DramaClass_Theater_Ending = "TwoPrisoners";
 }
@@ -192,6 +197,7 @@ function C008_DramaClass_Heroine_Ungag() {
 
 // Chapter 8 - Heroine Kiss
 function C008_DramaClass_Heroine_Kiss() {
+	GameLogAdd("Kiss");
 	if ((CurrentActor == "Amanda") && !C008_DramaClass_Heroine_KissDone) { C008_DramaClass_Heroine_KissDone = true; ActorChangeAttitude(1, 0); }
 	C008_DramaClass_Heroine_CalcParams();
 }

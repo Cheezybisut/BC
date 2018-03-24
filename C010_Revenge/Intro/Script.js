@@ -1,13 +1,13 @@
 // Chapter 10 - Revenge Load
 function C010_Revenge_Intro_Load() {
 
-	// If there's no crime, it means the player started on chapter 6, we pick a teacher at random
-	if (Common_PlayerCrime == "") {
+	// If nobody was left stranded, it means the player started on chapter 10, in that case we assign a random girl as being stranded
+	if (!GameLogQuery("C007_LunchBreak", "Amanda", "Stranded") && !GameLogQuery("C007_LunchBreak", "Sarah", "Stranded") && !GameLogQuery("C007_LunchBreak", "Sidney", "Stranded") && !GameLogQuery("C007_LunchBreak", "Jennifer", "Stranded")) {
 		var R = Math.floor(Math.random() * 4);
-		if (R == 0) Common_PlayerCrime = "AmandaStranded";
-		if (R == 1) Common_PlayerCrime = "SarahStranded";
-		if (R == 2) Common_PlayerCrime = "SidneyStranded";
-		if (R == 3) Common_PlayerCrime = "JenniferStranded";
+		if (R == 0) GameLogSpecificAdd("C007_LunchBreak", "Amanda", "Stranded");
+		if (R == 1) GameLogSpecificAdd("C007_LunchBreak", "Sarah", "Stranded");
+		if (R == 2) GameLogSpecificAdd("C007_LunchBreak", "Sidney", "Stranded");
+		if (R == 3) GameLogSpecificAdd("C007_LunchBreak", "Jennifer", "Stranded");
 	}
 
 	// Time is always 14:15 on the intro, no timer
@@ -22,7 +22,7 @@ function C010_Revenge_Intro_Run() {
 	var ctx = document.getElementById("MainCanvas").getContext("2d");
 
 	// Amanda or Sarah intro
-	if ((Common_PlayerCrime == "AmandaStranded") || (Common_PlayerCrime == "SarahStranded")) {
+	if (GameLogQuery("C007_LunchBreak", "Amanda", "Stranded") || GameLogQuery("C007_LunchBreak", "Sarah", "Stranded")) {
 		DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/BackgroundAmandaSarah.jpg", 0, 0);
 		DrawPlayerTransition(ctx);
 		DrawText(ctx, GetText("AmandaSarah1"), 400, 150, "White");
@@ -32,7 +32,7 @@ function C010_Revenge_Intro_Run() {
 	}
 	
 	// Sidney or Jennifer intro	
-	if ((Common_PlayerCrime == "SidneyStranded") || (Common_PlayerCrime == "JenniferStranded")) {
+	if (GameLogQuery("C007_LunchBreak", "Sidney", "Stranded") || GameLogQuery("C007_LunchBreak", "Jennifer", "Stranded")) {
 		DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/BackgroundSidneyJennifer.jpg", 0, 0);
 		DrawPlayerTransition(ctx);
 		DrawText(ctx, GetText("SidneyJennifer1"), 400, 150, "White");
@@ -46,6 +46,6 @@ function C010_Revenge_Intro_Run() {
 // Chapter 10 - Revenge Click
 function C010_Revenge_Intro_Click() {
 	TextPhase++;
-	if ((TextPhase >= 4) && ((Common_PlayerCrime == "AmandaStranded") || (Common_PlayerCrime == "SarahStranded"))) SetScene(CurrentChapter, "AmandaSarah");
-	if ((TextPhase >= 4) && ((Common_PlayerCrime == "SidneyStranded") || (Common_PlayerCrime == "JenniferStranded"))) SetScene(CurrentChapter, "SidneyJennifer");
+	if ((TextPhase >= 4) && (GameLogQuery("C007_LunchBreak", "Amanda", "Stranded") || GameLogQuery("C007_LunchBreak", "Sarah", "Stranded"))) SetScene(CurrentChapter, "AmandaSarah");
+	if ((TextPhase >= 4) && (GameLogQuery("C007_LunchBreak", "Sidney", "Stranded") || GameLogQuery("C007_LunchBreak", "Jennifer", "Stranded"))) SetScene(CurrentChapter, "SidneyJennifer");
 }

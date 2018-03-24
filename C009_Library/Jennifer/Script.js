@@ -193,12 +193,13 @@ function C009_Library_Jennifer_JenniferLeave() {
 // Chapter 9 Library - Jennifer - When the player wants to sit with her
 function C009_Library_Jennifer_TestSitTogether() {
 	if ((ActorGetValue(ActorLove) >= 5) || (ActorGetValue(ActorSubmission) >= 5) || (PlayerGetSkillLevel("Seduction") >= 1)) {
-		if (Common_PlayerRestrained) {			
+		if (Common_PlayerRestrained) {
 			OverridenIntroText = GetText("CannottSitRestrained");
 		} else {
 			OverridenIntroText = GetText("SitTogether");
 			C009_Library_Jennifer_CurrentStage = 200;
-			C009_Library_Jennifer_SetPose();			
+			C009_Library_Jennifer_SetPose();
+			GameLogAdd("SitTogether");
 		}
 	}
 }
@@ -211,6 +212,7 @@ function C009_Library_Jennifer_NewPose() {
 // Chapter 9 Library - When Jennifer strips to her underwear
 function C009_Library_Jennifer_Strip(NewCloth) {
 	ActorSetCloth(NewCloth);
+	if (NewCloth == "Naked") GameLogAdd("Naked");
 	C009_Library_Jennifer_SetPose();
 	C009_Library_Jennifer_CalcParams();
 	CurrentTime = CurrentTime + 50000;
@@ -231,6 +233,7 @@ function C009_Library_Jennifer_DrawJennifer(MinutesSpent) {
 		if ((MinutesSpent == 15) || (MinutesSpent == 30)) PlayerAddSkill("Arts", 1);
 		C009_Library_Jennifer_SetPose();
 		C009_Library_Jennifer_ArtDone = true;
+		GameLogAdd("Draw");
 	} else OverridenIntroText = GetText("NoTimeToDraw");
 }
 
@@ -246,6 +249,7 @@ function C009_Library_Jennifer_TestTurnTables() {
 	if (ActorGetValue(ActorSubmission) < 0) {
 		OverridenIntroText = GetText("TurnTablesFromTalk");
 		C009_Library_Jennifer_RestrainPlayer();
+		GameLogAdd("TurnTables");
 	}
 }
 
@@ -314,6 +318,7 @@ function C009_Library_Jennifer_Ungag() {
 
 // Chapter 9 Library - Jennifer kiss
 function C009_Library_Jennifer_Kiss() {
+	GameLogAdd("Kiss");
 	C009_Library_Jennifer_CalcParams();
 	if (!C009_Library_Jennifer_KissDone && (PlayerGetSkillLevel("Seduction") >= 1)) {
 		ActorChangeAttitude(1, 0);
@@ -359,6 +364,7 @@ function C009_Library_Jennifer_TestMakeLove() {
 function C009_Library_Jennifer_StripBoth(NewCloth) {
 	ActorSetCloth(NewCloth);
 	PlayerClothes(NewCloth);
+	if (NewCloth == "Naked") GameLogAdd("NakedWithPlayer");
 	if (Common_PlayerChaste) {
 		OverridenIntroText = GetText("StripRevealBelt");
 		C009_Library_Jennifer_CurrentStage = 235;
@@ -377,6 +383,7 @@ function C009_Library_Jennifer_TestPleasurePlayer() {
 
 // Chapter 9 Library - When the player pleasures Jennifer
 function C009_Library_Jennifer_PleasureJennifer() {
+	GameLogAdd("EatenByPlayer");
 	OverridenIntroImage = "";
 	C009_Library_Jennifer_MastubateCount++;
 	CurrentTime = CurrentTime + 50000;
@@ -389,6 +396,7 @@ function C009_Library_Jennifer_PleasureJennifer() {
 
 // Chapter 9 Library - When Jennifer pleasures the player (multiple orgasms are possible with an egg)
 function C009_Library_Jennifer_PleasurePlayer() {
+	GameLogAdd("AtePlayer");
 	OverridenIntroImage = "";
 	C009_Library_Jennifer_PlayerMastubateCount++;
 	CurrentTime = CurrentTime + 50000;

@@ -27,7 +27,7 @@ function C008_DramaClass_SarahIntro_CalcParams() {
 	C008_DramaClass_SarahIntro_IsGagged = ActorIsGagged();
 	C008_DramaClass_SarahIntro_IsChaste = (ActorHasInventory("ChastityBelt"));
 	C008_DramaClass_SarahIntro_IsBothFree = (!C008_DramaClass_SarahIntro_IsRestrained && !C008_DramaClass_SarahIntro_IsGagged && !Common_PlayerRestrained && !Common_PlayerGagged);
-	C008_DramaClass_SarahIntro_IsPlayReady = (C008_DramaClass_SarahIntro_IsBothFree && ((Common_PlayerCrime == "AmandaStranded") || (C008_DramaClass_AmandaIntro_CurrentStage == 50)) && (Common_PlayerCostume != ""));
+	C008_DramaClass_SarahIntro_IsPlayReady = (C008_DramaClass_SarahIntro_IsBothFree && (C008_DramaClass_SarahIntro_AmandaMissing || (C008_DramaClass_AmandaIntro_CurrentStage == 50)) && (Common_PlayerCostume != ""));
 	C008_DramaClass_SarahIntro_CanUntie = (ActorHasInventory("Rope") && !Common_PlayerRestrained);
 	C008_DramaClass_SarahIntro_CanUngag = (C008_DramaClass_SarahIntro_IsGagged && !Common_PlayerRestrained);
 	C008_DramaClass_SarahIntro_PlayerIsRoped = (PlayerHasLockedInventory("Rope"));
@@ -45,7 +45,7 @@ function C008_DramaClass_SarahIntro_Load() {
 	C008_DramaClass_SarahIntro_CalcParams();
 	
 	// Check if Amanda is missing for this scene and if Sarah is the damsel
-	C008_DramaClass_SarahIntro_AmandaMissing = (Common_PlayerCrime == "AmandaStranded");
+	C008_DramaClass_SarahIntro_AmandaMissing = GameLogQuery("C007_LunchBreak", "Amanda", "Stranded");
 	C008_DramaClass_SarahIntro_IsDamsel = (C008_DramaClass_JuliaIntro_SarahRole == "Damsel");
 	
 	// Sarah can ungag the player if needed at first
@@ -234,6 +234,8 @@ function C008_DramaClass_SarahIntro_StartHugs() {
 
 // Chapter 8 - Sarah Hug
 function C008_DramaClass_SarahIntro_Hug(HugImage) {
+	if (HugImage.slice(-3) == "Hug") GameLogAdd("Hug");
+	if (HugImage.slice(-4) == "Kiss") GameLogAdd("Kiss");
 	C008_DramaClass_SarahIntro_HugImage = CurrentChapter + "/HugImages/" + HugImage + ".png";
 	C008_DramaClass_SarahIntro_HugDone = true;
 }
