@@ -25,6 +25,8 @@ var C007_LunchBreak_Jennifer_PushUpCount = 0;
 var C007_LunchBreak_Jennifer_RacketQuality = 0;
 var C007_LunchBreak_Jennifer_HasRestrainsAvail = false;
 var C007_LunchBreak_Jennifer_HasSeduction = false;
+var	C007_LunchBreak_Jennifer_JudoVictory = false;
+var C007_LunchBreak_Jennifer_JudoDefeat = false;
 
 // Calculates the screen parameters
 function C007_LunchBreak_Jennifer_CalcParams() {
@@ -76,7 +78,9 @@ function C007_LunchBreak_Jennifer_Load() {
 	LoadInteractions();
 	C007_LunchBreak_Jennifer_CalcParams();
 	C007_LunchBreak_Jennifer_HasSeduction = (PlayerGetSkillLevel("Seduction") >= 1);
-	
+	C007_LunchBreak_Jennifer_JudoVictory = GameLogQuery("C005_GymClass", "Jennifer", "FightVictory");
+	C007_LunchBreak_Jennifer_JudoDefeat = GameLogQuery("C005_GymClass", "Jennifer", "FightDefeat");
+
 	// If Jennifer doesn't like the player, she will run away from the start
 	if ((ActorGetValue(ActorLove) <= -3) && (ActorGetValue(ActorSubmission) <= 3)) {
 		OverridenIntroText = GetText("SkipIntro");

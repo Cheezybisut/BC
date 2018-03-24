@@ -13,6 +13,7 @@ var C007_LunchBreak_Sidney_ConfirmEvil = false;
 var C007_LunchBreak_Sidney_MasturbateCount = 0;
 var C007_LunchBreak_Sidney_HateAmanda = false;
 var C007_LunchBreak_Sidney_HateSarah = false;
+var C007_LunchBreak_Sidney_HelpedEscape = false;
 
 // Calculates the screen parameters
 function C007_LunchBreak_Sidney_CalcParams() {
@@ -51,6 +52,7 @@ function C007_LunchBreak_Sidney_Load() {
 	// Load the scene parameters
 	ActorLoad("Sidney", "ActorSelect");
 	LoadInteractions();
+	C007_LunchBreak_Sidney_HelpedEscape = GameLogQuery("C003_MorningDetention", "Sidney", "Unlock");
 	C007_LunchBreak_Sidney_CalcParams();
 	
 	// If the player is submissive toward Sidney, she will get bullied

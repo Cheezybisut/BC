@@ -27,6 +27,9 @@ var C009_Library_Jennifer_IsChaste = false;
 var C009_Library_Jennifer_CanRemoveUnderwear = false;
 var C009_Library_Jennifer_CanAddUnderwear = false;
 var C009_Library_Jennifer_BookAlreadyFound = false;
+var C009_Library_Jennifer_TennisVictory = false;
+var C009_Library_Jennifer_TennisDefeat = false;
+var C009_Library_Jennifer_Painted = false;
 
 // Calculates the scene parameters
 function C009_Library_Jennifer_CalcParams() {
@@ -65,7 +68,12 @@ function C009_Library_Jennifer_Load() {
 	LoadInteractions();
 	C009_Library_Jennifer_IsArtist = ((PlayerGetSkillLevel("Arts") >= 1) && !Common_PlayerRestrained);
 	Common_SelfBondageAllowed = false;
+	
+	// A few variables on what already happened
 	C009_Library_Jennifer_BookAlreadyFound = (C009_Library_Library_BookProgress > 40);
+	C009_Library_Jennifer_TennisVictory = GameLogQuery("C007_LunchBreak", "Jennifer", "TennisVictory");
+	C009_Library_Jennifer_TennisDefeat = GameLogQuery("C007_LunchBreak", "Jennifer", "TennisDefeat");
+	C009_Library_Jennifer_Painted = GameLogQuery("C004_ArtClass", "Jennifer", "Paint");
 
 	// Do not change the scene parameters if we are loading from the player screen
 	if (!C009_Library_Jennifer_LoadFromPlayerScreen) {
@@ -431,4 +439,10 @@ function C009_Library_Jennifer_TestSwitchJennifer() {
 		C009_Library_Jennifer_CurrentStage = 280;
 	}
 	C009_Library_Jennifer_SetPose();
+}
+
+// Chapter 9 Library - Jennifer is player favorite model
+function C009_Library_Jennifer_FavoriteModel() {
+	ActorChangeAttitude(1, 0);
+	C009_Library_Jennifer_Painted = false;
 }

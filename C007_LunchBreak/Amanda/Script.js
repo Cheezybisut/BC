@@ -14,6 +14,8 @@ var C007_LunchBreak_Amanda_LeaveIcon = "";
 var C007_LunchBreak_Amanda_IsBoundAndGagged = false;
 var C007_LunchBreak_Amanda_ConfirmEvil = false;
 var C007_LunchBreak_Amanda_HasSeduction = false;
+var C007_LunchBreak_Amanda_TeamAgainstMildred = false;
+var C007_LunchBreak_Amanda_TeamFailAgainstMildred = false;
 
 // Calculates the screen parameters
 function C007_LunchBreak_Amanda_CalcParams() {
@@ -55,7 +57,9 @@ function C007_LunchBreak_Amanda_Load() {
 	LoadInteractions();
 	C007_LunchBreak_Amanda_CalcParams();
 	C007_LunchBreak_Amanda_HasSeduction = (PlayerGetSkillLevel("Seduction") >= 1);
-	
+	C007_LunchBreak_Amanda_TeamAgainstMildred = GameLogQuery("C002_FirstClass", "Mildred", "SubdueWithAmanda");
+	C007_LunchBreak_Amanda_TeamFailAgainstMildred = GameLogQuery("C002_FirstClass", "Mildred", "SubdueFailWithAmanda");
+
 	// If Amanda doesn't like the player and isn't subbie enough, she leaves and don't talk
 	if ((ActorGetValue(ActorLove) <= -3) && (ActorGetValue(ActorSubmission) <= 2) && (C007_LunchBreak_Amanda_CurrentStage == 0)) {
 		C007_LunchBreak_Amanda_CurrentStage = 5;

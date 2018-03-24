@@ -12,6 +12,7 @@ var C007_LunchBreak_Sarah_IsBoundAndGagged = false;
 var C007_LunchBreak_Sarah_HasEgg = false;
 var C007_LunchBreak_Sarah_TwoRopes = false;
 var C007_LunchBreak_Sarah_ConfirmEvil = false;
+var C007_LunchBreak_Sarah_SubdueMildred = false;
 
 // Calculates the screen parameters
 function C007_LunchBreak_Sarah_CalcParams() {
@@ -64,6 +65,7 @@ function C007_LunchBreak_Sarah_Load() {
 	ActorLoad("Sarah", "ActorSelect");
 	LoadInteractions();
 	C007_LunchBreak_Sarah_CalcParams();
+	C007_LunchBreak_Sarah_SubdueMildred = (GameLogQuery("C002_FirstClass", "Mildred", "Subdue") && !GameLogQuery("C002_FirstClass", "Mildred", "Release"));
 	
 	// If Sarah doesn't like the player and isn't subbie enough, she leaves and don't talk
 	if ((ActorGetValue(ActorLove) <= -3) && (ActorGetValue(ActorSubmission) <= 2) && (C007_LunchBreak_Sarah_CurrentStage == 0)) {
