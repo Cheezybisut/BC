@@ -47,6 +47,7 @@ function C008_DramaClass_Julia_Load() {
 	// On a perfect play, the player gains a level in arts
 	if ((C008_DramaClass_Julia_CurrentStage == 300) && C008_DramaClass_Theater_PerfectPlay) {
 		C008_DramaClass_Theater_PerfectPlay = false;
+		GameLogSpecificAdd(CurrentChapter, "", "PerfectPlay");
 		PlayerAddSkill("Arts", 1);
 	}
 	
@@ -95,9 +96,10 @@ function C008_DramaClass_Julia_Click() {
 		// Julia cannot wear a belt or a collar
 		if (ClickInv == "ChastityBelt") { OverridenIntroText = GetText("CannotWearBelt"); return; }
 		if (ClickInv == "Collar") { OverridenIntroText = GetText("CannotWearCollar"); return; }
+		if (ClickInv == "Armbinder") { OverridenIntroText = GetText("Armbinder"); return; }
 
 		// A few items can change the actor attitude
-		if ((ClickInv == "Crop") && !C008_DramaClass_Julia_CropDone) { C008_DramaClass_Julia_CropDone = true; ActorChangeAttitude(0, 1); }
+		if ((ClickInv == "Crop") && !C008_DramaClass_Julia_CropDone) { GameLogAdd("Crop"); C008_DramaClass_Julia_CropDone = true; ActorChangeAttitude(0, 1); }
 
 		// Apply the clicked restrain
 		ActorApplyRestrain(ClickInv);
@@ -108,6 +110,7 @@ function C008_DramaClass_Julia_Click() {
 	// Julia will turn the tables on the player on stage 500
 	if ((C008_DramaClass_Julia_CurrentStage == 500) && (ClickInv != "") && (ClickInv != "Player") && !Common_PlayerRestrained && (PlayerHasInventory("Rope") || PlayerHasInventory("Cuffs"))) {
 		OverridenIntroText = GetText("QueenTurnTables");
+		GameLogAdd("TurnTables");
 		PlayerRandomBondage();
 		CurrentTime = CurrentTime + 60000;
 	}
@@ -167,7 +170,7 @@ function C008_DramaClass_Julia_Ungag() {
 
 // Chapter 8 - Julia Kiss
 function C008_DramaClass_Julia_Kiss() {
-	if (!C008_DramaClass_Julia_KissDone) { C008_DramaClass_Julia_KissDone = true; ActorChangeAttitude(1, 0); }
+	if (!C008_DramaClass_Julia_KissDone) { GameLogAdd("Kiss"); C008_DramaClass_Julia_KissDone = true; ActorChangeAttitude(1, 0); }
 	C008_DramaClass_Julia_CalcParams();
 }
 
@@ -218,6 +221,7 @@ function C008_DramaClass_Julia_WeightComment() {
 
 // Chapter 8 - Julia the queen will not accept a rebellion and put everyone in bondage
 function C008_DramaClass_Julia_Rebellion() {
+	GameLogAdd("Rebellion");
 	C008_DramaClass_Julia_RebellionAvail = false;
 	CurrentTime = CurrentTime + 170000;
 	PlayerRandomBondage();

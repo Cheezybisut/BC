@@ -70,7 +70,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 150,0,0,Common_PlayerNotRestrained,(Ungag her.)|(1 minute),(You unbuckle and pull out the big ball.)|Do you have another gag for me?,140,0,0,Ungag()
 150,0,0,Common_PlayerNotRestrained,(Untie her.)|(1 minute),(You untie the knots and she dresses back.)|(She then chews on the gag happily.),110,0,0,Untie()
 150,0,0,BondageHugReady,Would you like to hug|Amanda? (1 minute),(She nods happily and moves to her|friend to give her a sexy bondage hug.),170,0,0,BondageHug()
-160,0,0,,Would you like to kiss|her?  (1 minute),(She blushes and nods.)  A kiss Amy?|(She gets closer and kisses Amanda.),160,0,0,
+160,0,0,,Would you like to kiss|her?  (1 minute),(She blushes and nods.)  A kiss Amy?|(She gets closer and kisses Amanda.),160,0,0,KissAmanda()
 160,0,0,,Are you two in love?,I'm not answering that.|(She puils her tongue at you.),160,0,0,
 160,0,0,Common_PlayerNotRestrained,(Separate them.)|(1 minute),See you later Amy.  (She winks.),140,0,0,Separate()
 170,0,0,,You two make a|nice bondage duo.,(She nods happily.),170,0,0,BondageDuo()

@@ -25,6 +25,7 @@ function C005_GymClass_WinFight_FightEnd(Victory) {
 		C005_GymClass_Jennifer_CurrentStage = 400;
 		if (!C005_GymClass_Jennifer_EasyMode) C005_GymClass_Jennifer_DefeatedHardMode = true;
 		if (!C005_GymClass_Jennifer_EasyMode && FightPerfect) C005_GymClass_Jennifer_DefeatedHardModePerfect = true;
+		GameLogSpecificAdd("C005_GymClass", "Jennifer", "FightVictory");
 	}
 	else {
 		C005_GymClass_Jennifer_CurrentStage = 210;

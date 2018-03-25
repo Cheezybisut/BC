@@ -121,7 +121,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 320,0,0,,(Try to escape.),Where do you think you're going without permission?|(Natalie quickly binds you legs.)  It's gag time.,330,0,-1,
 320,0,0,,(Struggle playfully.),You're a little wriggler.|(Natalie binds you legs.)  It's gag time.,330,1,0,
 330,0,0,,What?,"Open wide. (You open your mouth and Natalie packs|it with cloth, then cleaves and OTM gags you.)",350,0,0,SubbieClothGag()
-330,0,0,,Do you really want to gag me?,(You barely finish speaking before she|packs your mouth with a cloth and gags you.),350,0,0,SubbieClothGag()
+330,0,0,,Do you really|want to gag me?,(You barely finish speaking before she|packs your mouth with a cloth and gags you.),350,0,0,SubbieClothGag()
 330,0,0,,Please no more.,"You talk too much. (Natalie stuffs your mouth|with cloth, then cleave and OTM gags you.)",350,0,-1,SubbieClothGag()
 330,0,0,,That's enough|(Clench your jaw.),So you like to play the hard way.|(Natalie pinches nose shut.),340,1,0,
 340,0,0,,(Try to hold your breath|...................),"(You eventually gasp for breath only to have your|mouth stuffed with cloth, cleave and OTM gagged.)",350,0,0,SubbieClothGag()

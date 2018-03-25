@@ -25,4 +25,6 @@ function C007_LunchBreak_JenniferTennis_FightEnd(Victory) {
 	if (Victory) PlayerAddSkill("Sports", 1);
 	if (Victory && (C007_LunchBreak_Jennifer_TennisDifficulty == "Normal")) C007_LunchBreak_Jennifer_MatchCount++;
 	if (Victory && (C007_LunchBreak_Jennifer_TennisDifficulty == "Hard")) C007_LunchBreak_Jennifer_MatchCount = C007_LunchBreak_Jennifer_MatchCount + 2;
+	if (Victory) GameLogSpecificAdd("C007_LunchBreak", "Jennifer", "TennisVictory");
+	else GameLogSpecificAdd("C007_LunchBreak", "Jennifer", "TennisDefeat");
 }

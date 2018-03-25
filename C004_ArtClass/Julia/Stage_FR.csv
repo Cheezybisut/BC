@@ -3,8 +3,8 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 0,0,0,,Heureuse de vous|rencontrer Mme Giuliana.,"Non, non, non, non, appelle-moi Julia.|Maintenant viens me faire un gros câlin.",10,0,-1,
 0,0,0,,L'art plastique ? Oh là là.|(Tu lèves les yeux au ciel.),"L'art est en feu ! Et j'en suis la flame.|Maintenant viens me faire un gros câlin.",10,-1,1,
 0,0,0,,(Tu regardes ailleurs.),"Regarde par ici, rapproche-toi.|Et viens me faire un gros câlin.",10,-1,0,
-10,0,0,,"Un câlin ? Bien sûr,|pourquoi pas.","""Si"" ! (Elle te serre fort et ta tête est|quasi compressée entre ses seins.)",20,0,0,
-10,0,0,,Bien sûr !|(Tu ouvres les bras.),"""Si"" ! (Elle te serre très fort et|ta tête est compressée entre ses seins.)",20,1,0,
+10,0,0,,"Un câlin ? Bien sûr,|pourquoi pas.","""Si"" ! (Elle te serre fort et ta tête est|quasi compressée entre ses seins.)",20,0,0,Hug()
+10,0,0,,Bien sûr !|(Tu ouvres les bras.),"""Si"" ! (Elle te serre très fort et|ta tête est compressée entre ses seins.)",20,1,0,Hug()
 10,0,0,,"Non, merci.","D'accord, pas de câlin pour toi.|Mais j'espère que tu es prête à peindre.",30,0,0,
 10,0,0,,Vous faire un câlin ?|Oubliez ça.,"Et bien, tu as la flamme et la rage.|Ce cours de peinture est fait pour toi !",30,-1,0,
 20,0,0,,C'est un accueil|chaleureux.,"""Si"" ! (Elle te libère.)|J'espère que tu es prête à peindre.",30,0,0,
@@ -44,6 +44,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 150,0,0,CanBegForRelease,(Tu gémis et fait un|regard de chien battu.),,150,0,0,BegForRelease()
 170,0,1,Common_PlayerNotRestrained,Changeons de modèle|à nouveau.,Alors ? Qui devrait poser avec moi ?,150,0,0,ChangeModel()
 170,0,-1,,Je peux m'asseoir|s'il vous plaît ?,Non ! Ma pauvre petite réservée. Tu dois d'abord|surmonter ta timidité et t'enflammer.,170,0,0,
+170,0,0,CanDoSelfBondage,Je vous montre l'auto|shibari!  (Tu te ligotes.),"(Nue devant la classe, tu parviens à entourer|la corde sur toi-même et faire un noeud.)",170,0,0,SelfBondage()
 170,0,0,CanBegForRelease,@HUUIA ! HMMH EE !,Tiens la pose.|Ce n'est pas le moment de bavarder.,170,0,0,GaggedSpeach()
 170,0,0,CanBegForRelease,(Tu gémis et fais un|regard de chien battu.),,170,0,0,BegForRelease()
 170,0,0,AllowUnderwear,Nos tenues sont|différentes. (1 minute),"""Si !"" C'est bizarre que tu sois vêtue. (Tu enlèves|lentement ton uniforme.) Maintenant peignez !",180,0,0,PlayerRemoveOutfit()

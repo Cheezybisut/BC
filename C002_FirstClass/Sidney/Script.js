@@ -150,6 +150,7 @@ function C002_FirstClass_Sidney_AgreeHelp() {
 // Chapter 2 - Sidney Whip Amanda
 function C002_FirstClass_Sidney_AmandaWhip() {
 	OverridenIntroImage = "Sidney_Crop.jpg";
+	GameLogAdd("CropAmanda");
 	C002_FirstClass_Sidney_AmandaWhipDone = true;
 	C002_FirstClass_Sidney_AmandaSarahVariables();
 }
@@ -157,6 +158,7 @@ function C002_FirstClass_Sidney_AmandaWhip() {
 // Chapter 2 - Sidney Whip Sarah
 function C002_FirstClass_Sidney_SarahWhip() {
 	OverridenIntroImage = "Sidney_Crop.jpg";
+	GameLogAdd("CropSarah");
 	C002_FirstClass_Sidney_SarahWhipDone = true;
 	C002_FirstClass_Sidney_AmandaSarahVariables();	
 }

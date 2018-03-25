@@ -2,16 +2,16 @@ var C001_BeforeClass_Outro_Mode = 0;
 
 // Chapter 1 - Outro Load
 function C001_BeforeClass_Outro_Load() {
-	
+
 	// Change the mode depending if there were girls left tied up
 	if (!ActorSpecificHasInventory("Amanda", "Rope") && !ActorSpecificHasInventory("Sidney", "Rope")) C001_BeforeClass_Outro_Mode = 0;
 	if (ActorSpecificHasInventory("Amanda", "Rope") && !ActorSpecificHasInventory("Sidney", "Rope")) C001_BeforeClass_Outro_Mode = 1;
 	if (!ActorSpecificHasInventory("Amanda", "Rope") && ActorSpecificHasInventory("Sidney", "Rope")) C001_BeforeClass_Outro_Mode = 2;
 	if (ActorSpecificHasInventory("Amanda", "Rope") && ActorSpecificHasInventory("Sidney", "Rope")) C001_BeforeClass_Outro_Mode = 3;
-	
-	// Save the player crime
-	if (C001_BeforeClass_Outro_Mode >= 1) Common_PlayerCrime = "Bondage";
-	
+
+	// Logs the player crime
+	if (C001_BeforeClass_Outro_Mode >= 1) GameLogAdd("PublicBondage");
+
 	// Time is always 8:00:00, no timer
 	StopTimer(8 * 60 * 60 * 1000);
 	ActorSpecificClearInventory("Sidney", false);

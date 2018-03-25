@@ -5,6 +5,9 @@ function C003_MorningDetention_Outro_Load() {
 	
 	// Time is always 9:15:00 in the outro
 	C003_MorningDetention_Outro_EscapedDetention = (CurrentTime < 9 * 60 * 60 * 1000);
+	if (C003_MorningDetention_Outro_EscapedDetention) GameLogSpecificAdd(CurrentChapter, "Yuki", "Escape");
+	if (!C003_MorningDetention_Outro_EscapedDetention && ((C003_MorningDetention_Yuki_CurrentStage == 250) || (C003_MorningDetention_Yuki_CurrentStage == 260))) GameLogSpecificAdd(CurrentChapter, "Yuki", "DetentionFull");
+	if (C003_MorningDetention_Yuki_CurrentStage == 270) GameLogSpecificAdd(CurrentChapter, "Yuki", "DrugSidney");
 	StopTimer(9 * 60 * 60 * 1000);
 	PlayerUnlockAllInventory();
 	ActorSpecificClearInventory("Sidney", false);

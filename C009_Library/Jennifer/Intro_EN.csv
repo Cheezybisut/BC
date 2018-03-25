@@ -2,6 +2,8 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 0,0,0,,"(Jennifer is reading in a library corner, she puts|down her book.)  Hello COMMON_PLAYERNAME.",CouchLeft.jpg
 0,5,0,,"(Jennifer is reading in a library corner, she puts|down her book.)  COMMON_PLAYERNAME!  How nice.",CouchLeft.jpg
 0,0,5,,"(Jennifer is reading in a library corner, she puts|down her book.)  Greetings Miss COMMON_PLAYERNAME.",CouchLeft.jpg
+0,0,0,TennisVictory,"(Jennifer is reading, she puts down her book.)|Hello!  Can I get my tennis revenge today?",CouchLeft.jpg
+0,0,0,TennisDefeat,"(Jennifer is reading, she puts down her book.)|Hello!  Do you want your tennis revenge?",CouchLeft.jpg
 0,0,0,Common_PlayerRestrained,"(Jennifer looks intrigued by your situation.)|What happened, why are you restrained?",CouchLeft.jpg
 0,0,0,HasEgg,"(Jennifer is reading in a library corner, she puts|down her book.)  I was able to remove your egg.",CouchLeft.jpg
 10,0,0,,I found an interesting book on|the history of the Olympic games.,CouchLeft.jpg

@@ -40,6 +40,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 400,0,0,PlayerIsDamsel,Your white armor|is so romantic!,(She looks at the armor and shrugs.),400,0,0,
 400,0,0,CanConvinceJuliaToStrip,Shouldn't damsel Julia|show her charms?,Very true milady.  Damsel Julia!|(Julia obeys and strips a little.),400,0,0,JuliaStrip()
 400,0,0,CanUntie,(Untie her.)|(1 minute),(You undo the knots and stash|the rope while she dresses back.),400,0,0,Untie()
+400,0,0,CanUnstrap,(Unstrap her.)|(1 minute),(You undo the straps and laces|of the binder to free her arms.),400,0,0,Untie()
 400,0,0,CanUngag,(Ungag her.)|(1 minute),(You remove the gag and she giggles.)|This is such a kinky play.,400,0,0,Ungag()
 400,0,0,CanKiss,(Kiss her.)|(1 minute),(You get close and give her a long kiss on the lips.)|(She stays silent and appreciates the moment.),400,0,0,Kiss()
 400,0,0,CanAbuse,(Tickle her.)|(1 minute),(She struggles to avoid your tickling|but can't do much but to laugh.),400,0,0,Tickle()

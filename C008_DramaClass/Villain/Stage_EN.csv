@@ -63,6 +63,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 400,0,0,PlayerIsHeroine,We should train in|sword fighting together.,(She nods and giggles.),400,0,0,
 400,0,0,CanConvinceJuliaToStrip,Shouldn't damsel Julia|show her charms?,Very true milady.  Damsel Julia!|(Julia obeys and strips a little.),400,0,0,JuliaStrip()
 400,0,0,CanUntie,(Untie her.)|(1 minute),(You undo the knots and she throws|the rope at you while dressing back up.),400,0,0,Untie()
+400,0,0,CanUnstrap,(Unstrap her.)|(1 minute),(You undo the straps and laces|of the binder to free her arms.),400,0,0,Untie()
 400,0,0,CanUngag,(Ungag her.)|(1 minute),(You remove the gag and she stares at you.)|Are you sure all of this was in the script?,400,0,0,Ungag()
 400,0,0,CanKiss,(Kiss her.)|(1 minute),(You get close and give her a long kiss on the lips.)|Oh COMMON_PLAYERNAME!  You give wonderful kisses.,400,0,0,Kiss()
 400,0,0,CanAbuse,(Tickle her.)|(1 minute),(You tickle her on the ribs and tummy.|She very ticklish and laughs out loud.),400,0,0,Tickle()

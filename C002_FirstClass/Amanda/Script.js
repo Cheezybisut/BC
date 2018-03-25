@@ -155,7 +155,10 @@ function C002_FirstClass_Amanda_AgreeHelp() {
 
 // Chapter 2 - Amanda Bondage Hug 
 function C002_FirstClass_Amanda_BondageHug() {
-	if (C002_FirstClass_Amanda_BondageHugDone == false) { C002_FirstClass_Amanda_BondageHugDone = true; ActorChangeAttitude(1, 0); }
+	if (C002_FirstClass_Amanda_BondageHugDone == false) { 
+		C002_FirstClass_Amanda_BondageHugDone = true;
+		ActorChangeAttitude(1, 0);
+	}
 }
 
 // Chapter 2 - Amanda Separate from Sarah hug
@@ -165,9 +168,10 @@ function C002_FirstClass_Amanda_Separate() {
 
 // Chapter 2 - Amanda Kiss Sarah
 function C002_FirstClass_Amanda_KissSarah() {
-	if (C002_FirstClass_Amanda_KissSarahDone == false) { 
-		C002_FirstClass_Amanda_KissSarahDone = true; 
+	if (C002_FirstClass_Amanda_KissSarahDone == false) {
+		C002_FirstClass_Amanda_KissSarahDone = true;
 		ActorChangeAttitude(1, 0);
 		PlayerAddSkill("Seduction", 1);
+		GameLogAdd("KissSarah");
 	}
 }

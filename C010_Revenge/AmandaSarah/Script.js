@@ -23,7 +23,7 @@ function C010_Revenge_AmandaSarah_Load() {
 	LoadInteractions();
 	LeaveIcon = "";
 	Common_SelfBondageAllowed = false;
-	C010_Revenge_AmandaSarah_AmandaVictim = (Common_PlayerCrime == "AmandaStranded");
+	C010_Revenge_AmandaSarah_AmandaVictim = GameLogQuery("C007_LunchBreak", "Amanda", "Stranded");
 
 	// If we must put the previous text back
 	if (C010_Revenge_AmandaSarah_IntroText != "") OverridenIntroText = C010_Revenge_AmandaSarah_IntroText;
@@ -111,6 +111,7 @@ function C010_Revenge_AmandaSarah_SwitchFocus(ActorToFocus) {
 function C010_Revenge_AmandaSarah_AmandaKneel() {
 	ActorSpecificSetPose("Amanda", "Kneeling");
 	ActorSpecificSetPose("Sarah", "Furious");
+	GameLogSpecificAdd("C010_Revenge", "Amanda", "Kneel");
 	CurrentTime = CurrentTime + 50000;
 }
 
@@ -118,6 +119,7 @@ function C010_Revenge_AmandaSarah_AmandaKneel() {
 function C010_Revenge_AmandaSarah_SarahKneel() {
 	ActorSpecificSetPose("Sarah", "Kneeling");
 	ActorSpecificSetPose("Amanda", "Furious");
+	GameLogSpecificAdd("C010_Revenge", "Sarah", "Kneel");
 	CurrentTime = CurrentTime + 50000;
 }
 
@@ -144,11 +146,18 @@ function C010_Revenge_AmandaSarah_CalmDown(ActorToCalm) {
 
 // Chapter 10 - Amanda and Sarah Revenge - When the actor enters the locker
 function C010_Revenge_AmandaSarah_EnterLocker(ActorInLocker) {
+	
+	// Puts the actor(s) in the locker
 	if ((ActorInLocker == "Amanda") || (ActorInLocker == "Both")) ActorSpecificSetPose("Amanda", "Locker");
 	if ((ActorInLocker == "Sarah") || (ActorInLocker == "Both")) ActorSpecificSetPose("Sarah", "Locker");
 	if (ActorInLocker == "Player") Common_PlayerPose = "Locker";
 	CurrentTime = CurrentTime + 50000;
 	if ((ActorInLocker != "Amanda") && (ActorInLocker != "Sarah")) CurrentActor = "";
+
+	// Saves the log
+	if (ActorInLocker == "Both") { GameLogSpecificAdd("C010_Revenge", "Amanda", "Locker"); GameLogSpecificAdd("C010_Revenge", "Sarah", "Locker"); }
+	else GameLogSpecificAdd("C010_Revenge", ActorInLocker, "Locker");
+
 }
 
 // Chapter 10 - Amanda and Sarah Revenge - When the player opens the locker
@@ -213,6 +222,8 @@ function C010_Revenge_AmandaSarah_EndFight(Victory) {
 	// Change the girls attitude depending on the victory or defeat	
 	ActorSpecificChangeAttitude("Amanda", -2, Victory ? 2 : -2);
 	ActorSpecificChangeAttitude("Sarah", -2, Victory ? 2 : -2);
+	GameLogSpecificAdd("C010_Revenge", "Amanda", Victory ? "FightVictory" : "FightDefeat");
+	GameLogSpecificAdd("C010_Revenge", "Sarah", Victory ? "FightVictory" : "FightDefeat");
 	C010_Revenge_AmandaSarah_AllowFight = false;
 	
 	// On a victory, we jump to stage 400 right away, on a defeat, we show a custom text
@@ -249,6 +260,8 @@ function C010_Revenge_AmandaSarah_TestForBelt() {
 // Chapter 10 - Amanda and Sarah Revenge - When the player gets locked in a chastity belt
 function C010_Revenge_AmandaSarah_LockBelt() {
 	PlayerLockInventory("ChastityBelt");
+	GameLogSpecificAdd("C010_Revenge", "Amanda", "ChastityBeltPlayer");
+	GameLogSpecificAdd("C010_Revenge", "Sarah", "ChastityBeltPlayer");
 	C010_Revenge_AmandaSarah_WasBelted = true;
 	CurrentTime = CurrentTime + 50000;
 }
@@ -267,6 +280,7 @@ function C010_Revenge_AmandaSarah_ReturnToLocker() {
 	if (Common_PlayerPose == "LockerMasturbate") {
 		ActorLoad("Sarah", "");
 		ActorChangeAttitude(1, 0);
+		GameLogSpecificAdd("C010_Revenge", "", "CaughtMasturbating");
 		OverridenIntroText = GetText("CaughtMasturbating");
 		C010_Revenge_AmandaSarah_CurrentStage = 210;
 	} else {
@@ -298,7 +312,7 @@ function C010_Revenge_AmandaSarah_MasturbateLocker() {
 		// If the player has the egg, she can climax multiple times, if not, only 1 time
 		C010_Revenge_AmandaSarah_MasturbateCount++;
 		Common_PlayerPose = "LockerMasturbate";
-		if (C010_Revenge_AmandaSarah_MasturbateCount == 3) { OverridenIntroText = GetText("Orgasm"); OverridenIntroImage = "LockerInsideOrgasm.jpg"; }
+		if (C010_Revenge_AmandaSarah_MasturbateCount == 3) { GameLogSpecificAdd("C010_Revenge", "", "LockerOrgasm"); OverridenIntroText = GetText("Orgasm"); OverridenIntroImage = "LockerInsideOrgasm.jpg"; }
 		if ((C010_Revenge_AmandaSarah_MasturbateCount >= 4) && !PlayerHasLockedInventory("VibratingEgg")) OverridenIntroText = GetText("OrgasmEnough");
 		if ((C010_Revenge_AmandaSarah_MasturbateCount >= 4) && PlayerHasLockedInventory("VibratingEgg")) {
 			OverridenIntroText = GetText("OrgasmRepeat");
@@ -333,6 +347,8 @@ function C010_Revenge_AmandaSarah_LockerListen() {
 // Chapter 10 - Amanda and Sarah Revenge - End the revenge and flag the end
 function C010_Revenge_AmandaSarah_EarlyEnding(EndingType) {
 	if (EndingType == "DoubleLocker") {
+		GameLogSpecificAdd("C010_Revenge", "Amanda", "LockerStuck");
+		GameLogSpecificAdd("C010_Revenge", "Sarah", "LockerStuck");
 		ActorSpecificChangeAttitude("Amanda", -2, 1);
 		ActorSpecificChangeAttitude("Sarah", 0, 1);
 	}

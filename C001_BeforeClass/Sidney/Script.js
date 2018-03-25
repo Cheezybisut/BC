@@ -99,3 +99,8 @@ function C001_BeforeClass_Sidney_PantiesRemark() {
 		OverridenIntroText = GetText("Panties");
 	}
 }
+
+// Chapter 1 - Force Sidney to kiss Amanda
+function C001_BeforeClass_Sidney_KissAmanda() {
+	GameLogAdd("KissAmanda");
+}

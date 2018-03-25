@@ -37,9 +37,9 @@ function C008_DramaClass_Transition_Run() {
 	// Draw the outro text
 	DrawText(ctx, GetText(LateForDrama + "1"), 400, 150, "White");
 	if (TextPhase >= 1) DrawText(ctx, GetText(LateForDrama + "2"), 400, 300, "White");
-	if ((TextPhase >= 2) && (Common_PlayerCrime != "AmandaStranded") && (Common_PlayerCrime != "SarahStranded")) DrawText(ctx, GetText(LateForDrama + "3"), 400, 450, "White");
-	if ((TextPhase >= 2) && (Common_PlayerCrime == "AmandaStranded")) DrawText(ctx, GetText("Amanda"), 400, 450, "White");
-	if ((TextPhase >= 2) && (Common_PlayerCrime == "SarahStranded")) DrawText(ctx, GetText("Sarah"), 400, 450, "White");
+	if ((TextPhase >= 2) && !GameLogQuery("C007_LunchBreak", "Amanda", "Stranded") && !GameLogQuery("C007_LunchBreak", "Sarah", "Stranded")) DrawText(ctx, GetText(LateForDrama + "3"), 400, 450, "White");
+	if ((TextPhase >= 2) && GameLogQuery("C007_LunchBreak", "Amanda", "Stranded")) DrawText(ctx, GetText("Amanda"), 400, 450, "White");
+	if ((TextPhase >= 2) && GameLogQuery("C007_LunchBreak", "Sarah", "Stranded")) DrawText(ctx, GetText("Sarah"), 400, 450, "White");
 
 }
 

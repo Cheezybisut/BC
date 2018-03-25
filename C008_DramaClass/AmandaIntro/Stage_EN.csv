@@ -18,6 +18,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 30,0,0,,I thought you could|use some help.,"That's very sweet of you.  Alright,|can you help me to wear this armor?",40,1,-1,CheatedCover()
 30,0,0,,You're so beautiful.|I wanted to see you.,Alright then.  But since you cheated|can you help me to wear this armor?,40,1,0,CheatedCover()
 30,0,0,,I'm sorry.|I cheated.,At least you're honest.  Since you cheated|can you help me to wear this armor?,40,0,-1,CheatedCover()
+40,0,0,PlayerInArmbinder,(Turn and shake|your armbinder.),"You're so cute, I can't unstrap you.|Try to struggle some more to get out.",40,0,0,TestUnstrapPlayer()
 40,0,0,PlayerIsRoped,(Turn and point|to your ropes.),"You're so cute like that, I can't untie you.|Try to struggle some more to reach a knot.",40,0,0,TestUntiePlayer()
 40,0,0,PlayerIsCuffed,(Turn and point|to your cuffs.),"Sorry, I don't have the keys for these cuffs.",40,0,0,TestUncuffPlayer()
 40,0,0,IsBothFree,You know that|you're pretty?,(She giggles and blushes.)|You're also pretty COMMON_PLAYERNAME.,40,0,0,PrettyComment()
@@ -30,6 +31,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 40,0,5,!Common_PlayerRestrained,(Slap her.)|(1 minute),(You slap her hard on the face and the|breast while she cowers in fear of you.),40,0,0,Slap()
 40,0,0,!Common_PlayerRestrained,(Masturbate her.)|(1 minute),(You bend down to masturbate her|but she pushes your hand away.),40,0,0,Masturbate()
 40,0,0,CanUntie,(Untie her.)|(1 minute),(You undo the knots to free her and|she stretches her arms in appreciation.),40,0,0,Untie()
+40,0,0,CanUnstrap,(Unstrap her.)|(1 minute),"(You unbuckle the leather straps,|unlace the binder and free her arms.)",40,0,0,Untie()
 40,0,0,CanUngag,(Ungag her.)|(1 minute),(You remove the gag and she takes|a deep breath.)  Aaaah!  Thank you.,40,0,0,Ungag()
 50,0,0,IsPlayReady,Let's do some drama!|(Join the drama class.),,50,0,0,StartDrama()
 50,0,0,!IsPlayReady,Everyone isn't ready.,Let's get dressed quickly then!,50,0,0,

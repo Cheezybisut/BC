@@ -31,7 +31,7 @@ function C003_MorningDetention_Glass_BreakPill() {
 	if (Common_PlayerNotRestrained) {
 		C003_MorningDetention_DetentionRoom_SleepTimer = CurrentTime + 600000;
 		PlayerRemoveInventory("SleepingPill", 1);
-		Common_PlayerCrime = "DrugYuki";
+		GameLogSpecificAdd(CurrentChapter, "Yuki", "Drug");
 	} else {
 		OverridenIntroText = GetText("CannotWithCuffs");
 	}

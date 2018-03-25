@@ -67,11 +67,12 @@ function ActorSpecificChangeAttitude(SpecificActorName, LoveAttitude, SubAttitud
 
 }
 
-// Add an orgasm to the actor count
+// Add an orgasm to the actor count and logs the event
 function ActorAddOrgasm() {	
 	for (var L = 0; L < Actor.length; L++)
 		if (CurrentActor == Actor[L][ActorName])
 			Actor[L][ActorOrgasmCount]++;
+	GameLogAdd("Orgasm");
 }
 
 // Validates that a specific interaction stage is available for the player
@@ -110,6 +111,7 @@ function ActorAddInventory(NewInventory) {
 				if (Actor[A][ActorLastBondageChapter] != CurrentChapter) {
 					Actor[A][ActorLastBondageChapter] = CurrentChapter;
 					Actor[A][ActorBondageCount]++;
+					GameLogAdd("Bondage");
 				}
 			}
 
@@ -118,8 +120,10 @@ function ActorAddInventory(NewInventory) {
 // Add 1 to the bondage count of a specific actor
 function ActorSpecificAddBondage(SpecificActor) {
 	for (var A = 0; A < Actor.length; A++)
-		if (Actor[A][ActorName] == SpecificActor)
+		if (Actor[A][ActorName] == SpecificActor) {
 			Actor[A][ActorBondageCount]++;
+			GameLogSpecificAdd(CurrentChapter, SpecificActor, "Bondage");
+		}
 }
 
 // Remove inventory from the current actor
@@ -184,7 +188,7 @@ function ActorSpecificInBondage(SpecificActor) {
 	} else {
 		for (var A = 0; A < Actor.length; A++)
 			if (Actor[A][ActorName] == SpecificActor)
-				return (ActorSpecificHasInventory(SpecificActor, "Rope") || ActorSpecificHasInventory(SpecificActor, "TwoRopes") || ActorSpecificHasInventory(SpecificActor, "Cuffs") || ActorSpecificHasInventory(SpecificActor, "BallGag") || ActorSpecificHasInventory(SpecificActor, "TapeGag") || ActorSpecificHasInventory(SpecificActor, "ClothGag"));
+				return (ActorSpecificHasInventory(SpecificActor, "Rope") || ActorSpecificHasInventory(SpecificActor, "TwoRopes") || ActorSpecificHasInventory(SpecificActor, "Armbinder") || ActorSpecificHasInventory(SpecificActor, "Cuffs") || ActorSpecificHasInventory(SpecificActor, "BallGag") || ActorSpecificHasInventory(SpecificActor, "TapeGag") || ActorSpecificHasInventory(SpecificActor, "ClothGag"));
 	}
 }
 
@@ -193,7 +197,7 @@ function ActorIsRestrained() {
 	if (CurrentActor == "")
 		return Common_PlayerRestrained;
 	else
-		return (ActorHasInventory("Rope") || ActorHasInventory("TwoRopes") || ActorHasInventory("Cuffs"));
+		return (ActorHasInventory("Rope") || ActorHasInventory("TwoRopes") || ActorHasInventory("Armbinder") || ActorHasInventory("Cuffs"));
 }
 
 // Returns true if the actor is gagged (if there's no actor, we return the player status)
@@ -216,6 +220,7 @@ function ActorIsChaste() {
 function ActorUntie() {
 	if (ActorHasInventory("TwoRopes")) { PlayerAddInventory("Rope", 1); ActorRemoveInventory("TwoRopes"); }
 	if (ActorHasInventory("Rope")) { PlayerAddInventory("Rope", 1); ActorRemoveInventory("Rope"); }
+	if (ActorHasInventory("Armbinder")) { PlayerAddInventory("Armbinder", 1); ActorRemoveInventory("Armbinder"); }
 }
 
 // Ungag the actor and returns the item if possible
@@ -243,7 +248,7 @@ function ActorApplyRestrain(RestrainName) {
 		}
 	
 		// Regular restrains
-		if ((RestrainName == "Rope") || (RestrainName == "Cuffs")) {
+		if ((RestrainName == "Rope") || (RestrainName == "Cuffs") || (RestrainName == "Armbinder")) {
 			if (!ActorIsRestrained()) {
 				PlayerRemoveInventory(RestrainName, 1);
 				ActorAddInventory(RestrainName);
@@ -337,6 +342,7 @@ function ActorSpecificGetImage(QueryActor) {
 	var ActorImage = QueryActor;
 	if (ActorSpecificHasInventory(QueryActor, "Cuffs")) ActorImage = ActorImage + "_Cuffs";
 	if (ActorSpecificHasInventory(QueryActor, "Rope")) ActorImage = ActorImage + "_Rope";
+	if (ActorSpecificHasInventory(QueryActor, "Armbinder")) ActorImage = ActorImage + "_Armbinder";
 	if (ActorSpecificHasInventory(QueryActor, "BallGag")) ActorImage = ActorImage + "_BallGag";
 	if (ActorSpecificHasInventory(QueryActor, "TapeGag")) ActorImage = ActorImage + "_TapeGag";
 	return ActorImage;

@@ -28,7 +28,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 100,0,0,StunningBeautyReady,"Don't be shy, you're|a stunning beauty.","Me?  A beauty?  On my,|you're so kind and sweet.",100,0,0,StunningBeauty()
 100,0,1,,Shouldn't you undress|like Julia? (1 minute),I... I guess I can.|(She slowly undresses.),110,0,0,"SetCloth(1, 0, 0)"
 100,0,1,,Take your clothes|off. (1 minute),I... Yes... Sorry.|(She slowly undresses.),110,0,0,"SetCloth(1, 0, 1)"
-100,0,1,,You should show your|pretty body.  (1 minute),I really think I'm pretty?|(She slowly undresses.),110,0,0,"SetCloth(1, 1, 0)"
+100,0,1,,You should show your|pretty body.  (1 minute),You really think I'm pretty?|(She slowly undresses.),110,0,0,"SetCloth(1, 1, 0)"
 110,0,2,,Do I have to take these|off myself?  (1 minute),"NO!  Oops, I didn't meant to yell, I'll do it.|(She blushes red and removes her underwear.)",120,0,0,"SetCloth(2, -1, 1)"
 110,0,2,,Only a few items left|to join Julia.  (1 minute),"Yes, if Julia could do it, I can.|(She blushes red and removes her underwear.)",120,0,0,"SetCloth(2, 0, 0)"
 110,0,2,,"If Julia can strip, you|can do it.  (1 minute)","Yes, if Julia could do it, I can.|(She blushes red and removes her underwear.)",120,0,0,"SetCloth(2, 0, 0)"

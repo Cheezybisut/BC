@@ -1,3 +1,5 @@
+var C006_Isolation_Intro_Teacher = "";
+
 // Chapter 6 - Intro Load
 function C006_Isolation_Intro_Load() {
 
@@ -7,12 +9,20 @@ function C006_Isolation_Intro_Load() {
 	// Do not allow bondage when we begin
 	Common_BondageAllowed = true;
 	Common_SelfBondageAllowed = true;
+	GameLogSpecificAdd(CurrentChapter, "", "Isolated");
 	
+	// Gets the player crime chapter 2 or 3.  If there's any, we go to chapter 6 instead of 5.
+	if (GameLogQuery("C002_FirstClass", "Mildred", "Subdue") && !GameLogQuery("C002_FirstClass", "Mildred", "Release")) C006_Isolation_Intro_Teacher = "Mildred";
+	if (GameLogQuery("C003_MorningDetention", "Yuki", "Drug") && !GameLogQuery("C003_MorningDetention", "Yuki", "DrugAwake")) C006_Isolation_Intro_Teacher = "Yuki";
+	if (GameLogQuery("C003_MorningDetention", "Yuki", "Drug") && GameLogQuery("C003_MorningDetention", "Yuki", "DrugAwake") && !GameLogQuery("C003_MorningDetention", "Yuki", "DetentionFull") && !GameLogQuery("C003_MorningDetention", "Yuki", "DrugAdmit") && !GameLogQuery("C003_MorningDetention", "Yuki", "DrugSidney")) C006_Isolation_Intro_Teacher = "Yuki";
+	if (GameLogQuery("C003_MorningDetention", "Yuki", "Escape") && !GameLogQuery("C003_MorningDetention", "Yuki", "DrugSidney")) C006_Isolation_Intro_Teacher = "Yuki";
+
 	// If there's no crime, it means the player started on chapter 6, we pick a teacher at random
-	if (Common_PlayerCrime == "") {
-		if (Math.floor(Math.random() * 2) == 1) Common_PlayerCrime = "RestrainMildred";
-		else Common_PlayerCrime = "DrugYuki";
+	if (C006_Isolation_Intro_Teacher == "") {
+		if (Math.floor(Math.random() * 2) == 1) C006_Isolation_Intro_Teacher = "Mildred";
+		else C006_Isolation_Intro_Teacher = "Yuki";
 	}
+	
 
 }
 
@@ -26,8 +36,8 @@ function C006_Isolation_Intro_Run() {
 
 	// Write the chapter introduction
 	DrawText(ctx, GetText("Intro1"), 450, 150, "White");
-	if ((TextPhase >= 1) && (Common_PlayerCrime == "RestrainMildred")) DrawText(ctx, GetText("Intro2Mildred"), 450, 250, "White");
-	if ((TextPhase >= 1) && (Common_PlayerCrime == "DrugYuki")) DrawText(ctx, GetText("Intro2Yuki"), 450, 250, "White");
+	if ((TextPhase >= 1) && (C006_Isolation_Intro_Teacher == "Mildred")) DrawText(ctx, GetText("Intro2Mildred"), 450, 250, "White");
+	if ((TextPhase >= 1) && (C006_Isolation_Intro_Teacher == "Yuki")) DrawText(ctx, GetText("Intro2Yuki"), 450, 250, "White");
 	if (TextPhase >= 2) DrawText(ctx, GetText("Intro3"), 450, 350, "White");
 	if (TextPhase >= 3) DrawText(ctx, GetText("Intro4"), 450, 450, "White");
 
@@ -36,6 +46,5 @@ function C006_Isolation_Intro_Run() {
 // Chapter 6 - Intro Click
 function C006_Isolation_Intro_Click() {
 	TextPhase++;
-	if ((TextPhase >= 4) && (Common_PlayerCrime == "RestrainMildred")) SetScene(CurrentChapter, "Mildred");
-	if ((TextPhase >= 4) && (Common_PlayerCrime == "DrugYuki")) SetScene(CurrentChapter, "Yuki");
+	if (TextPhase >= 4) SetScene(CurrentChapter, C006_Isolation_Intro_Teacher);
 }

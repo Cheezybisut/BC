@@ -20,6 +20,7 @@ function C001_BeforeClass_Bag_Click() {
 // Add rope to the inventory
 function C001_BeforeClass_Bag_GetRope() {
 	PlayerAddInventory("Rope", 2);
+	GameLogSpecificAdd(CurrentChapter, "Sidney", "StealRopes");
 }
 
 // If the player annoys Sidney by pulling on her back

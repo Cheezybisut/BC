@@ -28,5 +28,6 @@ function C005_GymClass_LoseFight_FightEnd(Victory) {
 		C005_GymClass_Jennifer_CurrentStage = 500;
 		PlayerLockInventory("Rope");
 		PlayerClothes("Underwear");
+		GameLogSpecificAdd("C005_GymClass", "Jennifer", "FightDefeat");
 	}
 }
