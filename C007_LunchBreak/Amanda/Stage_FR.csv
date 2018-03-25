@@ -85,7 +85,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 210,0,0,,Je peux t'embrasser ?|(1 minute),(Elle acquiesce et met ses lèvres sur les tiennes.),220,1,-1,
 210,0,0,,(Tu gardes le silence et|l'embrasses.) (1 minute),"(Sans dire un mot, vous|vous embrassez sur les lèvres.)",220,0,1,
 210,0,0,,Mieux vaut ne pas être|en retard. (Vous rentrez.),,0,0,0,EndBonus()
-220,0,0,,(Tu l'embrasses encore.)|(1 minute),(Tu l'attrapes et tu l'embrasses encore|pendant qu'elle gémit doucement.),220,0,0,
+220,0,0,,(Tu l'embrasses encore.)|(1 minute),(Tu l'attrapes et tu l'embrasses à nouveau|pendant qu'elle gémit doucement.),220,0,0,
 220,0,0,,Tu as les lèvres d'un ange.|(1 minute),(Vous vous agrippez l'une l'autre et vous faites un long|et passionné baiser profond avec vos langues.),230,1,0,
 220,0,0,,(Vous faites un baiser|profond.) (1 minute),(Vous vous agrippez l'une l'autre et vous faites un long|et passionné baiser profond avec vos langues.),230,0,0,
 220,0,0,,Mieux vaut ne pas être|en retard. (Vous rentrez.),,0,0,0,EndBonus()
@@ -94,7 +94,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 230,0,0,,Mieux vaut ne pas être|en retard. (Vous rentrez.),,0,0,0,EndBonus()
 240,0,0,,(Tu l'embrasses.)|(1 minute),(Vous vous embrassez tendrement.|Gémissant à chaque contact.),240,0,0,
 240,0,0,,(Tu masses sa poitrine.)|(1 minute),(Vous vous massez les seins avec amour.|En les pressant doucement sans vous faire mal.),240,0,0,
-240,0,0,,(Tu la masturbes)|(1 minute),(Vous vous masturbez l'un l'autre et gémissez|doucement. En veillant à ce que personne ne regarde.),240,0,0,LoveMasturbate()
+240,0,0,,(Tu la masturbes)|(1 minute),(Vous vous masturbez l'une l'autre et gémissez|doucement. En veillant à ce que personne ne regarde.),240,0,0,LoveMasturbate()
 240,0,0,,Mieux vaut ne pas être|en retard. (Vous rentrez.),,0,0,0,EndBonus()
 250,0,0,,Je n'ai jamais été|touchée comme ça.,(Elle rit.) Allons. Je suis sûre que tu exagères.,260,0,-1,
 250,0,0,,Whouhaou !|Je reste sans voix.,(Elle acquiesce et rougit.) Et c'était si inattendu.,260,0,0,
