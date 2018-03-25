@@ -96,6 +96,7 @@ function C008_DramaClass_Julia_Click() {
 		// Julia cannot wear a belt or a collar
 		if (ClickInv == "ChastityBelt") { OverridenIntroText = GetText("CannotWearBelt"); return; }
 		if (ClickInv == "Collar") { OverridenIntroText = GetText("CannotWearCollar"); return; }
+		if (ClickInv == "Armbinder") { OverridenIntroText = GetText("Armbinder"); return; }
 
 		// A few items can change the actor attitude
 		if ((ClickInv == "Crop") && !C008_DramaClass_Julia_CropDone) { GameLogAdd("Crop"); C008_DramaClass_Julia_CropDone = true; ActorChangeAttitude(0, 1); }

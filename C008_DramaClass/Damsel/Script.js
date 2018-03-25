@@ -14,6 +14,7 @@ var C008_DramaClass_Damsel_CanHugVillain = false;
 var C008_DramaClass_Damsel_IsGagged = false;
 var C008_DramaClass_Damsel_IsRestrained = false;
 var C008_DramaClass_Damsel_CanUntie = false;
+var C008_DramaClass_Damsel_CanUnstrap = false;
 var C008_DramaClass_Damsel_CanUngag = false;
 var C008_DramaClass_Damsel_CanAbuse = false;
 var C008_DramaClass_Damsel_CanKiss = false;
@@ -26,6 +27,7 @@ function C008_DramaClass_Damsel_CalcParams() {
 	C008_DramaClass_Damsel_IsGagged = ActorIsGagged();
 	C008_DramaClass_Damsel_IsRestrained = ActorIsRestrained();
 	C008_DramaClass_Damsel_CanUntie = (ActorHasInventory("Rope") && !Common_PlayerRestrained);
+	C008_DramaClass_Damsel_CanUnstrap = (ActorHasInventory("Armbinder") && !Common_PlayerRestrained);
 	C008_DramaClass_Damsel_CanUngag = (C008_DramaClass_Damsel_IsGagged && !Common_PlayerRestrained);
 	C008_DramaClass_Damsel_CanAbuse = (C008_DramaClass_Damsel_IsRestrained && !Common_PlayerRestrained);
 	C008_DramaClass_Damsel_CanKiss = ((C008_DramaClass_Damsel_IsRestrained || (ActorGetValue(ActorLove) >= 5)) && !Common_PlayerGagged && !C008_DramaClass_Damsel_IsGagged);

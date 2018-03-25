@@ -11,6 +11,7 @@ var C008_DramaClass_Heroine_DamselCanInteract = false;
 var C008_DramaClass_Heroine_DamselCanBeg = false;
 var C008_DramaClass_Heroine_CanConvinceJuliaToStrip = false;
 var C008_DramaClass_Heroine_CanUntie = false;
+var C008_DramaClass_Heroine_CanUnstrap = false;
 var C008_DramaClass_Heroine_CanUngag = false;
 var C008_DramaClass_Heroine_CanAbuse = false;
 var C008_DramaClass_Heroine_CanKiss = false;
@@ -25,6 +26,7 @@ var C008_DramaClass_Heroine_CanBeg = false;
 function C008_DramaClass_Heroine_CalcParams() {
 	C008_DramaClass_Heroine_IsGagged = ActorIsGagged();
 	C008_DramaClass_Heroine_CanUntie = (ActorHasInventory("Rope") && !Common_PlayerRestrained);
+	C008_DramaClass_Heroine_CanUnstrap = (ActorHasInventory("Armbinder") && !Common_PlayerRestrained);
 	C008_DramaClass_Heroine_CanUngag = (C008_DramaClass_Heroine_IsGagged && !Common_PlayerRestrained);
 	C008_DramaClass_Heroine_CanAbuse = (ActorIsRestrained() && !Common_PlayerRestrained);
 	C008_DramaClass_Heroine_CanKiss = ((ActorIsRestrained() || (ActorGetValue(ActorLove) >= 5)) && !Common_PlayerGagged && !C008_DramaClass_Heroine_IsGagged);
@@ -89,6 +91,7 @@ function C008_DramaClass_Heroine_Click() {
 		// Apply the clicked restrain
 		ActorApplyRestrain(ClickInv);
 		if (ActorHasInventory("Rope")) ActorSetCloth("Underwear");
+		if (ActorHasInventory("Armbinder")) ActorSetCloth("Underwear");
 		C008_DramaClass_Heroine_CalcParams();
 
 	}
