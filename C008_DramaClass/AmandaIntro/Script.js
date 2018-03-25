@@ -41,7 +41,7 @@ function C008_DramaClass_AmandaIntro_CalcParams() {
 	C008_DramaClass_AmandaIntro_PlayerInArmbinder = (PlayerHasLockedInventory("Armbinder"));
 	C008_DramaClass_AmandaIntro_PlayerIsCuffed = (PlayerHasLockedInventory("Cuffs"));
 	C008_DramaClass_AmandaIntro_ReadyHug = (!C008_DramaClass_AmandaIntro_IsRestrained && !C008_DramaClass_AmandaIntro_IsGagged && !C008_DramaClass_AmandaIntro_IsChaste && Common_PlayerUnderwear && !Common_PlayerRestrained && !Common_PlayerGagged && !Common_PlayerChaste);
-	C008_DramaClass_AmandaIntro_SarahReadyHug = ((C008_DramaClass_SarahIntro_CurrentStage == 20) && !ActorSpecificHasInventory("Sarah", "Cuffs") && !ActorSpecificHasInventory("Sarah", "Rope") && !ActorSpecificHasInventory("Sarah", "BallGag") && !ActorSpecificHasInventory("Sarah", "TapeGag") && !ActorSpecificHasInventory("Sarah", "ClothGag") && !ActorSpecificHasInventory("Sarah", "ChastityBelt"));
+	C008_DramaClass_AmandaIntro_SarahReadyHug = ((C008_DramaClass_SarahIntro_CurrentStage == 20) && !ActorSpecificHasInventory("Sarah", "Cuffs") && !ActorSpecificHasInventory("Sarah", "Rope") && !ActorSpecificHasInventory("Sarah", "Armbinder") && !ActorSpecificHasInventory("Sarah", "BallGag") && !ActorSpecificHasInventory("Sarah", "TapeGag") && !ActorSpecificHasInventory("Sarah", "ClothGag") && !ActorSpecificHasInventory("Sarah", "ChastityBelt"));
 }
 
 // Chapter 8 - Amanda Intro Load
@@ -254,7 +254,7 @@ function C008_DramaClass_AmandaIntro_Masturbate() {
 function C008_DramaClass_AmandaIntro_RandomBondage() {
 	if (ActorGetValue(ActorSubmission) < 5) {
 		if (Common_PlayerUnderwear || Common_PlayerNaked) {
-			if (PlayerHasInventory("Cuffs") || PlayerHasInventory("Rope") || PlayerHasInventory("BallGag") || PlayerHasInventory("TapeGag") || PlayerHasInventory("ClothGag")) {
+			if (PlayerHasInventory("Cuffs") || PlayerHasInventory("Rope") || PlayerHasInventory("Armbinder") || PlayerHasInventory("BallGag") || PlayerHasInventory("TapeGag") || PlayerHasInventory("ClothGag")) {
 				PlayerRandomBondage();
 				C008_DramaClass_AmandaIntro_CalcParams();
 				OverridenIntroText = GetText("PlayerRandomBondage");

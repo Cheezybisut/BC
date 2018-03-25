@@ -328,3 +328,16 @@ function C007_LunchBreak_Sarah_EvilEnd() {
 function C007_LunchBreak_Sarah_Kiss() {
 	GameLogAdd("Kiss");
 }
+
+// Chapter 7 - Sarah can give an armbinder at the end if she was happy at lunch
+function C007_LunchBreak_Sarah_TestArmbinder() {
+	if (!GameLogQuery(CurrentChapter, CurrentActor, "Orgasm"))
+		C007_LunchBreak_Sarah_EndChapter();
+	else
+		CurrentTime = CurrentTime + 300000;
+}
+
+// Chapter 7 - Sarah  give an armbinder
+function C007_LunchBreak_Sarah_AddArmbinder() {
+	PlayerAddInventory("Armbinder", 1);
+}

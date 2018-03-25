@@ -126,4 +126,11 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 310,0,0,,I'll take the bill.,"Aaaaaw, that's way too kind|of you.  Let's go back then.",320,0,1,
 310,0,0,,We should|split the bill.,That's perfectly fine!|Let's go back then.,320,0,0,
 310,0,0,,Do we get out|without paying?,That's very tempting!  But they|know me too well in this cafe.,320,0,0,
-320,0,0,,Let's go back.|(Back to college.),,0,0,0,EndChapter()
+320,0,0,,Let's go back.|(Back to college.),"(On your way back, Sarah stops by the lockers.)|Please wait a minute.  I have a gift for you.",330,0,0,TestArmbinder()
+330,0,0,,A gift?  I don't|deserve one.,"Sure you do, I had a wonderful time.|(She gives you a leather armbinder.)",340,0,-1,AddArmbinder()
+330,0,0,,That's very kind of you.,"It's my pleasure, I had a wonderful time.|(She gives you a leather armbinder.)",340,1,0,AddArmbinder()
+330,0,0,,What kind of gift?,"I had a wonderful time, this is for you.|(She gives you a leather armbinder.)",340,0,0,AddArmbinder()
+340,0,0,,Thanks Sarah!,You're welcome!  I'm sure|you'll use it better than me.,350,0,0,
+340,0,0,,Great!  I will|use it on you.,(She giggles.)  I certainly hope so.,350,0,1,
+340,0,0,,This binder looks|kind of cheap.,"Oh no, it's a great device.|Try it later and you'll see.",350,-1,0,
+350,0,0,,See you later!|(Go to next class.),,350,0,0,EndChapter()

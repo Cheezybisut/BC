@@ -37,7 +37,7 @@ function C008_DramaClass_SarahIntro_CalcParams() {
 	C008_DramaClass_SarahIntro_PlayerInArmbinder = (PlayerHasLockedInventory("Armbinder"));
 	C008_DramaClass_SarahIntro_PlayerIsCuffed = (PlayerHasLockedInventory("Cuffs"));
 	C008_DramaClass_SarahIntro_ReadyHug = (!C008_DramaClass_SarahIntro_IsRestrained && !C008_DramaClass_SarahIntro_IsGagged && !C008_DramaClass_SarahIntro_IsChaste && Common_PlayerUnderwear && !Common_PlayerRestrained && !Common_PlayerGagged && !Common_PlayerChaste);
-	C008_DramaClass_SarahIntro_AmandaReadyHug = ((C008_DramaClass_AmandaIntro_CurrentStage == 40) && !ActorSpecificHasInventory("Amanda", "Cuffs") && !ActorSpecificHasInventory("Amanda", "Rope") && !ActorSpecificHasInventory("Amanda", "BallGag") && !ActorSpecificHasInventory("Amanda", "TapeGag") && !ActorSpecificHasInventory("Amanda", "ClothGag") && !ActorSpecificHasInventory("Amanda", "ChastityBelt"));
+	C008_DramaClass_SarahIntro_AmandaReadyHug = ((C008_DramaClass_AmandaIntro_CurrentStage == 40) && !ActorSpecificHasInventory("Amanda", "Cuffs") && !ActorSpecificHasInventory("Amanda", "Rope") && !ActorSpecificHasInventory("Amanda", "Armbinder") && !ActorSpecificHasInventory("Amanda", "BallGag") && !ActorSpecificHasInventory("Amanda", "TapeGag") && !ActorSpecificHasInventory("Amanda", "ClothGag") && !ActorSpecificHasInventory("Amanda", "ChastityBelt"));
 }
 
 // Chapter 8 - Sarah Intro Load
@@ -89,11 +89,11 @@ function C008_DramaClass_SarahIntro_Click() {
 	}
 	
 	// Sarah can tease the player if she wants to use a toy on stage 0 or 10
-	if (((ClickInv == "Rope") || (ClickInv == "Cuffs") || (ClickInv == "TapeGag") || (ClickInv == "BallGag") || (ClickInv == "ClothGag") || (ClickInv == "ChastityBelt") || (ClickInv == "VibratingEgg")) && (C008_DramaClass_SarahIntro_CurrentStage < 20))
+	if (((ClickInv == "Rope") || (ClickInv == "Armbinder") || (ClickInv == "Cuffs") || (ClickInv == "TapeGag") || (ClickInv == "BallGag") || (ClickInv == "ClothGag") || (ClickInv == "ChastityBelt") || (ClickInv == "VibratingEgg")) && (C008_DramaClass_SarahIntro_CurrentStage < 20))
 		OverridenIntroText = GetText("CostumeBeforeFun");
 
 	// Sarah refuses but tease the player on stage 30
-	if (((ClickInv == "Rope") || (ClickInv == "Cuffs") || (ClickInv == "TapeGag") || (ClickInv == "BallGag") || (ClickInv == "ClothGag") || (ClickInv == "ChastityBelt") || (ClickInv == "VibratingEgg")) && (C008_DramaClass_SarahIntro_CurrentStage == 30))
+	if (((ClickInv == "Rope") || (ClickInv == "Armbinder") || (ClickInv == "Cuffs") || (ClickInv == "TapeGag") || (ClickInv == "BallGag") || (ClickInv == "ClothGag") || (ClickInv == "ChastityBelt") || (ClickInv == "VibratingEgg")) && (C008_DramaClass_SarahIntro_CurrentStage == 30))
 		OverridenIntroText = GetText("CostumeBlocksFun");
 	
 	// Sarah can be restrained on stage 20
@@ -127,7 +127,7 @@ function C008_DramaClass_SarahIntro_CheckUngag() {
 function C008_DramaClass_SarahIntro_RandomBondage() {
 	if (ActorGetValue(ActorSubmission) < 5) {
 		if (Common_PlayerUnderwear || Common_PlayerNaked) {
-			if (PlayerHasInventory("Cuffs") || PlayerHasInventory("Rope") || PlayerHasInventory("BallGag") || PlayerHasInventory("TapeGag") || PlayerHasInventory("ClothGag")) {
+			if (PlayerHasInventory("Cuffs") || PlayerHasInventory("Rope") || PlayerHasInventory("Armbinder") || PlayerHasInventory("BallGag") || PlayerHasInventory("TapeGag") || PlayerHasInventory("ClothGag")) {
 				PlayerRandomBondage();
 				C008_DramaClass_SarahIntro_CalcParams();
 				OverridenIntroText = GetText("PlayerRandomBondage");
