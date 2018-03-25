@@ -8,11 +8,13 @@ PlayerRandomBondage,Alright.  (Amanda picks some random|items in your bag and re
 UndressBeforeBondage,"Mmmh, sure, why not.|But you need to undress."
 NoBondageItem,(She checks your bag.)  Sorry COMMON_PLAYERNAME.|You don't have anything I could use on you.
 UntiePlayer,You're cute tied up but I can help.|(She undoes the knots and releases you.)
+UnstrapPlayer,You're cute in that binder but I will help you.|(She undoes the straps and laces to release you.)
 Collar,(You need +20 submission or better|and a special ceremony to collar Amanda.)
 Crop,(You whip her pretty hard while she|struggles and whimpers.  She doesn't like it.)
 Rope,(You wrap the rope around her body|while she tries to hide her excitement.)
 TwoRopes,(You pick a second rope and tie|her legs in a kneeling position.)
 Cuffs,(She doesn't resist much while you grab|her hands and cuff them behind her back.)
+Armbinder,(She slowly turns around so you can slide|her arms in the leather binder and strap it.)
 BallGag,(She struggles a little but you're|able to strap the gag on her head.)
 TapeGag,(She struggles a little but you're|able to tape her mouth shut.)
 ClothGag,(She struggles a little but you're able to|push the wad inside her mouth and tie the gag.)

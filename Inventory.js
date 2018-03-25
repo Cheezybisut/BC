@@ -44,8 +44,8 @@ function PlayerLockInventory(NewInventory) {
 	PlayerLockedInventory.push(NewInventory);
 	LoadRestrainStatus();
 	
-	// If there's rope and a costume, we strip the player
-	if ((NewInventory == "Rope") && (Common_PlayerCostume != "")) PlayerClothes("Underwear");
+	// If there's rope/armbinder and a costume, we strip the player
+	if (((NewInventory == "Rope") || (NewInventory == "Armbinder")) && (Common_PlayerCostume != "")) PlayerClothes("Underwear");
 
 }
 
