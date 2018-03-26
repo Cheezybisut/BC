@@ -1,6 +1,6 @@
 Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 0,0,0,,Comment est la nourriture|à la cafétéria ?,"Pour être honnête. Ce n'est pas vraiment bon,|mais c'est mieux que de mourir de faim.",10,0,0,
-0,0,0,,La cafétéria ? Je parie que|la nourriture est dégueux.,"Tu devrais d'abord juger par toi-même,|mais tu n'a pas tout à fait tord, ce n'est pas génial.",10,-1,0,
+0,0,0,,La cafétéria ? Je parie que|la nourriture est dégueux.,"Tu devrais d'abord le constater par toi-même,|mais tu n'a pas tout à fait tord, ce n'est pas génial.",10,-1,0,
 0,0,0,,Qu'est-ce qu'il y a|au menu aujourd'hui ?,"Aujourd'hui, c'est des spaghettis mais je dois t'avertir|que les pâtes ne font pas parti de leurs meilleurs plats.",10,0,0,
 0,0,0,,Miam ! J'ai tellement|faim maintenant !,"(Elle rit.) Ne t'emballe pas trop,|la nourriture n'est pas géniale.",10,1,0,
 10,0,0,,Une fille intelligente|connaît un meilleur coin.,"Je... Je... Je suppose,|il y a un petit café près d'ici que tu pourrais tester.",20,0,1,
