@@ -9,16 +9,15 @@ function C101_KinbakuClub_Outro_Load() {
 function C101_KinbakuClub_Outro_Run() {
 
 	// Paints the background	
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawRect(ctx, 0, 0, 800, 600, "black");	
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Bell.jpg", 800, 0);
+	DrawRect(0, 0, 800, 600, "black");	
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Bell.jpg", 800, 0);
 
 	// Dialog depending on the outro situation
-	if (TextPhase >= 0) DrawText(ctx, GetText("Outro1"), 400, 100, "White");
-    if (TextPhase >= 1) DrawText(ctx, GetText("Outro2"), 400, 200, "White");
-	if (TextPhase >= 2) DrawText(ctx, GetText("Outro3"), 400, 300, "White");
-	if (TextPhase >= 3) DrawText(ctx, GetText("Outro4"), 400, 400, "White");
-    if (TextPhase >= 4) DrawText(ctx, GetText("Outro5"), 400, 500, "White");
+	if (TextPhase >= 0) DrawText(GetText("Outro1"), 400, 100, "White");
+    if (TextPhase >= 1) DrawText(GetText("Outro2"), 400, 200, "White");
+	if (TextPhase >= 2) DrawText(GetText("Outro3"), 400, 300, "White");
+	if (TextPhase >= 3) DrawText(GetText("Outro4"), 400, 400, "White");
+    if (TextPhase >= 4) DrawText(GetText("Outro5"), 400, 500, "White");
 }
 
 // Chapter 101 - Kinbaku Club  Click

@@ -24,8 +24,7 @@ function C010_Revenge_Outro_Load() {
 function C010_Revenge_Outro_Run() {
 	
 	// Paints the background
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawRect(ctx, 0, 0, 800, 600, "black");
+	DrawRect(0, 0, 800, 600, "black");
 	
 	// Sets the correct text to fetch
 	var OutroText = "";
@@ -33,14 +32,14 @@ function C010_Revenge_Outro_Run() {
 	if (GameLogQuery("C007_LunchBreak", "Sidney", "Stranded") || GameLogQuery("C007_LunchBreak", "Jennifer", "Stranded")) OutroText = "SidneyJennifer";
 
 	// Draw the background image
-	if (TextPhase >= 2) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Bell.jpg", 800, 0);
-    if (TextPhase < 2) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/" + OutroText + ".jpg", 800, 0);
+	if (TextPhase >= 2) DrawImage(CurrentChapter + "/" + CurrentScreen + "/Bell.jpg", 800, 0);
+    if (TextPhase < 2) DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + OutroText + ".jpg", 800, 0);
 	
 	// Shows the text
 	if (C010_Revenge_Outro_GoodEnding) OutroText = OutroText + "Good";
-	DrawText(ctx, GetText(OutroText + "1"), 400, 150, "White");
-	if (TextPhase >= 1) DrawText(ctx, GetText(OutroText + "2"), 400, 300, "White");
-	if (TextPhase >= 2) DrawText(ctx, GetText(OutroText + "3"), 400, 450, "White");
+	DrawText(GetText(OutroText + "1"), 400, 150, "White");
+	if (TextPhase >= 1) DrawText(GetText(OutroText + "2"), 400, 300, "White");
+	if (TextPhase >= 2) DrawText(GetText(OutroText + "3"), 400, 450, "White");
 
 }
 

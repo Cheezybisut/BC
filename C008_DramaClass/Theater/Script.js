@@ -113,15 +113,12 @@ function C008_DramaClass_Theater_Load() {
 // Chapter 8 - Theater Run
 function C008_DramaClass_Theater_Run() {
 
-	// Draw the background image 
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
-
 	// Draw the 3 actresses and Julia
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
 	DrawActor(C008_DramaClass_Theater_Damsel, 50, 60, 0.55);
 	DrawActor(C008_DramaClass_Theater_Villain, 300, 60, 0.55);
 	DrawActor(C008_DramaClass_Theater_Heroine, 850, 60, 0.55);
-	if (C008_DramaClass_Theater_GlobalStage < 300) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Julia.png", 550, 250);
+	if (C008_DramaClass_Theater_GlobalStage < 300) DrawImage(CurrentChapter + "/" + CurrentScreen + "/Julia.png", 550, 250);
 	else DrawActor("Julia", 575, 60, 0.55);
 
 }

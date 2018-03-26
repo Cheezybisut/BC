@@ -9,7 +9,7 @@ function C006_Isolation_Intro_Load() {
 	// Do not allow bondage when we begin
 	Common_BondageAllowed = true;
 	Common_SelfBondageAllowed = true;
-	GameLogSpecificAdd(CurrentChapter, "", "Isolated");
+	GameLogSpecificAdd(CurrentChapter, "", "Isolation");
 	
 	// Gets the player crime chapter 2 or 3.  If there's any, we go to chapter 6 instead of 5.
 	if (GameLogQuery("C002_FirstClass", "Mildred", "Subdue") && !GameLogQuery("C002_FirstClass", "Mildred", "Release")) C006_Isolation_Intro_Teacher = "Mildred";
@@ -30,16 +30,15 @@ function C006_Isolation_Intro_Load() {
 function C006_Isolation_Intro_Run() {
 	
 	// Paints the background
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
-	DrawPlayerTransition(ctx);
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
+	DrawPlayerTransition();
 
 	// Write the chapter introduction
-	DrawText(ctx, GetText("Intro1"), 450, 150, "White");
-	if ((TextPhase >= 1) && (C006_Isolation_Intro_Teacher == "Mildred")) DrawText(ctx, GetText("Intro2Mildred"), 450, 250, "White");
-	if ((TextPhase >= 1) && (C006_Isolation_Intro_Teacher == "Yuki")) DrawText(ctx, GetText("Intro2Yuki"), 450, 250, "White");
-	if (TextPhase >= 2) DrawText(ctx, GetText("Intro3"), 450, 350, "White");
-	if (TextPhase >= 3) DrawText(ctx, GetText("Intro4"), 450, 450, "White");
+	DrawText(GetText("Intro1"), 450, 150, "White");
+	if ((TextPhase >= 1) && (C006_Isolation_Intro_Teacher == "Mildred")) DrawText(GetText("Intro2Mildred"), 450, 250, "White");
+	if ((TextPhase >= 1) && (C006_Isolation_Intro_Teacher == "Yuki")) DrawText(GetText("Intro2Yuki"), 450, 250, "White");
+	if (TextPhase >= 2) DrawText(GetText("Intro3"), 450, 350, "White");
+	if (TextPhase >= 3) DrawText(GetText("Intro4"), 450, 450, "White");
 
 }
 

@@ -16,11 +16,7 @@ function C001_BeforeClass_Classroom_Load() {
 
 // Chapter 1 - Classroom Run
 function C001_BeforeClass_Classroom_Run() {
-	
-	// Draw the background image and the wait button on the bottom right of the image
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background" + C001_BeforeClass_Classroom_Mode.toString() + ".jpg", 0, 0);
-	
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Background" + C001_BeforeClass_Classroom_Mode.toString() + ".jpg", 0, 0);
 }
 
 // Chapter 1 - Classroom Click

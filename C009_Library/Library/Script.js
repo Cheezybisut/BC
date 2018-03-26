@@ -20,48 +20,45 @@ function C009_Library_Library_Load() {
 }
 
 // Draw the navigation arrows
-function C009_Library_Library_Navigation(ctx, Zone, Direction, X, Y) {
+function C009_Library_Library_Navigation(Zone, Direction, X, Y) {
 	if (C009_Library_Library_CurrentZone == Zone) {
 		var Active = false;
 		if ((MouseX >= X) && (MouseX <= X + 200) && (MouseY >= Y) && (MouseY <= Y + 200) && !IsMobile) Active = true;
-		if ((Direction == "Up") && Active) DrawImage(ctx, Icons.Navigation.ArrowUpActive, X, Y);
-		if ((Direction == "Up") && !Active) DrawImage(ctx, Icons.Navigation.ArrowUpInactive, X, Y);
-		if ((Direction == "Down") && Active) DrawImage(ctx, Icons.Navigation.ArrowDownActive, X, Y);
-		if ((Direction == "Down") && !Active) DrawImage(ctx, Icons.Navigation.ArrowDownInactive, X, Y);
-		if ((Direction == "Left") && Active) DrawImage(ctx, Icons.Navigation.ArrowLeftActive, X, Y);
-		if ((Direction == "Left") && !Active) DrawImage(ctx, Icons.Navigation.ArrowLeftInactive, X, Y);
-		if ((Direction == "Right") && Active) DrawImage(ctx, Icons.Navigation.ArrowRightActive, X, Y);
-		if ((Direction == "Right") && !Active) DrawImage(ctx, Icons.Navigation.ArrowRightInactive, X, Y);
+		if ((Direction == "Up") && Active) DrawImage(Icons.Navigation.ArrowUpActive, X, Y);
+		if ((Direction == "Up") && !Active) DrawImage(Icons.Navigation.ArrowUpInactive, X, Y);
+		if ((Direction == "Down") && Active) DrawImage(Icons.Navigation.ArrowDownActive, X, Y);
+		if ((Direction == "Down") && !Active) DrawImage(Icons.Navigation.ArrowDownInactive, X, Y);
+		if ((Direction == "Left") && Active) DrawImage(Icons.Navigation.ArrowLeftActive, X, Y);
+		if ((Direction == "Left") && !Active) DrawImage(Icons.Navigation.ArrowLeftInactive, X, Y);
+		if ((Direction == "Right") && Active) DrawImage(Icons.Navigation.ArrowRightActive, X, Y);
+		if ((Direction == "Right") && !Active) DrawImage(Icons.Navigation.ArrowRightInactive, X, Y);
 	}
 }
 
 // Chapter 9 - Library Run
 function C009_Library_Library_Run() {
 
-	// Draw the background image 
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/" + C009_Library_Library_CurrentZone + ".jpg", 0, 0);
-	
-	// Draw the navigation arrows
-	C009_Library_Library_Navigation(ctx, "001", "Left", 0, 400);
-	C009_Library_Library_Navigation(ctx, "001", "Up", 500, 350);
-	C009_Library_Library_Navigation(ctx, "001", "Right", 1000, 400);
-	C009_Library_Library_Navigation(ctx, "002", "Up", 500, 200);
-	C009_Library_Library_Navigation(ctx, "002", "Down", 500, 400);
-	C009_Library_Library_Navigation(ctx, "002", "Left", 0, 400);
-	C009_Library_Library_Navigation(ctx, "002", "Right", 1000, 400);
-	C009_Library_Library_Navigation(ctx, "003", "Down", 500, 400);
-	C009_Library_Library_Navigation(ctx, "004", "Up", 780, 150);
-	C009_Library_Library_Navigation(ctx, "004", "Left", 80, 200);
-	C009_Library_Library_Navigation(ctx, "004", "Left", 550, 150);
-	C009_Library_Library_Navigation(ctx, "005", "Down", 500, 400);
-	C009_Library_Library_Navigation(ctx, "006", "Right", 600, 200);
-	C009_Library_Library_Navigation(ctx, "006", "Left", 400, 200);
-	C009_Library_Library_Navigation(ctx, "006", "Down", 500, 400);
-	C009_Library_Library_Navigation(ctx, "007", "Down", 500, 400);
+	// Draw the background image and navigation arrows
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + C009_Library_Library_CurrentZone + ".jpg", 0, 0);
+	C009_Library_Library_Navigation("001", "Left", 0, 400);
+	C009_Library_Library_Navigation("001", "Up", 500, 350);
+	C009_Library_Library_Navigation("001", "Right", 1000, 400);
+	C009_Library_Library_Navigation("002", "Up", 500, 200);
+	C009_Library_Library_Navigation("002", "Down", 500, 400);
+	C009_Library_Library_Navigation("002", "Left", 0, 400);
+	C009_Library_Library_Navigation("002", "Right", 1000, 400);
+	C009_Library_Library_Navigation("003", "Down", 500, 400);
+	C009_Library_Library_Navigation("004", "Up", 780, 150);
+	C009_Library_Library_Navigation("004", "Left", 80, 200);
+	C009_Library_Library_Navigation("004", "Left", 550, 150);
+	C009_Library_Library_Navigation("005", "Down", 500, 400);
+	C009_Library_Library_Navigation("006", "Right", 600, 200);
+	C009_Library_Library_Navigation("006", "Left", 400, 200);
+	C009_Library_Library_Navigation("006", "Down", 500, 400);
+	C009_Library_Library_Navigation("007", "Down", 500, 400);
 	
 	// TO REMOVE
-	if ((C009_Library_Library_CurrentZone == "005") || (C009_Library_Library_CurrentZone == "007")) DrawText(ctx, "This zone will be available in another version", 600, 175, "white");
+	if ((C009_Library_Library_CurrentZone == "005") || (C009_Library_Library_CurrentZone == "007")) DrawText("This zone will be available in another version", 600, 175, "white");
 
 }
 

@@ -64,7 +64,7 @@ function DoubleFightLoad(Opp1ActorName, Opp1Difficulty, Opp1Icon, Opp2ActorName,
 }
 
 // Draw the fight icons
-function DoubleFightDrawIcons(ctx, Opponent) {
+function DoubleFightDrawIcons(Opponent) {
 
 	// Scroll the fight icons with time
 	var Seq = 0;
@@ -73,7 +73,7 @@ function DoubleFightDrawIcons(ctx, Opponent) {
         // Draw the move from 3 seconds before to 1 second after
         var currentOpponentIconTime = Opponent.FightMoves[Seq][FightMoveTime];
         if ((currentOpponentIconTime <= DoubleFightTimer + 3000) && (currentOpponentIconTime >= DoubleFightTimer - 1000))
-            DrawImage(ctx, Opponent.FightIcon, Opponent.FightXOffset + 3 + (Opponent.FightMoves[Seq][FightMoveType] * 75), 410 + Math.floor((DoubleFightTimer - currentOpponentIconTime) / 6));  
+            DrawImage(Opponent.FightIcon, Opponent.FightXOffset + 3 + (Opponent.FightMoves[Seq][FightMoveType] * 75), 410 + Math.floor((DoubleFightTimer - currentOpponentIconTime) / 6));  
 		
 		// Remove the move from the sequence if it's past due
 		if (currentOpponentIconTime < DoubleFightTimer - 1000) {
@@ -92,32 +92,32 @@ function DoubleFightDrawIcons(ctx, Opponent) {
 }
 
 // Draw the fight bars to tell when the moves will hit
-function DoubleFightDrawBar(ctx, Opponent) {
+function DoubleFightDrawBar(Opponent) {
 
 	// Draw 4 bars per opponent
 	for(BarNum = 0; BarNum <= 3; BarNum++) {
 		
 		// The color changes when it's clicked or pressed
-		DrawRect(ctx, Opponent.FightXOffset + 3 + (BarNum * 75), 437, 70, 27, "White");
+		DrawRect(Opponent.FightXOffset + 3 + (BarNum * 75), 437, 70, 27, "White");
 		if ((Opponent.LastMoveType == BarNum) && (Opponent.LastMoveTypeTimer >= DoubleFightTimer))
-			DrawRect(ctx, Opponent.FightXOffset + 4 + (BarNum * 75), 438, 68, 25, "#66FF66");
+			DrawRect(Opponent.FightXOffset + 4 + (BarNum * 75), 438, 68, 25, "#66FF66");
 		else
-			DrawRect(ctx, Opponent.FightXOffset + 4 + (BarNum * 75), 438, 68, 25, "Red");
-		if (!IsMobile) DrawText(ctx, String.fromCharCode(Opponent.FightMoveTypeKeyUpper[BarNum]), Opponent.FightXOffset + 36 + (BarNum * 75), 451, "white");
+			DrawRect(Opponent.FightXOffset + 4 + (BarNum * 75), 438, 68, 25, "Red");
+		if (!IsMobile) DrawText(String.fromCharCode(Opponent.FightMoveTypeKeyUpper[BarNum]), Opponent.FightXOffset + 36 + (BarNum * 75), 451, "white");
 
 	}
 
 }
 
 // Draw the fight progress in the bottom of the fight scene
-function DoubleFightDrawProgress(ctx, Opponent) {
-	DrawRect(ctx, Opponent.FightXOffset, 590, 300, 1, "white");
-	DrawRect(ctx, Opponent.FightXOffset, 591, Opponent.FightProgress * 3, 9, "#66FF66");
-	DrawRect(ctx, Opponent.FightXOffset + (Opponent.FightProgress * 3), 591, (100 - Opponent.FightProgress) * 3, 9, "red");
+function DoubleFightDrawProgress(Opponent) {
+	DrawRect(Opponent.FightXOffset, 590, 300, 1, "white");
+	DrawRect(Opponent.FightXOffset, 591, Opponent.FightProgress * 3, 9, "#66FF66");
+	DrawRect(Opponent.FightXOffset + (Opponent.FightProgress * 3), 591, (100 - Opponent.FightProgress) * 3, 9, "red");
 }
 
 // Draw the opponent actor on the screen
-function DoubleFightDrawOpponent(ctx, Opponent) {
+function DoubleFightDrawOpponent(Opponent) {
 
 	// Before the timer, we use the previous image
 	if (Opponent.NextImageTime < DoubleFightTimer) {
@@ -135,12 +135,12 @@ function DoubleFightDrawOpponent(ctx, Opponent) {
 	};
 
 	// Draw the image on the screen
-	DrawImageZoom(ctx, Opponent.ImageName, 0, 0, 600, 900, Opponent.ImageXOffset, 50, 600 * 0.75, 900 * 0.75);
+	DrawImageZoom(Opponent.ImageName, 0, 0, 600, 900, Opponent.ImageXOffset, 50, 600 * 0.75, 900 * 0.75);
 
 }
 
 // Renders a specific opponent
-function DoubleFightRenderOpponent(ctx, Opponent) {
+function DoubleFightRenderOpponent(Opponent) {
 
 	// Starts the fight at an even level and generates moves if there'S none left
 	if (Opponent.FightProgress > 100) Opponent.FightProgress = 100;
@@ -148,20 +148,20 @@ function DoubleFightRenderOpponent(ctx, Opponent) {
 	if ((Opponent.FightMoves.length == 0) && !DoubleFightEnded && Opponent.FightProgress > 0) Opponent.FightMoves = DoubleFightGenerateMoves(DoubleFightTimer, Opponent.DifficultyText);
 
 	// Draw the fighting actors
-	DoubleFightDrawOpponent(ctx, Opponent);
+	DoubleFightDrawOpponent(Opponent);
 	
 	// Draw the fight icons, bars and bottom info when the fight is running
 	if (!DoubleFightEnded) {
 		if (DoubleFightTimer >= DoubleFightStartTime) {
 			if (Opponent.FightProgress < 100) {
-				DoubleFightDrawBar(ctx, Opponent);
-				DoubleFightDrawIcons(ctx, Opponent);
-				DoubleFightDrawProgress(ctx, Opponent);
+				DoubleFightDrawBar(Opponent);
+				DoubleFightDrawIcons(Opponent);
+				DoubleFightDrawProgress(Opponent);
 			}
 		} 
 		else {
-			DrawText(ctx, GetCSVText(DoubleFightText, "Opponent") + " " + Opponent.ActorName, Opponent.FightXOffset + 150, 250, "white");
-			DrawText(ctx, GetCSVText(DoubleFightText, "Difficulty") + " " + GetCSVText(DoubleFightText, Opponent.DifficultyText), Opponent.FightXOffset + 150, 350, "white");
+			DrawText(GetCSVText(DoubleFightText, "Opponent") + " " + Opponent.ActorName, Opponent.FightXOffset + 150, 250, "white");
+			DrawText(GetCSVText(DoubleFightText, "Difficulty") + " " + GetCSVText(DoubleFightText, Opponent.DifficultyText), Opponent.FightXOffset + 150, 350, "white");
 		}
 	}
 	
@@ -253,22 +253,21 @@ function DoubleFightCheckClick(Opponent) {
 function C999_Common_DoubleFight_Run() {
 
 	// Paints the background
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawImage(ctx, "C999_Common/Fights/Backgrounds/" + DoubleFightBackgroundImage + ".jpg", 0, 0);
+	DrawImage("C999_Common/Fights/Backgrounds/" + DoubleFightBackgroundImage + ".jpg", 0, 0);
 
 	// Increments the fight timer and renders the 2 opponents
 	DoubleFightTimer = DoubleFightTimer + RunInterval;
-	DoubleFightRenderOpponent(ctx, DoubleFightOpponent1);
-	DoubleFightRenderOpponent(ctx, DoubleFightOpponent2);
+	DoubleFightRenderOpponent(DoubleFightOpponent1);
+	DoubleFightRenderOpponent(DoubleFightOpponent2);
 
 	// Draw the fight icons and bottom info when the fight is running
-	if (!DoubleFightEnded && (DoubleFightTimer < DoubleFightStartTime)) DrawText(ctx, GetCSVText(DoubleFightText, "StartsIn") + " " + (5 - Math.floor(DoubleFightTimer / 1000)).toString(), 600, 30, "white");
+	if (!DoubleFightEnded && (DoubleFightTimer < DoubleFightStartTime)) DrawText(GetCSVText(DoubleFightText, "StartsIn") + " " + (5 - Math.floor(DoubleFightTimer / 1000)).toString(), 600, 30, "white");
 
 	// Draw the end text
 	if (DoubleFightEnded) {
-		if ((DoubleFightOpponent1.FightProgress >= 100) && (DoubleFightOpponent2.FightProgress >= 100) && DoubleFightPerfect) DrawText(ctx, GetCSVText(DoubleFightText, "Perfect"), 600, 30, "white");
-		if ((DoubleFightOpponent1.FightProgress >= 100) && (DoubleFightOpponent2.FightProgress >= 100) && !DoubleFightPerfect) DrawText(ctx, GetCSVText(DoubleFightText, "Victory"), 600, 30, "white");
-		if ((DoubleFightOpponent1.FightProgress <= 0) || (DoubleFightOpponent2.FightProgress <= 0)) DrawText(ctx, GetCSVText(DoubleFightText, "Defeat"), 600, 30, "white");
+		if ((DoubleFightOpponent1.FightProgress >= 100) && (DoubleFightOpponent2.FightProgress >= 100) && DoubleFightPerfect) DrawText(GetCSVText(DoubleFightText, "Perfect"), 600, 30, "white");
+		if ((DoubleFightOpponent1.FightProgress >= 100) && (DoubleFightOpponent2.FightProgress >= 100) && !DoubleFightPerfect) DrawText(GetCSVText(DoubleFightText, "Victory"), 600, 30, "white");
+		if ((DoubleFightOpponent1.FightProgress <= 0) || (DoubleFightOpponent2.FightProgress <= 0)) DrawText(GetCSVText(DoubleFightText, "Defeat"), 600, 30, "white");
 	}
 
 }

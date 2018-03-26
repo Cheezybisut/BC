@@ -13,8 +13,7 @@ function C999_Common_GameLoad_Run() {
 	// Build the game loading screen
 	SaveStateSlotSummary();
 	BuildInteraction(C999_Common_GameLoad_CurrentStage);
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawText(ctx, GetText("LoadGame"), 900, 420, "black");
+	DrawText(GetText("LoadGame"), 900, 420, "black");
 	
 }
 
