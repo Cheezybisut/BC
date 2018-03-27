@@ -4,6 +4,8 @@ var C009_Library_Search_CanLearnRopeMastery = true;
 var C009_Library_Search_CanSit = false;
 var C009_Library_Search_MasturbateCount = 0;
 var C009_Library_Search_IntroText = "";
+var C009_Library_Search_CanClimb = false;
+var C009_Library_Search_ClimbDone = false;
 
 // Chapter 9 Library - Search Area Load
 function C009_Library_Search_Load() {
@@ -14,6 +16,7 @@ function C009_Library_Search_Load() {
 	C009_Library_Search_IntroText = "";
 	Common_SelfBondageAllowed = false;
 	C009_Library_Search_CanSit = (!Common_PlayerGagged && !Common_PlayerRestrained);
+	C009_Library_Search_CanClimb = (PlayerGetSkillLevel("Sports") > 0);
 }
 
 // Chapter 9 Library - Search Area Run
@@ -86,4 +89,13 @@ function C009_Library_Search_ReadFull() {
 	GameLogSpecificAdd("C009_Library", "", "ReadTwice");
 	C009_Library_Library_BookProgress = C009_Library_Search_CurrentStage;
 	CurrentTime = CurrentTime + 890000;
+}
+
+// Chapter 9 - Library Climb
+function C009_Library_Search_Climb() {
+	if (!C009_Library_Search_ClimbDone) {
+		C009_Library_Search_ClimbDone = true;
+		OverridenIntroText = GetText("ClimbFindItem");
+		PlayerAddRandomItem();
+	}
 }
