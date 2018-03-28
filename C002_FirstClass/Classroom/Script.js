@@ -39,11 +39,10 @@ function C002_FirstClass_Classroom_Load() {
 function C002_FirstClass_Classroom_Run() {
 
 	// Draw the background image and the wait button on the bottom right of the image
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/" + C002_FirstClass_Classroom_Sidney.toString() + ".jpg", 0, 0);
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/" + C002_FirstClass_Classroom_Mildred.toString() + ".jpg", 300, 0);
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/" + C002_FirstClass_Classroom_Amanda.toString() + ".jpg", 600, 0);
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/" + C002_FirstClass_Classroom_Sarah.toString() + ".jpg", 900, 0);
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + C002_FirstClass_Classroom_Sidney.toString() + ".jpg", 0, 0);
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + C002_FirstClass_Classroom_Mildred.toString() + ".jpg", 300, 0);
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + C002_FirstClass_Classroom_Amanda.toString() + ".jpg", 600, 0);
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + C002_FirstClass_Classroom_Sarah.toString() + ".jpg", 900, 0);
 	
 }
 

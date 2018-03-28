@@ -13,13 +13,12 @@ function C005_GymClass_Outro_Load() {
 function C005_GymClass_Outro_Run() {
 	
 	// Paints the background
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawRect(ctx, 0, 0, 800, 600, "black");
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Bell.jpg", 800, 0);
+	DrawRect(0, 0, 800, 600, "black");
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Bell.jpg", 800, 0);
 		
 	// Draw the outro text
-	DrawText(ctx, GetText("Outro1"), 400, 200, "White");
-	if (TextPhase >= 1) DrawText(ctx, GetText("Outro2"), 400, 400, "White");
+	DrawText(GetText("Outro1"), 400, 200, "White");
+	if (TextPhase >= 1) DrawText(GetText("Outro2"), 400, 400, "White");
 
 }
 

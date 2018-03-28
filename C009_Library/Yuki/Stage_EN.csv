@@ -1,0 +1,54 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,"Yes, it's my|first day here.","Welcome to our college then, I'm Teacher Yuki.|Don't make too much noise in the library.",1,0,0,
+0,0,0,,I'm surprised you|haven't heard of me.,I haven't heard of you.  I'm Teacher Yuki.|Don't make too much noise in the library.,1,0,1,
+0,0,0,,"Yes Miss, a new|school is always scary.","Don't be scared, it will be fine, I'm Teacher Yuki.|Please don't make too much noise in the library.",1,0,-1,
+1,0,0,,(Nod silently.),Excellent.  So are you|looking for a specific book?,100,1,-1,
+1,0,0,,"Yeah, yeah, I know.",(She gives you an angry look.)|Are you looking for a specific book?,100,-1,1,
+1,0,0,,I'll keep quiet.,Very well.  So are you|looking for a specific book?,100,0,0,
+50,0,0,,"Good.  Tell her|I said ""hello"".",That's not funny young lady.|Are you looking for a book?,100,-1,1,
+50,0,0,,"Yes, we met before.",That's what I've heard.|Are you looking for a book?,100,0,0,
+50,0,0,,I already have a|reputation then.,Not a very good reputation.|Are you looking for a book?,100,0,1,
+50,0,0,,Mildred is a witch.,"I should wash your mouth with soap.|Anyway, are you looking for a book?",100,-2,0,
+50,0,0,,I'm sorry for|what I did.,It's not too late to be a good girl.|Are you looking for a specific book?,100,1,-1,
+60,0,0,,"Yes, the detention|time was fair.",You have a good attitude.|Are you looking for a book?,100,1,0,
+60,0,0,,"Yes Miss, I will|not fight again.",Very good little miss.|Are you looking for a book?,100,1,-1,
+60,0,0,,She started it!,I don't want to hear that again.|Are you looking for a book?,100,-1,1,
+60,0,0,,(Nod silently.),Good.  So are you looking for a book?,100,0,-1,
+70,0,0,,"Yes, the detention|time was fair.",You have a good attitude.|Are you looking for a book?,100,1,0,
+70,0,0,,"Yes Miss, I won't|cause any trouble.",Very good little miss.|Are you looking for a book?,100,1,-1,
+70,0,0,,I regret nothing!,Such a fiesty little brat.|Are you looking for a book?,100,-1,1,
+70,0,0,,(Nod silently.),Good.  So are you looking for a book?,100,0,-1,
+80,0,0,,I saw something|shiny in there.,You know what killed the cat don't you?|Promise me to never try that again.,81,-1,0,
+80,0,0,,I was looking|for cheese.,And you got yourself in the mouse trap?|Promise me to never try that again.,81,-2,0,
+80,0,0,,I dropped my|pen in there.,"Poor young lady, you're so clumsy.|Promise me to never try that again.",81,0,-1,
+80,0,0,,A mean girl with black|hair pushed me in.,"Sidney!  (She clenches her fist.)  Young lady,|you will need to learn how to defend yourself.",82,0,-1,
+81,0,0,,Yes Miss.|I promise.,Very good little Miss.  (You walk to her desk.)|Are you searching for a specific book?,100,1,-1,
+81,0,0,,I won't do it again.,Alright young lady.  (You walk to her desk.)|Are you searching for a specific book?,100,0,0,
+81,0,0,,"Yeah, yeah, yeah.|I won't do it again.","I don't like your attitude.  (You walk to her desk.)|Anyway, are you searching for a specific book?",100,-1,1,
+81,0,0,,"Yes, that was stupid.|I won't do it again.","Very true young lady.  (You walk to her desk.)|So tell me, are you searching for a specific book?",100,1,0,
+82,0,0,,That's a very|good advice.,Indeed.  (You both walk to her desk.)|So are you searching for a specific book?,100,1,0,
+82,0,0,,"Don't worry, I'll kick|her ass next time.",Standing your ground should be enough Miss.|(You walk to her desk.)  Are you searching for a book?,100,-1,1,
+82,0,0,,Could you help me|to defend myself?,"Yes, I'll help you later. (You walk to her desk.)|So are you searching for a specific book?",100,1,-2,
+82,0,0,,"Yeah, I know.",Very well.  (You both walk to her desk.)|Anyway.  Are you searching for a specific book?,100,0,0,
+90,0,0,,I didn't do anything.,"You little liar, I saw your hand under|your skirt.  What is that magazine?",91,-1,0,
+90,0,0,,I was reading.,I saw your hand under your skirt.|What is that magazine you're reading?,91,0,0,
+90,0,0,,That's none of|your business.,Be polite!  It's absolutely my business.|What is that magazine you're reading?,91,-1,1,
+90,0,0,,(Blush and bow|your head.),You should feel ashamed.|What is that magazine?,91,1,-1,
+90,0,0,,I had an itch.,"You little liar, you were not|scratching.  What is that magazine?",91,-1,0,
+90,0,0,,I'm sorry Miss.|I was masturbating.,"Little miss, you should feel|ashamed.  What is that magazine?",91,1,-2,
+91,0,0,,It's a dirty magazine.,(She nods and confiscates the magazine.)|Promise me you'll never do that again.,92,0,0,NoMoreSweetGwendoline()
+91,0,0,,It's a comic book.,(She grabs and confiscates the magazine.)|Promise me you'll never do that again.,92,-1,0,NoMoreSweetGwendoline()
+91,0,0,,You should know it.|It's Sweet Gwendoline.,(She frowns and confiscates the magazine.)|Promise me you'll never do that again.,92,0,1,NoMoreSweetGwendoline()
+91,0,0,,Please take it.  It|doesn't belong here.,(She smiles and confiscates the magazine.)|Promise me you'll never do that again.,92,1,-1,NoMoreSweetGwendoline()
+92,0,0,,Yes Miss.|I promise.,Very good little Miss.  (You walk to her desk.)|Are you searching for a specific book?,100,1,-1,
+92,0,0,,I won't do it again.,Alright young lady.  (You walk to her desk.)|Are you searching for a specific book?,100,0,0,
+92,0,0,,"Yeah, yeah, yeah.|I won't do it again.","I don't like your attitude.  (You walk to her desk.)|Anyway, are you searching for a specific book?",100,-1,1,
+92,0,0,,"Yes, that was stupid.|I won't do it again.","Very true young lady.  (You walk to her desk.)|So tell me, are you searching for a specific book?",100,1,0,
+100,0,0,BookAlreadyFound,I've already|found my book.,Very well.  You may find a|place to read in silence.,200,0,0,AllowLeave()
+100,0,0,,The Count of|Monte Cristo.,"Try the literature section.  From the|main aisle, second shelve to your left.",120,0,0,AllowLeave()
+100,0,0,,Fifty Shades of Grey.,"Young lady, you will not find|such trash in our fine establishment.",110,-1,0,
+100,0,0,,Justine from the|Marquis de Sade.,You're not mature enough for this kind of literature.|This book isn't allowed for first year students.,110,1,1,
+110,0,0,,"Actually, I need ""The|Count of Monte Cristo.""","Try the literature section.  From the|main aisle, second shelve to your left.",120,0,0,AllowLeave()
+120,0,0,,Thank you Miss.|(Walk away.),,200,0,1,PlayerLeaveForBook()
+120,0,0,,Thanks Yuki!|(Walk away.),,200,0,0,PlayerLeaveForBook()
+120,0,0,,(Walk away.),,200,-1,0,PlayerLeaveForBook()

@@ -83,7 +83,7 @@ function DetectMobile() {
     else if (localStorage.mobile) return true;
 
     // Alternative check
-    var mobile = ['iphone','ipad','android','blackberry','nokia','opera mini','windows mobile','windows phone','iemobile']; 
+    var mobile = ['iphone','ipad','android','blackberry','nokia','opera mini','windows mobile','windows phone','iemobile','mobile/'];
     for (var i in mobile) if (navigator.userAgent.toLowerCase().indexOf(mobile[i].toLowerCase()) > 0) return true;
 
     // If nothing is found, we assume desktop

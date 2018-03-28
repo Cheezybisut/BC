@@ -96,19 +96,18 @@ function StruggleGetImage(StruggleStage) {
 function StruggleDraw(NoStruggleMessage, StruggleStage) {
 	
 	// Draw the background image
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawImage(ctx, StruggleGetImage(StruggleStage), 0, 0);
+	DrawImage(StruggleGetImage(StruggleStage), 0, 0);
 
 	// Draw the struggle text on top
-	if (StruggleProgress <= 0) DrawText(ctx, NoStruggleMessage, 600, 30, "white");
-	if (StruggleProgress >= 100) DrawText(ctx, StruggleDoneMessage, 600, 30, "white");
-	if ((StruggleProgress > 0) && (StruggleProgress < 100)) { DrawText(ctx, StruggleMessage, 600, 30, "white"); DrawCircle(ctx, StruggleX, StruggleY, StruggleRadius + 4, 4, "white"); }
-	if ((StruggleProgress > 50) && (StruggleProgress < 100)) DrawText(ctx, StruggleDifficultyShown, StruggleX, StruggleY + StruggleRadius + 30, "white");
+	if (StruggleProgress <= 0) DrawText(NoStruggleMessage, 600, 30, "white");
+	if (StruggleProgress >= 100) DrawText(StruggleDoneMessage, 600, 30, "white");
+	if ((StruggleProgress > 0) && (StruggleProgress < 100)) { DrawText(StruggleMessage, 600, 30, "white"); DrawCircle(StruggleX, StruggleY, StruggleRadius + 4, 4, "white"); }
+	if ((StruggleProgress > 50) && (StruggleProgress < 100)) DrawText(StruggleDifficultyShown, StruggleX, StruggleY + StruggleRadius + 30, "white");
 
 	// Draw the progress meter
-	DrawRect(ctx, 399, 579, 402, 12, "white");
-	DrawRect(ctx, 400, 580, StruggleProgress * 4, 10, "#66FF66");
-	DrawRect(ctx, 400 + (StruggleProgress * 4), 580, (100 - StruggleProgress) * 4, 10, "red");
+	DrawRect(399, 579, 402, 12, "white");
+	DrawRect(400, 580, StruggleProgress * 4, 10, "#66FF66");
+	DrawRect(400 + (StruggleProgress * 4), 580, (100 - StruggleProgress) * 4, 10, "red");
 
 }
 

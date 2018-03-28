@@ -91,7 +91,7 @@ function RaceLoad(Racer, RacerImageSet, AllowedMinutes, Difficulty, EndGoal, End
 }
 
 // Draw the race icons
-function RaceDrawIcons(ctx) {
+function RaceDrawIcons() {
 
 	// Scroll the race icons with time
 	var Seq = 0;
@@ -100,9 +100,9 @@ function RaceDrawIcons(ctx) {
 		// Draw the move from 3 seconds before to 1 second after
 		if ((RaceMoves[Seq][RaceMoveTime] <= RaceTimer + 3000) && (RaceMoves[Seq][RaceMoveTime] >= RaceTimer - 1000)) {			
 			if (RaceMoves[Seq][RaceMoveType] <= 3)
-				DrawImage(ctx, RaceIconLeft, 3 + (RaceMoves[Seq][RaceMoveType] * 75), 410 + Math.floor((RaceTimer - RaceMoves[Seq][RaceMoveTime]) / 6));
+				DrawImage(RaceIconLeft, 3 + (RaceMoves[Seq][RaceMoveType] * 75), 410 + Math.floor((RaceTimer - RaceMoves[Seq][RaceMoveTime]) / 6));
 			else 
-				DrawImage(ctx, RaceIconRight, 603 + (RaceMoves[Seq][RaceMoveType] * 75), 410 + Math.floor((RaceTimer - RaceMoves[Seq][RaceMoveTime]) / 6));
+				DrawImage(RaceIconRight, 603 + (RaceMoves[Seq][RaceMoveType] * 75), 410 + Math.floor((RaceTimer - RaceMoves[Seq][RaceMoveTime]) / 6));
 		}
 		
 		// Remove the move from the sequence if it's past due
@@ -122,7 +122,7 @@ function RaceDrawIcons(ctx) {
 }
 
 // Draw the race bars to tell when the moves will hit
-function RaceDrawBar(ctx) {
+function RaceDrawBar() {
 
 	// Draw 4 bars on each sides
 	var XOffset = 0;
@@ -132,26 +132,26 @@ function RaceDrawBar(ctx) {
 		if (BarNum == 4) XOffset = 600;
 		
 		// The color changes when it's clicked or pressed
-		DrawRect(ctx, XOffset + 3 + (BarNum * 75), 437, 70, 27, "White");
+		DrawRect(XOffset + 3 + (BarNum * 75), 437, 70, 27, "White");
 		if ((RaceLastMoveType == BarNum) && (RaceLastMoveTypeTimer >= RaceTimer))
-			DrawRect(ctx, XOffset + 4 + (BarNum * 75), 438, 68, 25, "#66FF66");
+			DrawRect(XOffset + 4 + (BarNum * 75), 438, 68, 25, "#66FF66");
 		else
-			DrawRect(ctx, XOffset + 4 + (BarNum * 75), 438, 68, 25, "Red");
-		if (!IsMobile) DrawText(ctx, String.fromCharCode(RaceMovesTypeKeyUpper[BarNum]), XOffset + 36 + (BarNum * 75), 451, "white");
+			DrawRect(XOffset + 4 + (BarNum * 75), 438, 68, 25, "Red");
+		if (!IsMobile) DrawText(String.fromCharCode(RaceMovesTypeKeyUpper[BarNum]), XOffset + 36 + (BarNum * 75), 451, "white");
 
 	}
 
 }
 
 // Draw the race progress in the bottom screen
-function RaceDrawStats(ctx) {
-	DrawText(ctx, GetCSVText(RaceText, "Combo") + " " + RaceCombo.toString(), 400, 25, "white");
-	DrawText(ctx, GetCSVText(RaceText, "Speed") + " " + RaceSpeed.toString(), 575, 25, "white");
-	DrawText(ctx, GetCSVText(RaceText, "Timer") + " " + msToTime(RaceEndTimer - RaceTimer), 800, 25, "white");
+function RaceDrawStats() {
+	DrawText(GetCSVText(RaceText, "Combo") + " " + RaceCombo.toString(), 400, 25, "white");
+	DrawText(GetCSVText(RaceText, "Speed") + " " + RaceSpeed.toString(), 575, 25, "white");
+	DrawText(GetCSVText(RaceText, "Timer") + " " + msToTime(RaceEndTimer - RaceTimer), 800, 25, "white");
 }
 
 // Draw the actor on the screen
-function RaceDrawActor(ctx) {
+function RaceDrawActor() {
 
 	// Builds the image name
 	var ImageName = "C999_Common/Races/Actors/" + RaceActor + "/" + RaceActorImageSet;
@@ -175,7 +175,7 @@ function RaceDrawActor(ctx) {
 
 	// Draw the image on the screen
 	ImageName = ImageName + "_" + (RaceActorImageFrame).toString() + ".png";
-	DrawImage(ctx, ImageName, 300, 0);
+	DrawImage(ImageName, 300, 0);
 
 }
 
@@ -271,12 +271,11 @@ function C999_Common_Race_Run() {
 	}
 
 	// Paints the background
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawImage(ctx, "C999_Common/Races/Backgrounds/" + RaceBackgroundImage + ".jpg", RaceProgress * -1, 0);
+	DrawImage("C999_Common/Races/Backgrounds/" + RaceBackgroundImage + ".jpg", RaceProgress * -1, 0);
 
 	// Increments the race timer and draw the actor
 	if (!RaceEnded) RaceTimer = RaceTimer + RunInterval;
-	RaceDrawActor(ctx);
+	RaceDrawActor();
 	
 	// If the race is over and not completed, we flag a defeat
 	if ((RaceTimer >= RaceEndTimer) && !RaceEnded)
@@ -285,23 +284,23 @@ function C999_Common_Race_Run() {
 	// Draw the race icons, bars and bottom info when the race is running
 	if (!RaceEnded) {
 		if (RaceTimer >= RaceStartTime) {
-			RaceDrawBar(ctx);
-			RaceDrawIcons(ctx);
-			RaceDrawStats(ctx);
+			RaceDrawBar();
+			RaceDrawIcons();
+			RaceDrawStats();
 		} 
 		else {
-			DrawText(ctx, RaceGoalText, 600, 25, "white");
-			DrawText(ctx, GetCSVText(RaceText, "Difficulty") + " " + GetCSVText(RaceText, RaceDifficultyText), 500, 65, "white");
-			DrawText(ctx, GetCSVText(RaceText, "StartsIn") + " " + (5 - Math.floor(RaceTimer / 1000)).toString(), 700, 65, "white");
+			DrawText(RaceGoalText, 600, 25, "white");
+			DrawText(GetCSVText(RaceText, "Difficulty") + " " + GetCSVText(RaceText, RaceDifficultyText), 500, 65, "white");
+			DrawText(GetCSVText(RaceText, "StartsIn") + " " + (5 - Math.floor(RaceTimer / 1000)).toString(), 700, 65, "white");
 		}
 	}
 
 	// Draw the end text
 	if (RaceEnded) {		
-		if ((RaceProgress >= RaceGoal) && RacePerfect) DrawText(ctx, GetCSVText(RaceText, "Perfect"), 600, 25, "white");
-		if ((RaceProgress >= RaceGoal) && !RacePerfect) DrawText(ctx, GetCSVText(RaceText, "Victory"), 600, 25, "white");
-		if (RaceProgress < RaceGoal) DrawText(ctx, GetCSVText(RaceText, "Defeat"), 600, 25, "white");
-		DrawText(ctx, GetCSVText(RaceText, "RaceTime") + " " + msToTime(RaceTimer - RaceStartTime), 600, 65, "white");
+		if ((RaceProgress >= RaceGoal) && RacePerfect) DrawText(GetCSVText(RaceText, "Perfect"), 600, 25, "white");
+		if ((RaceProgress >= RaceGoal) && !RacePerfect) DrawText(GetCSVText(RaceText, "Victory"), 600, 25, "white");
+		if (RaceProgress < RaceGoal) DrawText(GetCSVText(RaceText, "Defeat"), 600, 25, "white");
+		DrawText(GetCSVText(RaceText, "RaceTime") + " " + msToTime(RaceTimer - RaceStartTime), 600, 65, "white");
 	}
 
 }

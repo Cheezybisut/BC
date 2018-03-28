@@ -1,6 +1,8 @@
 var C009_Library_Library_CurrentZone = "001";
 var C009_Library_Library_JenniferGone = false;
 var C009_Library_Library_BookProgress = 40;
+var C009_Library_Library_FoundLockedDoor = false;
+var C009_Library_Library_StuckInHole = false;
 
 // Chapter 9 - Library Load
 function C009_Library_Library_Load() {
@@ -20,48 +22,48 @@ function C009_Library_Library_Load() {
 }
 
 // Draw the navigation arrows
-function C009_Library_Library_Navigation(ctx, Zone, Direction, X, Y) {
+function C009_Library_Library_Navigation(Zone, Direction, X, Y) {
 	if (C009_Library_Library_CurrentZone == Zone) {
 		var Active = false;
 		if ((MouseX >= X) && (MouseX <= X + 200) && (MouseY >= Y) && (MouseY <= Y + 200) && !IsMobile) Active = true;
-		if ((Direction == "Up") && Active) DrawImage(ctx, Icons.Navigation.ArrowUpActive, X, Y);
-		if ((Direction == "Up") && !Active) DrawImage(ctx, Icons.Navigation.ArrowUpInactive, X, Y);
-		if ((Direction == "Down") && Active) DrawImage(ctx, Icons.Navigation.ArrowDownActive, X, Y);
-		if ((Direction == "Down") && !Active) DrawImage(ctx, Icons.Navigation.ArrowDownInactive, X, Y);
-		if ((Direction == "Left") && Active) DrawImage(ctx, Icons.Navigation.ArrowLeftActive, X, Y);
-		if ((Direction == "Left") && !Active) DrawImage(ctx, Icons.Navigation.ArrowLeftInactive, X, Y);
-		if ((Direction == "Right") && Active) DrawImage(ctx, Icons.Navigation.ArrowRightActive, X, Y);
-		if ((Direction == "Right") && !Active) DrawImage(ctx, Icons.Navigation.ArrowRightInactive, X, Y);
+		if ((Direction == "Up") && Active) DrawImage(Icons.Navigation.ArrowUpActive, X, Y);
+		if ((Direction == "Up") && !Active) DrawImage(Icons.Navigation.ArrowUpInactive, X, Y);
+		if ((Direction == "Down") && Active) DrawImage(Icons.Navigation.ArrowDownActive, X, Y);
+		if ((Direction == "Down") && !Active) DrawImage(Icons.Navigation.ArrowDownInactive, X, Y);
+		if ((Direction == "Left") && Active) DrawImage(Icons.Navigation.ArrowLeftActive, X, Y);
+		if ((Direction == "Left") && !Active) DrawImage(Icons.Navigation.ArrowLeftInactive, X, Y);
+		if ((Direction == "Right") && Active) DrawImage(Icons.Navigation.ArrowRightActive, X, Y);
+		if ((Direction == "Right") && !Active) DrawImage(Icons.Navigation.ArrowRightInactive, X, Y);
 	}
 }
 
 // Chapter 9 - Library Run
 function C009_Library_Library_Run() {
 
-	// Draw the background image 
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/" + C009_Library_Library_CurrentZone + ".jpg", 0, 0);
-	
-	// Draw the navigation arrows
-	C009_Library_Library_Navigation(ctx, "001", "Left", 0, 400);
-	C009_Library_Library_Navigation(ctx, "001", "Up", 500, 350);
-	C009_Library_Library_Navigation(ctx, "001", "Right", 1000, 400);
-	C009_Library_Library_Navigation(ctx, "002", "Up", 500, 200);
-	C009_Library_Library_Navigation(ctx, "002", "Down", 500, 400);
-	C009_Library_Library_Navigation(ctx, "002", "Left", 0, 400);
-	C009_Library_Library_Navigation(ctx, "002", "Right", 1000, 400);
-	C009_Library_Library_Navigation(ctx, "003", "Down", 500, 400);
-	C009_Library_Library_Navigation(ctx, "004", "Up", 780, 150);
-	C009_Library_Library_Navigation(ctx, "004", "Left", 80, 200);
-	C009_Library_Library_Navigation(ctx, "004", "Left", 550, 150);
-	C009_Library_Library_Navigation(ctx, "005", "Down", 500, 400);
-	C009_Library_Library_Navigation(ctx, "006", "Right", 600, 200);
-	C009_Library_Library_Navigation(ctx, "006", "Left", 400, 200);
-	C009_Library_Library_Navigation(ctx, "006", "Down", 500, 400);
-	C009_Library_Library_Navigation(ctx, "007", "Down", 500, 400);
-	
-	// TO REMOVE
-	if ((C009_Library_Library_CurrentZone == "005") || (C009_Library_Library_CurrentZone == "007")) DrawText(ctx, "This zone will be available in another version", 600, 175, "white");
+	// Draw the background image and navigation arrows
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + C009_Library_Library_CurrentZone + ".jpg", 0, 0);
+	C009_Library_Library_Navigation("001", "Left", 0, 400);
+	C009_Library_Library_Navigation("001", "Up", 500, 350);
+	C009_Library_Library_Navigation("001", "Right", 1000, 400);
+	C009_Library_Library_Navigation("002", "Up", 500, 200);
+	C009_Library_Library_Navigation("002", "Down", 500, 400);
+	C009_Library_Library_Navigation("002", "Left", 0, 400);
+	C009_Library_Library_Navigation("002", "Right", 1000, 400);
+	C009_Library_Library_Navigation("003", "Down", 500, 400);
+	C009_Library_Library_Navigation("004", "Up", 780, 150);
+	C009_Library_Library_Navigation("004", "Left", 80, 200);
+	C009_Library_Library_Navigation("004", "Left", 550, 150);
+	C009_Library_Library_Navigation("005", "Down", 500, 400);
+	C009_Library_Library_Navigation("005", "Left", 200, 200);
+	C009_Library_Library_Navigation("006", "Right", 800, 200);
+	C009_Library_Library_Navigation("006", "Left", 400, 200);
+	C009_Library_Library_Navigation("006", "Down", 500, 400);
+	C009_Library_Library_Navigation("007", "Down", 500, 400);
+	C009_Library_Library_Navigation("007", "Right", 800, 200);
+	C009_Library_Library_Navigation("007", "Left", 200, 200);
+	C009_Library_Library_Navigation("008", "Right", 800, 200);
+	C009_Library_Library_Navigation("008", "Up", 500, 200);
+	C009_Library_Library_Navigation("009", "Down", 720, 400);
 
 }
 
@@ -84,6 +86,13 @@ function C009_Library_Library_EnterZone(NewZone) {
 function C009_Library_Library_LoadJennifer() {
 	CurrentTime = CurrentTime + 10000;
 	SetScene(CurrentChapter, "Jennifer");
+	return false;
+}
+
+// Chapter 9 - Library Load Yuki
+function C009_Library_Library_LoadYuki() {
+	CurrentTime = CurrentTime + 10000;
+	SetScene(CurrentChapter, "Yuki");
 	return false;
 }
 
@@ -116,8 +125,10 @@ function C009_Library_Library_Click() {
 	if (E && (C009_Library_Library_CurrentZone == "004") && (MouseX >= 80) && (MouseX <= 280) && (MouseY >= 200) && (MouseY <= 400)) E = C009_Library_Library_EnterZone("007");
 	if (E && (C009_Library_Library_CurrentZone == "004") && (MouseX >= 550) && (MouseX <= 750) && (MouseY >= 150) && (MouseY <= 350)) E = C009_Library_Library_StartSearch(C009_Library_Library_BookProgress);
 
-	// In Zone 5, the player can go to zone 2 (down)
+	// In Zone 5, the player can go to zone 2 (down), zone 8 (left), search (right)
 	if (E && (C009_Library_Library_CurrentZone == "005") && (MouseX >= 500) && (MouseX <= 700) && (MouseY >= 400) && (MouseY <= 600)) E = C009_Library_Library_EnterZone("002");
+	if (E && (C009_Library_Library_CurrentZone == "005") && (MouseX >= 200) && (MouseX <= 400) && (MouseY >= 200) && (MouseY <= 400)) E = C009_Library_Library_EnterZone("008");
+	if (E && (C009_Library_Library_CurrentZone == "005") && (MouseX >= 800) && (MouseX <= 1200) && (MouseY >= 0) && (MouseY <= 400)) E = C009_Library_Library_StartSearch(50);
 
 	// In Zone 6, the player can go to zone 2 (down), meet Jennifer (left), or search in books (right)
 	if (E && (C009_Library_Library_CurrentZone == "006") && (MouseX >= 400) && (MouseX <= 600) && (MouseY >= 200) && (MouseY <= 400)) E = C009_Library_Library_StartSearch(61);
@@ -125,7 +136,18 @@ function C009_Library_Library_Click() {
 	if (E && (C009_Library_Library_CurrentZone == "006") && (MouseX >= 600) && (MouseX <= 800) && (MouseY >= 200) && (MouseY <= 400) && !C009_Library_Library_JenniferGone) E = C009_Library_Library_LoadJennifer();
 	if (E && (C009_Library_Library_CurrentZone == "006") && (MouseX >= 500) && (MouseX <= 700) && (MouseY >= 400) && (MouseY <= 600)) E = C009_Library_Library_EnterZone("002");
 
-	// In Zone 7, the player can go to zone 4 (down)
+	// In Zone 7, the player can go to zone 4 (down), zone 9 (left) or Yuki (right)
 	if (E && (C009_Library_Library_CurrentZone == "007") && (MouseX >= 500) && (MouseX <= 700) && (MouseY >= 400) && (MouseY <= 600)) E = C009_Library_Library_EnterZone("004");
+	if (E && (C009_Library_Library_CurrentZone == "007") && (MouseX >= 800) && (MouseX <= 1000) && (MouseY >= 200) && (MouseY <= 400)) E = C009_Library_Library_LoadYuki();
+	if (E && (C009_Library_Library_CurrentZone == "007") && (MouseX >= 200) && (MouseX <= 400) && (MouseY >= 200) && (MouseY <= 400)) E = C009_Library_Library_EnterZone("009");
+
+	// In Zone 8, the player can go to zone 5 (right) or search the door or on the left
+	if (E && (C009_Library_Library_CurrentZone == "008") && (MouseX >= 800) && (MouseX <= 1000) && (MouseY >= 200) && (MouseY <= 400)) E = C009_Library_Library_EnterZone("005");
+	if (E && (C009_Library_Library_CurrentZone == "008") && (MouseX >= 500) && (MouseX <= 700) && (MouseY >= 200) && (MouseY <= 400)) E = C009_Library_Library_StartSearch(80);
+	if (E && (C009_Library_Library_CurrentZone == "008") && (MouseX >= 0) && (MouseX <= 400) && (MouseY >= 0) && (MouseY <= 600)) E = C009_Library_Library_StartSearch(85);
+
+	// In Zone 9, the player can go to zone 7 (down) or search on the left
+	if (E && (C009_Library_Library_CurrentZone == "009") && (MouseX >= 720) && (MouseX <= 920) && (MouseY >= 400) && (MouseY <= 600)) E = C009_Library_Library_EnterZone("007");
+	if (E && (C009_Library_Library_CurrentZone == "009") && (MouseX >= 0) && (MouseX <= 600) && (MouseY >= 0) && (MouseY <= 600)) E = C009_Library_Library_StartSearch(90);
 	
 }

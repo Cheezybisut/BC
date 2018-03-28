@@ -16,6 +16,15 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 44,0,0,,"You found the book: ""The Count of Monte Cristo"".|You have to read up to chapter 5 for your next class.",41.jpg
 45,0,0,,"You found the book: ""The Count of Monte Cristo"".|You have to read up to chapter 5 for your next class.",41.jpg
 46,0,0,,"You found the book: ""The Count of Monte Cristo"".|You've already read up to chapter 5, you're ready.",41.jpg
+50,0,0,,"On the left side of the corridor, there's|a shelve full of books on philosophy.",50.jpg
 60,0,0,,You find an empty corner in the library.|There's an old couch and books on history.,60.jpg
 61,0,0,,There are lots of old books in|the shelves of this corridor.,61.jpg
 65,0,0,,,60Sit.jpg
+80,0,0,,There's a closed wooden door leading|to another section of the library.,80.jpg
+85,0,0,,The bookshelves are filled with books on psychology.|There's a small dark hole in one the shelves.,85.jpg
+86,0,0,,,86.jpg
+87,0,0,!Common_PlayerChaste,,87.jpg
+87,0,0,Common_PlayerChaste,,87Chastity.jpg
+88,0,0,!Common_PlayerChaste,,88.jpg
+88,0,0,Common_PlayerChaste,,88Chastity.jpg
+90,0,0,,The upper section is closed|and cannot be accessed.,90.jpg

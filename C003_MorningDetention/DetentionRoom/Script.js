@@ -31,9 +31,8 @@ function C003_MorningDetention_DetentionRoom_Run() {
 	if (C003_MorningDetention_DetentionRoom_SidneyGone == true) C003_MorningDetention_DetentionRoom_Sidney = 6;
 
 	// Draw the background image and the wait button on the bottom right of the image
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Yuki" + C003_MorningDetention_DetentionRoom_Yuki.toString() + ".jpg", 0, 0);
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Sidney" + C003_MorningDetention_DetentionRoom_Sidney.toString() + ".jpg", 600, 0);
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Yuki" + C003_MorningDetention_DetentionRoom_Yuki.toString() + ".jpg", 0, 0);
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Sidney" + C003_MorningDetention_DetentionRoom_Sidney.toString() + ".jpg", 600, 0);
 
 }
 

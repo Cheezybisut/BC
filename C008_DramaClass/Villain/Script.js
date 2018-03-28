@@ -252,7 +252,7 @@ function C008_DramaClass_Villain_Masturbate() {
 	C008_DramaClass_Villain_MastubateCount++;
 
 	// Amanda will climax if she's properly tied up
-	if ((C008_DramaClass_Villain_MastubateCount >= 3) && !C008_DramaClass_Villain_OrgasmDone && ActorIsGagged() && ActorHasInventory("TwoRopes")) { 
+	if ((C008_DramaClass_Villain_MastubateCount >= 3) && !C008_DramaClass_Villain_OrgasmDone && ActorIsGagged() && (ActorHasInventory("TwoRopes") || ActorHasInventory("Armbinder"))) { 
 		C008_DramaClass_Villain_OrgasmDone = true;
 		ActorAddOrgasm();
 		ActorChangeAttitude(1, 0);
@@ -265,7 +265,7 @@ function C008_DramaClass_Villain_Masturbate() {
 // Chapter 8 - Villain Ravish
 function C008_DramaClass_Villain_Ravish() {
 	if (!C008_DramaClass_Villain_RavishDone) { C008_DramaClass_Villain_RavishDone = true; ActorChangeAttitude(0, -1); }
-	if ((ActorGetValue(ActorSubmission) < 5) && !ActorIsRestrained() && !ActorIsGagged() && (PlayerHasInventory("Rope") || PlayerHasInventory("Cuffs"))) {
+	if ((ActorGetValue(ActorSubmission) < 5) && !ActorIsRestrained() && !ActorIsGagged() && (PlayerHasInventory("Rope") || PlayerHasInventory("Armbinder") || PlayerHasInventory("Cuffs"))) {
 		CurrentTime = CurrentTime + 50000;
 		PlayerRandomBondage();
 		OverridenIntroText = GetText("Ravish");

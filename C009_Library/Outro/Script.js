@@ -8,6 +8,7 @@ function C009_Library_Outro_Load() {
 	PlayerClothes("Clothed");
 	ActorSpecificClearInventory("Jennifer", false);
 	ActorSpecificSetPose("Jennifer", "");
+	if (C009_Library_Library_StuckInHole) GameLogAdd(CurrentChapter, "Player", "StuckInHole");
 
 }
 
@@ -15,14 +16,18 @@ function C009_Library_Outro_Load() {
 function C009_Library_Outro_Run() {
 	
 	// Paints the background
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawRect(ctx, 0, 0, 800, 600, "black");
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Bell.jpg", 800, 0);
+	DrawRect(0, 0, 800, 600, "black");
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Bell.jpg", 800, 0);
+
+	// Get the correct outro text depending on how the chapter ended
+	var OutroText = "Outro";
+	if (C009_Library_Library_StuckInHole) OutroText = "StuckInHole";
 	
-	// Draw the outro text to lead to chapter 12
-	DrawText(ctx, GetText("Outro1"), 400, 150, "White");
-	if (TextPhase >= 1) DrawText(ctx, GetText("Outro2"), 400, 300, "White");
-	if (TextPhase >= 2) DrawText(ctx, GetText("Outro3"), 400, 450, "White");
+	// Draw the outro text to lead to chapter 11
+	DrawText(GetText(OutroText + "1"), 400, 150, "White");
+	if (TextPhase >= 1) DrawText(GetText(OutroText + "2"), 400, 250, "White");
+	if (TextPhase >= 2) DrawText(GetText(OutroText + "3"), 400, 350, "White");
+	if (TextPhase >= 3) DrawText(GetText(OutroText + "4"), 400, 450, "White");
 
 }
 
@@ -31,6 +36,6 @@ function C009_Library_Outro_Click() {
 
 	// Jump to the next animation
 	TextPhase++;
-	if (TextPhase >= 3) SaveMenu("C101_KinbakuClub", "Intro");
+	if (TextPhase >= 4) SaveMenu("C101_KinbakuClub", "Intro");
 
 }

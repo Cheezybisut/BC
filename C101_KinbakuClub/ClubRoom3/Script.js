@@ -8,17 +8,16 @@ function C101_KinbakuClub_ClubRoom3_Load() {
 function C101_KinbakuClub_ClubRoom3_Run() {
 
 	// Draw the background image 
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/ClubRoom3Arrows.jpg", 0, 0);
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/ClubRoom3Arrows.jpg", 0, 0);
 	
 	// Draw Chloe
 	//if (C101_KinbakuClub_Chloe_CurrentStage == 0) {
-		DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/ChloeBoard.png", 0, 0);
+		DrawImage(CurrentChapter + "/" + CurrentScreen + "/ChloeBoard.png", 0, 0);
 	//}	else DrawActor("Chloe", 220, 170, 0.3333);
 	
 	
 	// Draw CardGamers
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/CardGamers1.jpg", 570, 130);
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/CardGamers1.jpg", 570, 130);
 	
 }
 

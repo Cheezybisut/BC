@@ -39,11 +39,10 @@ function C004_ArtClass_ArtRoom_Load() {
 function C004_ArtClass_ArtRoom_Run() {
 
 	// Draw the background image and the wait button on the bottom right of the image
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/" + C004_ArtClass_ArtRoom_Jennifer + ".jpg", 0, 0);
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/" + C004_ArtClass_ArtRoom_Julia + ".jpg", 300, 0);
-	if (C004_ArtClass_ArtRoom_ExtraModel != "") DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/" + C004_ArtClass_ArtRoom_ExtraModelImage + "_Extra.jpg", 600, 0);
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/" + C004_ArtClass_ArtRoom_Sarah + ".jpg", 900, 0);
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + C004_ArtClass_ArtRoom_Jennifer + ".jpg", 0, 0);
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + C004_ArtClass_ArtRoom_Julia + ".jpg", 300, 0);
+	if (C004_ArtClass_ArtRoom_ExtraModel != "") DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + C004_ArtClass_ArtRoom_ExtraModelImage + "_Extra.jpg", 600, 0);
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + C004_ArtClass_ArtRoom_Sarah + ".jpg", 900, 0);
 	
 }
 
