@@ -23,10 +23,7 @@ function C101_KinbakuClub_ClubRoom1_Run() {
 		if (C101_KinbakuClub_Lauren_LaurenClothGagged) DrawImage(CurrentChapter + "/" + CurrentScreen + "/LaurenChairClothGag.jpg", 570, 190);
 	}
 
-	//Draw Rope Group
-	if (!C101_KinbakuClub_RopeGroup_LeftTwinReleased && !C101_KinbakuClub_RopeGroup_RightTwinReleased) DrawImage(CurrentChapter + "/" + CurrentScreen + "/BothTwins.jpg", 690, 100);
-	if (C101_KinbakuClub_RopeGroup_LeftTwinReleased) DrawImage(CurrentChapter + "/" + CurrentScreen + "/RightTwin.jpg", 690, 100);
-	if (C101_KinbakuClub_RopeGroup_RightTwinReleased) DrawImage(CurrentChapter + "/" + CurrentScreen + "/LeftTwin.jpg", 690, 100);
+
 }
 
 // Chapter 101 - Club Room 1 Click
