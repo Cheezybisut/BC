@@ -9,6 +9,7 @@ var C009_Library_Yuki_IsolationOrgasmYuki = false;
 var C009_Library_Yuki_IsolationEarlyReleaseYuki = false;
 var	C009_Library_Yuki_IsolationEscapeYuki = false;
 var	C009_Library_Yuki_HasEgg = false;
+var	C009_Library_Yuki_CanFindPlayer = true;
 
 // Chapter 9 Library - Yuki Load
 function C009_Library_Yuki_Load() {
@@ -17,6 +18,7 @@ function C009_Library_Yuki_Load() {
 	ActorLoad("Yuki", "Library");
 	LoadInteractions();
 	Common_SelfBondageAllowed = false;
+	C009_Library_Library_CurrentZone = "007";
 	
 	// A few variables on what already happened
 	C009_Library_Yuki_BookAlreadyFound = (C009_Library_Library_BookProgress > 40);
@@ -60,7 +62,17 @@ function C009_Library_Yuki_Click() {
 
 }
 
-// Chapter 9 Library - Yuki - When the player leaves
-function C009_Library_Yuki_PlayerLeave() {
+// Chapter 9 Library - Yuki - When the player leaves to find her book
+function C009_Library_Yuki_PlayerLeaveForBook() {
 	SetScene(CurrentChapter, "Library");
+}
+
+// Chapter 9 Library - Yuki Allow Leaving
+function C009_Library_Yuki_AllowLeave() {
+	LeaveIcon = "Leave";
+}
+
+// Chapter 9 Library - Yuki confiscates the Sweet Gwendoline magazine
+function C009_Library_Yuki_NoMoreSweetGwendoline() {
+	C009_Library_Search_MagazineConfiscated = true;
 }

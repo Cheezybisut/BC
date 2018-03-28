@@ -186,7 +186,7 @@ function PlayerUngag() {
 // Add a random item in the player inventory
 function PlayerAddRandomItem() {
 	var ItemList = ["BallGag", "TapeGag", "ClothGag", "Cuffs", "Rope", "Armbinder", "ChastityBelt", "VibratingEgg", "Crop", "Collar", "SleepingPill"];
-	var Item = ItemList[Math.floor(Math.random() * 10)];
+	var Item = ItemList[Math.floor(Math.random() * 11)];
 	PlayerAddInventory(Item, 1);
 	if (Item == "TapeGag") PlayerAddInventory(Item, 7); // For tape gag, add a bonus + 7 quantity
 	if ((Item == "Cuffs") && (Math.floor(Math.random() * 2) == 1)) PlayerAddInventory("CuffsKey", 1); // For cuffs, can randomly add keys

@@ -6,17 +6,18 @@ var C009_Library_Search_MasturbateCount = 0;
 var C009_Library_Search_IntroText = "";
 var C009_Library_Search_CanClimb = false;
 var C009_Library_Search_ClimbDone = false;
+var C009_Library_Search_MagazineConfiscated = false;
 
 // Chapter 9 Library - Search Area Load
 function C009_Library_Search_Load() {
-	LeaveIcon = "Leave";
+	if ((C009_Library_Search_CurrentStage != 87) && (C009_Library_Search_CurrentStage != 88)) LeaveIcon = "Leave";
 	LeaveScreen = "Library";
 	LoadInteractions();
 	if (C009_Library_Search_IntroText != "") OverridenIntroText = C009_Library_Search_IntroText;
 	C009_Library_Search_IntroText = "";
 	Common_SelfBondageAllowed = false;
 	C009_Library_Search_CanSit = (!Common_PlayerGagged && !Common_PlayerRestrained);
-	C009_Library_Search_CanClimb = (PlayerGetSkillLevel("Sports") > 0);
+	C009_Library_Search_CanClimb = (PlayerGetSkillLevel("Sports") >= 1);
 }
 
 // Chapter 9 Library - Search Area Run
@@ -48,18 +49,40 @@ function C009_Library_Search_SearchCounter() {
 	}
 }
 
+// Chapter 9 - Library Search for the "Sweet Gwendoline" magazine
+function C009_Library_Search_SearchGwendoline() {
+	if (C009_Library_Search_MagazineConfiscated) {
+		C009_Library_Search_CurrentStage = 32;
+		OverridenIntroText = GetText("NoMoreSweetGwendoline");
+	}
+}
+
 // Chapter 9 - Library Masturbate, if the player has the egg, she can climax multiple times, if not, only 1 time
 function C009_Library_Search_Masturbate() {
 	if (Common_PlayerChaste) {
 		OverridenIntroText = GetText("CannotMasturbate");
 	} else {
-		C009_Library_Search_MasturbateCount++;
-		if (C009_Library_Search_MasturbateCount == 3) { GameLogSpecificAdd("C009_Library", "", "SweetGwendolineOrgasm"); OverridenIntroText = GetText("Orgasm"); }
-		if ((C009_Library_Search_MasturbateCount >= 4) && !PlayerHasLockedInventory("VibratingEgg")) OverridenIntroText = GetText("OrgasmEnough");
-		if ((C009_Library_Search_MasturbateCount >= 4) && PlayerHasLockedInventory("VibratingEgg")) {
-			OverridenIntroText = GetText("OrgasmRepeat");
-			C009_Library_Search_MasturbateCount = 0;
+
+		// Yuki can catch the player masturbating, 1 chance out of 12
+		CurrentTime = CurrentTime + 50000;
+		if (C009_Library_Yuki_CanFindPlayer && (Math.floor(Math.random() * 12) == 0) && (C009_Library_Yuki_CurrentStage <= 300)) {
+			C009_Library_Yuki_CanFindPlayer = false;
+			PlayerUngag();
+			if (C009_Library_Yuki_CurrentStage < 100) C009_Library_Yuki_CurrentStage = 90;
+			if ((C009_Library_Yuki_CurrentStage >= 100) && (C009_Library_Yuki_CurrentStage < 200)) C009_Library_Yuki_CurrentStage = 190;
+			SetScene(CurrentChapter, "Yuki");
+			LeaveIcon = "";
+			GameLogAdd("CaughtInHole");	
+		} else {
+			C009_Library_Search_MasturbateCount++;
+			if (C009_Library_Search_MasturbateCount == 3) { GameLogSpecificAdd("C009_Library", "", "SweetGwendolineOrgasm"); OverridenIntroText = GetText("Orgasm"); }
+			if ((C009_Library_Search_MasturbateCount >= 4) && !PlayerHasLockedInventory("VibratingEgg")) OverridenIntroText = GetText("OrgasmEnough");
+			if ((C009_Library_Search_MasturbateCount >= 4) && PlayerHasLockedInventory("VibratingEgg")) {
+				OverridenIntroText = GetText("OrgasmRepeat");
+				C009_Library_Search_MasturbateCount = 0;
+			}
 		}
+		
 	}
 }
 
@@ -97,5 +120,55 @@ function C009_Library_Search_Climb() {
 		C009_Library_Search_ClimbDone = true;
 		OverridenIntroText = GetText("ClimbFindItem");
 		PlayerAddRandomItem();
+	}
+}
+
+// Chapter 9 - Library Open Door
+function C009_Library_Search_OpenDoor() {
+	C009_Library_Library_FoundLockedDoor = true;
+}
+
+// Chapter 9 - Library Force Door
+function C009_Library_Search_ForceDoor() {
+	C009_Library_Library_FoundLockedDoor = true;
+}
+
+// Chapter 9 - Library No Leaving
+function C009_Library_Search_NoLeave() {
+	LeaveIcon = "";
+}
+
+// Chapter 9 - Library Allow Leaving
+function C009_Library_Search_AllowLeave() {
+	LeaveIcon = "Leave";
+}
+
+// Chapter 9 - Library - When the player gets stuck in a the hole
+function C009_Library_Search_StuckInHole() {
+	C009_Library_Library_StuckInHole = true;
+}
+
+// Chapter 9 - Library - Wait for two minutes in the hole (There's 1 chance out of 12 that Yuki finds the player)
+function C009_Library_Search_TwoMinutes() {
+	CurrentTime = CurrentTime + 110000;
+	if (C009_Library_Yuki_CanFindPlayer && (Math.floor(Math.random() * 12) == 0) && (C009_Library_Yuki_CurrentStage <= 300)) {
+		C009_Library_Yuki_CanFindPlayer = false;
+		PlayerUngag();
+		if (C009_Library_Yuki_CurrentStage < 100) C009_Library_Yuki_CurrentStage = 80;
+		if ((C009_Library_Yuki_CurrentStage >= 100) && (C009_Library_Yuki_CurrentStage < 200)) C009_Library_Yuki_CurrentStage = 180;
+		SetScene(CurrentChapter, "Yuki");
+		LeaveIcon = "";
+		GameLogAdd("CaughtInHole");
+	}
+}
+
+// Chapter 9 - Library - When the player struggles to go back from the hole (it works with Sports 1 or more)
+function C009_Library_Search_StruggleBack() {
+	C009_Library_Search_TwoMinutes();
+	if ((PlayerGetSkillLevel("Sports") >= 1) && (CurrentScreen == "Search")) {
+		C009_Library_Library_StuckInHole = false;
+		OverridenIntroText = GetText("StruggleBackFromHolde");
+		LeaveIcon = "Leave";
+		C009_Library_Search_CurrentStage = 85;		
 	}
 }

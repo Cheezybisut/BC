@@ -4,7 +4,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 15,0,0,,(Stand up.)|(1 minute),You stand up from the chair.,10,0,0,
 30,0,0,!Common_PlayerRestrained,(Search.)|(1 minute),You search in the shelves but all you|can find are boring books on mathematics.,30,0,0,
 31,0,0,!Common_PlayerRestrained,(Search.)|(1 minute),You search the dead end part of the|corridor but don't find anything interesting.,31,0,0,SearchCounter()
-32,0,0,!Common_PlayerRestrained,(Search.)|(1 minute),You search in the shelves and find a|comic book hidden in between the books.,33,0,0,
+32,0,0,!Common_PlayerRestrained,(Search.)|(1 minute),You search in the shelves and find a|comic book hidden in between the books.,33,0,0,SearchGwendoline()
 33,0,0,,(Fetch the comic.)|(1 minute),"It's an old comic called ""Sweet Gwendoline"".|It was written and drawn by John Willie.",34,0,0,
 33,0,0,,(Leave it there.),You leave the comic between the books.,32,0,0,
 34,0,0,,(Open the comic.)|(1 minute),"You flip a few pages.  It tells the story of|Gwendoline, a blond who gets tied up often.",35,0,0,
@@ -31,7 +31,18 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 61,0,0,!Common_PlayerRestrained,(Search.)|(1 minute),You search in the bookshelves but|all you can find are history books.,61,0,0,
 65,0,0,,(Stand up.)|(1 minute),You stand up from the couch.,60,0,0,
 80,0,0,!Common_PlayerRestrained,(Knock.),You knock on the door but nobody answers.,80,0,0,
-80,0,0,!Common_PlayerRestrained,(Open.),You try to open the door but it's locked.,80,0,0,
-80,0,0,,(Listen.),You put your ear against the|door but cannot hear anything.,80,0,0,
+80,0,0,,(Listen.)|(1 minute),You put your ear against the|door but cannot hear anything.,80,0,0,
+80,0,0,!Common_PlayerRestrained,(Open it.),You try to open the door but it's locked.|There's a keyhole but you'll need the proper key.,80,0,0,OpenDoor()
+80,0,0,!Common_PlayerRestrained,(Force it.)|(1 minute),You kick and you ram your shoulder|into the door but it doesn't open.,80,0,0,ForceDoor()
+85,0,0,!Common_PlayerRestrained,(Search the books.)|(1 minute),All you find are books on psychology.,85,0,0,
+85,0,0,!Common_PlayerRestrained,(Inspect the hole.)|(1 minute),"You inspect the small dark hole in the shelve.|It goes deep, your hand cannot reach the end.",86,0,0,
+86,0,0,,(Enter the hole.)|(1 minute),You can barely squeeze yourself in the hole.|Are you sure you want to try to fit it?,87,0,0,NoLeave()
+87,0,0,,(Go inside.)|(1 minute),You go deeper inside but get stuck halfway.|It's really dark and dusty on the other side.,88,0,0,StuckInHole()
+87,0,0,,(Get out.)|(1 minute),You carefully get out of the hole.,85,0,0,AllowLeave()
+88,0,0,,(Struggle to go deeper.),You struggle to go deeper in the hole|but cannot manage to squeeze yourself in.,88,0,0,TwoMinutes()
+88,0,0,,(Struggle to go back.),"You struggle to go back but|cannot do it, you're stuck.",88,0,0,StruggleBack()
+88,0,0,,(Kick the shelves.),You kick wildly and clumsily on the|shelves but it doesn't help much.,88,0,0,TwoMinutes()
+88,0,0,,(Wait patiently.),You wait for a few minutes|but nobody comes to rescue you.,88,0,0,TwoMinutes()
+88,0,0,,HELP!!!,You scream for help but|nobody comes to rescue you.,88,0,0,TwoMinutes()
 90,0,0,CanClimb,(Climb.)|(1 minute.),You climb on the structure like a|monkey but you don't find anything.,90,0,0,Climb()
 90,0,0,!CanClimb,(Climb.)|(1 minute.),You try to climb the structure|but cannot make it and give up.,90,0,0,

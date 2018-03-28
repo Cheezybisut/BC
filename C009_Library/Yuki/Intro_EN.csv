@@ -5,11 +5,20 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 20,0,0,,Here you are!  I've been searching for|you for hours.  How did you escape?,Library.jpg
 30,0,0,,"So my ""good for nothing"" pet has came back.|I hope you learned something from isolation.",Library.jpg
 40,0,0,,I hope you learned something from isolation.|Are you now staying away from trouble?,Library.jpg
-50,0,0,,You must be COMMON_PLAYERNAME.|Mildred told me about you.,Library.jpg
+50,0,0,,You must be COMMON_PLAYERNAME.|Teacher Mildred told me about you.,Library.jpg
 60,0,0,,"Young lady, I hope you will not fight again and|that you've learned a lesson from your detention.",Library.jpg
 70,0,0,,"Young lady, I hope you will not cause trouble again|and that you've learned a lesson from your detention.",Library.jpg
-80,0,0,,Which book are you looking for?,Library.jpg
-81,0,0,,Which book are you looking for?,Library.jpg
-82,0,0,,"Try the literature section.  From the|main aisle, second shelve to your left.",Library.jpg
-100,0,0,,Is there anything else you need?,Library.jpg
-100,-3,0,,(She gives you an angry look.)|What do you want now?,Library.jpg
+80,0,0,,"(Yuki grabs your legs and pulls you out.)|Young lady, what were you doing in there?",Hole.jpg
+81,0,0,,,Hole.jpg
+82,0,0,,,Hole.jpg
+90,0,0,,"(Yuki taps on your shoulder.)|Young lady, what are you doing?",Gwendoline.jpg
+91,0,0,,,Gwendoline.jpg
+92,0,0,,,Gwendoline.jpg
+100,0,0,,Which book are you looking for?,Library.jpg
+100,0,0,IsolationEarlyReleaseYuki,Hello again my little pet girl.|Which book are you looking for?,Library.jpg
+110,0,0,,Which book are you looking for?,Library.jpg
+120,0,0,,"Try the literature section.  From the|main aisle, second shelve to your left.",Library.jpg
+180,0,0,,"Young lady, what were you doing in there?",Hole.jpg
+190,0,0,,"Young lady, what were you doing?",Gwendolyne.jpg
+200,0,0,,Is there anything else you need?,Library.jpg
+200,-3,0,,(She gives you an angry look.)|What do you want now?,Library.jpg
