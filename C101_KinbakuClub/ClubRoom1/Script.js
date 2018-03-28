@@ -23,6 +23,8 @@ function C101_KinbakuClub_ClubRoom1_Run() {
 		if (C101_KinbakuClub_Lauren_LaurenClothGagged) DrawImage(CurrentChapter + "/" + CurrentScreen + "/LaurenChairClothGag.jpg", 570, 190);
 	}
 
+	//Draw Rope Discussion
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/RopeDiscussion1.jpg", 690, 100);
 
 }
 
