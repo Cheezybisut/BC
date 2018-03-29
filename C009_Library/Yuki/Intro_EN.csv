@@ -11,6 +11,7 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 80,0,0,,"(Yuki grabs your legs and pulls you out.)|Young lady, what were you doing in there?",Hole.jpg
 81,0,0,,,Hole.jpg
 82,0,0,,,Hole.jpg
+83,0,0,,,Hole.jpg
 90,0,0,,"(Yuki taps on your shoulder.)|Young lady, what are you doing?",Gwendoline.jpg
 91,0,0,,,Gwendoline.jpg
 92,0,0,,,Gwendoline.jpg
@@ -22,3 +23,20 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 190,0,0,,"Young lady, what were you doing?",Gwendolyne.jpg
 200,0,0,,Is there anything else you need?,Library.jpg
 200,-3,0,,(She gives you an angry look.)|What do you want now?,Library.jpg
+210,0,0,,So you need my help|to recover your pen?,Library.jpg
+220,0,0,,,Library.jpg
+230,0,0,,,Hole.jpg
+240,0,0,,,Hole.jpg
+250,0,0,,,HoleYuki.jpg
+255,0,0,,,HoleYuki.jpg
+260,0,0,,,HoleYuki.jpg
+270,0,0,,,Hole.jpg
+280,0,0,,"Young lady, you promised to be good.|So what were you doing in there?",Hole.jpg
+290,0,0,,"Young lady, you promised to be good.|So tell me what you were doing.",Gwendolyne.jpg
+300,0,0,,,Library.jpg
+310,0,0,,,Library.jpg
+320,0,0,,,DeskFloor.jpg
+330,0,0,,,DeskFloor.jpg
+340,0,0,,,DeskFloorGagged.jpg
+400,0,0,,(Yuki is still sleeping on the floor.),LibraryFloor.jpg
+500,0,0,,(Yuki is still struggling to get out.),HoleYuki.jpg

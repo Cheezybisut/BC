@@ -20,7 +20,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 70,0,0,,(Nod silently.),Good.  So are you looking for a book?,100,0,-1,
 80,0,0,,I saw something|shiny in there.,You know what killed the cat don't you?|Promise me to never try that again.,81,-1,0,
 80,0,0,,I was looking|for cheese.,And you got yourself in the mouse trap?|Promise me to never try that again.,81,-2,0,
-80,0,0,,I dropped my|pen in there.,"Poor young lady, you're so clumsy.|Promise me to never try that again.",81,0,-1,
+80,0,0,PenInHole,I dropped my|pen in there.,"Poor young lady, you're so clumsy.|So you need help to recover it?",83,0,-1,
 80,0,0,,A mean girl with black|hair pushed me in.,"Sidney!  (She clenches her fist.)  Young lady,|you will need to learn how to defend yourself.",82,0,-1,
 81,0,0,,Yes Miss.|I promise.,Very good little Miss.  (You walk to her desk.)|Are you searching for a specific book?,100,1,-1,
 81,0,0,,I won't do it again.,Alright young lady.  (You walk to her desk.)|Are you searching for a specific book?,100,0,0,
@@ -30,6 +30,9 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 82,0,0,,"Don't worry, I'll kick|her ass next time.",Standing your ground should be enough Miss.|(You walk to her desk.)  Are you searching for a book?,100,-1,1,
 82,0,0,,Could you help me|to defend myself?,"Yes, I'll help you later. (You walk to her desk.)|So are you searching for a specific book?",100,1,-2,
 82,0,0,,"Yeah, I know.",Very well.  (You both walk to her desk.)|Anyway.  Are you searching for a specific book?,100,0,0,
+83,0,0,,"Yes, can you|retrieve my pen?",I think I can see your pen.|It won't be easy to reach it.,240,0,0,
+83,0,0,,Oh yes Miss.|I cannot do it.,I think I can see your pen.|It won't be easy to reach it.,240,0,-1,
+83,0,0,,"No, I have|another pen.",Alright.  But you could have been hurt.|Promise me to never try that again.,81,0,0,
 90,0,0,,I didn't do anything.,"You little liar, I saw your hand under|your skirt.  What is that magazine?",91,-1,0,
 90,0,0,,I was reading.,I saw your hand under your skirt.|What is that magazine you're reading?,91,0,0,
 90,0,0,,That's none of|your business.,Be polite!  It's absolutely my business.|What is that magazine you're reading?,91,-1,1,
@@ -52,3 +55,43 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 120,0,0,,Thank you Miss.|(Walk away.),,200,0,1,PlayerLeaveForBook()
 120,0,0,,Thanks Yuki!|(Walk away.),,200,0,0,PlayerLeaveForBook()
 120,0,0,,(Walk away.),,200,-1,0,PlayerLeaveForBook()
+200,0,0,PenInHole,"Miss, I dropped|my pen in a hole.",Oh!  And you need|my help to recover it?,210,0,0,
+200,0,0,,I'm fine Miss.|(Walk away.),,200,0,0,PlayerLeaveForBook()
+200,0,0,,(Search on her desk.)|(1 minute),"Young lady, do not touch|at the things on my desk.",200,-1,0,AnnoyYuki()
+200,0,0,,(Search in her purse.)|(1 minute),What are you doing?|Don't touch my purse.,200,-1,0,AnnoyYuki()
+200,0,0,,(Make some noise.)|(1 minute),Silence is gold young lady.|Especially in the library.,200,-1,0,AnnoyYuki()
+210,0,0,,"Yes, I need your help.","I'm sorry, I don't have time for that.",200,0,0,TestForHelp()
+210,0,0,,I'll try to get|it by myself.,"Very good, I'm sure you can do it.",200,0,0,
+220,0,0,,It's in a dark hole|in a bookshelf.,"Alright, let's go see that.|(You both walk to bookshelf.)",230,0,0,
+220,0,0,,There's a stupid|hole in a shelf.,"Fine, let's go see that.|(You both walk to bookshelf.)",230,-1,0,
+230,0,0,,This is the hole.|Can you see it?,I think I can see your pen.|It won't be easy to reach it.,240,0,0,
+230,0,0,,You're the best.|Can you see it?,I think I can see your pen.|It won't be easy to reach it.,240,1,0,
+240,0,0,,You'll need|to crawl in.,Indeed.  Move away young lady.|(She starts to crawl in the hole.),250,0,0,CrawlInHole()
+240,0,0,,A super teacher|like you can reach it.,I'll try.  Move away young lady.|(She starts to crawl in the hole.),250,0,-1,CrawlInHole()
+250,0,0,,Can you reach it?,Hold on...  Yes!  I've got it!|Can you pull me back?,255,0,0,
+250,0,0,,(Push her inside.),(You try to push her inside but she get|stuck half way.)  Pull!  Don't push!,260,-1,1,
+255,0,0,,Of course Miss.|(Pull her out.),(You help her out and she gives you your pen.)|Be more careful next time young lady.,270,1,0,
+255,0,0,,(Push her inside.),(You try to push her inside but she get|stuck half way.)  Pull!  Don't push!,260,-1,1,
+260,0,0,,Oops!  Sorry.|(Pull her out.),(You help her out and she gives you your pen.)|Be more careful next time young lady.,270,1,0,
+260,0,0,,Now we can|have some fun.,What did you say?  Help me out!|(She struggles but cannot get out.),500,-2,1,StuckInHole()
+270,0,0,,Yes.  Thank you.|(Back to library.),,200,0,0,LeaveForHole()
+270,0,0,,Of course Miss Yuki.|(Back to library.),,200,0,-1,LeaveForHole()
+300,0,0,,Ow!  That hurts!,This should keep you|still until your next class.,310,0,-1,
+300,0,0,,(Struggle fiercely.),You will not escape this armbinder young lady.|I will keep you restrained until your next class.,310,0,1,
+300,0,0,,What is that?,This is a leather armbinder young lady.|I will keep you restrained until your next class.,310,0,0,
+300,0,0,,Fuck you bitch!,(She quickly attaches you to her desk and|tapes your mouth.)  I've heard enough.,340,-1,0,GagPlayer()
+310,0,0,,You cannot do that!,"I did and I can.  (She attaches the binder to|her desk, forcing you to sit on the floor.)",320,0,0,
+310,0,0,,This is fair I guess.,"Very fair.  (She attaches the binder to|her desk, forcing you to sit on the floor.)",320,1,0,
+310,0,0,,Fuck you bitch!,(She quickly attaches you to her desk and|tapes your mouth.)  I've heard enough.,340,-1,0,GagPlayer()
+320,0,0,,"Please, you cannot|restrain me here.",Do your time and stay quiet.|(She goes further to read.),330,0,0,
+320,0,0,,This is inhumane!,Do your time and stay quiet.|(She goes further to read.),330,0,0,
+320,0,0,,Fuck you bitch!,I've heard enough.  (She tapes your mouth.)|Now do your time and don't make any noise.,340,-1,0,GagPlayer()
+330,0,0,,(Struggle to get out.),(You struggle to get out of the leather|binder but cannot manage to do much.),330,0,0,TwoMinutes()
+330,0,0,,(Wait patiently.),(You wait patiently under the desk.|Time seems to fly very slowly.),330,0,0,TwoMinutes()
+330,0,0,,Come back here!,(She comes backs only to|gag your mouth with tape.),340,0,0,GagPlayer()
+340,0,0,,@Oomnp nhai!,(She seems to hear you but|doesn't move or say anything.),340,0,0,TwoMinutes()
+340,0,0,,@Mmammih!,(She seems to hear you but|doesn't move or say anything.),340,0,0,TwoMinutes()
+340,0,0,,(Struggle to get out.),(You struggle to get out of the leather|binder but cannot manage to do much.),340,0,0,TwoMinutes()
+340,0,0,,(Wait patiently.),(You wait patiently under the desk.|Time seems to fly very slowly.),340,0,0,TwoMinutes()
+400,0,0,,TO DO SLEEP,TO DO SLEEP,400,0,0,
+500,0,0,,TO DO HOLE,TO DO HOLE,500,0,0,

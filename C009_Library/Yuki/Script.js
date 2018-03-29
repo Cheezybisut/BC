@@ -10,6 +10,9 @@ var C009_Library_Yuki_IsolationEarlyReleaseYuki = false;
 var	C009_Library_Yuki_IsolationEscapeYuki = false;
 var	C009_Library_Yuki_HasEgg = false;
 var	C009_Library_Yuki_CanFindPlayer = true;
+var C009_Library_Yuki_AllowSecondChance = true;
+var C009_Library_Yuki_PenInHole = false;
+var C009_Library_Yuki_AnnoyCount = 0;
 
 // Chapter 9 Library - Yuki Load
 function C009_Library_Yuki_Load() {
@@ -18,9 +21,11 @@ function C009_Library_Yuki_Load() {
 	ActorLoad("Yuki", "Library");
 	LoadInteractions();
 	Common_SelfBondageAllowed = false;
-	C009_Library_Library_CurrentZone = "007";
+	if (C009_Library_Yuki_CurrentStage >= 500) C009_Library_Library_CurrentZone = "008";
+	else C009_Library_Library_CurrentZone = "007";
 	
 	// A few variables on what already happened
+	C009_Library_Yuki_PenInHole = C009_Library_Search_PenInHole;
 	C009_Library_Yuki_BookAlreadyFound = (C009_Library_Library_BookProgress > 40);
 	C009_Library_Yuki_DetentionBondage = GameLogQuery("C001_BeforeClass", "Sidney", "PublicBondage");
 	C009_Library_Yuki_DetentionFighting = (GameLogQuery("C001_BeforeClass", "Sidney", "FightVictory") || GameLogQuery("C001_BeforeClass", "Sidney", "FightDefeat"));
@@ -46,7 +51,9 @@ function C009_Library_Yuki_Load() {
 // Chapter 9 Library - Yuki Run
 function C009_Library_Yuki_Run() {
 	BuildInteraction(C009_Library_Yuki_CurrentStage);
-	DrawInteractionActor();
+	if (C009_Library_Yuki_CurrentStage < 250) DrawInteractionActor();
+	if ((C009_Library_Yuki_CurrentStage >= 270) && (C009_Library_Yuki_CurrentStage < 300)) DrawInteractionActor();
+	if ((C009_Library_Yuki_CurrentStage >= 300) && (C009_Library_Yuki_CurrentStage < 320)) { DrawActor("Yuki", 480, 0, 1); DrawActor("Player", 720, 0, 1); }
 }
 
 // Chapter 9 Library - Yuki Click
@@ -55,7 +62,9 @@ function C009_Library_Yuki_Click() {
 	// Regular and inventory interactions
 	ClickInteraction(C009_Library_Yuki_CurrentStage);
 	var ClickInv = GetClickedInventory();
-	if (ClickInv == "Player") {
+	
+	// Allows the player to access the menu if she could leave the scene
+	if ((ClickInv == "Player") && (LeaveIcon != "")) {
 		C009_Library_Yuki_IntroText = OverridenIntroText;
 		InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
 	}
@@ -75,4 +84,54 @@ function C009_Library_Yuki_AllowLeave() {
 // Chapter 9 Library - Yuki confiscates the Sweet Gwendoline magazine
 function C009_Library_Yuki_NoMoreSweetGwendoline() {
 	C009_Library_Search_MagazineConfiscated = true;
+}
+
+// Chapter 9 Library - Yuki can help to player to retrieve her pencil if she likes the player
+function C009_Library_Yuki_TestForHelp() {
+	if (ActorGetValue(ActorLove) >= 0) {
+		OverridenIntroText = GetText("AcceptToHelp");
+		C009_Library_Yuki_CurrentStage = 220;
+		LeaveIcon = "";
+	}
+}
+
+// Chapter 9 Library - Yuki will restrain the player is she's annoyed 3 times
+function C009_Library_Yuki_AnnoyYuki() {
+	C009_Library_Yuki_AnnoyCount++;
+	if (C009_Library_Yuki_AnnoyCount >= 3) {
+		PlayerLockInventory("Armbinder");
+		OverridenIntroText = GetText("Annoyed");
+		C009_Library_Yuki_CurrentStage = 300;
+		LeaveIcon = "";
+	}
+}
+
+// Chapter 9 Library - Yuki starts to crawl in the hole
+function C009_Library_Yuki_CrawlInHole() {
+	CurrentTime = CurrentTime + 50000;
+}
+
+// Chapter 9 Library - Yuki can get stuck in the hole
+function C009_Library_Yuki_StuckInHole() {
+	LeaveIcon = "Leave";
+	C009_Library_Yuki_CanFindPlayer = false;
+	C009_Library_Library_CurrentZone = "008";
+}
+
+// Chapter 9 Library - The player can leave for the regular hole scene
+function C009_Library_Yuki_LeaveForHole() {
+	C009_Library_Library_CurrentZone = "008";
+	C009_Library_Search_CurrentStage = 85;
+	SetScene(CurrentChapter, "Search");
+}
+
+// Chapter 9 Library - When Yuki gags the player
+function C009_Library_Yuki_GagPlayer() {
+	PlayerLockInventory("Gag");
+	CurrentTime = CurrentTime + 50000;
+}
+
+// Chapter 9 Library - Wait 2 minutes
+function C009_Library_Yuki_TwoMinutes() {
+	CurrentTime = CurrentTime + 110000;	
 }

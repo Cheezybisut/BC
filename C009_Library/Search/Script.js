@@ -7,6 +7,7 @@ var C009_Library_Search_IntroText = "";
 var C009_Library_Search_CanClimb = false;
 var C009_Library_Search_ClimbDone = false;
 var C009_Library_Search_MagazineConfiscated = false;
+var C009_Library_Search_PenInHole = false;
 
 // Chapter 9 Library - Search Area Load
 function C009_Library_Search_Load() {
@@ -65,11 +66,12 @@ function C009_Library_Search_Masturbate() {
 
 		// Yuki can catch the player masturbating, 1 chance out of 12
 		CurrentTime = CurrentTime + 50000;
-		if (C009_Library_Yuki_CanFindPlayer && (Math.floor(Math.random() * 12) == 0) && (C009_Library_Yuki_CurrentStage <= 300)) {
-			C009_Library_Yuki_CanFindPlayer = false;
+		if (C009_Library_Yuki_CanFindPlayer && (Math.floor(Math.random() * 12) == 0)) {
 			PlayerUngag();
+			if (!C009_Library_Yuki_AllowSecondChance) C009_Library_Yuki_CurrentStage = 290;
 			if (C009_Library_Yuki_CurrentStage < 100) C009_Library_Yuki_CurrentStage = 90;
 			if ((C009_Library_Yuki_CurrentStage >= 100) && (C009_Library_Yuki_CurrentStage < 200)) C009_Library_Yuki_CurrentStage = 190;
+			C009_Library_Yuki_AllowSecondChance = false;
 			SetScene(CurrentChapter, "Yuki");
 			LeaveIcon = "";
 			GameLogAdd("CaughtInHole");	
@@ -151,11 +153,12 @@ function C009_Library_Search_StuckInHole() {
 // Chapter 9 - Library - Wait for two minutes in the hole (There's 1 chance out of 12 that Yuki finds the player)
 function C009_Library_Search_TwoMinutes() {
 	CurrentTime = CurrentTime + 110000;
-	if (C009_Library_Yuki_CanFindPlayer && (Math.floor(Math.random() * 12) == 0) && (C009_Library_Yuki_CurrentStage <= 300)) {
-		C009_Library_Yuki_CanFindPlayer = false;
+	if (C009_Library_Yuki_CanFindPlayer && (Math.floor(Math.random() * 12) == 0)) {
 		PlayerUngag();
+		if (!C009_Library_Yuki_AllowSecondChance) C009_Library_Yuki_CurrentStage = 280;
 		if (C009_Library_Yuki_CurrentStage < 100) C009_Library_Yuki_CurrentStage = 80;
 		if ((C009_Library_Yuki_CurrentStage >= 100) && (C009_Library_Yuki_CurrentStage < 200)) C009_Library_Yuki_CurrentStage = 180;
+		C009_Library_Yuki_AllowSecondChance = false;
 		SetScene(CurrentChapter, "Yuki");
 		LeaveIcon = "";
 		GameLogAdd("CaughtInHole");
@@ -169,6 +172,16 @@ function C009_Library_Search_StruggleBack() {
 		C009_Library_Library_StuckInHole = false;
 		OverridenIntroText = GetText("StruggleBackFromHolde");
 		LeaveIcon = "Leave";
-		C009_Library_Search_CurrentStage = 85;		
+		C009_Library_Search_CurrentStage = 85;
 	}
+}
+
+// Chapter 9 - Library - The player can leave a pen in the dark hole
+function C009_Library_Search_LeavePenInHole() {
+	C009_Library_Search_PenInHole = true;
+}
+
+// Chapter 9 - Library - The player can take the pen in the dark hole
+function C009_Library_Search_TakePenInHole() {
+	C009_Library_Search_PenInHole = false;
 }
