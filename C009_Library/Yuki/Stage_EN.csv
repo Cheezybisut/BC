@@ -55,6 +55,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 120,0,0,,Thank you Miss.|(Walk away.),,200,0,1,PlayerLeaveForBook()
 120,0,0,,Thanks Yuki!|(Walk away.),,200,0,0,PlayerLeaveForBook()
 120,0,0,,(Walk away.),,200,-1,0,PlayerLeaveForBook()
+200,0,0,CanAskForDoor,I've found a|locked door.,"Yes, and you're not allowed|in this section of the library.",200,0,0,
 200,0,0,PenInHole,"Miss, I dropped|my pen in a hole.",Oh!  And you need|my help to recover it?,210,0,0,
 200,0,0,,I'm fine Miss.|(Walk away.),,200,0,0,PlayerLeaveForBook()
 200,0,0,,(Search on her desk.)|(1 minute),"Young lady, do not touch|at the things on my desk.",200,-1,0,AnnoyYuki()
@@ -94,4 +95,36 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 340,0,0,,(Struggle to get out.),(You struggle to get out of the leather|binder but cannot manage to do much.),340,0,0,TwoMinutes()
 340,0,0,,(Wait patiently.),(You wait patiently under the desk.|Time seems to fly very slowly.),340,0,0,TwoMinutes()
 400,0,0,,TO DO SLEEP,TO DO SLEEP,400,0,0,
-500,0,0,,TO DO HOLE,TO DO HOLE,500,0,0,
+500,0,0,,Struggle for me!,(She struggles madly to get out of|the hole cannot manage to do it.),500,0,0,
+500,0,0,!Common_PlayerRestrained,(Caress her.)|(1 minute),(You caress her legs lovingly and you can|hear faint moans coming from inside.),500,0,0,Caress()
+500,0,0,!Common_PlayerRestrained,(Tickle her.)|(1 minute),(She gets really angry when you tickle|her but cannot stop laughing like a child.),500,0,0,Tickle()
+500,0,0,!Common_PlayerRestrained,(Remove her panties.)|(1 minute),(You grab her legs and slowly remove|her panties while she screams in anger.),510,0,0,
+500,0,0,!Common_PlayerRestrained,(Release her.),(Are you sure you want to release her?|Click on the same option again to do it.),500,0,0,ReleaseFromHole()
+510,0,0,!Common_PlayerRestrained,(Masturbate her.)|(1 minute),(You masturbate her slowly and lovingly.|You can hear her struggling and moaning.),510,0,0,Masturbate()
+510,0,0,!Common_PlayerGagged,(Lick her pussy.)|(1 minute),(You bend down to lick her pussy slowly.|You can hear her struggling and moaning.),510,0,0,Masturbate()
+510,0,0,!Common_PlayerRestrained,(Caress her.)|(1 minute),(You caress her legs lovingly and you can|hear faint moans coming from inside.),510,0,0,Caress()
+510,0,0,!Common_PlayerRestrained,(Tickle her.)|(1 minute),(She gets really angry when you tickle|her but cannot stop laughing like a child.),510,0,0,Tickle()
+510,0,0,!Common_PlayerRestrained,(Put back her panties.)|(1 minute),(You grab her legs and put her|panties back on while she struggles.),500,0,0,
+510,0,0,!Common_PlayerRestrained,(Release her.),(Are you sure you want to release her?|Click on the same option again to do it.),510,0,0,ReleaseFromHole()
+511,0,0,!Common_PlayerRestrained,"Yuki, you deserve it.|(Make her climax.)",(You touch her again and she gets a huge|orgasm.  Wetting her legs in the process.),512,1,0,HoleOrgasm()
+511,0,0,!Common_PlayerRestrained,I control your orgasms.|(Make her climax.),(You touch her again and she gets a huge|orgasm.  Wetting her legs in the process.),512,0,1,HoleOrgasm()
+511,0,0,,You don't deserve it.|(Stop touching her.),What!  You cannot do that!|(She tries to kick you but fails.),510,-1,1,
+511,0,0,,You will cum later.|(Stop touching her.),What!  You cannot do that!|(She tries to kick you but fails.),510,0,1,
+512,0,0,!Common_PlayerGagged,I'll clean you Miss.|(Lick her legs.),(You lick her legs to clean her juices|while she moans lightly.)  Good girl.,510,1,-1,
+512,0,0,,You're my bitch now.,I'll never be your bitch young lady.|Get me out of that stupid hole!,510,-1,1,
+512,0,0,!Common_PlayerRestrained,Good teacher.|(Caress her.),(She sighs and quiets down for a few seconds.),510,1,0,
+520,0,0,,I hope you're|enjoying the belt.,You better unlock it right now!,520,0,0,
+520,0,0,!Common_PlayerRestrained,(Caress her.)|(1 minute),(You caress her legs lovingly and you can|hear faint moans coming from inside.),520,0,0,Caress()
+520,0,0,!Common_PlayerRestrained,(Tickle her.)|(1 minute),(She gets really angry when you tickle|her but cannot stop laughing like a child.),520,0,0,Tickle()
+520,0,0,!Common_PlayerRestrained,(Release her.),(Are you sure you want to release her?|Click on the same option again to do it.),520,0,0,ReleaseFromHole()
+530,0,0,,"Yes Miss, I'm sorry.|(Walk with her.) (1 minute)",(She drags you to her desk in|another section of the library.),600,0,-1,
+530,0,0,,"Alright, let's go.|(Walk with her.) (1 minute)",(She drags you to her desk in|another section of the library.),600,0,0,
+530,0,0,,Fine!  No need to yell.|(Walk with her.) (1 minute),(She drags you to her desk in|another section of the library.),600,0,1,
+600,0,0,,What do you want?,Revenge!  What you did was inappropriate.|Turn around and give me your hands.,610,0,0,TestSleep()
+600,0,0,,(Stay quiet.),(She stares at you and takes a deep breath.)|Turn around and give me your hands.,610,0,-1,TestSleep()
+600,0,0,,What's up doc?,You're not funny at all young lady.|Turn around and give me your hands.,610,-1,0,TestSleep()
+610,0,5,,No.  I have|a better idea.,I don't like the tone of your voice.|What are you talking about?,620,0,0,
+610,0,0,,No!  I won't!|(Try to resist.),(You try to resist but she forces your|arms back and straps them in an binder.),300,0,1,RestrainPlayer()
+610,0,0,,"Alright, be quick.|(Turn around.)",(You turn around and give her your hands|while she straps them in an armbdiner.),300,0,0,RestrainPlayer()
+610,0,0,,Yes Miss Yuki.|(Turn around.),(You turn around and give her your hands|while she straps them in an armbdiner.),300,0,-1,RestrainPlayer()
+620,0,0,,TO DO TURN TABLES,TO DO TURN TABLES,620,0,0,

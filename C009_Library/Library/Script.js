@@ -2,7 +2,9 @@ var C009_Library_Library_CurrentZone = "001";
 var C009_Library_Library_JenniferGone = false;
 var C009_Library_Library_BookProgress = 40;
 var C009_Library_Library_FoundLockedDoor = false;
+var C009_Library_Library_FoundKey = false;
 var C009_Library_Library_StuckInHole = false;
+var C009_Library_Library_LockedArmbinder = false;
 
 // Chapter 9 - Library Load
 function C009_Library_Library_Load() {
@@ -55,7 +57,7 @@ function C009_Library_Library_Run() {
 	C009_Library_Library_Navigation("004", "Left", 550, 150);
 	C009_Library_Library_Navigation("005", "Down", 500, 400);
 	C009_Library_Library_Navigation("005", "Left", 200, 200);
-	C009_Library_Library_Navigation("006", "Right", 800, 200);
+	C009_Library_Library_Navigation("006", "Right", 600, 200);
 	C009_Library_Library_Navigation("006", "Left", 400, 200);
 	C009_Library_Library_Navigation("006", "Down", 500, 400);
 	C009_Library_Library_Navigation("007", "Down", 500, 400);
@@ -69,6 +71,7 @@ function C009_Library_Library_Run() {
 
 // Chapter 9 - Library Enter Search Mode
 function C009_Library_Library_StartSearch(SearchStage) {
+	if (SearchStage == 80) C009_Library_Library_FoundLockedDoor = true;
 	CurrentTime = CurrentTime + 10000;
 	C009_Library_Search_CurrentStage = SearchStage;
 	SetScene(CurrentChapter, "Search");

@@ -13,6 +13,13 @@ var	C009_Library_Yuki_CanFindPlayer = true;
 var C009_Library_Yuki_AllowSecondChance = true;
 var C009_Library_Yuki_PenInHole = false;
 var C009_Library_Yuki_AnnoyCount = 0;
+var C009_Library_Yuki_TickleDone = false;
+var C009_Library_Yuki_CaressDone = false;
+var C009_Library_Yuki_OrgasmDone = false;
+var C009_Library_Yuki_MasturbateCount = 0;
+var C009_Library_Yuki_ReleaseConfirm = false;
+var C009_Library_Yuki_SleepingPillFromHole = false;
+var C009_Library_Yuki_CanAskForDoor = false;
 
 // Chapter 9 Library - Yuki Load
 function C009_Library_Yuki_Load() {
@@ -21,6 +28,8 @@ function C009_Library_Yuki_Load() {
 	ActorLoad("Yuki", "Library");
 	LoadInteractions();
 	Common_SelfBondageAllowed = false;
+	C009_Library_Yuki_ReleaseConfirm = false;
+	C009_Library_Yuki_CanAskForDoor = C009_Library_Library_FoundLockedDoor;
 	if (C009_Library_Yuki_CurrentStage >= 500) C009_Library_Library_CurrentZone = "008";
 	else C009_Library_Library_CurrentZone = "007";
 	
@@ -54,6 +63,7 @@ function C009_Library_Yuki_Run() {
 	if (C009_Library_Yuki_CurrentStage < 250) DrawInteractionActor();
 	if ((C009_Library_Yuki_CurrentStage >= 270) && (C009_Library_Yuki_CurrentStage < 300)) DrawInteractionActor();
 	if ((C009_Library_Yuki_CurrentStage >= 300) && (C009_Library_Yuki_CurrentStage < 320)) { DrawActor("Yuki", 480, 0, 1); DrawActor("Player", 720, 0, 1); }
+	if (C009_Library_Yuki_CurrentStage >= 530) DrawInteractionActor();
 }
 
 // Chapter 9 Library - Yuki Click
@@ -68,7 +78,34 @@ function C009_Library_Yuki_Click() {
 		C009_Library_Yuki_IntroText = OverridenIntroText;
 		InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
 	}
+	
+	// The player can slide an egg in Yuki if she's stuck in the hole with no panties
+	if ((ClickInv == "VibratingEgg") && !ActorHasInventory("VibratingEgg") && (C009_Library_Yuki_CurrentStage == 510) && !Common_PlayerRestrained) {
+		OverridenIntroText = GetText("VibratingEggInHole");
+		ActorChangeAttitude(0, 1);
+		PlayerRemoveInventory("VibratingEgg", 1);
+		ActorAddInventory("VibratingEgg");
+		CurrentTime = CurrentTime + 50000;
+	}
 
+	// The player can slide a sleeping pill in Yuki's anus if she's stuck in the hole with no panties
+	if ((ClickInv == "SleepingPill") && !C009_Library_Yuki_SleepingPillFromHole && (C009_Library_Yuki_CurrentStage == 510) && !Common_PlayerRestrained) {
+		C009_Library_Yuki_SleepingPillFromHole = true;
+		OverridenIntroText = GetText("SleepingPillInHole");
+		PlayerRemoveInventory("SleepingPill", 1);
+		CurrentTime = CurrentTime + 50000;
+	}
+
+	// The player can lock the chastity belt on Yuki if she's stuck in the hole with no panties
+	if ((ClickInv == "ChastityBelt") && !ActorHasInventory("ChastityBelt") && (C009_Library_Yuki_CurrentStage == 510) && !Common_PlayerRestrained) {
+		OverridenIntroText = GetText("ChastityBeltInHole");
+		PlayerRemoveInventory("ChastityBelt", 1);
+		ActorAddInventory("ChastityBelt");
+		ActorChangeAttitude(-1, 1);
+		C009_Library_Yuki_CurrentStage = 520;
+		CurrentTime = CurrentTime + 50000;
+	}
+	
 }
 
 // Chapter 9 Library - Yuki - When the player leaves to find her book
@@ -99,7 +136,9 @@ function C009_Library_Yuki_TestForHelp() {
 function C009_Library_Yuki_AnnoyYuki() {
 	C009_Library_Yuki_AnnoyCount++;
 	if (C009_Library_Yuki_AnnoyCount >= 3) {
+		if (!C009_Library_Search_CanStealArmbinder && PlayerHasInventory("Armbinder")) PlayerRemoveInventory("Armbinder", 1);
 		PlayerLockInventory("Armbinder");
+		C009_Library_Library_LockedArmbinder = true;
 		OverridenIntroText = GetText("Annoyed");
 		C009_Library_Yuki_CurrentStage = 300;
 		LeaveIcon = "";
@@ -116,6 +155,7 @@ function C009_Library_Yuki_StuckInHole() {
 	LeaveIcon = "Leave";
 	C009_Library_Yuki_CanFindPlayer = false;
 	C009_Library_Library_CurrentZone = "008";
+	GameLogAdd("StuckInHole");
 }
 
 // Chapter 9 Library - The player can leave for the regular hole scene
@@ -127,11 +167,75 @@ function C009_Library_Yuki_LeaveForHole() {
 
 // Chapter 9 Library - When Yuki gags the player
 function C009_Library_Yuki_GagPlayer() {
-	PlayerLockInventory("Gag");
+	PlayerLockInventory("TapeGag");
 	CurrentTime = CurrentTime + 50000;
 }
 
 // Chapter 9 Library - Wait 2 minutes
 function C009_Library_Yuki_TwoMinutes() {
 	CurrentTime = CurrentTime + 110000;	
+}
+
+// Chapter 9 Library - Yuki Tickle
+function C009_Library_Yuki_Tickle() {
+	if (!C009_Library_Yuki_TickleDone) {
+		C009_Library_Yuki_TickleDone = true;
+		ActorChangeAttitude(-1, 1);
+	}
+}
+
+// Chapter 9 Library - Yuki Caress
+function C009_Library_Yuki_Caress() {
+	if (!C009_Library_Yuki_CaressDone) {
+		C009_Library_Yuki_CaressDone = true;
+		ActorChangeAttitude(1, 0);
+	}
+}
+
+// Chapter 9 Library - Yuki Caress
+function C009_Library_Yuki_Masturbate() {
+	C009_Library_Yuki_MasturbateCount++;
+	if ((C009_Library_Yuki_MasturbateCount >= 3) && !C009_Library_Yuki_OrgasmDone && ActorHasInventory("VibratingEgg")) {
+		C009_Library_Yuki_CurrentStage = 511;
+		C009_Library_Yuki_OrgasmDone = true;
+		OverridenIntroText = GetText("ReadyForOrgasm");
+	}
+}
+
+// Chapter 9 Library - Yuki can get an orgasm in the hole
+function C009_Library_Yuki_HoleOrgasm() {
+	ActorAddOrgasm();
+	CurrentTime = CurrentTime + 50000;
+}
+
+// Chapter 9 Library - Yuki can be released from the hole
+function C009_Library_Yuki_ReleaseFromHole() {
+	if (!C009_Library_Yuki_ReleaseConfirm) {
+		C009_Library_Yuki_ReleaseConfirm = true;
+	} else {
+		CurrentTime = CurrentTime + 50000;
+		C009_Library_Yuki_CurrentStage = 530;
+		OverridenIntroText = GetText("ReleaseFromHole");
+		LeaveIcon = "";
+	}
+}
+
+// Chapter 9 Library - Yuki can fall asleep if she had a sleeping pill
+function C009_Library_Yuki_TestSleep() {
+	if (C009_Library_Yuki_SleepingPillFromHole) {
+		C009_Library_Yuki_SleepingPillFromHole = false;
+		OverridenIntroText = GetText("DizzySleep");
+		C009_Library_Yuki_CurrentStage = 400;
+		CurrentTime = CurrentTime + 50000;
+		C009_Library_Library_CurrentZone = "007";
+		LeaveIcon = "Leave";
+	}
+}
+
+// Chapter 9 Library - Yuki restrains the player in an armbinder
+function C009_Library_Yuki_RestrainPlayer() {
+	if (!C009_Library_Search_CanStealArmbinder && PlayerHasInventory("Armbinder")) PlayerRemoveInventory("Armbinder", 1);
+	PlayerLockInventory("Armbinder");
+	C009_Library_Library_LockedArmbinder = true;
+	CurrentTime = CurrentTime + 50000;
 }

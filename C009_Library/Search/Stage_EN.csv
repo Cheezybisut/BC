@@ -30,6 +30,13 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 60,0,0,CanSit,(Sit down.)|(1 minute),You sit down and relax on the big couch.|It's pretty comfy and there's room for two.,65,0,0,
 61,0,0,!Common_PlayerRestrained,(Search.)|(1 minute),You search in the bookshelves but|all you can find are history books.,61,0,0,
 65,0,0,,(Stand up.)|(1 minute),You stand up from the couch.,60,0,0,
+70,0,0,!Common_PlayerRestrained,(Search the desk.)|(1 minute),You search the desk but you|don't find anything interesting.,70,0,0,SearchDesk()
+70,0,0,!Common_PlayerRestrained,(Search the bag.)|(1 minute),You open Teacher Yuki's bag.,71,0,0,
+71,0,0,CanStealEgg,(Steal the vibrating egg.),You take the vibrating egg from Yuki's bag.,71,0,0,StealEgg()
+71,0,0,CanStealPill,(Steal the sleeping pill.),You take the sleeping pill from Yuki's bag.,71,0,0,StealPill()
+71,0,0,CanStealArmbinder,(Steal the armbinder.),You take the armbinder from Yuki's bag.,71,0,0,StealArmbinder()
+71,0,0,CanStealTape,(Steal the duct tape.),You take the duct tape from Yuki's bag.,71,0,0,StealTape()
+71,0,0,,(Put the bag away.),You leave the bag in the room.,70,0,0,
 80,0,0,!Common_PlayerRestrained,(Knock.),You knock on the door but nobody answers.,80,0,0,
 80,0,0,,(Listen.)|(1 minute),You put your ear against the|door but cannot hear anything.,80,0,0,
 80,0,0,!Common_PlayerRestrained,(Open it.),You try to open the door but it's locked.|There's a keyhole but you'll need the proper key.,80,0,0,OpenDoor()

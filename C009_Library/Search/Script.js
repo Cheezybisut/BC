@@ -8,6 +8,10 @@ var C009_Library_Search_CanClimb = false;
 var C009_Library_Search_ClimbDone = false;
 var C009_Library_Search_MagazineConfiscated = false;
 var C009_Library_Search_PenInHole = false;
+var C009_Library_Search_CanStealEgg = true;
+var C009_Library_Search_CanStealPill = true;
+var C009_Library_Search_CanStealArmbinder = true;
+var C009_Library_Search_CanStealTape = true;
 
 // Chapter 9 Library - Search Area Load
 function C009_Library_Search_Load() {
@@ -19,6 +23,8 @@ function C009_Library_Search_Load() {
 	Common_SelfBondageAllowed = false;
 	C009_Library_Search_CanSit = (!Common_PlayerGagged && !Common_PlayerRestrained);
 	C009_Library_Search_CanClimb = (PlayerGetSkillLevel("Sports") >= 1);
+	if (GameLogQuery("C003_MorningDetention", "Yuki", "StealVibratingEgg")) C009_Library_Search_CanStealEgg = false;
+	if (GameLogQuery("C003_MorningDetention", "Yuki", "StealSleepingPill")) C009_Library_Search_CanStealPill = false;
 }
 
 // Chapter 9 Library - Search Area Run
@@ -159,6 +165,7 @@ function C009_Library_Search_TwoMinutes() {
 		if (C009_Library_Yuki_CurrentStage < 100) C009_Library_Yuki_CurrentStage = 80;
 		if ((C009_Library_Yuki_CurrentStage >= 100) && (C009_Library_Yuki_CurrentStage < 200)) C009_Library_Yuki_CurrentStage = 180;
 		C009_Library_Yuki_AllowSecondChance = false;
+		C009_Library_Library_StuckInHole = false;
 		SetScene(CurrentChapter, "Yuki");
 		LeaveIcon = "";
 		GameLogAdd("CaughtInHole");
@@ -184,4 +191,36 @@ function C009_Library_Search_LeavePenInHole() {
 // Chapter 9 - Library - The player can take the pen in the dark hole
 function C009_Library_Search_TakePenInHole() {
 	C009_Library_Search_PenInHole = false;
+}
+
+// Chapter 9 - Library - The player can steal from Yuki's bag
+function C009_Library_Search_StealEgg() {
+	C009_Library_Search_CanStealEgg = false;
+	PlayerAddInventory("VibratingEgg", 1);
+}
+
+// Chapter 9 - Library - The player can steal from Yuki's bag
+function C009_Library_Search_StealPill() {
+	C009_Library_Search_CanStealPill = false;
+	PlayerAddInventory("SleepingPill", 1);
+}
+
+// Chapter 9 - Library - The player can steal from Yuki's bag
+function C009_Library_Search_StealArmbinder() {
+	C009_Library_Search_CanStealArmbinder = false;
+	PlayerAddInventory("Armbinder", 1);
+}
+
+// Chapter 9 - Library - The player can steal from Yuki's bag
+function C009_Library_Search_StealTape() {
+	C009_Library_Search_CanStealTape = false;
+	PlayerAddInventory("TapeGag", 6);
+}
+
+// Chapter 9 - Library - The player can search on Yuki's desk
+function C009_Library_Search_SearchDesk() {
+	if (!C009_Library_Library_FoundKey) {
+		C009_Library_Library_FoundKey = true;
+		OverridenIntroText = GetText("FindKey");
+	}
 }
