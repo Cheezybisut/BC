@@ -1,0 +1,20 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,!BondageBefore,(Elle ne se retourne pas mais elle a l'air de t'écouter.),SidneyBack.jpg
+0,1,0,!BondageBefore,(Elle se retourne et chuchote) Quoi ?,SidneyFace.jpg
+0,0,0,BondageBefore,(Elle ne se retourne pas mais chuchote.)|Oublie ça. Tu ne me rattacheras pas.,SidneyBack.jpg
+0,1,0,BondageBefore,(Elle se retourne et chuchote)|Ne pense même pas à me rattacher.,SidneyFace.jpg
+10,0,0,,(Elle se retourne et chuchote) Quoi ?,SidneyFace.jpg
+20,0,0,,(Elle se retourne et chuchote)|Tu t'ennuies à mourir aussi ?,SidneyFace.jpg
+30,0,0,,(Elle se retourne et chuchote)|Je souhaite qu'il y ait un moyen de sortir plus tôt.,SidneyFace.jpg
+40,0,0,,(Elle se retourne et chuchote)|Qu'est-ce que tu as en tête ?,SidneyFace.jpg
+50,0,0,,"Tu veux la kidnapper ? Qu'est-ce que ça m'apporte ?|(""+3"" en amour ou en soumission pour la convaincre.)",SidneyFace.jpg
+60,0,0,,(Elle ne se retourne plus mais elle chuchote.)|Je t'aiderais mais tu y vas la première.,SidneyBack.jpg
+100,0,0,Common_PlayerNotGagged,Putain ! C'était vraiment super !,SidneyFace.jpg
+100,0,0,Common_PlayerGagged,(Elle pointe du doigt ton bâillon et fait un grand sourire.),SidneyFace.jpg
+100,2,0,Common_PlayerGagged,(Elle se retourne et chuchotte.)|Je te libèrerai après le cours.,SidneyFace.jpg
+100,-2,0,Common_PlayerGagged,(Elle ne se retourne pas mais chuchote.)|Tu as vraiment eu ce que tu mérites.,SidneyBack.jpg
+110,0,0,,(Elle te regarde avec colère et mâche le bâillon.),Sidney_BallGag.jpg
+120,0,0,,"(Elle tire sur ses menottes, forçant pour les ouvrir.)",Sidney_Cuffs.jpg
+130,0,0,,(Elle te regarde avec colère et mâche le bâillon.),Sidney_Cuffs_BallGag.jpg
+140,0,0,,(Elle se démène pour atteindre|un noeud mais elle échoue.),Sidney_Rope.jpg
+150,0,0,,(Elle te regarde avec colère et mâche le bâillon.),Sidney_Rope_BallGag.jpg
