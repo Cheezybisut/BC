@@ -1,10 +1,25 @@
 Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
-0,0,0,,"Yes, it's my|first day here.","Welcome to our college then, I'm Teacher Yuki.|Don't make too much noise in the library.",1,0,0,
-0,0,0,,I'm surprised you|haven't heard of me.,I haven't heard of you.  I'm Teacher Yuki.|Don't make too much noise in the library.,1,0,1,
-0,0,0,,"Yes Miss, a new|school is always scary.","Don't be scared, it will be fine, I'm Teacher Yuki.|Please don't make too much noise in the library.",1,0,-1,
-1,0,0,,(Nod silently.),Excellent.  So are you|looking for a specific book?,100,1,-1,
-1,0,0,,"Yeah, yeah, I know.",(She gives you an angry look.)|Are you looking for a specific book?,100,-1,1,
-1,0,0,,I'll keep quiet.,Very well.  So are you|looking for a specific book?,100,0,0,
+0,0,0,,"Yes, it's my|first day here.","Welcome to our college then, I'm Teacher Yuki.",1,0,0,
+0,0,0,,I'm surprised you|haven't heard of me.,I haven't heard of you.  I'm Teacher Yuki.,1,0,1,
+0,0,0,,"Yes Miss, a new|school is always scary.","Don't be scared, it will be fine, I'm Teacher Yuki.",1,0,-1,
+1,0,0,,It's nice to meet|you Teacher Yuki.,I'm happy to meet you also young lady.|But please be quiet in the library.,2,1,0,
+1,0,0,,Yo Yuki.,"(She frowns.)  It's Teacher Yuki.|Anyway, please be quiet in the library.",2,-1,0,
+1,0,0,!Common_PlayerRestrained,(Shake her hand.),(She shakes your hand with a good grip.)|Now please be quiet in the library.,2,0,0,
+2,0,0,,(Nod silently.),Excellent.  So are you|looking for a specific book?,100,1,-1,
+2,0,0,,"Yeah, yeah, I know.",(She gives you an angry look.)|Are you looking for a specific book?,100,-1,1,
+2,0,0,,I'll keep quiet.,Very well.  So are you|looking for a specific book?,100,0,0,
+5,0,0,Common_PlayerRestrained,(Tug on your restrains.),"Here, let me help you little miss.|(She releases you.)  You may go.",6,0,0,TestRelease()
+5,0,0,Common_PlayerGagged,@Numn ngnnnuh!,"Here, let me help you little miss.|(She releases you.)  You may go.",6,0,0,TestRelease()
+5,0,0,,Can you help|me out Miss?,"Very well, I will help you little miss.|(She releases you.)  You may go now.",6,0,0,TestRelease()
+5,0,0,,Jennifer did|that to me.,I'm very surprised that she would do that.|(She releases you.)  You may go now.,6,0,0,TestRelease()
+6,0,0,,(Nod and walk away.),,6,0,0,PlayerLeaveForBook()
+6,0,0,,Very well Miss.|(Walk away.),,6,0,0,PlayerLeaveForBook()
+40,0,0,,Trouble is my|middle name.,"Young lady, promise me to be quiet and|not cause any trouble in the library.",41,0,1,
+40,0,0,,I'm not causing|any trouble.,"Alright, promise me to be quiet and|not cause any trouble in the library.",41,0,0,
+40,0,0,,"Yes Miss, I'm a|good girl now.","Very good, promise me to be quiet and|not cause any trouble in the library.",41,0,-1,
+41,0,0,,"Ok, I promise.",Very well.  Are you looking for a book?,100,0,0,NoSecondChance()
+41,0,0,,"That's fair, I|promise to be good.",Excellent.  Are you looking for a book?,100,1,0,NoSecondChance()
+41,0,0,,"Yeah, yeah, yeah.|I promise.",Anyway.  Are you looking for a book?,100,-1,0,NoSecondChance()
 50,0,0,,"Good.  Tell her|I said ""hello"".",That's not funny young lady.|Are you looking for a book?,100,-1,1,
 50,0,0,,"Yes, we met before.",That's what I've heard.|Are you looking for a book?,100,0,0,
 50,0,0,,I already have a|reputation then.,Not a very good reputation.|Are you looking for a book?,100,0,1,
@@ -55,6 +70,35 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 120,0,0,,Thank you Miss.|(Walk away.),,200,0,1,PlayerLeaveForBook()
 120,0,0,,Thanks Yuki!|(Walk away.),,200,0,0,PlayerLeaveForBook()
 120,0,0,,(Walk away.),,200,-1,0,PlayerLeaveForBook()
+180,0,0,,I saw something|shiny in there.,You know what killed the cat don't you?|Promise me to never try that again.,181,-1,0,
+180,0,0,,I was looking|for cheese.,And you got yourself in the mouse trap?|Promise me to never try that again.,181,-2,0,
+180,0,0,PenInHole,I dropped my|pen in there.,"Poor young lady, you're so clumsy.|So you need help to recover it?",183,0,-1,
+180,0,0,,A mean girl with black|hair pushed me in.,"Sidney!  (She clenches her fist.)  Young lady,|you will need to learn how to defend yourself.",182,0,-1,
+181,0,0,,Yes Miss.|I promise.,Very good little Miss.  (You walk to her desk.)|I really hope you can stay of out of trouble.,200,1,-1,
+181,0,0,,I won't do it again.,Alright young lady.  (You walk to her desk.)|I really hope you can stay of out of trouble.,200,0,0,
+181,0,0,,"Yeah, yeah, yeah.|I won't do it again.",I don't like your attitude.  (You walk to her desk.)|I really hope you can stay of out of trouble.,200,-1,1,
+181,0,0,,"Yes, that was stupid.|I won't do it again.",Very true young lady.  (You walk to her desk.)|I really hope you can stay of out of trouble.,200,1,0,
+182,0,0,,That's a very|good advice.,Indeed.  (You both walk to her desk.)|I really hope you can stay of out of trouble.,200,1,0,
+182,0,0,,"Don't worry, I'll kick|her ass next time.",Standing your ground should be enough Miss.|(You walk to her desk.)  Stay out of trouble.,200,-1,1,
+182,0,0,,Could you help me|to defend myself?,"Yes, I'll help you later. (You walk to her desk.)|I really hope you can stay of out of trouble.",200,1,-2,
+182,0,0,,"Yeah, I know.",Very well.  (You both walk to her desk.)|I really hope you can stay of out of trouble.,200,0,0,
+183,0,0,,"Yes, can you|retrieve my pen?",I think I can see your pen.|It won't be easy to reach it.,240,0,0,
+183,0,0,,Oh yes Miss.|I cannot do it.,I think I can see your pen.|It won't be easy to reach it.,240,0,-1,
+183,0,0,,"No, I have|another pen.",Alright.  But you could have been hurt.|Promise me to never try that again.,181,0,0,
+190,0,0,,I didn't do anything.,"You little liar, I saw your hand under|your skirt.  What is that magazine?",191,-1,0,
+190,0,0,,I was reading.,I saw your hand under your skirt.|What is that magazine you're reading?,191,0,0,
+190,0,0,,That's none of|your business.,Be polite!  It's absolutely my business.|What is that magazine you're reading?,191,-1,1,
+190,0,0,,(Blush and bow|your head.),You should feel ashamed.|What is that magazine?,191,1,-1,
+190,0,0,,I had an itch.,"You little liar, you were not|scratching.  What is that magazine?",191,-1,0,
+190,0,0,,I'm sorry Miss.|I was masturbating.,"Little miss, you should feel|ashamed.  What is that magazine?",191,1,-2,
+191,0,0,,It's a dirty magazine.,(She nods and confiscates the magazine.)|Promise me you'll never do that again.,192,0,0,NoMoreSweetGwendoline()
+191,0,0,,It's a comic book.,(She grabs and confiscates the magazine.)|Promise me you'll never do that again.,192,-1,0,NoMoreSweetGwendoline()
+191,0,0,,You should know it.|It's Sweet Gwendoline.,(She frowns and confiscates the magazine.)|Promise me you'll never do that again.,192,0,1,NoMoreSweetGwendoline()
+191,0,0,,Please take it.  It|doesn't belong here.,(She smiles and confiscates the magazine.)|Promise me you'll never do that again.,192,1,-1,NoMoreSweetGwendoline()
+192,0,0,,Yes Miss.|I promise.,Very good little Miss.  (You walk to her desk.)|I really hope you can stay of out of trouble.,200,1,-1,
+192,0,0,,I won't do it again.,Alright young lady.  (You walk to her desk.)|I really hope you can stay of out of trouble.,200,0,0,
+192,0,0,,"Yeah, yeah, yeah.|I won't do it again.",I don't like your attitude.  (You walk to her desk.)|I really hope you can stay of out of trouble.,200,-1,1,
+192,0,0,,"Yes, that was stupid.|I won't do it again.",Very true young lady.  (You walk to her desk.)|I really hope you can stay of out of trouble.,200,1,0,
 200,0,0,CanAskForDoor,I've found a|locked door.,"Yes, and you're not allowed|in this section of the library.",200,0,0,
 200,0,0,PenInHole,"Miss, I dropped|my pen in a hole.",Oh!  And you need|my help to recover it?,210,0,0,
 200,0,0,,I'm fine Miss.|(Walk away.),,200,0,0,PlayerLeaveForBook()
@@ -77,6 +121,19 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 260,0,0,,Now we can|have some fun.,What did you say?  Help me out!|(She struggles but cannot get out.),500,-2,1,StuckInHole()
 270,0,0,,Yes.  Thank you.|(Back to library.),,200,0,0,LeaveForHole()
 270,0,0,,Of course Miss Yuki.|(Back to library.),,200,0,-1,LeaveForHole()
+280,0,0,,I saw something|shiny in there.,I don't care.  (She drags you to her|desk in another section of the library.),291,-1,0,
+280,0,0,,I was looking|for cheese.,That's not funny.  (She drags you to her|desk in another section of the library.),291,-2,0,
+280,0,0,PenInHole,I dropped my|pen in there.,I don't care.  (She drags you to her|desk in another section of the library.),291,0,-1,
+280,0,0,,A mean girl with black|hair pushed me in.,I don't care.  (She drags you to her|desk in another section of the library.),291,0,-1,
+290,0,0,,I didn't do anything.,Don't lie.  (She drags you to her|desk in another section of the library.),291,-1,0,
+290,0,0,,I was reading.,Don't lie.  (She drags you to her|desk in another section of the library.),291,0,0,
+290,0,0,,That's none of|your business.,Shut up.  (She drags you to her|desk in another section of the library.),291,-1,1,
+290,0,0,,(Blush and bow|your head.),Come with me.  (She drags you to her|desk in another section of the library.),291,1,-1,
+290,0,0,,I had an itch.,Don't lie.  (She drags you to her|desk in another section of the library.),291,-1,0,
+290,0,0,,I'm sorry Miss.|I was masturbating.,Come with me.  (She drags you to her|desk in another section of the library.),291,1,-2,
+291,0,0,,"Miss, please.|I'm sorry.",It's too late to be sorry little miss.|(She grabs you and straps an armbinder on you.),300,0,-1,RestrainPlayer()
+291,0,0,,So what?,I'll make sure you don't cause any trouble.|(She grabs you and straps an armbinder on you.),300,-1,0,RestrainPlayer()
+291,0,0,,(Stay silent.),"Good, I don't want to hear you anymore.|(She grabs you and straps an armbinder on you.)",300,0,0,RestrainPlayer()
 300,0,0,,Ow!  That hurts!,This should keep you|still until your next class.,310,0,-1,
 300,0,0,,(Struggle fiercely.),You will not escape this armbinder young lady.|I will keep you restrained until your next class.,310,0,1,
 300,0,0,,What is that?,This is a leather armbinder young lady.|I will keep you restrained until your next class.,310,0,0,
@@ -94,7 +151,16 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 340,0,0,,@Mmammih!,(She seems to hear you but|doesn't move or say anything.),340,0,0,TwoMinutes()
 340,0,0,,(Struggle to get out.),(You struggle to get out of the leather|binder but cannot manage to do much.),340,0,0,TwoMinutes()
 340,0,0,,(Wait patiently.),(You wait patiently under the desk.|Time seems to fly very slowly.),340,0,0,TwoMinutes()
-400,0,0,,TO DO SLEEP,TO DO SLEEP,400,0,0,
+400,0,0,,Are you ok Miss?|You look tired.,"(She nods and slowly crumbles|to ground, falling fast asleep.)",410,0,-1,Sleep()
+400,0,0,,(Grab her and|lie her down.),(You grab her and lay her on|the ground where she falls asleep.),410,0,1,Sleep()
+400,0,0,,Are you sleepy?,"(She nods and slowly crumbles|to ground, falling fast asleep.)",410,0,0,Sleep()
+410,0,0,,(Search the room.),,410,0,0,StartSearch()
+410,0,0,!Common_PlayerRestrained,(Wake her up.),(You wake her up and help her to stand.)|What happened here?  Did I fall asleep?,420,0,0,Wake()
+420,0,0,,"Yes, you fell asleep.",That's embarrasing.  (She looks confused.)|Promise not to cause any trouble and you may go.,430,0,0,"SetPose("""")"
+420,0,0,,You were sleeping|on the floor.,That's embarrasing.  (She looks confused.)|Promise not to cause any trouble and you may go.,430,0,0,"SetPose("""")"
+420,0,0,,I drugged you.,WHAT!  (She quickly grabs your arms|and force them in a leather binder.),300,0,0,RestrainPlayer()
+430,0,0,,"I promise, take care.|(Walk away.)",,200,1,0,PlayerLeaveForBook()
+430,0,0,,I won't cause àny trouble.|(Walk away.),,200,0,0,PlayerLeaveForBook()
 500,0,0,,Struggle for me!,(She struggles madly to get out of|the hole cannot manage to do it.),500,0,0,
 500,0,0,!Common_PlayerRestrained,(Caress her.)|(1 minute),(You caress her legs lovingly and you can|hear faint moans coming from inside.),500,0,0,Caress()
 500,0,0,!Common_PlayerRestrained,(Tickle her.)|(1 minute),(She gets really angry when you tickle|her but cannot stop laughing like a child.),500,0,0,Tickle()
@@ -127,4 +193,11 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 610,0,0,,No!  I won't!|(Try to resist.),(You try to resist but she forces your|arms back and straps them in an binder.),300,0,1,RestrainPlayer()
 610,0,0,,"Alright, be quick.|(Turn around.)",(You turn around and give her your hands|while she straps them in an armbdiner.),300,0,0,RestrainPlayer()
 610,0,0,,Yes Miss Yuki.|(Turn around.),(You turn around and give her your hands|while she straps them in an armbdiner.),300,0,-1,RestrainPlayer()
-620,0,0,,TO DO TURN TABLES,TO DO TURN TABLES,620,0,0,
+620,0,0,,You would be humiliated|if people knew.,You're not thinking about starting|rumors on what happened are you?,630,0,0,"SetPose("""")"
+620,0,0,,"Everyone will know|what happened, unless... ",Unless what?  You're not thinking|about starting rumors are you?,630,0,0,"SetPose("""")"
+630,0,0,,If you stay good to|me.  I won't talk.,"Fine, we have a deal Miss.|I won't cause you any trouble.",640,0,1,
+630,0,0,,You stay cool.|I stay cool.,"Very well, we have a deal.|I won't cause you any trouble.",640,0,0,
+640,0,0,,"Alright, I'm going now.|(Walk away.)",,650,0,0,PlayerLeaveForBook()
+640,0,0,,I don't want to|see you again.,Fine!  Go away then.,650,-1,0,
+640,0,0,,Very good Yuki.|(Shake her hand.),(You both shake hands with a firm grip.)|You're free to wander young lady.,650,1,0,
+650,0,0,,(Walk away.),,650,0,0,PlayerLeaveForBook()

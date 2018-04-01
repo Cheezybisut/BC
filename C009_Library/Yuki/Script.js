@@ -20,6 +20,7 @@ var C009_Library_Yuki_MasturbateCount = 0;
 var C009_Library_Yuki_ReleaseConfirm = false;
 var C009_Library_Yuki_SleepingPillFromHole = false;
 var C009_Library_Yuki_CanAskForDoor = false;
+var C009_Library_Yuki_PenAvail = true;
 
 // Chapter 9 Library - Yuki Load
 function C009_Library_Yuki_Load() {
@@ -34,12 +35,12 @@ function C009_Library_Yuki_Load() {
 	else C009_Library_Library_CurrentZone = "007";
 	
 	// A few variables on what already happened
-	C009_Library_Yuki_PenInHole = C009_Library_Search_PenInHole;
+	C009_Library_Yuki_PenInHole = (C009_Library_Search_PenInHole && !GameLogQuery("C009_Library", "Yuki", "StuckInHole") && C009_Library_Yuki_PenAvail);
 	C009_Library_Yuki_BookAlreadyFound = (C009_Library_Library_BookProgress > 40);
 	C009_Library_Yuki_DetentionBondage = GameLogQuery("C001_BeforeClass", "Sidney", "PublicBondage");
 	C009_Library_Yuki_DetentionFighting = (GameLogQuery("C001_BeforeClass", "Sidney", "FightVictory") || GameLogQuery("C001_BeforeClass", "Sidney", "FightDefeat"));
-	C009_Library_Yuki_IsolationMildred = (GameLogQuery("C002_FirstClass", "Mildred", "Subdue") && GameLogQuery("C006_Isolation", "", "Isolation"));
-	C009_Library_Yuki_IsolationYuki = (GameLogQuery("C002_FirstClass", "Yuki", "Drug") && GameLogQuery("C006_Isolation", "", "Isolation"));
+	C009_Library_Yuki_IsolationMildred = GameLogQuery("C006_Isolation", "Mildred", "Isolation");
+	C009_Library_Yuki_IsolationYuki = GameLogQuery("C006_Isolation", "Yuki", "Isolation");
 	C009_Library_Yuki_IsolationPleasureYuki = GameLogQuery("C006_Isolation", "Yuki", "Pleasure");
 	C009_Library_Yuki_IsolationOrgasmYuki = GameLogQuery("C006_Isolation", "Yuki", "Orgasm");
 	C009_Library_Yuki_IsolationEarlyReleaseYuki = (GameLogQuery("C006_Isolation", "", "Release") && C009_Library_Yuki_IsolationYuki);
@@ -47,6 +48,8 @@ function C009_Library_Yuki_Load() {
 	C009_Library_Yuki_HasEgg = ActorHasInventory("VibratingEgg");
 
 	// The first dialog can be different depending on what happened before
+	if (C009_Library_Yuki_CurrentStage == 6) C009_Library_Yuki_CurrentStage = 0;
+	if ((C009_Library_Yuki_CurrentStage == 0) && (Common_PlayerRestrained || Common_PlayerGagged)) C009_Library_Yuki_CurrentStage = 5;
 	if ((C009_Library_Yuki_CurrentStage == 0) && C009_Library_Yuki_IsolationOrgasmYuki && C009_Library_Yuki_IsolationEarlyReleaseYuki) C009_Library_Yuki_CurrentStage = 10;
 	if ((C009_Library_Yuki_CurrentStage == 0) && C009_Library_Yuki_IsolationEscapeYuki) C009_Library_Yuki_CurrentStage = 20;
 	if ((C009_Library_Yuki_CurrentStage == 0) && C009_Library_Yuki_IsolationPleasureYuki && !C009_Library_Yuki_IsolationOrgasmYuki) C009_Library_Yuki_CurrentStage = 30;
@@ -62,7 +65,8 @@ function C009_Library_Yuki_Run() {
 	BuildInteraction(C009_Library_Yuki_CurrentStage);
 	if (C009_Library_Yuki_CurrentStage < 250) DrawInteractionActor();
 	if ((C009_Library_Yuki_CurrentStage >= 270) && (C009_Library_Yuki_CurrentStage < 300)) DrawInteractionActor();
-	if ((C009_Library_Yuki_CurrentStage >= 300) && (C009_Library_Yuki_CurrentStage < 320)) { DrawActor("Yuki", 480, 0, 1); DrawActor("Player", 720, 0, 1); }
+	if ((C009_Library_Yuki_CurrentStage >= 300) && (C009_Library_Yuki_CurrentStage < 320)) { DrawActor("Yuki", 480, 0, 1); DrawActor("Player", 720, 30, 1); }
+	if ((C009_Library_Yuki_CurrentStage >= 400) && (C009_Library_Yuki_CurrentStage < 500)) DrawInteractionActor();
 	if (C009_Library_Yuki_CurrentStage >= 530) DrawInteractionActor();
 }
 
@@ -80,7 +84,7 @@ function C009_Library_Yuki_Click() {
 	}
 	
 	// The player can slide an egg in Yuki if she's stuck in the hole with no panties
-	if ((ClickInv == "VibratingEgg") && !ActorHasInventory("VibratingEgg") && (C009_Library_Yuki_CurrentStage == 510) && !Common_PlayerRestrained) {
+	if ((ClickInv == "VibratingEgg") && !ActorHasInventory("ChastityBelt") && !ActorHasInventory("VibratingEgg") && (C009_Library_Yuki_CurrentStage == 510) && !Common_PlayerRestrained) {
 		OverridenIntroText = GetText("VibratingEggInHole");
 		ActorChangeAttitude(0, 1);
 		PlayerRemoveInventory("VibratingEgg", 1);
@@ -89,7 +93,7 @@ function C009_Library_Yuki_Click() {
 	}
 
 	// The player can slide a sleeping pill in Yuki's anus if she's stuck in the hole with no panties
-	if ((ClickInv == "SleepingPill") && !C009_Library_Yuki_SleepingPillFromHole && (C009_Library_Yuki_CurrentStage == 510) && !Common_PlayerRestrained) {
+	if ((ClickInv == "SleepingPill") && !ActorHasInventory("ChastityBelt") && !C009_Library_Yuki_SleepingPillFromHole && (C009_Library_Yuki_CurrentStage == 510) && !Common_PlayerRestrained) {
 		C009_Library_Yuki_SleepingPillFromHole = true;
 		OverridenIntroText = GetText("SleepingPillInHole");
 		PlayerRemoveInventory("SleepingPill", 1);
@@ -104,6 +108,13 @@ function C009_Library_Yuki_Click() {
 		ActorChangeAttitude(-1, 1);
 		C009_Library_Yuki_CurrentStage = 520;
 		CurrentTime = CurrentTime + 50000;
+	}
+	
+	// If an item is used while Yuki is sleeping, she will wake up
+	if ((ClickInv != "Player") && (ClickInv != "") && (C009_Library_Yuki_CurrentStage == 410) && !Common_PlayerRestrained) {
+		C009_Library_Yuki_Wake();
+		C009_Library_Yuki_CurrentStage = 420;
+		OverridenIntroText = GetText("ItemWakeUp");
 	}
 	
 }
@@ -138,6 +149,7 @@ function C009_Library_Yuki_AnnoyYuki() {
 	if (C009_Library_Yuki_AnnoyCount >= 3) {
 		if (!C009_Library_Search_CanStealArmbinder && PlayerHasInventory("Armbinder")) PlayerRemoveInventory("Armbinder", 1);
 		PlayerLockInventory("Armbinder");
+		ActorSetPose("Angry");
 		C009_Library_Library_LockedArmbinder = true;
 		OverridenIntroText = GetText("Annoyed");
 		C009_Library_Yuki_CurrentStage = 300;
@@ -160,6 +172,9 @@ function C009_Library_Yuki_StuckInHole() {
 
 // Chapter 9 Library - The player can leave for the regular hole scene
 function C009_Library_Yuki_LeaveForHole() {
+	C009_Library_Yuki_PenInHole = false;
+	C009_Library_Search_PenInHole = false;
+	C009_Library_Yuki_PenAvail = false;
 	C009_Library_Library_CurrentZone = "008";
 	C009_Library_Search_CurrentStage = 85;
 	SetScene(CurrentChapter, "Search");
@@ -215,19 +230,22 @@ function C009_Library_Yuki_ReleaseFromHole() {
 	} else {
 		CurrentTime = CurrentTime + 50000;
 		C009_Library_Yuki_CurrentStage = 530;
+		ActorSetPose("Angry");
 		OverridenIntroText = GetText("ReleaseFromHole");
+		C009_Library_Yuki_CanFindPlayer = true;
 		LeaveIcon = "";
 	}
 }
 
 // Chapter 9 Library - Yuki can fall asleep if she had a sleeping pill
 function C009_Library_Yuki_TestSleep() {
+	C009_Library_Library_CurrentZone = "007";
 	if (C009_Library_Yuki_SleepingPillFromHole) {
 		C009_Library_Yuki_SleepingPillFromHole = false;
 		OverridenIntroText = GetText("DizzySleep");
 		C009_Library_Yuki_CurrentStage = 400;
-		CurrentTime = CurrentTime + 50000;
-		C009_Library_Library_CurrentZone = "007";
+		ActorSetPose("Sleepy");
+		CurrentTime = CurrentTime + 50000;		
 		LeaveIcon = "Leave";
 	}
 }
@@ -236,6 +254,49 @@ function C009_Library_Yuki_TestSleep() {
 function C009_Library_Yuki_RestrainPlayer() {
 	if (!C009_Library_Search_CanStealArmbinder && PlayerHasInventory("Armbinder")) PlayerRemoveInventory("Armbinder", 1);
 	PlayerLockInventory("Armbinder");
+	ActorSetPose("Angry");
 	C009_Library_Library_LockedArmbinder = true;
 	CurrentTime = CurrentTime + 50000;
+}
+
+// Chapter 9 Library - Yuki can free the player before any chat
+function C009_Library_Yuki_TestRelease() {
+	if (ActorGetValue(ActorLove) >= -2) {
+		PlayerReleaseBondage();
+		CurrentTime = CurrentTime + 50000;
+	} else OverridenIntroText = GetText("RefuseHelp");
+}
+
+// Chapter 9 Library - Yuki set a new pose
+function C009_Library_Yuki_SetPose(NewPose) {
+	ActorSetPose("");
+}
+
+// Chapter 9 Library - Yuki set a new pose
+function C009_Library_Yuki_Sleep() {
+	ActorSetPose("Sleeping");
+	LeaveIcon = "Leave";
+	CurrentTime = CurrentTime + 50000;
+	C009_Library_Library_CurrentZone = "007";
+	C009_Library_Yuki_CanFindPlayer = false;
+}
+
+// Chapter 9 Library - When Yuki sleeps, the player can search the room
+function C009_Library_Yuki_StartSearch() {
+	C009_Library_Search_CurrentStage = 70;
+	SetScene(CurrentChapter, "Search");
+}
+
+// Chapter 9 Library - When Yuki is awoken
+function C009_Library_Yuki_Wake() {
+	ActorSetPose("Sleepy");
+	CurrentTime = CurrentTime + 50000;
+	LeaveIcon = "";
+	C009_Library_Yuki_CanFindPlayer = true;
+	C009_Library_Yuki_AllowSecondChance = false;
+}
+
+// Chapter 9 Library - In some intro, Yuki will not allow a second chance
+function C009_Library_Yuki_NoSecondChance() {
+	C009_Library_Yuki_AllowSecondChance = false;
 }

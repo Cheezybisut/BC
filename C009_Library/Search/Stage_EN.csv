@@ -32,6 +32,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 65,0,0,,(Stand up.)|(1 minute),You stand up from the couch.,60,0,0,
 70,0,0,!Common_PlayerRestrained,(Search the desk.)|(1 minute),You search the desk but you|don't find anything interesting.,70,0,0,SearchDesk()
 70,0,0,!Common_PlayerRestrained,(Search the bag.)|(1 minute),You open Teacher Yuki's bag.,71,0,0,
+70,0,0,CanCheckYuki,(Check on Yuki.),,70,0,0,CheckYuki()
 71,0,0,CanStealEgg,(Steal the vibrating egg.),You take the vibrating egg from Yuki's bag.,71,0,0,StealEgg()
 71,0,0,CanStealPill,(Steal the sleeping pill.),You take the sleeping pill from Yuki's bag.,71,0,0,StealPill()
 71,0,0,CanStealArmbinder,(Steal the armbinder.),You take the armbinder from Yuki's bag.,71,0,0,StealArmbinder()

@@ -12,6 +12,7 @@ var C009_Library_Search_CanStealEgg = true;
 var C009_Library_Search_CanStealPill = true;
 var C009_Library_Search_CanStealArmbinder = true;
 var C009_Library_Search_CanStealTape = true;
+var C009_Library_Search_CanCheckYuki = true;
 
 // Chapter 9 Library - Search Area Load
 function C009_Library_Search_Load() {
@@ -20,6 +21,7 @@ function C009_Library_Search_Load() {
 	LoadInteractions();
 	if (C009_Library_Search_IntroText != "") OverridenIntroText = C009_Library_Search_IntroText;
 	C009_Library_Search_IntroText = "";
+	C009_Library_Search_CanCheckYuki = (C009_Library_Yuki_CurrentStage == 410);
 	Common_SelfBondageAllowed = false;
 	C009_Library_Search_CanSit = (!Common_PlayerGagged && !Common_PlayerRestrained);
 	C009_Library_Search_CanClimb = (PlayerGetSkillLevel("Sports") >= 1);
@@ -71,12 +73,11 @@ function C009_Library_Search_Masturbate() {
 	} else {
 
 		// Yuki can catch the player masturbating, 1 chance out of 12
-		CurrentTime = CurrentTime + 50000;
 		if (C009_Library_Yuki_CanFindPlayer && (Math.floor(Math.random() * 12) == 0)) {
 			PlayerUngag();
 			if (!C009_Library_Yuki_AllowSecondChance) C009_Library_Yuki_CurrentStage = 290;
 			if (C009_Library_Yuki_CurrentStage < 100) C009_Library_Yuki_CurrentStage = 90;
-			if ((C009_Library_Yuki_CurrentStage >= 100) && (C009_Library_Yuki_CurrentStage < 200)) C009_Library_Yuki_CurrentStage = 190;
+			if ((C009_Library_Yuki_CurrentStage >= 100) && (C009_Library_Yuki_CurrentStage <= 210)) C009_Library_Yuki_CurrentStage = 190;
 			C009_Library_Yuki_AllowSecondChance = false;
 			SetScene(CurrentChapter, "Yuki");
 			LeaveIcon = "";
@@ -163,10 +164,11 @@ function C009_Library_Search_TwoMinutes() {
 		PlayerUngag();
 		if (!C009_Library_Yuki_AllowSecondChance) C009_Library_Yuki_CurrentStage = 280;
 		if (C009_Library_Yuki_CurrentStage < 100) C009_Library_Yuki_CurrentStage = 80;
-		if ((C009_Library_Yuki_CurrentStage >= 100) && (C009_Library_Yuki_CurrentStage < 200)) C009_Library_Yuki_CurrentStage = 180;
+		if ((C009_Library_Yuki_CurrentStage >= 100) && (C009_Library_Yuki_CurrentStage <= 210)) C009_Library_Yuki_CurrentStage = 180;
 		C009_Library_Yuki_AllowSecondChance = false;
 		C009_Library_Library_StuckInHole = false;
 		SetScene(CurrentChapter, "Yuki");
+		if (C009_Library_Yuki_CurrentStage == 280) ActorSetPose("Angry");
 		LeaveIcon = "";
 		GameLogAdd("CaughtInHole");
 	}
@@ -223,4 +225,9 @@ function C009_Library_Search_SearchDesk() {
 		C009_Library_Library_FoundKey = true;
 		OverridenIntroText = GetText("FindKey");
 	}
+}
+
+// Chapter 9 - Library - The player can check on Yuki if she's sleeping
+function C009_Library_Search_CheckYuki() {
+	SetScene(CurrentChapter, "Yuki");
 }

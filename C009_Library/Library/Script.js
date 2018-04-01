@@ -60,6 +60,7 @@ function C009_Library_Library_Run() {
 	C009_Library_Library_Navigation("006", "Right", 600, 200);
 	C009_Library_Library_Navigation("006", "Left", 400, 200);
 	C009_Library_Library_Navigation("006", "Down", 500, 400);
+	C009_Library_Library_Navigation("007", "Up", 500, 150);
 	C009_Library_Library_Navigation("007", "Down", 500, 400);
 	C009_Library_Library_Navigation("007", "Right", 800, 200);
 	C009_Library_Library_Navigation("007", "Left", 200, 200);
@@ -139,11 +140,14 @@ function C009_Library_Library_Click() {
 	if (E && (C009_Library_Library_CurrentZone == "006") && (MouseX >= 600) && (MouseX <= 800) && (MouseY >= 200) && (MouseY <= 400) && !C009_Library_Library_JenniferGone) E = C009_Library_Library_LoadJennifer();
 	if (E && (C009_Library_Library_CurrentZone == "006") && (MouseX >= 500) && (MouseX <= 700) && (MouseY >= 400) && (MouseY <= 600)) E = C009_Library_Library_EnterZone("002");
 
-	// In Zone 7, the player can go to zone 4 (down), zone 9 (left) or Yuki (right)
+	// In Zone 7, the player can go to zone 4 (down), zone 9 (left) or Yuki (up)
 	if (E && (C009_Library_Library_CurrentZone == "007") && (MouseX >= 500) && (MouseX <= 700) && (MouseY >= 400) && (MouseY <= 600)) E = C009_Library_Library_EnterZone("004");
-	if (E && (C009_Library_Library_CurrentZone == "007") && (MouseX >= 800) && (MouseX <= 1000) && (MouseY >= 200) && (MouseY <= 400) && (C009_Library_Yuki_CurrentStage < 500)) E = C009_Library_Library_LoadYuki();
-	if (E && (C009_Library_Library_CurrentZone == "007") && (MouseX >= 800) && (MouseX <= 1000) && (MouseY >= 200) && (MouseY <= 400) && (C009_Library_Yuki_CurrentStage >= 500)) E = C009_Library_Library_StartSearch(70);
+	if (E && (C009_Library_Library_CurrentZone == "007") && (MouseX >= 800) && (MouseX <= 1000) && (MouseY >= 200) && (MouseY <= 400)) E = C009_Library_Library_StartSearch(75);
 	if (E && (C009_Library_Library_CurrentZone == "007") && (MouseX >= 200) && (MouseX <= 400) && (MouseY >= 200) && (MouseY <= 400)) E = C009_Library_Library_EnterZone("009");
+	if (E && (C009_Library_Library_CurrentZone == "007") && (MouseX >= 500) && (MouseX <= 700) && (MouseY >= 150) && (MouseY <= 350)) {
+		if ((C009_Library_Yuki_CurrentStage < 500) || (C009_Library_Yuki_CurrentStage == 650)) E = C009_Library_Library_LoadYuki();
+		else E = C009_Library_Library_StartSearch(70);
+	}
 
 	// In Zone 8, the player can go to zone 5 (right) or search the door or on the left
 	if (E && (C009_Library_Library_CurrentZone == "008") && (MouseX >= 800) && (MouseX <= 1000) && (MouseY >= 200) && (MouseY <= 400)) E = C009_Library_Library_EnterZone("005");

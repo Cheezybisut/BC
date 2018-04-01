@@ -6,4 +6,6 @@ ReleaseFromHole,(You pull her out of the hole and she gives|you a menacing look.
 VibratingEggInHole,(You slide a vibrating egg in her vagina.)|Young lady!  How could you do that?
 SleepingPillInHole,(You slide a sleeping pill in her anus.)|Oh no little miss!  Don't go in there!
 ChastityBeltInHole,(You lock the belt around her waist and crotch.)|What did you just do?  (She struggles fiercely.)
-DizzySleep,"(Yuki sudently feels dizzy, she bends on her|desk and slowly crumbles to the ground sleeping.)"
+DizzySleep,"(Yuki sudently feels dizzy, she|yawns loudly and fights to stay awake.)"
+RefuseHelp,"No, I will not help you.|Go away young lady."
+ItemWakeUp,(You try to use your item but she wakes up.)|What happened here?  Did I fall asleep?
