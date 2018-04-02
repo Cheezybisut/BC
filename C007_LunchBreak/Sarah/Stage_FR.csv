@@ -110,7 +110,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 250,0,0,,(Tu pinces ses tétons.)|(1 minute),(Elle pousse de légers cris quand tu lui pinces|ses tétons et ça a l'air de beaucoup lui plaire.),250,0,0,Violence()
 250,0,5,,(Tu la gifles.)|(1 minute),(Tu la gifles assez fort sur le visage.|Elle incline la tête et accélère ses mouvements.),250,0,0,Violence()
 250,0,0,IsRoped,(Tu la détaches.)|(1 minute),(Elle luttle pour rester attachée|mais tu parviens à défaire les noeuds.),250,0,0,Untie()
-250,0,0,IsGagged,(Tu la débâillones.)|(1 minute),(Elle luttle pour garder le bâillon|mais tu parviens à l'enlever.),250,0,0,Ungag()
+250,0,0,IsGagged,(Tu la débâillonnes.)|(1 minute),(Elle luttle pour garder le bâillon|mais tu parviens à l'enlever.),250,0,0,Ungag()
 250,0,0,IsBoundAndGagged,"Je t'ai piégé, salope."|(Tu l'abandonnes.),,250,0,0,EvilEnd()
 250,0,0,,Nous devrions arrêter ça.|(Vous sortez des toilettes.),(Elle soupire et vous vous rhabillez|toutes les deux et retournez à votre table.),300,-2,-1,Dress()
 260,0,0,,C'était magnifique.|(Tu l'aides à se lever.),(Tu l'aides à se lever et elle acquiesce.)|Oui ! C'était de la pure magie.,270,1,0,Release()
