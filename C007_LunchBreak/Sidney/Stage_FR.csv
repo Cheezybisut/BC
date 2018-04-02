@@ -104,65 +104,65 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 290,0,0,AllowSmoke,"Bien sûr, allons fumer.|(Tu vas fumer avec elle.)",(Vous marchez toutes les deux dans un coin isolé|et elle allume ce qui ressemble à un joint.),300,0,0,
 290,0,0,AllowSmoke,"Désolée, Je ne fume pas.|(Vous rentrez à l'université.)",,0,0,0,EndChapter()
 290,0,0,!AllowSmoke,Rentrons.|(Vous rentrez à l'université.),,0,0,0,EndChapter()
-300,0,0,,Can I have some?|(Smoke with her.),Sure!  (She smokes a big puff|and shares the joint with you.),310,1,0,Smoke()
-300,0,0,,"Smoke it, I don't care.|(Don't smoke with her.)",You only smoke cigarettes then?|(She takes three big puffs of her joint.),320,-1,0,Smoke()
-300,0,0,,Gimme that joint!|(Smoke with her.),Here you go.  (She|passes the joint to you.),310,1,1,Smoke()
-300,0,0,,Smoking is bad for you.|(Don't smoke with her.),What are you?  A fucking police?|(She takes three big puffs of her joint.),320,-1,-1,Smoke()
-300,0,0,,Is it safe to smoke?|(Smoke with her.),Can't be safer.  (She smokes a big|puff and shares the joint with you.),310,1,-1,Smoke()
-300,0,0,,No!  This is illegal!|(Don't smoke with her.),You're such a pathetic loser.|(She takes three big puffs of her joint.),320,-2,-2,Smoke()
-310,0,0,,This is great!|(Smoke the joint.),Yep!  Leave some for me though.|(You take a few puffs on the joint.),310,0,0,Smoke()
-310,0,0,,Thanks for that.|(Pass the joint.),(You pass the joint and she|takes three quick puffs on it.),320,0,0,Smoke()
-320,0,0,,How often do|you smoke weed?,Every day!  Best medicine against boredom.|(She smokes two puffs and sits down wasted.),330,0,0,Smoke()
-320,0,0,,"Careful, you'll be|stoned for class.",Don't you think I already know that?|(She smokes two puffs and sits down wasted.),330,0,-1,Smoke()
-320,0,0,,That's great!  We need to|lunch together more often.,Fuck yeah!  We can get stoned every day.|(She smokes two puffs and sits down wasted.),330,1,0,Smoke()
-330,0,0,,Are you ok?,Oh hell yeah!|(She looks stoned.),330,0,0,
-330,0,0,,We should|skip school.,Oh yeah!  Best idea ever!|(She giggles and stares blankly.),330,0,0,
-330,0,0,HateAmanda,Do you want to get|even with Amanda?,Fuck yeah!  Let's do it now.|Will you help beat her up?,400,0,0,
-330,0,0,HateSarah,Do you want to get|even with Sarah?,Fuck yeah!  Let's do it now.|Will you help beat her up?,500,0,0,
-330,0,0,,(Smoke with her.)|(1 minute),(You both share a puff and sit idly.),330,0,0,
-330,0,0,,(Stare at her.)|(1 minute),(You stare at her idly while|she smokes a puff in your face.),330,0,0,
-330,0,0,,(Remove her clothes.)|(1 minute),(She stares and pushes your hand away.)|(You need +8 love or submission to strip her.),330,0,0,RemoveClothes()
+300,0,0,,Tu fais tourner ?|(Tu fumes avec elle.),Bien sûr ! (Elle prend une grosse latte|et partage le joint avec toi.),310,1,0,Smoke()
+300,0,0,,"Fume-le, je m'en fous.|(Tu ne fumes pas)",Tu ne fumes que des cigarettes ?|(Elle prend trois lattes.),320,-1,0,Smoke()
+300,0,0,,Fait passer !|(Tu fumes avec elle.),Voilà pour toi. (Elle te tend le joint.),310,1,1,Smoke()
+300,0,0,,Fumer est mauvais pour la|santé. (Tu ne fumes pas.),T'es qui ? T'es de la police ?|(Elle prend trois grosses lattes.),320,-1,-1,Smoke()
+300,0,0,,C'est dangereux de fumer ?|(Tu fumes avec elle.),Rien n'est sain. (Elle prend une grosse|latte et partage le joint avec toi.),310,1,-1,Smoke()
+300,0,0,,Non ! Ceci est illégal !|(Tu ne fumes pas.),"T'es qu'une minable, c'est pathétique.|(Elle prend trois grosses lattes.)",320,-2,-2,Smoke()
+310,0,0,,C'est génial !|(Tu tires sur le joint.),Ouaip ! Laisse m'en un peu.|(Elle prend quelques bouffées.),310,0,0,Smoke()
+310,0,0,,Merci.|(Tu fais passer le joint.),(Tu lui passes le joint et elle prend trois bouffées rapide.),320,0,0,Smoke()
+320,0,0,,Tu fumes souvent|de l'herbe ?,Tous les jours ! Le meilleur remède contre l'ennui.|(Elle prend deux lattes et s'assoit défoncée.),330,0,0,Smoke()
+320,0,0,,"Fait gaffe, tu seras|défoncée en cours.",Tu ne crois pas que je le sais déjà ?|(Elle prend deux lattes et s'assoit défoncée.),330,0,-1,Smoke()
+320,0,0,,Super ! On devrait déjeuner|ensemble plus souvent.,Carrément ! On pourrait se défoncer tous les jours.|(Elle prend deux lattes et s'assoit défoncée.),330,1,0,Smoke()
+330,0,0,,Ça va ?,"Oh, bon sang ! Ouais !|(Elle a l'air défoncée.)",330,0,0,
+330,0,0,,On devrait|sécher l'école.,Oh ouais ! La meilleure idée de tous les temps !|(Elle rit et te fixe le regard vide.),330,0,0,
+330,0,0,HateAmanda,Tu veux te venger|d'Amanda ?,Putain ouais ! Faisons-le maintenant.|Tu vas m'aider à la tabasser ?,400,0,0,
+330,0,0,HateSarah,Tu veux te venger|de Sarah ?,Putain ouais ! Faisons-le maintenant.|Tu vas m'aider à la tabasser ?,500,0,0,
+330,0,0,,(Tu fumes avec elle.)|(1 minute),(Vous partagez toutes les deux une bouffée|et vous restez assis sans rien faire.),330,0,0,
+330,0,0,,(Tu la fixes.)|(1 minute),(Tu la regardes oisivement pendant|qu'elle t'envoit sa fumée au visage.),330,0,0,
+330,0,0,,(Tu enlèves ses vêtements.)|(1 minute),"(Elle te fixe et repousse ta main.)|(""+8"" en amour ou en soumission pour la déshabiller.)",330,0,0,RemoveClothes()
 330,0,0,,Rentrons.|(Vous rentrez à l'université.),,0,0,0,EndChapter()
-340,0,0,!IsGagged,Are you ok?,Oh hell yeah!|(She looks stoned.),340,0,0,
-340,0,0,!CuteRemarkDone,You look pretty|cute like that.,"(She looks at herself, blushes|a little and nods back at you.)",340,0,0,CuteRemark()
-340,0,0,,(Tickle her.)|(1 minute),(Either she's not ticklish or she's|too stoned but she doesn't react much.),340,0,0,
-340,0,0,,(Masturbate her.)|(1 minute),,340,0,0,Masturbate()
-340,0,0,IsRoped,(Untie her.)|(1 minute),(She seems to appreciate but doesn't|react that much while you untie her.),340,0,0,Untie()
-340,0,0,IsGagged,(Ungag her.)|(1 minute),(You ungag her and she stares at you.)|Oh Fuck!  This is pretty intense.,340,0,0,Ungag()
-340,0,0,,(Dress her back.)|(1 minute),(You let her go and she|puts her clothes back on.),330,0,0,Release()
-340,0,0,IsBoundAndGagged,I tricked you bitch.|(Leave her stranded.),,340,0,0,EvilEnd()
-340,0,0,,Let's go back.|(Back to college.),,0,0,0,EndChapter()
-350,0,0,,Cum for me sweetie.|(Make her climax.),(You masturbate her gently while she|moans and surrenders to a sweet orgasm.),340,1,0,Orgasm()
-350,0,0,,Cum now little whore.|(Make her climax.),(You masturbate her forcefully and|she climaxes with a great orgasm.),340,0,1,Orgasm()
-350,0,0,,"Not now, maybe later.|(Don't let her climax.)",(You stop masturbating her|and she slowly stops to moan.),340,-1,0,NoOrgasm()
-350,0,0,,You don't deserve it.|(Don't let her climax.),(You stop masturbating her|and she slowly stops to moan.),340,0,-1,NoOrgasm()
-400,0,0,,"Beat up Amanda?|No, it's too extreme.",It's not extreme enough!|Someday she will pay.,330,0,0,
-400,0,0,,Yes!  Let's get|her right now.,Come with me then!  (You both walk to|an empty class where Amanda is reading.),410,0,0,StartBeatUp()
-410,0,0,,(Help Sidney to subdue|Amanda.)  (1 minute),(You both jump on Amanda and Sidney|gets a holds on her.)  Strip her down!,420,1,0,
-410,0,0,,I cannot do that.|(Don't subdue Amanda.),You fucking traitor!  You're lucky Amanda.|(Amanda quickly packs her stuff and runs away.),490,-3,-2,
-420,0,0,,(Help Sidney to strip|Amanda.)  (1 minute),(You strip her down naked while|Sidney holds her.)  Beat her!,430,1,0,
-420,0,0,,I cannot do that.|(Let Amanda go.),You fucking traitor!  You're lucky Amanda.|(Amanda quickly packs her stuff and runs away.),490,-3,-2,
-430,0,0,,(Beat up Amanda.)|(1 minute),(You kick and punch Amanda until she|crumbles to the ground.)  Let me do the rest!,440,0,1,"BeatUp(""Amanda"")"
-430,0,0,,I'm too weak Miss.|(1 minute),(Sidney struggles alone and beats up Amanda that|crumbles to the ground.)  Move away girl!,440,0,-1,
-430,0,0,,I cannot do that.|(Let Amanda go.),You fucking traitor!  You're lucky Amanda.|(Amanda quickly packs her stuff and runs away.),490,-3,-2,
-440,0,0,,Go ahead!|(1 minute),(Sidney gags and hogties Amanda.)|Let's run before we get caught!,450,1,0,"TieUp(""Amanda"")"
-440,0,0,,This is going too far.|(Help Amanda to get up.),You fucking traitor!  You're lucky Amanda.|(Amanda quickly packs her stuff and runs away.),490,-3,-2,
-450,0,0,,Yes Miss Sidney.|(Leave her stranded.),,0,0,-1,"CrimeStranded(""Amanda"")"
-450,0,0,,Run like hell girl!|(Leave her stranded.),,0,0,1,"CrimeStranded(""Amanda"")"
-450,0,0,,This is going too far.|(Release her.)  (1 minute),You fucking traitor!  You're lucky Amanda.|(Amanda quickly packs her stuff and runs away.),490,-3,-2,
-490,0,0,,Let's go back.|(Back to classes.),,0,0,0,EndChapter()
-500,0,0,,"Beat up Sarah?|No, it's too extreme.",It's not extreme enough!|Someday she will pay.,330,0,0,
-500,0,0,,Yes!  Let's get|her right now.,Come with me then!  (You both walk to|the schoolyard where Sarah is chilling.),510,0,0,StartBeatUp()
-510,0,0,,(Help Sidney to subdue|Sarah.)  (1 minute),(You both jump on Sarah and Sidney|gets a holds on her.)  Strip her down!,520,1,0,
-510,0,0,,I cannot do that.|(Don't subdue Sarah.),You fucking traitor!  You're lucky Sarah.|(Sarah pulls her tongue and quickly runs away.),590,-3,-2,
-520,0,0,,(Help Sidney to strip|Sarah.)  (1 minute),(You strip her down naked while|Sidney holds her.)  Beat her!,530,1,0,
-520,0,0,,I cannot do that.|(Let Sarah go.),You fucking traitor!  You're lucky Sarah.|(Sarah pulls her tongue and quickly runs away.),590,-3,-2,
-530,0,0,,(Beat up Sarah.)|(1 minute),(You kick and punch Sarah until she|crumbles to the ground.)  Let me do the rest!,540,0,1,"BeatUp(""Sarah"")"
-530,0,0,,I'm too weak Miss.|(1 minute),(Sidney struggles alone and beats up Sarah that|crumbles to the ground.)  Move away girl!,540,0,-1,
-530,0,0,,I cannot do that.|(Let Sarah go.),You fucking traitor!  You're lucky Sarah.|(Sarah pulls her tongue and quickly runs away.),590,-3,-2,
-540,0,0,,Go ahead!|(1 minute),(Sidney gags and binds Sarah on the fence.)|Let's fucking run before we get caught!,550,1,0,"TieUp(""Sarah"")"
-540,0,0,,This is going too far.|(Help Sarah to get up.),You fucking traitor!  You're lucky Sarah.|(Sarah pulls her tongue and quickly runs away.),590,-3,-2,
-550,0,0,,Yes Miss Sidney.|(Leave her stranded.),,0,0,-1,"CrimeStranded(""Sarah"")"
-550,0,0,,Run like hell girl!|(Leave her stranded.),,0,0,1,"CrimeStranded(""Sarah"")"
-550,0,0,,This is going too far.|(Release her.)  (1 minute),You fucking traitor!  You're lucky Sarah.|(Sarah pulls her tongue and quickly runs away.),590,-3,-2,
-590,0,0,,Let's go back.|(Back to classes.),,0,0,0,EndChapter()
+340,0,0,!IsGagged,Ça va ?,"Oh, bon sang ! Ouais !|(Elle a l'air défoncée.)",340,0,0,
+340,0,0,!CuteRemarkDone,Tu es plutôt mignonne|comme ça.,"(Elle se regarde, rougit un peu et acquiesce.)",340,0,0,CuteRemark()
+340,0,0,,(Tu la chatouilles.)|(1 minute),"(Soit elle n'est pas chatouilleuse, soit elle est|trop défoncée, mais elle ne réagit pas beaucoup.)",340,0,0,
+340,0,0,,(Tu la masturbes.)|(1 minute),,340,0,0,Masturbate()
+340,0,0,IsRoped,(Tu la détaches.)|(1 minute),(Elle semble apprécier mais ne réagit pas|tant que ça pendant que tu la détaches.),340,0,0,Untie()
+340,0,0,IsGagged,(Tu la débâillonnes.)|(1 minute),(Tu la débâillonnes et elle te fixe.)|Oh la vache ! C'est assez intense.,340,0,0,Ungag()
+340,0,0,,(Tu la laisses se rhabiller.)|(1 minute),(Tu la laisses tranquille et elle remet ses vêtements.),330,0,0,Release()
+340,0,0,IsBoundAndGagged,"Je t'ai piégé, salope."|(Tu l'abandonnes.),,340,0,0,EvilEnd()
+340,0,0,,Rentrons.|(Vous rentrez à l'université.),,0,0,0,EndChapter()
+350,0,0,,Jouis pour moi chérie.|(Tu la fais jouir.),(Tu la masturbes doucement pendant qu'elle gémit|et s'abandonne jusqu'à atteindre un doux orgasme.),340,1,0,Orgasm()
+350,0,0,,"Jouis, ma petite pute.|(Tu la fais jouir.)",(Tu la masturbes avec force et elle finit|par jouir en atteignant un orgasme grandiose.),340,0,1,Orgasm()
+350,0,0,,"Plus tard, peut-être.|(Tu ne la laisses pas jouir.)",(Tu arrêtes de la masturber et|elle s'arrête lentement de gémir.),340,-1,0,NoOrgasm()
+350,0,0,,Tu ne le mérites pas.|(Tu ne la laisses pas jouir.),(Tu arrêtes de la masturber et|elle s'arrête lentement de gémir.),340,0,-1,NoOrgasm()
+400,0,0,,"Tabasser Amanda ?|Non, c'est trop extrême.",Ce n'est pas assez extrême ! Un jour elle paiera.,330,0,0,
+400,0,0,,Oui ! Allons la chercher|tout de suite.,Alors viens avec moi ! (Vous marchez toutes les deux|jusqu'à une classe vide où Amanda est en train de lire.),410,0,0,StartBeatUp()
+410,0,0,,(Tu aides Sidney à mater|Amanda.) (1 minute),(Vous sautez toutes les deux sur Amanda|et Sidney la maîtrise.) Déshabille-la !,420,1,0,
+410,0,0,,Je ne peux pas le faire.|(Tu laisses Amanda partir.),"Sale traitresse ! Tu as de la chance, Amanda.|(Amanda emballe rapidement ses affaires et s'enfuit.)",490,-3,-2,
+420,0,0,,(Tu déshabilles|Amanda.) (1 minute),(tu la fous à poil pendant que Sidney|la tient dans ses bras.) Frappe la !,430,1,0,
+420,0,0,,Je ne peux pas faire ça.|(Tu laisses Amanda partir.),"Sale traitresse ! Tu as de la chance, Amanda.|(Amanda emballe rapidement ses affaires et s'enfuit.)",490,-3,-2,
+430,0,0,,(Tu bats Amanda.)|(1 minute),(Tu frappes Amanda jusqu'à ce qu'elle s'écroule|au sol.) Laisse-moi m'occuper du reste !,440,0,1,"BeatUp(""Amanda"")"
+430,0,0,,"Je suis trop faible,|Madame. (1 minute)","(Sidney lutte seule et bat Amanda qui|s'effondre au sol.) Bouge de là, fillette !",440,0,-1,
+430,0,0,,Je ne peux pas faire ça.|(Tu laisses Amanda partir.),"Sale traitresse ! Tu as de la chance, Amanda.|(Amanda emballe rapidement ses affaires et s'enfuit.)",490,-3,-2,
+440,0,0,,Vas-y !|(1 minute),(Sidney bâillonne et ligote Amanda.)|Fuyons avant de nous faire prendre !,450,1,0,"TieUp(""Amanda"")"
+440,0,0,,Ça va trop loin. (Tu aides|Amanda à se lever.),"Sale traitresse ! Tu as de la chance, Amanda.|(Amanda emballe rapidement ses affaires et s'enfuit.)",490,-3,-2,
+450,0,0,,"Oui, Madame Sidney.|(Tu l'abandonnes.)",,0,0,-1,"CrimeStranded(""Amanda"")"
+450,0,0,,Tirons nous vite !|(Tu l'abandonnes.),,0,0,1,"CrimeStranded(""Amanda"")"
+450,0,0,,Ça va trop loin.|(Tu la libères.) (1 minute),"Sale traitresse ! Tu as de la chance, Amanda.|(Amanda emballe rapidement ses affaires et s'enfuit.)",490,-3,-2,
+490,0,0,,Rentrons.|(Tu retournes en cours.),,0,0,0,EndChapter()
+500,0,0,,"Tabasser Sarah ?|Non, c'est trop extrême.",Ce n'est pas assez extrême ! Un jour elle paiera.,330,0,0,
+500,0,0,,Oui ! Allons la chercher|tout de suite.,Alors viens avec moi ! (Vous marchez toutes les deux|jusqu'à la cour de l'école où Sarah se la coule douce.),510,0,0,StartBeatUp()
+510,0,0,,(Tu aides Sidney à mater|Sarah.) (1 minute),(Vous sautez toutes les deux sur Sarah|et Sidney la maîtrise.) Déshabille-la !,520,1,0,
+510,0,0,,Je ne peux pas faire ça.|(Tu laisses Sarah partir.),"Sale traitresse ! Tu as de la chance, Sarah.|(Sarah tire la langue et s'enfuit rapidement.)",590,-3,-2,
+520,0,0,,(Tu déshabilles|Sarah.) (1 minute),(tu la fous à poil pendant que Sidney|la tient dans ses bras.) Frappe la !,530,1,0,
+520,0,0,,Je ne peux pas faire ça.|(Tu laisses Sarah partir.),"Sale traitresse ! Tu as de la chance, Sarah.|(Sarah tire la langue et s'enfuit rapidement.)",590,-3,-2,
+530,0,0,,(Tu bats Sarah.)|(1 minute),(Tu frappes Sarah jusqu'à ce qu'elle s'écroule|au sol.) Laisse-moi m'occuper du reste !,540,0,1,"BeatUp(""Sarah"")"
+530,0,0,,"Je suis trop faible,|Madame (1 minute)","(Sidney lutte seule et bat Sarah qui|s'effondre au sol.) Bouge de là, fillette !",540,0,-1,
+530,0,0,,Je ne peux pas faire ça.|(Tu laisses Sarah partir.),"Sale traitresse ! Tu as de la chance, Sarah.|(Sarah tire la langue et s'enfuit rapidement.)",590,-3,-2,
+540,0,0,,Vas-y !|(1 minute),(Sidney bâillonne et attache Sarah à la clôture.)|Fuyons avant qu'on se fasse prendre !,550,1,0,"TieUp(""Sarah"")"
+540,0,0,,Ça va trop loin. (Tu aides|Sarah à se lever.),"Sale traitresse ! Tu as de la chance, Sarah.|(Sarah tire la langue et s'enfuit rapidement.)",590,-3,-2,
+550,0,0,,"Oui, Madame Sidney.|(Tu l'abandonnes.)",,0,0,-1,"CrimeStranded(""Sarah"")"
+550,0,0,,Tirons nous vite !|(Tu l'abandonnes.),,0,0,1,"CrimeStranded(""Sarah"")"
+550,0,0,,Ça va trop loin.|(Tu la libères.) (1 minute),"Sale traitresse ! Tu as de la chance, Sarah.|(Sarah tire la langue et s'enfuit rapidement.)",590,-3,-2,
+590,0,0,,Rentrons.|(Tu retournes en cours.),,0,0,0,EndChapter()
