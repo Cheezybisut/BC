@@ -133,7 +133,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 330,0,0,,(Tu la chatouilles.)|(1 minute),(Elle se démène joyeusement pour éviter|tes chatouilles et elle à l'air d'aimer ça.),330,0,0,Tickle()
 330,0,0,,(Tu la masturbes.)|(1 minute),"(Elle gémit silencieusement pendant que tu la touches,|tremblant légèrement par ton contact affectueux.)",330,0,0,Masturbate()
 330,0,0,IsRoped,(Tu la détaches.)|(1 minute),"(Un noeud à la fois, tu la libères de son bondage.)",330,0,0,Untie()
-330,0,0,IsGagged,(Tu la débâillones.)|(1 minute),"(Tu enlèves soigneusement le bâillon.)|Merci, ce n'était pas confortable.",330,0,0,Ungag()
+330,0,0,IsGagged,(Tu la débâillonnes.)|(1 minute),"(Tu enlèves soigneusement le bâillon.)|Merci, ce n'était pas confortable.",330,0,0,Ungag()
 330,0,0,IsBoundAndGagged,"Je t'ai piégé, salope."|(Tu l'abandonnes.),,330,0,0,EvilEnd()
 330,0,0,,Rentrons.|(Vous rentrez à l'école.),,0,0,0,EndBonus()
 400,0,0,,Pourquoi m'as-tu|emmener ici ?,"J'ai une idée folle, mais tu dois me faire confiance.|Vas-tu te soumettre et enlever ton uniforme pour moi ?",410,0,0,
