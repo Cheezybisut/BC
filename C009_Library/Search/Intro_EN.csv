@@ -24,6 +24,7 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 71,0,0,,,71.jpg
 75,0,0,,There's not much in this section|of the library but a framed rule.,75.jpg
 80,0,0,,There's a closed wooden door leading|to another section of the library.,80.jpg
+81,0,0,,,80.jpg
 85,0,0,,The bookshelves are filled with books on psychology.|There's a small dark hole in one the shelves.,85.jpg
 86,0,0,,,86.jpg
 87,0,0,!Common_PlayerChaste,,87.jpg
@@ -31,3 +32,8 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 88,0,0,!Common_PlayerChaste,,88.jpg
 88,0,0,Common_PlayerChaste,,88Chastity.jpg
 90,0,0,,The upper section is closed|and cannot be accessed.,90.jpg
+100,0,0,,There are a few closed bookshelves|in this section of the library.,100.jpg
+101,0,0,,,101.jpg
+102,0,0,,,102.jpg
+105,0,0,,There are wooden cabinets on|the bottom part of the shelves.,105.jpg
+106,0,0,,There's a huge wooden table and a painting|of an old man in the back of this section.,106.jpg

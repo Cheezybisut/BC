@@ -1,5 +1,6 @@
 var C009_Library_Search_CurrentStage = 0;
 var C009_Library_Search_SearchCounterDone = false;
+var C009_Library_Search_SearchCabinetDone = false;
 var C009_Library_Search_CanLearnRopeMastery = true;
 var C009_Library_Search_CanSit = false;
 var C009_Library_Search_MasturbateCount = 0;
@@ -13,6 +14,7 @@ var C009_Library_Search_CanStealPill = true;
 var C009_Library_Search_CanStealArmbinder = true;
 var C009_Library_Search_CanStealTape = true;
 var C009_Library_Search_CanCheckYuki = true;
+var C009_Library_Search_BondageClubInvitationTaken = false;
 
 // Chapter 9 Library - Search Area Load
 function C009_Library_Search_Load() {
@@ -84,7 +86,7 @@ function C009_Library_Search_Masturbate() {
 			GameLogAdd("CaughtInHole");	
 		} else {
 			C009_Library_Search_MasturbateCount++;
-			if (C009_Library_Search_MasturbateCount == 3) { GameLogSpecificAdd("C009_Library", "", "SweetGwendolineOrgasm"); OverridenIntroText = GetText("Orgasm"); }
+			if (C009_Library_Search_MasturbateCount == 3) { GameLogSpecificAdd(CurrentChapter, "", "SweetGwendolineOrgasm"); OverridenIntroText = GetText("Orgasm"); }
 			if ((C009_Library_Search_MasturbateCount >= 4) && !PlayerHasLockedInventory("VibratingEgg")) OverridenIntroText = GetText("OrgasmEnough");
 			if ((C009_Library_Search_MasturbateCount >= 4) && PlayerHasLockedInventory("VibratingEgg")) {
 				OverridenIntroText = GetText("OrgasmRepeat");
@@ -111,14 +113,14 @@ function C009_Library_Search_SetReadProgress() {
 
 // Chapter 9 - Library Read Time
 function C009_Library_Search_ReadTime() {
-	GameLogSpecificAdd("C009_Library", "", "ReadChapter" + (C009_Library_Search_CurrentStage - 41).toString());
+	GameLogSpecificAdd(CurrentChapter, "", "ReadChapter" + (C009_Library_Search_CurrentStage - 41).toString());
 	C009_Library_Library_BookProgress = C009_Library_Search_CurrentStage;
 	CurrentTime = CurrentTime + 170000;
 }
 
 // Chapter 9 - Library Read Full Book
 function C009_Library_Search_ReadFull() {
-	GameLogSpecificAdd("C009_Library", "", "ReadTwice");
+	GameLogSpecificAdd(CurrentChapter, "", "ReadTwice");
 	C009_Library_Library_BookProgress = C009_Library_Search_CurrentStage;
 	CurrentTime = CurrentTime + 890000;
 }
@@ -132,14 +134,32 @@ function C009_Library_Search_Climb() {
 	}
 }
 
-// Chapter 9 - Library Open Door
-function C009_Library_Search_OpenDoor() {
+// Chapter 9 - Library Unlock Door
+function C009_Library_Search_UnlockDoor() {
 	C009_Library_Library_FoundLockedDoor = true;
+	if (C009_Library_Library_FoundKey) {
+		GameLogSpecificAdd(CurrentChapter, "", "UnlockDoor");
+		C009_Library_Library_DoorOpen = true;
+		C009_Library_Search_CurrentStage = 81;
+		OverridenIntroText = GetText("OpenKey");
+	}
 }
 
 // Chapter 9 - Library Force Door
 function C009_Library_Search_ForceDoor() {
 	C009_Library_Library_FoundLockedDoor = true;
+	if (PlayerGetSkillLevel("Fighting") >= 2) {
+		GameLogSpecificAdd(CurrentChapter, "", "ForceDoor");
+		C009_Library_Library_DoorOpen = true;
+		C009_Library_Search_CurrentStage = 81;
+		OverridenIntroText = GetText("OpenForce");
+	}
+}
+
+// Chapter 9 - Library Open Door
+function C009_Library_Search_OpenDoor() {
+	C009_Library_Library_CurrentZone = "010";
+	SetScene(CurrentChapter, "Library");
 }
 
 // Chapter 9 - Library No Leaving
@@ -230,4 +250,27 @@ function C009_Library_Search_SearchDesk() {
 // Chapter 9 - Library - The player can check on Yuki if she's sleeping
 function C009_Library_Search_CheckYuki() {
 	SetScene(CurrentChapter, "Yuki");
+}
+
+// Chapter 9 - Library - The player can search for the Story of O
+function C009_Library_Search_SearchO() {
+	if (!C009_Library_Search_BondageClubInvitationTaken) {
+		C009_Library_Search_CurrentStage = 101;
+		OverridenIntroText = GetText("FindO");
+	}
+}
+
+// Chapter 9 - Library - The player can take the bondage club invitation
+function C009_Library_Search_TakeInvitation() {
+	C009_Library_Search_BondageClubInvitationTaken = true;
+	GameLogSpecificAdd(CurrentChapter, "", "BondageClubInvitation");
+}
+
+// Chapter 9 - Library Search in the wooden cabinet
+function C009_Library_Search_SearchCabinet() {
+	if (!C009_Library_Search_SearchCabinetDone) {
+		OverridenIntroText = GetText("FindCabinet");
+		PlayerAddRandomItem();
+		C009_Library_Search_SearchCabinetDone = true;
+	}
 }

@@ -9,3 +9,7 @@ ClimbFindItem,You climb on the structure like a|monkey and find an interesting i
 StruggleBackFromHolde,"Like an agile gymnast, you slowly|squeeze yourself out of the hole."
 NoMoreSweetGwendoline,You search in the shelves|but your magazine is gone.
 FindKey,You search the desk and find a metallic|key that you stash in your purse.
+OpenKey,You try the key that you found on|the desk and it unlocks the door.
+OpenForce,"Using all your strength, you smash your|shoulder in the door and break the lock."
+FindO,"In the bookshelf, you find a kinky|French book called: ""L'Histoire d'O""."
+FindCabinet,You check in the wooden cabinet|and find an interesting item.

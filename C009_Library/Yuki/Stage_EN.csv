@@ -14,7 +14,27 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 5,0,0,,Jennifer did|that to me.,I'm very surprised that she would do that.|(She releases you.)  You may go now.,6,0,0,TestRelease()
 6,0,0,,(Nod and walk away.),,6,0,0,PlayerLeaveForBook()
 6,0,0,,Very well Miss.|(Walk away.),,6,0,0,PlayerLeaveForBook()
-40,0,0,,Trouble is my|middle name.,"Young lady, promise me to be quiet and|not cause any trouble in the library.",41,0,1,
+10,0,0,,I don't remember.,Of course you remember my little pet.|(She grabs your hair and sits on her desk.),700,0,0,StartPleasure()
+10,0,0,,Yes Miss Yuki.|I remember.,"Very good my little pet, come closer.|(She grabs your hair and sits on her desk.)",700,1,-1,StartPleasure()
+10,0,0,,A deal?  You|must be kidding.,(She frowns.)  I'll show you if I'm kidding.|(She grabs your hair and sits on her desk.),700,-1,1,StartPleasure()
+20,0,0,,A student came|to help me.,You got very lucky young lady.|Can you promise me to be good now?,22,0,0,
+20,0,0,,A teacher came|to help me.,You got very lucky young lady.|Can you promise me to be good now?,22,0,0,
+20,0,0,,I struggled a|lot to escape.,That's impressive.  So you think you|can struggle out of any restrain?,21,1,0,
+20,0,0,,Easy!  I'm an|escape artist!,I don't believe you.  You think you|can struggle out of any restrain?,21,0,1,
+20,0,0,,It's none of your|fucking business.,We'll see if you can escape now little miss.|(She grabs you and straps an armbinder on you.),300,-1,1,RestrainPlayer()
+21,0,0,,I can escape|from anything!,"Alright young lady, try to escape from this.|(She grabs you and straps an armbinder on you.)",300,0,1,RestrainPlayer()
+21,0,0,,"No, I was|only kidding.",You certainly are a special student.|Can you promise me to be good now?,22,0,0,
+22,0,0,,"Ok, I promise.",Very well.  Are you looking for a book?,100,0,0,NoSecondChance()
+22,0,0,,"That's fair, I|promise to be good.",Excellent.  Are you looking for a book?,100,1,0,NoSecondChance()
+22,0,0,,"Yeah, yeah, yeah.|I promise.",Anyway.  Are you looking for a book?,100,-1,0,NoSecondChance()
+30,0,0,,"Yes Miss, I've|learned my lesson.",Good.  Now promise me to be quiet|and not cause any trouble in the library.,31,0,-1,
+30,0,0,,That hour of|isolation went fast.,"(She frowns.)  Next time it will be a full day.|Anyway, can you promise me to be good now?",31,0,1,
+30,0,0,,I'm sorry I could|not please you.,I'll give you a second chance little pet.|(She grabs your hair and sits on her desk.),700,0,-1,StartPleasure()
+30,0,0,,I'm sure I can|make you cum.,Oh really?  We'll see about that little pet.|(She grabs your hair and sits on her desk.),700,0,1,StartPleasure()
+31,0,0,,"Ok, I promise.",Very well.  Are you looking for a book?,100,0,0,NoSecondChance()
+31,0,0,,"That's fair, I|promise to be good.",Excellent.  Are you looking for a book?,100,1,0,NoSecondChance()
+31,0,0,,"Yeah, yeah, yeah.|I promise.",Anyway.  Are you looking for a book?,100,-1,0,NoSecondChance()
+40,0,0,,Trouble is my|middle name.,(She sighs.)  Promise me to be quiet|and not cause any trouble in the library.,41,0,1,
 40,0,0,,I'm not causing|any trouble.,"Alright, promise me to be quiet and|not cause any trouble in the library.",41,0,0,
 40,0,0,,"Yes Miss, I'm a|good girl now.","Very good, promise me to be quiet and|not cause any trouble in the library.",41,0,-1,
 41,0,0,,"Ok, I promise.",Very well.  Are you looking for a book?,100,0,0,NoSecondChance()
@@ -31,7 +51,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 60,0,0,,(Nod silently.),Good.  So are you looking for a book?,100,0,-1,
 70,0,0,,"Yes, the detention|time was fair.",You have a good attitude.|Are you looking for a book?,100,1,0,
 70,0,0,,"Yes Miss, I won't|cause any trouble.",Very good little miss.|Are you looking for a book?,100,1,-1,
-70,0,0,,I regret nothing!,Such a fiesty little brat.|Are you looking for a book?,100,-1,1,
+70,0,0,,I regret nothing!,Such a feisty little brat.|Are you looking for a book?,100,-1,1,
 70,0,0,,(Nod silently.),Good.  So are you looking for a book?,100,0,-1,
 80,0,0,,I saw something|shiny in there.,You know what killed the cat don't you?|Promise me to never try that again.,81,-1,0,
 80,0,0,,I was looking|for cheese.,And you got yourself in the mouse trap?|Promise me to never try that again.,81,-2,0,
@@ -42,7 +62,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 81,0,0,,"Yeah, yeah, yeah.|I won't do it again.","I don't like your attitude.  (You walk to her desk.)|Anyway, are you searching for a specific book?",100,-1,1,
 81,0,0,,"Yes, that was stupid.|I won't do it again.","Very true young lady.  (You walk to her desk.)|So tell me, are you searching for a specific book?",100,1,0,
 82,0,0,,That's a very|good advice.,Indeed.  (You both walk to her desk.)|So are you searching for a specific book?,100,1,0,
-82,0,0,,"Don't worry, I'll kick|her ass next time.",Standing your ground should be enough Miss.|(You walk to her desk.)  Are you searching for a book?,100,-1,1,
+82,0,0,,Don't worry.  I'll kick|her ass next time.,Standing your ground should be enough Miss.|(You walk to her desk.)  Are you searching for a book?,100,-1,1,
 82,0,0,,Could you help me|to defend myself?,"Yes, I'll help you later. (You walk to her desk.)|So are you searching for a specific book?",100,1,-2,
 82,0,0,,"Yeah, I know.",Very well.  (You both walk to her desk.)|Anyway.  Are you searching for a specific book?,100,0,0,
 83,0,0,,"Yes, can you|retrieve my pen?",I think I can see your pen.|It won't be easy to reach it.,240,0,0,
@@ -79,7 +99,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 181,0,0,,"Yeah, yeah, yeah.|I won't do it again.",I don't like your attitude.  (You walk to her desk.)|I really hope you can stay of out of trouble.,200,-1,1,
 181,0,0,,"Yes, that was stupid.|I won't do it again.",Very true young lady.  (You walk to her desk.)|I really hope you can stay of out of trouble.,200,1,0,
 182,0,0,,That's a very|good advice.,Indeed.  (You both walk to her desk.)|I really hope you can stay of out of trouble.,200,1,0,
-182,0,0,,"Don't worry, I'll kick|her ass next time.",Standing your ground should be enough Miss.|(You walk to her desk.)  Stay out of trouble.,200,-1,1,
+182,0,0,,Don't worry.  I'll kick|her ass next time.,Standing your ground should be enough Miss.|(You walk to her desk.)  Stay out of trouble.,200,-1,1,
 182,0,0,,Could you help me|to defend myself?,"Yes, I'll help you later. (You walk to her desk.)|I really hope you can stay of out of trouble.",200,1,-2,
 182,0,0,,"Yeah, I know.",Very well.  (You both walk to her desk.)|I really hope you can stay of out of trouble.,200,0,0,
 183,0,0,,"Yes, can you|retrieve my pen?",I think I can see your pen.|It won't be easy to reach it.,240,0,0,
@@ -101,11 +121,17 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 192,0,0,,"Yes, that was stupid.|I won't do it again.",Very true young lady.  (You walk to her desk.)|I really hope you can stay of out of trouble.,200,1,0,
 200,0,0,CanAskForDoor,I've found a|locked door.,"Yes, and you're not allowed|in this section of the library.",200,0,0,
 200,0,0,PenInHole,"Miss, I dropped|my pen in a hole.",Oh!  And you need|my help to recover it?,210,0,0,
+200,0,0,CanPleasure,"Miss, can I ask you|something personal?",Of course young lady.|What's on your mind?,205,0,0,
+200,0,0,LittlePet,Would you like|more pleasure?,"Not now my little pet, but I'll|need your personal services later.",200,0,0,
 200,0,0,,I'm fine Miss.|(Walk away.),,200,0,0,PlayerLeaveForBook()
 200,0,0,,(Search on her desk.)|(1 minute),"Young lady, do not touch|at the things on my desk.",200,-1,0,AnnoyYuki()
 200,0,0,,(Search in her purse.)|(1 minute),What are you doing?|Don't touch my purse.,200,-1,0,AnnoyYuki()
 200,0,0,,(Make some noise.)|(1 minute),Silence is gold young lady.|Especially in the library.,200,-1,0,AnnoyYuki()
-210,0,0,,"Yes, I need your help.","I'm sorry, I don't have time for that.",200,0,0,TestForHelp()
+205,0,0,,I kind of like you.|Can I kiss you?,"No, but there's something else you can do.|(She grabs your hair and sits on her desk.)",700,0,0,StartPleasure()
+205,0,0,,I want you to|pleasure me.,"No, but you certainly can pleasure me.|(She grabs your hair and sits on her desk.)",700,0,1,StartPleasure()
+205,0,0,,I would love|to pleasure you.,Come here my wonderful little pet.|(She grabs your hair and sits on her desk.),700,1,-1,StartPleasure()
+205,0,0,,For how long have|you worked here?,That's your personal question?|It's my third year in this college.,200,0,0,NoPleasure()
+210,0,0,,"Yes, I need your help.","Sorry, I don't have time for that.",200,0,0,TestForHelp()
 210,0,0,,I'll try to get|it by myself.,"Very good, I'm sure you can do it.",200,0,0,
 220,0,0,,It's in a dark hole|in a bookshelf.,"Alright, let's go see that.|(You both walk to bookshelf.)",230,0,0,
 220,0,0,,There's a stupid|hole in a shelf.,"Fine, let's go see that.|(You both walk to bookshelf.)",230,-1,0,
@@ -146,7 +172,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 320,0,0,,Fuck you bitch!,I've heard enough.  (She tapes your mouth.)|Now do your time and don't make any noise.,340,-1,0,GagPlayer()
 330,0,0,,(Struggle to get out.),(You struggle to get out of the leather|binder but cannot manage to do much.),330,0,0,TwoMinutes()
 330,0,0,,(Wait patiently.),(You wait patiently under the desk.|Time seems to fly very slowly.),330,0,0,TwoMinutes()
-330,0,0,,Come back here!,(She comes backs only to|gag your mouth with tape.),340,0,0,GagPlayer()
+330,0,0,,Come back here!,(She comes back only to|gag your mouth with tape.),340,0,0,GagPlayer()
 340,0,0,,@Oomnp nhai!,(She seems to hear you but|doesn't move or say anything.),340,0,0,TwoMinutes()
 340,0,0,,@Mmammih!,(She seems to hear you but|doesn't move or say anything.),340,0,0,TwoMinutes()
 340,0,0,,(Struggle to get out.),(You struggle to get out of the leather|binder but cannot manage to do much.),340,0,0,TwoMinutes()
@@ -156,11 +182,11 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 400,0,0,,Are you sleepy?,"(She nods and slowly crumbles|to ground, falling fast asleep.)",410,0,0,Sleep()
 410,0,0,,(Search the room.),,410,0,0,StartSearch()
 410,0,0,!Common_PlayerRestrained,(Wake her up.),(You wake her up and help her to stand.)|What happened here?  Did I fall asleep?,420,0,0,Wake()
-420,0,0,,"Yes, you fell asleep.",That's embarrasing.  (She looks confused.)|Promise not to cause any trouble and you may go.,430,0,0,"SetPose("""")"
-420,0,0,,You were sleeping|on the floor.,That's embarrasing.  (She looks confused.)|Promise not to cause any trouble and you may go.,430,0,0,"SetPose("""")"
-420,0,0,,I drugged you.,WHAT!  (She quickly grabs your arms|and force them in a leather binder.),300,0,0,RestrainPlayer()
+420,0,0,,"Yes, you fell asleep.",That's embarrassing.  (She looks confused.)|Promise not to cause any trouble and you may go.,430,0,0,"SetPose("""")"
+420,0,0,,You were sleeping|on the floor.,That's embarrassing.  (She looks confused.)|Promise not to cause any trouble and you may go.,430,0,0,"SetPose("""")"
+420,0,0,,I drugged you.,WHAT!  (She quickly grabs your arms|and forces them in a leather binder.),300,0,0,RestrainPlayer()
 430,0,0,,"I promise, take care.|(Walk away.)",,200,1,0,PlayerLeaveForBook()
-430,0,0,,I won't cause àny trouble.|(Walk away.),,200,0,0,PlayerLeaveForBook()
+430,0,0,,I won't cause any trouble.|(Walk away.),,200,0,0,PlayerLeaveForBook()
 500,0,0,,Struggle for me!,(She struggles madly to get out of|the hole cannot manage to do it.),500,0,0,
 500,0,0,!Common_PlayerRestrained,(Caress her.)|(1 minute),(You caress her legs lovingly and you can|hear faint moans coming from inside.),500,0,0,Caress()
 500,0,0,!Common_PlayerRestrained,(Tickle her.)|(1 minute),(She gets really angry when you tickle|her but cannot stop laughing like a child.),500,0,0,Tickle()
@@ -190,9 +216,9 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 600,0,0,,(Stay quiet.),(She stares at you and takes a deep breath.)|Turn around and give me your hands.,610,0,-1,TestSleep()
 600,0,0,,What's up doc?,You're not funny at all young lady.|Turn around and give me your hands.,610,-1,0,TestSleep()
 610,0,5,,No.  I have|a better idea.,I don't like the tone of your voice.|What are you talking about?,620,0,0,
-610,0,0,,No!  I won't!|(Try to resist.),(You try to resist but she forces your|arms back and straps them in an binder.),300,0,1,RestrainPlayer()
-610,0,0,,"Alright, be quick.|(Turn around.)",(You turn around and give her your hands|while she straps them in an armbdiner.),300,0,0,RestrainPlayer()
-610,0,0,,Yes Miss Yuki.|(Turn around.),(You turn around and give her your hands|while she straps them in an armbdiner.),300,0,-1,RestrainPlayer()
+610,0,0,,No!  I won't!|(Try to resist.),(You try to resist but she forces your|arms back and straps them in an armbinder.),300,0,1,RestrainPlayer()
+610,0,0,,"Alright, be quick.|(Turn around.)",(You turn around and give her your hands|while she straps them in an armbinder.),300,0,0,RestrainPlayer()
+610,0,0,,Yes Miss Yuki.|(Turn around.),(You turn around and give her your hands|while she straps them in an armbinder.),300,0,-1,RestrainPlayer()
 620,0,0,,You would be humiliated|if people knew.,You're not thinking about starting|rumors on what happened are you?,630,0,0,"SetPose("""")"
 620,0,0,,"Everyone will know|what happened, unless... ",Unless what?  You're not thinking|about starting rumors are you?,630,0,0,"SetPose("""")"
 630,0,0,,If you stay good to|me.  I won't talk.,"Fine, we have a deal Miss.|I won't cause you any trouble.",640,0,1,
@@ -201,3 +227,24 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 640,0,0,,I don't want to|see you again.,Fine!  Go away then.,650,-1,0,
 640,0,0,,Very good Yuki.|(Shake her hand.),(You both shake hands with a firm grip.)|You're free to wander young lady.,650,1,0,
 650,0,0,,(Walk away.),,650,0,0,PlayerLeaveForBook()
+700,0,0,,So you're feeling hot?|(Start to eat her.),"I'm on fire little pet, extinguish me.|(She removes her panties and brings you closer.)",710,0,0,
+700,0,0,,This looks delicious!|(Start to eat her.),"Get hungry little pet, this is your dessert.|(She removes her panties and brings you closer.)",710,1,0,
+700,0,0,,(Nod slowly and|start to eat her.),You're good enough to be collared little pet.|(She removes her panties and brings you closer.),710,0,-1,
+700,0,0,,Forget it Yuki.|(Pull away.),Fine!  I don't care at all!|What do you want then?,200,-2,1,TestPullAway()
+710,0,0,,(Nuzzle against her|pussy.) (1 minute),(She opens her legs and moans softly.),710,0,0,Pleasure(1)
+710,0,0,,(Lick her clitoris.)|(1 minute),(She pulls you close by the hair and trembles.),710,0,0,Pleasure(2)
+710,0,0,,(Push your tongue|inside.)  (1 minute),(She pulls your head back|and forth with both hands.),710,0,0,Pleasure(3)
+710,0,0,,(Masturbate her clitoris.)|(1 minute),Oh COMMON_PLAYERNAME!|Oh yes!,710,0,0,Pleasure(4)
+710,0,0,,(Slide a finger in and|out.)  (1 minute),Faster!  Harder!  Faster!,710,0,0,Pleasure(5)
+710,0,0,,(Stop and pull back.),(She quickly wraps her legs around|your head and pulls you back in.),710,0,0,
+720,0,0,,(Lick her juices.)|(1 minute),(You lick her pussy lips to clean her juices|before she lets you go.)  Good girl.,730,1,-1,
+720,0,0,,(Struggle for air.),(She lets you go.)|Poor little pet.,730,0,-1,
+720,0,0,,(Pull back quickly.),(You pull back very quickly from her.)|Don't be ashamed of what you did.,730,-1,0,
+730,0,0,,You liked it?,Yes.  And I hope we can do it again.|Is there anything you need from me?,200,0,0,StopPleasure()
+730,0,0,,"Yuki, you're delicious.",Thanks.  I hope we can do it again.|Is there anything you need from me?,200,0,1,StopPleasure()
+730,0,0,,"Miss, did you enjoy?","I did my little pet, we'll do it again.|Is there anything you need from me?",200,0,-1,StopPleasure()
+730,0,0,,That was kinky!,That was great!  We have to do it again.|Is there anything you need from me?,200,0,0,StopPleasure()
+750,0,0,,Are you frigid?,No!  You're simply not good at it.|Now get out if you don't need anything.,200,-1,0,StopPleasure()
+750,0,0,,I can restrain you|to help you cum.,Young lady!  I've told you that's enough.|Now get out if you don't need anything.,200,0,1,StopPleasure()
+750,0,0,,I'm sorry Miss.|I need practice.,Maybe you can practice again later then.|But now get out if you don't need anything.,200,1,0,StopPleasure()
+750,0,0,,(Bow your head|in shame.),(She sighs.)  You have a lot to learn little miss.|Now get out if you don't need anything.,200,0,-1,StopPleasure()

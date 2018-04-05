@@ -5,6 +5,7 @@ var C009_Library_Library_FoundLockedDoor = false;
 var C009_Library_Library_FoundKey = false;
 var C009_Library_Library_StuckInHole = false;
 var C009_Library_Library_LockedArmbinder = false;
+var C009_Library_Library_DoorOpen = false;
 
 // Chapter 9 - Library Load
 function C009_Library_Library_Load() {
@@ -67,6 +68,7 @@ function C009_Library_Library_Run() {
 	C009_Library_Library_Navigation("008", "Right", 800, 200);
 	C009_Library_Library_Navigation("008", "Up", 500, 200);
 	C009_Library_Library_Navigation("009", "Down", 720, 400);
+	C009_Library_Library_Navigation("010", "Down", 500, 400);
 
 }
 
@@ -151,12 +153,21 @@ function C009_Library_Library_Click() {
 
 	// In Zone 8, the player can go to zone 5 (right) or search the door or on the left
 	if (E && (C009_Library_Library_CurrentZone == "008") && (MouseX >= 800) && (MouseX <= 1000) && (MouseY >= 200) && (MouseY <= 400)) E = C009_Library_Library_EnterZone("005");
-	if (E && (C009_Library_Library_CurrentZone == "008") && (MouseX >= 500) && (MouseX <= 700) && (MouseY >= 200) && (MouseY <= 400)) E = C009_Library_Library_StartSearch(80);
+	if (E && (C009_Library_Library_CurrentZone == "008") && (MouseX >= 500) && (MouseX <= 700) && (MouseY >= 200) && (MouseY <= 400)) {
+		if (!C009_Library_Library_DoorOpen) E = C009_Library_Library_StartSearch(80);
+		else E = C009_Library_Library_EnterZone("010");
+	}
 	if (E && (C009_Library_Library_CurrentZone == "008") && (MouseX >= 0) && (MouseX <= 400) && (MouseY >= 0) && (MouseY <= 600) && (C009_Library_Yuki_CurrentStage < 500)) E = C009_Library_Library_StartSearch(85);
 	if (E && (C009_Library_Library_CurrentZone == "008") && (MouseX >= 0) && (MouseX <= 400) && (MouseY >= 0) && (MouseY <= 600) && (C009_Library_Yuki_CurrentStage >= 500)) E = C009_Library_Library_LoadYuki();
 
 	// In Zone 9, the player can go to zone 7 (down) or search on the left
 	if (E && (C009_Library_Library_CurrentZone == "009") && (MouseX >= 720) && (MouseX <= 920) && (MouseY >= 400) && (MouseY <= 600)) E = C009_Library_Library_EnterZone("007");
 	if (E && (C009_Library_Library_CurrentZone == "009") && (MouseX >= 0) && (MouseX <= 600) && (MouseY >= 0) && (MouseY <= 600)) E = C009_Library_Library_StartSearch(90);
+
+	// In Zone 10, the player can go to zone 8 (down) or search in 3 zones
+	if (E && (C009_Library_Library_CurrentZone == "010") && (MouseX >= 500) && (MouseX <= 700) && (MouseY >= 400) && (MouseY <= 600)) E = C009_Library_Library_EnterZone("008");
+	if (E && (C009_Library_Library_CurrentZone == "010") && (MouseX >= 110) && (MouseX <= 380) && (MouseY >= 50) && (MouseY <= 320)) E = C009_Library_Library_StartSearch(100);
+	if (E && (C009_Library_Library_CurrentZone == "010") && (MouseX >= 940) && (MouseX <= 1200) && (MouseY >= 200) && (MouseY <= 470)) E = C009_Library_Library_StartSearch(105);
+	if (E && (C009_Library_Library_CurrentZone == "010") && (MouseX >= 530) && (MouseX <= 800) && (MouseY >= 50) && (MouseY <= 320)) E = C009_Library_Library_StartSearch(106);
 	
 }
