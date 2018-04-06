@@ -39,7 +39,7 @@ function C009_Library_Yuki_Load() {
 	LoadInteractions();
 	Common_SelfBondageAllowed = false;
 	C009_Library_Yuki_ReleaseConfirm = false;
-	C009_Library_Yuki_CanAskForDoor = C009_Library_Library_FoundLockedDoor;
+	C009_Library_Yuki_CanAskForDoor = (C009_Library_Library_FoundLockedDoor && !C009_Library_Library_DoorOpen);
 	if (C009_Library_Yuki_CurrentStage >= 500) C009_Library_Library_CurrentZone = "008";
 	else C009_Library_Library_CurrentZone = "007";
 	
@@ -295,6 +295,7 @@ function C009_Library_Yuki_TestSleep() {
 // Chapter 9 Library - Yuki restrains the player in an armbinder
 function C009_Library_Yuki_RestrainPlayer() {
 	if (!C009_Library_Search_CanStealArmbinder && PlayerHasInventory("Armbinder")) PlayerRemoveInventory("Armbinder", 1);
+	LeaveIcon = "";
 	PlayerLockInventory("Armbinder");
 	ActorSetPose("Angry");
 	C009_Library_Library_LockedArmbinder = true;

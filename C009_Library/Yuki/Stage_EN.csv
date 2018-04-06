@@ -23,10 +23,11 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 20,0,0,,Easy!  I'm an|escape artist!,I don't believe you.  You think you|can struggle out of any restrain?,21,0,1,
 20,0,0,,It's none of your|fucking business.,We'll see if you can escape now little miss.|(She grabs you and straps an armbinder on you.),300,-1,1,RestrainPlayer()
 21,0,0,,I can escape|from anything!,"Alright young lady, try to escape from this.|(She grabs you and straps an armbinder on you.)",300,0,1,RestrainPlayer()
-21,0,0,,"No, I was|only kidding.",You certainly are a special student.|Can you promise me to be good now?,22,0,0,
+21,0,0,,No.  I was very|lucky this morning.,You certainly are a special student.|Can you promise me to be good now?,22,0,0,
 22,0,0,,"Ok, I promise.",Very well.  Are you looking for a book?,100,0,0,NoSecondChance()
 22,0,0,,"That's fair, I|promise to be good.",Excellent.  Are you looking for a book?,100,1,0,NoSecondChance()
 22,0,0,,"Yeah, yeah, yeah.|I promise.",Anyway.  Are you looking for a book?,100,-1,0,NoSecondChance()
+22,0,0,,I will never|promise that!,"If you can't behave, I will keep you restrained.|(She grabs you and straps an armbinder on you.)",300,-1,1,RestrainPlayer()
 30,0,0,,"Yes Miss, I've|learned my lesson.",Good.  Now promise me to be quiet|and not cause any trouble in the library.,31,0,-1,
 30,0,0,,That hour of|isolation went fast.,"(She frowns.)  Next time it will be a full day.|Anyway, can you promise me to be good now?",31,0,1,
 30,0,0,,I'm sorry I could|not please you.,I'll give you a second chance little pet.|(She grabs your hair and sits on her desk.),700,0,-1,StartPleasure()
@@ -34,12 +35,14 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 31,0,0,,"Ok, I promise.",Very well.  Are you looking for a book?,100,0,0,NoSecondChance()
 31,0,0,,"That's fair, I|promise to be good.",Excellent.  Are you looking for a book?,100,1,0,NoSecondChance()
 31,0,0,,"Yeah, yeah, yeah.|I promise.",Anyway.  Are you looking for a book?,100,-1,0,NoSecondChance()
+31,0,0,,I will never|promise that!,"If you can't behave, I will keep you restrained.|(She grabs you and straps an armbinder on you.)",300,-1,1,RestrainPlayer()
 40,0,0,,Trouble is my|middle name.,(She sighs.)  Promise me to be quiet|and not cause any trouble in the library.,41,0,1,
 40,0,0,,I'm not causing|any trouble.,"Alright, promise me to be quiet and|not cause any trouble in the library.",41,0,0,
 40,0,0,,"Yes Miss, I'm a|good girl now.","Very good, promise me to be quiet and|not cause any trouble in the library.",41,0,-1,
 41,0,0,,"Ok, I promise.",Very well.  Are you looking for a book?,100,0,0,NoSecondChance()
 41,0,0,,"That's fair, I|promise to be good.",Excellent.  Are you looking for a book?,100,1,0,NoSecondChance()
 41,0,0,,"Yeah, yeah, yeah.|I promise.",Anyway.  Are you looking for a book?,100,-1,0,NoSecondChance()
+41,0,0,,I will never|promise that!,"If you can't behave, I will keep you restrained.|(She grabs you and straps an armbinder on you.)",300,-1,1,RestrainPlayer()
 50,0,0,,"Good.  Tell her|I said ""hello"".",That's not funny young lady.|Are you looking for a book?,100,-1,1,
 50,0,0,,"Yes, we met before.",That's what I've heard.|Are you looking for a book?,100,0,0,
 50,0,0,,I already have a|reputation then.,Not a very good reputation.|Are you looking for a book?,100,0,1,
@@ -229,7 +232,8 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 650,0,0,,(Walk away.),,650,0,0,PlayerLeaveForBook()
 700,0,0,,So you're feeling hot?|(Start to eat her.),"I'm on fire little pet, extinguish me.|(She removes her panties and brings you closer.)",710,0,0,
 700,0,0,,This looks delicious!|(Start to eat her.),"Get hungry little pet, this is your dessert.|(She removes her panties and brings you closer.)",710,1,0,
-700,0,0,,(Nod slowly and|start to eat her.),You're good enough to be collared little pet.|(She removes her panties and brings you closer.),710,0,-1,
+700,0,0,,(Nod slowly and|start to eat her.),You're good enough to be collared little pet.|(She removes her panties and brings you closer.),710,1,-1,
+700,0,0,,This isn't proper.|(Pull away.),Fine!  I don't care at all!|What do you want then?,200,-1,0,TestPullAway()
 700,0,0,,Forget it Yuki.|(Pull away.),Fine!  I don't care at all!|What do you want then?,200,-2,1,TestPullAway()
 710,0,0,,(Nuzzle against her|pussy.) (1 minute),(She opens her legs and moans softly.),710,0,0,Pleasure(1)
 710,0,0,,(Lick her clitoris.)|(1 minute),(She pulls you close by the hair and trembles.),710,0,0,Pleasure(2)

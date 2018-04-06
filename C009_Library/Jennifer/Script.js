@@ -446,3 +446,12 @@ function C009_Library_Jennifer_FavoriteModel() {
 	ActorChangeAttitude(1, 0);
 	C009_Library_Jennifer_Painted = false;
 }
+
+// Chapter 9 Library - Jennifer can strip if she loves the player or is submissive enough
+function C009_Library_Jennifer_TestStrip() {
+	if ((ActorGetValue(ActorLove) >= 10) || (ActorGetValue(ActorSubmission) >= 10)) {
+		C009_Library_Jennifer_CurrentStage = 171;
+		OverridenIntroText = GetText("AcceptStrip");
+		C009_Library_Jennifer_Strip("Underwear");
+	}
+}
