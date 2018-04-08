@@ -11,9 +11,8 @@ function C009_Library_Outro_Load() {
 	ActorSpecificSetPose("Jennifer", "");
 	ActorSpecificClearInventory("Yuki", false);
 	ActorSpecificSetPose("Yuki", "");
-	if (C009_Library_Library_StuckInHole) GameLogAdd(CurrentChapter, "Player", "StuckInHole");
-	if (C009_Library_Library_LockedArmbinder) GameLogAdd(CurrentChapter, "Yuki", "LockedArmbinder");
-	
+	if (C009_Library_Library_StuckInHole) GameLogSpecificAdd(CurrentChapter, "Player", "StuckInHole");
+
 }
 
 // Chapter 9 - Outro Run

@@ -3,11 +3,12 @@ function C101_KinbakuClub_Intro_Load() {
 
 	// Time is always 13:00 on the intro, no timer
 	StopTimer(17.00 * 60 * 60 * 1000);
-
 	
 	// Removes the any chastity belts for now, maybe we will use them in a later version
 	PlayerRemoveInventory("ChastityBelt", 99);
+	PlayerRemoveInventory("Armbinder", 99);
 	PlayerUnlockInventory("ChastityBelt");
+	
 }
 
 // Chapter 8 - Drama Class Run

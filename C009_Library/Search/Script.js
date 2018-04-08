@@ -219,24 +219,28 @@ function C009_Library_Search_TakePenInHole() {
 function C009_Library_Search_StealEgg() {
 	C009_Library_Search_CanStealEgg = false;
 	PlayerAddInventory("VibratingEgg", 1);
+	GameLogSpecificAdd(CurrentChapter, "Yuki", "StealVibratingEgg");
 }
 
 // Chapter 9 - Library - The player can steal from Yuki's bag
 function C009_Library_Search_StealPill() {
 	C009_Library_Search_CanStealPill = false;
 	PlayerAddInventory("SleepingPill", 1);
+	GameLogSpecificAdd(CurrentChapter, "Yuki", "StealSleepingPill");
 }
 
 // Chapter 9 - Library - The player can steal from Yuki's bag
 function C009_Library_Search_StealArmbinder() {
 	C009_Library_Search_CanStealArmbinder = false;
 	PlayerAddInventory("Armbinder", 1);
+	GameLogSpecificAdd(CurrentChapter, "Yuki", "StealArmbinder");
 }
 
 // Chapter 9 - Library - The player can steal from Yuki's bag
 function C009_Library_Search_StealTape() {
 	C009_Library_Search_CanStealTape = false;
 	PlayerAddInventory("TapeGag", 6);
+	GameLogSpecificAdd(CurrentChapter, "Yuki", "StealTapeGag");
 }
 
 // Chapter 9 - Library - The player can search on Yuki's desk

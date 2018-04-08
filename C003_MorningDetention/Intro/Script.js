@@ -8,7 +8,8 @@ function C003_MorningDetention_Intro_Load() {
 	PlayerRemoveAllInventory();
 	
 	// Set the fighting variable based on if the player fought Sidney in the 1st chapter
-	C003_MorningDetention_Intro_Fighting = (GameLogQuery("C001_BeforeClass", "Sidney", "FightVictory") || GameLogQuery("C001_BeforeClass", "Sidney", "FightDefeat"));
+	C003_MorningDetention_Intro_Fighting = (GameLogQuery("C001_BeforeClass", "Sidney", "FightVictory") || GameLogQuery("C001_BeforeClass", "Sidney", "FightDefeat"));	
+	if (!C003_MorningDetention_Intro_Fighting) GameLogSpecificAdd("C001_BeforeClass", "", "PublicBondage");
 
 }
 
