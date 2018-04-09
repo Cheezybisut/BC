@@ -45,13 +45,13 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 170,0,0,,C'est de l'extorsion !,"C'est ça, ma petite salope. Maintenant, dégage.|(Tu ramasses ton porte-monnaie et tes affaires.)",180,0,0,PilloryFree()
 170,0,0,,"Un jour, tu|paieras pour ça.","C'est ce que nous verrons. Maintenant, dégage.|(Tu ramasses ton porte-monnaie et tes affaires.)",180,0,1,PilloryFree()
 180,0,0,,(Fin de la pause déjeuner.),,180,0,0,EndChapter()
-200,0,0,,C'est un bel endroit|que tu as là.,"Mes stupides camarades de chambre sont là|tout le temps, alors je ne viens pas souvent.",210,0,0,
-200,0,0,,Ce restaurant a l'air bien.,"Mes stupides camarades de chambre sont là|tout le temps, alors je ne viens pas souvent.",210,0,0,
-200,0,0,,Que devrais-je prendre ?,Je m'en fous ! (Elle regarde autour d'elle.)|Mes stupides camarades de chambre sont-elles là ?,210,0,0,
-200,0,0,,"Alors, qu'est-ce|que tu prends ?",De la putain de viande ! (Elle regarde autour d'elle.)|Mes stupides camarades de chambre sont-elles là ?,210,0,0,
-210,0,0,,Tu as des camarades ?|Tu as de la chance.,"Oh putain que non ! C'est l'enfer.|Un jour, je leur ferai payer.",220,0,0,BadMatch()
-210,0,0,,Tu as des camarades ?|Ça peut être pénible.,"Ouais, ce sont des emmerdeuses.|Un jour, je leur ferai payer.",220,0,0,GoodMatch()
-210,0,0,,J'aimerais avoir|des camarades.,"Tu veux les miennes ? Ce sont des emmerdeuses.|Un jour, je leur ferai payer.",220,0,0,
+200,0,0,,C'est un bel endroit|que tu as là.,"Mes stupides colocs sont là tout le temps,|alors je ne viens pas souvent.",210,0,0,
+200,0,0,,Ce restaurant a l'air bien.,"Mes stupides colocs sont là tout le temps,|alors je ne viens pas souvent.",210,0,0,
+200,0,0,,Que devrais-je prendre ?,Je m'en fous ! (Elle regarde autour d'elle.)|Mes stupides colocs sont-elles là ?,210,0,0,
+200,0,0,,"Alors, qu'est-ce|que tu prends ?",De la putain de viande ! (Elle regarde autour d'elle.)|Mes stupides colocs sont-elles là ?,210,0,0,
+210,0,0,,Tu as des colocataires ?|Tu as de la chance.,"Oh putain que non ! C'est l'enfer.|Un jour, je leur ferai payer.",220,0,0,BadMatch()
+210,0,0,,Tu as des colocataires ?|Ça peut être pénible.,"Ouais, ce sont des emmerdeuses.|Un jour, je leur ferai payer.",220,0,0,GoodMatch()
+210,0,0,,J'aimerais avoir|des colocataires.,"Tu veux les miennes ? Ce sont des emmerdeuses.|Un jour, je leur ferai payer.",220,0,0,
 220,0,0,,Tu as besoin d'aide|pour te venger ?,"C'est une bonne idée ! Parlons-en après l'école.|Parle-moi de toi, que veux-tu faire dans la vie ?",230,1,0,GoodMatch()
 220,0,0,,Tu devrais essayer|de faire la paix.,"La paix ? Ça non, putain ! Changeons de sujet.|Parle-moi de toi, que veux-tu faire dans la vie ?",230,-1,0,BadMatch()
 220,0,0,,"Un jour, tu auras|ta revanche.","Ouaip ! Et ce jour viendra bientôt.|Parle-moi de toi, que veux-tu faire dans la vie ?",230,0,0,GoodMatch()
@@ -79,12 +79,12 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 250,0,0,,Du rock,"Je préfère le métal, mais le rock, ça va. (Une serveuse|vous interrompt pour prendre votre commande.)",260,0,0,GoodMatch()
 250,0,0,,Des jeux vidéos.,Je suppose qu'il y a pire comme hobby. (Une serveuse|vous interrompt pour prendre votre commande.),260,0,0,
 250,0,0,,Je suis pom-pom girl.,Quel hobby chiant et ennuyeux. (Une serveuse|vous interrompt pour prendre votre commande.),260,0,0,
-250,0,0,,Je pars en soirée.,Les fêtes dans cette université sont plutôt nulles. (Une|serveuse vous coupe pour prendre votre commande.),260,0,0,
+250,0,0,,Je pars en soirée.,Les fêtes dans cette université sont plutôt nulles.|(Une serveuse arrive pour prendre votre commande.),260,0,0,
 250,0,0,,Des jeux de rôles.,Quel hobby chiant et ennuyeux. (Une serveuse|vous interrompt pour prendre votre commande.),260,0,0,BadMatch()
-250,0,0,,Je me soûle.,"D'accord, il faut que je me défonce bientôt. (Une|serveuse vous coupe pour prendre votre commande.)",260,0,0,GoodMatch()
+250,0,0,,Je me soûle.,"D'accord, il faut que je me défonce bientôt.|(Une serveuse arrive pour prendre votre commande.)",260,0,0,GoodMatch()
 250,0,0,,De la musique classique.,Quel hobby chiant et ennuyeux. (Une serveuse|vous interrompt pour prendre votre commande.),260,0,0,BadMatch()
 250,0,0,,Je fais l'amour.,J'imagine que ton mec est heureux. (Une serveuse|vous interrompt pour prendre votre commande.),260,0,0,
-250,0,0,,Je n'ai aucun passe-temps.,Relax. Le mien c'est d'être défoncée toute la nuit. (Une|serveuse vous coupe pour prendre votre commande.),260,0,0,GoodMatch()
+250,0,0,,Je n'ai aucun passe-temps.,Relax. Le mien c'est d'être défoncée toute la nuit.|(Une serveuse arrive pour prendre votre commande.),260,0,0,GoodMatch()
 260,0,0,,"Une salade, s'il vous plaît.",T'es un putain de lapin ?|(Elle commande un gros steack.),270,-1,0,BadMatch()
 260,0,0,,"Un steak, s'il vous plaît.",Meilleure idée du jour !|(Elle commande aussi un steack.),270,1,0,GoodMatch()
 260,0,0,,"Une soupe, s'il vous plaît.",Ce n'est pas un grand repas.|(Elle commande un gros steack.),270,0,0,
