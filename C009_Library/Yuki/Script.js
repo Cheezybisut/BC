@@ -30,6 +30,7 @@ var C009_Library_Yuki_Pleasure3 = 0;
 var C009_Library_Yuki_Pleasure4 = 0;
 var C009_Library_Yuki_Pleasure5 = 0;
 var C009_Library_Yuki_LittlePet = false;
+var C009_Library_Yuki_ReleaseDone = false;
 
 // Chapter 9 Library - Yuki Load
 function C009_Library_Yuki_Load() {
@@ -310,11 +311,12 @@ function C009_Library_Yuki_RestrainPlayer() {
 	CurrentTime = CurrentTime + 50000;
 }
 
-// Chapter 9 Library - Yuki can free the player before any chat
+// Chapter 9 Library - Yuki can free the player before any chat or on stage 200 but only once
 function C009_Library_Yuki_TestRelease() {
-	if (ActorGetValue(ActorLove) >= -2) {
+	if ((ActorGetValue(ActorLove) >= -2) && !C009_Library_Yuki_ReleaseDone) {
 		PlayerReleaseBondage();
 		CurrentTime = CurrentTime + 50000;
+		C009_Library_Yuki_ReleaseDone = true;
 	} else OverridenIntroText = GetText("RefuseHelp");
 }
 
