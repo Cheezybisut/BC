@@ -41,7 +41,7 @@ function C009_Library_Yuki_Load() {
 	Common_SelfBondageAllowed = false;
 	C009_Library_Yuki_ReleaseConfirm = false;
 	C009_Library_Yuki_CanAskForDoor = (C009_Library_Library_FoundLockedDoor && !C009_Library_Library_DoorOpen);
-	if (C009_Library_Yuki_CurrentStage >= 500) C009_Library_Library_CurrentZone = "008";
+	if ((C009_Library_Yuki_CurrentStage >= 500) && (C009_Library_Yuki_CurrentStage < 600)) C009_Library_Library_CurrentZone = "008";
 	else C009_Library_Library_CurrentZone = "007";
 	
 	// A few variables on what already happened
@@ -168,6 +168,7 @@ function C009_Library_Yuki_Click() {
 
 // Chapter 9 Library - Yuki - When the player leaves to find her book
 function C009_Library_Yuki_PlayerLeaveForBook() {
+	C009_Library_Library_CurrentZone = "007";
 	SetScene(CurrentChapter, "Library");
 }
 
@@ -281,6 +282,7 @@ function C009_Library_Yuki_ReleaseFromHole() {
 		C009_Library_Yuki_CurrentStage = 530;
 		ActorSetPose("Angry");
 		GameLogAdd("ReleaseFromHole");
+		PlayerReleaseBondage();
 		OverridenIntroText = GetText("ReleaseFromHole");
 		C009_Library_Yuki_CanFindPlayer = true;
 		LeaveIcon = "";
