@@ -105,7 +105,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 290,0,0,AllowSmoke,"Désolée, Je ne fume pas.|(Vous rentrez à l'université.)",,0,0,0,EndChapter()
 290,0,0,!AllowSmoke,Rentrons.|(Vous rentrez à l'université.),,0,0,0,EndChapter()
 300,0,0,,Tu fais tourner ?|(Tu fumes avec elle.),Bien sûr ! (Elle prend une grosse latte|et partage le joint avec toi.),310,1,0,Smoke()
-300,0,0,,"Fume-le, je m'en fous.|(Tu ne fumes pas)",Tu ne fumes que des cigarettes ?|(Elle prend trois lattes.),320,-1,0,Smoke()
+300,0,0,,"Fume-le, je m'en fous.|(Tu ne fumes pas.)",Tu ne fumes que des cigarettes ?|(Elle prend trois lattes.),320,-1,0,Smoke()
 300,0,0,,Fait passer !|(Tu fumes avec elle.),Voilà pour toi. (Elle te tend le joint.),310,1,1,Smoke()
 300,0,0,,Fumer est mauvais pour la|santé. (Tu ne fumes pas.),T'es qui ? T'es de la police ?|(Elle prend trois grosses lattes.),320,-1,-1,Smoke()
 300,0,0,,C'est dangereux de fumer ?|(Tu fumes avec elle.),Rien n'est sain. (Elle prend une grosse|latte et partage le joint avec toi.),310,1,-1,Smoke()
