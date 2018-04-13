@@ -33,7 +33,7 @@ function C003_MorningDetention_Bag_StealPill() {
 	PlayerAddInventory("SleepingPill", 1);
 	C003_MorningDetention_Bag_PillInBag = false;
 	C003_MorningDetention_Bag_PillInBagAvail = false;
-	GameLogSpecificAdd(CurrentChapter, "Yuki", "StealPill");
+	GameLogSpecificAdd(CurrentChapter, "Yuki", "StealSleepingPill");
 
 }
 

@@ -2,7 +2,10 @@ var C009_Library_Library_CurrentZone = "001";
 var C009_Library_Library_JenniferGone = false;
 var C009_Library_Library_BookProgress = 40;
 var C009_Library_Library_FoundLockedDoor = false;
+var C009_Library_Library_FoundKey = false;
 var C009_Library_Library_StuckInHole = false;
+var C009_Library_Library_LockedArmbinder = false;
+var C009_Library_Library_DoorOpen = false;
 
 // Chapter 9 - Library Load
 function C009_Library_Library_Load() {
@@ -55,20 +58,23 @@ function C009_Library_Library_Run() {
 	C009_Library_Library_Navigation("004", "Left", 550, 150);
 	C009_Library_Library_Navigation("005", "Down", 500, 400);
 	C009_Library_Library_Navigation("005", "Left", 200, 200);
-	C009_Library_Library_Navigation("006", "Right", 800, 200);
+	C009_Library_Library_Navigation("006", "Right", 600, 200);
 	C009_Library_Library_Navigation("006", "Left", 400, 200);
 	C009_Library_Library_Navigation("006", "Down", 500, 400);
+	C009_Library_Library_Navigation("007", "Up", 500, 150);
 	C009_Library_Library_Navigation("007", "Down", 500, 400);
 	C009_Library_Library_Navigation("007", "Right", 800, 200);
 	C009_Library_Library_Navigation("007", "Left", 200, 200);
 	C009_Library_Library_Navigation("008", "Right", 800, 200);
 	C009_Library_Library_Navigation("008", "Up", 500, 200);
 	C009_Library_Library_Navigation("009", "Down", 720, 400);
+	C009_Library_Library_Navigation("010", "Down", 500, 400);
 
 }
 
 // Chapter 9 - Library Enter Search Mode
 function C009_Library_Library_StartSearch(SearchStage) {
+	if (SearchStage == 80) C009_Library_Library_FoundLockedDoor = true;
 	CurrentTime = CurrentTime + 10000;
 	C009_Library_Search_CurrentStage = SearchStage;
 	SetScene(CurrentChapter, "Search");
@@ -136,18 +142,34 @@ function C009_Library_Library_Click() {
 	if (E && (C009_Library_Library_CurrentZone == "006") && (MouseX >= 600) && (MouseX <= 800) && (MouseY >= 200) && (MouseY <= 400) && !C009_Library_Library_JenniferGone) E = C009_Library_Library_LoadJennifer();
 	if (E && (C009_Library_Library_CurrentZone == "006") && (MouseX >= 500) && (MouseX <= 700) && (MouseY >= 400) && (MouseY <= 600)) E = C009_Library_Library_EnterZone("002");
 
-	// In Zone 7, the player can go to zone 4 (down), zone 9 (left) or Yuki (right)
+	// In Zone 7, the player can go to zone 4 (down), zone 9 (left) or Yuki (up), Yuki can be missing in a few situations, the player can then search the desk
 	if (E && (C009_Library_Library_CurrentZone == "007") && (MouseX >= 500) && (MouseX <= 700) && (MouseY >= 400) && (MouseY <= 600)) E = C009_Library_Library_EnterZone("004");
-	if (E && (C009_Library_Library_CurrentZone == "007") && (MouseX >= 800) && (MouseX <= 1000) && (MouseY >= 200) && (MouseY <= 400)) E = C009_Library_Library_LoadYuki();
+	if (E && (C009_Library_Library_CurrentZone == "007") && (MouseX >= 800) && (MouseX <= 1000) && (MouseY >= 200) && (MouseY <= 400)) E = C009_Library_Library_StartSearch(75);
 	if (E && (C009_Library_Library_CurrentZone == "007") && (MouseX >= 200) && (MouseX <= 400) && (MouseY >= 200) && (MouseY <= 400)) E = C009_Library_Library_EnterZone("009");
+	if (E && (C009_Library_Library_CurrentZone == "007") && (MouseX >= 500) && (MouseX <= 700) && (MouseY >= 150) && (MouseY <= 350)) {
+		if ((C009_Library_Yuki_CurrentStage < 500) || (C009_Library_Yuki_CurrentStage == 650)) E = C009_Library_Library_LoadYuki();
+		else E = C009_Library_Library_StartSearch(70);
+	}
 
-	// In Zone 8, the player can go to zone 5 (right) or search the door or on the left
+	// In Zone 8, the player can go to zone 5 (right) or search the door or on the left (the door can auto lead to another and the left can lead to Yuki)
 	if (E && (C009_Library_Library_CurrentZone == "008") && (MouseX >= 800) && (MouseX <= 1000) && (MouseY >= 200) && (MouseY <= 400)) E = C009_Library_Library_EnterZone("005");
-	if (E && (C009_Library_Library_CurrentZone == "008") && (MouseX >= 500) && (MouseX <= 700) && (MouseY >= 200) && (MouseY <= 400)) E = C009_Library_Library_StartSearch(80);
-	if (E && (C009_Library_Library_CurrentZone == "008") && (MouseX >= 0) && (MouseX <= 400) && (MouseY >= 0) && (MouseY <= 600)) E = C009_Library_Library_StartSearch(85);
+	if (E && (C009_Library_Library_CurrentZone == "008") && (MouseX >= 500) && (MouseX <= 700) && (MouseY >= 200) && (MouseY <= 400)) {
+		if (!C009_Library_Library_DoorOpen) E = C009_Library_Library_StartSearch(80);
+		else E = C009_Library_Library_EnterZone("010");
+	}
+	if (E && (C009_Library_Library_CurrentZone == "008") && (MouseX >= 0) && (MouseX <= 400) && (MouseY >= 0) && (MouseY <= 600)) {
+		if ((C009_Library_Yuki_CurrentStage < 500) || (C009_Library_Yuki_CurrentStage == 650)) E = C009_Library_Library_StartSearch(85);
+		else E = C009_Library_Library_LoadYuki();
+	}
 
 	// In Zone 9, the player can go to zone 7 (down) or search on the left
 	if (E && (C009_Library_Library_CurrentZone == "009") && (MouseX >= 720) && (MouseX <= 920) && (MouseY >= 400) && (MouseY <= 600)) E = C009_Library_Library_EnterZone("007");
 	if (E && (C009_Library_Library_CurrentZone == "009") && (MouseX >= 0) && (MouseX <= 600) && (MouseY >= 0) && (MouseY <= 600)) E = C009_Library_Library_StartSearch(90);
+
+	// In Zone 10, the player can go to zone 8 (down) or search in 3 zones
+	if (E && (C009_Library_Library_CurrentZone == "010") && (MouseX >= 500) && (MouseX <= 700) && (MouseY >= 400) && (MouseY <= 600)) E = C009_Library_Library_EnterZone("008");
+	if (E && (C009_Library_Library_CurrentZone == "010") && (MouseX >= 110) && (MouseX <= 380) && (MouseY >= 50) && (MouseY <= 320)) E = C009_Library_Library_StartSearch(100);
+	if (E && (C009_Library_Library_CurrentZone == "010") && (MouseX >= 940) && (MouseX <= 1200) && (MouseY >= 200) && (MouseY <= 470)) E = C009_Library_Library_StartSearch(105);
+	if (E && (C009_Library_Library_CurrentZone == "010") && (MouseX >= 530) && (MouseX <= 800) && (MouseY >= 50) && (MouseY <= 320)) E = C009_Library_Library_StartSearch(106);
 	
 }

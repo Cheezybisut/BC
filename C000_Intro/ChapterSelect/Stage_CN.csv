@@ -3,6 +3,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 0,0,0,,继续学业,,0,0,0,LoadScreen()
 0,0,0,,选择章节,你想从哪一章开始？|如果你没有玩过这个游戏，请从第一章开始。,10,0,0,
 0,0,0,,选择语言,,30,0,0,
+0,0,0,,Game Credits,A huge THANK YOU to everyone|that contributed to the game.,0,0,0,RollCredits()
 10,0,0,,第一章|课前时间,,10,0,0,"LoadChapter(""C001_BeforeClass"")"
 10,0,0,,第二章|第一课,,10,0,0,"LoadChapter(""C002_FirstClass"")"
 10,0,0,,第三章|早上,,10,0,0,"LoadChapter(""C003_MorningDetention"")"

@@ -9,7 +9,6 @@ function C006_Isolation_Intro_Load() {
 	// Do not allow bondage when we begin
 	Common_BondageAllowed = true;
 	Common_SelfBondageAllowed = true;
-	GameLogSpecificAdd(CurrentChapter, "", "Isolation");
 	
 	// Gets the player crime chapter 2 or 3.  If there's any, we go to chapter 6 instead of 5.
 	if (GameLogQuery("C002_FirstClass", "Mildred", "Subdue") && !GameLogQuery("C002_FirstClass", "Mildred", "Release")) C006_Isolation_Intro_Teacher = "Mildred";
@@ -23,6 +22,8 @@ function C006_Isolation_Intro_Load() {
 		else C006_Isolation_Intro_Teacher = "Yuki";
 	}
 	
+	// Logs the isolation for the teacher
+	GameLogSpecificAdd(CurrentChapter, C006_Isolation_Intro_Teacher, "Isolation");
 
 }
 

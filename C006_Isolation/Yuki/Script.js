@@ -67,7 +67,7 @@ function C006_Isolation_Yuki_Pleasure(PleasureType) {
 	} else {
 		
 		// If the player took too long to try all 3 pleasures, she gives up
-		if (C006_Isolation_Yuki_Pleasure1 + C006_Isolation_Yuki_Pleasure2 + C006_Isolation_Yuki_Pleasure3 >= 8) {
+		if (C006_Isolation_Yuki_Pleasure1 + C006_Isolation_Yuki_Pleasure2 + C006_Isolation_Yuki_Pleasure3 >= 7) {
 			OverridenIntroText = GetText("StopPleasure");
 			C006_Isolation_Yuki_CurrentStage = 250;
 		}

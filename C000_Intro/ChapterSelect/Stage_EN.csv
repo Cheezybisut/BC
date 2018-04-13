@@ -3,6 +3,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 0,0,0,,Load Game,,0,0,0,LoadScreen()
 0,0,0,,Select Chapter,"Select the chapter you want to play.|If you never tried the game, start on chapter 1.",10,0,0,
 0,0,0,,Change Language,,30,0,0,
+0,0,0,,Game Credits,A huge THANK YOU to everyone|that contributed to the game.,0,0,0,RollCredits()
 10,0,0,,Chapter 1|Before Class,,10,0,0,"LoadChapter(""C001_BeforeClass"")"
 10,0,0,,Chapter 2|First Class,,10,0,0,"LoadChapter(""C002_FirstClass"")"
 10,0,0,,Chapter 3|Morning Detention,,10,0,0,"LoadChapter(""C003_MorningDetention"")"
