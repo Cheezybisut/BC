@@ -55,13 +55,12 @@ function C101_KinbakuClub_RopeGroup_Run() {
 	
 
 	// changing images
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
 
 	if (C101_KinbakuClub_RopeGroup_CurrentStage == 400) {
-		//if (C101_KinbakuClub_RopeGroup_LeftTwinReleased) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/LeftFree.jpg", 600, 0);
-		if (!C101_KinbakuClub_RopeGroup_LeftTwinReleased) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/TwinLeftTied.jpg", 600, 0);
-		//if (C101_KinbakuClub_RopeGroup_RightTwinReleased) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/RightFree.jpg", 890, 0);
-		if (!C101_KinbakuClub_RopeGroup_RightTwinReleased && !C101_KinbakuClub_RopeGroup_RightTwinKidnapped) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/TwinRightTied.jpg", 890, 0);
+		//if (C101_KinbakuClub_RopeGroup_LeftTwinReleased) DrawImage(CurrentChapter + "/" + CurrentScreen + "/LeftFree.jpg", 600, 0);
+		if (!C101_KinbakuClub_RopeGroup_LeftTwinReleased) DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinLeftTied.jpg", 600, 0);
+		//if (C101_KinbakuClub_RopeGroup_RightTwinReleased) DrawImage(CurrentChapter + "/" + CurrentScreen + "/RightFree.jpg", 890, 0);
+		if (!C101_KinbakuClub_RopeGroup_RightTwinReleased && !C101_KinbakuClub_RopeGroup_RightTwinKidnapped) DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinRightTied.jpg", 890, 0);
 	}
 
 	

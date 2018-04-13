@@ -1,0 +1,37 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,!PlayerIsRestrained,(Inspect the contents.),"The bag appears to be full of metal manacles,|connected together in sets by chains.",10,0,0,
+0,0,0,,(Look around the bag.),"You don't find anythig else of interest near bag,|until you notice some metal rings under the blackboard.",20,0,0,
+0,0,0,SelfSlaveAvailable,(Try the loose manacles|on yourself.),"You take a set of manacles and try them on,|but without padlocking them, they just fall open.",100,0,0,
+0,0,0,,(Go back to the club room.),You can now kidnap club members and use these|manacles to keep them as your own slaves.,40,0,0,Leave()
+10,0,0,,(Inspect the manacles.),"Each set has manacles for neck, wrists and ankles.|There is also a length of chain with nothing at one end.",10,0,0,ManaclesCheck()
+10,0,0,,(Inspect the rest of|the contents.),Also in the bag are a lot of padlocks for fastening|the manacles. You don't find any keys here.,10,0,0,PadlocksCheck()
+10,0,0,,(Take the manacles.),"They are rather heavy,|best to leave them here and bring slaves to them.",10,0,0,
+10,0,0,,(Look around the bag.),"You don't find anythig else of interest near bag,|until you notice some metal rings under the blackboard.",20,0,0,
+10,0,0,SelfSlaveAvailable,(Try the loose manacles|on yourself.),"You take a set of manacles and try them on,|but without padlocking them, they just fall open.",100,0,0,
+10,0,0,,(Go back to|the club room.),You can now kidnap club members and use these|manacles to keep them as your own slaves.,40,0,0,Leave()
+20,0,0,,(Check out the rings.),"They seem to be firmly attached to the walls,|they must be for use with the manacles.",20,0,0,RingsCheck()
+20,0,0,,(Go back to the bag.),The bag has a lot of metal items in it.,0,0,0,
+20,0,0,SelfSlaveAvailable,(Try the loose manacles|on yourself.),"You take a set of manacles and try them on,|but without padlocking them, they just fall open.",100,0,0,
+20,0,0,,(Go back to|the club room.),You can now kidnap club members and use these|manacles to keep them as your own slaves.,40,0,0,Leave()
+40,0,0,,(Check the bag again.),The prospect of what you could do|with those manacles is tantalising.,0,0,0,
+40,0,0,,(Go get some slaves.),Gone slaving.,40,0,0,Leave()
+100,0,0,,(Padlock the|manacles shut.),"In for a dime, in for a dollar. You remove your uniform,|then lock the manacle set to the wall and to your neck.",110,0,0,NeckManacle()
+100,0,0,,(Put the manacles|back in the bag.),"Maybe another time, you put the manacles away.",0,0,0,
+110,0,0,,(Pull on the|wall chain.),"You tug on the chain as hard as you can,|but the ring on the wall is unyeilding.",110,0,0,
+110,0,0,,(Try to remove|the padlocks.),The large padlocks are firmly locked.|There is no way they will open without a key.,110,0,0,
+110,0,0,,(Check inside|the bag again.),"You double check the bag, but there is definantly no|keys in there and you can't reach anything else now.",110,0,0,
+110,0,0,PlayerIsGagged,(Remove your gag.),You ungag yourself while you still can.,110,0,0,PlayerRemoveGag()
+110,0,0,,Call for help.,"You shout across the room. A few girls look up, giggle|and then go straight back to what they were doing.",110,0,0,
+110,0,0,,(Lock the rest of|the manacles on.),"You cannot go anwhere now, but are you ready to|loose all your freedom?  Click again to do so.",110,0,0,FullManacle()
+120,0,0,,Call for help.,"You shout across the room. A few girls look up, giggle|and then go straight back to what they were doing.",120,0,0,ExploreManacles()
+120,0,0,PlayerIsGagged,(Scream into|the gag.),Nobody seems to hear or notice you muffled cries. ,120,0,0,ExploreManacles()
+120,0,0,,(Struggle against|the manacles.),"You thrash in panic, but the unforgiving hard steel|is far stronger than you are.",120,0,0,ExploreManacles()
+120,0,0,,(Struggle playfully.),You test the limits of your confinment.  It is kind of|fun and someone is bound to take an interest in you.,120,0,0,ExploreManacles()
+120,0,0,,(lie down.),The chain to the wall isn't quite long enough.|You have to kneel to stop the collar choking you.,120,0,0,ExploreManacles()
+120,0,0,,(Stand up.),"The chain between the collar and ankles is too short.|You cannot crouch comfortably, so kneel down again.",120,0,0,ExploreManacles()
+120,0,0,,(Move away.),"You can hobble about, but only a short distance|before the chain to the wall stops you.",120,0,0,ExploreManacles()
+120,0,0,,(Check the padlocks.),"You despirately check the padlocks on your wrists,|but they are both aldready firmly locked shut.",120,0,0,ExploreManacles()
+120,0,0,,(Wait patiently.),You wait quietly like a good slave and it feels like|you are also as invisible as a good slave too.,120,0,0,WaitJenna()
+130,0,0,,Jenna TO DO.,,130,0,0,
+130,0,0,,(Dom up +1.),,130,0,1,
+130,0,0,,(Sub down -1.),,130,0,-1,

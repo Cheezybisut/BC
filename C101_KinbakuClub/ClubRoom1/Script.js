@@ -23,8 +23,10 @@ function C101_KinbakuClub_ClubRoom1_Run() {
 		if (C101_KinbakuClub_Lauren_LaurenClothGagged) DrawImage(CurrentChapter + "/" + CurrentScreen + "/LaurenChairClothGag.jpg", 570, 190);
 	}
 
-	//Draw Rope Discussion
-	DrawImage(CurrentChapter + "/" + CurrentScreen + "/RopeDiscussion1.jpg", 690, 100);
+	//Draw Rope Group
+	if (!C101_KinbakuClub_RopeGroup_LeftTwinReleased && !C101_KinbakuClub_RopeGroup_RightTwinReleased) DrawImage(CurrentChapter + "/" + CurrentScreen + "/BothTwins.jpg", 690, 100);
+	if (C101_KinbakuClub_RopeGroup_LeftTwinReleased) DrawImage(CurrentChapter + "/" + CurrentScreen + "/RightTwin.jpg", 690, 100);
+	if (C101_KinbakuClub_RopeGroup_RightTwinReleased) DrawImage(CurrentChapter + "/" + CurrentScreen + "/LeftTwin.jpg", 690, 100);
 }
 
 // Chapter 101 - Club Room 1 Click
@@ -35,6 +37,7 @@ function C101_KinbakuClub_ClubRoom1_Click() {
 	if ((MouseX >= 1085) && (MouseX <= 1185) && (MouseY >= 520) && (MouseY <= 580)) SetScene(CurrentChapter, "ClubRoom2");
 	if ((MouseX >= 0) && (MouseX <= 215) && (MouseY >= 45) && (MouseY <= 350)) SetScene(CurrentChapter, "Door");
 	if ((MouseX >= 235) && (MouseX <= 650) && (MouseY >= 140) && (MouseY <= 510)) SetScene(CurrentChapter, "Lauren");
+	if ((MouseX >= 690) && (MouseX <= 1190) && (MouseY >= 100) && (MouseY <= 520)) SetScene(CurrentChapter, "RopeGroup");
 
 	// Checks if the user clicks on any regular item
 	InventoryClick(GetClickedInventory(), "C101_KinbakuClub", "ClubRoom1");
