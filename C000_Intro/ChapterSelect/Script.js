@@ -33,7 +33,13 @@ function C000_Intro_ChapterSelect_DrawCredits() {
 				return;
 			} else {
 				if (Cred.substr(0, 10) == "CreditType") DrawText(GetText(Cred), 800, Y, "black");
-				else DrawText(Cred, 800, Y, "black");
+				else {
+					if (Cred.indexOf("|") == -1) DrawText(Cred, 800, Y, "black");
+					else {
+						DrawText(Cred.substring(0, Cred.indexOf("|")), 700, Y, "black");
+						DrawText(Cred.substring(Cred.indexOf("|") + 1, 1000), 900, Y, "black");
+					}
+				}
 			}
 
 			// Draw one of the main actors in the credit rolls
