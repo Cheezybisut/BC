@@ -62,6 +62,7 @@ var Common_PlayerNaked = false;
 var Common_PlayerCostume = "";
 var Common_PlayerPose = "";
 var Common_ClubStatus = "";
+var Common_Number = "";
 
 // Returns the current date and time in a yyyy-mm-dd hh:mm:ss format
 function GetFormatDate() {

@@ -50,6 +50,15 @@ function C101_KinbakuClub_Transition_Run() {
 		if (TextPhase >= 4) DrawText(GetText("ChairCuffed5"), 400, 500, "White");
 	}
 
+	if (PlayerHasLockedInventory("Manacles")) {
+		DrawRect(0, 0, 800, 600, "black");
+		if (TextPhase >= 0) DrawText(GetText("Manacles1"), 400, 100, "White");
+		if (TextPhase >= 1) DrawText(GetText("Manacles2"), 400, 200, "White");
+		if (TextPhase >= 2) DrawText(GetText("Manacles3"), 400, 300, "White");
+		if (TextPhase >= 3) DrawText(GetText("Manacles4"), 400, 400, "White");
+		if (TextPhase >= 4) DrawText(GetText("Manacles5"), 400, 500, "White");
+	}
+
 	//if (C101_KinbakuClub_Chloe_PlayingWithPlayer) {
 	//	DrawRect(0, 0, 800, 600, "black");
 	//	if (TextPhase >= 0) DrawText(GetText("ChloeSub1"), 400, 120, "White");

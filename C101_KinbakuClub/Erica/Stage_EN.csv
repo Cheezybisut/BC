@@ -43,7 +43,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 112,0,0,,(Rubbing up|against her.),"Well aren't you the affectionate slave, let me help you.|(She makes sure you are stripped bound and gagged.)",170,1,0,PlayerSlaved()
 112,0,0,PlayerNotBound,(Remove the collar.),"We can't have slaves freeing themselves.  (She makes|sure you are suitably stripped, bound and gagged.)",170,0,0,PlayerSlaved()
 150,0,0,,(Admit defeat.),"That's a good damsel. (You let her remove your|clothes, before making you helpless in bondage.)",170,0,-1,PlayerSlaved()
-150,0,0,,(Resist her.),"(She trips you over, landing on top of and winding you,|as you recover she makes short for of subduing you.)",160,0,0,ResistKidnap()
+150,0,0,,(Resist her.),"(She trips you over, landing on top of and winding you,|as you recover she quickly restrains you.)",160,0,0,ResistKidnap()
 150,0,0,,@Bhnhnh,"Don't try that crap with me, you are just a slave now.",150,0,0,
 160,0,0,,(Groan painfully.),"Serves you right. (She checks over you thoroughly.)|Nothing seriously hurt, but I could kiss it better.",165,0,0,
 160,0,0,,(Struggle frantically.),"Too late now, you're mine. Learn to behave|and stop struggling.  (She smacks your bottom hard.)",170,0,-1,

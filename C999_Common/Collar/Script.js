@@ -1,5 +1,6 @@
 var C999_Common_Collar_CurrentStage = 0;
 var C999_Common_Collar_HasLooseCollar = false;
+var C999_Common_Collar_LockedOn = false; // If locked on, then collar can only be removed by the key holder.
 
 // Chapter Common - Collar Load
 function C999_Common_Collar_Load() {
@@ -44,8 +45,11 @@ function C999_Common_Collar_SelfCollar() {
 
 // Chapter Common - Self Uncollar
 function C999_Common_Collar_SelfUncollar() {
-	PlayerUnlockInventory("Collar");
-	PlayerAddInventory("Collar", 1);
+	if (C999_Common_Collar_LockedOn) OverridenIntroText = GetText("LockedCollar");
+	else {
+		PlayerUnlockInventory("Collar");
+		PlayerAddInventory("Collar", 1);
+	}
 }
 
 // Chapter Common - Show the item image

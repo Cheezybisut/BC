@@ -174,7 +174,7 @@ function PlayerReleaseBondage() {
 	if (PlayerHasLockedInventory("Cuffs")) { PlayerUnlockInventory("Cuffs"); PlayerAddInventory("Cuffs", 1); }
 	if (PlayerHasLockedInventory("Rope")) { PlayerUnlockInventory("Rope"); PlayerAddInventory("Rope", 1); }
 	if (PlayerHasLockedInventory("Armbinder")) { PlayerUnlockInventory("Armbinder"); PlayerAddInventory("Armbinder", 1); }
-	if (PlayerHasLockedInventory("Manacles")) { PlayerUnlockInventory("Manacles"); PlayerAddInventory("Manacles", 1); }
+	if (PlayerHasLockedInventory("Manacles")) PlayerUnlockInventory("Manacles");
 	PlayerUngag();
 }
 

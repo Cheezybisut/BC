@@ -1,7 +1,7 @@
 // Chapter 101 - Club Room 4 Load
 function C101_KinbakuClub_ClubRoom4_Load() {
 	if (PlayerHasLockedInventory("Blindfold")) SetScene(CurrentChapter, "BlindMansBuff");
-	LeaveIcon = "Wait";
+	//LeaveIcon = "Wait";
 }
 
 // Chapter  101 - Club Room 4 Run

@@ -15,6 +15,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 25,0,0,,My name is COMMON_PLAYERNAME.|Pleased to meet you.,You're so formal it's cute.|I do have to explain a few things though first.,30,0,-1,
 30,0,0,,What is there to explain?,"For a start, the college thinks this club is about|""Cultural art forms, practical skills and exercise"".",40,0,0,
 30,0,0,,"Save your breath,|I'll figure it out.","Fine then, I have to be going.|(Jenna leaves the room.)",80,-1,1,Done()
+30,0,0,,I have been to|Kinbaku clubs before.,"I guess you already know the ropes then.|Speaking of which, have a complimentary rope.",70,0,0,GetRope()
 40,0,0,,Seriously?,"Yeah officially, a few of the teachers know better.|Also it's not just Kinbaku with ropes.",50,0,0,
 50,0,0,,What do you mean?,The club is very inclusive and we use|a wide range of equipment and techniques.,55,0,0,
 55,0,0,,So anything goes?,"No, there are standards and consent.  The club|will internally discipline anyone who goes too far.",56,0,0,
