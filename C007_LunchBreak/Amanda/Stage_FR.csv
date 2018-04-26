@@ -1,0 +1,173 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,Comment est la nourriture|à la cafétéria ?,"Pour être honnête. Ce n'est pas vraiment bon,|mais c'est mieux que de mourir de faim.",10,0,0,
+0,0,0,,La cafétéria ? Je parie que|la nourriture est dégueux.,"Tu devrais d'abord le constater par toi-même,|mais tu n'a pas tout à fait tord, ce n'est pas génial.",10,-1,0,
+0,0,0,,Qu'est-ce qu'il y a|au menu aujourd'hui ?,"Aujourd'hui, c'est des spaghettis mais je dois t'avertir|que les pâtes ne font pas parti de leurs meilleurs plats.",10,0,0,
+0,0,0,,Miam ! J'ai tellement|faim maintenant !,"(Elle rit.) Ne t'emballe pas trop,|la nourriture n'est pas géniale.",10,1,0,
+10,0,0,,Une fille intelligente|connaît un meilleur coin.,"Je... Je... Je suppose,|il y a un petit café près d'ici que tu pourrais tester.",20,0,1,
+10,0,0,,Y a-t-il un meilleur|endroit pour manger ?,Oui. Il y a un petit café près d'ici que tu pourrais tester.,20,0,0,
+10,0,0,,"Y a-t-il une meilleure|option ? S'te plaît, s'te plaît.",(Elle rit.)|Il y a un petit café près d'ici que tu pourrais tester.,20,0,-1,
+20,5,0,,Super !|Tu m'accompagnes ?,Bien sûr ! On y va maintenant ?,30,1,0,
+20,0,5,,Parfait ! Et|tu vas m'accompagner.,Je... Mais... Je suppose que je peux|vous montrer le café Madame.,30,0,1,
+20,1,-3,,Madame Amanda.|Viendriez-vous avec moi ?,"Prends ton sac, on s'en va tout de suite.|(Elle saisit ton bras et ne te laisse pas partir.)",30,0,-1,NoLeave()
+20,0,0,NoOption,Tu veux y aller avec moi ?,"Je peux pas, J'ai déjà quelque chose|de prévue pour le déjeuner.",40,0,0,
+20,0,0,NoOption,Peux-tu me montrer|cet endroit ?,"Je peux pas, J'ai déjà quelque chose|de prévue pour le déjeuner.",40,0,0,
+20,0,0,,Je vais essayer le café.|A plus tard.,Je t'en pris. (Elle se retourne et s'en va déjeuner.),50,0,0,EndLunch()
+30,0,0,,Allons-y maintenant !|(Tu pars déjeuner.),(Vous marchez jusqu'à un restaurant|près d'ici et vous trouvez une table vide.),100,0,0,StartLunch()
+40,0,0,,"D'accord, à tout à l'heure.",A tout a l'heure ! (Elle part déjeuner.),50,0,0,EndLunch()
+40,0,0,,"Bon appétit, alors !","Merci ! De même pour toi. (Elle part déjeuner.)",50,1,0,EndLunch()
+40,0,0,,Tu crains.,Hmm. (Elle se retourne et part déjeuner.),50,-1,0,EndLunch()
+100,0,0,,"Alors, qu'est-ce que|tu me recommandes ?","La soupe et la salade sont mes plats préférés.|Est-ce que tu aimes notre université jusqu'ici ?",110,0,0,
+100,0,0,,Je meurs de faim !|Qu'est-ce qui est bon ici ?,(Elle détourne le regard.) Tout est bon ici.|Est-ce que tu aimes notre université jusqu'à présent ?,110,-1,1,
+100,0,0,,Que choisir ? Peux-tu|commander pour moi ?,Tu peux essayer la soupe et la salade si tu veux.|Est-ce que tu aimes notre université jusqu'à présent ?,110,0,-1,
+110,0,0,,Oh oui ! On dirait que|c'est une bonne académie.,En effet ! Qu'est-ce que tu souhaites devenir plus tard ?,120,0,0,GoodMatch()
+110,0,0,,Cette université est|une maison de fous.,Je ne suis pas d'accord.|Qu'est-ce que tu souhaites devenir plus tard ?,120,-1,0,BadMatch()
+110,0,0,,Je n'ai jamais vue une|université si coquine.,(Elle rit.) Qu'est-ce que tu souhaites devenir plus tard ?,120,0,0,
+110,0,0,,C'est difficile de juger|en quelques heures.,Exact. Qu'est-ce que tu souhaites devenir plus tard ?,120,0,0,GoodMatch()
+110,0,0,,C'est une école|plutôt ennuyeuse.,Je présume que certains cours peuvent être ennuyeux.|Qu'est-ce que tu souhaites devenir plus tard ?,120,0,0,
+120,0,0,,Une musicienne.,Ok. Quel est ton cours préféré ?,130,0,0,
+120,0,0,,Un médecin.,Très bien. Quel est ton cours préféré ?,130,0,0,GoodMatch()
+120,0,0,,Une athlète.,Je suis plutôt mauvaise en sport.|Quel est ton cours préféré ?,130,0,0,BadMatch()
+120,0,0,,Une enseignante.,Très bien. Quel est ton cours préféré ?,130,0,0,GoodMatch()
+120,0,0,,Une actrice.,Ok. Quel est ton cours préféré ?,130,0,0,
+120,0,0,,Une dominatrice.,Sois sérieuse. Quel est ton cours préféré ?,130,0,0,
+120,0,0,,Une architecte.,Très bien. Quel est ton cours préféré ?,130,0,0,GoodMatch()
+120,0,0,,Une agricultrice.,Ok. Quel est ton cours préféré ?,130,0,0,
+120,0,0,,Une programmeuse.,Très bien. Quel est ton cours préféré ?,130,0,0,GoodMatch()
+120,0,0,,Je ne sais pas encore.,Tu devras bientôt te décider.|Quel est ton cours préféré ?,130,0,0,BadMatch()
+130,0,0,,Les Maths.,Super ! Quel est ton passe-temps préféré ?,140,0,0,GoodMatch()
+130,0,0,,La musique.,D'accord. Quel est ton passe-temps préféré ?,140,0,0,
+130,0,0,,L'anglais.,D'accord. Quel est ton passe-temps préféré ?,140,0,0,
+130,0,0,,La gym.,Je n'aime pas trop le sport.|Quel est ton passe-temps préféré ?,140,0,0,BadMatch()
+130,0,0,,La chimie.,Super ! Quel est ton passe-temps préféré ?,140,0,0,GoodMatch()
+130,0,0,,Le français.,Super ! Quel est ton passe-temps préféré ?,140,0,0,GoodMatch()
+130,0,0,,L'art.,D'accord. Quel est ton passe-temps préféré ?,140,0,0,
+130,0,0,,L'histoire.,Super ! Quel est ton passe-temps préféré ?,140,0,0,GoodMatch()
+130,0,0,,Le théatre.,D'accord. Quel est ton passe-temps préféré ?,140,0,0,
+130,0,0,,Je ne sais pas.,"C'est absurde, tout le monde a un cours qu'il préfère.|Quel est ton passe-temps préféré ?",140,0,0,BadMatch()
+140,0,0,,Le basket.,Je n'aime pas le sport. (Une serveuse|vous interrompt pour prendre votre commande.),150,0,0,BadMatch()
+140,0,0,,Le rock.,Vraiment ? (Une serveuse|vous interrompt pour prendre votre commande.),150,0,0,
+140,0,0,,Les jeux vidéos.,Merveilleux ! (Une serveuse|vous interrompt pour prendre votre commande.),150,0,0,GoodMatch()
+140,0,0,,Être pom-pom girl.,Vraiment ? (Une serveuse|vous interrompt pour prendre votre commande.),150,0,0,
+140,0,0,,Partir en soirée.,Vraiment ? (Une serveuse|vous interrompt pour prendre votre commande.),150,0,0,
+140,0,0,,Les jeux de rôles.,Merveilleux ! (Une serveuse|vous interrompt pour prendre votre commande.),150,0,0,GoodMatch()
+140,0,0,,Me soûler.,C'est très mauvais. (Une serveuse|vous interrompt pour prendre votre commande.),150,0,0,BadMatch()
+140,0,0,,La musique classique.,Merveilleux ! (Une serveuse|vous interrompt pour prendre votre commande.),150,0,0,GoodMatch()
+140,0,0,,Faire l'amour.,(Elle s'empourpre.) Oh mon dieu ! (Une serveuse|vous interrompt pour prendre votre commande.),150,0,0,GoodMatch()
+140,0,0,,Je n'ai aucun passe-temps.,Vraiment ? (Une serveuse|vous interrompt pour prendre votre commande.),150,0,0,
+150,0,0,,"Une salade, s'il vous plaît.",(Elle sourit et commande la même chose.)|Très bon choix.,160,0,0,GoodMatch()
+150,0,0,,"Un steak, s'il vous plaît.",(Elle sourit et commande une soupe et une salade.)|Tu peux manger un steak entier pour le déjeuner ?,160,0,0,BadMatch()
+150,0,0,,"Une soupe, s'il vous plaît.",(Elle sourit et commande la même chose.)|Très bon choix.,160,0,0,GoodMatch()
+150,0,0,,"Un hamburger,|s'il vous plaît.",(Elle sourit et commande une soupe et une salade.)|J'espère que tu vas aimer leur plat.,160,0,0,
+150,0,0,,"Un plateau de nachos,|s'il vous plaît.",(Elle sourit et commande une soupe et une salade.)|J'espère que tu vas aimer leur plat.,160,0,0,
+150,0,0,,"Juste un cheesecake,|s'il vous plaît.",(Elle sourit et commande une soupe et une salade.)|J'espère que tu vas aimer leur plat.,160,0,0,
+150,0,0,,"Une soupe et une salade,|s'il vous plaît.",(Elle sourit et commande la même chose.)|Très bon choix.,160,0,0,GoodMatch()
+150,0,0,,"Un chili dog,|s'il vous plaît.",(Elle sourit et commande une soupe et une salade.)|J'espère que tu vas aimer leur plat.,160,0,0,
+150,0,0,,"Un fettuccine alfredo,|s'il vous plaît.",(Elle sourit et commande la même chose.)|Très bon choix.,160,0,0,GoodMatch()
+150,0,0,,"Juste de l'eau,|s'il vous plaît.",(Elle commande une soupe et une salade.)|Tu devrais manger plus de solide.,160,0,0,BadMatch()
+160,0,0,,Bon appétit !|(Tu manges ton plat.),"Bon appétit ! (Vous êtes toutes les deux servis,|vous déjeunez et l'addition arrive.)",170,1,0,EatLunch()
+160,0,0,,Mange bien.|(Tu manges ton plat.),"Toi aussi ! (Vous êtes toutes les deux servis,|vous déjeunez et l'addition arrive.)",170,0,0,EatLunch()
+160,0,0,,Dépèche serveuse !|(Tu manges ton plat.),"S'il te plaît, ne sois pas aussi impolie. (Vous êtes toutes|les deux servis, vous déjeunez et l'addition arrive.)",170,-1,1,EatLunch()
+170,0,0,,Je suis fauchée. Peux-|tu prendre l'addition ?,Tu aurais dû le dire plus tôt.|Retournons à l'école.,180,-1,-1,BadMatch()
+170,0,0,,Prends l'addition. Je la|prendrai la prochaine fois.,(Elle fronce les sourcils.) D'accord.|Retournons à l'école.,180,-1,0,
+170,0,0,,Je vais prendre l'addition.,C'est très gentil de ta part.|Retournons à l'école,180,0,1,
+170,0,0,,On devrait|partager l'addition.,Ça me semble équitable.|Retournons à l'école.,180,0,0,GoodMatch()
+170,0,0,,On sort sans payer ?,"Ne sois pas bête, je paierai.|Retournons à l'école.",180,-1,0,BadMatch()
+180,0,0,,Très bien.|(Vous retournez à l'école.),,0,0,0,TestMatch()
+180,0,0,,J'imagine qu'il est temps.|(Vous retournez à l'école.),,0,0,0,TestMatch()
+200,0,0,,Il nous reste encore du|temps avant la sonnerie ?,(Elle rit.) Du temps pour quoi ?,210,0,0,
+200,0,0,,Merci de m'avoir montré|ce charmant café.,Tout le plaisir est pour moi ! On s'est bien amusés.,210,1,-1,
+200,0,0,,"Je voulais que tu saches,|j'ai passé un bon moment.",Moi aussi ! On a l'air de bien s'entendre.,210,1,0,
+200,0,0,HasSeduction,"Amy, tu es la personne|la plus mignonne ici.",(Elle pique un fard et rit.) Tu l'es aussi COMMON_PLAYERNAME.,210,2,0,
+200,0,0,,Je peux t'embrasser ?|(1 minute),(Elle acquiesce et met ses lèvres sur les tiennes.),220,1,0,
+200,0,0,,(Tu gardes le silence et|l'embrasses.) (1 minute),"(Sans dire un mot, vous|vous embrassez sur les lèvres.)",220,0,1,
+200,0,0,,Mieux vaut ne pas être|en retard. (Vous rentrez.),,0,0,0,EndBonus()
+210,0,0,,Je t'aime Amanda.|(1 minute),(Elle rougit et met ses lèvres sur les tiennes.),220,1,0,
+210,0,0,,Je peux t'embrasser ?|(1 minute),(Elle acquiesce et met ses lèvres sur les tiennes.),220,1,-1,
+210,0,0,,(Tu gardes le silence et|l'embrasses.) (1 minute),"(Sans dire un mot, vous|vous embrassez sur les lèvres.)",220,0,1,
+210,0,0,,Mieux vaut ne pas être|en retard. (Vous rentrez.),,0,0,0,EndBonus()
+220,0,0,,(Tu l'embrasses encore.)|(1 minute),(Tu l'attrapes et tu l'embrasses à nouveau|pendant qu'elle gémit doucement.),220,0,0,
+220,0,0,,Tu as les lèvres d'un ange.|(1 minute),(Vous vous agrippez l'une l'autre et vous faites un long|et passionné baiser profond avec vos langues.),230,1,0,
+220,0,0,,(Vous faites un baiser|profond.) (1 minute),(Vous vous agrippez l'une l'autre et vous faites un long|et passionné baiser profond avec vos langues.),230,0,0,
+220,0,0,,Mieux vaut ne pas être|en retard. (Vous rentrez.),,0,0,0,EndBonus()
+230,0,0,,Mmmmmhmmmh.|(1 minute),(Vous gardez toutes les deux le rythme|et vous jouez chacune avec la langue de l'autre.),230,0,0,
+230,0,0,MakeLoveReady,Aimerais-tu faire l'amour ?,"Je suis désolée, mais mon coeur est déjà pris.|(Elle soupire.) Même si elle ne le sait pas.",230,0,0,TestMakeLove()
+230,0,0,,Mieux vaut ne pas être|en retard. (Vous rentrez.),,0,0,0,EndBonus()
+240,0,0,,(Tu l'embrasses.)|(1 minute),(Vous vous embrassez tendrement.|Gémissant à chaque contact.),240,0,0,
+240,0,0,,(Tu masses sa poitrine.)|(1 minute),(Vous vous massez les seins avec amour.|En les pressant doucement sans vous faire mal.),240,0,0,
+240,0,0,,(Tu la masturbes)|(1 minute),(Vous vous masturbez l'une l'autre et gémissez|doucement. En veillant à ce que personne ne regarde.),240,0,0,LoveMasturbate()
+240,0,0,,Mieux vaut ne pas être|en retard. (Vous rentrez.),,0,0,0,EndBonus()
+250,0,0,,Je n'ai jamais été|touchée comme ça.,(Elle rit.) Allons. Je suis sûre que tu exagères.,260,0,-1,
+250,0,0,,Whouhaou !|Je reste sans voix.,(Elle acquiesce et rougit.) Et c'était si inattendu.,260,0,0,
+250,0,0,,C'était génial !,(Elle rougit.) Oui et c'était si inattendu.,260,0,0,
+250,0,0,,Est-ce que tu as jouis ?,"Ne t'inquiètes pas, j'ai passé un moment merveilleux.",260,0,1,
+250,0,0,,Tu pensais à|quelqu'un d'autre ?,"Je... Non !  Je... C'est... Je suis désolée.|Ne t'inquiètes pas, c'était merveilleux.",260,-1,1,
+250,0,0,,Mieux vaut ne pas être|en retard. (Vous rentrez.),,0,0,0,EndBonus()
+260,0,0,,Un baiser mon amour ?|(1 minute),(Elle acquiesce et t'embrasse tendrement.),280,1,0,
+260,0,0,,(Tu gardes le silence et|l'embrasses.) (1 minute),(Vous vous embrassez tendrement.),280,0,1,
+260,0,0,,Je ferai mieux|la prochaine fois.,"Ne dis pas ça, c'était super ! Rentrons à l'école.",270,0,-1,
+260,0,0,,"La prochaine fois, tu vas|jouir comme une folle.",(Elle fronce les sourcils.) Rentrons à l'école.,270,-1,1,
+260,0,0,,Mieux vaut ne pas être|en retard. (Vous rentrez.),,0,0,0,EndBonus()
+270,0,0,,Rentrons ensemble.|(Vous rentrez.),,0,0,0,EndBonus()
+270,0,0,,Je vais rentrer seule.|(Vous rentrez.),,0,-1,0,EndBonus()
+270,0,0,,Mieux vaut ne pas être|en retard. (Vous rentrez.),,0,0,0,EndBonus()
+280,0,0,,(Tu l'embrasses encore.)|(1 minute),(Elle rit et t'embrasse à nouveau.),280,0,0,
+280,0,0,,Mieux vaut ne pas être|en retard. (Vous rentrez.),,0,0,0,EndBonus()
+300,0,0,,(Tu gardes le silence et|l'embrasses.) (1 minute),(Tu la pousses contre la clôture et|lui donnes un baiser sur les lèvres.),310,0,1,
+300,0,0,,"C'était amusant, mais je|veux un baiser. (1 minute)",(Tu la pousses contre la clôture et|lui donnes un baiser sur les lèvres.),310,0,1,
+300,0,0,,Tu es magnifique. Je peux|t'embrasser ? (1 minute),(Elle acquiesce pendant que tu la pousses contre|la clôture et lui donnes un baiser sur les lèvres.),310,1,0,
+300,1,0,,"Je voulais que tu saches,|j'ai passé un bon moment.",Moi aussi ! On a l'air de bien s'entendre.,320,1,0,
+300,0,0,,Tu t'es amusée|aujourd'hui ?,Oh oui ! On a l'air de bien s'entendre.,320,0,0,
+300,0,0,,"Amanda, je vais te|prendre maintenant.",Je... Mais... (Tu l'as fait taire avec ta main|et tu la pousses contre la clôture.),330,-1,1,
+300,0,0,,"Salope, tu vas te|taire maintenant.",Je... Mais... (Tu l'as fait taire avec ta main|et tu la pousses contre la clôture.),330,-2,1,
+310,0,0,,(Tu l'embrasses encore.)|(1 minute),(Elle gémit silencieusement mais ne résiste pas|pendant que tu l'embrasses à nouveau.),310,0,0,
+310,1,0,,"Je voulais que tu saches,|j'ai passé un bon moment.",Moi aussi ! On a l'air de bien s'entendre.,320,0,0,
+310,0,0,,Tu t'es amusée|aujourd'hui ?,Oh oui ! On a l'air de bien s'entendre.,320,0,0,
+310,0,0,,"Amanda, je vais te|prendre maintenant.",Je... Mais... (Tu l'as fait taire avec ta main|et tu la pousses contre la clôture.),330,-1,1,
+310,0,0,,"Salope, tu vas te|taire maintenant.",Je... Mais... (Tu l'as fait taire avec ta main|et tu la pousses contre la clôture.),330,-2,1,
+320,0,0,,Mieux vaut ne pas être|en retard. (Vous rentrez.),,0,0,0,EndBonus()
+320,5,0,,Je veux plus de romance.|(1 minute),"(Elle acquiesce lentement, saisit tes|mains et te donne un tendre baiser.)",220,0,0,
+320,0,0,,Tu veux un orgasme ?,Non... Oui... (Tu l'as fait taire avec ta main|et tu la pousses contre la clôture.),330,0,0,
+320,0,0,,"Amanda, je vais te|prendre maintenant.",Je... Mais... (Tu l'as fait taire avec ta main|et tu la pousses contre la clôture.),330,-1,1,
+320,0,0,,"Salope, tu vas te|taire maintenant.",Je... Mais... (Tu l'as fait taire avec ta main|et tu la pousses contre la clôture.),330,-2,1,
+330,0,0,,(Tu l'embrasses.)|(1 minute),(Tu l'embrasses doucement pendant qu'elle gémit.),330,0,0,
+330,0,0,,(Tu la chatouilles.)|(1 minute),(Elle se démène joyeusement pour éviter|tes chatouilles et elle à l'air d'aimer ça.),330,0,0,Tickle()
+330,0,0,,(Tu la masturbes.)|(1 minute),"(Elle gémit silencieusement pendant que tu la touches,|tremblant légèrement par ton contact affectueux.)",330,0,0,Masturbate()
+330,0,0,IsRoped,(Tu la détaches.)|(1 minute),"(Un noeud à la fois, tu la libères de son bondage.)",330,0,0,Untie()
+330,0,0,IsGagged,(Tu la débâillonnes.)|(1 minute),"(Tu enlèves soigneusement le bâillon.)|Merci, ce n'était pas confortable.",330,0,0,Ungag()
+330,0,0,IsBoundAndGagged,"Je t'ai piégé, salope."|(Tu l'abandonnes.),,330,0,0,EvilEnd()
+330,0,0,,Rentrons.|(Vous rentrez à l'école.),,0,0,0,EndBonus()
+400,0,0,,Pourquoi m'as-tu|emmener ici ?,"J'ai une idée folle, mais tu dois me faire confiance.|Vas-tu te soumettre et enlever ton uniforme pour moi ?",410,0,0,
+400,0,0,,(Tu ris timidement.)|Qu'est-ce qui se passe ?,"J'ai une idée folle, mais tu dois me faire confiance.|Vas-tu te soumettre et enlever ton uniforme pour moi ?",410,0,-1,
+400,0,0,,"Qu'est-ce qui se|passe, bordel ?","J'ai une idée folle, mais tu dois me faire confiance.|Vas-tu te soumettre et enlever ton uniforme pour moi ?",410,-1,1,
+400,0,0,,(Tu essayes de|la repousser.),(Elle te maintient encore plus fort.) J'ai une idée folle.|Vas-tu te soumettre et enlever ton uniforme pour moi ?,410,0,1,
+410,0,0,,Me soumettre ?|Je ne ferai jamais ça.,Je respecte ça et je ne te forcerai jamais.|Retournons à l'école.,490,0,2,
+410,0,0,,Pas ici en public. Mais|peut-être plus tard.,"C'est d'accord, je ne te forcerai jamais.|Retournons à l'école.",490,0,0,
+410,0,0,,"Je vais me soumettre.|(Tu te déshabilles.) (1 min)","Merveilleux ! C'est si coquin, j'adore.|Tourne-toi, et met tes mains derrière ton dos.",420,0,0,SubbieStrip()
+410,0,0,,"Oui, Madame Amanda.|(Tu te déshabilles.) (1 min)","Bonne petite ! C'est si coquin, j'adore.|Tourne-toi, et met tes mains derrière ton dos.",420,0,-1,SubbieStrip()
+420,0,0,,C'est génial.|(Tu te retournes.),"Je sais ! Je t'avais dit que ce serait coquin.|Maintenant, je vais t'attacher avec des cordes, ça ira ?",430,1,0,
+420,0,0,,"D'accord, Amanda.|(Tu te retournes.)","(Elle t'attrape par les fesses et sourit.)|Maintenant, je vais t'attacher avec des cordes, ça ira ?",430,0,0,
+420,0,0,,(Tu essayes de renverser|la situation.),"(Elle est plus forte que toi et te force à te retourner.)|Puisque tu ne sais pas te tenir, Je vais devoir t'attacher.",430,0,1,
+420,0,0,,On devrait peut-être arrêter|(Tu te rhabilles.),"Entendu, je ne te forcerai jamais.|(Tu te rhabilles.) Rentrons.",490,-1,0,
+430,0,0,,"Oui, Madame Amanda.|(Tu obéis.) (1 minute)",(Elle saisit tes bras et forme des cercles avec la corde|autour d'eux et de ton corps.) Ouvre la bouche !,440,0,-1,SubbieRope()
+430,0,0,,"Alors, c'est pour de vrai ?|(Tu obéis.) (1 minute)",(Elle saisit tes bras et forme des cercles avec la corde|autour d'eux et de ton corps.) Ouvre la bouche !,440,0,0,SubbieRope()
+430,0,0,,On devrait peut-être arrêter|(Tu te rhabilles.),"Entendu, je ne te forcerai jamais.|(Tu te rhabilles.) Rentrons.",490,-1,0,
+440,0,0,,(Tu tires la langue.)|(1 minute),"(Elle rit et te tire la langue à son tour.)|Allez ""Soumise"", ouvre bien grand la bouche.",440,0,0,
+440,0,0,,(Tu serres les dents.)|(1 minute),"Tu ne me facile pas la tâche, tu sais.|Allez ""Soumise"", ouvre bien grand la bouche.",440,0,0,ClenchTeeth()
+440,0,0,,(Tu ouvres la bouche.)|(1 minute),(Elle te met un bâillon et boucle les sangles.)|Je peux te caresser maintenant ? Veux-tu jouir ?,450,0,0,SubbieGag()
+440,0,0,,On devrait peut-être arrêter|Peux-tu me libérer ?,"Entendu, je ne te forcerai jamais.|(Elle te libère.) Rentrons.",490,-1,0,SubbieRelease()
+450,0,0,,@Hheesh. (Tu acquiesces|lentement.),(Elle te pousse contre la clôture et|commence à se frotter la main.),460,0,0,
+450,0,0,,@UOOG ! (Tu acquiesces|rapidement.),(Elle te pousse contre la clôture et|commence à se frotter la main.),460,1,0,
+450,0,0,,(Tu secoues la tête|de gauche à droite.),"(Elle te chatouille pour s'amuser et te libère.)|C'est bon, j'espère que tu t'es bien amusée. Rentrons.",490,-1,0,SubbieRelease()
+460,0,0,,(Tu apprécies son toucher.)|(1 minute),(Tu t'abandonnes à son contact affectueux pendant qu'|elle tire la corde d'entrejambe et caresse ton clitoris.),460,0,0,SubbieMasturbate()
+460,0,0,,(Tu te tortilles avec rythme.)|(1 minute),"(Tu bouges tes fesses pour suivre son rythme.|Lentement, accumulant la jouissance par son toucher.)",460,0,0,SubbieMasturbate()
+460,0,0,,(Tu luttes joyeusement.)|(1 minute),(Tu luttes joyeusement et elle semble apprécier.|Elle prend de la vitesse et te masturbe un peu plus fort.),460,0,0,SubbieMasturbate()
+460,0,0,,"(Tu luttes, paniquée.)|(1 minute)","(Elle constate que tu paniques et te libère.) C'est bon,|j'espère que tu t'es quand même amusée. Rentrons.",490,-1,-1,SubbieRelease()
+470,0,0,,(Tu t'empourpres|et fixe le sol.),"Ne sois pas timide, la jouissance n'est pas une|mauvaise chose. (Elle enlève ton bâillon.) Tu as aimé ?",480,0,-1,SubbieUngag()
+470,0,0,,@Uuuumph gnu !,"(Elle rit et détache ton bâillon.)|Alors dis-moi, est-ce que ça t'a plu ?",480,0,0,SubbieUngag()
+470,0,0,,(Tu rapproches tes fesses|encore plus prêt.),"Encore ? Peut-être plus tard. (Elle rit et détache|ton bâillon.) Alors, est-ce que ça t'a plu ?",480,0,0,SubbieUngag()
+480,0,0,,J'ai déjà eu mieux.,Tu m'en vois désolée. Je pensais que tu t'amusais bien.|(Elle te libère.) Retournons à l'école.,490,-1,0,SubbieRelease()
+480,0,0,,C'était super !,Ça fait plaisir à entendre. Je me suis bien amusée|également. (Elle te libère.) Retournons à l'école.,490,0,0,SubbieRelease()
+480,0,0,,C'était le meilleur orgasme|que j'ai jamais eu.,Aaaahhh. (Elle rougit et te libère.)|C'est si gentil de ta part. Retournons à l'école.,490,1,0,SubbieRelease()
+480,0,0,,"Madame, c'était incroyable.|Serez-vous ma maîtresse ?",Moi ? Une Maîtresse ? (Elle rit et te libère.)|Je vais y réfléchir. Retournons à l'école.,490,0,-1,SubbieRelease()
+480,0,0,,"La prochaine fois,|je t'attacherai.",Nous verrons ça. (Elle te tire la langue|et te libère.) Retournons à l'école.,490,0,1,SubbieRelease()
+490,0,0,,Mieux vaut ne pas être|en retard. (Vous rentrez.),,0,0,0,EndBonus()

@@ -35,7 +35,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 100,0,0,,Le collier vous|irait beaucoup mieux.,(Elle te dévisage.) Tu seras attachée|avec des cordes et isolée durant une heure.,110,0,1,
 110,0,0,,M'attacher ? Je suppose|que ce n'est que justice.,Absolument. (Elle prend une corde|et l'enroule sur ton corps.),120,1,0,AddRope()
 110,0,0,,(Tu te tournes et|lui tends tes mains.),"(Elle sourit, prend une corde|et l'enroule sur ton corps.)",120,0,-1,AddRope()
-110,0,0,,Non !|Vous ne m'attacherez pas.,"Mais si. (Elle saisit tes bras, prend|une corde et l'enroule sur ton corps.)",120,0,0,AddRope()
+110,0,0,,Oh non !|Vous ne m'attacherez pas.,"Oh si. (Elle saisit tes bras, prend|une corde et l'enroule sur ton corps.)",120,0,0,AddRope()
 120,0,0,,Putain ! C'est serré.,Et ça sera encore plus serré.|(Elle te pousse dans une cellule en acier.),125,-1,0,CheckForCrop()
 120,0,0,,Vous ne pouvez pas|me laisser comme ça !,Je peux faire pire que ça.|(Elle te pousse dans une cellule en acier.),125,0,0,CheckForCrop()
 120,0,0,,"Oh Madame, c'est sexy !",N'agissez pas comme une putain jeune fille.|(Elle te pousse dans une cellule en acier.),125,0,0,CheckForCrop()

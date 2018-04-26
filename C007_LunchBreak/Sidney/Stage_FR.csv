@@ -1,0 +1,168 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,Qu'est-ce qui ne va pas ?,Je ne trouve pas mon putain de porte-monnaie.|Et j'ai une faim de loup !,10,0,0,
+0,0,0,,Calme-toi !,Me calmer ? Tu ne vois pas que j'ai la dalle|et que je ne trouve pas mon porte-monnaie !,10,-1,0,
+0,0,0,,C'est quoi ton problème ?,Je deviens dingue ! Je ne trouve pas|mon porte-monnaie et j'ai une dalle d'enfer !,10,0,1,
+0,0,0,,Je peux peut-être t'aider.,Aide-moi à chercher ! J'ai perdu mon porte-monnaie|et j'ai une putain de dalle !,10,0,-1,
+10,0,0,,Où l'as-tu vu pour|la dernière fois ?,Je ne sais pas ! Je n'arrive pas à penser quand|j'ai faim. Tu peux me donner de l'argent ?,20,0,0,
+10,0,0,,Y a-t-il des voleuses|dans cette université ?,Ce seraient insensé de leur part de me voler MOI.|Tu peux me donner de l'argent ?,20,0,0,
+10,0,5,,Arrête de t'inquiéter jeune|fille. Je t'invite à déjeuner.,"Madame ? Vous le ferez ? C'est génial. Je suis prête,|c'est quand vous voulez, on part maintenant ?",30,0,1,
+10,5,0,,"Viens avec moi, mon amie.|Je t'invite à déjeuner.","Vraiment ? Putain, c'est génial.|Je suis prête à partir, on part maintenant ?",30,1,0,
+10,0,0,,"Tu survivras, c'est|qu'un repas.","Va te faire foutre, connasse !|(Elle s'en va.)",90,-1,0,EndLunch()
+10,0,0,,J'ai vu une blonde courir|avec un porte-monnaie,(Elle charge comme un taureau dans le couloir.)|SAAAAAAARRRRRRRAAAAAHHH !!!,90,1,0,EndLunch()
+20,0,0,,Va mendier ailleurs.,"Va te faire foutre, connasse !|(Elle s'en va.)",90,-1,1,EndLunch()
+20,0,0,,"Désolée, Je suis fauchée.","Merde, merde, merde !|(Elle s'en va.)",90,0,0,EndLunch()
+20,0,0,,"Tiens, un peu de monnaie.|(Tu lui donnes de l'argent.)",Merci nullos !|(Elle s'empare de ton argent et s'enfuit.),90,1,-1,EndLunch()
+20,0,5,,Arrête de t'inquiéter jeune|fille. Je t'invite à déjeuner.,"Madame ? Vous le ferez ? C'est génial. Je suis prête,|c'est quand vous voulez, on part maintenant ?",30,0,1,
+20,5,0,,"Viens avec moi, mon amie.|Je t'invite à déjeuner.","Vraiment ? Putain, c'est génial.|Je suis prête à partir, on part maintenant ?",30,1,0,
+30,0,0,,Allons-y maintenant !|(Tu pars déjeuner.),Vous marchez à la hâte jusqu'à un restaurant prêt d'ici.|Sidney choisit vite fait une table et semble affamée.,200,0,0,StartLunch()
+100,0,0,,Qu'est-ce qui ne va pas ?,Je ne trouve pas mon putain de porte-monnaie.|Et j'ai une faim de loup !,110,0,0,
+100,0,0,,C'est quoi ton problème ?,Je deviens dingue ! Je ne trouve pas|mon porte-monnaie et j'ai une dalle d'enfer !,110,0,1,
+100,0,0,,Je peux t'aider ?,"Non, tu ne peux pas ! J'ai perdu mon putain de|porte-monnaie et j'ai une faim de loup !",110,0,-1,
+110,0,0,,Je peux peut-être|t'aider à le trouver.,Non ! Putain de non ! J'ai pas envie de chercher.|Je veux manger ! Donne-moi de l'argent.,120,0,-1,NoLeave()
+110,0,0,,Tu as assez de temps|pour le trouver.,La ferme ! Je veux manger maintenant !|Donne-moi de l'argent.,120,0,0,NoLeave()
+110,0,0,,Tu vas devoir|sauter un repas.,"Va te faire foutre, je ne saute pas de repas !|Donne-moi de l'argent !",120,-1,0,NoLeave()
+110,0,0,,Tu peux survivre|sur tes réserves.,"Dis-le encore une fois et je te brise tous les os.|Maintenant, donne-moi de l'argent avant que je te tue.",120,-2,1,NoLeave()
+110,0,0,,J'ai vu une blonde courir|avec un porte-monnaie.,(Elle charge comme un taureau dans le couloir.)|SAAAAAAARRRRRRRAAAAAHHH !!!,90,1,0,EndLunch()
+110,0,0,,"Tiens, un peu de monnaie.|(Tu lui donnes de l'argent.)",Merci nullos !|(Elle s'empare de ton argent et s'enfuit.),90,1,-1,EndLunch()
+120,0,0,,"Voilà, c'est cadeau.|(Tu lui donnes de l'argent.)",Merci nullos !|(Elle s'empare de ton argent et s'enfuit.),90,1,-1,EndLunch()
+120,0,0,,Rembourse-moi demain.|(Tu lui donnes de l'argent.),D'ac. (Elle s'empare de ton argent et s'enfuit.),90,1,0,EndLunch()
+120,0,0,,Je n'ai pas d'argent.,Putain de petite menteuse ! Viens avec moi.|(Elle te saisie le bras et te traîne au sous-sol.),130,-1,0,
+120,0,0,,Je ne te donnerai rien.,Espèce d'enfoirée ! Viens avec moi.|(Elle te saisie le bras et te traîne au sous-sol.),130,-1,1,
+130,0,0,,Ouïe ! Ça fait mal !,Et ça va empirer dans peu de temps.|C'est ta dernière chance. Tu payes ou tu vas en pâtir.,140,0,-1,
+130,0,0,,Où sommes-nous ?,"Dans un endroit qu'il vaut mieux ne pas connaître.|C'est ta dernière chance. Tu payes ou tu vas en pâtir.",140,0,0,
+130,0,0,,Espèce de sale truie.,(Elle te fixe avec des yeux enragée.)|C'est ta dernière chance. Tu payes ou tu vas en pâtir.,140,-1,0,
+130,0,0,,"Ok, ok, ok, voici.|(Tu lui donnes de l'argent.)",Enfin ! (Elle s'empare de ton argent et s'enfuit.),90,0,0,EndLunch()
+140,0,0,,Voilà ton argent.|(Tu lui donnes de l'argent.),Nullos ! (Elle s'empare de ton argent et s'enfuit.),90,0,0,EndLunch()
+140,0,0,,Je ne te donnerai rien.,"Alors souffre !|(Elle te saisit et t'enferme dans un pilori en bois.)",150,-1,-1,Pillory()
+150,0,0,,C'est quoi ce bordel !|Tu ne peux pas faire ça.,"Profite de ton déjeuner pétasse, je reviendrai plus tard.|(Elle s'empare de ton porte-monnaie et s'enfuit.)",160,0,0,
+150,0,0,,Tu paieras pour ça !,"Ce toi qui paye en ce moment, je reviendrai plus tard.|(Elle s'empare de ton porte-monnaie et s'enfuit.)",160,0,1,
+150,0,0,,"Sidney, je suis désolée.|Peux-tu me libérer ?","C'est trop tard, pétasse ! Je reviendrai plus tard.|(Elle s'empare de ton porte-monnaie et s'enfuit.)",160,0,-1,
+160,0,0,,(Tu attends patiemment.),"(Tu attends patiemment pendant que ton estomac|gargouille, mais il n'y a aucun signe de Sidney.)",160,0,0,PilloryWait()
+160,0,0,,A L'AIDE ! EST-CE QUE|QUELQU'UN M'ENTEND ?,"(Tu cries à l'aide, mais personne ne vient.)",160,0,0,PilloryWait()
+160,0,0,,(Tu essayes de briser|le pilori.),(Tu tentes de l'ouvrir par la force et|de briser le pilori mais il ne bouge pas.),160,0,0,PilloryWait()
+160,0,0,,(Tu essayes de|retirer tes mains.),(Tu essayes de faire glisser une main à|l'extérieur mais le trou est trop étroit.),160,0,0,PilloryWait()
+170,0,0,,J'obéirai.|(Tu inclines ta tête.),"Parfait ! Maintenant, Hors de ma vue.|(Tu ramasses ton porte-monnaie et tes affaires.)",180,0,-1,PilloryFree()
+170,0,0,,C'est de l'extorsion !,"C'est ça, ma petite salope. Maintenant, dégage.|(Tu ramasses ton porte-monnaie et tes affaires.)",180,0,0,PilloryFree()
+170,0,0,,"Un jour, tu|paieras pour ça.","C'est ce que nous verrons. Maintenant, dégage.|(Tu ramasses ton porte-monnaie et tes affaires.)",180,0,1,PilloryFree()
+180,0,0,,(Fin de la pause déjeuner.),,180,0,0,EndChapter()
+200,0,0,,C'est un bel endroit|que tu as là.,"Mes stupides colocs sont là tout le temps,|alors je ne viens pas souvent.",210,0,0,
+200,0,0,,Ce restaurant a l'air bien.,"Mes stupides colocs sont là tout le temps,|alors je ne viens pas souvent.",210,0,0,
+200,0,0,,Que devrais-je prendre ?,Je m'en fous ! (Elle regarde autour d'elle.)|Mes stupides colocs sont-elles là ?,210,0,0,
+200,0,0,,"Alors, qu'est-ce|que tu prends ?",De la putain de viande ! (Elle regarde autour d'elle.)|Mes stupides colocs sont-elles là ?,210,0,0,
+210,0,0,,Tu as des colocataires ?|Tu as de la chance.,"Oh putain que non ! C'est l'enfer.|Un jour, je leur ferai payer.",220,0,0,BadMatch()
+210,0,0,,Tu as des colocataires ?|Ça peut être pénible.,"Ouais, ce sont des emmerdeuses.|Un jour, je leur ferai payer.",220,0,0,GoodMatch()
+210,0,0,,J'aimerais avoir|des colocataires.,"Tu veux les miennes ? Ce sont des emmerdeuses.|Un jour, je leur ferai payer.",220,0,0,
+220,0,0,,Tu as besoin d'aide|pour te venger ?,"C'est une bonne idée ! Parlons-en après l'école.|Parle-moi de toi, que veux-tu faire dans la vie ?",230,1,0,GoodMatch()
+220,0,0,,Tu devrais essayer|de faire la paix.,"La paix ? Ça non, putain ! Changeons de sujet.|Parle-moi de toi, que veux-tu faire dans la vie ?",230,-1,0,BadMatch()
+220,0,0,,"Un jour, tu auras|ta revanche.","Ouaip ! Et ce jour viendra bientôt.|Parle-moi de toi, que veux-tu faire dans la vie ?",230,0,0,GoodMatch()
+230,0,0,,Je veux être|musicienne.,Tu finiras pauvre comme une merde.|Quel est ton cours préféré ?,240,0,0,BadMatch()
+230,0,0,,Je veux être|médecin.,Joli ! Tu vas te faire un max de fric.|Quel est ton cours préféré ?,240,0,0,GoodMatch()
+230,0,0,,Je veux être|athlète.,Tu finiras pauvre comme une merde.|Quel est ton cours préféré ?,240,0,0,BadMatch()
+230,0,0,,Je veux être|enseignante.,"Pas mal, il y aura toujours du boulot.|Quel est ton cours préféré ?",240,0,0,
+230,0,0,,Je veux être|actrice.,Tu finiras pauvre comme une merde.|Quel est ton cours préféré ?,240,0,0,BadMatch()
+230,0,0,,Je veux être|dominatrice.,Ha ! Tu m'as pris au dépourvu avec cette|réponse stupide. Quel est ton cours préféré ?,240,0,0,
+230,0,0,,Je veux être|architecte.,"Très bon choix, J'y ai aussi pensé.|Quel est ton cours préféré ?",240,0,0,GoodMatch()
+230,0,0,,Je veux être|agricultrice.,Super ! Mon père est agriculteur.|Quel est ton cours préféré ?,240,0,0,GoodMatch()
+230,0,0,,Je veux être|programmeuse.,"Pas mal, il y aura toujours du boulot.|Quel est ton cours préféré ?",240,0,0,
+230,0,0,,Je ne sais pas encore.,"La même, Je n'en suis pas encore sûre.|Quel est ton cours préféré ?",240,0,0,GoodMatch()
+240,0,0,,Les Maths.,"C'est ennuyeux, mais ça pourrait t'aider, j'imagine.|Que fais-tu pour t'occuper en dehors de l'école ?",250,0,0,
+240,0,0,,La musique.,C'est un cours tellement inutile.|Que fais-tu pour t'occuper en dehors de l'école ?,250,0,0,BadMatch()
+240,0,0,,L'anglais.,"Je suis nulle en anglais, putain !|Que fais-tu pour t'occuper en dehors de l'école ?",250,0,0,BadMatch()
+240,0,0,,La gym.,"Ce n'est pas aussi ennuyeux que les autres cours.|Que fais-tu pour t'occuper en dehors de l'école ?",250,0,0,
+240,0,0,,La chimie.,Super ! Tu peux me faire une bombe ?|Que fais-tu pour t'occuper en dehors de l'école ?,250,0,0,GoodMatch()
+240,0,0,,Le français.,"C'est ennuyeux, mais ça pourrait t'aider, j'imagine.|Que fais-tu pour t'occuper en dehors de l'école ?",250,0,0,
+240,0,0,,L'art.,C'est un cours tellement inutile.|Que fais-tu pour t'occuper en dehors de l'école ?,250,0,0,BadMatch()
+240,0,0,,L'histoire.,"Ouais, l'histoire des guerres peut être amusante.|Que fais-tu pour t'occuper en dehors de l'école ?",250,0,0,GoodMatch()
+240,0,0,,Le théatre,C'est un cours tellement inutile.|Que fais-tu pour t'occuper en dehors de l'école ?,250,0,0,
+240,0,0,,Je ne sais pas.,Ouais.... J'emmerde ces cours de toute façon.|Que fais-tu pour t'occuper en dehors de l'école ?,250,0,0,GoodMatch()
+250,0,0,,Du basket.,Je suppose qu'il y a pire comme hobby. (Une serveuse|vous interrompt pour prendre votre commande.),260,0,0,
+250,0,0,,Du rock,"Je préfère le métal, mais le rock, ça va. (Une serveuse|vous interrompt pour prendre votre commande.)",260,0,0,GoodMatch()
+250,0,0,,Des jeux vidéos.,Je suppose qu'il y a pire comme hobby. (Une serveuse|vous interrompt pour prendre votre commande.),260,0,0,
+250,0,0,,Je suis pom-pom girl.,Quel hobby chiant et ennuyeux. (Une serveuse|vous interrompt pour prendre votre commande.),260,0,0,
+250,0,0,,Je pars en soirée.,Les fêtes dans cette université sont plutôt nulles.|(Une serveuse arrive pour prendre votre commande.),260,0,0,
+250,0,0,,Des jeux de rôles.,Quel hobby chiant et ennuyeux. (Une serveuse|vous interrompt pour prendre votre commande.),260,0,0,BadMatch()
+250,0,0,,Je me soûle.,"D'accord, il faut que je me défonce bientôt.|(Une serveuse arrive pour prendre votre commande.)",260,0,0,GoodMatch()
+250,0,0,,De la musique classique.,Quel hobby chiant et ennuyeux. (Une serveuse|vous interrompt pour prendre votre commande.),260,0,0,BadMatch()
+250,0,0,,Je fais l'amour.,J'imagine que ton mec est heureux. (Une serveuse|vous interrompt pour prendre votre commande.),260,0,0,
+250,0,0,,Je n'ai aucun passe-temps.,Relax. Le mien c'est d'être défoncée toute la nuit.|(Une serveuse arrive pour prendre votre commande.),260,0,0,GoodMatch()
+260,0,0,,"Une salade, s'il vous plaît.",T'es un putain de lapin ?|(Elle commande un gros steack.),270,-1,0,BadMatch()
+260,0,0,,"Un steak, s'il vous plaît.",Meilleure idée du jour !|(Elle commande aussi un steack.),270,1,0,GoodMatch()
+260,0,0,,"Une soupe, s'il vous plaît.",Ce n'est pas un grand repas.|(Elle commande un gros steack.),270,0,0,
+260,0,0,,"Un hamburger,|s'il vous plaît.",C'est un bon choix.|(Elle commande un gros steack.),270,0,0,GoodMatch()
+260,0,0,,"Un plateau de nachos,|s'il vous plaît.",Ce n'est pas un grand repas.|(Elle commande un gros steack.),270,0,0,
+260,0,0,,"Juste un cheesecake,|s'il vous plaît.",Ce n'est pas un grand repas.|(Elle commande un gros steack.),270,0,0,
+260,0,0,,"Une soupe et une salade,|s'il vous plaît.",T'es un putain de lapin ?|(Elle commande un gros steack.),270,0,0,BadMatch()
+260,0,0,,"Un chili dog,|s'il vous plaît.",C'est un bon choix.|(Elle commande un gros steack.),270,0,0,GoodMatch()
+260,0,0,,"Un fettuccine alfredo,|s'il vous plaît.",C'est un bon choix.|(Elle commande un gros steack.),270,0,0,GoodMatch()
+260,0,0,,"Juste de l'eau,|s'il vous plaît.",Bordel ! Tu ne vas pas manger ?|(Elle commande un gros steack.),270,-1,0,BadMatch()
+270,0,0,,Bon repas !|(Tu attends ton plat.),Oh ouais ! (Vous mangez toutes les deux votre repas.|Elle rote plusieurs fois et a l'air heureuse.),280,0,0,EatMeal()
+270,0,0,,Bon appétit !|(Tu attends ton plat.),Oh ouais ! (Vous mangez toutes les deux votre repas.|Elle rote plusieurs fois et a l'air heureuse.),280,0,0,EatMeal()
+270,0,0,,"Dépêche-toi, serveuse !|(Tu attends ton plat.)",Bien joué ! (Vous mangez toutes les deux votre repas.|Elle rote plusieurs fois et a l'air heureuse.),280,0,1,EatMeal()
+270,0,0,,(Tu gardes le silence|et attends ton repas.),Dépêchez-vous ! (Vous mangez toutes les deux|votre repas. Elle rote plusieurs fois et a l'air heureuse.),280,0,-1,EatMeal()
+280,0,0,,C'était bon ?,Ouaip ! On ne peut pas se tromper avec la viande.|Il est temps de retourner à l'université ?,290,0,0,CheckForSmoke()
+280,0,0,,Tu es rassasiée ?,Ouaip ! On ne peut pas se tromper avec la viande.|Il est temps de retourner à l'université ?,290,0,0,CheckForSmoke()
+290,0,0,AllowSmoke,"Bien sûr, allons fumer.|(Tu vas fumer avec elle.)",(Vous marchez toutes les deux dans un coin isolé|et elle allume ce qui ressemble à un joint.),300,0,0,
+290,0,0,AllowSmoke,"Désolée, Je ne fume pas.|(Vous rentrez à l'université.)",,0,0,0,EndChapter()
+290,0,0,!AllowSmoke,Rentrons.|(Vous rentrez à l'université.),,0,0,0,EndChapter()
+300,0,0,,Tu fais tourner ?|(Tu fumes avec elle.),Bien sûr ! (Elle prend une grosse latte|et partage le joint avec toi.),310,1,0,Smoke()
+300,0,0,,"Fume-le, je m'en fous.|(Tu ne fumes pas.)",Tu ne fumes que des cigarettes ?|(Elle prend trois lattes.),320,-1,0,Smoke()
+300,0,0,,Fait passer !|(Tu fumes avec elle.),Voilà pour toi. (Elle te tend le joint.),310,1,1,Smoke()
+300,0,0,,Fumer est mauvais pour la|santé. (Tu ne fumes pas.),T'es qui ? T'es de la police ?|(Elle prend trois grosses lattes.),320,-1,-1,Smoke()
+300,0,0,,C'est dangereux de fumer ?|(Tu fumes avec elle.),Rien n'est sain. (Elle prend une grosse|latte et partage le joint avec toi.),310,1,-1,Smoke()
+300,0,0,,Non ! Ceci est illégal !|(Tu ne fumes pas.),"T'es qu'une minable, c'est pathétique.|(Elle prend trois grosses lattes.)",320,-2,-2,Smoke()
+310,0,0,,C'est génial !|(Tu tires sur le joint.),Ouaip ! Laisse m'en un peu.|(Elle prend quelques bouffées.),310,0,0,Smoke()
+310,0,0,,Merci.|(Tu fais passer le joint.),(Tu lui passes le joint et elle prend trois bouffées rapide.),320,0,0,Smoke()
+320,0,0,,Tu fumes souvent|de l'herbe ?,Tous les jours ! Le meilleur remède contre l'ennui.|(Elle prend deux lattes et s'assoit défoncée.),330,0,0,Smoke()
+320,0,0,,"Fait gaffe, tu seras|défoncée en cours.",Tu ne crois pas que je le sais déjà ?|(Elle prend deux lattes et s'assoit défoncée.),330,0,-1,Smoke()
+320,0,0,,Super ! On devrait déjeuner|ensemble plus souvent.,Carrément ! On pourrait se défoncer tous les jours.|(Elle prend deux lattes et s'assoit défoncée.),330,1,0,Smoke()
+330,0,0,,Ça va ?,"Oh, bon sang ! Ouais !|(Elle a l'air défoncée.)",330,0,0,
+330,0,0,,On devrait|sécher l'école.,Oh ouais ! La meilleure idée de tous les temps !|(Elle rit et te fixe le regard vide.),330,0,0,
+330,0,0,HateAmanda,Tu veux te venger|d'Amanda ?,Putain ouais ! Faisons-le maintenant.|Tu vas m'aider à la tabasser ?,400,0,0,
+330,0,0,HateSarah,Tu veux te venger|de Sarah ?,Putain ouais ! Faisons-le maintenant.|Tu vas m'aider à la tabasser ?,500,0,0,
+330,0,0,,(Tu fumes avec elle.)|(1 minute),(Vous partagez toutes les deux une bouffée|et vous restez assis sans rien faire.),330,0,0,
+330,0,0,,(Tu la fixes.)|(1 minute),(Tu la regardes oisivement pendant|qu'elle t'envoit sa fumée au visage.),330,0,0,
+330,0,0,,(Tu enlèves ses vêtements.)|(1 minute),"(Elle te fixe et repousse ta main.)|(""+8"" en amour ou en soumission pour la déshabiller.)",330,0,0,RemoveClothes()
+330,0,0,,Rentrons.|(Vous rentrez à l'université.),,0,0,0,EndChapter()
+340,0,0,!IsGagged,Ça va ?,"Oh, bon sang ! Ouais !|(Elle a l'air défoncée.)",340,0,0,
+340,0,0,!CuteRemarkDone,Tu es plutôt mignonne|comme ça.,"(Elle se regarde, rougit un peu et acquiesce.)",340,0,0,CuteRemark()
+340,0,0,,(Tu la chatouilles.)|(1 minute),"(Soit elle n'est pas chatouilleuse, soit elle est|trop défoncée, mais elle ne réagit pas beaucoup.)",340,0,0,
+340,0,0,,(Tu la masturbes.)|(1 minute),,340,0,0,Masturbate()
+340,0,0,IsRoped,(Tu la détaches.)|(1 minute),(Elle semble apprécier mais ne réagit pas|tant que ça pendant que tu la détaches.),340,0,0,Untie()
+340,0,0,IsGagged,(Tu la débâillonnes.)|(1 minute),(Tu la débâillonnes et elle te fixe.)|Oh la vache ! C'est assez intense.,340,0,0,Ungag()
+340,0,0,,(Tu la laisses se rhabiller.)|(1 minute),(Tu la laisses tranquille et elle remet ses vêtements.),330,0,0,Release()
+340,0,0,IsBoundAndGagged,"Je t'ai piégé, salope."|(Tu l'abandonnes.),,340,0,0,EvilEnd()
+340,0,0,,Rentrons.|(Vous rentrez à l'université.),,0,0,0,EndChapter()
+350,0,0,,Jouis pour moi chérie.|(Tu la fais jouir.),(Tu la masturbes doucement pendant qu'elle gémit|et s'abandonne jusqu'à atteindre un doux orgasme.),340,1,0,Orgasm()
+350,0,0,,"Jouis, ma petite pute.|(Tu la fais jouir.)",(Tu la masturbes avec force et elle finit|par jouir en atteignant un orgasme grandiose.),340,0,1,Orgasm()
+350,0,0,,"Plus tard, peut-être.|(Tu ne la laisses pas jouir.)",(Tu arrêtes de la masturber et|elle s'arrête lentement de gémir.),340,-1,0,NoOrgasm()
+350,0,0,,Tu ne le mérites pas.|(Tu ne la laisses pas jouir.),(Tu arrêtes de la masturber et|elle s'arrête lentement de gémir.),340,0,-1,NoOrgasm()
+400,0,0,,"Tabasser Amanda ?|Non, c'est trop extrême.",Ce n'est pas assez extrême ! Un jour elle paiera.,330,0,0,
+400,0,0,,Oui ! Allons la chercher|tout de suite.,Alors viens avec moi ! (Vous marchez toutes les deux|jusqu'à une classe vide où Amanda est en train de lire.),410,0,0,StartBeatUp()
+410,0,0,,(Tu aides Sidney à mater|Amanda.) (1 minute),(Vous sautez toutes les deux sur Amanda|et Sidney la maîtrise.) Déshabille-la !,420,1,0,
+410,0,0,,Je ne peux pas le faire.|(Tu laisses Amanda partir.),"Sale traitresse ! Tu as de la chance, Amanda.|(Amanda emballe rapidement ses affaires et s'enfuit.)",490,-3,-2,
+420,0,0,,(Tu déshabilles|Amanda.) (1 minute),(tu la fous à poil pendant que Sidney|la tient dans ses bras.) Frappe la !,430,1,0,
+420,0,0,,Je ne peux pas faire ça.|(Tu laisses Amanda partir.),"Sale traitresse ! Tu as de la chance, Amanda.|(Amanda emballe rapidement ses affaires et s'enfuit.)",490,-3,-2,
+430,0,0,,(Tu bats Amanda.)|(1 minute),(Tu frappes Amanda jusqu'à ce qu'elle s'écroule|au sol.) Laisse-moi m'occuper du reste !,440,0,1,"BeatUp(""Amanda"")"
+430,0,0,,"Je suis trop faible,|Madame. (1 minute)","(Sidney lutte seule et bat Amanda qui|s'effondre au sol.) Bouge de là, fillette !",440,0,-1,
+430,0,0,,Je ne peux pas faire ça.|(Tu laisses Amanda partir.),"Sale traitresse ! Tu as de la chance, Amanda.|(Amanda emballe rapidement ses affaires et s'enfuit.)",490,-3,-2,
+440,0,0,,Vas-y !|(1 minute),(Sidney bâillonne et ligote Amanda.)|Fuyons avant de nous faire prendre !,450,1,0,"TieUp(""Amanda"")"
+440,0,0,,Ça va trop loin. (Tu aides|Amanda à se lever.),"Sale traitresse ! Tu as de la chance, Amanda.|(Amanda emballe rapidement ses affaires et s'enfuit.)",490,-3,-2,
+450,0,0,,"Oui, Madame Sidney.|(Tu l'abandonnes.)",,0,0,-1,"CrimeStranded(""Amanda"")"
+450,0,0,,Tirons nous vite !|(Tu l'abandonnes.),,0,0,1,"CrimeStranded(""Amanda"")"
+450,0,0,,Ça va trop loin.|(Tu la libères.) (1 minute),"Sale traitresse ! Tu as de la chance, Amanda.|(Amanda emballe rapidement ses affaires et s'enfuit.)",490,-3,-2,
+490,0,0,,Rentrons.|(Tu retournes en cours.),,0,0,0,EndChapter()
+500,0,0,,"Tabasser Sarah ?|Non, c'est trop extrême.",Ce n'est pas assez extrême ! Un jour elle paiera.,330,0,0,
+500,0,0,,Oui ! Allons la chercher|tout de suite.,Alors viens avec moi ! (Vous marchez toutes les deux|jusqu'à la cour de l'école où Sarah se la coule douce.),510,0,0,StartBeatUp()
+510,0,0,,(Tu aides Sidney à mater|Sarah.) (1 minute),(Vous sautez toutes les deux sur Sarah|et Sidney la maîtrise.) Déshabille-la !,520,1,0,
+510,0,0,,Je ne peux pas faire ça.|(Tu laisses Sarah partir.),"Sale traitresse ! Tu as de la chance, Sarah.|(Sarah tire la langue et s'enfuit rapidement.)",590,-3,-2,
+520,0,0,,(Tu déshabilles|Sarah.) (1 minute),(tu la fous à poil pendant que Sidney|la tient dans ses bras.) Frappe la !,530,1,0,
+520,0,0,,Je ne peux pas faire ça.|(Tu laisses Sarah partir.),"Sale traitresse ! Tu as de la chance, Sarah.|(Sarah tire la langue et s'enfuit rapidement.)",590,-3,-2,
+530,0,0,,(Tu bats Sarah.)|(1 minute),(Tu frappes Sarah jusqu'à ce qu'elle s'écroule|au sol.) Laisse-moi m'occuper du reste !,540,0,1,"BeatUp(""Sarah"")"
+530,0,0,,"Je suis trop faible,|Madame (1 minute)","(Sidney lutte seule et bat Sarah qui|s'effondre au sol.) Bouge de là, fillette !",540,0,-1,
+530,0,0,,Je ne peux pas faire ça.|(Tu laisses Sarah partir.),"Sale traitresse ! Tu as de la chance, Sarah.|(Sarah tire la langue et s'enfuit rapidement.)",590,-3,-2,
+540,0,0,,Vas-y !|(1 minute),(Sidney bâillonne et attache Sarah à la clôture.)|Fuyons avant qu'on se fasse prendre !,550,1,0,"TieUp(""Sarah"")"
+540,0,0,,Ça va trop loin. (Tu aides|Sarah à se lever.),"Sale traitresse ! Tu as de la chance, Sarah.|(Sarah tire la langue et s'enfuit rapidement.)",590,-3,-2,
+550,0,0,,"Oui, Madame Sidney.|(Tu l'abandonnes.)",,0,0,-1,"CrimeStranded(""Sarah"")"
+550,0,0,,Tirons nous vite !|(Tu l'abandonnes.),,0,0,1,"CrimeStranded(""Sarah"")"
+550,0,0,,Ça va trop loin.|(Tu la libères.) (1 minute),"Sale traitresse ! Tu as de la chance, Sarah.|(Sarah tire la langue et s'enfuit rapidement.)",590,-3,-2,
+590,0,0,,Rentrons.|(Tu retournes en cours.),,0,0,0,EndChapter()
