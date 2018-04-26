@@ -74,8 +74,8 @@ function C000_Intro_ChapterSelect_DrawThankYou() {
 // Chapter Select Run
 function C000_Intro_ChapterSelect_Run() {
 	BuildInteraction(C000_Intro_ChapterSelect_CurrentStage);
-	DrawRect(600, 0, 1200, 600, "white");
 	if (C000_Intro_ChapterSelect_CreditMode) {
+		DrawRect(600, 0, 1200, 600, "white");
 		if (C000_Intro_ChapterSelect_Credits.length > 1) C000_Intro_ChapterSelect_DrawCredits();
 		C000_Intro_ChapterSelect_CreditPosition++;
 	} else {

@@ -217,11 +217,12 @@ function BuildInteraction(CurrentStagePosition) {
 	// Make sure the CSV files for interactions are loaded
 	if ((CurrentIntro != null) && (CurrentStage != null)) {
 
-		// Paints the background depending on the current stage
-		DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + FindImage(CurrentIntro, CurrentStagePosition), 600, 0);
-		DrawRect(0, 0, 600, 600, "Black");
+		// Paints the background image depending on the current stage
+		var ImageName = FindImage(CurrentIntro, CurrentStagePosition);
+		if ((ImageName !== undefined) && (ImageName.trim() != "")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + ImageName, 600, 0);
 
 		// Build all the options for interaction
+		DrawRect(0, 0, 600, 600, "Black");
 		DrawIntro(CurrentIntro, CurrentStagePosition, 0, 0);
 		DrawInteraction(CurrentStage, CurrentStagePosition, 0, 0);
 
