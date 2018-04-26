@@ -304,6 +304,7 @@ function C005_GymClass_Jennifer_Cuddle() {
 	if (C005_GymClass_Jennifer_CuddleDone == false) {
 		C005_GymClass_Jennifer_CuddleDone = true;
 		ActorChangeAttitude(1, 0);
+		GameLogAdd("Hug");
 	}
 }
 
@@ -317,6 +318,7 @@ function C005_GymClass_Jennifer_TrainFighting() {
 	if (CurrentTime <= 11 * 60 * 60 * 1000) {
 		OverridenIntroText = GetText("TrainFighting");
 		PlayerAddSkill("Fighting", 1);
+		GameLogAdd("Train");
 		CurrentTime = CurrentTime + 0.5 * 60 * 60 * 1000;
 		C005_GymClass_Jennifer_TrainingReady = false;
 	} else OverridenIntroText = GetText("TrainFightingNoTime");

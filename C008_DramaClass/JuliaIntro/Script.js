@@ -2,6 +2,7 @@ var C008_DramaClass_JuliaIntro_CurrentStage = 0;
 var C008_DramaClass_JuliaIntro_PlayerRole = "";
 var C008_DramaClass_JuliaIntro_AmandaRole = "";
 var C008_DramaClass_JuliaIntro_SarahRole = "";
+var C008_DramaClass_JuliaIntro_Painted = false;
 
 // Chapter 8 - Julia Intro Load
 function C008_DramaClass_JuliaIntro_Load() {
@@ -13,6 +14,7 @@ function C008_DramaClass_JuliaIntro_Load() {
 	ActorLoad("Julia", "");
 	LoadInteractions();
 	LeaveIcon = "";
+	C008_DramaClass_JuliaIntro_Painted = GameLogQuery("C004_ArtClass", "Julia", "Paint");
 	
 	// If Julia doesn't like the player, we skip the "hug" intro
 	if (ActorGetValue(ActorLove) < 1) C008_DramaClass_JuliaIntro_CurrentStage = 20;
@@ -66,4 +68,9 @@ function C008_DramaClass_JuliaIntro_SetRole(NewRole) {
 // Chapter 8 - Julia Intro - Jump to the dressing room scene
 function C008_DramaClass_JuliaIntro_DressingRoom() {
 	SetScene("C008_DramaClass", "DressingRoom");
+}
+
+// Chapter 8 - Julia Intro - Hug
+function C008_DramaClass_JuliaIntro_Hug() {
+	GameLogAdd("Hug");
 }

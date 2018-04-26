@@ -78,6 +78,7 @@ function C001_BeforeClass_Amanda_Kiss() {
 		if (PlayerGetSkillLevel("Seduction") >= 1) ActorChangeAttitude(2, 0);
 		else ActorChangeAttitude(1, 0);
 		OverridenIntroText = GetText("Kiss");
+		GameLogAdd("Kiss");
 	}
 }
 
@@ -87,6 +88,7 @@ function C001_BeforeClass_Amanda_ForceKiss() {
 		C001_BeforeClass_Amanda_ForceKiss_Done = true;
 		ActorChangeAttitude(-1, 0);
 		OverridenIntroText = GetText("KissSidney");
+		GameLogAdd("KissSidney");
 	}
 }
 

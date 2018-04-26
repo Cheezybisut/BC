@@ -14,16 +14,15 @@ function C005_GymClass_Intro_Load() {
 function C005_GymClass_Intro_Run() {
 	
 	// Paints the background
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
-	DrawPlayerTransition(ctx);
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
+	DrawPlayerTransition();
 
 	// Write the chapter introduction
-	DrawText(ctx, GetText("Intro1"), 450, 100, "White");
-	if (TextPhase >= 1) DrawText(ctx, GetText("Intro2"), 450, 200, "White");
-	if (TextPhase >= 2) DrawText(ctx, GetText("Intro3"), 450, 300, "White");
-	if (TextPhase >= 3) DrawText(ctx, GetText("Intro4"), 450, 400, "White");
-	if (TextPhase >= 4) DrawText(ctx, GetText("Intro5"), 450, 500, "White");
+	DrawText(GetText("Intro1"), 450, 100, "White");
+	if (TextPhase >= 1) DrawText(GetText("Intro2"), 450, 200, "White");
+	if (TextPhase >= 2) DrawText(GetText("Intro3"), 450, 300, "White");
+	if (TextPhase >= 3) DrawText(GetText("Intro4"), 450, 400, "White");
+	if (TextPhase >= 4) DrawText(GetText("Intro5"), 450, 500, "White");
 
 }
 

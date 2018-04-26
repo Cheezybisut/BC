@@ -1,7 +1,6 @@
 var C003_MorningDetention_Sidney_CurrentStage = 0;
-var C003_MorningDetention_Sidney_Fighting = false;
-var C003_MorningDetention_Sidney_FightWon = false;
-var C003_MorningDetention_Sidney_FightLost = false;
+var C003_MorningDetention_Sidney_FightVictory = false;
+var C003_MorningDetention_Sidney_FightDefeat = false;
 var C003_MorningDetention_Sidney_TickleDone = false;
 var C003_MorningDetention_Sidney_EggReady = false;
 var C003_MorningDetention_Sidney_EggInside = false;
@@ -23,9 +22,8 @@ function C003_MorningDetention_Sidney_Load() {
 
 	// Load the scene parameters
 	C003_MorningDetention_Sidney_EggReady = false;		
-	C003_MorningDetention_Sidney_Fighting = C003_MorningDetention_Intro_Fighting;
-	if (C001_BeforeClass_FightOutro_FightResult == 1) C003_MorningDetention_Sidney_FightLost = true;
-	if (C001_BeforeClass_FightOutro_FightResult == 2) C003_MorningDetention_Sidney_FightWon = true;
+	C003_MorningDetention_Sidney_FightVictory = GameLogQuery("C001_BeforeClass", "Sidney", "FightVictory");
+	C003_MorningDetention_Sidney_FightDefeat = GameLogQuery("C001_BeforeClass", "Sidney", "FightDefeat");
 	ActorLoad("Sidney", "DetentionRoom");
 	LoadInteractions();
 
@@ -48,6 +46,7 @@ function C003_MorningDetention_Sidney_Click() {
 		PlayerAddInventory("Cuffs", 1);
 		ActorChangeAttitude(2, 0);
 		OverridenIntroText = GetText("UnlockGone");
+		GameLogAdd("Unlock");
 		C003_MorningDetention_Sidney_CurrentStage = 300;
 		C003_MorningDetention_DetentionRoom_SidneyGone = true;
 		CurrentTime = CurrentTime + 60000;
@@ -85,7 +84,7 @@ function C003_MorningDetention_Sidney_Unlock() {
 }
 
 // Chapter 3 - Sidney Insert
-function C003_MorningDetention_Sidney_Insert() {	
+function C003_MorningDetention_Sidney_Insert() {
 	C003_MorningDetention_Sidney_EggReady = false;
 	C003_MorningDetention_Sidney_EggInside = true;
 	PlayerRemoveInventory("VibratingEgg", 1);
@@ -99,4 +98,9 @@ function C003_MorningDetention_Sidney_Tickle() {
 		OverridenIntroText = GetText("Tickle");
 		C003_MorningDetention_Sidney_TickleDone = true;
 	}
+}
+
+// Chapter 3 - Sidney Kiss
+function C003_MorningDetention_Sidney_Kiss() {
+	GameLogAdd("Kiss");
 }

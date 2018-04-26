@@ -86,9 +86,9 @@ function C101_KinbakuClub_Erica_Load() {
 	} else C101_KinbakuClub_Erica_PlayerIsFree = false;
 
 	// If Player leaves at stage 60 and comes back it reverts to stage 50
-	if (C101_KinbakuClub_Erica_CurrentStage == 60) {
-		C101_KinbakuClub_Erica_CurrentStage = 50;
-	}
+	//if (C101_KinbakuClub_Erica_CurrentStage == 60) {
+	//	C101_KinbakuClub_Erica_CurrentStage = 50;
+	//}
 	
 	// After loose fight and kidnapped during blind mans buff
 	if (C101_KinbakuClub_Erica_CurrentStage >= 110 && C101_KinbakuClub_Erica_CurrentStage <= 270) LeaveIcon = "";

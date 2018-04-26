@@ -15,7 +15,7 @@ function PlayerClothes(NewCloth) {
 
 // Set the restrained and gagged common variables, used by many scenes
 function LoadRestrainStatus() {
-	Common_PlayerRestrained = (PlayerHasLockedInventory("Cuffs") || PlayerHasLockedInventory("Rope"));
+	Common_PlayerRestrained = (PlayerHasLockedInventory("Cuffs") || PlayerHasLockedInventory("Rope") || PlayerHasLockedInventory("Armbinder") || PlayerHasLockedInventory("Manacles"));
 	Common_PlayerGagged = (PlayerHasLockedInventory("BallGag") || PlayerHasLockedInventory("TapeGag") || PlayerHasLockedInventory("ClothGag") || PlayerHasLockedInventory("DoubleOpenGag"));
 	Common_PlayerChaste = PlayerHasLockedInventory("ChastityBelt");
 	Common_PlayerNotRestrained = !Common_PlayerRestrained;
@@ -43,6 +43,9 @@ function PlayerLockInventory(NewInventory) {
 			return;		
 	PlayerLockedInventory.push(NewInventory);
 	LoadRestrainStatus();
+	
+	// If there's rope/armbinder and a costume, we strip the player
+	if (((NewInventory == "Rope") || (NewInventory == "Armbinder")) && (Common_PlayerCostume != "")) PlayerClothes("Underwear");
 
 }
 
@@ -142,9 +145,12 @@ function PlayerRandomBondage() {
 	// Selects the restrain type
 	var R = "";
 	if (!Common_PlayerRestrained) {
-		if (PlayerHasInventory("Rope") && PlayerHasInventory("Cuffs")) { if (Math.floor(Math.random() * 2) == 1) R = "Rope"; else R = "Cuffs"; }
-		if (PlayerHasInventory("Rope") && !PlayerHasInventory("Cuffs")) { R = "Rope"; }
-		if (!PlayerHasInventory("Rope") && PlayerHasInventory("Cuffs")) { R = "Cuffs"; }
+		var RT = [];
+		if (PlayerHasInventory("Rope")) RT.push("Rope");
+		if (PlayerHasInventory("Cuffs")) RT.push("Cuffs");
+		if (PlayerHasInventory("Armbinder")) RT.push("Armbinder");
+		if (PlayerHasInventory("Manacles")) RT.push("Manacles");
+		if (RT.length > 0) R = RT[Math.floor(Math.random() * RT.length)];
 	}
 
 	// Selects the gag type
@@ -160,9 +166,6 @@ function PlayerRandomBondage() {
 	// Applies them on the player
 	if (R != "") { PlayerRemoveInventory(R, 1); PlayerLockInventory(R); }
 	if (G != "") { PlayerRemoveInventory(G, 1); PlayerLockInventory(G); }
-	
-	// If the player has rope, she must at least be in her underwear
-	if (PlayerHasLockedInventory("Rope") && Common_PlayerClothed) PlayerClothes("Underwear");
 
 }
 
@@ -170,6 +173,8 @@ function PlayerRandomBondage() {
 function PlayerReleaseBondage() {
 	if (PlayerHasLockedInventory("Cuffs")) { PlayerUnlockInventory("Cuffs"); PlayerAddInventory("Cuffs", 1); }
 	if (PlayerHasLockedInventory("Rope")) { PlayerUnlockInventory("Rope"); PlayerAddInventory("Rope", 1); }
+	if (PlayerHasLockedInventory("Armbinder")) { PlayerUnlockInventory("Armbinder"); PlayerAddInventory("Armbinder", 1); }
+	if (PlayerHasLockedInventory("Manacles")) PlayerUnlockInventory("Manacles");
 	PlayerUngag();
 }
 
@@ -182,8 +187,8 @@ function PlayerUngag() {
 
 // Add a random item in the player inventory
 function PlayerAddRandomItem() {
-	var ItemList = ["BallGag", "TapeGag", "ClothGag", "Cuffs", "Rope", "ChastityBelt", "VibratingEgg", "Crop", "Collar", "SleepingPill"];
-	var Item = ItemList[Math.floor(Math.random() * 10)];
+	var ItemList = ["BallGag", "TapeGag", "ClothGag", "Cuffs", "Rope", "Armbinder", "ChastityBelt", "VibratingEgg", "Crop", "Collar", "SleepingPill"];
+	var Item = ItemList[Math.floor(Math.random() * 11)];
 	PlayerAddInventory(Item, 1);
 	if (Item == "TapeGag") PlayerAddInventory(Item, 7); // For tape gag, add a bonus + 7 quantity
 	if ((Item == "Cuffs") && (Math.floor(Math.random() * 2) == 1)) PlayerAddInventory("CuffsKey", 1); // For cuffs, can randomly add keys

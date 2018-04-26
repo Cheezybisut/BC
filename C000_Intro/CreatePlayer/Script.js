@@ -43,15 +43,14 @@ function C000_Intro_CreatePlayer_Run() {
 	}
 	
 	// Draw the player image and the text input for the name
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Player.jpg", 900, 0);
-	DrawRect(ctx, 0, 0, 900, 600, "white");
-	DrawText(ctx, GetText("EnterName"), 450, 100, "black");
-	DrawText(ctx, GetText("ValidChars"), 450, 180, "black");
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Player.jpg", 900, 0);
+	DrawRect(0, 0, 900, 600, "white");
+	DrawText(GetText("EnterName"), 450, 100, "black");
+	DrawText(GetText("ValidChars"), 450, 180, "black");
 
 	// Creates the "validate" button
-	DrawRect(ctx, 300, 450, 300, 70, "#8c304e");
-	DrawText(ctx, GetText("Validate"), 450, 485, "white");
+	DrawRect(300, 450, 300, 70, "#8c304e");
+	DrawText(GetText("Validate"), 450, 485, "white");
 	
 }
 

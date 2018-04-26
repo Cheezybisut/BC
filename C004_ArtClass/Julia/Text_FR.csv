@@ -1,0 +1,28 @@
+Tag,Content
+NoBondage,Qu'est-ce que tu fais ?|Range ça et prends ton pinceau.
+RopeJulia,"(Tu fais des ronds avec la corde sur son corps sinueux |et des noeuds serrés.). Là, c'est de l'art !"
+RopePlayer,"""Si !"" Il est temps d'utiliser ces cordes.|(Elle te saisie par les bras et t'attaches fermement.)"
+RopeStripPlayer,"""Si!"" Il est temps de t'attacher. (Elle te déshabille,|saisie les cordes et t'attaches fermement.)"
+Ballgag,(Elle secoue la tête négativement mais ne peut|te résister et tu lui mets le bâillon.)
+TapeGag,(Elle secoue la tête négativement, mais ne peut pas|faire grand-chose et tu lui mets le ruban.)
+Crop,(Tu lui donnes quelques coups avec la cravache.|Elle n'a pas l'air de trop souffrir.)
+VibratingEggWarning,"(Tu ne pourras peut-être pas récupérer l'oeuf si|tu l'insères, cliquez à nouveau pour confirmer.)"
+VibratingEggInsert,"(Tu tires sur la corde et fait glisser l'oeuf très facilement,|tu n'es même pas sûre qu'elle l'ait remarqué.)"
+NewModelAgree,"Je suis d'accord, une nouvelle élève timide sera parfaite|(Elle t'agrippe le bras et t'attire devant la classe.)"
+NewModelGagged,(Elle hoche la tête et le nouveau modèle s'avance.)
+PlayerUndressGagged,(Elle hoche la tête et tu enlèves ton uniforme.)
+PlayerStripGagged,(Elle hoche la tête et tu te déshabilles entièrement.)
+FailUngag,(Tu essayes de débâilloner Julia mais tu échoues|piteusement tandis que les autres étudiantes rigolent.)
+FailUntie,(Tu essayes de détacher Julia mais tu échoues|piteusement tandis que les autres étudiantes rigolent.)
+TightenGagged,(Tu resserres les noeuds pendant qu'elle se débat.)|MMNRGN NOG ! (Elle semble endurer la douleur.)
+Tighten,(Tu resserres les noeuds pendant qu'elle se débat.)|Dio mio ! C'est vraiment très serré.
+FailTighten,(Tu essayes de resserrer les liens de Julia|mais tu échoues et les autres étudiantes rigolent.)
+Tickle,(Tu la chatouilles devant la classe.|Elle rit bruyamment et semble apprécier.)
+TickleRestrained,(Tu tâtonnes un peu mais tu arrives à la chatouiller.|Elle rit bruyamment et semble apprécier.)
+AskNewModelGagged,(Elle hoche la tête et regarde autour d'elle.)
+PlayerUngag,Oh ! Pourquoi es-tu bâillonnée ma pauvre petite ?|(Elle te libère du bâillon et sourit.)
+PlayerStayGagged,"Quelqu'un t'a bâillonnée ? Joli ! L'art c'est le chaos !|(""+3"" en amour ou plus pour être débâillonée.)"
+JuliaRestrainedPlayerGagged,"(Elle tire sur ses cordes, on dirait|qu'elle ne sera pas en mesure de t'aider.)"
+GaggedSpeach,Eep ah hoze eew wuwii !
+NoTimeToPaint,(Il ne reste plus assez de temps|pour produire une oeuvre d'art.)
+CantPaintIfModel,(Tu ne peux pas peindre|lorsque tu es le modèle.)

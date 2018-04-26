@@ -25,6 +25,8 @@ var C007_LunchBreak_Jennifer_PushUpCount = 0;
 var C007_LunchBreak_Jennifer_RacketQuality = 0;
 var C007_LunchBreak_Jennifer_HasRestrainsAvail = false;
 var C007_LunchBreak_Jennifer_HasSeduction = false;
+var	C007_LunchBreak_Jennifer_JudoVictory = false;
+var C007_LunchBreak_Jennifer_JudoDefeat = false;
 
 // Calculates the screen parameters
 function C007_LunchBreak_Jennifer_CalcParams() {
@@ -76,7 +78,9 @@ function C007_LunchBreak_Jennifer_Load() {
 	LoadInteractions();
 	C007_LunchBreak_Jennifer_CalcParams();
 	C007_LunchBreak_Jennifer_HasSeduction = (PlayerGetSkillLevel("Seduction") >= 1);
-	
+	C007_LunchBreak_Jennifer_JudoVictory = GameLogQuery("C005_GymClass", "Jennifer", "FightVictory");
+	C007_LunchBreak_Jennifer_JudoDefeat = GameLogQuery("C005_GymClass", "Jennifer", "FightDefeat");
+
 	// If Jennifer doesn't like the player, she will run away from the start
 	if ((ActorGetValue(ActorLove) <= -3) && (ActorGetValue(ActorSubmission) <= 3)) {
 		OverridenIntroText = GetText("SkipIntro");
@@ -209,6 +213,7 @@ function C007_LunchBreak_Jennifer_EndLunch() {
 
 // Chapter 7 - Jennifer Play Tennis (adds 5 minutes)
 function C007_LunchBreak_Jennifer_PlayTennis(Difficulty) {
+	GameLogAdd("Lunch");
 	CurrentTime = CurrentTime + 300000;
 	C007_LunchBreak_Jennifer_IntroText = "";
 	C007_LunchBreak_Jennifer_LeaveIcon = "";
@@ -274,6 +279,7 @@ function C007_LunchBreak_Jennifer_Release() {
 
 // Chapter 7 - Jennifer Enter Tennis Court (Adds 5 minutes)
 function C007_LunchBreak_Jennifer_EnterTennis() {
+	GameLogAdd("LunchBonus");
 	CurrentTime = CurrentTime + 300000;
 }
 
@@ -339,7 +345,7 @@ function C007_LunchBreak_Jennifer_Masturbate() {
 function C007_LunchBreak_Jennifer_EvilEnd() {
 	if (C007_LunchBreak_Jennifer_ConfirmEvil) {
 		C007_LunchBreak_ActorSelect_EvilEnding = true;
-		Common_PlayerCrime = "JenniferStranded";
+		GameLogAdd("Stranded");
 		ActorChangeAttitude(-5, 1);
 		SetScene(CurrentChapter, "Outro");
 	} else {
@@ -367,9 +373,11 @@ function C007_LunchBreak_Jennifer_PushUp(Quality) {
 		if (C007_LunchBreak_Jennifer_PushUpQuality >= 20) {
 			C007_LunchBreak_Jennifer_CurrentStage = 340;
 			C007_LunchBreak_ActorSelect_BonusDone = true;
+			GameLogAdd("PushUpSuccess");
 			OverridenIntroText = GetText("PushUpSuccess");
 		} else {
 			C007_LunchBreak_Jennifer_CurrentStage = 400;
+			GameLogAdd("PushUpFail");
 			OverridenIntroText = GetText("PushUpFail");			
 		}
 	}
@@ -409,4 +417,9 @@ function C007_LunchBreak_Jennifer_CheckBag() {
 function C007_LunchBreak_Jennifer_EndChapter() {
 	C007_LunchBreak_Jennifer_Release();
 	SetScene(CurrentChapter, "Outro");
+}
+
+// Chapter 7 - Jennifer Kiss
+function C007_LunchBreak_Jennifer_Kiss() {
+	GameLogAdd("Kiss");
 }

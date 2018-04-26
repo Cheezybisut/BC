@@ -11,6 +11,7 @@ var C008_DramaClass_Villain_DamselCanInteract = false;
 var C008_DramaClass_Villain_DamselCanBeg = false;
 var C008_DramaClass_Villain_CanConvinceJuliaToStrip = false;
 var C008_DramaClass_Villain_CanUntie = false;
+var C008_DramaClass_Villain_CanUnstrap = false;
 var C008_DramaClass_Villain_CanUngag = false;
 var C008_DramaClass_Villain_CanAbuse = false;
 var C008_DramaClass_Villain_CanKiss = false;
@@ -27,6 +28,7 @@ var C008_DramaClass_Villain_CanDoSwordDance = false;
 function C008_DramaClass_Villain_CalcParams() {
 	C008_DramaClass_Villain_IsGagged = ActorIsGagged();
 	C008_DramaClass_Villain_CanUntie = (ActorHasInventory("Rope") && !Common_PlayerRestrained);
+	C008_DramaClass_Villain_CanUnstrap = (ActorHasInventory("Armbinder") && !Common_PlayerRestrained);
 	C008_DramaClass_Villain_CanUngag = (C008_DramaClass_Villain_IsGagged && !Common_PlayerRestrained);
 	C008_DramaClass_Villain_CanAbuse = (ActorIsRestrained() && !Common_PlayerRestrained);
 	C008_DramaClass_Villain_CanKiss = ((ActorIsRestrained() || (ActorGetValue(ActorLove) >= 5)) && !Common_PlayerGagged && !C008_DramaClass_Villain_IsGagged);
@@ -89,6 +91,7 @@ function C008_DramaClass_Villain_Click() {
 		// Apply the clicked restrain
 		ActorApplyRestrain(ClickInv);
 		if (ActorHasInventory("Rope")) ActorSetCloth("Underwear");
+		if (ActorHasInventory("Armbinder")) ActorSetCloth("Underwear");
 		C008_DramaClass_Villain_CalcParams();
 
 	}
@@ -119,6 +122,7 @@ function C008_DramaClass_Villain_Surrender() {
 	ActorSpecificChangeAttitude("Amanda", 0, -2);
 	ActorSpecificChangeAttitude("Sarah", 0, -2);
 	ActorSpecificChangeAttitude("Julia", 0, -2);
+	GameLogSpecificAdd(CurrentChapter, "", "FightSurrender");
 	C008_DramaClass_Theater_GlobalStage = C008_DramaClass_Villain_CurrentStage;
 	C008_DramaClass_Theater_SetPose();
 }
@@ -156,6 +160,7 @@ function C008_DramaClass_Villain_AmandaSarahFight(CheerFactor) {
 
 // Chapter 8 - Villain - When the villain kisses the damsel, it finishes the play
 function C008_DramaClass_Villain_FinalKiss() {
+	GameLogSpecificAdd(CurrentChapter, "", "FinalKiss");
 	OverridenIntroImage = "../HugImages/VillainAmandaDamselPlayerKiss.jpg"; 
 	ActorSpecificChangeAttitude("Amanda", 2, 0); 
 	ActorSpecificChangeAttitude("Sarah", -3, 0);
@@ -165,6 +170,7 @@ function C008_DramaClass_Villain_FinalKiss() {
 
 // Chapter 8 - Villain - When the villain hugs the damsel, it finishes the play
 function C008_DramaClass_Villain_FinalHug() {
+	GameLogSpecificAdd(CurrentChapter, "", "FinalHug");
 	OverridenIntroImage = "../HugImages/VillainAmandaDamselPlayerHug.jpg"; 
 	ActorSpecificChangeAttitude("Amanda", 1, 0); 
 	ActorSpecificChangeAttitude("Sarah", -1, 0);
@@ -174,6 +180,7 @@ function C008_DramaClass_Villain_FinalHug() {
 
 // Chapter 8 - Villain - When the damsel kneels for the villain, it finishes the play
 function C008_DramaClass_Villain_FinalDomme() {
+	GameLogSpecificAdd(CurrentChapter, "", "FinalDomme");
 	OverridenIntroImage = "../HugImages/VillainAmandaDamselPlayerDomme.jpg"; 
 	ActorSpecificChangeAttitude("Amanda", 1, -2);
 	ActorSpecificChangeAttitude("Sarah", -1, 0);
@@ -192,6 +199,7 @@ function C008_DramaClass_Villain_ReleasePlayer() {
 
 // Chapter 8 - Villain - When the damsel surrenders and the play ends with two prisoners
 function C008_DramaClass_Villain_FinalTwoPrisoners() {
+	GameLogSpecificAdd(CurrentChapter, "", "FinalTwoPrisoners");
 	C008_DramaClass_Theater_GlobalStage = 300;
 	C008_DramaClass_Theater_Ending = "TwoPrisoners";
 }
@@ -218,8 +226,8 @@ function C008_DramaClass_Villain_Ungag() {
 }
 
 // Chapter 8 - Villain Kiss
-function C008_DramaClass_Villain_Kiss() {
-	if (!C008_DramaClass_Villain_KissDone) { C008_DramaClass_Villain_KissDone = true; ActorChangeAttitude(1, 0); }
+function C008_DramaClass_Villain_Kiss() {	
+	if (!C008_DramaClass_Villain_KissDone) { GameLogAdd("Kiss"); C008_DramaClass_Villain_KissDone = true; ActorChangeAttitude(1, 0); }
 	C008_DramaClass_Villain_CalcParams();
 }
 
@@ -244,7 +252,7 @@ function C008_DramaClass_Villain_Masturbate() {
 	C008_DramaClass_Villain_MastubateCount++;
 
 	// Amanda will climax if she's properly tied up
-	if ((C008_DramaClass_Villain_MastubateCount >= 3) && !C008_DramaClass_Villain_OrgasmDone && ActorIsGagged() && ActorHasInventory("TwoRopes")) { 
+	if ((C008_DramaClass_Villain_MastubateCount >= 3) && !C008_DramaClass_Villain_OrgasmDone && ActorIsGagged() && (ActorHasInventory("TwoRopes") || ActorHasInventory("Armbinder"))) { 
 		C008_DramaClass_Villain_OrgasmDone = true;
 		ActorAddOrgasm();
 		ActorChangeAttitude(1, 0);
@@ -257,7 +265,7 @@ function C008_DramaClass_Villain_Masturbate() {
 // Chapter 8 - Villain Ravish
 function C008_DramaClass_Villain_Ravish() {
 	if (!C008_DramaClass_Villain_RavishDone) { C008_DramaClass_Villain_RavishDone = true; ActorChangeAttitude(0, -1); }
-	if ((ActorGetValue(ActorSubmission) < 5) && !ActorIsRestrained() && !ActorIsGagged() && (PlayerHasInventory("Rope") || PlayerHasInventory("Cuffs"))) {
+	if ((ActorGetValue(ActorSubmission) < 5) && !ActorIsRestrained() && !ActorIsGagged() && (PlayerHasInventory("Rope") || PlayerHasInventory("Armbinder") || PlayerHasInventory("Cuffs"))) {
 		CurrentTime = CurrentTime + 50000;
 		PlayerRandomBondage();
 		OverridenIntroText = GetText("Ravish");
@@ -269,6 +277,7 @@ function C008_DramaClass_Villain_Ravish() {
 function C008_DramaClass_Villain_SwordDance() {
 	if (C008_DramaClass_Villain_PlayerIsHeroine) { C008_DramaClass_Villain_CurrentStage = 240; C008_DramaClass_Theater_GlobalStage = 240; }
 	if (C008_DramaClass_Villain_PlayerIsVillain) { C008_DramaClass_Villain_CurrentStage = 270; C008_DramaClass_Theater_GlobalStage = 270; }
+	GameLogSpecificAdd(CurrentChapter, "", "FightSwordDance");
 	ActorSpecificChangeAttitude("Julia", PlayerGetSkillLevel("Arts"), 0);
 	ActorSpecificChangeAttitude("Amanda", 0, 1);
 	ActorSpecificChangeAttitude("Sarah", 0, 1);

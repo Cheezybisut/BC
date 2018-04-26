@@ -1,0 +1,25 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,"OOOoh ! Une nouvelle élève ! Je suis la professeur|d'Arts Plastiques Giuliana, tu peux m'appeler Julia.",JuliaWantsHug.jpg
+10,0,0,,,JuliaWantsHug.jpg
+20,0,0,,,JuliaHug.jpg
+30,0,0,,,Julia.jpg
+40,0,0,,,Julia.jpg
+50,0,0,,,Julia.jpg
+60,0,0,,"Alors ta toile avance comme tu veux ?|Feras-tu un chef d'oeuvre comme ""Raffaello"" ?",JuliaPose.jpg
+70,0,0,,"Tu connais l'oeuvre de Sandro Botticelli ?",Julia.jpg
+80,0,0,,"Tu as déjà vue ""La Naissance de Vénus"" ?",Julia.jpg
+100,0,0,,,JuliaNoTop.jpg
+110,0,0,,Ai-je l'air d'une belle Vénus ?,JuliaNoTop.jpg
+120,0,0,,"Ne suis-je pas une Vénus ""magnifico"" ?",JuliaNoTop.jpg
+130,0,0,,,JuliaNude.jpg
+140,0,0,,"""La Naissance de Vénus"" !|L'art n'est-il pas merveilleux ? Es-tu ravie ?",JuliaNude.jpg
+150,0,0,,Alors qui devrait poser avec moi ?,JuliaNude.jpg
+150,0,0,IsGagged,(Elle cherche un nouveau modèle.),JuliaNude.jpg
+160,0,0,,,JuliaNude.jpg
+170,0,0,,Tiens la pose ! Faisons de l'art !,JuliaNude.jpg
+170,0,0,EggInside,OooOOOoh ! Qu'avons-nous là ?|(Elle semble avoir des spasmes à cause de l'oeuf.),JuliaNude.jpg
+170,0,0,Common_PlayerRestrained,"Vénus et Shibari, quelle combinaison !",JuliaNude.jpg
+170,0,0,IsGagged,Munm gnu ! (Elle ne peut être comprise.),JuliaNude.jpg
+180,0,0,,Tiens la pose ! Faisons de l'art !,JuliaNude.jpg
+180,0,0,EggInside,OooOOOoh ! Qu'avons-nous là ?|(Elle semble avoir des spasmes à cause de l'oeuf.),JuliaNude.jpg
+180,0,0,IsGagged,Munm gnu ! (Elle ne peut être comprise.),JuliaNude.jpg

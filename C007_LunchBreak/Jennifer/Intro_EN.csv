@@ -2,6 +2,8 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 0,0,0,,"Hi COMMON_PLAYERNAME, what's going on?",JenniferIntro.jpg
 0,4,0,,COMMON_PLAYERNAME!  It's nice to see you again.,JenniferIntroHappy.jpg
 0,0,4,,Hello Miss COMMON_PLAYERNAME.|What can I do for you?,JenniferIntroSubbie.jpg
+0,0,0,JudoVictory,Oh!  The judo black belt!|What can I do for you?,JenniferIntroSubbie.jpg
+0,0,0,JudoDefeat,Oh!  My judo partner!|What can I do for you?,JenniferIntro.jpg
 0,0,0,HasEgg,This thing is still vibrating inside of me!|I hope it won't take too long to remove it.,JenniferIntroSubbie.jpg
 10,0,0,,I'm going to play tennis before lunch.|Would you like to come with me?,JenniferIntro.jpg
 10,4,0,,I'm going to play tennis before lunch.|Would you like to come with me?,JenniferIntroHappy.jpg

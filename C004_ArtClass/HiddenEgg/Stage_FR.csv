@@ -1,0 +1,2 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,Common_PlayerNotRestrained,(Tu le prends.),Tu t'assures de ne pas être vue|puis tu prends l'objet rose.,10,0,0,TakeEgg()

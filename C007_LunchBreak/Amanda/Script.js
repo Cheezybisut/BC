@@ -14,6 +14,8 @@ var C007_LunchBreak_Amanda_LeaveIcon = "";
 var C007_LunchBreak_Amanda_IsBoundAndGagged = false;
 var C007_LunchBreak_Amanda_ConfirmEvil = false;
 var C007_LunchBreak_Amanda_HasSeduction = false;
+var C007_LunchBreak_Amanda_TeamAgainstMildred = false;
+var C007_LunchBreak_Amanda_TeamFailAgainstMildred = false;
 
 // Calculates the screen parameters
 function C007_LunchBreak_Amanda_CalcParams() {
@@ -55,7 +57,9 @@ function C007_LunchBreak_Amanda_Load() {
 	LoadInteractions();
 	C007_LunchBreak_Amanda_CalcParams();
 	C007_LunchBreak_Amanda_HasSeduction = (PlayerGetSkillLevel("Seduction") >= 1);
-	
+	C007_LunchBreak_Amanda_TeamAgainstMildred = GameLogQuery("C002_FirstClass", "Mildred", "SubdueWithAmanda");
+	C007_LunchBreak_Amanda_TeamFailAgainstMildred = GameLogQuery("C002_FirstClass", "Mildred", "SubdueFailWithAmanda");
+
 	// If Amanda doesn't like the player and isn't subbie enough, she leaves and don't talk
 	if ((ActorGetValue(ActorLove) <= -3) && (ActorGetValue(ActorSubmission) <= 2) && (C007_LunchBreak_Amanda_CurrentStage == 0)) {
 		C007_LunchBreak_Amanda_CurrentStage = 5;
@@ -178,7 +182,8 @@ function C007_LunchBreak_Amanda_NoLeave() {
 }
 
 // Chapter 7 - Amanda Start Lunch
-function C007_LunchBreak_Amanda_StartLunch() {	
+function C007_LunchBreak_Amanda_StartLunch() {
+	GameLogAdd("Lunch");
 	CurrentTime = CurrentTime + 480000;
 	LeaveIcon = "";
 }
@@ -213,7 +218,7 @@ function C007_LunchBreak_Amanda_TestMatch() {
 	if (ActorGetValue(ActorSubmission) >= 10) C007_LunchBreak_Amanda_CurrentStage = 300; // Player is Domme mode (10 is so high that we don't check for a match)
 	if ((ActorGetValue(ActorLove) >= 1) && (ActorGetValue(ActorSubmission) <= -3) && (C007_LunchBreak_Amanda_MatchCount >= 4)) C007_LunchBreak_Amanda_CurrentStage = 400; // Player is subbie mode
 	if (C007_LunchBreak_Amanda_CurrentStage == -1) SetScene(CurrentChapter, "Outro"); // No mode, we end the chapter
-	else C007_LunchBreak_ActorSelect_BonusDone = true; // With a mode, we flag the bonus scene
+	else { GameLogAdd("LunchBonus"); C007_LunchBreak_ActorSelect_BonusDone = true; } // With a mode, we flag the bonus scene
 	OverridenIntroImage = "";
 }
 
@@ -337,11 +342,16 @@ function C007_LunchBreak_Amanda_EndBonus() {
 function C007_LunchBreak_Amanda_EvilEnd() {
 	if (C007_LunchBreak_Amanda_ConfirmEvil) {
 		C007_LunchBreak_ActorSelect_EvilEnding = true;
-		Common_PlayerCrime = "AmandaStranded";
+		GameLogAdd("Stranded");
 		ActorChangeAttitude(-5, 1);
 		SetScene(CurrentChapter, "Outro");		
 	} else {
 		OverridenIntroText = GetText("LeaveBoundAndGagged");
 		C007_LunchBreak_Amanda_ConfirmEvil = true;
 	}
+}
+
+// Chapter 7 - Amanda Kiss
+function C007_LunchBreak_Amanda_Kiss() {
+	GameLogAdd("Kiss");
 }

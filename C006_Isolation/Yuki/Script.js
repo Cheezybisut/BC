@@ -67,7 +67,7 @@ function C006_Isolation_Yuki_Pleasure(PleasureType) {
 	} else {
 		
 		// If the player took too long to try all 3 pleasures, she gives up
-		if (C006_Isolation_Yuki_Pleasure1 + C006_Isolation_Yuki_Pleasure2 + C006_Isolation_Yuki_Pleasure3 >= 8) {
+		if (C006_Isolation_Yuki_Pleasure1 + C006_Isolation_Yuki_Pleasure2 + C006_Isolation_Yuki_Pleasure3 >= 7) {
 			OverridenIntroText = GetText("StopPleasure");
 			C006_Isolation_Yuki_CurrentStage = 250;
 		}
@@ -81,12 +81,14 @@ function C006_Isolation_Yuki_CheckToEat() {
 	// Yuki forces the player if she has the egg
 	if (C006_Isolation_Yuki_EggInside) {
 		OverridenIntroText = GetText("LickEgg");
+		GameLogAdd("Pleasure");
 		C006_Isolation_Yuki_CurrentStage = 200;
 	}
 
 	// Yuki forces the player if she's dominant
 	if (ActorGetValue(ActorSubmission) <= -3) {
 		OverridenIntroText = GetText("LickSub");
+		GameLogAdd("Pleasure");
 		C006_Isolation_Yuki_CurrentStage = 200;
 	}
 

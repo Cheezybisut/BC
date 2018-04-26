@@ -75,7 +75,7 @@ function FindFightImage() {
 }
 
 // Draw the fight icons
-function DrawFightIcons(ctx) {
+function DrawFightIcons() {
 
 	// Scroll the fight icons with time
 	var Seq = 0;
@@ -85,7 +85,7 @@ function DrawFightIcons(ctx) {
         var currentIconTime = FightMoves[Seq][FightMoveTime];
         var currentIconType = FightMoves[Seq][FightMoveType];
         if ((currentIconTime <= FightTimer + 3000) && (currentIconTime >= FightTimer - 1000))
-            DrawImage(ctx, FightIcon, 812 + (currentIconType * 100), 410 + Math.floor((FightTimer - currentIconTime) / 6));
+            DrawImage(FightIcon, 812 + (currentIconType * 100), 410 + Math.floor((FightTimer - currentIconTime) / 6));
 
 		// Remove the move from the sequence if it's past due
 		if (FightMoves[Seq][FightMoveTime] < FightTimer - 1000) {
@@ -104,23 +104,23 @@ function DrawFightIcons(ctx) {
 }
 
 // Draw the fight bars to tell when the moves will hit
-function DrawFightBar(ctx, SquareType) {
+function DrawFightBar(SquareType) {
 
 	// The color changes when it's clicked or pressed
-	DrawRect(ctx, 810 + (SquareType * 100), 437, 80, 27, "White");
+	DrawRect(810 + (SquareType * 100), 437, 80, 27, "White");
 	if ((LastMoveType == SquareType) && (LastMoveTypeTimer >= FightTimer))
-		DrawRect(ctx, 811 + (SquareType * 100), 438, 78, 25, "#66FF66");
+		DrawRect(811 + (SquareType * 100), 438, 78, 25, "#66FF66");
 	else
-		DrawRect(ctx, 811 + (SquareType * 100), 438, 78, 25, "Red");
-	if (!IsMobile) DrawText(ctx, String.fromCharCode(FightMoveTypeKeyUpper[SquareType]), 850 + (SquareType * 100), 451, "white");
+		DrawRect(811 + (SquareType * 100), 438, 78, 25, "Red");
+	if (!IsMobile) DrawText(String.fromCharCode(FightMoveTypeKeyUpper[SquareType]), 850 + (SquareType * 100), 451, "white");
 	
 }
 
 // Draw the fight progress in the bottom of the fight scene
-function DrawFightProgress(ctx) {
-	DrawRect(ctx, 800, 590, 400, 1, "white");
-	DrawRect(ctx, 800, 591, FightProgress * 4, 9, "#66FF66");
-	DrawRect(ctx, 800 + (FightProgress * 4), 591, (100 - FightProgress) * 4, 9, "red");
+function DrawFightProgress() {
+	DrawRect(800, 590, 400, 1, "white");
+	DrawRect(800, 591, FightProgress * 4, 9, "#66FF66");
+	DrawRect(800 + (FightProgress * 4), 591, (100 - FightProgress) * 4, 9, "red");
 }
 
 // Render the fight scene
@@ -138,15 +138,14 @@ function RenderFight() {
 			FightProgress = 50;
 
 		// Paints the background depending on the current fight progress
-		var ctx = document.getElementById("MainCanvas").getContext("2d");
-		DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/" + FindFightImage(), 0, 0);
-		DrawRect(ctx, 800, 0, 400, 600, "Black");
+		DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + FindFightImage(), 0, 0);
+		DrawRect(800, 0, 400, 600, "Black");
 		
 		// Draw the fight icons and rectangles
-		DrawFightBar(ctx, 0);
-		DrawFightBar(ctx, 1);
-		DrawFightBar(ctx, 2);
-		DrawFightBar(ctx, 3);
+		DrawFightBar(0);
+		DrawFightBar(1);
+		DrawFightBar(2);
+		DrawFightBar(3);
 		
 		// If there's no moves left, we full the move list again, there's no tie match
 		if ((FightMoves.length == 0) && (!FightEnded))
@@ -155,19 +154,19 @@ function RenderFight() {
 		// Draw the fight icons and bottom info when the fight is running
 		if (!FightEnded) {
 			if (FightTimer >= 5000) {
-				DrawFightIcons(ctx);
-				DrawFightProgress(ctx);
+				DrawFightIcons();
+				DrawFightProgress();
 			} 
 			else {
-				DrawText(ctx, GetText("StartsIn") + " " + (5 - Math.floor(FightTimer / 1000)).toString(), 1000, 510, "white");
-				DrawText(ctx, GetText("Difficulty") + " " + GetText(FightDifficultyText), 1000, 555, "white");
+				DrawText(GetText("StartsIn") + " " + (5 - Math.floor(FightTimer / 1000)).toString(), 1000, 510, "white");
+				DrawText(GetText("Difficulty") + " " + GetText(FightDifficultyText), 1000, 555, "white");
 			}
 		}
 		else {
-			if ((FightProgress >= 100) && FightPerfect) DrawText(ctx, GetText("Perfect"), 1000, 150, "white");
-			if ((FightProgress >= 100) && !FightPerfect) DrawText(ctx, GetText("Victory"), 1000, 150, "white");
-			if (FightProgress <= 0) DrawText(ctx, GetText("Defeat"), 1000, 150, "white");
-			DrawText(ctx, GetText("ClickContinue"), 1000, 300, "white");
+			if ((FightProgress >= 100) && FightPerfect) DrawText(GetText("Perfect"), 1000, 150, "white");
+			if ((FightProgress >= 100) && !FightPerfect) DrawText(GetText("Victory"), 1000, 150, "white");
+			if (FightProgress <= 0) DrawText(GetText("Defeat"), 1000, 150, "white");
+			DrawText(GetText("ClickContinue"), 1000, 300, "white");
 		}
 
 	}

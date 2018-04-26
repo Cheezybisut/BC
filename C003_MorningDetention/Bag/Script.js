@@ -33,6 +33,7 @@ function C003_MorningDetention_Bag_StealPill() {
 	PlayerAddInventory("SleepingPill", 1);
 	C003_MorningDetention_Bag_PillInBag = false;
 	C003_MorningDetention_Bag_PillInBagAvail = false;
+	GameLogSpecificAdd(CurrentChapter, "Yuki", "StealSleepingPill");
 
 }
 
@@ -43,5 +44,6 @@ function C003_MorningDetention_Bag_StealEgg() {
 	PlayerAddInventory("VibratingEgg", 1);
 	C003_MorningDetention_Bag_EggInBag = false;
 	C003_MorningDetention_Bag_EggInBagAvail = false;
+	GameLogSpecificAdd(CurrentChapter, "Yuki", "StealVibratingEgg");
 
 }

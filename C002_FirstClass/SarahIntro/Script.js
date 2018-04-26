@@ -16,18 +16,17 @@ function C002_FirstClass_SarahIntro_Load() {
 function C002_FirstClass_SarahIntro_Run() {
 	
 	// Paints the background
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
 	if (ActorSpecificHasInventory("Amanda", "BallGag"))
-		DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background_AmandaGag.jpg", 0, 0);
+		DrawImage(CurrentChapter + "/" + CurrentScreen + "/Background_AmandaGag.jpg", 0, 0);
 	else
-		DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
+		DrawImage(CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
 
 	// Write the chapter introduction
-	DrawText(ctx, GetText("Intro1"), 600, 100, "White");
-	if (TextPhase >= 1) DrawText(ctx, GetText("Intro2"), 600, 200, "White");
-	if (TextPhase >= 2) DrawText(ctx, GetText("Intro3"), 600, 300, "White");
-	if (TextPhase >= 3) DrawText(ctx, GetText("Intro4"), 600, 400, "White");
-	if (TextPhase >= 4) DrawText(ctx, GetText("Intro5"), 600, 500, "White");
+	DrawText(GetText("Intro1"), 600, 100, "White");
+	if (TextPhase >= 1) DrawText(GetText("Intro2"), 600, 200, "White");
+	if (TextPhase >= 2) DrawText(GetText("Intro3"), 600, 300, "White");
+	if (TextPhase >= 3) DrawText(GetText("Intro4"), 600, 400, "White");
+	if (TextPhase >= 4) DrawText(GetText("Intro5"), 600, 500, "White");
 		
 }
 

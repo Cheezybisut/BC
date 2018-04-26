@@ -2,6 +2,7 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 0,0,0,,What do you want COMMON_PLAYERNAME?|I don't have time to chat.,SidneyIntro.jpg
 0,5,0,,COMMON_PLAYERNAME!  Can you help me?,SidneyIntroHappy.jpg
 0,0,5,,Hello Miss COMMON_PLAYERNAME.|Can I bother you for help?,SidneyIntroSubbie.jpg
+0,0,0,HelpedEscape,Hey!  You helped me to escape|this morning.  Can you help again?,SidneyIntroHappy.jpg
 0,0,0,HasEgg,"I can't remove your fucking vibrator!|We'll settle this later, I have a bigger problem.",SidneyIntro.jpg
 10,0,0,,I can't find my fucking purse|and I'm hungry as shit!,SidneyIntro.jpg
 10,5,0,,I can't find my fucking purse|and I'm hungry as shit!,SidneyIntroHappy.jpg

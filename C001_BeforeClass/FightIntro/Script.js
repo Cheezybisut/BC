@@ -12,16 +12,15 @@ function C001_BeforeClass_FightIntro_Load() {
 function C001_BeforeClass_FightIntro_Run() {
 	
 	// Paints the background
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawRect(ctx, 0, 0, 800, 600, "black");
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 800, 0);
+	DrawRect(0, 0, 800, 600, "black");
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 800, 0);
 	
 	// Each animation show an additional line of text
-	DrawText(ctx, GetText("Intro1"), 400, 150, "White");
-	if (TextPhase >= 1) DrawText(ctx, GetText("Intro2"), 400, 250, "White");
-	if (TextPhase >= 2) DrawText(ctx, GetText("Intro3"), 400, 350, "White");
-	if ((TextPhase >= 3) && !IsMobile) DrawText(ctx, GetText("Intro4A"), 400, 450, "White");
-	if ((TextPhase >= 3) && IsMobile) DrawText(ctx, GetText("Intro4B"), 400, 450, "White");
+	DrawText(GetText("Intro1"), 400, 150, "White");
+	if (TextPhase >= 1) DrawText(GetText("Intro2"), 400, 250, "White");
+	if (TextPhase >= 2) DrawText(GetText("Intro3"), 400, 350, "White");
+	if ((TextPhase >= 3) && !IsMobile) DrawText(GetText("Intro4A"), 400, 450, "White");
+	if ((TextPhase >= 3) && IsMobile) DrawText(GetText("Intro4B"), 400, 450, "White");
 
 }
 

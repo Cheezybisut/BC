@@ -113,7 +113,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 185,0,0,!AllowObey,Let's go back.|(Back to college.),,0,0,0,EndChapter()
 200,0,0,,"Remember, you're|my slave for now.","Don't say slave, it sounds so bad.|It's fine though, you can be my boss.",220,-1,0,
 200,0,0,,You have to obey|on everything I say.,"(She nods.)  Alright, but there are limits.",220,0,0,
-200,8,0,,Can I have a kiss?|(1 minute),(She blushes and smiles.)  Sure.|(You grab each other kiss lovingly.),210,1,0,
+200,8,0,,Can I have a kiss?|(1 minute),(She blushes and smiles.)  Sure.|(You grab each other kiss lovingly.),210,1,0,Kiss()
 200,0,8,,(Grab and strip her.)|(1 minute),(She remains speechless as you|grab her and force her to strip.),240,-1,1,
 210,0,0,,(Kiss her again.)|(1 minute),(You kiss each other again on the|tennis court while moaning lightly.),210,0,0,
 210,0,0,,I love you.  But|let's not rush this.,You?  I?  You love me?  Let's take it slow.|(She looks away confused and nervous.),215,1,0,BonusDone()

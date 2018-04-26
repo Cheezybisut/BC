@@ -12,6 +12,7 @@ var C007_LunchBreak_Sarah_IsBoundAndGagged = false;
 var C007_LunchBreak_Sarah_HasEgg = false;
 var C007_LunchBreak_Sarah_TwoRopes = false;
 var C007_LunchBreak_Sarah_ConfirmEvil = false;
+var C007_LunchBreak_Sarah_SubdueMildred = false;
 
 // Calculates the screen parameters
 function C007_LunchBreak_Sarah_CalcParams() {
@@ -64,6 +65,7 @@ function C007_LunchBreak_Sarah_Load() {
 	ActorLoad("Sarah", "ActorSelect");
 	LoadInteractions();
 	C007_LunchBreak_Sarah_CalcParams();
+	C007_LunchBreak_Sarah_SubdueMildred = (GameLogQuery("C002_FirstClass", "Mildred", "Subdue") && !GameLogQuery("C002_FirstClass", "Mildred", "Release"));
 	
 	// If Sarah doesn't like the player and isn't subbie enough, she leaves and don't talk
 	if ((ActorGetValue(ActorLove) <= -3) && (ActorGetValue(ActorSubmission) <= 2) && (C007_LunchBreak_Sarah_CurrentStage == 0)) {
@@ -176,6 +178,7 @@ function C007_LunchBreak_Sarah_Click() {
 
 // Chapter 7 - Sarah Start Lunch
 function C007_LunchBreak_Sarah_StartLunch() {	
+	GameLogAdd("Lunch");
 	CurrentTime = CurrentTime + 480000;
 	LeaveIcon = "";
 }
@@ -222,6 +225,7 @@ function C007_LunchBreak_Sarah_RestroomTimerRun() {
 // Chapter 7 - Sarah Test Restroom door (Sarah will let the player enter if there's a good match +3 or more)
 function C007_LunchBreak_Sarah_RestroomTestDoor() {
 	if (C007_LunchBreak_Sarah_MatchCount >= 4) {
+		GameLogAdd("LunchBonus");
 		OverridenIntroText = GetText("OpenRestroomDoor");
 		C007_LunchBreak_Sarah_CurrentStage = 200;
 		C007_LunchBreak_Sarah_CalcParams();
@@ -311,11 +315,29 @@ function C007_LunchBreak_Sarah_EndChapter() {
 function C007_LunchBreak_Sarah_EvilEnd() {
 	if (C007_LunchBreak_Sarah_ConfirmEvil) {
 		C007_LunchBreak_ActorSelect_EvilEnding = true;
-		Common_PlayerCrime = "SarahStranded";
+		GameLogAdd("Stranded");
 		ActorChangeAttitude(-5, 1);
 		SetScene(CurrentChapter, "Outro");		
 	} else {
 		OverridenIntroText = GetText("LeaveBoundAndGagged");
 		C007_LunchBreak_Sarah_ConfirmEvil = true;
 	}
+}
+
+// Chapter 7 - Sarah Kiss
+function C007_LunchBreak_Sarah_Kiss() {
+	GameLogAdd("Kiss");
+}
+
+// Chapter 7 - Sarah can give an armbinder at the end if she was happy at lunch
+function C007_LunchBreak_Sarah_TestArmbinder() {
+	if (!GameLogQuery(CurrentChapter, CurrentActor, "Orgasm"))
+		C007_LunchBreak_Sarah_EndChapter();
+	else
+		CurrentTime = CurrentTime + 300000;
+}
+
+// Chapter 7 - Sarah  give an armbinder
+function C007_LunchBreak_Sarah_AddArmbinder() {
+	PlayerAddInventory("Armbinder", 1);
 }

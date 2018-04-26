@@ -21,6 +21,7 @@
 <script src="Skill.js"></script>
 <script src="Time.js"></script>
 <script src="Struggle.js"></script>
+<script src="GameLog.js"></script>
 <script src="C000_Intro/Intro/Script.js"></script>
 <script src="C000_Intro/ChapterSelect/Script.js"></script>
 <script src="C000_Intro/CreatePlayer/Script.js"></script>
@@ -97,6 +98,9 @@
 <script src="C008_DramaClass/Outro/Script.js"></script>
 <script src="C009_Library/Intro/Script.js"></script>
 <script src="C009_Library/Library/Script.js"></script>
+<script src="C009_Library/Search/Script.js"></script>
+<script src="C009_Library/Jennifer/Script.js"></script>
+<script src="C009_Library/Yuki/Script.js"></script>
 <script src="C009_Library/Outro/Script.js"></script>
 <script src="C010_Revenge/Intro/Script.js"></script>
 <script src="C010_Revenge/AmandaSarah/Script.js"></script>
@@ -109,11 +113,14 @@
 <script src="C101_KinbakuClub/ClubRoom1/Script.js"></script>
 <script src="C101_KinbakuClub/ClubRoom2/Script.js"></script>
 <script src="C101_KinbakuClub/ClubRoom3/Script.js"></script>
+<script src="C101_KinbakuClub/ClubRoom4/Script.js"></script>
 <script src="C101_KinbakuClub/BlindMansBuff/Script.js"></script>
 <script src="C101_KinbakuClub/Erica/Script.js"></script>
 <script src="C101_KinbakuClub/Fight/Script.js"></script>
 <script src="C101_KinbakuClub/EricaBadEnd/Script.js"></script>
 <script src="C101_KinbakuClub/Lauren/Script.js"></script>
+<script src="C101_KinbakuClub/RopeGroup/Script.js"></script>
+<script src="C101_KinbakuClub/Slaves/Script.js"></script>
 <script src="C101_KinbakuClub/Transition/Script.js"></script>
 <script src="C101_KinbakuClub/Door/Script.js"></script>
 <script src="C101_KinbakuClub/Outro/Script.js"></script>
@@ -123,6 +130,8 @@
 <script src="C999_Common/Cuffs/Script.js"></script>
 <script src="C999_Common/CuffsKey/Script.js"></script>
 <script src="C999_Common/Rope/Script.js"></script>
+<script src="C999_Common/Armbinder/Script.js"></script>
+<script src="C999_Common/Manacles/Script.js"></script>
 <script src="C999_Common/BallGag/Script.js"></script>
 <script src="C999_Common/TapeGag/Script.js"></script>
 <script src="C999_Common/ClothGag/Script.js"></script>
@@ -142,6 +151,7 @@
 
 // When the code is loaded, start on "Chapter 0" to select a chapter and loads the default language
 window.onload = function() {
+	MainCanvas = document.getElementById("MainCanvas").getContext("2d");
 	if (localStorage.getItem("CurrentLanguageTag")) CurrentLanguageTag = localStorage.getItem("CurrentLanguageTag");
 	IsMobile = DetectMobile();
 	document.getElementById("MainCanvas").addEventListener("keypress", KeyDown);

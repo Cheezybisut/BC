@@ -2,11 +2,8 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 0,0,0,,You sure know how to cause trouble with ropes.|What do you want now? (She stares at you.),SidneyFace.jpg
 0,-1,0,,You idiot!  Look at the trouble you caused with ropes.|What the fuck do you want? (She stares at you.),SidneyFace.jpg
 0,1,0,,Ha!  This bondage in class was pretty|daring.  So what do you want now?,SidneyFace.jpg
-0,0,0,Fighting,That was a good fight.  So what do|you want now? (She stares at you.),SidneyFace.jpg
-0,-1,0,Fighting,"If you want to fight again, I'll crush you after school.|What the fuck do you want? (She stares at you.)",SidneyFace.jpg
-0,1,0,Fighting,Let's hope we fight on the same side|next time.  So what do you want now?,SidneyFace.jpg
-0,0,0,FightWon,It was so easy to crush you.|So what do you want now?,SidneyFace.jpg
-0,0,0,FightLost,You know you were fucking lucky to|beat me.  What do you want now?,SidneyFace.jpg
+0,0,0,FightDefeat,It was so easy to crush you.|So what do you want now?,SidneyFace.jpg
+0,0,0,FightVictory,You know you were fucking lucky to|beat me.  What do you want now?,SidneyFace.jpg
 0,0,0,Common_PlayerGagged,Ha!  You got yourself cuffed and|gagged.  You're such a troublemaker.,SidneyFace.jpg
 10,0,0,,Stop starring at these stupid cuffs.,SidneyCuffs.jpg
 10,0,0,Common_PlayerGagged,Ha!  You got yourself cuffed and|gagged.  You're such a troublemaker.,SidneyFace.jpg

@@ -14,6 +14,7 @@ var C008_DramaClass_Damsel_CanHugVillain = false;
 var C008_DramaClass_Damsel_IsGagged = false;
 var C008_DramaClass_Damsel_IsRestrained = false;
 var C008_DramaClass_Damsel_CanUntie = false;
+var C008_DramaClass_Damsel_CanUnstrap = false;
 var C008_DramaClass_Damsel_CanUngag = false;
 var C008_DramaClass_Damsel_CanAbuse = false;
 var C008_DramaClass_Damsel_CanKiss = false;
@@ -26,6 +27,7 @@ function C008_DramaClass_Damsel_CalcParams() {
 	C008_DramaClass_Damsel_IsGagged = ActorIsGagged();
 	C008_DramaClass_Damsel_IsRestrained = ActorIsRestrained();
 	C008_DramaClass_Damsel_CanUntie = (ActorHasInventory("Rope") && !Common_PlayerRestrained);
+	C008_DramaClass_Damsel_CanUnstrap = (ActorHasInventory("Armbinder") && !Common_PlayerRestrained);
 	C008_DramaClass_Damsel_CanUngag = (C008_DramaClass_Damsel_IsGagged && !Common_PlayerRestrained);
 	C008_DramaClass_Damsel_CanAbuse = (C008_DramaClass_Damsel_IsRestrained && !Common_PlayerRestrained);
 	C008_DramaClass_Damsel_CanKiss = ((C008_DramaClass_Damsel_IsRestrained || (ActorGetValue(ActorLove) >= 5)) && !Common_PlayerGagged && !C008_DramaClass_Damsel_IsGagged);
@@ -179,6 +181,7 @@ function C008_DramaClass_Damsel_ReleaseDamsel() {
 
 // Chapter 8 - Damsel - When the damsel kisses the victor, it finishes the play
 function C008_DramaClass_Damsel_FinalKiss() {
+	GameLogSpecificAdd(CurrentChapter, "", "FinalKiss");
 	if ((C008_DramaClass_Damsel_CurrentStage == 260) && C008_DramaClass_Damsel_PlayerIsVillain && ActorSpecificHasInventory("Sarah", "Rope")) { C008_DramaClass_Damsel_ReleaseDamsel(); OverridenIntroText = GetText("AmandaReleaseForKiss"); }
 	if ((C008_DramaClass_Damsel_CurrentStage == 290) && C008_DramaClass_Damsel_PlayerIsHeroine && ActorSpecificHasInventory("Sarah", "Rope")) { C008_DramaClass_Damsel_ReleaseDamsel(); OverridenIntroText = GetText("AmandaReleaseForKiss"); }
 	if ((C008_DramaClass_Damsel_CurrentStage == 260) && C008_DramaClass_Damsel_PlayerIsDamsel) { OverridenIntroImage = "../HugImages/HeroineSarahDamselPlayerKiss.jpg"; ActorSpecificChangeAttitude("Sarah", 2, 0); ActorSpecificChangeAttitude("Amanda", -3, 0); }
@@ -193,6 +196,7 @@ function C008_DramaClass_Damsel_FinalKiss() {
 
 // Chapter 8 - Damsel - When the damsel hugs the victor, it finishes the play
 function C008_DramaClass_Damsel_FinalHug() {
+	GameLogSpecificAdd(CurrentChapter, "", "FinalHug");
 	if ((C008_DramaClass_Damsel_CurrentStage == 260) && C008_DramaClass_Damsel_PlayerIsDamsel) { OverridenIntroImage = "../HugImages/HeroineSarahDamselPlayerHug.jpg"; ActorSpecificChangeAttitude("Sarah", 1, 0); ActorSpecificChangeAttitude("Amanda", -1, 0); }
 	if ((C008_DramaClass_Damsel_CurrentStage == 260) && C008_DramaClass_Damsel_PlayerIsHeroine) { OverridenIntroImage = "../HugImages/HeroinePlayerDamselSarahHug.jpg"; ActorSpecificChangeAttitude("Sarah", 1, 0); ActorSpecificChangeAttitude("Amanda", -1, 0); }
 	if ((C008_DramaClass_Damsel_CurrentStage == 290) && C008_DramaClass_Damsel_PlayerIsDamsel) { OverridenIntroImage = "../HugImages/VillainAmandaDamselPlayerHug.jpg"; ActorSpecificChangeAttitude("Amanda", 1, 0); ActorSpecificChangeAttitude("Sarah", -1, 0); }
@@ -203,6 +207,7 @@ function C008_DramaClass_Damsel_FinalHug() {
 
 // Chapter 8 - Damsel - When the damsel kneels for the victor, it finishes the play
 function C008_DramaClass_Damsel_FinalDomme() {
+	GameLogSpecificAdd(CurrentChapter, "", "FinalDomme");
 	if ((C008_DramaClass_Damsel_CurrentStage == 260) && C008_DramaClass_Damsel_PlayerIsDamsel) { OverridenIntroImage = "../HugImages/HeroineSarahDamselPlayerDomme.jpg"; ActorSpecificChangeAttitude("Sarah", 1, -2); ActorSpecificChangeAttitude("Amanda", -1, 0); }
 	if ((C008_DramaClass_Damsel_CurrentStage == 260) && C008_DramaClass_Damsel_PlayerIsHeroine) { OverridenIntroImage = "../HugImages/HeroinePlayerDamselSarahDomme.jpg"; ActorSpecificChangeAttitude("Sarah", 1, 2); ActorSpecificChangeAttitude("Amanda", -1, 0); }
 	if ((C008_DramaClass_Damsel_CurrentStage == 290) && C008_DramaClass_Damsel_PlayerIsDamsel) { OverridenIntroImage = "../HugImages/VillainAmandaDamselPlayerDomme.jpg"; ActorSpecificChangeAttitude("Amanda", 1, -2); ActorSpecificChangeAttitude("Sarah", -1, 0); }
@@ -213,6 +218,7 @@ function C008_DramaClass_Damsel_FinalDomme() {
 
 // Chapter 8 - Damsel - The villain can take both girls as prisoners for the final act
 function C008_DramaClass_Damsel_FinalTwoPrisoners() {
+	GameLogSpecificAdd(CurrentChapter, "", "FinalTwoPrisoners");
 	ActorSpecificChangeAttitude("Sarah", 0, 1);
 	ActorSpecificChangeAttitude("Amanda", 0, 1);
 	ActorSpecificChangeAttitude("Julia", 0, 1);
@@ -241,6 +247,11 @@ function C008_DramaClass_Damsel_Ungag() {
 // Chapter 8 - Damsel Spank
 function C008_DramaClass_Damsel_Spank() {
 	if (!C008_DramaClass_Damsel_ViolenceDone) { C008_DramaClass_Damsel_ViolenceDone = true; ActorChangeAttitude(1, 0); }
+}
+
+// Chapter 8 - Damsel Kiss
+function C008_DramaClass_Damsel_Kiss() {
+	GameLogAdd("Kiss");
 }
 
 // Chapter 8 - Damsel Masturbate, Sarah can climax if she was hit before (Spank or Crop)

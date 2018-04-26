@@ -135,7 +135,7 @@ function C002_FirstClass_Sarah_AgreeHelp() {
 	C002_FirstClass_Classroom_SarahAgree = true;
 }
 
-// Chapter 2 - Sarah AnnoyMildred to Help
+// Chapter 2 - Sarah annoys Mildred
 function C002_FirstClass_Sarah_AnnoyMildred() {
 	ActorAddInventory("Cuffs");
 	ActorAddInventory("BallGag");
@@ -155,4 +155,9 @@ function C002_FirstClass_Sarah_Separate() {
 // Chapter 2 - Sarah Bondage Duo Comment
 function C002_FirstClass_Sarah_BondageDuo() {
 	if (C002_FirstClass_Sarah_BondageDuoDone == false) { C002_FirstClass_Sarah_BondageDuoDone = true; ActorChangeAttitude(0, 1); }
+}
+
+// Chapter 2 - Sarah kisses Amanda
+function C002_FirstClass_Sarah_KissAmanda() {
+	GameLogAdd("KissAmanda");
 }

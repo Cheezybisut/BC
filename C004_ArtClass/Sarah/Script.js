@@ -236,6 +236,7 @@ function C004_ArtClass_Sarah_Paint() {
 		C004_ArtClass_Jennifer_PaintAvail = false;
 		C004_ArtClass_Julia_PaintAvail = false;
 		ActorChangeAttitude(1, 1);
+		GameLogAdd("Paint");
 		CurrentTime = CurrentTime + 0.5 * 60 * 60 * 1000;
 		if (PlayerGetSkillLevel("Arts") >= 1) {
 			ActorSpecificChangeAttitude("Julia", PlayerGetSkillLevel("Arts"), 0);
@@ -244,4 +245,9 @@ function C004_ArtClass_Sarah_Paint() {
 		}
 		PlayerAddSkill("Arts", 1);
 	} else OverridenIntroText = GetText("NoTimeToPaint");
+}
+
+// Chapter 4 - Sarah Kiss
+function C004_ArtClass_Sarah_Kiss() {
+	GameLogAdd("Kiss");
 }

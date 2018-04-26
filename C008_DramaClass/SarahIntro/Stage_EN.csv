@@ -10,6 +10,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 10,0,0,IsDamsel,(Nod.),(She happily strips down to her underwear.)|So what should I put on first?  The dress?,20,0,0,Strip()
 10,0,0,!IsDamsel,(Nod.),(She happily strips down to her underwear.)|So what should I put on first?  The chainmail?,20,0,0,Strip()
 20,0,0,PlayerIsRoped,(Turn and point|to your ropes.),Nope!  I like you better when you're tied up.|Struggle some more and you might get out.,20,0,0,TestUntiePlayer()
+20,0,0,PlayerInArmbinder,(Turn and shake|your armbinder.),Nope!  I like you better when you're restrained.|Struggle some more and you might get out one day.,20,0,0,TestUnstrapPlayer()
 20,0,0,PlayerIsCuffed,(Turn and point|to your cuffs.),"Nope, I don't have any cuff keys.",20,0,0,TestUncuffPlayer()
 20,0,0,IsBothFree,You know that|you're pretty?,"Aaaaw, you're so kind.|Thanks COMMON_PLAYERNAME.",20,0,0,
 20,0,0,IsBothFree,You would look|great tied up.,(She giggles and nods.)|Would you like restrain me?,20,0,0,TiedUpComment()
@@ -21,6 +22,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 20,0,5,!Common_PlayerRestrained,(Slap her.)|(1 minute),(You slap her hard on the face and the|breast while she screams of pleasure.),20,0,0,Slap()
 20,0,0,!Common_PlayerRestrained,(Masturbate her.)|(1 minute),(You bend down to masturbate her|but she pushes your hand away.),20,0,0,Masturbate()
 20,0,0,CanUntie,(Untie her.)|(1 minute),(She fights you playfully|but you're able to untie her.),20,0,0,Untie()
+20,0,0,CanUnstrap,(Unstrap her.)|(1 minute),(She fights playfully to keep her armbinder|but you're able to unstrap it and free her.),20,0,0,Untie()
 20,0,0,CanUngag,(Ungag her.)|(1 minute),(She moves her head in circle|but you're able to remove the gag.),20,0,0,Ungag()
 30,0,0,IsPlayReady,Let's do some drama.|(Join the drama class.),,30,0,0,StartDrama()
 30,0,0,!IsPlayReady,Everyone isn't ready.,Maybe we need to speed things up then.,30,0,0,

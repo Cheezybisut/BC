@@ -85,13 +85,13 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 190,0,0,,Who takes ten minutes|to wash her hands?,Ten minutes?  Was it that long?|(The waitress brings the food.),300,-1,0,
 200,5,0,,I also need to|wash my hands.,Aaaw!  Don't be shy and admit it.|There's another reason. (She winks.),210,0,-1,
 200,5,0,,I wanted more privacy.,More privacy?  (She giggles.)|And why do you need that?,210,0,0,
-200,5,0,,"Sarah, can I kiss you?","(Without a word, you both hug each|other in a loving embrace and kiss slowly.)",220,1,0,
+200,5,0,,"Sarah, can I kiss you?","(Without a word, you both hug each|other in a loving embrace and kiss slowly.)",220,1,0,Kiss()
 200,0,5,,(Stay silent and|lock the door.),(She looks a little nervous.)|What is going on Miss?,230,0,1,
 200,0,5,,"Girl, I will|have you now.","What?  But Miss, we are in a public place.",230,-1,1,
 200,0,0,,The food must be ready.|(Back to your table.),(She nods and you both go back to your table.),300,0,0,
-210,0,0,,(Grab her and|kiss her.),(She doesn't resist while you|hug her and kiss her lovingly.),220,0,1,
-210,0,0,,It would be heaven|if I could kiss your lips.,(She giggles.)  You're so romantic!|(She hugs you and kisses you slowly.),220,0,-1,
-210,0,0,,I love you Sarah.|Can I kiss you?,"(Without a word, you both hug each|other in a loving embrace and kiss slowly.)",220,1,0,
+210,0,0,,(Grab her and|kiss her.),(She doesn't resist while you|hug her and kiss her lovingly.),220,0,1,Kiss()
+210,0,0,,It would be heaven|if I could kiss your lips.,(She giggles.)  You're so romantic!|(She hugs you and kisses you slowly.),220,0,-1,Kiss()
+210,0,0,,I love you Sarah.|Can I kiss you?,"(Without a word, you both hug each|other in a loving embrace and kiss slowly.)",220,1,0,Kiss()
 210,0,5,,"Girl, I will|have you now.","What?  But Miss, we are in a public place.",230,-1,1,
 210,0,0,,The food must be ready.|(Back to your table.),(She nods and you both go back to your table.),300,0,0,
 220,0,0,,(Kiss her again)|(1 minute),(You slowly kiss each other|in the restaurant restroom.),220,0,0,
@@ -126,4 +126,11 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 310,0,0,,I'll take the bill.,"Aaaaaw, that's way too kind|of you.  Let's go back then.",320,0,1,
 310,0,0,,We should|split the bill.,That's perfectly fine!|Let's go back then.,320,0,0,
 310,0,0,,Do we get out|without paying?,That's very tempting!  But they|know me too well in this cafe.,320,0,0,
-320,0,0,,Let's go back.|(Back to college.),,0,0,0,EndChapter()
+320,0,0,,Let's go back.|(Back to college.),"(On your way back, Sarah stops by the lockers.)|Please wait a minute.  I have a gift for you.",330,0,0,TestArmbinder()
+330,0,0,,A gift?  I don't|deserve one.,"Sure you do, I had a wonderful time.|(She gives you a leather armbinder.)",340,0,-1,AddArmbinder()
+330,0,0,,That's very kind of you.,"It's my pleasure, I had a wonderful time.|(She gives you a leather armbinder.)",340,1,0,AddArmbinder()
+330,0,0,,What kind of gift?,"I had a wonderful time, this is for you.|(She gives you a leather armbinder.)",340,0,0,AddArmbinder()
+340,0,0,,Thanks Sarah!,You're welcome!  I'm sure|you'll use it better than me.,350,0,0,
+340,0,0,,Great!  I will|use it on you.,(She giggles.)  I certainly hope so.,350,0,1,
+340,0,0,,This binder looks|kind of cheap.,"Oh no, it's a great device.|Try it later and you'll see.",350,-1,0,
+350,0,0,,See you later!|(Go to next class.),,350,0,0,EndChapter()

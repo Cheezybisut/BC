@@ -28,7 +28,7 @@ function C010_Revenge_SidneyJennifer_Load() {
 	LoadInteractions();
 	LeaveIcon = "";
 	Common_SelfBondageAllowed = false;
-	C010_Revenge_SidneyJennifer_SidneyVictim = (Common_PlayerCrime == "SidneyStranded");
+	C010_Revenge_SidneyJennifer_SidneyVictim = GameLogQuery("C007_LunchBreak", "Sidney", "Stranded");
 	C010_Revenge_SidneyJennifer_CanBribe = (PlayerInventoryTotalQuantity() >= 10);
 
 	// If we must put the previous text back
@@ -118,6 +118,7 @@ function C010_Revenge_SidneyJennifer_ProvokePose() {
 
 // When the user bribes Sidney, she leaves with half the items
 function C010_Revenge_SidneyJennifer_Bribe() {
+	GameLogSpecificAdd("C010_Revenge", "Sidney", "Leave");
 	ActorLoad("Jennifer", "");
 	LeaveIcon = "";
 	C010_Revenge_SidneyJennifer_SidneyGone = true;
@@ -140,6 +141,7 @@ function C010_Revenge_SidneyJennifer_GetTwoRopes() {
 // Chapter 10 - Sidney and Jennifer Revenge - Jennifer will strip if she's +5 sub or more
 function C010_Revenge_SidneyJennifer_JenniferTestStrip() {
 	if (ActorGetValue(ActorSubmission) >= 5) {
+		GameLogAdd("Naked");
 		OverridenIntroText = GetText("JenniferStrips");
 		ActorSpecificSetCloth("Jennifer", "Naked");
 		ActorChangeAttitude(-2, 1);
@@ -150,6 +152,7 @@ function C010_Revenge_SidneyJennifer_JenniferTestStrip() {
 
 // Chapter 10 - Sidney and Jennifer Revenge - Jennifer can be tied up like a dog
 function C010_Revenge_SidneyJennifer_JenniferDog() {
+	GameLogAdd("Dog");
 	ActorAddInventory("Rope");
 	ActorAddInventory("TwoRopes");
 	PlayerRemoveInventory("Rope", 2);
@@ -228,6 +231,8 @@ function C010_Revenge_SidneyJennifer_EndFight(Victory) {
 	// Change the girls attitude depending on the victory or defeat
 	ActorSpecificChangeAttitude("Sidney", 0, Victory ? 2 : -2);
 	ActorSpecificChangeAttitude("Jennifer", -1, Victory ? 2 : -2);
+	GameLogSpecificAdd("C010_Revenge", "Sidney", Victory ? "FightVictory" : "FightDefeat");
+	GameLogSpecificAdd("C010_Revenge", "Jennifer", Victory ? "FightVictory" : "FightDefeat");
 	ActorSpecificSetPose("Sidney", "Angry");
 	ActorSpecificSetPose("Jennifer", "Angry");
 	C010_Revenge_SidneyJennifer_FightVictory = Victory;
@@ -314,6 +319,7 @@ function C010_Revenge_SidneyJennifer_MasturbateJennifer() {
 
 // Chapter 10 - Sidney and Jennifer Revenge - When Jennifer is convinced to leave
 function C010_Revenge_SidneyJennifer_JenniferLeave() {
+	GameLogSpecificAdd("C010_Revenge", "Jennifer", "Leave");
 	ActorLoad("Sidney", "");
 	LeaveIcon = "";
 	C010_Revenge_SidneyJennifer_JenniferGone = true;
@@ -346,6 +352,7 @@ function C010_Revenge_SidneyJennifer_SearchSidneyBag() {
 
 // Chapter 10 - Sidney and Jennifer Revenge - When the player searches in Sidney's bag
 function C010_Revenge_SidneyJennifer_SidneyPig() {
+	GameLogAdd("Pig");
 	ActorSpecificSetPose("Sidney", "Pig");
 	CurrentTime = CurrentTime + 50000;
 }
@@ -429,6 +436,8 @@ function C010_Revenge_SidneyJennifer_EndRace(Victory) {
 	// Change the girls attitude depending on the victory or defeat
 	ActorSpecificChangeAttitude("Sidney", 0, Victory ? 2 : -2);
 	ActorSpecificChangeAttitude("Jennifer", Victory ? 2 : -2, 0);
+	GameLogSpecificAdd("C010_Revenge", "Sidney", Victory ? "RaceVictory" : "RaceDefeat");
+	GameLogSpecificAdd("C010_Revenge", "Jennifer", Victory ? "RaceVictory" : "RaceDefeat");
 	ActorSpecificSetPose("Sidney", "Camera");
 	ActorSpecificSetPose("Jennifer", "");
 	C010_Revenge_SidneyJennifer_RaceVictory = Victory;

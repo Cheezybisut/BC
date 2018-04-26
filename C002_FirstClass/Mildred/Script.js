@@ -64,7 +64,7 @@ function C002_FirstClass_Mildred_Click() {
 			ActorRemoveInventory("BallGag");
 			ActorChangeAttitude(2, 0);
 			C002_FirstClass_Mildred_RestrainPlayer();
-			Common_PlayerCrime = "";
+			GameLogAdd("Release");
 		}
 	}
 
@@ -144,6 +144,7 @@ function C002_FirstClass_Mildred_Subdue() {
 	if (AgreeCount == 0) {
 		OverridenIntroText = GetText("SubdueAlone");
 		C002_FirstClass_Mildred_CurrentStage = 220;
+		GameLogAdd("SubdueFail");
 		LeaveIcon = "";		
 	}
 	
@@ -155,6 +156,10 @@ function C002_FirstClass_Mildred_Subdue() {
 		CurrentActor = "Mildred";
 		C002_FirstClass_Mildred_CurrentStage = 220;
 		LeaveIcon = "";
+		GameLogAdd("SubdueFail");
+		if (C002_FirstClass_Classroom_SidneyAgree) GameLogAdd("SubdueFailWithSidney");
+		if (C002_FirstClass_Classroom_AmandaAgree) GameLogAdd("SubdueFailWithAmanda");
+		if (C002_FirstClass_Classroom_SarahAgree) GameLogAdd("SubdueFailWithSarah");
 	}
 
 	// With many helpers
@@ -163,7 +168,10 @@ function C002_FirstClass_Mildred_Subdue() {
 		ActorAddInventory("Cuffs");
 		C002_FirstClass_Classroom_MildredSubdueSuccess = true;
 		C002_FirstClass_Mildred_CurrentStage = 300;
-		Common_PlayerCrime = "RestrainMildred";
+		GameLogAdd("Subdue");
+		if (C002_FirstClass_Classroom_SidneyAgree) GameLogAdd("SubdueWithSidney");
+		if (C002_FirstClass_Classroom_AmandaAgree) GameLogAdd("SubdueWithAmanda");
+		if (C002_FirstClass_Classroom_SarahAgree) GameLogAdd("SubdueWithSarah");
 	}
 
 }
@@ -188,5 +196,6 @@ function C002_FirstClass_Mildred_Whip() {
 	if (C002_FirstClass_Mildred_WhipDone == false) {
 		ActorChangeAttitude(-1, 1);
 		C002_FirstClass_Mildred_WhipDone = true;
+		GameLogAdd("Crop");
 	}
 }

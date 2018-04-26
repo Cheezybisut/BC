@@ -16,7 +16,6 @@ function C010_Revenge_EarlyEnding_Load() {
 	ActorSpecificSetPose("Sidney", "");
 	ActorSpecificSetPose("Jennifer", "");
 	LeaveIcon = "";
-	Common_PlayerCrime = "";
 	Common_PlayerPose = "";
 
 }
@@ -25,15 +24,14 @@ function C010_Revenge_EarlyEnding_Load() {
 function C010_Revenge_EarlyEnding_Run() {
 	
 	// Paints the background
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawRect(ctx, 0, 0, 800, 600, "black");
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
-	DrawPlayerTransition(ctx);
+	DrawRect(0, 0, 800, 600, "black");
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
+	DrawPlayerTransition();
 
 	// Draw the outro text
-	DrawText(ctx, GetText(C010_Revenge_EarlyEnding_Type + "1"), 450, 150, "White");
-	if (TextPhase >= 1) DrawText(ctx, GetText(C010_Revenge_EarlyEnding_Type + "2"), 450, 300, "White");
-	if (TextPhase >= 2) DrawText(ctx, GetText(C010_Revenge_EarlyEnding_Type + "3"), 450, 450, "White");
+	DrawText(GetText(C010_Revenge_EarlyEnding_Type + "1"), 450, 150, "White");
+	if (TextPhase >= 1) DrawText(GetText(C010_Revenge_EarlyEnding_Type + "2"), 450, 300, "White");
+	if (TextPhase >= 2) DrawText(GetText(C010_Revenge_EarlyEnding_Type + "3"), 450, 450, "White");
 
 }
 

@@ -26,20 +26,19 @@ function C008_DramaClass_Transition_Load() {
 function C008_DramaClass_Transition_Run() {
 	
 	// Paints the background
-	var ctx = document.getElementById("MainCanvas").getContext("2d");
-	DrawRect(ctx, 0, 0, 800, 600, "black");
-	DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Julia.jpg", 800, 0);
+	DrawRect(0, 0, 800, 600, "black");
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Julia.jpg", 800, 0);
 	
 	// Sets if the transition is late or not
 	var LateForDrama = "Transition";
 	if (CurrentTime == 13.5 * 60 * 60 * 1000) LateForDrama = "Late";
 		
 	// Draw the outro text
-	DrawText(ctx, GetText(LateForDrama + "1"), 400, 150, "White");
-	if (TextPhase >= 1) DrawText(ctx, GetText(LateForDrama + "2"), 400, 300, "White");
-	if ((TextPhase >= 2) && (Common_PlayerCrime != "AmandaStranded") && (Common_PlayerCrime != "SarahStranded")) DrawText(ctx, GetText(LateForDrama + "3"), 400, 450, "White");
-	if ((TextPhase >= 2) && (Common_PlayerCrime == "AmandaStranded")) DrawText(ctx, GetText("Amanda"), 400, 450, "White");
-	if ((TextPhase >= 2) && (Common_PlayerCrime == "SarahStranded")) DrawText(ctx, GetText("Sarah"), 400, 450, "White");
+	DrawText(GetText(LateForDrama + "1"), 400, 150, "White");
+	if (TextPhase >= 1) DrawText(GetText(LateForDrama + "2"), 400, 300, "White");
+	if ((TextPhase >= 2) && !GameLogQuery("C007_LunchBreak", "Amanda", "Stranded") && !GameLogQuery("C007_LunchBreak", "Sarah", "Stranded")) DrawText(GetText(LateForDrama + "3"), 400, 450, "White");
+	if ((TextPhase >= 2) && GameLogQuery("C007_LunchBreak", "Amanda", "Stranded")) DrawText(GetText("Amanda"), 400, 450, "White");
+	if ((TextPhase >= 2) && GameLogQuery("C007_LunchBreak", "Sarah", "Stranded")) DrawText(GetText("Sarah"), 400, 450, "White");
 
 }
 

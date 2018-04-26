@@ -82,41 +82,36 @@ function C101_KinbakuClub_Lauren_Run() {
 	// Image overlays
 	// Blindfold and cuffs on table
 	if (C101_KinbakuClub_Lauren_CurrentStage <= 220) {
-		var ctx = document.getElementById("MainCanvas").getContext("2d");
 		if  (C101_KinbakuClub_Lauren_BlindfoldAvailable) {
-			DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Blindfold.jpg", 735, 395);
+			DrawImage(CurrentChapter + "/" + CurrentScreen + "/Blindfold.jpg", 735, 395);
 		}
 		if (C101_KinbakuClub_Lauren_CurrentStage < 150) {
-			DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/Cuffs.jpg", 730, 450);
+			DrawImage(CurrentChapter + "/" + CurrentScreen + "/Cuffs.jpg", 730, 450);
 		}
 	}
 
 	// Lauren chair cuffed looking behind
 	if (C101_KinbakuClub_Lauren_CurrentStage == 450) {
-		var ctx = document.getElementById("MainCanvas").getContext("2d");
-		if (ActorHasInventory("BallGag")) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/LaurenRealizedBall.jpg", 925, 80);
-		if (ActorHasInventory("TapeGag")) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/LaurenRealizedTape.jpg", 925, 80);
-		if (ActorHasInventory("ClothGag")) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/LaurenRealizedCloth.jpg", 925, 80);
+		if (ActorHasInventory("BallGag")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/LaurenRealizedBall.jpg", 925, 80);
+		if (ActorHasInventory("TapeGag")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/LaurenRealizedTape.jpg", 925, 80);
+		if (ActorHasInventory("ClothGag")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/LaurenRealizedCloth.jpg", 925, 80);
 	}
 
 	// Lauren chair cuffed looking forwards and up
 	// facial expression
 	if (C101_KinbakuClub_Lauren_CurrentStage == 460 || C101_KinbakuClub_Lauren_CurrentStage == 470) {
-		var ctx = document.getElementById("MainCanvas").getContext("2d");
-		if (ActorGetValue(ActorLove) >= 5 && (ActorGetValue(ActorLove) >= ActorGetValue(ActorSubmission))) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/LaurenLike.jpg", 870, 70);
-		if (ActorGetValue(ActorSubmission) >= 5 && (ActorGetValue(ActorSubmission) > ActorGetValue(ActorLove))) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/LaurenSub.jpg", 870, 70);
-		if (C101_KinbakuClub_Lauren_OrgasmDone) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/LaurenAshamed.jpg", 870, 70);
+		if (ActorGetValue(ActorLove) >= 5 && (ActorGetValue(ActorLove) >= ActorGetValue(ActorSubmission))) DrawImage(CurrentChapter + "/" + CurrentScreen + "/LaurenLike.jpg", 870, 70);
+		if (ActorGetValue(ActorSubmission) >= 5 && (ActorGetValue(ActorSubmission) > ActorGetValue(ActorLove))) DrawImage(CurrentChapter + "/" + CurrentScreen + "/LaurenSub.jpg", 870, 70);
+		if (C101_KinbakuClub_Lauren_OrgasmDone) DrawImage(CurrentChapter + "/" + CurrentScreen + "/LaurenAshamed.jpg", 870, 70);
 	}
 	// gag
 	if (C101_KinbakuClub_Lauren_CurrentStage == 460 || C101_KinbakuClub_Lauren_CurrentStage == 470 || C101_KinbakuClub_Lauren_CurrentStage == 900) {
-		var ctx = document.getElementById("MainCanvas").getContext("2d");
-		if (ActorHasInventory("BallGag")) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/LaurenHelplessBall.png", 880, 80);
-		if (ActorHasInventory("TapeGag")) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/LaurenHelplessTape.png", 895, 160);
-		if (ActorHasInventory("ClothGag")) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/LaurenHelplessCloth.png", 875, 150);
+		if (ActorHasInventory("BallGag")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/LaurenHelplessBall.png", 880, 80);
+		if (ActorHasInventory("TapeGag")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/LaurenHelplessTape.png", 895, 160);
+		if (ActorHasInventory("ClothGag")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/LaurenHelplessCloth.png", 875, 150);
 	}
 	if (C101_KinbakuClub_Lauren_CurrentStage == 490 || C101_KinbakuClub_Lauren_CurrentStage == 500) {
-		var ctx = document.getElementById("MainCanvas").getContext("2d");
-		if (PlayerHasLockedInventory("ClothGag")) DrawImage(ctx, CurrentChapter + "/" + CurrentScreen + "/PlayerChairGagged.jpg", 850, 130);
+		if (PlayerHasLockedInventory("ClothGag")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/PlayerChairGagged.jpg", 850, 130);
 	}
 
 	// While Lauren gets intimate with the player

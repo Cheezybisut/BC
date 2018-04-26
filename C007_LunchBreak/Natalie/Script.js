@@ -249,6 +249,7 @@ function C007_LunchBreak_Natalie_ClubMention() {
 
 // Chapter 7 - Natalie Start Lunch
 function C007_LunchBreak_Natalie_StartLunch() {
+	GameLogAdd("Lunch");
     CurrentTime = CurrentTime + 120000;
     Common_ClubStatus = "ClubLunchVisited";
     LeaveIcon = "";
@@ -589,13 +590,9 @@ function C007_LunchBreak_Natalie_PlayerBoundGagged() {
 // Chapter 7 - Natalie Evil End Chapter (Leave her bound and gagged)
 function C007_LunchBreak_Natalie_EvilEnd() {
     C007_LunchBreak_ActorSelect_EvilEnding = true;
-    Common_PlayerCrime = "NatalieStranded";
+	GameLogAdd("Stranded");
     SetScene(CurrentChapter, "Outro");
 }
-
-
-
-// Chapter 7 - Natalie - Player Good Sub
 
 // Chapter 7 - Natalie - role reversal
 function C007_LunchBreak_Natalie_PlayerReversal() {
@@ -603,7 +600,6 @@ function C007_LunchBreak_Natalie_PlayerReversal() {
     PlayerUnlockAllInventory();
     ActorAddInventory("Rope")
 }
-
 
 // Chapter 7 - Natalie - Player Strip
 function C007_LunchBreak_Natalie_PlayerStrip() {
