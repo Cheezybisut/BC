@@ -1,0 +1,244 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,"Salut, je viens|d'être transférée.",C'est bien ce que je pensais. Je m'appelle Natalie.,10,0,0,
+0,0,0,,"En effet, j'ai l'impression|que ça fait des semaines.","Les premiers jours peuvent nous donner|cette sensation. Natalie, ravie de te rencontrer.",10,0,0,
+0,0,0,,"C'est ça, mais tu me verras|plus souvent maintenant.","Cool, moi c'est Natalie.",10,1,0,
+0,0,0,,Je connaissais cet endroit|bien avant toi.,"D'accord, c'était un peu trop direct, désolée.|Mon nom est Natalie.",10,0,1,
+10,0,0,,Peux-tu me dire où|se trouve la cafétéria ?,"Si tu y tiens vraiment, mais c'est plutôt médiocre.|Je déjeune avec un club universitaire à la place.",20,0,0,
+10,0,0,,"J'ai vraiment faim. Peux-tu|m'aider, s'il te plaît ?",La pause déjeuner ne se limite pas à la nourriture.|As-tu songé à rejoindre un club ?,20,0,-1,
+10,0,0,,Où se trouve le meilleur|endroit pour déjeuner ici ?,"Un bon nombre d'étudiantes utilise un café local,|mais le mieux, c'est les déjeuners du club.",20,1,0,
+20,0,0,,"Les Clubs, Je suis partante|pour ça. Allons-y.","Je suis dans le club Kinbaku,|qui est de loin le meilleur.",30,1,1,
+20,0,0,,"Un club, est-ce qu'il y en a|un qui voudrait de moi ?",Bien sûr. Le club Kinbaku t'adorerait.,30,1,-1,
+20,0,0,,"Les clubs, ce n'est pas|juste pour les Geeks ?","Tu dois te moquer de moi,|le club Kinbaku est bien plus cool que ça.",30,0,0,
+20,0,0,,Les clubs ! Aucune chance.|je veux juste à manger.,"Si c'est ton attitude, tu ferais|mieux de trouver la cafétéria.",40,-1,0,
+20,0,0,,"Les clubs, c'est pas mon|truc. Trop d'initiations.","D'accord, sur ce, je dois y aller. Quelqu'un|d'autre te montrera un bon café.",40,0,0,
+30,0,0,,"Allons-y, alors.|(Tu vas au club de Natalie.)",(Natalie t'emmène dans une salle de classe près d'ici.),100,0,0,StartLunch()
+30,0,0,,"Sans doute mais, j'ai|besoin d'un bon repas.","D'accord, dans ce cas tu pourrais|braver la cafétéria ou trouver un café.",40,0,0,
+40,0,0,,Profite bien de ta|pause déjeuner alors !,Merci ! (Elle te salue et s'en va.),50,1,0,EndLunch()
+40,0,0,,"D'accord, à plus tard.",Salut ! (Elle te salue et s'en va.),50,0,0,EndLunch()
+40,0,0,,Ce que tu crains.,"Non, c'est toi qui craint !|(Elle se retourne et décampe.)",50,-2,0,EndLunch()
+100,0,0,,Waouh c'est une|prière inversée ?,"Oui, tu as l'air de t'y connaître.|Chloé s'étire juste après un cours de ballet.",110,1,0,
+100,0,0,,Elle va bien ?|Ça a l'air dur.,"Bien sûr, Chloé est aussi flexible dans les|étirements qu'elle l'est dans le ballet.",110,0,0,
+100,0,0,,Je ne suis pas|sûr d'y arriver.,On ne peut pas toutes être aussi flexibles que Chloé.,110,0,-1,
+100,0,0,,"Oh mon dieu, Je ne savais|pas ce qu'était le Kinbaku.","Littéralement, ça veut dire : ""lien serré"".|Ne t'inquiètes pas, tout ira bien.",110,0,-1,
+100,0,0,,"Cool, je parie que tu serais|bien attachée comme ça.","Merci, mais je ne suis pas aussi flexible que Chloé.",110,1,1,
+110,0,0,,Tu as parlé de déjeuner|tout à l'heure.,"Oui, il y a un plat à emporter de commandée.|Que dirais-tu d'un logitage rapide en attendant ?",120,0,0,
+110,0,0,,Où est la bouffe ?|J'ai faim maintenant.,Il y a un plat à emporter qui arrive.|Voudrais-tu essayer un petit ligotage d'ici là ?,120,-1,1,
+110,0,0,,"Pourrais-je avoir un|déjeuner, s'il te plaît ?","Attends un instant, c'est en cours de livraison.|Un peu de Kinbaku nous aidera à passer le temps.",120,0,-1,
+120,0,0,,Je peux t'attacher ?,Certainement pas. Un nouveau membre|doit être attaché en premier.,130,-1,-1,
+120,0,0,,Peux-tu m'attacher ?,"Bien sûr, c'est le devoir d'un nouveau|membre d'être attaché en premier.",130,0,-1,
+120,1,1,,Seulement si je peux|t'attacher d'abord ?,"D'accord, d'habitude c'est le nouveau qui est ligotée.|Le club a beaucoup de cordes que tu peux utiliser.",140,0,1,
+120,1,1,,C'est au nouveau d'être|attaché en premier ?,"Bien sûr, mais j'aurais pu te laisser|m'attacher d'abord, trop tard maintenant.",130,1,-1,
+130,0,0,,"Waouh, c'est excitant.",(Elle maintient tes bras derrière ton dos et|les lie fermement. Bien sûr que ça l'est.,150,1,0,PlayerRope()
+130,0,0,,"Ouïe, pas trop serré,|s'il te plaît.",Mais il faut que ce soit serré. (Elle maintient tes|bras derrière ton dos et les lie fermement.),150,-1,0,PlayerRope()
+130,0,0,,"D'accord madame, mais|s'il vous plaît, soyez douce.",Tu es si mignonne. (Elle maintient tes bras|derrière ton dos et les lie fermement.),150,1,-1,PlayerRope()
+140,0,0,,"Mets tes bras derrière|ton dos, maintenant !","Oui, madame. (Tu maintiens ses bras|derrière son dos et les lie fermement.)",160,0,1,NatalieTied()
+140,0,0,,"Tu seras superbe, toute|attachée avec des cordes.",(Tu maintiens ses bras derrière son dos et les|lie fermement.) Je suis contente que ça te plaise.,160,1,0,NatalieTied()
+150,0,0,,La commande arrive ?,"(Jenna arrive avec la commande.) J'ai commandé des|pizzas, aide ta soumise avant que ça ne refroidisse.",170,0,0,
+160,0,0,,La commande arrive ?,"(Jenna arrive avec la commande.) J'ai commandé des|pizzas, aide ta soumise avant que ça ne refroidisse.",180,0,0,
+170,0,0,,"Natalie, tu peux m'aider|à manger, s'il te plaît ?","Bien sûr, puisque tu as été si discipliné.|Alors, tu aimes l'école jusqu'à présent ?",200,1,-1,
+170,0,0,,"Allez, Natalie. J'attendais|ça depuis longtemps.","Bien sûr, puisque tu m'as laissé t'attacher.|Alors, tu aimes l'école jusqu'à présent ?",200,1,0,
+180,0,0,,"Tu en veux un peu,|Natalie ?","Oh oui.|Alors, tu aimes l'école jusqu'à présent ?",250,0,0,
+180,0,0,,"Tu mérites d'en avoir|un peu, Natalie ?","Oh oui, madame.|Aimez-vous l'école jusqu'à présent ?",250,0,1,
+200,0,0,,Oh oui ! On dirait que|c'est une bonne académie.,"Oui et non, certains cours sont plus utiles que d'autres.|Que veux-tu faire dans la vie ?",210,0,0,Eat()
+200,0,0,,Cette université est|une maison de fous.,Cela me semble assez sensé.|Que veux-tu faire dans la vie ?,210,0,0,EatBadMatch()
+200,0,0,,Je n'ai jamais vue une|université si coquine.,(Elle éclate de rire.) Carrément oui !|Que veux-tu faire dans la vie ?,210,1,0,EatGoodMatch()
+200,0,0,,C'est difficile de juger|en quelques heures.,Je suis ici depuis un moment et je n'en suis toujours|pas sûre non plus. Que veux-tu faire dans la vie ?,210,0,0,EatGoodMatch()
+200,0,0,,C'est une école|plutôt ennuyeuse.,"Ouais, certains cours peuvent être ennuyeux,|je suppose. Que veux-tu faire dans la vie ?",210,0,0,Eat()
+210,0,0,,Je veux être musicienne.,Cool ! Quel est ton cours préféré ?,220,0,0,EatGoodMatch()
+210,0,0,,Je veux être médecin.,C'est sympa. Quel est ton cours préféré ?,220,0,0,Eat()
+210,0,0,,Je veux être athlète.,Cool ! Quel est ton cours préféré ?,220,0,0,EatGoodMatch()
+210,0,0,,Je veux être enseignante.,Elles ne font que laver le cerveau des enfants.|Quel est ton cours préféré ?,220,-1,0,EatBadMatch()
+210,0,0,,Je veux être actrice.,C'est sympa. Quel est ton cours préféré ?,220,0,0,Eat()
+210,0,0,,Je veux être dominatrice.,(Elle sourit.) Quel est ton cours préféré ?,220,1,0,Eat()
+210,0,0,,Je veux être architecte.,C'est sympa. Quel est ton cours préféré ?,220,0,0,Eat()
+210,0,0,,Je veux être agricultrice.,Mon cousin en est un. Il m'a appris beaucoup|sur les noeuds. Quel est ton cours préféré ?,220,0,0,EatGoodMatch()
+210,0,0,,Je veux être programmeuse.,C'est chiant ! Quel est ton cours préféré ?,220,0,0,EatBadMatch()
+210,0,0,,Je ne sais pas encore.,"Allez, tu dois bien avoir une idée.|Quel est ton cours préféré ?",220,0,0,EatBadMatch()
+220,0,0,,Les Maths.,"Au moins, les chiffres ne mentent pas ?|Que fais-tu pour t'occuper en dehors de l'école ?",230,0,0,Eat()
+220,0,0,,La musique.,Cool !|Que fais-tu pour t'occuper en dehors de l'école ?,230,0,0,EatGoodMatch()
+220,0,0,,L'anglais.,La littérature n'est qu'un mensonge créatif.|Que fais-tu pour t'occuper en dehors de l'école ?,230,0,0,EatBadMatch()
+220,0,0,,La gym.,Les leçons de Hojojutsu sont super.|Que fais-tu pour t'occuper en dehors de l'école ?,230,0,0,EatGoodMatch()
+220,0,0,,La chimie.,Les réactions explosives sont amusantes.|Que fais-tu pour t'occuper en dehors de l'école ?,230,0,0,EatGoodMatch()
+220,0,0,,Le français.,C'est chiant !|Que fais-tu pour t'occuper en dehors de l'école ?,230,0,0,EatBadMatch()
+220,0,0,,L'art.,Au moins Julia est drôle !|Que fais-tu pour t'occuper en dehors de l'école ?,230,0,0,Eat()
+220,0,0,,L'histoire.,C'est sympa.|Que fais-tu pour t'occuper en dehors de l'école ?,230,0,0,Eat()
+220,0,0,,Le théatre.,C'est sympa.|Que fais-tu pour t'occuper en dehors de l'école ?,230,0,0,Eat()
+220,0,0,,Je ne sais pas.,"T'inquiéte, il s'agit d'apprendre, pas de connaissance.|Que fais-tu pour t'occuper en dehors de l'école ?",230,0,0,Eat()
+230,0,0,,Du basket.,C'est sympa. (Vous finissez les pizzas.),240,0,0,Eat()
+230,0,0,,Du rock.,Génial ! (Vous finissez les pizzas.),240,0,0,EatGoodMatch()
+230,0,0,,Des jeux vidéos.,Cool ! (Vous finissez les pizzas.),240,0,0,EatGoodMatch()
+230,0,0,,Je suis pom-pom girl.,C'est sympa. (Vous finissez les pizzas.),240,0,0,Eat()
+230,0,0,,Je pars en soirée.,C'est sympa. (Vous finissez les pizzas.),240,0,0,Eat()
+230,0,0,,Des jeux de rôles.,Cool ! (Vous finissez les pizzas.),240,0,0,EatGoodMatch()
+230,0,0,,Je me soûle.,"Boire ça passe, décuver c'est horrible.|(Vous finissez les pizzas.)",240,0,0,EatBadMatch()
+230,0,0,,De la musique classique.,C'est sympa. (Vous finissez les pizzas.),240,0,0,Eat()
+230,0,0,,Je fais l'amour.,(Elle sourit.) Tu es si coquine !|(Vous finissez les pizzas.),240,1,0,EatGoodMatch()
+230,0,0,,Je n'ai aucun passe-temps.,Sérieusement ? (Vous finissez les pizzas.),240,0,0,EatBadMatch()
+240,0,0,,"Alors qu'est-ce qu'on|fait maintenant ?",N'est-ce pas évident ?,320,0,0,TestMatch()
+240,0,0,,On peut faire plus de|Kinbaku maintenant ?,Oh oui.,320,1,0,TestMatch()
+250,0,0,,Oh oui ! On dirait que|c'est une bonne académie.,"Oui et non, certains cours sont plus utiles que d'autres.|Que veux-tu faire dans la vie ?",260,0,0,Eat()
+250,0,0,,Cette université est|une maison de fous.,Cela me semble assez sensé.|Que veux-tu faire dans la vie ?,260,0,0,EatBadMatch()
+250,0,0,,Je n'ai jamais vue une|université si coquine.,(Elle éclate de rire.) Carrément oui !|Que veux-tu faire dans la vie ?,260,0,0,EatGoodMatch()
+250,0,0,,C'est difficile de juger|en quelques heures.,Je suis ici depuis un moment et je n'en suis toujours|pas sûre non plus. Que veux-tu faire dans la vie ?,260,0,0,EatGoodMatch()
+250,0,0,,C'est une école|plutôt ennuyeuse.,"Ouais, certains cours peuvent être ennuyeux,|je suppose. Que veux-tu faire dans la vie ?",260,0,0,Eat()
+260,0,0,,Je veux être musicienne.,Cool ! Quel est ton cours préféré ?,270,0,0,EatGoodMatch()
+260,0,0,,Je veux être médecin.,C'est sympa. Quel est ton cours préféré ?,270,0,0,Eat()
+260,0,0,,Je veux être athlète.,Cool ! Quel est ton cours préféré ?,270,0,0,EatGoodMatch()
+260,0,0,,Je veux être enseignante.,Elles ne font que laver le cerveau des enfants.|Quel est ton cours préféré ?,270,-1,0,EatBadMatch()
+260,0,0,,Je veux être actrice.,C'est sympa. Quel est ton cours préféré ?,270,0,0,Eat()
+260,0,0,,Je veux être dominatrice.,(Elle sourit.) Quel est ton cours préféré ?,270,1,0,Eat()
+260,0,0,,Je veux être architecte.,C'est sympa. Quel est ton cours préféré ?,270,0,0,Eat()
+260,0,0,,Je veux être agricultrice.,Mon cousin en est un. Il m'a appris beaucoup|sur les noeuds. Quel est ton cours préféré ?,270,0,0,EatGoodMatch()
+260,0,0,,Je veux être programmeuse.,C'est chiant ! Quel est ton cours préféré ?,270,0,0,EatBadMatch()
+260,0,0,,Je ne sais pas encore.,"Allez, tu dois bien avoir une idée.|Quel est ton cours préféré ?",270,0,0,EatBadMatch()
+270,0,0,,Les Maths.,"Au moins, les chiffres ne mentent pas ?|Que fais-tu pour t'occuper en dehors de l'école ?",280,0,0,Eat()
+270,0,0,,La musique.,Cool !|Que fais-tu pour t'occuper en dehors de l'école ?,280,0,0,EatGoodMatch()
+270,0,0,,L'anglais.,La littérature n'est qu'un mensonge créatif.|Que fais-tu pour t'occuper en dehors de l'école ?,280,0,0,EatBadMatch()
+270,0,0,,La gym.,Les leçons de Hojojutsu sont super.|Que fais-tu pour t'occuper en dehors de l'école ?,280,0,0,EatGoodMatch()
+270,0,0,,La chimie.,Les réactions explosives sont amusantes.|Que fais-tu pour t'occuper en dehors de l'école ?,280,0,0,EatGoodMatch()
+270,0,0,,Le français.,C'est chiant !|Que fais-tu pour t'occuper en dehors de l'école ?,280,0,0,EatBadMatch()
+270,0,0,,L'art.,Au moins Julia est drôle !|Que fais-tu pour t'occuper en dehors de l'école ?,280,0,0,Eat()
+270,0,0,,L'histoire.,C'est sympa.|Que fais-tu pour t'occuper en dehors de l'école ?,280,0,0,Eat()
+270,0,0,,Le théatre.,C'est sympa.|Que fais-tu pour t'occuper en dehors de l'école ?,280,0,0,Eat()
+270,0,0,,Je ne sais pas.,"T'inquiéte, il s'agit d'apprendre, pas de connaissance.|Que fais-tu pour t'occuper en dehors de l'école ?",280,0,0,Eat()
+280,0,0,,Du basket.,C'est sympa. (Vous finissez les pizzas.),290,0,0,Eat()
+280,0,0,,Du rock.,Génial ! (Vous finissez les pizzas.),290,0,0,EatGoodMatch()
+280,0,0,,Des jeux vidéos.,Cool ! (Vous finissez les pizzas.),290,0,0,EatGoodMatch()
+280,0,0,,Je suis pom-pom girl.,C'est sympa. (Vous finissez les pizzas.),290,0,0,Eat()
+280,0,0,,Je pars en soirée.,C'est sympa. (Vous finissez les pizzas.),290,0,0,Eat()
+280,0,0,,Des jeux de rôles.,Cool ! (Vous finissez les pizzas.),290,0,0,EatGoodMatch()
+280,0,0,,Je me soûle.,"Boire ça passe, décuver c'est horrible.|(Vous finissez les pizzas.)",290,0,0,EatBadMatch()
+280,0,0,,De la musique classique.,C'est sympa. (Vous finissez les pizzas.),290,0,0,Eat()
+280,0,0,,Je fais l'amour.,(Elle sourit.) Tu es si coquine !|(Vous finissez les pizzas.),290,1,0,EatGoodMatch()
+280,0,0,,Je n'ai aucun passe-temps.,Sérieusement ? (Vous finissez les pizzas.),290,0,0,EatBadMatch()
+290,0,0,,"Alors qu'est-ce qu'on|fait maintenant ?",N'est-ce pas évident ?,300,0,0,TestMatch()
+290,0,0,,On peut faire plus de|Kinbaku maintenant ?,Oh oui.,300,1,0,TestMatch()
+300,0,0,,"Bon, il est temps de|t'attacher d'avantage.","Tu dois apprendre à ne pas laisser les noeuds à portée|de main. (Natalie s'échappe facilement et s'avance.)",310,0,0,NatalieEscape()
+310,0,0,,"Attends, je peux|réessayer ?","Apprends d'abord d'une experte. (Natalie t'attache,|en faisant des noeuds situés hors d'atteinte.)",320,0,0,SubbieRope()
+310,0,0,,"D'accord, tu peux|me montrer ?",Mais certainement. (Natalie t'attache|en te montrant où les noeuds doivent être situés.),320,1,0,SubbieRope()
+310,0,0,,"S'il te plaît, non. Je ne|suis pas une soumise.",Mais tu n'es pas non plus une Dominatrice.|(Natalie te lie fermement les bras.),320,0,-1,SubbieRope()
+320,0,0,,Peux-tu me montrer un|peu plus de Kinbaku ?,"Oui, ça va être le tour de tes jambes. (Natalie t'attache|les jambes.) Maintenant, c'est l'heure du bâillon.",330,0,0,
+320,0,0,,(Tu essayes de|t'échapper.),Où penses-tu aller sans permission ? (Natalie t'attache|rapidement les jambes.) C'est l'heure du bâillon.,330,0,-1,
+320,0,0,,(Tu luttes toute enjouée.),"On dirait une petite larve de moustique.|(Natalie t'attache les jambes.) C'est l'heure du bâillon.",330,1,0,
+330,0,0,,Quoi ?,"Ouvre bien grand. (Tu ouvres la bouche et elle|l'emballe avec du tissu, puis le coupe et fait un noeud.)",350,0,0,SubbieClothGag()
+330,0,0,,Tu veux vraiment|me bâillonner ?,"(Tu as à peine fini de parler qu'elle t'emballe la bouche|avec du tissu, puis elle le coupe et te bâillonne.)",350,0,0,SubbieClothGag()
+330,0,0,,"S'il te plaît, arrête.","Tu parles trop. (Natalie te bourre la bouche avec|du tissu, puis elle le coupe et fait un noeud.)",350,0,-1,SubbieClothGag()
+330,0,0,,C'en est assez.|(Tu serres la mâchoire.),"Tu veux la jouer comme ça ? Va pour la manière forte.|(Natalie te pince le nez.)",340,1,0,
+340,0,0,,(Tu essayes de retenir|ta respiration.............),"(Tu finis par haleter et elle te bourre la bouche avec|du tissu, puis elle le coupe et fait un noeud.)",350,0,0,SubbieClothGag()
+340,0,0,,(Tu essayes d'appeler|à l'aide.) Aid..............,"(Tu ouvres à peine la bouche qu'elle te l'emballe|avec du tissu, puis elle le coupe et te bâillonne.)",350,0,0,SubbieClothGag()
+350,0,0,,(Tu fais un regard|noir à Natalie.),(Natalie rigole.) Tu as besoin d'un peu de temps|pour te calmer. (Natalie s'éloigne.),360,0,0,
+350,0,0,,(Tu gémis et fait des|yeux de chien battu.),(Natalie sourit.) Attends ! C'est qui la bonne fi-fille ?|Je reviendrai plus tard. (Natalie s'éloigne.),360,1,-1,
+350,0,0,,(Tu luttes contre|tes liens.),"C'est ça, teste tes cordes pour le moment.|(Natalie s'éloigne.)",360,1,0,
+360,0,0,,(Tu cherches une|échappatoire.),(Les portes sont fermées et il ne|reste rien d'utile sur le sol.),360,0,0,NoEscape()
+360,0,0,,(Tu essayes d'appeler|à l'aide.),"(La bouche pleine, tu émets encore moins|de son qu'avec une boule de bâillon.)",360,0,0,NoHelp()
+360,0,0,,(Tu regardes ce que|les autres font.),"(Jenna joue avec Chloé,|qui marmonne joyeusement à Natalie.)",360,0,0,ChloeSuspended()
+360,0,0,,(Tu luttes contre|les cordes.),(Tu te démènes et roules mais rien ne se détache.),360,0,0,Struggle()
+360,0,0,,(Tu attends jusqu'au|retour de Natalie.),"(Tu attends, mais les membres|du club t'ignorent toujours.)",360,0,0,Wait()
+365,0,0,,@Nhthlnm.,(Natalie enlève le noeud et découpe|le bâillon. Tu recraches le tissu.),370,0,0,BadUngag()
+370,0,0,,"Merci madame, s'il vous|plaît, laissez-moi partir.","Avec plaisir, c'est presque l'heure des cours.|(Natalie te détache et t'aide à te lever.)",380,1,-1,PlayerRelease()
+370,0,0,,"Il était temps, qu'est-ce|qui t'a pris si longtemps ?",Je pensais que tu avais besoin d'un peu de temps.|(Natalie te détache et tu te lèves.),380,0,0,PlayerRelease()
+370,0,0,,"Oh, j'étais bien.","Je m'en doutais, mais l'heure du déjeuner|se termine bientôt. (Natalie te libère.)",380,1,0,PlayerRelease()
+380,0,0,,"C'était sympa,|à plus tard.",,0,2,0,EndChapter()
+380,0,0,,Je n'arrive pas à croire|qu'ils ont autorisé ce club.,,0,-1,0,EndChapter()
+380,0,0,,"(Tu fuis vite, avant|qu'il ne soit trop tard.)",,0,0,-1,EndChapter()
+400,0,0,,Testons quelques uns|de mes jouets.,"Tu en as déjà, c'est génial !|Veux-tu me détacher ? Puis je me déshabillerai.",410,1,0,
+400,0,0,,Est-ce que ce club a des|objets que je peux utiliser ?,Bien sûr. (Jenna te passe quelques objets.)|Veux-tu me détacher ? Puis je me déshabillerai.,410,0,0,GetToys()
+400,0,0,,"En fait, je peux être|attachée maintenant ?","Eh bien oui, c'est d'accord. Aimerais-tu être|attachée et bâillonnée par moi ou avec moi ?",405,0,0,
+405,0,0,,"Par toi, s'il te plaît.","Mais certainement, pourrais-tu m'aider ? Je suis|quelque peu attachée en ce moment. (Tu la détaches.)",505,0,-1,
+405,0,0,,Je pourrais être liée avec|toi ? Ça a l'air amusant.,"Jenna, tu peux nous aider ? (Jenna s'approche|avec plus d'objets et détache Natalie)",600,1,0,
+410,0,0,,"Non, tu es déjà bien|en uniforme.",Oh... Merci. (Que vas-tu lui faire maintenant ?),430,1,0,
+410,0,0,,"Oui, voyons ton joli corps.","Tu le penses vraiment ? Merci. (Tu la détaches|et elle enlève ses vêtements.)",420,1,0,UntieStrip()
+410,0,0,,Pas cette fois-ci.,Pas de problème.|(Que vas-tu lui faire maintenant ?),430,0,0,
+410,0,0,,Si je veux ? J'exige que tu|te déshabilles pour moi.,"Euh... Oui, madame. (Tu la détaches|et elle enlève ses vêtements.)",420,0,1,UntieStrip()
+420,0,0,,C'est le mieux que tu|puisses faire ?,"Désolée, vous me vouliez complètement nue ?|(Elle se déshabille à contrecoeur.)",430,0,1,NatalieNaked()
+420,0,0,,"Jolis sous-vêtements,|j'aime ça.","Merci, madame. (Elle rougit.)|(Que vas-tu lui faire maintenant ?)",430,1,0,
+420,0,0,,"En fait, tu étais|mieux vêtue.","Qu'essaies-tu de d'insinuer ? (Elle s'habille,|dégoutée. Que vas-tu lui faire maintenant ?)",430,-2,0,NatalieClothed()
+420,0,0,,Tu seras encore mieux|sans tes sous-vêtements.,Peut-être qu'en portant des cordes à la place.|(Elle se déshabille à contrecoeur.),430,0,1,NatalieNaked()
+430,0,0,,(Tu l'embrasses.),"(Tu embrasses brièvement, avant qu'elle ne t'arrête.)|C'est bien, mais tu es censée m'attacher.",430,0,0,Kiss()
+430,0,0,,(Tu la chatouilles.),"(Elle sursaute et vous repousse.)|Oh non, tout sauf ça.",430,0,0,Tickle()
+430,0,0,,(Tu la masturbes.),(Elle frissonne et gémit doucement|pendant que tu la masturbes.),430,0,0,DomMasturbate()
+430,0,0,TwoRopes,(Tu lui mets une fessée.),"(Elle crie, recule de douleur et se débat|brièvement, puis finit par se soumettre.)",430,0,0,Spank()
+430,0,0,IsRoped,(Tu la détaches.),(Tu libères lentement Natalie de ses liens serrés.),430,0,0,Untie()
+430,0,0,IsGagged,(Tu enlèves son bâillon),"(Tu enlèves soigneusement le bâillon.)|Merci, ma mâchoire avait besoin d'une pause.",430,0,0,Ungag()
+430,0,0,IsBlindfolded,(Tu enlèves son bandeau.),"(Elle cligne des yeux jusqu'ils s'adaptent à|la lumière, elle est heureuse de vous revoir.)",430,0,0,Unblind()
+430,0,0,IsBoundAndGagged,"Je t'ai piégé, salope."|(Tu l'abandonnes.),(Tu veux vraiment l'abandonner attachée|sans défense et bâillonnée comme ça ?),450,0,0,
+430,0,0,,Je m'ennuie|à présent.,"(Tu la libères.)|Quoi déjà ? Je pensais que tu appréciais ?",480,-1,0,NatalieRelease()
+430,0,0,,C'est suffisant pour|une pause déjeuner.,(Tu la libères.)|C'est déjà finit ? D'accord.,480,0,0,NatalieRelease()
+450,0,0,,Oui.,(Les autres membres ont déjà quitté la salle|pour leurs cours de l'après-midi.),460,0,0,
+450,0,0,,Non.,(Que vas-tu faire à présent ?),430,0,0,
+460,0,0,,Je reviendrai te chercher|après les cours.,(Tu lui dis au revoir et la laisse en|panique pendant qu'elle lutte futilement.),470,-1,5,
+460,0,0,,"T'es qu'une pute, perverse|et tu mérites d'être punie.",(Tu la chatouilles et la fesse jusqu'à ce qu'elle pleure.),470,-5,3,
+470,0,0,,"C'était sympa, à|plus tard, salope.",,0,0,0,EvilEnd()
+470,0,0,,Je n'arrive pas à croire|qu'ils ont autorisé ce club.,,0,0,0,EvilEnd()
+470,0,0,,"(Tu fuis vite, avant|qu'il ne soit trop tard.)",,0,0,0,EvilEnd()
+480,0,0,,La pause déjeuner est|presque terminée.,"Bon, dans ce cas.",490,0,0,
+480,0,0,,Je dois me préparer|pour le cours.,"C'est une excuse bidon. (Elle te plaque|soudainement au sol, t'attache et te bâillonne.)",350,0,-1,PlayerBoundGagged()
+490,0,0,,"C'était génial,|je peux revenir ?","Bien sûr, le club a plus de participants en soirée.",700,1,0,
+490,0,0,OrgasmDone,Tu as adoré ça.,"(Elle rougit.) Oui, je pense que toi aussi.",700,1,1,
+490,0,0,,Tu devrais m'attacher|solidement à l'occasion.,"Oh oui, je le ferais. Le club a des scéances en soirée|où tu pourrais être attachée pendant des heures.",700,1,-1,
+490,0,0,,Merci pour le déjeuner.,"Ce fut un plaisir, le club à une scéance en soirée.|Tu devrais nous rejoindre officiellement.",700,0,0,
+500,0,0,,Tu peux me détacher|avant ?,"Ok, tu peux faire une pause le temps de te déshabiller.|(Elle te détache.)",510,0,0,PlayerRelease()
+500,0,0,,Et si tu étais attachée|plutôt ?,"Pas cette fois, tu mérites le forfait intégral.|Ce qui se vit sans vêtements. (Elle te détache.)",510,0,0,PlayerRelease()
+500,0,0,,Tout ce Kinbaku m'excite.,"Je te comprends, ça sera plus agréable|sans tes vêtements. (Elle te détache.)",510,1,0,PlayerRelease()
+500,1,1,,C'est ton tour|maintenant !,"Eh bien, c'est d'accord, je t'ai déjà attaché une fois.|(Elle te détache et tu la ligote rapidement.)",400,0,1,PlayerReversal()
+505,0,0,,Tu peux m'attacher.,"D'accord, mais je pense que tu devrais d'abord enlever|ton uniforme, pour ressentir la sensation des cordes.",510,0,0,
+510,0,0,,Je crois que je peux.|(Tu enlèves ton uniforme.),"(Tu te déshabilles.) C'est ça, ton ressenti|des cordes sera meilleur comme ça.",530,0,0,PlayerStrip()
+510,0,0,,"Attends, c'est un|peu précipité.","Tout ira bien, veux-tu toujours|essayer un peu plus de Kinbaku ?",520,0,-1,
+510,0,0,,Non. Je me déshabillerai|pas pour toi.,"D'accord, d'accord, c'était juste une idée.|Es-tu toujours intéressée par du Kinbaku ?",520,0,1,
+510,0,0,,"Oui, Madame|(Tu enlèves ton uniforme.)",(Tu te déshabilles.) Tu vas adorer la sensation|de la corde naturelle sur ta peau douce.,530,1,-1,PlayerStrip()
+520,0,0,,Non.,Je ne pense pas que ce soit le meilleur club pour toi.,380,-1,0,
+520,0,0,,Oui.,Tu étais très bien avec tes bras attachés.|(Natalie t'attache à nouveau les bras.),320,0,0,PlayerRope()
+530,0,0,,Ressentir la corde ?,"Oui, tu dois apprendre à utiliser tous tes sens.|(Elle t'attache avec beaucoup plus de cordes.)",540,0,0,PlayerRope()
+530,0,0,,J'ai déjà ressenti la corde|sur mes poignets nus.,Ce n'est pas la même chose que la corde sur ton torse.|(Elle attache étroitement tes bras et ton corps.),540,-1,0,PlayerRope()
+540,0,0,,"C'est toujours pareil,|juste une corde.","Tu comptes trop sur ta vue, essayons ceci.|(Elle te bande les yeux.)",550,0,0,PlayerBlindfold()
+540,0,0,,Cette corde me démange.,"C'est un début, mais tu ne le ressens pas encore.|(Elle te bande les yeux.)",550,0,0,PlayerBlindfold()
+550,0,0,,"Attends, non, je t'en prie.","(Tu sens un doigt se poser sur tes lèvres.)|Chut, tout vas bien. Comment est ton ressenti ?",560,0,-1,
+550,0,0,,Je ne m'attendais|pas à ça.,Tu étais tellement concentrée que tu n'as rien vu venir.| Est-ce que tu ressens la sensation des cordes ?,560,0,0,
+550,0,0,,Tu ne peux pas me bander|les yeux sans prévenir.,Arrête de te plaindre et raconte-moi|ton ressenti sur les cordes à présent ?,560,-1,0,
+560,0,0,,"C'est pareil qu'avant,|c'est juste des cordes.",Tu me désespère. Essayons quelque chose|que tu sentiras. (Elle t'insère un oeuf vibrant.),570,-1,0,PlayerEgg()
+560,0,0,,Je me sens serrée|et en sécurité.,"C'est mieux, mais tu n'y es pas encore. Essaye ceci.|(Elle t'insère un oeuf vibrant.)",570,0,0,PlayerEgg()
+560,0,0,,C'est comme un câlin|qui ne s'arrête jamais.,"Tu t'en approches, tu as juste besoin d'un peu plus|d'encouragement. (Elle t'insère un oeuf vibrant.)",570,1,0,PlayerEgg()
+560,0,0,,C'est si bon et|et si fascinant.,C'est ça ! Je vais m'occuper de toi maintenant.|(Elle t'insère un oeuf vibrant.),570,1,-1,PlayerEgg()
+570,0,0,,"C'est si intense,|prends-moi maintenant.",Avec plaisir.|(Natalie commence à jouer avec ta corde d'entrejambe.),580,1,0,
+570,0,0,,"Ahhh, pitié bâillonne-moi|et prends-moi maintenant.",Seulement parce que tu es une si bonne petite soumise.|(Natalie te bâillonne et joue avec ta corde d'entrejambe.),580,0,-1,PlayerBallGag()
+570,0,0,,"Arrête, ça va trop loin.","Si c'est ce que tu penses, je vais te laisser partir.|(Natalie te libère.)",590,-1,0,PlayerRelease()
+580,0,0,,(Tu apprécies son toucher.),(Tu t'abandonnes à son contact affectueux pendant qu'|elle tire la corde d'entrejambe et caresse ton clitoris.),580,0,0,SubbieMasturbate()
+580,0,0,,(Tu te tortilles avec rythme.),"(Tu bouges tes fesses pour suivre son rythme.|Lentement, accumulant la jouissance par son toucher.)",580,0,0,SubbieMasturbate()
+580,0,0,,(Tu luttes joyeusement.),(Tu luttes joyeusement et elle semble apprécier.|Elle prend de la vitesse et te masturbe un peu plus fort.),580,0,0,SubbieMasturbate()
+590,0,0,,S'il te plaît. Tu peux|m'enlever ce maudit oeuf ? ,Si tu es sûre de ne pas vouloir le garder.|(Natalie t'enlève l'oeuf et tu te rhabilles.),700,-1,-1,PlayerNoEgg()
+590,0,0,,Je peux garder l'oeuf ?,"Tu peux, c'est ton cadeau d'initiation.|(Tu te rhabilles.)",700,1,0,PlayerClothed()
+590,0,0,,Je peux garder|le bandeau ?,"Désolé, mais je n'en ai qu'un.|(Tu te rhabilles.)",700,0,0,PlayerClothed()
+600,0,0,,Comment allons-nous|être liées ensemble ?,"(Jenna s'approche de toi.)|Pas attachées, mais menottées cette fois.",610,0,0,
+600,0,0,,Tu dois détacher Natalie ?,"(Jenna s'approche de toi.) Oui, j'ai prévu|quelque chose de différent pour vous deux.",610,0,1,
+610,0,0,,Qu'est-ce que|tu as en tête ?,"Tout d'abord, les amoureuses ont besoin d'un câlin.|(Tu enlaces Natalie.)",620,0,0,
+610,0,0,,"Oh, une surprise !","Beaucoup de surprises peuvent arriver, donne d'abord|un gros câlin à Natalie. (Tu fais un câlin à Natalie.)",620,0,0,
+620,0,0,,(Tu fais un long|câlin à Natalie.),"Parfait, vous devriez vous prendre une chambre.|(Jenna menotte vos mains l'une à l'autre.)",630,1,0,PlayerCuffed()
+620,0,0,,(Tu fais un câlin|rapide à Natalie),"(Avant que tu ne t'arrêtes, Jenna menotte vos mains|l'une à l'autre.) Tu ne peux plus t'arrêter maintenant.",630,-1,0,PlayerCuffed()
+630,0,0,,"Attends, c'est quoi ça ?","C'est un double bâillon spécial pour vous deux,|c'est à partager. (Jenna te met un drôle de bâillon.)",640,0,0,OpenGag()
+630,0,0,,"C'est amusant, Natalie.","Bien sûr, ouvre bien grand la bouche.|(Jenna te met un drôle de bâillon.)",640,1,0,OpenGag()
+640,0,0,,@Mhhs qhe...,(Natalie est aussi attachée au bâillon|et vos langues se touchent.),650,0,0,
+650,0,0,,(Tu essayes de te|débattre avec Natalie.),Un peu de patience. (Jenna vous donne des vibros|et une télécommande à chacune.) Amusez-vous bien.,660,0,0,
+660,0,0,Remote,(Tu ajustes ta|télécommande.),,660,0,1,VibeNatalie()
+660,0,0,,(Tu te débats|toute enjouée.),(Natalie se débat avec toi.|Ton vibro s'intensifie.),660,0,0,VibePlayer()
+660,0,0,,(Tu regardes Natalie|avec envie.),(Ton vibro s'intensifie.|Natalie frotte sa jambe contre toi.),660,1,-1,KneePlayer()
+660,0,0,,(Tu paniques et essayes|de t'éloigner.),(Natalie te réconforte du mieux qu'elle peut.|Ton vibro diminue en vibration petit à petit),660,0,0,Panic()
+660,0,0,,(Tu lui fais un|baiser profond.),"(Vos langues dancent ensemble de manière intime,|pendant que ton vibro s'intensifie.)",660,1,0,VibePlayer()
+660,0,0,,(Tu gémis à travers|le bâillon.),(Natalie te serre encore plus fort dans ses bras.|Ton vibro s'intensifie.),660,0,0,VibePlayer()
+660,0,0,,(Tu étreins Natalie|tendrement.),(Natalie te rend la pareille|et vos langues se rencontrent doucement.),660,0,0,Hug()
+660,0,0,,(Tu essayes d'enlever le|bâillon de Natalie.),(Les boucles des sangles ont été cadenassées.|Le bâillon ne peut être enlevé sans clé.),660,0,0,Hug()
+670,0,0,,@Chhthht vhthlmmt ihhngne.,"(Jenna arrive et libère Natalie.|Tu tombes à genoux, haletant pour respirer.)",680,1,0,
+670,0,0,,@"Shml tm phhmmt,|éhhmmt lm.","(Jenna arrive et libère Natalie.|Tu tombes à genoux, haletant pour respirer.)",680,0,-1,
+670,0,0,,@Lm vhhme ! (Tu rougis et|détourne le regard.),"(Jenna arrive et libère Natalie.|Tu tombes à genoux, haletant pour respirer.)",680,1,-1,
+680,0,0,,@Th pmmx mr lhhmmhr|mhhmmhhmmt ?,"Bien. (Natalie te libère.)|Alors, c'était comment ?",685,0,0,PlayerRelease()
+680,0,0,,"@Shml tm phhmmt,|éhhmmt lm.","Je vois, je peux y remédier. (Natalie te libère.)|Alors, c'était comment ?",685,0,-1,PlayerRelease()
+685,0,0,NoRemote,J'ai failli te voir|me supplier.,"Oui, désolée. Mon pouce à glisser sur la télécommande.|Bon, il est temps de retourner en classe.",700,1,2,
+685,0,0,,J'ai connu mieux.,"Sérieusement, j'en doute, vu la façon dont tu viens de|t'effondrer. Bon, il est temps de retourner en classe.",700,-1,0,
+685,0,0,,Je n'arrive pas à croire|que tu m'aies fait ça.,"Désolé, j'ai pensé que ça te plairait.|Bon, il est temps de retourner en classe.",700,-1,1,
+685,0,0,,"J'en tremble encore,|madame.","C'est mignon. Reviens plus tard si tu en veux plus.|Bon, il est temps de retourner en classe.",700,0,-1,
+685,0,0,,C'était fantastique.,"Ça l'était pour moi aussi.|Bon, il est temps de retourner en classe.",700,1,0,
+685,0,0,,"La prochaine fois,|je t'aurai.","J'aime bien l'idée de la prochaine fois.|Bon, il est temps de retourner en classe.",700,1,1,
+690,0,0,,"@Lhhmme mhi pmmhhr|mhhhhmmmmt !",Je pensais que ça t'aurait plu.|(Jenna te libère.),700,-1,0,PlayerRelease()
+690,0,0,,"@Shhl tm pmmht,|emmhhe mhi çh.","C'était peut-être un peu trop pour une première fois.|(Jenna te libère.)",700,0,-1,PlayerRelease()
+690,0,0,,"@Jm vhhx rhhmmr pmms|lhhmmhhs, Shhl tm pmmht.","Non, les clubs ne doivent pas te freiner dans tes études.|(Jenna te libère.)",700,0,0,PlayerRelease()
+700,0,0,,Retournons en classe.|(Tu pars.),,0,0,0,EndChapter()
+700,0,0,,On se reverra après|les cours. (Tu pars.),,0,1,0,EndChapter()
