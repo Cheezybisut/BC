@@ -105,8 +105,8 @@ function C101_KinbakuClub_BlindMansBuff_StandStill() {
 	C101_KinbakuClub_BlindMansBuff_TooSlow = true;
 }
 
-// Chapter 101 - BlindMansBuff - Go back or forwards
-function C101_KinbakuClub_BlindMansBuff_ForeAft() {
+// Chapter 101 - BlindMansBuff - Go forwards
+function C101_KinbakuClub_BlindMansBuff_Fore() {
 	C101_KinbakuClub_BlindMansBuff_TouchSomebody = false;
 	C101_KinbakuClub_BlindMansBuff_FeelSomebody = false;
 	C101_KinbakuClub_BlindMansBuff_Random = Math.floor(Math.random() * 4);
@@ -114,6 +114,18 @@ function C101_KinbakuClub_BlindMansBuff_ForeAft() {
 	if (C101_KinbakuClub_BlindMansBuff_Random == 1) OverridenIntroText = GetText("Forwards1");
 	if (C101_KinbakuClub_BlindMansBuff_Random == 2) OverridenIntroText = GetText("Forwards2");
 	if (C101_KinbakuClub_BlindMansBuff_Random == 3) OverridenIntroText = GetText("Forwards3");
+	C101_KinbakuClub_BlindMansBuff_WhatHappened()
+}
+
+// Chapter 101 - BlindMansBuff - Go backwards
+function C101_KinbakuClub_BlindMansBuff_Aft() {
+	C101_KinbakuClub_BlindMansBuff_TouchSomebody = false;
+	C101_KinbakuClub_BlindMansBuff_FeelSomebody = false;
+	C101_KinbakuClub_BlindMansBuff_Random = Math.floor(Math.random() * 4);
+	if (C101_KinbakuClub_BlindMansBuff_Random == 0)	OverridenIntroText = GetText("Backwards0");
+	if (C101_KinbakuClub_BlindMansBuff_Random == 1) OverridenIntroText = GetText("Backwards1");
+	if (C101_KinbakuClub_BlindMansBuff_Random == 2) OverridenIntroText = GetText("Backwards2");
+	if (C101_KinbakuClub_BlindMansBuff_Random == 3) OverridenIntroText = GetText("Backwards3");
 	C101_KinbakuClub_BlindMansBuff_WhatHappened()
 }
 
@@ -221,6 +233,12 @@ function C101_KinbakuClub_BlindMansBuff_GameOver() {
 // Chapter 101 - BlindMansBuff - Player has their handcuffs unlocked
 function C101_KinbakuClub_BlindMansBuff_UnCuffed() {
 	PlayerUnlockInventory("Cuffs");
+	C101_KinbakuClub_BlindMansBuff_CalcParams()
+}
+
+// Chapter 101 - BlindMansBuff - Player has their ropes untied
+function C101_KinbakuClub_BlindMansBuff_Untie() {
+	PlayerUnlockInventory("rope");
 	C101_KinbakuClub_BlindMansBuff_CalcParams()
 }
 

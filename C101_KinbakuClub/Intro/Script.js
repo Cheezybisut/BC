@@ -1,17 +1,12 @@
-// Chapter 8 - Drama Class Load
+// Chapter 101 - Kinbaku Club Load
 function C101_KinbakuClub_Intro_Load() {
 
 	// Time is always 13:00 on the intro, no timer
 	StopTimer(17.00 * 60 * 60 * 1000);
 	
-	// Removes the any chastity belts for now, maybe we will use them in a later version
-	PlayerRemoveInventory("ChastityBelt", 99);
-	PlayerRemoveInventory("Armbinder", 99);
-	PlayerUnlockInventory("ChastityBelt");
-	
 }
 
-// Chapter 8 - Drama Class Run
+// Chapter 101 - Drama Class Run
 function C101_KinbakuClub_Intro_Run() {
 	
 	// Paints the background
@@ -30,7 +25,7 @@ function C101_KinbakuClub_Intro_Run() {
 	}
 }
 
-// Chapter 8 - Drama Class Click
+// Chapter 101 - Drama Class Click
 function C101_KinbakuClub_Intro_Click() {
 	TextPhase++;
 	if (TextPhase >= 4) SetScene(CurrentChapter, "JennaIntro");

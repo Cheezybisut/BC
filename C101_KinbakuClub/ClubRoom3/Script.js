@@ -25,7 +25,8 @@ function C101_KinbakuClub_ClubRoom3_Run() {
 function C101_KinbakuClub_ClubRoom3_Click() {
 
 	// When the user clicks on any character (screen is divided in 4, 3rd can be the player)
-	if ((MouseX >= 15) && (MouseX <= 115) && (MouseY >= 520) && (MouseY <= 580)) SetScene(CurrentChapter, "ClubRoom2");
+	if (!C101_KinbakuClub_Erica_Kidnapper && (MouseX >= 15) && (MouseX <= 115) && (MouseY >= 520) && (MouseY <= 580)) SetScene(CurrentChapter, "ClubRoom2");
+	if (C101_KinbakuClub_Erica_Kidnapper && (MouseX >= 15) && (MouseX <= 115) && (MouseY >= 520) && (MouseY <= 580)) SetScene(CurrentChapter, "ClubRoom4");
 	if ((MouseX >= 1085) && (MouseX <= 1185) && (MouseY >= 520) && (MouseY <= 580)) SetScene(CurrentChapter, "ClubRoom1");
 	//if ((MouseX >= 80) && (MouseX <= 260) && (MouseY >= 110) && (MouseY <= 520)) SetScene(CurrentChapter, "Chloe");
 	if ((MouseX >= 1040) && (MouseX <= 1200) && (MouseY >= 0) && (MouseY <= 480)) SetScene(CurrentChapter, "Door");

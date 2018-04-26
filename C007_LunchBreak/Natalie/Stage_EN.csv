@@ -176,7 +176,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 490,0,0,,"That was great,|can I come again.","Of course, the club|has bigger meetings most evenings.",700,1,0,
 490,0,0,OrgasmDone,You loved that.,"(She blushes.) Yes, I think you did too.",700,1,1,
 490,0,0,,You should tie me up|properly sometime.,"Oh yes, I should.  The club has evening meetings|where you could be tied up for hours.",700,1,-1,
-490,0,0,,Thanks for the Lunch.,"My pleasure, you should join the club properly for an evening meeting.",700,0,0,
+490,0,0,,Thanks for the Lunch.,"My pleasure, you should join the club properly|for an evening meeting.",700,0,0,
 500,0,0,,Can you untie me first?,"Yes, you can have a break while you undress.|(She unties you.)",510,0,0,PlayerRelease()
 500,0,0,,How about you get|tied up instead?,"Not this time, you deserve the full experience.|That means without clothes.  (She unties you.)",510,0,0,PlayerRelease()
 500,0,0,,All this Kinbaku is|making me hot.,"I know what you mean, you will be cooler|without your clothes on.  (She unties you.)",510,1,0,PlayerRelease()

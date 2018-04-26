@@ -58,13 +58,35 @@ function C101_KinbakuClub_JennaIntro_Click() {
     }
 }
 
+// Chapter 101 - Short cut to club room with skills and items
+function C101_KinbakuClub_JennaIntro_ShortCut() {
+	PlayerAddInventory("Cuffs", 4);
+	PlayerAddInventory("CuffsKey", 1);
+	PlayerAddInventory("Rope", 4);
+	PlayerAddInventory("BallGag", 4);
+	PlayerAddInventory("TapeGag", 8);
+	PlayerAddInventory("ClothGag", 4);
+	PlayerAddInventory("Collar", 4);
+	PlayerAddInventory("Crop", 1);
+	PlayerAddInventory("VibratingEgg", 4);
+	PlayerAddInventory("ChastityBelt", 4);
+	PlayerAddInventory("Armbinder", 4);
+	PlayerAddInventory("Blindfold", 4);
+	C101_KinbakuClub_JennaIntro_Done()
+	SetScene(CurrentChapter, "ClubRoom1")
+	PlayerAddSkill("Arts", 1);
+	PlayerAddSkill("Fighting", 1);
+	PlayerAddSkill("RopeMastery", 1);
+	PlayerAddSkill("Sports", 1);
+	PlayerAddSkill("Seduction", 1);
+	C101_KinbakuClub_Erica_Kidnapper = true;
+}
 
 // Chapter 101 - Player skips club explanation
 function C101_KinbakuClub_JennaIntro_SkipExplanation() {
 	C101_KinbakuClub_JennaIntro_NotAsked = false;
 	C101_KinbakuClub_JennaIntro_Concerned = false;
 }
-
 
 // Chapter 101 - Player asks about Natalie
 function C101_KinbakuClub_JennaIntro_Asked() {

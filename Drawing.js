@@ -61,6 +61,9 @@ function DrawText(Text, X, Y, Color) {
 	// Replace the COMMON_PLAYERNAME keyword with the player name
 	Text = Text.replace("COMMON_PLAYERNAME", Common_PlayerName);
 
+	// Replace the COMMON_NUMBER keyword with a number generated while playing the game
+	Text = Text.replace("COMMON_NUMBER", Common_Number);
+
 	// Font is fixed for now, color can be set
 	MainCanvas.font = "24px Arial";
 	MainCanvas.fillStyle = Color;
