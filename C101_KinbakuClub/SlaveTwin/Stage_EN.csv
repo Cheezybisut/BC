@@ -1,0 +1,16 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,You're my slave now.,"(She tries to escape in vain as you take her across|the room and lock a collar on her, chained to the wall.",10,0,0,
+0,0,0,,We are going to|have some fun.,(She snorts and tries to resit you hoplessly.|You lock the collar on her ensuring your fun.,10,0,0,
+0,0,0,,I'm her to save|you from them.,"(She calms down as you take here away, but then|struggles again as you lock the collar on her.)",10,0,0,
+10,0,0,,ToDo,,10,0,0,
+10,0,0,,(Remove her gag.),"(You remove the gag and she immediately blurts out.)|Get me out of this collar before Jenna returns, please!",20,0,0,RemoveGag()
+10,,,,,,,,,
+10,,,,,,,,,
+10,,,,,,,,,
+20,0,0,,Talk to her.,Can you atleast untie my legs.|I can bearly stand up like this.,20,0,0,
+20,,,,,If you untie me I could help,,,,
+,,,,,,,,,
+20,,,,,"The cute good girl style is for my boyfriend,|knowing it hides a minx underneith teases him.",,,,
+,,,,Does he tie|you up?,"No, but he lets me practice Kinbaku on him from time|to time, if I wear something cute and tease him.",,,,
+,,,,,,,,,
+20,,,,,"A previous boyfriend was into tying me up,|but I don't enjoy being tied up.",,,,

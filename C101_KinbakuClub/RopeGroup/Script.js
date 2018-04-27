@@ -1,9 +1,14 @@
 var C101_KinbakuClub_RopeGroup_CurrentStage = 0;
 var C101_KinbakuClub_RopeGroup_Random = 0;
+var C101_KinbakuClub_RopeGroup_SetTwins = false;
 var C101_KinbakuClub_RopeGroup_LucyOnRight = true;
 var C101_KinbakuClub_RopeGroup_Kidnapper = false;
+var C101_KinbakuClub_RopeGroup_DoubleKidnap = false;
 var C101_KinbakuClub_RopeGroup_PlayerIsGagged = false;
 var C101_KinbakuClub_RopeGroup_IntroDone = false;
+var C101_KinbakuClub_RopeGroup_RightTwin = "";
+var C101_KinbakuClub_RopeGroup_LeftTwin = "";
+var C101_KinbakuClub_RopeGroup_TwinsRevealed = false;
 var C101_KinbakuClub_RopeGroup_LeftTwinReleased = false;
 var C101_KinbakuClub_RopeGroup_RightTwinReleased = false;
 var C101_KinbakuClub_RopeGroup_RightTwinKidnapped = false;
@@ -15,7 +20,8 @@ var C101_KinbakuClub_RopeGroup_LucyFree = false;
 // Calculates the scene parameters
 function C101_KinbakuClub_RopeGroup_CalcParams() {
 	C101_KinbakuClub_RopeGroup_PlayerIsGagged = Common_PlayerGagged;
-	C101_KinbakuClub_RopeGroup_Kidnapper = C101_KinbakuClub_Erica_Kidnapper;
+	C101_KinbakuClub_RopeGroup_Kidnapper = C101_KinbakuClub_Slaves_ReadyForSlaves && !C101_KinbakuClub_RopeGroup_RightTwinKidnapped;
+	C101_KinbakuClub_RopeGroup_DoubleKidnap = C101_KinbakuClub_RopeGroup_RightTwinKidnapped;
 }
 
 
@@ -44,9 +50,20 @@ function C101_KinbakuClub_RopeGroup_Load() {
 	}
 
 	// Determine which twin is Lucy
-	C101_KinbakuClub_RopeGroup_Random = Math.floor(Math.random() * 2);
-	if (C101_KinbakuClub_RopeGroup_Random == 0)	C101_KinbakuClub_RopeGroup_LucyOnRight = false;
-
+	if (!C101_KinbakuClub_RopeGroup_SetTwins) {
+		C101_KinbakuClub_RopeGroup_Random = Math.floor(Math.random() * 2);
+		if (C101_KinbakuClub_RopeGroup_Random == 0)	{
+			C101_KinbakuClub_RopeGroup_LucyOnRight = false;
+			C101_KinbakuClub_RopeGroup_RightTwin = "Lucy";
+			C101_KinbakuClub_RopeGroup_LeftTwin = "Heather";
+		}
+		if (C101_KinbakuClub_RopeGroup_Random != 0)	{
+			C101_KinbakuClub_RopeGroup_LucyOnRight = true;
+			C101_KinbakuClub_RopeGroup_RightTwin = "Heather";
+			C101_KinbakuClub_RopeGroup_LeftTwin = "Lucy";
+		}
+		C101_KinbakuClub_RopeGroup_SetTwins = true;
+	}
 }
 
 // Chapter 101 - RopeGroup Run
@@ -106,11 +123,11 @@ function C101_KinbakuClub_RopeGroup_Lucy() {
 }
 
 
-
-
-// Chapter 101 - RopeGroup - kidnap the nearest twin
+// Chapter 101 - RopeGroup - Grabs the nearest twin
 function C101_KinbakuClub_RopeGroup_Kidnap() {
+	C101_KinbakuClub_RopeGroup_RightTwinKidnapped = true;
 	C101_KinbakuClub_RopeGroup_2Twins = false;
+	SetScene(CurrentChapter, "SlaveTwin");
 }
 
 // Chapter 101 - RopeGroup - Release the twin on the left

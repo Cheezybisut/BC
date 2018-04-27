@@ -26,6 +26,8 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 50,0,0,,(Turn and leave.),"(She snatches you from behind.)  You should never|turn your back on a slaver, foolish damsel.",150,0,0,NoLeave()
 55,0,0,,What does she|have manacles for?,"Jenna is fair, but very firm on club discipline.|Be careful, I think Jenna has the keys for them with her.",60,0,0,TryKidnapping()
 55,0,0,,How many manacles|are there?,"I don't know, quite a few I think. I think Jenna still has|the keys, so anyone put in them will be stuck there.",60,0,0,TryKidnapping()
+60,0,0,,Who should I|try kidnapping?,I'll let you work that out for yourself.|I need to get back to choreographing a slave.,60,0,0,
+60,0,0,,(Turn and leave.),"(She snatches you from behind.)  You should never|turn your back on a slaver, foolish damsel.",150,0,0,NoLeave()
 60,0,0,,You are my slave.|(Try kidnapping Erica.),"Nice try, but you're not getting me without a fight.",60,1,0,Fight()
 100,0,0,,(Try to get out of there.),(She grabs you and fastens the collar around your neck|before you can get away.)  You're mine now.,110,0,0,CollarLocked()
 100,0,0,PlayerNotBound,(Fight here off.),Wow you're a feisty one. Come back when you're|ready for a collar and chain.,90,0,0,ResistedSlavery()
