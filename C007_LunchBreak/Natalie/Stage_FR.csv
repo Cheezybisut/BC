@@ -18,10 +18,10 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 40,0,0,,Ce que tu crains.,"Non, c'est toi qui craint !|(Elle se retourne et décampe.)",50,-2,0,EndLunch()
 100,0,0,,Waouh c'est une|prière inversée ?,"Oui, tu as l'air de t'y connaître.|Chloé s'étire juste après un cours de ballet.",110,1,0,
 100,0,0,,Elle va bien ?|Ça a l'air dur.,"Bien sûr, Chloé est aussi flexible dans les|étirements qu'elle l'est dans le ballet.",110,0,0,
-100,0,0,,Je ne suis pas|sûr d'y arriver.,On ne peut pas toutes être aussi flexibles que Chloé.,110,0,-1,
+100,0,0,,Je ne suis pas|sûre d'y arriver.,On ne peut pas toutes être aussi flexibles que Chloé.,110,0,-1,
 100,0,0,,"Oh mon dieu, Je ne savais|pas ce qu'était le Kinbaku.","Littéralement, ça veut dire : ""lien serré"".|Ne t'inquiètes pas, tout ira bien.",110,0,-1,
 100,0,0,,"Cool, je parie que tu serais|bien attachée comme ça.","Merci, mais je ne suis pas aussi flexible que Chloé.",110,1,1,
-110,0,0,,Tu as parlé de déjeuner|tout à l'heure.,"Oui, il y a un plat à emporter de commandée.|Que dirais-tu d'un logitage rapide en attendant ?",120,0,0,
+110,0,0,,Tu as parlé de déjeuner|tout à l'heure.,"Oui, il y a un plat à emporter de commandé.|Que dirais-tu d'un logitage rapide en attendant ?",120,0,0,
 110,0,0,,Où est la bouffe ?|J'ai faim maintenant.,Il y a un plat à emporter qui arrive.|Voudrais-tu essayer un petit ligotage d'ici là ?,120,-1,1,
 110,0,0,,"Pourrais-je avoir un|déjeuner, s'il te plaît ?","Attends un instant, c'est en cours de livraison.|Un peu de Kinbaku nous aidera à passer le temps.",120,0,-1,
 120,0,0,,Je peux t'attacher ?,Certainement pas. Un nouveau membre|doit être attaché en premier.,130,-1,-1,

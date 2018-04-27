@@ -13,7 +13,8 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 100,0,0,2Twins,(Go to Heather and Lucy.),(What do you want to do with Heather and Lucy?),400,0,0,NoActor()
 100,0,0,!2Twins,(Go to the remaining twin.),(What will you do with this one?),400,0,0,
 100,0,0,LucyFree,(Talk to Lucy.),(What do you want to talk to Amelia about?),500,0,0,Lucy()
-100,0,0,Kidnapper,(Kidnap one of the twins.),(You grab the nearest one and drag here away|before Amelia and Charlotte can react.),100,0,0,Kidnap()
+100,0,0,Kidnapper,(Kidnap one of the twins.),(You grab the nearest one. She struggles as you drag|here away before Amelia and Charlotte can react.),100,0,0,Kidnap()
+100,0,0,DoubleKidnap,(Kidnap the remaing twin.),To Do.,100,0,0,
 200,0,0,KnowKinbakuNotDone,Do you know a|lot about Kinbaku?,I know enough to keep anyone helplessly tied up.,210,0,0,KnowKinbakuDone()
 200,0,0,,Have you tied|Charlotte up yet?,She was a nervious wreck when I tried earlier and only|calmed down after I made her help tie up the twins.,220,,,
 200,0,0,,"So which do you prefer,|boxtie or elbows touching?",Both have thier advantages.|I prefer how elbows toching really shows off a sub.,230,0,0,
