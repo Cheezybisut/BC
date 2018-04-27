@@ -3,6 +3,9 @@ var C000_Intro_ChapterSelect_CreditMode = false;
 var C000_Intro_ChapterSelect_CreditPosition = 0;
 var C000_Intro_ChapterSelect_Credits = [];
 var C000_Intro_ChapterSelect_CreditActors = ["Player", "Amanda", "Sarah", "Sidney", "Jennifer", "Julia", "Yuki"];
+var C000_Intro_ChapterSelect_ThankYouCount = 999999;
+var C000_Intro_ChapterSelect_ThankYouList = ["Christian", "Overlord", "Bryce", "Xepherio", "Designated", "Ilsyra", "Jyeoh", "Winterisbest", "Michal", "David"];
+var C000_Intro_ChapterSelect_ThankYouCurrent = -1;
 
 // Chapter Select Load
 function C000_Intro_ChapterSelect_Load() {
@@ -33,7 +36,13 @@ function C000_Intro_ChapterSelect_DrawCredits() {
 				return;
 			} else {
 				if (Cred.substr(0, 10) == "CreditType") DrawText(GetText(Cred), 800, Y, "black");
-				else DrawText(Cred, 800, Y, "black");
+				else {
+					if (Cred.indexOf("|") == -1) DrawText(Cred, 800, Y, "black");
+					else {
+						DrawText(Cred.substring(0, Cred.indexOf("|")), 700, Y, "black");
+						DrawText(Cred.substring(Cred.indexOf("|") + 1, 1000), 900, Y, "black");
+					}
+				}
 			}
 
 			// Draw one of the main actors in the credit rolls
@@ -45,6 +54,23 @@ function C000_Intro_ChapterSelect_DrawCredits() {
 
 }
 
+// Draw the thank you image
+function C000_Intro_ChapterSelect_DrawThankYou() {
+	
+	// If the image must swap
+	if (C000_Intro_ChapterSelect_ThankYouCount >= 200) {
+		var NewThankYou = C000_Intro_ChapterSelect_ThankYouCurrent;
+		while (NewThankYou == C000_Intro_ChapterSelect_ThankYouCurrent)
+			NewThankYou = Math.floor(Math.random() * C000_Intro_ChapterSelect_ThankYouList.length);
+		C000_Intro_ChapterSelect_ThankYouCurrent = NewThankYou;
+		C000_Intro_ChapterSelect_ThankYouCount = 0;
+	}
+
+	// Draw the selected thank you image
+	DrawImage("C000_Intro/ChapterSelect/ThankYou/" + C000_Intro_ChapterSelect_ThankYouList[C000_Intro_ChapterSelect_ThankYouCurrent] + ".jpg", 600, 0);
+
+}
+
 // Chapter Select Run
 function C000_Intro_ChapterSelect_Run() {
 	BuildInteraction(C000_Intro_ChapterSelect_CurrentStage);
@@ -52,12 +78,16 @@ function C000_Intro_ChapterSelect_Run() {
 		DrawRect(600, 0, 1200, 600, "white");
 		if (C000_Intro_ChapterSelect_Credits.length > 1) C000_Intro_ChapterSelect_DrawCredits();
 		C000_Intro_ChapterSelect_CreditPosition++;
+	} else {
+		C000_Intro_ChapterSelect_DrawThankYou();
+		C000_Intro_ChapterSelect_ThankYouCount++;
 	}
 }
 
-// Chapter Select Click
+// Chapter Select Click (Clicking on the image will swap it)
 function C000_Intro_ChapterSelect_Click() {	
 	ClickInteraction(C000_Intro_ChapterSelect_CurrentStage);
+	if (!C000_Intro_ChapterSelect_CreditMode && (MouseX >= 600) && (MouseX <= 1200) && (MouseY >= 0) && (MouseY <= 599)) C000_Intro_ChapterSelect_ThankYouCount = 999999;
 	StopTimer(7.6666667 * 60 * 60 * 1000);
 }
 
@@ -83,4 +113,5 @@ function C000_Intro_ChapterSelect_LoadScreen() {
 function C000_Intro_ChapterSelect_RollCredits() {
 	C000_Intro_ChapterSelect_CreditMode = !C000_Intro_ChapterSelect_CreditMode;
 	C000_Intro_ChapterSelect_CreditPosition = 0;
+	C000_Intro_ChapterSelect_ThankYouCount = 0;
 }

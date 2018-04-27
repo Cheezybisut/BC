@@ -1,0 +1,63 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,"Salut COMMON_PLAYERNAME, quoi de neuf ?",JenniferIntro.jpg
+0,4,0,,COMMON_PLAYERNAME ! C'est bon de te revoir.,JenniferIntroHappy.jpg
+0,0,4,,Oh Madame COMMON_PLAYERNAME.|Que puis-je faire pour vous ?,JenniferIntroSubbie.jpg
+0,0,0,JudoVictory,Oh ! La ceinture noire de judo !|Que puis-je faire pour toi ?,JenniferIntroSubbie.jpg
+0,0,0,JudoDefeat,Oh ! Ma partenaire de judo !|Que puis-je faire pour toi ?,JenniferIntro.jpg
+0,0,0,HasEgg,Ce truc vibre encore en moi ! J'espère que ça|ne prendra pas trop de temps pour l'enlever.,JenniferIntroSubbie.jpg
+10,0,0,,Je vais faire un peu de tennis avant le déjeuner.|Tu veux venir jouer avec moi ?,JenniferIntro.jpg
+10,4,0,,Je vais faire un peu de tennis avant le déjeuner.|Tu veux venir jouer avec moi ?,JenniferIntroHappy.jpg
+10,0,4,,Je vais faire un peu de tennis avant le déjeuner.|Tu veux venir jouer avec moi ?,JenniferIntroSubbie.jpg
+15,0,0,,Je vais faire un peu de tennis avant le déjeuner.|Tu voudras venir jouer avec moi demain ?,JenniferIntro.jpg
+15,4,0,,Je vais faire un peu de tennis avant le déjeuner.|Tu voudras venir jouer avec moi demain ?,JenniferIntroHappy.jpg
+15,0,4,,Je vais faire un peu de tennis avant le déjeuner.|Tu voudras venir jouer avec moi demain ?,JenniferIntroSubbie.jpg
+20,0,0,,Tu veux faire une partie de tennis ?|Qu'as-tu en tête ?,JenniferIntro.jpg
+20,4,0,,Tu veux faire une partie de tennis ?|Qu'as-tu en tête ?,JenniferIntroHappy.jpg
+20,0,4,,Tu veux faire une partie de tennis ?|Qu'as-tu en tête ?,JenniferIntroSubbie.jpg
+30,0,0,,Quel est l'enjeux de la partie exactement ?|La perdante paye le déjeuner ?,JenniferIntro.jpg
+30,4,0,,Quel est l'enjeux de la partie exactement ?|La perdante paye le déjeuner ?,JenniferIntroHappy.jpg
+30,0,4,,Quel est l'enjeux de la partie exactement ?|La perdante paye le déjeuner ?,JenniferIntroSubbie.jpg
+40,0,0,,Es-tu prête à jouer ?,JenniferIntro.jpg
+40,4,0,,Es-tu prête à jouer ?,JenniferIntroHappy.jpg
+40,0,4,,Es-tu prête à jouer ?,JenniferIntroSubbie.jpg
+90,0,0,,(Jennifer est partie.),JenniferIntroGone.jpg
+100,0,0,TennisVictory,"(Après le match, vous marchez jusqu'à un café.)|Tu as bien joué, tu mérites un déjeuner gratuit.",JenniferPlayerLunch0.jpg
+100,0,0,!TennisVictory,"(Après le match, vous marchez jusqu'à un café.)|Ne t'en fais pas, j'ai joué pendant des années.",JenniferPlayerLunch0.jpg
+105,0,0,,,JenniferPlayerLunch0.jpg
+110,0,0,,,JenniferPlayerLunch0.jpg
+113,0,0,,,JenniferPlayerLunch0.jpg
+116,0,0,,,JenniferPlayerLunch0.jpg
+120,0,0,,,JenniferPlayerLunch0.jpg
+130,0,0,,,JenniferPlayerLunch0.jpg
+140,0,0,,,JenniferPlayerLunch0.jpg
+150,0,0,,,JenniferPlayerLunch0.jpg
+160,0,0,,,JenniferPlayerLunch0.jpg
+170,0,0,,,JenniferPlayerLunch0.jpg
+175,0,0,,,JenniferPlayerLunch0.jpg
+180,0,0,,,JenniferPlayerLunch0.jpg
+185,0,0,,,JenniferPlayerLunch0.jpg
+200,0,0,,,JenniferPlayerTennis.jpg
+210,0,0,,,JenniferPlayerKiss.jpg
+215,0,0,,,JenniferPlayerTennis.jpg
+220,0,0,,,JenniferPlayerTennis.jpg
+230,0,0,,,JenniferPlayerTennis.jpg
+240,0,0,,,JenniferStrip.jpg
+250,0,0,,,JenniferPlayerTennis.jpg
+260,0,0,,,JenniferPlayerTennis.jpg
+270,0,0,,,JenniferPlayerKiss.jpg
+300,0,0,,,JenniferPlayerTennis.jpg
+310,0,0,,,JenniferPlayerTennis.jpg
+320,0,0,,,JenniferPlayerTennis.jpg
+330,0,0,,,JenniferPlayerPushUp.jpg
+340,0,0,,,JenniferPlayerTennis.jpg
+350,0,0,,,JenniferPlayerTennis.jpg
+360,0,0,,,JenniferPlayerTennis.jpg
+400,0,0,,,JenniferPlayerPunish.jpg
+410,0,0,,,JenniferPlayerPunish.jpg
+420,0,0,,,JenniferPlayerPunish.jpg
+430,0,0,,,JenniferPlayerPunish.jpg
+440,0,0,,,JenniferPlayerPunishStrip.jpg
+450,0,0,,,JenniferPlayerPunishStrip.jpg
+460,0,0,,,JenniferPlayerPunishRacket.jpg
+470,0,0,,,JenniferPlayerPunishStrip.jpg
+480,0,0,,,JenniferPlayerPunish.jpg

@@ -217,11 +217,12 @@ function BuildInteraction(CurrentStagePosition) {
 	// Make sure the CSV files for interactions are loaded
 	if ((CurrentIntro != null) && (CurrentStage != null)) {
 
-		// Paints the background depending on the current stage
-		DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + FindImage(CurrentIntro, CurrentStagePosition), 600, 0);
-		DrawRect(0, 0, 600, 600, "Black");
+		// Paints the background image depending on the current stage
+		var ImageName = FindImage(CurrentIntro, CurrentStagePosition);
+		if ((ImageName !== undefined) && (ImageName.trim() != "")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + ImageName, 600, 0);
 
 		// Build all the options for interaction
+		DrawRect(0, 0, 600, 600, "Black");
 		DrawIntro(CurrentIntro, CurrentStagePosition, 0, 0);
 		DrawInteraction(CurrentStage, CurrentStagePosition, 0, 0);
 
@@ -260,28 +261,95 @@ function DrawInventory() {
 	// Scroll in the full inventory to draw the icons and quantity, draw a padlock over the item if it's locked
 	var Pos = 1;
 	for (var I = 0; I < PlayerInventory.length; I++) {
-		var ImgState = "Inactive";
-		if (((MouseX >= 1 + Pos * 75) && (MouseX <= 74 + Pos * 75) && (MouseY >= 601) && (MouseY <= 674)) || (IsMobile)) ImgState = "Active";		
-		DrawImage("Icons/" + PlayerInventory[I][PlayerInventoryName] + "_" + ImgState + ".png", 1 + Pos * 75, 601);
-		DrawText(PlayerInventory[I][PlayerInventoryQuantity].toString(), Pos * 75 + 64, 661, "#000000");
-		if (PlayerHasLockedInventory(PlayerInventory[I][PlayerInventoryName]))
-			DrawImage("Icons/Lock_" + ImgState + ".png", Pos * 75, 600)
+
+		// First inventory tab
+		if (PlayerInventoryTab == 0) {
+
+			// 11 positions for the items
+			if (Pos <= 11) {
+				var ImgState = "Inactive";
+				if (((MouseX >= 1 + Pos * 75) && (MouseX <= 74 + Pos * 75) && (MouseY >= 601) && (MouseY <= 674)) || (IsMobile)) ImgState = "Active";		
+				DrawImage("Icons/" + PlayerInventory[I][PlayerInventoryName] + "_" + ImgState + ".png", 1 + Pos * 75, 601);
+				DrawText(PlayerInventory[I][PlayerInventoryQuantity].toString(), Pos * 75 + 64, 661, "#000000");
+				if (PlayerHasLockedInventory(PlayerInventory[I][PlayerInventoryName]))
+					DrawImage("Icons/Lock_" + ImgState + ".png", Pos * 75, 600)
+			}
+
+			// the last position is for the next tab
+			if (Pos == 12) {
+				var ImgState = "Inactive";
+				if (((MouseX >= 1 + Pos * 75) && (MouseX <= 74 + Pos * 75) && (MouseY >= 601) && (MouseY <= 674)) || (IsMobile)) ImgState = "Active";
+				DrawImage("Icons/SecondInventoryTab_" + ImgState + ".png", 1 + Pos * 75, 601);
+			}
+			
+		};
+		
+		// Second inventory tab
+		if ((Pos >= 12) && (PlayerInventoryTab == 1)) {		
+			var ImgState = "Inactive";
+			if (((MouseX >= 1 + (Pos - 11) * 75) && (MouseX <= 74 + (Pos - 11) * 75) && (MouseY >= 601) && (MouseY <= 674)) || (IsMobile)) ImgState = "Active";		
+			DrawImage("Icons/" + PlayerInventory[I][PlayerInventoryName] + "_" + ImgState + ".png", 1 + (Pos - 11) * 75, 601);
+			DrawText(PlayerInventory[I][PlayerInventoryQuantity].toString(), (Pos - 11) * 75 + 64, 661, "#000000");
+			if (PlayerHasLockedInventory(PlayerInventory[I][PlayerInventoryName]))
+				DrawImage("Icons/Lock_" + ImgState + ".png", (Pos - 11) * 75, 600)
+		};
+
+		// Jumps to the next position
 		Pos = Pos + 1;
-	};
+		
+	}
 
 	// Scroll in the locked inventory also to find items that were not loaded
 	for (var I = 0; I < PlayerLockedInventory.length; I++) 
 		if (!PlayerHasInventory(PlayerLockedInventory[I])) {
-			if (((MouseX >= 1 + Pos * 75) && (MouseX <= 74 + Pos * 75) && (MouseY >= 601) && (MouseY <= 674)) || (IsMobile)) {
-				DrawImage("Icons/" + PlayerLockedInventory[I] + "_Active.png", 1 + Pos * 75, 601);
-				DrawImage("Icons/Lock_Active.png", Pos * 75, 600);
+
+			// First inventory tab
+			if (PlayerInventoryTab == 0) {
+
+				// 11 positions for the items
+				if (Pos <= 11) {
+					if (((MouseX >= 1 + Pos * 75) && (MouseX <= 74 + Pos * 75) && (MouseY >= 601) && (MouseY <= 674)) || (IsMobile)) {
+						DrawImage("Icons/" + PlayerLockedInventory[I] + "_Active.png", 1 + Pos * 75, 601);
+						DrawImage("Icons/Lock_Active.png", Pos * 75, 600);
+					}
+					else {
+						DrawImage("Icons/" + PlayerLockedInventory[I] + "_Inactive.png", 1 + Pos * 75, 601);				
+						DrawImage("Icons/Lock_Inactive.png", Pos * 75, 600);
+					}
+				}
+
+				// the last position is for the next tab
+				if (Pos == 12) {
+					var ImgState = "Inactive";
+					if (((MouseX >= 1 + Pos * 75) && (MouseX <= 74 + Pos * 75) && (MouseY >= 601) && (MouseY <= 674)) || (IsMobile)) ImgState = "Active";
+					DrawImage("Icons/SecondInventoryTab_" + ImgState + ".png", 1 + Pos * 75, 601);
+				}
+
 			}
-			else {
-				DrawImage("Icons/" + PlayerLockedInventory[I] + "_Inactive.png", 1 + Pos * 75, 601);				
-				DrawImage("Icons/Lock_Inactive.png", Pos * 75, 600);
-			}
+			
+			// Second inventory tab
+			if ((Pos >= 12) && (PlayerInventoryTab == 1)) {		
+				if (((MouseX >= 1 + (Pos - 11) * 75) && (MouseX <= 74 + (Pos - 11) * 75) && (MouseY >= 601) && (MouseY <= 674)) || (IsMobile)) {
+					DrawImage("Icons/" + PlayerLockedInventory[I] + "_Active.png", 1 + (Pos - 11) * 75, 601);
+					DrawImage("Icons/Lock_Active.png", (Pos - 11) * 75, 600);
+				}
+				else {
+					DrawImage("Icons/" + PlayerLockedInventory[I] + "_Inactive.png", 1 + (Pos - 11) * 75, 601);				
+					DrawImage("Icons/Lock_Inactive.png", (Pos - 11) * 75, 600);
+				}
+			};
+
+			// Jumps to the next position
 			Pos = Pos + 1;
+
 		};
+		
+	// On the second tab, we put an arrow to go back to the first tab
+	if ((Pos >= 12) && (PlayerInventoryTab == 1)) {
+		var ImgState = "Inactive";
+		if (((MouseX >= 1 + (Pos - 11) * 75) && (MouseX <= 74 + (Pos - 11) * 75) && (MouseY >= 601) && (MouseY <= 674)) || (IsMobile)) ImgState = "Active";
+		DrawImage("Icons/FirstInventoryTab_" + ImgState + ".png", 1 + (Pos - 11) * 75, 601);
+	}
 
 }
 

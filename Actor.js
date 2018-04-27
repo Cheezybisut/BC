@@ -50,6 +50,10 @@ function ActorChangeAttitude(LoveAttitude, SubAttitude) {
 			if (CurrentActor == Actor[L][ActorName]) {
 				Actor[L][ActorLove] = Actor[L][ActorLove] + parseInt(LoveAttitude);
 				Actor[L][ActorSubmission] = Actor[L][ActorSubmission] + parseInt(SubAttitude);
+				if (Actor[L][ActorLove] > 99) Actor[L][ActorLove] = 99;
+				if (Actor[L][ActorLove] < -99) Actor[L][ActorLove] = -99;
+				if (Actor[L][ActorSubmission] > 99) Actor[L][ActorSubmission] = 99;
+				if (Actor[L][ActorSubmission] < -99) Actor[L][ActorSubmission] = -99;
 			}	
 
 }

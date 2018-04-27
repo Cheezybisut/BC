@@ -1,0 +1,203 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,EggRemarkAvail,L'oeuf te rappellera|ta place.,Ma place ? (Elle baisse le regard.)|C'est... Ce n'est pas très gentil.,0,-1,1,EggRemark()
+0,0,0,EggRemarkAvail,Désolée pour l'oeuf.|Tu l'enlèveras chez toi.,"Ça ira, j'imagine. N'en parlons plus.",0,1,-1,EggRemark()
+0,0,0,,Tu vas faire|du tennis ?,Oui ! Tu veux jouer avec moi ?,10,0,0,
+0,0,0,,Pourquoi es-tu|habillée comme ça ?,Je vais faire un peu de tennis.|Tu veux jouer avec moi ?,10,0,0,
+0,0,0,,Tu es mignonne|avec cette jupe.,"Merci, c'est gentil ! Je vais faire un peu de tennis.|Tu veux jouer avec moi ?",10,1,0,
+0,0,0,,Tu as l'air ridicule|avec cette jupe.,C'est dépassé ? Je vais faire un peu de tennis.|Tu veux jouer avec moi ?,10,-1,0,
+0,0,0,,Cette jupe te|donne un beau cul.,(Elle regarde sa jupe et rougit.)|Tu veux jouer avec moi ?,10,0,1,
+10,4,0,,Je veux bien jouer si la|gagnante est récompensée.,Récompensée?  Qu'as-tu en tête ?,20,0,0,
+10,0,4,,J'en suis. Si tu veux|bien pimenter la partie.,Pimenter la partie ? Qu'as-tu en tête ?,20,0,0,
+10,0,0,NoOption,On pourrait faire une|partie si tu veux.,Ok ! Mais je ne peux pas jouer avec toi aujourd'hui.|Veux-tu qu'on remette ça à demain ?,15,0,0,
+10,0,0,NoOption,Bien sûr ! Jouons.|Ce sera amusant.,Super ! Mais je ne peux pas jouer avec toi aujourd'hui.|Veux-tu qu'on remette ça à demain ?,15,1,0,
+10,0,0,,"Je ne peux pas jouer|maintenant, bon match.",Il le sera ! Merci.|(Elle te laisse pour aller jouer.),90,0,0,EndLunch()
+10,0,0,,"Désolé, mais le tennis est|un jeu pour les enfants.","Entendu, madame. Bon déjeuner.|(Elle baisse les yeux et part jouer.)",90,-1,1,EndLunch()
+10,0,0,,"J'aimerais bien, mais je|suis mauvaise au tennis.",Tu ne seras jamais bonne avec cette attitude.|(Elle prend ses affaires et part jouer.),90,0,-1,EndLunch()
+15,0,0,,"Ok, nous ferons une|partie demain.",Marché conclu ! Bon déjeuner.|(Elle prend ses affaires et part jouer.),90,0,0,EndLunch()
+15,0,0,,Non ! Je veux jouer|maintenant !,"On n'arrivera pas à se mettre d'accord, bon déjeuner.|(Elle prend ses affaires et part jouer.)",90,-1,0,EndLunch()
+20,0,0,,La perdante sera l'esclave|de l'autre durant la pause.,L'esclave ? Tu veux dire que la|perdante paiera le déjeuner ?,30,0,1,
+20,0,0,,La perdante se soumettra|à l'autre durant la pause.,Se soumettra ? Tu veux dire que la|perdante paiera le déjeuner ?,30,0,0,
+20,0,0,,Tout bien réfléchi.|Je n'ai pas envie de jouer.,"D'accord, dans ce cas, à plus tard.|(Elle prend ses affaires et part jouer.)",90,0,0,EndLunch()
+30,0,0,HasSeduction,"Allons, ma jolie. Tu ne|peux pas résister à un défi.",(Elle rougit et regarde le sol.)|En effet. Es-tu prête à jouer maintenant ?,40,1,1,
+30,0,0,,"Oui, celle qui perdra|paiera et obéira.",Tu as une étrange façon de le formuler|mais je suis d'accord ! On y va maintenant ?,40,0,0,
+30,0,0,,Ne m'oblige pas à répéter.|Tu es partante ou pas ?,(Elle fronce les sourcils et devient sérieuse.)|Très bien ! Es-tu prête à jouer maintenant ?,40,-1,0,
+30,0,0,,Tout bien réfléchi.|Je n'ai pas envie de jouer.,"D'accord, dans ce cas, à plus tard.|(Elle prend ses affaires et part jouer.)",90,0,0,EndLunch()
+40,0,0,,Vas-y doucement avec moi.|(Tu vas jouer au tennis.),,100,0,0,"PlayTennis(""Easy"")"
+40,0,0,,Amusons-nous.|(Tu vas jouer au tennis.),,100,0,0,"PlayTennis(""Normal"")"
+40,0,0,,Je vais t'écraser !|(Tu vas jouer au tennis.),,100,0,0,"PlayTennis(""Hard"")"
+40,0,0,,Tout bien réfléchi.|Je n'ai pas envie de jouer.,"D'accord, dans ce cas, à plus tard.|(Elle prend ses affaires et part jouer.)",90,0,0,EndLunch()
+100,0,0,TennisVictory,Tu te souviens de l'enjeu ?|Tu dois maintenant m'obéir.,"Je ne suis toujours pas sure de bien tout comprendre.|Mais, j'obéirai et je paierai le déjeuner.",110,0,1,
+100,0,0,TennisVictory,Je me surpasse toujours|lorsqu'il y a un enjeu.,"Je ne suis toujours pas sure de voir où tu veux en venir.|Dans tous les cas, c'est sûr, je paierai ton repas.",110,0,0,
+100,0,0,TennisVictory,Tu as bien joué.|J'ai eu de la chance.,"Merci ! Je vais m'entraîner davantage et m'améliorer.|En attendant, tu peux profiter de ton repas gratuit.",110,1,0,
+100,0,0,!TennisVictory,Tu as une visière.|J'avais le soleil en face.,Ne cherche pas d'excuse.|J'ai gagné loyalement la partie.,105,-1,0,
+100,0,0,!TennisVictory,Tu es bien trop douée|par rapport à moi.,"Allez, souris et commence à t'entraîner davantage !|La prochaine fois, tu gagneras.",105,0,-1,
+100,0,0,!TennisVictory,C'était sympa|comme match.,Oui ! Il faut qu'on en fasse un autre bientôt.|Tu pourrais gagner la prochaine fois.,105,0,0,
+105,0,0,,"Oui, Madame. Et je vous|obéirai durant le déjeuner.",M'obéir ? Tu as l'air si docile.|Je vais profiter de mon repas gratuit, ça c'est sûr.,110,0,-1,
+105,0,0,,Tu te souviens des|conditions de notre partie ?,"(Elle rit.) Oui, tu m'obéiras le temps du déjeuner.|Et je vais bien évidemment profiter de ce repas gratuit.",110,0,0,
+105,0,0,,Je serai ton esclave|jusqu'à la fin du déjeuner.,"Mon esclave ? Ça sonne si mal.|Mais, je vais profiter de mon repas gratuit.",110,-1,-1,
+110,0,0,,Qu'est-ce que|tu vas prendre ?,"Je ne sais pas encore, quelque chose de sain.|Suis-tu, toi aussi un régime alimentaire ?",113,0,0,
+110,0,0,,Que devrais-je prendre ?,Prends une salade ou un repas végétalien.|Suis-tu un régime alimentaire ?,113,0,0,
+110,0,0,,C'est un bel endroit|que tu as là.,Je ne viens pas souvent ici.|Je vais rarement manger avec des amis.,116,0,0,
+110,0,0,,Ce restaurant a l'air bien.,Je ne viens pas souvent ici.|Je vais rarement manger avec des amis.,116,0,0,
+113,0,0,,"Un régime alimentaire ?|C'est plutôt nul.",C'est faux. Avoir une alimentation saine est|très important. Quel genre de carrière vises-tu ?,120,0,0,BadMatch()
+113,0,0,,"Je suis au régime,|bière et gâteau.",Tu devrais prendre ça plus au sérieux.|Quel genre de carrière vises-tu ?,120,0,0,BadMatch()
+113,0,0,,J'oscille entre plat|sain et fast-food.,"Je vois, tant que tu es jeune, ça ira.|Quel genre de carrière vises-tu ?",120,0,0,
+113,0,0,,Je fais de mon mieux|pour manger sainement.,"Je vois, tant que tu es jeune, ça ira.|Quel genre de carrière vises-tu ?",120,0,0,
+113,0,0,,J'essaie de manger|strictement végétalien.,C'est un très bon engagement.|Quel genre de carrière vises-tu ?,120,0,0,GoodMatch()
+113,0,0,,Je compte les calories|de tous mes repas.,"C'est beaucoup de travail, mais ça paiera.|Quel genre de carrière vises-tu ?",120,0,0,GoodMatch()
+116,0,0,,Tu t'es fait une|amie aujourd'hui.,(Elle sourit.) C'est très gentil de ta part.|Quel genre de carrière vises-tu ?,120,1,0,GoodMatch()
+116,0,0,,"Allons-y ensemble,|plus souvent alors.",Oh oui ! J'adorerais ça.|Quel genre de carrière vises-tu ?,120,0,0,GoodMatch()
+116,0,0,,Comment se fait-il que tu|n'es pas beaucoup d'amis ?,"Je ne sais pas, j'imagine que je suis trop timide.|Quel genre de carrière vises-tu ?",120,0,0,
+116,0,0,,Il te faut plus d'amis|dans ce cas.,"Je ne sais pas, j'imagine que je n'en ai pas besoin.|Quel genre de carrière vises-tu ?",120,0,0,
+116,0,0,,Tu es le souffre douleur|de l'école ?,Disons plutôt que je n'ai pas beaucoup d'amis.|Quel genre de carrière vises-tu ?,120,0,0,BadMatch()
+116,0,0,,On dirait une ratée.,Ne sois pas odieuse ! Je ne suis pas une ratée.|Quel genre de carrière vises-tu ?,120,-1,0,BadMatch()
+120,0,0,,Je veux être|musicienne.,D'accord. Quel est ton cours préféré ?,130,0,0,
+120,0,0,,Je veux être|médecin.,Tu pourras guérir les blessures sportives.|Quel est ton cours préféré ?,130,0,0,GoodMatch()
+120,0,0,,Je veux être|athlète.,C'est génial ! Suis tes rêves.|Quel est ton cours préféré ?,130,0,0,GoodMatch()
+120,0,0,,Je veux être|enseignante.,"J'y pense aussi, être prof de sport.|Quel est ton cours préféré ?",130,0,0,GoodMatch()
+120,0,0,,Je veux être|actrice.,D'accord. Quel est ton cours préféré ?,130,0,0,
+120,0,0,,Je veux être|dominatrice.,Tu ne connais pas les dangers liés à l'industrie|du sexe ? Quel est ton cours préféré ?,130,0,0,BadMatch()
+120,0,0,,Je veux être|architecte.,D'accord. Quel est ton cours préféré ?,130,0,0,
+120,0,0,,Je veux être|agricultrice.,Tu apporteras des produits sains à nos tables.|Quel est ton cours préféré ?,130,0,0,GoodMatch()
+120,0,0,,Je veux être|programmeuse.,Tu veux fixer un écran toute la journée ?|Quel est ton cours préféré ?,130,0,0,BadMatch()
+120,0,0,,Je ne sais pas encore.,Trouver la bonne carrière n'est pas facile.|Quel est ton cours préféré ?,130,0,0,
+130,0,0,,Les Maths.,Je dois t'admettre que je ne suis pas fortiche en maths.|Que fais-tu pour t'occuper en dehors de l'université ?,140,0,0,BadMatch()
+130,0,0,,La musique.,C'est sympa. Que fais-tu pour|t'occuper en dehors de l'université ?,140,0,0,
+130,0,0,,L'anglais.,Je suis plutôt bonne en anglais.|Que fais-tu pour t'occuper en dehors de l'université ?,140,0,0,GoodMatch()
+130,0,0,,La gym.,Rien ne vaut le cours de gym !|Que fais-tu pour t'occuper en dehors de l'université ?,140,0,0,GoodMatch()
+130,0,0,,La chimie.,C'est sympa. Que fais-tu pour|t'occuper en dehors de l'université ?,140,0,0,
+130,0,0,,Le français.,C'est sympa. Que fais-tu pour|t'occuper en dehors de l'université ?,140,0,0,
+130,0,0,,L'art.,"Je vois, tu as du t'amuser pendant le cours de Julia.|Que fais-tu pour t'occuper en dehors de l'université ?",140,0,0,GoodMatch()
+130,0,0,,L'histoire.,Super ! J'étudie l'histoire des Jeux olympiques.|Que fais-tu pour t'occuper en dehors de l'université ?,140,0,0,GoodMatch()
+130,0,0,,Le théatre,Je suis trop timide pour jouer dans une pièce de théâtre.|Que fais-tu pour t'occuper en dehors de l'université ?,140,0,0,BadMatch()
+130,0,0,,Je ne sais pas.,C'est assez dur à croire.|Que fais-tu pour t'occuper en dehors de l'université ?,140,0,0,BadMatch()
+140,0,0,,Du basket.,Super ! Tu devrais rejoindre l'équipe de l'université.|(Une serveuse arrive pour prendre votre commande.),150,0,0,GoodMatch()
+140,0,0,,Du rock.,Une de mes colocataires en fait mais c'est trop bruyant.|(Une serveuse arrive pour prendre votre commande.),150,0,0,BadMatch()
+140,0,0,,Des jeux vidéos.,Le système de la Wii est pas mal.|(Une serveuse arrive pour prendre votre commande.),150,0,0,
+140,0,0,,Je suis pom-pom girl.,Super ! Tu devrais rejoindre l'équipe de l'université.|(Une serveuse arrive pour prendre votre commande.),150,0,0,GoodMatch()
+140,0,0,,Je pars en soirée.,La musique forte et la bière sont mauvaises pour toi.|(Une serveuse arrive pour prendre votre commande.),150,0,0,BadMatch()
+140,0,0,,Des jeux de rôles.,"Crois-le ou non, je faisais du GN à l'époque.|(Une serveuse arrive pour prendre votre commande.)",150,0,0,GoodMatch()
+140,0,0,,Je me soûle.,Les beuveries express sont horribles pour ta santé.|(Une serveuse arrive pour prendre votre commande.),150,0,0,BadMatch()
+140,0,0,,De la musique classique.,J'imagine que ça peut être assez relaxant.|(Une serveuse arrive pour prendre votre commande.),150,0,0,
+140,0,0,,Je fais l'amour.,(Elle s'empoupre.) J'imagine que c'est sain.|(Une serveuse arrive pour prendre votre commande.),150,0,0,GoodMatch()
+140,0,0,,Je n'ai aucun passe-temps.,Les activités sont sur le panneau d'affichage de l'école.|(Une serveuse arrive pour prendre votre commande.),150,0,0,
+150,0,0,,"Une salade, s'il vous plaît.",C'est un choix très sain.|(Elle commande la même chose.),160,0,0,GoodMatch()
+150,0,0,,"Un steak, s'il vous plaît.",Je suppose que tu peux faire le plein de protéines|après un match. (Elle commande une petite salade.),160,0,0,
+150,0,0,,"Une soupe, s'il vous plaît.",C'est un choix très sain.|(Elle commande la même chose.),160,0,0,GoodMatch()
+150,0,0,,"Un hamburger,|s'il vous plaît.",Je suppose que tu peux faire le plein de protéines|après un match. (Elle commande une petite salade.),160,0,0,
+150,0,0,,"Un plateau de nachos,|s'il vous plaît.",Je suppose que tu peux faire le plein de protéines|après un match. (Elle commande une petite salade.),160,0,0,
+150,0,0,,"Juste un cheesecake,|s'il vous plaît.",Ce n'est pas très sain.|(Elle commande la même chose.),160,0,0,BadMatch()
+150,0,0,,"Une soupe et une salade,|s'il vous plaît.",C'est un choix très sain.|(Elle commande la même chose.),160,0,0,GoodMatch()
+150,0,0,,"Un chili dog,|s'il vous plaît.",Ce n'est pas très sain.|(Elle commande la même chose.),160,0,0,BadMatch()
+150,0,0,,"Un fettuccine alfredo,|s'il vous plaît.",Je suppose que tu peux faire le plein de protéines|après un match. (Elle commande une petite salade.),160,0,0,
+150,0,0,,"Juste de l'eau,|s'il vous plaît.",Tu possèdes une grande maîtrise de soi.|(Elle commande une petite salade.),160,0,0,GoodMatch()
+160,0,0,TennisVictory,Je te souhaite|un bon repas.,(Vous prenez toutes les deux votre déjeuner|et Jennifer règle l'addition.),170,0,0,EatLunch()
+160,0,0,TennisVictory,Bon appétit !,(Vous prenez toutes les deux votre|déjeuner et Jennifer règle l'addition.),170,0,0,EatLunch()
+160,0,0,TennisVictory,Merci pour ce repas offert.,(Vous prenez toutes les deux votre|déjeuner et Jennifer règle l'addition.),170,0,0,EatLunch()
+160,0,0,TennisVictory,Habitue-toi à|payer mes repas.,(Vous prenez toutes les deux votre|déjeuner et Jennifer règle l'addition.),170,0,1,EatLunch()
+160,0,0,!TennisVictory,Je te souhaite|un bon repas.,(Vous prenez toutes les deux votre|déjeuner et tu règles l'addition.),180,0,0,EatLunch()
+160,0,0,!TennisVictory,Bon appétit !,(Vous prenez toutes les deux votre|déjeuner et tu règles l'addition.),180,0,0,EatLunch()
+160,0,0,!TennisVictory,Savoure ton repas offert.,(Vous prenez toutes les deux votre|déjeuner et tu règles l'addition.),180,0,0,EatLunch()
+160,0,0,!TennisVictory,"C'est un plaisir de vous|offrir ce repas, Madame.",(Vous prenez toutes les deux votre|déjeuner et tu règles l'addition.),180,0,-1,EatLunch()
+170,0,0,,Tu as promis d'obéir|jusqu'à la fin du déjeuner.,C'était un enjeu stupide. Retournons à l'école.,175,0,0,TestObey()
+170,0,0,,Tu es toujours mon esclave|pour quelques minutes.,"(Elle fronce les sourcils.) C'était un enjeu stupide.|Retournons à l'école, ça devient trop bizarre.",175,-1,0,TestObey()
+170,0,0,,Rentrons.|(Tu rentres à l'université.),,0,0,0,EndChapter()
+175,0,0,AllowObey,Fait-moi confiance|et viens avec moi.,"(Elle acquiesce et sourit.) D'accord, je te fais confiance.|(Vous retournez toutes les deux sur le terrain de tennis.)",200,1,0,EnterTennis()
+175,0,0,AllowObey,"Viens avec moi, jeune fille.","(Elle rit.) D'accord, mais je ne ferai pas la vaisselle.|(Vous retournez toutes les deux sur le terrain de tennis.)",200,0,0,EnterTennis()
+175,0,0,,Rentrons.|(Tu rentres à l'université.),,0,0,0,EndChapter()
+180,0,0,,Je dois encore t'obéir|jusqu'à la fin du déjeuner.,"Ne sois pas bête. Tu as payé,|restons-en là et rentrons.",185,0,0,TestObey()
+180,0,0,,Je suis toujours ton esclave|jusqu'au son de la cloche.,"Ça devient bizarre. Tu as payé,|restons-en là et rentrons.",185,-1,0,TestObey()
+180,0,0,,Rentrons.|(Tu rentres à l'université.),,0,0,0,EndChapter()
+185,0,0,AllowObey,"Bien sûr, je te suis.",(Elle te prend par la main et vous retournez|toutes les deux sur le terrain de tennis.),300,1,0,EnterTennis()
+185,0,0,AllowObey,Te suivre ? Où ça ?,(Elle te prend par la main et vous retournez|toutes les deux sur le terrain de tennis.),300,0,0,EnterTennis()
+185,0,0,!AllowObey,Rentrons.|(Tu rentres à l'université.),,0,0,0,EndChapter()
+200,0,0,,"Souviens-toi, tu es|mon esclave à présent.","Ne dis pas esclave, ça sonne si mal.|Mais c'est pas grave, tu peux être ma chef.",220,-1,0,
+200,0,0,,Tu dois obéir à|tout ce que je dis.,"(Elle acquiesce.) D'accord, mais il y a des limites.",220,0,0,
+200,8,0,,Je peux avoir un baiser ?|(1 minute),(Elle rougit et sourit.) Bien sûr.|(Vous vous embrassez avec amour.),210,1,0,Kiss()
+200,0,8,,(Tu l'attrapes et la|déshabilles.) (1 minute),(Elle reste sans voix pendant que tu|l'attrapes et la forces à se déshabiller.),240,-1,1,
+210,0,0,,(Tu l'embrasses à|nouveau.) (1 minute),(Vous vous embrassez à nouveau sur le terrain|de tennis tout en gémissant légèrement.),210,0,0,
+210,0,0,,"Je t'aime, mais ne|précipitons pas les choses.","Toi ? Je ? Tu m'aimes ? Allons-y doucement.|(Elle détourne le regard, confuse et nerveuse.)",215,1,0,BonusDone()
+210,0,0,,"Souviens-toi, tu es|mon esclave à présent.","Ne dis pas esclave, ça sonne si mal.|Mais c'est pas grave, tu peux être ma chef.",220,-1,0,
+210,0,0,,Tu dois obéir à|tout ce que je dis.,"(Elle acquiesce.) D'accord, mais il y a des limites.",220,0,0,
+210,0,8,,(Tu l'attrapes et la|déshabilles.) (1 minute),(Elle reste sans voix pendant que tu|l'attrapes et la forces à se déshabiller.),240,-1,1,
+215,0,0,,"Rentrons, ma chérie."|(Tu rentres à l'université),,0,1,0,EndChapter()
+220,0,0,,Fais un tour de piste.|(1 minute),Oui coach ! (Elle court autour de la cour.),220,0,0,Exercise()
+220,0,0,,Faites cinq pompes.|(1 minute),Oui coach ! (Elle fait cinq pompes.),220,0,0,Exercise()
+220,0,0,,"D'accord, mets-toi|en sous-vêtements.",Me mettre en sous-vêtements ?|Mais des gens vont bientôt arriver.,230,-1,0,
+220,0,0,,"Jeune fille, enlève|cette jupe ridicule.",Enlever ma jupe ? Ici ?|Mais des gens vont bientôt arriver.,230,-1,1,
+220,0,8,,(Tu l'attrapes et la|déshabilles.) (1 minute),(Elle reste sans voix pendant que tu|l'attrapes et la forces à se déshabiller.),240,-1,1,
+230,0,0,,Il n'y a personne.|Tu peux le faire !,"Bon d'accord mais si quelqu'un vient,|Je me rhabillerais. (Elle se déshabille.)",240,0,0,
+230,0,0,,Tu m'as entendu|la première fois.,"Bon d'accord mais si quelqu'un vient,|Je me rhabillerais. (Elle se déshabille.)",240,0,1,
+230,0,8,,(Tu l'attrapes et la|déshabilles.) (1 minute),(Elle reste sans voix pendant que tu|l'attrapes et la forces à se déshabiller.),240,-1,1,
+230,0,0,,"Je plaisantais, on s'en va."|(Tu rentres à l'université.),,0,1,0,EndChapter()
+240,0,0,OrgasmCommentAvail,J'espère que ton voyage|au paradis t'a plu.,(Elle te regarde et acquiesce lentement.),240,1,0,OrgasmComment()
+240,0,0,OrgasmCommentAvail,"La prochaine fois, tu me|supplieras de te faire jouir.","(Elle fronce les sourcils, puis elle incline|lentement la tête en direction du sol.)",240,-1,1,OrgasmComment()
+240,0,0,NeverHurtAvail,"Crois-moi, Jennifer. Je ne|te ferai jamais de mal.",(Elle prend une grande inspiration|et acquiesce lentement.),240,0,0,NeverHurtComment()
+240,0,0,,(Tu la chatouilles.)|(1 minute),"(Tu la chatouilles, mais elle ne rit pas|beaucoup et ne semble pas apprécier.)",240,0,0,Tickle()
+240,0,0,,(Tu lui mets une fessée.)|(1 minute),"(Tu essayes de lui donner une fessée,|mais elle te repousse rapidement.)",240,0,0,Spank()
+240,0,0,,(Tu la masturbes.)|(1 minute),"(Tu essayes de la masturber,|mais elle repousse ta main.)",240,0,0,Masturbate()
+240,0,0,IsRoped,(Tu la détaches.)|(1 minute),(Tu défais les noeuds de la corde et|tu la libères du filet de tennis.),240,0,0,Untie()
+240,0,0,IsGagged,(Tu la débâillonnes.)|(1 minute),"(Tu lui enleves doucement le bâillon.)|Merci, c'était un peu gênant.",240,0,0,Ungag()
+240,0,0,IsBoundAndGagged,"Je t'ai piégé, salope."|(Tu l'abandonnes.),,240,0,0,EvilEnd()
+240,0,0,,C'est suffisant.|(Tu la libères.),(Tu la libères et elle se rhabille.) Waouh !|Je suis si heureuse que personne ne soit passé.,250,0,0,DressHerBack()
+250,0,0,,"Tu t'es amusée,|aujourd'hui ?","J'ai des sentiments mitigés, je dois l'admettre.|On retourne à l'école ?",260,0,0,
+250,0,0,,"La prochaine fois, ce sera|encore plus humiliant.",Oh mon Dieu ! Ne dis pas des choses pareilles.|On retourne à l'école ?,260,-1,1,
+250,0,0,,"Tu étais audacieuse.|Je suis fière de toi.","Merci, je suppose que je l'étais.|On retourne à l'école ?",260,1,0,
+250,0,0,,Remettons ça|un autre jour.,"J'en suis pas si sûre, on verra.|On retourne à l'école ?",260,0,0,
+250,0,0,,"La prochaine fois,|tu m'attacheras ?","(Elle rit.) Bien sûr, pourquoi pas ?|On retourne à l'école ?",260,0,-1,
+250,0,0,,Habitue-toi à être attachée.|Ça se reproduira.,"Oh, pas en public, j'espère.|On retourne à l'école ?",260,0,1,
+260,8,0,,Un dernier baiser ?|(1 minute),(Vous vous agrippez l'une à l'autre dans une étreinte|amoureuse et vous vous embrassez passionnément.),270,1,0,BonusDone()
+260,0,0,,Rentrons.|(Tu rentres à l'université.),,0,0,0,EndChapter()
+270,0,0,,(Tu l'embrasses à|nouveau.) (1 minute),(Vous fermez les yeux et continuez à vous embrasser.),270,0,0,
+270,0,0,,Rentrons.|(Tu rentres à l'université.),,0,0,0,EndChapter()
+300,0,0,,Qu'est-ce qu'on fait là ?,Je suis ta chef et ton coach.|Je vais te remettre en forme.,310,0,0,
+300,0,0,,Tu veux refaire une|partie de tennis ?,"Non. Mais en tant que chef et coach,|je vais te remettre en forme.",310,0,0,
+300,0,0,,Je ne peux pas jouer|juste après le déjeuner.,"Ne t'inquiètes pas. En tant que chef|et coach, je vais te remettre en forme.",310,0,-1,
+310,0,0,,Me remettre en forme ?|Que veux-tu dire ?,Ça signifie que tu vas faire quelques exercices.|Mets-toi à terre et fait dix pompes.,320,0,0,
+310,0,0,,Des exercices semblent|être une bonne idée.,Absolument ! Ça sera bon pour ta santé.|Mets-toi à terre et fait dix pompes.,320,1,0,
+310,0,0,,Je suis déjà en|très bonne forme.,"Tu as un sacré égo, tu sais ?|Mets-toi à terre et fait dix pompes.",320,-1,0,
+320,0,0,,Oui coach !|(Tu fais des pompes.),(Tu te penches vers le sol et commence à|faire des pompes pendant qu'elle compte.),330,1,-1,
+320,0,0,,"Fait chier, d'accord.|(Tu fais des pompes.)",(Tu te penches vers le sol et commence à|faire des pompes pendant qu'elle compte.),330,-1,0,
+320,0,0,,"Oublie ça, je ne|ferai pas de pompes.",Alors tu dois être punie pour ta paresse.,400,-1,0,
+330,0,0,,(Tu fais une|pompe normale.),,330,0,0,PushUp(2)
+330,0,0,,(Tu fais une|pompe légère.),,330,0,0,PushUp(1)
+330,0,0,,(Tu fais une|pompe dure.),,330,0,0,PushUp(3)
+330,0,0,,(Tu fais semblant de|faire une pompe.),,330,0,0,PushUp(0)
+330,0,0,,Ça suffit !|(Tu arrêtes.),Comme tu as désobéi à ton coach.|Tu mérites d'être punie.,400,-1,0,
+340,0,0,,Merci coach !,"Tout le plaisir est pour moi ! Alors, ça t'a plu de|m'avoir comme coach ? On devrait y allez ?",350,0,-1,
+340,0,0,,(Tu garde le silence et|reprends ton souffle.),"Alors, ça t'a plu de m'avoir comme coach ?|On devrait y allez ?",350,0,0,
+340,0,0,,C'était amusant !,"Absolument ! Alors, ça t'a plu de m'avoir|comme coach ? On devrait y allez ?",350,1,0,
+340,0,0,,Tu devrais aussi|faire des pompes.,"Tu as raison, mais pas maintenant. Alors, ça|t'a plu d'avoir un coach ? On devrait y allez ?",350,0,1,
+350,0,0,,"C'était sympa, rentrons|(Tu rentres à l'université.)",,0,0,0,EndChapter()
+350,0,0,,L'enjeu allait plus loin|que faire des pompes.,"Comment ça, tu ne t'es pas amusée ?|Pourquoi tu te plains ?",360,0,0,
+360,0,0,,"Oublie ça, on s'en va.|(Tu rentres à l'université.)",,0,0,0,EndChapter()
+360,0,0,,Tu peux aller beaucoup|plus loin avec une esclave !,"Alors, tu cherches les ennuis ? A être punie ?",400,-1,0,
+400,0,0,,Comment vas-tu|me punir ?,Je... Je vais... Je ne sais pas.|Je n'ai jamais puni personne.,410,0,0,
+400,0,0,,Me punir ?  Qu'est-ce|que tu as en tête ?,Je... Je vais... Je ne sais pas.|Je n'ai jamais puni personne.,410,0,0,
+400,0,0,,"Oh oui ! S'il vous plaît,|punissez-moi coach.",Je... Je ne sais pas quoi faire.|Je n'ai jamais puni personne avant,410,0,-1,
+410,0,0,,Tu n'as jamais|dominé personne ?,"Dominé ? Non, que dois-je faire ?",420,0,0,
+410,0,0,,Tu es une épouvantable|Dom tu sais ?,Qu'est ce qu'une Dom ? Que dois-je faire ?,420,0,0,
+410,0,1,,"Oublie ça, on s'en va.|(Tu rentres à l'université.)",,0,0,0,EndChapter()
+420,0,0,,Ordonnez-moi de me|déshabiller bon sang !,"Oui, Madame.  Je...  Je veux dire.|Tu devrais te déshabiller maintenant !",430,0,1,
+420,0,0,,"Le premier pas est|de me déshabiller.","Te déshabiller ? Bien sûr, bien sûr.|Tu devrais te déshabiller maintenant !",430,0,0,
+420,0,1,,"Oublie ça, on s'en va.|(Tu rentres à l'université.)",,0,0,0,EndChapter()
+430,0,0,,(Tu soupires et tu te|déshabilles.) (1 minute),"(Tu soupires et tu te déshabilles à contrecoeur.)|Très bien ! Maintenant, je vais... Tu vas...",440,-1,0,Strip()
+430,0,0,,"(Tu te déshabilles,|enjouée) (1 minute)","(Tu fais une petite danse et tu te déshabille.)|Bien ! Maintenant, je vais... Tu vas...",440,0,0,Strip()
+430,0,1,,"Oublie ça, on s'en va.|(Tu rentres à l'université.)",,0,0,0,EndChapter()
+440,0,0,,La douleur est une bonne|façon de punir.,"Bien sûr !  Maintenant, tu vas te pencher.|(Elle fait tourner sa raquette et regarde ton fessier.)",450,0,0,
+440,0,0,,"Sois dominante, bon sang !|Punis-moi !",Assez ! J'exige que tu te penches.|(Elle fait tourner sa raquette et regarde ton fessier.),450,-1,1,
+440,0,0,,Je sais que tu es forte.|Comment vas-tu me punir ?,"Oui ! Je suis forte ! Maintenant, penche-toi.|(Elle fait tourner sa raquette et regarde ton fessier.)",450,1,0,
+440,0,1,,"Oublie ça, on s'en va.|(Tu rentres à l'université.)",,0,0,0,EndChapter()
+450,0,0,,(Tu inclines la tête|et tu te penches.),"Respire profondément, ça pourrait être douloureux.|(Elle lève sa raquette, prête à te frapper.)",460,0,-1,
+450,0,0,,Tu t'en sors mieux.|(Tu te penches.),"Respire profondément, ça pourrait être douloureux.|(Elle lève sa raquette, prête à te frapper.)",460,0,0,
+450,0,1,,"Oublie ça, on s'en va.|(Tu rentres à l'université.)",,0,0,0,EndChapter()
+460,0,0,,(Tu fermes les yeux.)|(1 minute),(Tu fermes les yeux pendant qu'elle te|donne un joli coup de raquette.),460,0,0,RacketHit(2)
+460,0,0,,(Tu lèves tes fesses.)|(1 minute),(Tu te positionnes pour être frappé et tu reçois|un bon smash en plein sur les fesses.),460,0,0,RacketHit(3)
+460,0,0,,(Tu essayes d'esquiver.)|(1 minute),(Tu bouges à la dernière seconde mais elle|réussit à te frapper maladroitement.),460,0,0,RacketHit(1)
+460,0,0,HasRestrainsAvail,Attends ! Fouille|mon sac. (1 minute),(Elle fouille dans ton sac et|trouve de quoi te restreindre.),460,0,0,CheckBag()
+460,0,1,,"Oublie ça, on s'en va.|(Tu rentres à l'université.)",,0,0,0,EndChapter()
+470,0,0,,"Oui, c'était raisonnable.",D'accord ! Rhabille-toi et allons-y.|(Tu ramasses tes vêtements et te rhabilles.),480,0,0,DressBack()
+470,0,0,,Tu ne seras jamais|une bonne Dom.,Ça craint. Rhabille-toi et allons-y.|(Tu ramasses tes vêtements et te rhabilles.),480,-1,0,DressBack()
+470,0,0,,Tu as beaucoup|de potentiel.,Oh Whouhaou ! Rhabille-toi et allons-y.|(Tu ramasses tes vêtements et te rhabilles.),480,1,0,DressBack()
+470,0,0,,C'était une punition|plaisante.,D'accord ! Rhabille-toi et allons-y.|(Tu ramasses tes vêtements et te rhabilles.),480,0,0,DressBack()
+480,0,0,,Rentrons.|(Tu retournes à l'université.),,0,0,0,EndChapter()

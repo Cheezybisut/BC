@@ -1,0 +1,39 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,C'est l'heure du déjeuner COMMON_PLAYERNAME.|Tu as faim ?,SarahIntro.jpg
+0,5,0,,COMMON_PLAYERNAME ! C'est cool de te voir|à l'heure du déjeuner. Tu as faim ?,SarahIntroHappy.jpg
+0,0,5,,Je vous salue Madame COMMON_PLAYERNAME. (Elle fixe le sol.)|C'est l'heure du déjeuner. Est-ce que vous avez faim ?,SarahIntroSubbie.jpg
+0,0,0,SubdueMildred,Ce que tu as fait à notre prof Mildred était génial.|C'est l'heure du déjeuner. Tu as faim ?,SarahIntroSubbie.jpg
+0,0,0,HasEgg,COMMON_PLAYERNAME ! L'oeuf est toujours à l'intérieur de moi|et j'adore ses vibrations. (Elle rit.) Tu as faim ?,SarahIntroHappy.jpg
+5,0,0,,(Sarah te voit mais s'enfuit.|Elle fait semblant d'être pressée.),SarahIntroGone.jpg
+10,0,0,,Tu peux essayer la cafétéria de l'université|si tu veux mais la bouffe n'est pas terrible.,SarahIntro.jpg
+10,0,5,,"Si vous avez vraiment faim, vous pouvez tester|la cafétéria, mais je ne vous la recommande pas.",SarahIntroSubbie.jpg
+20,0,0,,Il y a un petit café près d'ici|que tu peux tester si tu veux.,SarahIntro.jpg
+20,0,5,,"Madame, il y a un café près d'ici que|vous pouvez tester si vous voulez.",SarahIntroSubbie.jpg
+30,0,0,,Tu veux aller au café maintenant ?,SarahIntro.jpg
+30,0,5,,"Madame, voudriez-vous qu'on aille au café de suite ?",SarahIntroSubbie.jpg
+40,0,0,,"Désolée, je ne peux pas aller manger avec toi.|J'ai déjà quelque chose de prévue pour le déjeuner.",SarahIntro.jpg
+50,0,0,,,SarahIntroGone.jpg
+100,0,0,,,SarahPlayerLunch0.jpg
+110,0,0,,,SarahPlayerLunch0.jpg
+120,0,0,,,SarahPlayerLunch0.jpg
+130,0,0,,,SarahPlayerLunch0.jpg
+140,0,0,,,SarahPlayerLunch0.jpg
+150,0,0,,,SarahPlayerLunch0.jpg
+160,0,0,,,SarahPlayerLunch0.jpg
+170,0,0,,,SarahPlayerLunchGone.jpg
+180,0,0,,,RestroomDoor.jpg
+190,0,0,,,SarahPlayerLunch0.jpg
+200,0,0,,,SarahRestroom.jpg
+210,0,0,,,SarahRestroom.jpg
+220,0,0,,,SarahPlayerRestroomKiss.jpg
+230,0,0,,,SarahRestroom.jpg
+240,0,0,,,SarahPlayerRestroomNaked.jpg
+250,0,0,,,SarahPlayerRestroomLove.jpg
+260,0,0,,,SarahPlayerRestroomLove.jpg
+270,0,0,,,SarahPlayerRestroomNaked.jpg
+300,0,0,,,SarahPlayerLunch0.jpg
+310,0,0,,,SarahPlayerLunch0.jpg
+320,0,0,,,SarahPlayerLunch0.jpg
+330,0,0,,,SarahLocker.jpg
+340,0,0,,,SarahLocker.jpg
+350,0,0,,,SarahLocker.jpg
