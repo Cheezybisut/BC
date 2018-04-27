@@ -80,6 +80,7 @@ function C101_KinbakuClub_JennaIntro_ShortCut() {
 	PlayerAddSkill("Sports", 1);
 	PlayerAddSkill("Seduction", 1);
 	C101_KinbakuClub_Erica_Kidnapper = true;
+	C101_KinbakuClub_Slaves_ReadyForSlaves = true;
 }
 
 // Chapter 101 - Player skips club explanation

@@ -28,6 +28,20 @@ function C101_KinbakuClub_ClubRoom4_Run() {
 	// Draw Chloe when she is a slave
 
 	// Draw a twin when she is a slave
+	if (C101_KinbakuClub_SlaveTwin_KidnappedTwin) {
+		if (ActorSpecificHasInventory(C101_KinbakuClub_RopeGroup_RightTwin, "Rope")) {
+			DrawImage(CurrentChapter + "/" + CurrentScreen + "/CR4LucyTied.png", 680, 40);
+			if (ActorSpecificHasInventory(C101_KinbakuClub_RopeGroup_RightTwin, "BallGag")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/CR4LucyTiedBallGag.png", 730, 75);
+			if (ActorSpecificHasInventory(C101_KinbakuClub_RopeGroup_RightTwin, "ClothGag")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/CR4LucyTiedClothGag.png", 712, 111);
+			if (ActorSpecificHasInventory(C101_KinbakuClub_RopeGroup_RightTwin, "TapeGag")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/CR4LucyTiedTapeGag.png", 735, 121);
+		}
+		if (ActorSpecificHasInventory(C101_KinbakuClub_RopeGroup_RightTwin, "Manacles")) {
+			DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinManacles.png", 680, 180);
+			if (ActorSpecificHasInventory(C101_KinbakuClub_RopeGroup_RightTwin, "BallGag")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinManaclesBallGag.png", 680, 180);
+			if (ActorSpecificHasInventory(C101_KinbakuClub_RopeGroup_RightTwin, "ClothGag")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinManaclesClothGag.png", 680, 180);
+			if (ActorSpecificHasInventory(C101_KinbakuClub_RopeGroup_RightTwin, "TapeGag")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinManaclesTapeGag.png", 680, 180);
+		}
+	}
 
 	// Draw Erica's mistory slave when she is the player's slave
 
@@ -50,9 +64,8 @@ function C101_KinbakuClub_ClubRoom4_Click() {
 		}
 	}
 
-	// When the player is manacled and
+	// When the player is manacled and clicks on themself
 	if (PlayerHasLockedInventory("Manacles")) {
-		// Clicks on themself
 		if ((MouseX >= 280) && (MouseX <= 425) && (MouseY >= 180) && (MouseY <= 599)) {
 			SetScene(CurrentChapter, "Slaves");
 			C101_KinbakuClub_Slaves_CurrentStage = 120;
@@ -62,6 +75,12 @@ function C101_KinbakuClub_ClubRoom4_Click() {
 	// When Chloe is a slave and the user clicks on her
 
 	// When a twin is a slave and the user clicks on her
+	if (C101_KinbakuClub_SlaveTwin_KidnappedTwin) {
+		if ((MouseX >= 680) && (MouseX <= 830) && (MouseY >= 40) && (MouseY <= 590)) {
+			SetScene(CurrentChapter, "SlaveTwin");
+			C101_KinbakuClub_Slaves2_CurrentStage = 0;
+		}
+	}
 
 	// When Erica's mystery slave is the player's and the user clicks on her
 

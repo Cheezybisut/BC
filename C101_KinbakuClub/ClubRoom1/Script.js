@@ -37,7 +37,7 @@ function C101_KinbakuClub_ClubRoom1_Click() {
 	if ((MouseX >= 1085) && (MouseX <= 1185) && (MouseY >= 520) && (MouseY <= 580)) SetScene(CurrentChapter, "ClubRoom2");
 	if ((MouseX >= 0) && (MouseX <= 215) && (MouseY >= 45) && (MouseY <= 350)) SetScene(CurrentChapter, "Door");
 	if ((MouseX >= 235) && (MouseX <= 650) && (MouseY >= 140) && (MouseY <= 510)) SetScene(CurrentChapter, "Lauren");
-	if ((MouseX >= 690) && (MouseX <= 1190) && (MouseY >= 100) && (MouseY <= 520)) SetScene(CurrentChapter, "RopeGroup");
+	// if ((MouseX >= 690) && (MouseX <= 1190) && (MouseY >= 100) && (MouseY <= 520)) SetScene(CurrentChapter, "RopeGroup");
 
 	// Checks if the user clicks on any regular item
 	InventoryClick(GetClickedInventory(), "C101_KinbakuClub", "ClubRoom1");
