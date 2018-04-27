@@ -22,6 +22,7 @@
 <script src="Time.js"></script>
 <script src="Struggle.js"></script>
 <script src="GameLog.js"></script>
+<script src="Cheat.js"></script>
 <script src="C000_Intro/Intro/Script.js"></script>
 <script src="C000_Intro/ChapterSelect/Script.js"></script>
 <script src="C000_Intro/CreatePlayer/Script.js"></script>
@@ -151,6 +152,7 @@
 
 // When the code is loaded, start on "Chapter 0" to select a chapter and loads the default language
 window.onload = function() {
+	CheatAllow = true; // Set cheat mode
 	MainCanvas = document.getElementById("MainCanvas").getContext("2d");
 	if (localStorage.getItem("CurrentLanguageTag")) CurrentLanguageTag = localStorage.getItem("CurrentLanguageTag");
 	IsMobile = DetectMobile();
@@ -171,6 +173,7 @@ function MainRun() {
 // When the user presses a key, we send the KeyDown event to the other screens
 function KeyDown(event) {
 	KeyPress = event.keyCode || event.which;
+	if (CheatAllow) CheatKey();
 	DynamicFunction(CurrentChapter + "_" + CurrentScreen + "_KeyDown()");
 }
 

@@ -18,6 +18,7 @@ var TextPhase = 0;
 var CSVCache = {};
 var MaxFightSequence = 500;
 var MaxRaceSequence = 1000;
+var AllowCheats = false;
 
 // Array variables
 var IntroStage = 0;

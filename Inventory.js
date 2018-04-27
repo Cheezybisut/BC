@@ -3,6 +3,7 @@ var PlayerInventoryName = 0;
 var PlayerInventoryQuantity = 1;
 var PlayerLockedInventory = [];
 var PlayerSavedInventory = [];
+var PlayerInventoryTab = 0;
 
 // Set up the player clothes or costume
 function PlayerClothes(NewCloth) {
@@ -91,10 +92,12 @@ function PlayerAddInventory(NewInventory, NewQuantity) {
 	for (var I = 0; I < PlayerInventory.length; I++)
 		if (NewInventory == PlayerInventory[I][PlayerInventoryName]) {
 			PlayerInventory[I][PlayerInventoryQuantity] = PlayerInventory[I][PlayerInventoryQuantity] + NewQuantity;
+			if (PlayerInventory[I][PlayerInventoryQuantity] > 99) PlayerInventory[I][PlayerInventoryQuantity] = 99;
 			return;
 		}
 		
 	// If not, we create the new inventory data
+	if (NewQuantity > 99) NewQuantity = 99;
 	PlayerInventory[PlayerInventory.length] = [NewInventory, NewQuantity];
 	
 }
@@ -216,18 +219,27 @@ function GetClickedInventory() {
 		// Check in the regular inventory
 		var I;
 		if (Inv == "")
-			for (I = 0; I < PlayerInventory.length; I++)	
-				if ((MouseX >= 1 + (I + 1) * 75) && (MouseX <= 74 + (I + 1) * 75))
-					Inv = PlayerInventory[I][PlayerInventoryName];
+			for (I = 0; I < PlayerInventory.length; I++)
+				if ((MouseX >= 1 + (I + 1 - (PlayerInventoryTab * 11)) * 75) && (MouseX <= 74 + (I + 1 - (PlayerInventoryTab * 11)) * 75)) {
+					if (MouseX < 900) Inv = PlayerInventory[I][PlayerInventoryName];
+					else PlayerInventoryTab = 1;
+				}
 			
 		// Check in the locked inventory
 		if (Inv == "")
 			for (var L = 0; L < PlayerLockedInventory.length; L++)	
 				if (!PlayerHasInventory(PlayerLockedInventory[L])) {
-					if ((MouseX >= 1 + (I + 1) * 75) && (MouseX <= 74 + (I + 1) * 75))
-						Inv = "Locked_" + PlayerLockedInventory[L];
+					if ((MouseX >= 1 + (I + 1 - (PlayerInventoryTab * 11)) * 75) && (MouseX <= 74 + (I + 1 - (PlayerInventoryTab * 11)) * 75)) {
+						if (MouseX < 900) Inv = "Locked_" + PlayerLockedInventory[L];
+						else PlayerInventoryTab = 1;
+					}
 					I++;
 				}
+
+		// If we must go back to the first tab (on the second, after the first item)
+		if ((Inv == "") && (PlayerInventoryTab > 0))
+			if ((MouseX >= 1 + (I + 1 - (PlayerInventoryTab * 11)) * 75) && (MouseX <= 74 + (I + 1 - (PlayerInventoryTab * 11)) * 75))
+				PlayerInventoryTab = 0;
 
 	}
 
