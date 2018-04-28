@@ -9,7 +9,7 @@ function CheatKey() {
 		// In a fight or a race, the user can press * to win automatically
 		if (!FightEnded && (FightTimer > 0)) { if (KeyPress == 42) FightEnd(true); return; }
 		if (!DoubleFightEnded && (DoubleFightTimer > 0)) { if (KeyPress == 42) DoubleFightEnd(true); return; }
-		if (!RaceEnded && (RaceTimer > 0)) { if (KeyPress == 42) RaceEnd(true); return; }
+		if (!RaceEnded && (RaceTimer > 0)) { if (KeyPress == 42) { RaceProgress = RaceGoal; RaceEnd(true); } return; }
 		
 		// Actors and inventory cheat
 		if (CurrentActor != "") CheatActor();
