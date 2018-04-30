@@ -23,6 +23,11 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 110,0,0,Common_PlayerGagged,(Remove your gag.),You ungag yourself while you still can.,110,0,0,PlayerRemoveGag()
 110,0,0,,Call for help.,"You shout across the room. A few girls look up, giggle|and then go straight back to what they were doing.",110,0,0,
 110,0,0,,(Lock the rest of|the manacles on.),"You cannot go anywhere now, but are you ready to|loose all your freedom?  Click again to do so.",110,0,0,FullManacle()
+115,0,0,,You do have keys|for these?,"No, you're someone elses problem now.|(She abandons you there.)",120,0,0,EricaLeaves()
+115,0,0,,I'm sorry Erica.,Too late for that now. You will know better next time.|(She abandons you there.),120,1,-1,EricaLeaves()
+115,0,0,,Isn't this|a bit much?,This is what you can expect for trying to humiliate me.|(She abandons you there.),120,0,0,EricaLeaves()
+115,0,0,Common_PlayerGagged,@Mrngh Hm'm fhrrn,Too late for that now. You will know better next time.|(She abandons you there.),120,1,-1,EricaLeaves()
+115,0,0,Common_PlayerGagged,(Rattle the padlocks.),I don't have keys for them and you are someone|elses problem now. (She abandons you there.),120,0,0,EricaLeaves()
 120,0,0,,Call for help.,"You shout across the room. A few girls look up, giggle|and then go straight back to what they were doing.",120,0,0,ExploreManacles()
 120,0,0,Common_PlayerGagged,(Scream into|the gag.),Nobody seems to hear or notice you muffled cries. ,120,0,0,ExploreManacles()
 120,0,0,,(Struggle against|the manacles.),"You thrash in panic, but the unforgiving hard steel|is far stronger than you are.",120,0,0,ExploreManacles()

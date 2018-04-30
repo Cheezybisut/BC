@@ -8,12 +8,14 @@ function C101_KinbakuClub_SlaveTwin_CalcParams() {
 // Chapter 101 - SlaveTwin Load
 function C101_KinbakuClub_SlaveTwin_Load() {
 	ActorLoad(C101_KinbakuClub_RopeGroup_RightTwin, "ClubRoom4");
+
 	LoadInteractions();
 
 	if (C101_KinbakuClub_RopeGroup_RightTwinKidnapped && !C101_KinbakuClub_SlaveTwin_KidnappedTwin) {
 		C101_KinbakuClub_SlaveTwin_KidnappedTwin = true;
 		ActorAddInventory("Rope");
 		ActorAddInventory("BallGag");
+		LeaveIcon = "";
 	}
 	C101_KinbakuClub_SlaveTwin_CalcParams();
 }
@@ -37,17 +39,15 @@ function C101_KinbakuClub_SlaveTwin_Click() {
 	ClickInteraction(C101_KinbakuClub_SlaveTwin_CurrentStage);
 	var ClickInv = GetClickedInventory();
 	
-	
 	ActorApplyRestrain(ClickInv);
 	if (ActorIsGagged() && C101_KinbakuClub_SlaveTwin_CurrentStage == 20) C101_KinbakuClub_SlaveTwin_CurrentStage = 10;
-	
 	
 	C101_KinbakuClub_SlaveTwin_CalcParams();
 }
 
-// Chapter 101 - SlaveTwin - Draw the images for the kidnapped twin
-function C101_KinbakuClub_SlaveTwin_DrawTwin() {
-	
+// Chapter 101 - SlaveTwin - Player can leave after twin is leashed.
+function C101_KinbakuClub_SlaveTwin_CanLeave() {
+	LeaveIcon = "Leave";
 }
 
 // Chapter 101 - SlaveTwin - remove the current slaves gag

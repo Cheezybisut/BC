@@ -24,9 +24,10 @@ function C101_KinbakuClub_ClubRoom1_Run() {
 	}
 
 	//Draw Rope Group
-	if (!C101_KinbakuClub_RopeGroup_LeftTwinReleased && !C101_KinbakuClub_RopeGroup_RightTwinReleased) DrawImage(CurrentChapter + "/" + CurrentScreen + "/BothTwins.jpg", 690, 100);
-	if (C101_KinbakuClub_RopeGroup_LeftTwinReleased) DrawImage(CurrentChapter + "/" + CurrentScreen + "/RightTwin.jpg", 690, 100);
-	if (C101_KinbakuClub_RopeGroup_RightTwinReleased) DrawImage(CurrentChapter + "/" + CurrentScreen + "/LeftTwin.jpg", 690, 100);
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Amelia.png", 690, 120);
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Charlotte.png", 900, 100);
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinLeft.png", 945, 160);
+	DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinRight.png", 800, 155);
 }
 
 // Chapter 101 - Club Room 1 Click
