@@ -84,17 +84,26 @@ function C101_KinbakuClub_Slaves_CalcParams() {
 function C101_KinbakuClub_Slaves_Load() {
 
 	// Bag stage starts at 0
-	if (C101_KinbakuClub_Slaves_CurrentStage < 100) {
+	if (C101_KinbakuClub_Slaves_CurrentStage <= 100) {
 		C101_KinbakuClub_Slaves_CurrentStage = 0;
 		ActorLoad("", "ClubRoom4");
 		LeaveIcon = "";
 	}
 
+	// Player when shackled by erica
+	if (C101_KinbakuClub_Slaves_CurrentStage == 115) {
+		ActorLoad("Erica", "ClubRoom4");
+		PlayerLockInventory("Manacles");
+		LeaveIcon = "";
+		C101_KinbakuClub_Slaves_EricaShackle = true;
+	}
+
 	// Player when a slave
-	if ((C101_KinbakuClub_Slaves_CurrentStage > 100) && (C101_KinbakuClub_Slaves_CurrentStage < 200)) {
+	if (C101_KinbakuClub_Slaves_CurrentStage == 120) {
 		ActorLoad("", "ClubRoom4");
 		LeaveIcon = "Leave";
 	}
+
 	LoadInteractions();
 	C101_KinbakuClub_Slaves_CalcParams()
 }
@@ -120,10 +129,10 @@ function C101_KinbakuClub_Slaves_Run() {
 	}
 
 	// Player fully locked in manacles.
-	if ((C101_KinbakuClub_Slaves_CurrentStage >= 120) && (C101_KinbakuClub_Slaves_CurrentStage <= 300)) {
+	if ((C101_KinbakuClub_Slaves_CurrentStage >= 115) && (C101_KinbakuClub_Slaves_CurrentStage <= 300)) {
 
 		// Players expression while Jenna is there
-		if (C101_KinbakuClub_Slaves_CurrentStage >= 130) {
+		if (C101_KinbakuClub_Slaves_CurrentStage == 115 || C101_KinbakuClub_Slaves_CurrentStage >= 130) {
 			DrawImage(CurrentChapter + "/" + CurrentScreen + "/PlayerManaclesJennaNeutral.png", 870, 81);
 			if (ActorGetValue(ActorSubmission) > 1) DrawImage(CurrentChapter + "/" + CurrentScreen + "/PlayerManaclesJennaDom.png", 870, 81);
 			if (ActorGetValue(ActorSubmission) < -1) DrawImage(CurrentChapter + "/" + CurrentScreen + "/PlayerManaclesJennaSub.png", 870, 81);
@@ -148,6 +157,9 @@ function C101_KinbakuClub_Slaves_Run() {
 		if (C101_KinbakuClub_Slaves_PlayerBreastsExposed) DrawImage(CurrentChapter + "/" + CurrentScreen + "/PlayerManaclesExposed.jpg", 855, 210);
 		if ((C101_KinbakuClub_Slaves_PlayerPantiesDown) && !PlayerHasLockedInventory("ChastityBelt")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/PlayerManaclesPantiesDown.png", 830, 365);
 		if (C101_KinbakuClub_Slaves_ShortLeash) DrawImage(CurrentChapter + "/" + CurrentScreen + "/TeaseShortLeash.png", 955, 10);
+
+		// Erica full body
+		if (C101_KinbakuClub_Slaves_CurrentStage == 115) DrawImage(CurrentChapter + "/" + CurrentScreen + "/PlayerManaclesErica.png", 906, 0);
 
 		// Jenna full body
 		if ((C101_KinbakuClub_Slaves_CurrentStage >= 130 && C101_KinbakuClub_Slaves_CurrentStage < 190) || (C101_KinbakuClub_Slaves_CurrentStage >= 240 && C101_KinbakuClub_Slaves_CurrentStage <= 260)) DrawImage(CurrentChapter + "/" + CurrentScreen + "/PlayerManaclesJenna.png", 945, 0);
@@ -336,6 +348,11 @@ function C101_KinbakuClub_Slaves_FullManacle() {
 		LeaveIcon = "Leave";
 	}
 	C101_KinbakuClub_Slaves_ManacleWarning = true;
+}
+
+// Chapter 101 - Slaves - Erica leave player manacled
+function C101_KinbakuClub_Slaves_EricaLeaves() {
+	LeaveIcon = "Leave";
 }
 
 // Chapter 101 - Slaves - Player spends time exploring their predicament.
