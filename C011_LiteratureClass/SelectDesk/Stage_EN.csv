@@ -1,26 +1,26 @@
 Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
-0,0,0,NatalieLunch,(Check the neighbors.),A brown haired girl is sitting next to the empty desk.|She looks at the clock and seems to be impatient.,10,0,0,
-0,0,0,!NatalieLunch,(Check the neighbors.),Natalie from the Kinbaku Club sits next to the desk.|She looks at the clock and seems to be impatient.,10,0,0,
+0,0,0,,(Check the front row.),There's an empty desk in the front row.|Right next to where the teacher should stand.,10,0,0,
 0,0,0,,(Check the back row.),There's an empty desk in the back row.|It smells like someone just smoked.,50,0,0,
-0,0,0,,(Check in front|of the classroom.),The teacher is missing.|The podium is empty.,40,0,0,
-0,0,0,,(Pick this desk.),You pick the desk in the|front row and sit on it.,100,0,0,SelectFront()
-10,0,0,,(Check the desk.),There's an empty desk in the front row.|Right next to where the teacher should stand.,0,0,0,
+10,0,0,NatalieLunch,(Check the neighbors.),A brown haired girl is sitting next to the empty desk.|She looks at the clock and seems to be impatient.,20,0,0,
+10,0,0,!NatalieLunch,(Check the neighbors.),Natalie from the Kinbaku Club sits next to the desk.|She looks at the clock and seems to be impatient.,20,0,0,
 10,0,0,,(Check the back row.),There's an empty desk in the back row.|It smells like someone just smoked.,50,0,0,
-10,0,0,,(Check in front|of the classroom.),The teacher is missing.|The podium is empty.,40,0,0,
-40,0,0,,(Check the front row.),There's an empty desk in the front row.|Right next to where the teacher should stand.,0,0,0,
-40,0,0,,(Check the back row.),There's an empty desk in the back row.|It smells like someone just smoked.,50,0,0,
+10,0,0,,(Check in front|of the classroom.),The teacher is missing.|The podium is empty.,0,0,0,
+10,0,0,,(Pick this desk.),You pick the desk in the|front row and sit on it.,100,0,0,SelectFront()
+20,0,0,,(Check the desk.),There's an empty desk in the front row.|Right next to where the teacher should stand.,10,0,0,
+20,0,0,,(Check the back row.),There's an empty desk in the back row.|It smells like someone just smoked.,50,0,0,
+20,0,0,,(Check in front|of the classroom.),The teacher is missing.|The podium is empty.,0,0,0,
 50,0,0,SidneyWasPig,(Check the neighbors.),Sidney is sitting next to the empty desk.|She flips you the finger when you walk by.,60,0,0,
 50,0,0,!SidneyWasPig,(Check the neighbors.),"Sidney is sitting next to the empty desk.|She seems pretty relax, she might be stoned.",60,0,0,
-50,0,0,,(Check the front row.),There's an empty desk in the front row.|Right next to where the teacher should stand.,0,0,0,
-50,0,0,,(Check in front|of the classroom.),The teacher is missing.|The podium is empty.,40,0,0,
+50,0,0,,(Check the front row.),There's an empty desk in the front row.|Right next to where the teacher should stand.,10,0,0,
+50,0,0,,(Check in front|of the classroom.),The teacher is missing.|The podium is empty.,0,0,0,
 50,0,0,,(Pick this desk.),You pick the desk in the|back row and sit on it.,200,0,0,SelectBack()
 60,0,0,,(Check the desk.),There's an empty desk in the back row.|It smells like someone just smoked.,50,0,0,
-60,0,0,,(Check the front row.),There's an empty desk in the front row.|Right next to where the teacher should stand.,0,0,0,
-60,0,0,,(Check in front|of the classroom.),The teacher is missing.|The podium is empty.,40,0,0,
-100,0,0,,(Wait patiently.)|(1 minute),You quietly wait for the teacher|but she's not coming in yet.,100,0,0,
+60,0,0,,(Check the front row.),There's an empty desk in the front row.|Right next to where the teacher should stand.,10,0,0,
+60,0,0,,(Check in front|of the classroom.),The teacher is missing.|The podium is empty.,0,0,0,
+100,0,0,,(Wait patiently.),You quietly wait for the teacher|but she's not coming in yet.,100,0,0,WaitTwoMinutes()
 100,0,0,,(Check in front|of the classroom.),The teacher is still missing.,101,0,0,
 100,0,0,,(Check your neighbors.),Most of your neighbors are busy in their|books but one of them is only looking at the clock.,110,0,0,CheckFront()
-101,0,0,,(Wait patiently.)|(1 minute),You quietly wait for the teacher|but she's not coming in yet.,101,0,0,
+101,0,0,,(Wait patiently.),You quietly wait for the teacher|but she's not coming in yet.,101,0,0,WaitTwoMinutes()
 101,0,0,,(Check your desk.),You turn around to your desk.,100,0,0,
 101,0,0,,(Check your neighbors.),Most of your neighbors are busy in their|books but one of them is only looking at the clock.,110,0,0,CheckFront()
 110,0,0,,Hello there.,"(She turns around.)|Hello, I'm Natalie.",111,0,0,
@@ -36,11 +36,12 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 130,0,0,,Am I too early?,"You're on time, the teacher is late|again, we might get a substitute.",131,0,0,
 190,0,0,,It was only for fun!,"(She gives you an angry look and whispers.)|She who laughs last, laughs best.",190,0,0,
 190,0,0,,What are you|planning now?,You'll see pretty soon.,190,0,0,
+190,0,0,,I'm so sorry.  Can|we make peace?,"Maybe, come to the club later and|we'll see about that.  (She grins.)",190,0,0,NataliePeaceOffer()
 190,0,0,,(Back to your desk.),You turn around to your desk.,100,0,0,UnloadActor()
-200,0,0,,(Wait patiently.)|(1 minute),You quietly wait for the teacher|but she's not coming in yet.,200,0,0,
+200,0,0,,(Wait patiently.),You quietly wait for the teacher|but she's not coming in yet.,200,0,0,WaitTwoMinutes()
 200,0,0,,(Check in front|of the classroom.),The teacher is still missing.,201,0,0,
 200,0,0,,(Check your neighbors.),Most of your neighbors are busy in their|books and Sidney seems to be relaxing.,210,0,0,CheckBack()
-201,0,0,,(Wait patiently.)|(1 minute),You quietly wait for the teacher|but she's not coming in yet.,201,0,0,
+201,0,0,,(Wait patiently.),You quietly wait for the teacher|but she's not coming in yet.,201,0,0,WaitTwoMinutes()
 201,0,0,,(Check your desk.),You turn around to your desk.,200,0,0,
 201,0,0,,(Check your neighbors.),Most of your neighbors are busy in their|books and Sidney seems to be relaxing.,210,0,0,
 210,0,0,,(Back to your desk.),You turn around to your desk.,200,0,0,UnloadActor()

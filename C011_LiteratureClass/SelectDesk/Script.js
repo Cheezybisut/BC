@@ -6,12 +6,13 @@ var C011_LiteratureClass_SelectDesk_BackDesk = false;
 var C011_LiteratureClass_SelectDesk_SidneyWasPig = false;
 var C011_LiteratureClass_SelectDesk_NatalieLunch = false;
 var C011_LiteratureClass_SelectDesk_PigRemarkDone = false;
+var C011_LiteratureClass_SelectDesk_NataliePeaceOfferDone = false;
 
 // Chapter 11 - Literature Class Select Desk Load
 function C011_LiteratureClass_SelectDesk_Load() {
 
 	// Set the timer limits at 15:35
-	StartTimer(15.5833 * 60 * 60 * 1000, CurrentChapter, "MildredIntro");
+	StartTimer(15.6666667 * 60 * 60 * 1000, CurrentChapter, "MildredIntro");
 	
 	// Load the scene parameters (loads Jennifer first in case we are starting directly in chapter 10)
 	LoadInteractions();
@@ -72,14 +73,14 @@ function C011_LiteratureClass_SelectDesk_CheckFront() {
 	// If Natalie was stranded, she will be angry at the player
 	if (GameLogQuery("C007_LunchBreak", "Natalie", "Stranded")) {
 		C011_LiteratureClass_SelectDesk_CurrentStage = 190;
-		C011_LiteratureClass_SelectDesk_IntroText = GetText("NatalieAngry");
+		OverridenIntroText = GetText("NatalieAngry");
 		return;
 	}
 
 	// If the player already had lunch with Natalie and knows about the Kinbaku club
 	if (C011_LiteratureClass_SelectDesk_NatalieLunch) {
 		C011_LiteratureClass_SelectDesk_CurrentStage = 120;
-		C011_LiteratureClass_SelectDesk_IntroText = GetText("NatalieClubIntro");
+		OverridenIntroText = GetText("NatalieClubIntro");
 		return;
 	}
 
@@ -95,35 +96,35 @@ function C011_LiteratureClass_SelectDesk_CheckBack() {
 	// With 8 submission or more, Sidney switches to sub mode
 	if (ActorGetValue(ActorSubmission) >= 8) {
 		C011_LiteratureClass_SelectDesk_CurrentStage = 240;
-		C011_LiteratureClass_SelectDesk_IntroText = GetText("SidneySub");
+		OverridenIntroText = GetText("SidneySub");
 		return;
 	}
 	
 	// If she was made a pig in the revenge scenario, she gets angry
 	if (C011_LiteratureClass_SelectDesk_SidneyWasPig) {
 		C011_LiteratureClass_SelectDesk_CurrentStage = 290;
-		C011_LiteratureClass_SelectDesk_IntroText = GetText("SidneyPig");
+		OverridenIntroText = GetText("SidneyPig");
 		return;
 	}
 
 	// If she hates the player, she gets angry
 	if (ActorGetValue(ActorLove) <= -8) {
 		C011_LiteratureClass_SelectDesk_CurrentStage = 290;
-		C011_LiteratureClass_SelectDesk_IntroText = GetText("SidneyAngry");
+		OverridenIntroText = GetText("SidneyAngry");
 		return;
 	}
 
 	// With -8 submission or more, Sidney switches to Domme mode
 	if (ActorGetValue(ActorSubmission) <= -8) {
 		C011_LiteratureClass_SelectDesk_CurrentStage = 250;
-		C011_LiteratureClass_SelectDesk_IntroText = GetText("SidneyDomme");
+		OverridenIntroText = GetText("SidneyDomme");
 		return;
 	}
 
 	// With 8 love or more, Sidney switches to friend mode
 	if (ActorGetValue(ActorLove) >= 8) {
 		C011_LiteratureClass_SelectDesk_CurrentStage = 230;
-		C011_LiteratureClass_SelectDesk_IntroText = GetText("SidneyLove");
+		OverridenIntroText = GetText("SidneyLove");
 		return;
 	}
 	
@@ -140,4 +141,17 @@ function C011_LiteratureClass_SelectDesk_PigRemark() {
 		C011_LiteratureClass_SelectDesk_PigRemarkDone = true;
 		ActorChangeAttitude(-1, 1);
 	}
+}
+
+// Chapter 11 - Literature Class - Natalie will be tempted by the peace offer
+function C011_LiteratureClass_SelectDesk_NataliePeaceOffer() {
+	if (!C011_LiteratureClass_SelectDesk_NataliePeaceOfferDone) {
+		C011_LiteratureClass_SelectDesk_NataliePeaceOfferDone = true;
+		ActorChangeAttitude(1, -1);
+	}
+}
+
+// Chapter 11 - Literature Class - Add two minutes to the timer
+function C011_LiteratureClass_SelectDesk_WaitTwoMinutes() {
+	CurrentTime = CurrentTime + 110000;
 }
