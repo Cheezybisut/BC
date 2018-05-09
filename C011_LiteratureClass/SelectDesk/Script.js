@@ -194,5 +194,7 @@ function C011_LiteratureClass_SelectDesk_MoveToFront() {
 	CurrentActor = "";
 	GameLogAdd("KickedFromBackDesk");
 	GameLogAdd("FrontDesk");
+	C011_LiteratureClass_SelectDesk_FrontDesk = true;
+	C011_LiteratureClass_SelectDesk_BackDesk = false;
 	CurrentTime = CurrentTime + 50000;
 }

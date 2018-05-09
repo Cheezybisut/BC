@@ -1,0 +1,7 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Listen carefully.),I know there's been discipline problems|in this classroom and it will stop now.,10,0,0,GoodStudent()
+0,0,0,,(Look at the clock.),I know there's been discipline problems|in this classroom and it will stop now.,10,0,0,
+0,0,0,,(Relax on your chair.),I know there's been discipline problems|in this classroom and it will stop now.,10,0,0,
+10,0,0,,(Listen carefully.),"I have the means to keep you under control.|If you disobey, you will get restrained.",20,0,0,GoodStudent()
+10,0,0,,(Look bored.),"I have the means to keep you under control.|If you disobey, you will get restrained.",20,0,0,
+10,0,0,,(Yawn loudly.),"(She whips the podium swiftly and everyone jumps.)|If you disobey, I have the means to restrain you.",20,-1,0,
