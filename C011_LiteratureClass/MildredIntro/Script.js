@@ -11,7 +11,7 @@ function C011_LiteratureClass_MildredIntro_Load() {
 
 	// Stop the time and show the intro, Mildred will have a defiant intro if the player was isolated
 	StopTimer(15.666667 * 60 * 60 * 1000);
-	if (GameLogQuery("C006_Isolation", "Mildred", "Isolation")) C011_LiteratureClass_MildredIntro_MildredStatus = "Defiant";
+	if (GameLogQuery("C002_FirstClass", "Mildred", "Subdue") && GameLogQuery("C006_Isolation", "", "Isolation")) C011_LiteratureClass_MildredIntro_MildredStatus = "Defiant";
 
 }
 

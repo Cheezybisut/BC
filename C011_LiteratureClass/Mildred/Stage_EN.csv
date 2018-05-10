@@ -1,7 +1,40 @@
 Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
-0,0,0,,(Listen carefully.),I know there's been discipline problems|in this classroom and it will stop now.,10,0,0,GoodStudent()
-0,0,0,,(Look at the clock.),I know there's been discipline problems|in this classroom and it will stop now.,10,0,0,
-0,0,0,,(Relax on your chair.),I know there's been discipline problems|in this classroom and it will stop now.,10,0,0,
+0,0,0,,(Listen carefully.),I know there have been discipline problems|in this classroom and it will stop now.,10,0,0,GoodStudent()
+0,0,0,,(Look at the clock.),I know there have been discipline problems|in this classroom and it will stop now.,10,0,0,
+0,0,0,,(Play with your nails.),I know there have been discipline problems|in this classroom and it will stop now.,10,-1,0,
+0,0,0,,(Relax on your chair.),I know there have been discipline problems|in this classroom and it will stop now.,10,0,0,
 10,0,0,,(Listen carefully.),"I have the means to keep you under control.|If you disobey, you will get restrained.",20,0,0,GoodStudent()
 10,0,0,,(Look bored.),"I have the means to keep you under control.|If you disobey, you will get restrained.",20,0,0,
 10,0,0,,(Yawn loudly.),"(She whips the podium swiftly and everyone jumps.)|If you disobey, I have the means to restrain you.",20,-1,0,
+20,0,0,,(Listen carefully.),"Ladies, today will be a surprise test|to see if you've read your assignment.",30,0,0,GoodStudent()
+20,0,0,,(Bow your head and|tremble in fear.),"Ladies, today will be a surprise test|to see if you've read your assignment.",30,0,-1,GoodStudent()
+20,0,0,,(Send her a|defiant look.),"Ladies, today will be a surprise test|to see if you've read your assignment.",30,0,1,
+30,0,0,,(Listen carefully.),"Two by two, you will step up in front of the|class and answer questions on what you've read.",40,0,0,CheckForCuffs()
+30,0,0,,(Look at the clock.),"Two by two, you will step up in front of the|class and answer questions on what you've read.",40,0,0,CheckForCuffs()
+30,0,0,,(Look bored.),"Two by two, you will step up in front of the|class and answer questions on what you've read.",40,0,0,CheckForCuffs()
+30,0,0,,(Relax on your chair.),"Two by two, you will step up in front of the|class and answer questions on what you've read.",40,0,0,CheckForCuffs()
+31,0,0,,You can't do that!|(Try to resist.),I can and I will!  (She forcefully grabs your|wrists and cuffs them behind your back.),32,0,1,CuffPlayer()
+31,0,0,,Isn't that too much?|(Try to negotiate.),It's exactly what you need.  (She grabs|your wrists and cuffs them behind your back.),32,0,0,CuffPlayer()
+31,0,0,,Yes Miss Mildred.|(Let her cuff you.),Very good little miss.  (She gently grabs|your wrists and cuffs them behind your back.),32,0,-1,CuffPlayer()
+31,0,10,,"Mildred, step back now.|(Try to intimidate.)","(She steps back in fear and speaks again.)|Two by two, you will answer questions on the book.",40,0,1,
+32,0,0,,I'll be good Miss.,"(She nods and walks back to speak again.)|Two by two, you will answer questions on the book.",40,0,-1,
+32,0,0,,You're so kinky!,"(She frowns and walks back to speak again.)|Two by two, you will answer questions on the book.",40,-1,0,
+32,0,0,,This is fair.|I deserve it.,"(She nods and walks back to speak again.)|Two by two, you will answer questions on the book.",40,1,0,
+32,0,0,,(Stay silent.),"(She smiles and walks back to speak again.)|Two by two, you will answer questions on the book.",40,0,0,
+35,0,0,,You can't do that!|(Try to resist.),I can and I will!  (She forcefully grabs your|wrists and cuffs them behind your back.),36,0,1,CuffPlayer()
+35,0,0,,Isn't that too much?|(Try to negotiate.),It's exactly what you need.  (She grabs|your wrists and cuffs them behind your back.),36,0,0,CuffPlayer()
+35,0,0,,Yes Miss Mildred.|(Let her cuff you.),Very good little miss.  (She gently grabs|your wrists and cuffs them behind your back.),36,0,-1,CuffPlayer()
+35,0,10,,"Mildred, step back now.|(Try to intimidate.)","(She steps back in fear and speaks again.)|Two by two, you will answer questions on the book.",40,0,1,
+36,0,0,,I'll be good Miss.,"(She nods and walks back to speak again.)|Two by two, you will answer questions on the book.",40,0,-1,
+36,0,0,,You're so kinky!,"(She frowns and walks back to speak again.)|Two by two, you will answer questions on the book.",40,-1,0,
+36,0,0,,This is fair.|I deserve it.,"(She nods and walks back to speak again.)|Two by two, you will answer questions on the book.",40,1,0,
+36,0,0,,(Stay silent.),"(She smiles and walks back to speak again.)|Two by two, you will answer questions on the book.",40,0,0,
+40,0,0,,(Listen carefully.),"If you fail to give the correct answer, you|will be punished.  (She whips the podium.)",50,0,0,GoodStudent()
+40,0,0,,(Sigh in boredom.),"If you fail to give the correct answer, you|will be punished.  (She whips the podium.)",50,-1,0,
+40,0,0,Common_PlayerRestrained,(Tug on the cuffs.),"If you fail to give the correct answer, you|will be punished.  (She whips the podium.)",50,0,0,
+40,0,0,!Common_PlayerRestrained,(Play with your hair.),"If you fail to give the correct answer, you|will be punished.  (She whips the podium.)",50,0,0,
+50,0,0,,(Listen carefully.),COMMON_PLAYERNAME and Sidney!|Step forward and face back to each other.,60,0,0,GoodStudent()
+50,0,0,,(Look at your shoes.),COMMON_PLAYERNAME and Sidney!|Step forward and face back to each other.,60,0,0,
+50,0,0,Common_PlayerRestrained,(Tug on the cuffs.),COMMON_PLAYERNAME and Sidney!|Step forward and face back to each other.,60,0,0,
+50,0,0,!Common_PlayerRestrained,(Check your phone.),COMMON_PLAYERNAME and Sidney!|Step forward and face back to each other.,60,-1,0,
+60,0,0,,(Start the test.),,60,0,0,StartTest()
