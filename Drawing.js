@@ -50,6 +50,14 @@ function DrawImageZoom(Source, SX, SY, SWidth, SHeight, X, Y, Width, Height) {
 	MainCanvas.drawImage(DrawGetImage(Source), SX, SY, Math.round(SWidth), Math.round(SHeight), X, Y, Width, Height);
 }
 
+// Draw a zoomed image from a source to the canvas and mirrors it from left to right
+function DrawImageZoomMirror(Source, SX, SY, SWidth, SHeight, X, Y, Width, Height) {
+	MainCanvas.save();
+    MainCanvas.scale(-1, 1);
+	MainCanvas.drawImage(DrawGetImage(Source), X * -1, Y, Width * -1, Height);
+    MainCanvas.restore();
+}
+
 // Draw an image from a source to the canvas
 function DrawImage(Source, X, Y) {
 	MainCanvas.drawImage(DrawGetImage(Source), X, Y);

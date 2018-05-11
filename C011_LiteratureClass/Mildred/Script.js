@@ -1,6 +1,7 @@
 var C011_LiteratureClass_Mildred_CurrentStage = 0;
 var C011_LiteratureClass_Mildred_Angry = false;
 var C011_LiteratureClass_Mildred_GoodStudentCount = 0;
+var C011_LiteratureClass_Mildred_KnowCheat = false;
 
 // Chapter 11 - Mildred Load
 function C011_LiteratureClass_Mildred_Load() {
@@ -53,5 +54,24 @@ function C011_LiteratureClass_Mildred_CuffPlayer() {
 function C011_LiteratureClass_Mildred_StartTest() {
 	if (C011_LiteratureClass_Mildred_GoodStudentCount >= 2) ActorChangeAttitude(1, 0);
 	CurrentTime = CurrentTime + 50000;
-	QuizLoad("Player", PlayerHasLockedInventory("Cuffs") ? "Clothed_Cuffs" : "Clothed", "Sidney", "Clothed", "Mildred", "Leader", "Normal", 10, "Classroom", "C011_LiteratureClass_Mildred_QuizEnd");
+	QuizLoad("Player", PlayerHasLockedInventory("Cuffs") ? "Clothed_Cuffs" : "Clothed", "Sidney", ActorSpecificHasInventory("Sidney", "Cuffs") ? "Clothed_Cuffs" : "Clothed", "Mildred", "Leader", "Normal", 10, "Classroom", "C011_LiteratureClass_Mildred_QuizEnd");
+}
+
+// Chapter 11 - Mildred can switch focus to Sidney for a short while
+function C011_LiteratureClass_Mildred_SwitchSidney() {
+	if (!C011_LiteratureClass_SelectDesk_FrontDesk) {
+		C011_LiteratureClass_Mildred_CurrentStage = 47;
+		OverridenIntroText = GetText("SidneyStares");
+		ActorLoad("Sidney", "");
+		ActorAddInventory("Cuffs");
+	} else {
+		CurrentActor = "Sidney";
+		ActorAddInventory("Cuffs");
+		CurrentActor = "Mildred";
+	}
+}
+
+// Chapter 11 - Mildred takes back focus
+function C011_LiteratureClass_Mildred_SwitchMildred() {
+	ActorLoad("Sidney", "");
 }

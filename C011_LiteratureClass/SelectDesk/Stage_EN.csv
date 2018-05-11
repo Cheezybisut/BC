@@ -119,9 +119,9 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 262,0,0,,The book was awful.|Did you read it?,I've read the title and that's enough.,263,1,0,
 262,0,0,,So did you|read the book?,I've read the title and that's enough.,263,0,0,
 262,0,0,,Did you at least|read the book?,I've read the title and that's enough.,263,0,1,
-263,0,0,,You'll be fine.,"Sure I will, I'll cheat.",264,0,0,
-263,0,0,,You'll get in trouble.,I don't care.  I'll cheat.,264,0,-1,
-263,0,0,,What if there's|an exam on it?,I don't care.  I'll cheat.,264,0,0,
+263,0,0,,You'll be fine.,"Sure I will, I'll cheat.",264,0,0,AdmitCheat()
+263,0,0,,You'll get in trouble.,I don't care.  I'll cheat.,264,0,-1,AdmitCheat()
+263,0,0,,What if there's|an exam on it?,I don't care.  I'll cheat.,264,0,0,AdmitCheat()
 264,0,0,,Don't cheat on me.|I'm horrible at school.,Ha!  Well thanks for telling me.|It's not like there's a class anyway.,265,1,1,
 264,0,0,,Cheating is for losers.,"You're the loser, get out of my face.|(She spaces out and seems to ignore you.)",280,-1,0,SidneyOut()
 264,0,-5,,You can cheat on|me if you want.,Thanks dork.  This class will|be easy.  If it ever begins.,265,1,-1,

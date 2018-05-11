@@ -54,11 +54,11 @@ function QuizLoad(ActorLeft, ImageActorLeft, ActorRight, ImageActorRight, ActorL
 // Render the quiz scene
 function C999_Common_Quiz_Run() {
 
-	// Paints the background
+	// Paints the background and actors
 	DrawImage("C999_Common/Quiz/Backgrounds/" + QuizBackgroundImage + ".jpg", 0, 0);
-
 	DrawImageZoom("C999_Common/Quiz/Actors/" + QuizActorLeft + "/" + QuizImageActorLeft + ".png", 0, 0, 600, 900, 150, 0, 600 * 0.675, 900 * 0.675);
-	
+	DrawImageZoomMirror("C999_Common/Quiz/Actors/" + QuizActorRight + "/" + QuizImageActorRight + ".png", 0, 0, 600, 900, 650, 0, 600 * 0.675, 900 * 0.675);
+
 }
 
 // When a click is done while in the quiz

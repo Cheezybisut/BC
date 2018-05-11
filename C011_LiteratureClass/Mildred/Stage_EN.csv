@@ -33,6 +33,20 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 40,0,0,,(Sigh in boredom.),"If you fail to give the correct answer, you|will be punished.  (She whips the podium.)",50,-1,0,
 40,0,0,Common_PlayerRestrained,(Tug on the cuffs.),"If you fail to give the correct answer, you|will be punished.  (She whips the podium.)",50,0,0,
 40,0,0,!Common_PlayerRestrained,(Play with your hair.),"If you fail to give the correct answer, you|will be punished.  (She whips the podium.)",50,0,0,
+40,5,0,KnowCheat,Watch out for Sidney.|She will cheat.,(She walks toward Sidney and stares at her.)|Is that true Sidney?  Are you going to cheat?,45,1,0,
+40,0,-5,KnowCheat,Miss Mildred!  I know|that Sidney will cheat.,(She walks toward Sidney and stares at her.)|Is that true Sidney?  Are you going to cheat?,45,1,-1,
+45,0,0,,(Watch the scene.),(She cuffs Sidney's hands behind her back.)|Let's see how you can cheat now.,46,0,0,
+45,0,0,,(Laugh silently.),(She cuffs Sidney's hands behind her back.)|Let's see how you can cheat now.,46,0,0,
+46,0,0,,(Watch the scene.),(Mildred walks back to the front and speaks again.)|You will be punished for each incorrect answers.,50,0,0,SwitchSidney()
+46,0,0,,(Do an evil grin.),(Mildred walks back to the front and speaks again.)|You will be punished for each incorrect answers.,50,0,0,SwitchSidney()
+47,0,0,,That's what cheaters get.,Fuck you COMMON_PLAYERNAME!|I'll show you what traitors get.,48,-2,0,
+47,0,0,,Gotcha bitch.,You're the bitch!|You betrayed me!,48,-2,1,
+47,0,0,Common_PlayerRestrained,It's only fair.,Fair?  Fuck that.,48,-1,1,
+47,0,0,,I'm sorry.  I shouldn't|have done that.,It's too late to be sorry you traitor.,48,-1,-1,
+48,0,0,,This will make the|test more interesting.,(Mildred whips the podium and everyone jumps.)|You will be punished for each incorrect answers.,50,0,0,SwitchMildred()
+48,0,0,,You look cute|in these cuffs.,(Mildred whips the podium and everyone jumps.)|You will be punished for each incorrect answers.,50,0,0,SwitchMildred()
+48,0,0,,(Watch her struggle.),(Mildred whips the podium and everyone jumps.)|You will be punished for each incorrect answers.,50,0,0,SwitchMildred()
+48,0,0,,(Turn to Mildred.),"If you fail to give the correct answer, you|will be punished.  (She whips the podium.)",50,0,0,SwitchMildred()
 50,0,0,,(Listen carefully.),COMMON_PLAYERNAME and Sidney!|Step forward and face back to each other.,60,0,0,GoodStudent()
 50,0,0,,(Look at your shoes.),COMMON_PLAYERNAME and Sidney!|Step forward and face back to each other.,60,0,0,
 50,0,0,Common_PlayerRestrained,(Tug on the cuffs.),COMMON_PLAYERNAME and Sidney!|Step forward and face back to each other.,60,0,0,
