@@ -2,6 +2,10 @@ var C011_LiteratureClass_Mildred_CurrentStage = 0;
 var C011_LiteratureClass_Mildred_Angry = false;
 var C011_LiteratureClass_Mildred_GoodStudentCount = 0;
 var C011_LiteratureClass_Mildred_KnowCheat = false;
+var C011_LiteratureClass_Mildred_QuizPlayerStatus = "Clothed";
+var C011_LiteratureClass_Mildred_QuizSidneyStatus = "Clothed";
+var C011_LiteratureClass_Mildred_QuizMildredStatus = "Clothed";
+var C011_LiteratureClass_Mildred_TestChapter = 1;
 
 // Chapter 11 - Mildred Load
 function C011_LiteratureClass_Mildred_Load() {
@@ -47,14 +51,101 @@ function C011_LiteratureClass_Mildred_CheckForCuffs() {
 // Chapter 11 - Mildred cuffs the player
 function C011_LiteratureClass_Mildred_CuffPlayer() {
 	PlayerLockInventory("Cuffs");
+	C011_LiteratureClass_Mildred_QuizPlayerStatus = "Clothed_Cuffs";
 	CurrentTime = CurrentTime + 50000;
+}
+
+// Chapter 11 - Starts the quiz for a specific chapter
+function C011_LiteratureClass_Mildred_StartQuiz(QuizChapter) {
+
+	// If the player has read the chapter, the answer generates at 3 seconds per letter, if the book was read twice, it's 2 seconds
+	var AnswerGenSpeed = 0;
+	if (GameLogQuery("C009_Library", "", "ReadChapter" + QuizChapter)) AnswerGenSpeed = 3000;
+	if (GameLogQuery("C009_Library", "", "ReadTwice")) AnswerGenSpeed = 2000;
+
+	// Loads the quiz
+	QuizLoad("Player", C011_LiteratureClass_Mildred_QuizPlayerStatus, "Sidney", C011_LiteratureClass_Mildred_QuizSidneyStatus, "Mildred", "Clothed", "Easy", AnswerGenSpeed, 5, "Classroom", "MonteCristoChapter" + QuizChapter, "C011_LiteratureClass_Mildred_EndQuiz");
+
+}
+
+// Chapter 11 - When the quiz ends
+function C011_LiteratureClass_Mildred_EndQuiz(Victory) {
+
+	// The next chapter to test
+	C011_LiteratureClass_Mildred_TestChapter++;
+	
+	// On a victory
+	if (Victory) {
+
+		// If Sidney was already hit, she gets hit again
+		if (C011_LiteratureClass_Mildred_QuizSidneyStatus == "RedButt_Cuffs") { 
+			OverridenIntroText = GetText("TestSidneyCropAgain");
+			OverridenIntroImage = "TestSidneyCrop.jpg";
+		}
+
+		// If Sidney was stripped, she gets hit
+		if (C011_LiteratureClass_Mildred_QuizSidneyStatus == "NoSkirt_Cuffs") { 
+			C011_LiteratureClass_Mildred_QuizSidneyStatus = "RedButt_Cuffs";
+			OverridenIntroText = GetText("TestSidneyCrop");
+			OverridenIntroImage = "TestSidneyCrop.jpg";
+		}
+
+		// If Sidney was cuffed, she gets stripped of her skirt
+		if (C011_LiteratureClass_Mildred_QuizSidneyStatus == "Clothed_Cuffs") { 
+			C011_LiteratureClass_Mildred_QuizSidneyStatus = "NoSkirt_Cuffs";
+			OverridenIntroText = GetText("TestSidneyNoSkirt");
+			OverridenIntroImage = "TestSidneyNoSkirt.jpg";
+		}
+	
+		// If Sidney wasn't cuffed, she gets cuffed
+		if (C011_LiteratureClass_Mildred_QuizSidneyStatus == "Clothed") { 
+			CurrentActor = "Sidney";
+			ActorAddInventory("Cuffs");
+			CurrentActor = "Mildred";
+			C011_LiteratureClass_Mildred_QuizSidneyStatus = "Clothed_Cuffs";
+			OverridenIntroText = GetText("TestSidneyCuffs");
+			OverridenIntroImage = "TestSidneyCuffs.jpg";
+		}
+		
+	} else {
+
+		// If the player was already hit, she gets hit again
+		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "RedButt_Cuffs") { 
+			OverridenIntroText = GetText("TestPlayerCropAgain");
+			OverridenIntroImage = "TestPlayerCrop.jpg";
+		}
+
+		// If the player was stripped, she gets hit
+		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "NoSkirt_Cuffs") { 
+			C011_LiteratureClass_Mildred_QuizPlayerStatus = "RedButt_Cuffs";
+			OverridenIntroText = GetText("TestPlayerCrop");
+			OverridenIntroImage = "TestPlayerCrop.jpg";
+		}
+
+		// If the player was cuffed, she gets stripped of her skirt
+		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "Clothed_Cuffs") { 
+			C011_LiteratureClass_Mildred_QuizPlayerStatus = "NoSkirt_Cuffs";
+			OverridenIntroText = GetText("TestPlayerNoSkirt");
+			OverridenIntroImage = "TestPlayerNoSkirt.jpg";
+		}
+	
+		// If the player wasn't cuffed, she gets cuffed
+		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "Clothed") { 
+			PlayerLockInventory("Cuffs");
+			C011_LiteratureClass_Mildred_QuizPlayerStatus = "Clothed_Cuffs";
+			OverridenIntroText = GetText("TestPlayerCuffs");
+			OverridenIntroImage = "TestPlayerCuffs.jpg";
+		}
+	
+	}
+
 }
 
 // Chapter 11 - Mildred starts the test for the player and Sidney
 function C011_LiteratureClass_Mildred_StartTest() {
 	if (C011_LiteratureClass_Mildred_GoodStudentCount >= 2) ActorChangeAttitude(1, 0);
 	CurrentTime = CurrentTime + 50000;
-	QuizLoad("Player", PlayerHasLockedInventory("Cuffs") ? "Clothed_Cuffs" : "Clothed", "Sidney", ActorSpecificHasInventory("Sidney", "Cuffs") ? "Clothed_Cuffs" : "Clothed", "Mildred", "Leader", "Normal", 10, "Classroom", "C011_LiteratureClass_Mildred_QuizEnd");
+	C011_LiteratureClass_Mildred_StartQuiz(C011_LiteratureClass_Mildred_TestChapter.toString());
 }
 
 // Chapter 11 - Mildred can switch focus to Sidney for a short while
@@ -64,6 +155,7 @@ function C011_LiteratureClass_Mildred_SwitchSidney() {
 		OverridenIntroText = GetText("SidneyStares");
 		ActorLoad("Sidney", "");
 		ActorAddInventory("Cuffs");
+		C011_LiteratureClass_Mildred_QuizSidneyStatus = "Clothed_Cuffs";
 	} else {
 		CurrentActor = "Sidney";
 		ActorAddInventory("Cuffs");

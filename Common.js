@@ -145,6 +145,18 @@ function ReadCSV(Array, FileName) {
     Reader.send(null);
 }
 
+// Shuffles all array elements at random
+function ArrayShuffle(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+    return a;
+}
+
 // Returns a working language if translation isn't fully ready
 function GetWorkingLanguage() {
 	if ((CurrentLanguageTag == "FR") && ((CurrentChapter == "C000_Intro") || (CurrentChapter == "C001_BeforeClass") || (CurrentChapter == "C002_FirstClass") || (CurrentChapter == "C003_MorningDetention") || (CurrentChapter == "C004_ArtClass") || (CurrentChapter == "C005_GymClass") || (CurrentChapter == "C006_Isolation") || (CurrentChapter == "C007_LunchBreak") || (CurrentChapter == "C999_Common"))) return "FR";
