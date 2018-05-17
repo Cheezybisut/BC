@@ -36,6 +36,7 @@ var QuizQuestionAnswer3 = 3;
 var QuizQuestionAnswer4 = 4;
 var QuizAnswerBy = "";
 var QuizAnswerText = "";
+var QuizRightActorAnswerTimer = 0;
 
 // Load the race animations and full sequence
 function QuizLoad(ActorLeft, ImageActorLeft, ActorRight, ImageActorRight, ActorLeader, ImageActorLeader, Difficulty, ProgressTime, Goal, BackgroundImage, QuestionFile, EndFunction) {
@@ -55,6 +56,7 @@ function QuizLoad(ActorLeft, ImageActorLeft, ActorRight, ImageActorRight, ActorL
 	// Loads the quiz texts and questions
 	if (QuizText == null) ReadCSV("QuizText", "C999_Common/Quiz/Text_" + CurrentLanguageTag + ".csv");
 	QuizQuestion = null;
+	QuizAnswer = null;
 	QuizShuffleDone = false;
 	ReadCSV("QuizQuestion", "C999_Common/Quiz/Questions/" + QuestionFile + "_" + CurrentLanguageTag + ".csv");
 
@@ -143,6 +145,12 @@ function QuizRenderAfterAnswer() {
 			DrawImage("C999_Common/Quiz/Images/AnswerBubble.png", 0, 75);
 			DrawText(QuizAnswerText, 122, 100, "black");
 		}
+
+		// Draw the answer bubble from the left side
+		if ((QuizAnswerText != "") && (QuizAnswerBy == "Right")) {
+			DrawImageMirror("C999_Common/Quiz/Images/AnswerBubble.png", 1200, 75);
+			DrawText(QuizAnswerText, 1078, 100, "black");
+		}
 		
 		// The leader yells if the answer is correct or not but doesn't give the correct answer
 		var txt = GetCSVText(QuizText, "GoodAnswer");
@@ -183,7 +191,32 @@ function QuizNextQuestion() {
 		QuizBetweenQuestionTimer = 0;
 		QuizAnswer = null;
 		QuizImageActionActorLeader = "";
+		QuizRightActorAnswerTimer = 0;
 	}	
+}
+
+// Checks if the right answer should answer
+function QuizRightActorAnswer() {
+	
+	// Sets the timer when the right actor will answer if needed
+	if (QuizRightActorAnswerTimer == 0) {
+		if (QuizDifficultyText == "Easy") QuizRightActorAnswerTimer = Math.floor(QuizBeforeAnswerTime * 2 + Math.random() * QuizBeforeAnswerTime * 4);
+		if (QuizDifficultyText == "Normal") QuizRightActorAnswerTimer = Math.floor(QuizBeforeAnswerTime * 1.6 + Math.random() * QuizBeforeAnswerTime * 2);
+		if (QuizDifficultyText == "Hard") QuizRightActorAnswerTimer = Math.floor(QuizBeforeAnswerTime * 1.2 + Math.random() * QuizBeforeAnswerTime * 0.5);
+	}
+	
+	// If the right actor is ready to answer, the answer is correct by default, 50% random if easy, 25% random if normal
+	if ((QuizTimer > QuizRightActorAnswerTimer) && (QuizAnswerText == "") && (QuizTimer > 0)) {
+		var ans = QuizQuestionAnswer1;
+		if ((QuizDifficultyText == "Easy") && (Math.floor(Math.random() * 2) == 0)) ans = Math.floor(Math.random() * 4) + QuizQuestionAnswer1;
+		if ((QuizDifficultyText == "Normal") && (Math.floor(Math.random() * 4) == 0)) ans = Math.floor(Math.random() * 4) + QuizQuestionAnswer1;
+		QuizAnswerText = QuizQuestion[QuizProgressLeft + QuizProgressRight][ans];
+		QuizAnswerBy = "Right";
+		QuizBetweenQuestionTimer = QuizTimer + QuizOtherQuestionTime;
+		if (QuizAnswerText == QuizQuestion[QuizProgressLeft + QuizProgressRight][QuizQuestionAnswer1]) QuizProgressRight++;
+		else QuizProgressLeft++;
+	}
+	
 }
 
 // Paints the background and the actors, also resets the opponents actions if needed
@@ -193,7 +226,7 @@ function QuizRender() {
 	DrawImage("C999_Common/Quiz/Backgrounds/" + QuizBackgroundImage + ".jpg", 0, 0);
 	DrawImageZoom("C999_Common/Quiz/Actors/" + QuizActorLeft + "/" + QuizImageActorLeft + QuizImageActionActorLeft + ".png", 0, 0, 600, 900, 150, 0, 600 * 0.675, 900 * 0.675);
 	DrawImageZoomMirror("C999_Common/Quiz/Actors/" + QuizActorRight + "/" + QuizImageActorRight + QuizImageActionActorRight + ".png", 0, 0, 600, 900, 650, 0, 600 * 0.675, 900 * 0.675);
-	DrawImage("C999_Common/Quiz/Actors/" + QuizActorLeader + "/" + QuizImageActorLeader + "_Leader" + QuizImageActionActorLeader + ".png", 400, 200);	
+	DrawImage("C999_Common/Quiz/Actors/" + QuizActorLeader + "/" + QuizImageActorLeader + "_Leader" + QuizImageActionActorLeader + ".png", 375, 150);	
 }
 
 // Render the quiz scene
@@ -208,6 +241,7 @@ function C999_Common_Quiz_Run() {
 	// Prepare the questions and answers
 	QuizNextQuestion();
 	QuizPrepareAnswers();
+	QuizRightActorAnswer();
 	
 	// Increments the quiz timer and paints the background
 	if (!QuizEnded) QuizTimer = QuizTimer + RunInterval;

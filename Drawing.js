@@ -63,6 +63,14 @@ function DrawImage(Source, X, Y) {
 	MainCanvas.drawImage(DrawGetImage(Source), X, Y);
 }
 
+// Draw an image from a source to the canvas
+function DrawImageMirror(Source, X, Y) {
+	MainCanvas.save();
+    MainCanvas.scale(-1, 1);
+	MainCanvas.drawImage(DrawGetImage(Source), X * -1, Y);
+    MainCanvas.restore();
+}
+
 // Draw a text in the canvas
 function DrawText(Text, X, Y, Color) {
 

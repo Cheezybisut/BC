@@ -6,6 +6,9 @@ var C011_LiteratureClass_Mildred_QuizPlayerStatus = "Clothed";
 var C011_LiteratureClass_Mildred_QuizSidneyStatus = "Clothed";
 var C011_LiteratureClass_Mildred_QuizMildredStatus = "Clothed";
 var C011_LiteratureClass_Mildred_TestChapter = 1;
+var C011_LiteratureClass_Mildred_PlayerVictoryCount = 0;
+var C011_LiteratureClass_Mildred_SidneyVictoryCount = 0;
+var C011_LiteratureClass_Mildred_MildredVictoryCount = 0;
 
 // Chapter 11 - Mildred Load
 function C011_LiteratureClass_Mildred_Load() {
@@ -76,18 +79,20 @@ function C011_LiteratureClass_Mildred_EndQuiz(Victory) {
 	
 	// On a victory
 	if (Victory) {
+		
+		C011_LiteratureClass_Mildred_PlayerVictoryCount++;
 
 		// If Sidney was already hit, she gets hit again
 		if (C011_LiteratureClass_Mildred_QuizSidneyStatus == "RedButt_Cuffs") { 
 			OverridenIntroText = GetText("TestSidneyCropAgain");
-			OverridenIntroImage = "TestSidneyCrop.jpg";
+			OverridenIntroImage = "TestSidneyRedButt.jpg";
 		}
 
 		// If Sidney was stripped, she gets hit
 		if (C011_LiteratureClass_Mildred_QuizSidneyStatus == "NoSkirt_Cuffs") { 
 			C011_LiteratureClass_Mildred_QuizSidneyStatus = "RedButt_Cuffs";
 			OverridenIntroText = GetText("TestSidneyCrop");
-			OverridenIntroImage = "TestSidneyCrop.jpg";
+			OverridenIntroImage = "TestSidneyRedButt.jpg";
 		}
 
 		// If Sidney was cuffed, she gets stripped of her skirt
@@ -109,17 +114,19 @@ function C011_LiteratureClass_Mildred_EndQuiz(Victory) {
 		
 	} else {
 
+		C011_LiteratureClass_Mildred_SidneyVictoryCount++;
+	
 		// If the player was already hit, she gets hit again
 		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "RedButt_Cuffs") { 
 			OverridenIntroText = GetText("TestPlayerCropAgain");
-			OverridenIntroImage = "TestPlayerCrop.jpg";
+			OverridenIntroImage = "TestPlayerRedButt.jpg";
 		}
 
 		// If the player was stripped, she gets hit
 		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "NoSkirt_Cuffs") { 
 			C011_LiteratureClass_Mildred_QuizPlayerStatus = "RedButt_Cuffs";
 			OverridenIntroText = GetText("TestPlayerCrop");
-			OverridenIntroImage = "TestPlayerCrop.jpg";
+			OverridenIntroImage = "TestPlayerRedButt.jpg";
 		}
 
 		// If the player was cuffed, she gets stripped of her skirt
@@ -166,4 +173,14 @@ function C011_LiteratureClass_Mildred_SwitchSidney() {
 // Chapter 11 - Mildred takes back focus
 function C011_LiteratureClass_Mildred_SwitchMildred() {
 	ActorLoad("Sidney", "");
+}
+
+// Chapter 11 - Mildred check if the player or Sidney won
+function C011_LiteratureClass_Mildred_CheckForWinner() {
+	OverridenIntroImage = "";
+	if (C011_LiteratureClass_Mildred_PlayerVictoryCount < C011_LiteratureClass_Mildred_SidneyVictoryCount) {
+		ActorChangeAttitude(-1, -1);
+		C011_LiteratureClass_Mildred_CurrentStage = 200;
+		OverridenIntroText = GetText("ShameForDefeat");
+	}
 }
