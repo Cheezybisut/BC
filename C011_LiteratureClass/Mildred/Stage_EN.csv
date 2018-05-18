@@ -60,5 +60,27 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 75,0,0,,The test is over?,"Yes, congratulations on your victory.",100,0,0,CheckForWinner()
 75,0,0,,That was a fun test.,"Indeed, congratulations on your victory.",100,1,0,CheckForWinner()
 75,0,0,,Are we finally done?,"We are, well done on your victory.",100,-1,0,CheckForWinner()
-100,0,0,,TO DO,TO DO,100,0,0,
-200,0,0,,TO DO,TO DO,200,0,0,
+100,0,0,,Thanks Miss!|That was easy.,,110,1,0,
+100,0,0,,Sidney was horrible.,,110,0,0,
+100,0,0,,Don't praise me Miss.|The book was fascinating.,,110,1,-1,
+100,0,0,,It was pure luck.,"Don't say that, you might a good student after all.",110,-1,0,
+100,0,0,,I can crush Sidney|at any contest.,"Maybe, but don't be too proud.|There are better students than you.",110,0,1,
+200,0,0,,Sidney was lucky.,Maybe she was lucky or maybe|you didn't studied hard enough.,210,0,0,
+200,0,0,,Who cares?,YOU should care!  (She whips your arm.)|You need to study harder if you want to succeed.,210,-1,1,
+200,0,0,,Sidney cheated!,That's a lame excuse.  If you've studied|harder you would have won easily.,210,-1,0,
+200,0,0,,Sorry Miss.|I was nervous.,I know it's tough to speak in front of a new class.|But if you've studied harded it would be easier.,210,1,-1,
+210,0,0,,Yes Miss Mildred.|I'll study harder.,Very good little miss.  And don't worry.|I will free you when all the tests are done.,220,1,-1,
+210,0,0,,"Ok, I got it.",(She looks at your and nods.)  Alight.|I will free you when all the tests are done.,220,0,0,
+210,0,0,,Fair enough.|I'll work harder.,Very good little miss.  And don't worry.|I will free you when all the tests are done.,220,1,0,
+210,0,0,,"Oh yeah, literature is|soooooooo important.",This attitude will get you expelled little miss.|I will free you when all the tests are done.,220,-1,1,
+220,0,0,,You can't leave|me like that!,(She shakes her head from left to right|and picks new students for the test.),300,0,1,MildredLeave()
+220,0,0,,Please!  Can you|free me now?,(She shakes her head from left to right|and picks new students for the test.),300,0,-1,MildredLeave()
+220,0,0,,Very well.,(She nods and picks new students for the test.),300,1,0,MildredLeave()
+220,0,0,,(Stay silent.),(She nods and picks new students for the test.),300,0,0,MildredLeave()
+300,0,0,,(Watch the tests.),"(Two by two, many girls are|called to the front of the class.)",310,0,0,WaitTest()
+310,0,0,,(Watch the tests.),(Some of them do really|well on the literature test.),320,0,0,WaitTest()
+320,0,0,,(Watch the tests.),(And some of them get in trouble.),330,0,0,WaitTest()
+330,0,0,,(Watch the tests.),(Mildred seems to really enjoy|whipping the bad students.),340,0,0,WaitTest()
+340,0,0,,(Watch the tests.),"(Some of them cry, some|of them stand strong.)",350,0,0,WaitTest()
+350,0,0,,(Watch the tests.),(Your last class will end in cuffs.),360,0,0,WaitTest()
+360,0,0,,(Wait until 16:30.),,360,0,0,EndChapter()
