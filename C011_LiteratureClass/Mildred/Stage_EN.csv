@@ -82,5 +82,6 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 320,0,0,,(Watch the tests.),(And some of them get in trouble.),330,0,0,WaitTest()
 330,0,0,,(Watch the tests.),(Mildred seems to really enjoy|whipping the bad students.),340,0,0,WaitTest()
 340,0,0,,(Watch the tests.),"(Some of them cry, some|of them stand strong.)",350,0,0,WaitTest()
-350,0,0,,(Watch the tests.),(Your last class will end in cuffs.),360,0,0,WaitTest()
+350,0,0,Common_PlayerRestrained,(Watch the tests.),(Your last class will end in cuffs.),360,0,0,WaitTest()
+350,0,0,!Common_PlayerRestrained,(Watch the tests.),(Your last class will end|with lots of whipping.),360,0,0,WaitTest()
 360,0,0,,(Wait until 16:30.),,360,0,0,EndChapter()

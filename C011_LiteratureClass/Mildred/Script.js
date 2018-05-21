@@ -18,6 +18,7 @@ function C011_LiteratureClass_Mildred_Load() {
 	LoadInteractions();
 	StartTimer(16.5 * 60 * 60 * 1000, "C011_LiteratureClass", "Outro");
 	C011_LiteratureClass_Mildred_Angry = (GameLogQuery("C002_FirstClass", "Mildred", "Subdue") && GameLogQuery("C006_Isolation", "", "Isolation"));
+	LeaveIcon = "";
 
 }
 
@@ -161,6 +162,7 @@ function C011_LiteratureClass_Mildred_SwitchSidney() {
 		C011_LiteratureClass_Mildred_CurrentStage = 47;
 		OverridenIntroText = GetText("SidneyStares");
 		ActorLoad("Sidney", "");
+		LeaveIcon = "";
 		ActorAddInventory("Cuffs");
 		C011_LiteratureClass_Mildred_QuizSidneyStatus = "Clothed_Cuffs";
 	} else {
@@ -173,6 +175,7 @@ function C011_LiteratureClass_Mildred_SwitchSidney() {
 // Chapter 11 - Mildred takes back focus
 function C011_LiteratureClass_Mildred_SwitchMildred() {
 	ActorLoad("Sidney", "");
+	LeaveIcon = "";
 }
 
 // Chapter 11 - Mildred check if the player or Sidney won
@@ -183,4 +186,16 @@ function C011_LiteratureClass_Mildred_CheckForWinner() {
 		C011_LiteratureClass_Mildred_CurrentStage = 200;
 		OverridenIntroText = GetText("ShameForDefeat");
 	}
+}
+
+function C011_LiteratureClass_Mildred_MildredLeave() {
+	CurrentActor = "";
+}
+
+function C011_LiteratureClass_Mildred_WaitTest() {
+	CurrentTime = CurrentTime + 290000;
+}
+
+function C011_LiteratureClass_Mildred_EndChapter() {
+	SetScene(CurrentChapter, "Outro");
 }
