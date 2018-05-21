@@ -60,7 +60,7 @@ function C011_LiteratureClass_Mildred_CuffPlayer() {
 }
 
 // Chapter 11 - Starts the quiz for a specific chapter
-function C011_LiteratureClass_Mildred_StartQuiz(QuizChapter) {
+function C011_LiteratureClass_Mildred_StartQuiz(QuizChapter, Opponent) {
 
 	// If the player has read the chapter, the answer generates at 3 seconds per letter, if the book was read twice, it's 2 seconds
 	var AnswerGenSpeed = 0;
@@ -68,11 +68,12 @@ function C011_LiteratureClass_Mildred_StartQuiz(QuizChapter) {
 	if (GameLogQuery("C009_Library", "", "ReadTwice")) AnswerGenSpeed = 2000;
 
 	// Loads the quiz
-	QuizLoad("Player", C011_LiteratureClass_Mildred_QuizPlayerStatus, "Sidney", C011_LiteratureClass_Mildred_QuizSidneyStatus, "Mildred", "Clothed", "Easy", AnswerGenSpeed, 5, "Classroom", "MonteCristoChapter" + QuizChapter, "C011_LiteratureClass_Mildred_EndQuiz");
+	if (Opponent == "Sidney") QuizLoad("Player", C011_LiteratureClass_Mildred_QuizPlayerStatus, "Sidney", C011_LiteratureClass_Mildred_QuizSidneyStatus, "Mildred", "Clothed", "Easy", AnswerGenSpeed, 1, "Classroom", "MonteCristoChapter" + QuizChapter, "C011_LiteratureClass_Mildred_EndQuiz");
+	else QuizLoad("Player", C011_LiteratureClass_Mildred_QuizPlayerStatus, "Mildred", C011_LiteratureClass_Mildred_QuizMildredStatus, "Sidney", "Clothed", "Hard", AnswerGenSpeed, 1, "Classroom", "MonteCristoChapter" + QuizChapter, "C011_LiteratureClass_Mildred_EndQuizMildred");
 
 }
 
-// Chapter 11 - When the quiz ends
+// Chapter 11 - When the quiz ends against Sidney
 function C011_LiteratureClass_Mildred_EndQuiz(Victory) {
 
 	// The next chapter to test
@@ -149,11 +150,98 @@ function C011_LiteratureClass_Mildred_EndQuiz(Victory) {
 
 }
 
+// Chapter 11 - When the quiz ends against Mildred
+function C011_LiteratureClass_Mildred_EndQuizMildred(Victory) {
+
+	// The next chapter to test
+	C011_LiteratureClass_Mildred_TestChapter++;
+
+	// On a victory
+	if (Victory) {
+		
+		C011_LiteratureClass_Mildred_PlayerVictoryCount++;
+
+		// If Mildred was already hit, she gets hit again
+		if (C011_LiteratureClass_Mildred_QuizMildredStatus == "RedButt_Cuffs") { 
+			OverridenIntroText = GetText("TestMildredCropAgain");
+			OverridenIntroImage = "TestMildredRedButt.jpg";
+		}
+
+		// If Mildred was stripped, she gets hit
+		if (C011_LiteratureClass_Mildred_QuizMildredStatus == "NoSkirt_Cuffs") { 
+			C011_LiteratureClass_Mildred_QuizMildredStatus = "RedButt_Cuffs";
+			OverridenIntroText = GetText("TestMildredCrop");
+			OverridenIntroImage = "TestMildredRedButt.jpg";
+		}
+
+		// If Mildred was cuffed, she gets stripped of her skirt
+		if (C011_LiteratureClass_Mildred_QuizMildredStatus == "Clothed_Cuffs") { 
+			C011_LiteratureClass_Mildred_QuizMildredStatus = "NoSkirt_Cuffs";
+			OverridenIntroText = GetText("TestMildredNoSkirt");
+			OverridenIntroImage = "TestMildredNoSkirt.jpg";
+		}
+	
+		// If Mildred wasn't cuffed, she gets cuffed
+		if (C011_LiteratureClass_Mildred_QuizMildredStatus == "Clothed") { 
+			CurrentActor = "Mildred";
+			ActorAddInventory("Cuffs");
+			CurrentActor = "Mildred";
+			C011_LiteratureClass_Mildred_QuizMildredStatus = "Clothed_Cuffs";
+			OverridenIntroText = GetText("TestMildredCuffs");
+			OverridenIntroImage = "TestMildredCuffs.jpg";
+		}
+		
+	} else {
+
+		C011_LiteratureClass_Mildred_MildredVictoryCount++;
+	
+		// If the player was already hit, she gets hit again
+		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "RedButt_Cuffs") { 
+			OverridenIntroText = GetText("TestPlayerCropAgainMildred");
+			OverridenIntroImage = "TestPlayerRedButt.jpg";
+		}
+
+		// If the player was stripped, she gets hit
+		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "NoSkirt_Cuffs") { 
+			C011_LiteratureClass_Mildred_QuizPlayerStatus = "RedButt_Cuffs";
+			OverridenIntroText = GetText("TestPlayerCropMildred");
+			OverridenIntroImage = "TestPlayerRedButt.jpg";
+		}
+
+		// If the player was cuffed, she gets stripped of her skirt
+		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "Clothed_Cuffs") { 
+			C011_LiteratureClass_Mildred_QuizPlayerStatus = "NoSkirt_Cuffs";
+			OverridenIntroText = GetText("TestPlayerNoSkirtMildred");
+			OverridenIntroImage = "TestPlayerNoSkirt.jpg";
+		}
+	
+		// If the player wasn't cuffed, she gets cuffed
+		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "Clothed") { 
+			PlayerLockInventory("Cuffs");
+			C011_LiteratureClass_Mildred_QuizPlayerStatus = "Clothed_Cuffs";
+			OverridenIntroText = GetText("TestPlayerCuffsMildred");
+			OverridenIntroImage = "TestPlayerCuffs.jpg";
+		}
+
+	}
+
+}
+
 // Chapter 11 - Mildred starts the test for the player and Sidney
 function C011_LiteratureClass_Mildred_StartTest() {
 	if (C011_LiteratureClass_Mildred_GoodStudentCount >= 2) ActorChangeAttitude(1, 0);
 	CurrentTime = CurrentTime + 50000;
-	C011_LiteratureClass_Mildred_StartQuiz(C011_LiteratureClass_Mildred_TestChapter.toString());
+	C011_LiteratureClass_Mildred_StartQuiz(C011_LiteratureClass_Mildred_TestChapter.toString(), "Sidney");
+}
+
+// Chapter 11 - Starts the test against Mildred
+function C011_LiteratureClass_Mildred_StartTestMildred() {
+	CurrentTime = CurrentTime + 50000;
+	if (C011_LiteratureClass_Mildred_TestChapter >= 6) {
+		C011_LiteratureClass_Mildred_TestChapter = 1;
+		C011_LiteratureClass_Mildred_PlayerVictoryCount = 0;
+	}
+	C011_LiteratureClass_Mildred_StartQuiz(C011_LiteratureClass_Mildred_TestChapter.toString(), "Mildred");
 }
 
 // Chapter 11 - Mildred can switch focus to Sidney for a short while
@@ -188,14 +276,37 @@ function C011_LiteratureClass_Mildred_CheckForWinner() {
 	}
 }
 
+// Chapter 11 - Checks who's the winner between Mildred and the player
+function C011_LiteratureClass_Mildred_CheckForWinnerMildred() {
+	OverridenIntroImage = "";
+	if (C011_LiteratureClass_Mildred_PlayerVictoryCount >= C011_LiteratureClass_Mildred_MildredVictoryCount) {
+		ActorChangeAttitude(1, 2);
+		C011_LiteratureClass_Mildred_CurrentStage = 150;
+		OverridenIntroText = GetText("MildredShameForDefeat");
+	} else {
+		if (C011_LiteratureClass_Mildred_QuizMildredStatus != "Clothed")
+			OverridenIntroText = GetText("MildredFreedBySidney");
+	}
+}
+
+// Chapter 11 - Mildred can gag the player if she's too noisy
+function C011_LiteratureClass_Mildred_GagPlayer() {
+	if ((C011_LiteratureClass_Mildred_QuizPlayerStatus == "NoSkirt_Cuffs") || (C011_LiteratureClass_Mildred_QuizPlayerStatus == "RedButt_Cuffs")) C011_LiteratureClass_Mildred_CurrentStage = 240;
+	PlayerLockInventory("BallGag");
+	CurrentTime = CurrentTime + 50000;
+}
+
+// Chapter 11 - Mildred leaves the player to continue the test
 function C011_LiteratureClass_Mildred_MildredLeave() {
 	CurrentActor = "";
 }
 
+// Chapter 11 - 5 minutes between each tests
 function C011_LiteratureClass_Mildred_WaitTest() {
 	CurrentTime = CurrentTime + 290000;
 }
 
+// Chapter 11 - Ends the chapter
 function C011_LiteratureClass_Mildred_EndChapter() {
 	SetScene(CurrentChapter, "Outro");
 }

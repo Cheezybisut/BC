@@ -3,6 +3,8 @@ function C011_LiteratureClass_Outro_Load() {
 	
 	// Time is always 16:30:00 in the outro, reset the poses if needed
 	StopTimer(16.5 * 60 * 60 * 1000);
+	PlayerUnlockInventory("Cuffs");
+	PlayerUnlockInventory("BallGag");
 	PlayerReleaseBondage();
 	PlayerClothes("Clothed");
 	ActorSpecificClearInventory("Sidney", true);

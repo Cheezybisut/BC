@@ -200,9 +200,9 @@ function QuizRightActorAnswer() {
 	
 	// Sets the timer when the right actor will answer if needed
 	if (QuizRightActorAnswerTimer == 0) {
-		if (QuizDifficultyText == "Easy") QuizRightActorAnswerTimer = Math.floor(QuizBeforeAnswerTime * 2 + Math.random() * QuizBeforeAnswerTime * 4);
-		if (QuizDifficultyText == "Normal") QuizRightActorAnswerTimer = Math.floor(QuizBeforeAnswerTime * 1.6 + Math.random() * QuizBeforeAnswerTime * 2);
-		if (QuizDifficultyText == "Hard") QuizRightActorAnswerTimer = Math.floor(QuizBeforeAnswerTime * 1.2 + Math.random() * QuizBeforeAnswerTime * 0.5);
+		if (QuizDifficultyText == "Easy") QuizRightActorAnswerTimer = Math.floor(QuizBeforeAnswerTime * 2 + Math.random() * QuizBeforeAnswerTime * 3);
+		if (QuizDifficultyText == "Normal") QuizRightActorAnswerTimer = Math.floor(QuizBeforeAnswerTime * 1.667 + Math.random() * QuizBeforeAnswerTime * 1.5);
+		if (QuizDifficultyText == "Hard") QuizRightActorAnswerTimer = Math.floor(QuizBeforeAnswerTime * 1.333 + Math.random() * QuizBeforeAnswerTime * 0.5);
 	}
 	
 	// If the right actor is ready to answer, the answer is correct by default, 50% random if easy, 25% random if normal
