@@ -1,58 +1,58 @@
 Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
-0,0,0,,I simply want to|introduce myself.,"Mmmh, hello, I'm Sidney.|(She turns and stares at the other girl)",10,0,0,
-0,0,0,,"Girl, are you always that|rude with strangers?","I guess not, sorry about that, I'm Sidney.|(She turns and stares at the other girl)",10,0,1,
-0,0,0,,"Please don't be angry at|me, I'm new here.","New and pathetic, you won't survive a day.|(She turns and stares at the other girl)",10,-1,-1,
-0,0,0,,"You look pretty strong,|I'm glad to meet you.","Yes!  I'm the toughest here, I'm Sidney.|(She turns and stares at the other girl)",10,1,0,
-0,0,0,,What a shitty attitude!,You better shut up if you don't want a broken nose.|(She turns and stares at the other girl),10,-2,0,
-0,0,0,AmandaInBondage,"Yep, nerds will know that|we rule around here.","Oh fuck yeah!  I'm Sidney, glad to meet you.",20,2,0,
-0,0,0,AmandaInBondage,"If you don't want to end up|like her, you better obey.","(She looks down and stays quiet for a few second.)|Yes, as long as that nerd gets punished it's fine.",20,0,2,
-10,0,0,,Something's wrong?,"Yes, that fucking brunette and|her stupid friend is what's wrong.",20,0,0,
-10,0,0,,Why are you starring|at that girl?,That's none of your concerns.,20,0,0,
-10,0,0,,Stop starring at her!,Hey!  Don't give me orders!,20,-1,1,
-20,0,0,,You sound pretty angry.,And why do you care?,30,0,0,
-20,0,0,,You really seem to|hate that nerd girl.,Oh hell yes!  She's a fucking pain.|Someday I'll have my revenge.,30,1,0,
-20,0,0,,You sure are hot|blooded.  I like it.,Yep!  Now let me get ready for class.,40,1,0,
-20,0,0,,You really have an|attitude problem.,Shut up!|(She turns around and ignores you.),40,-1,0,
-20,1,0,,You need help to get|that girl in trouble?,Oh hell Yeah!  I have some ropes|in my bag.  We'll get her after class.,40,1,0,
-30,0,0,,You sure are hot|blooded.  I like it.,Yep!  Now let me get ready for class.,40,1,0,
-30,0,0,,You really have an|attitude problem.,Shut up!|(She turns around and ignores you.),40,-1,0,
-30,1,0,,You need help to get|that girl in trouble?,Oh hell Yeah!  I have some ropes|in my bag.  We'll get her after class.,40,1,0,
-40,-2,0,,Bitch!  Do you|want to fight?,,40,-1,0,Fight()
-100,0,0,,Why do you have|ropes in your bag?,That's none of your business.|(She closes the bag.),20,-1,0,
-100,0,0,,Are you going climbing|after school?,Yes!  Now gimme that!|(She closes the bag.),20,-1,0,
-100,0,0,,Are you planning on|kidnapping someone?,"Mmmh, why do you ask?",110,0,-1,
-100,0,0,,So you're a kinky girl|who likes being tied up?,You know anything about bondage?,110,0,1,
-110,0,0,,What are you planning?|I'm interested.,Let's talk after the class then.|(She closes the bag.),20,1,0,
-110,0,0,,I'm not interested.,Fine!  I don't care.|(She closes the bag.),20,0,0,
-110,0,0,,This is wrong!|I will tell the teacher.,,40,-2,0,Fight()
-200,0,0,BondageNotConfronted,The ropes were hanging|loose from your bag.,Liar!  Give me my ropes back.,200,0,0,ConfrontBondage()
-200,0,0,BondageNotConfronted,"If you carry rope, it means|you want to be tied up.",(She blushes.)  No!  Not at all!|Now give me back my ropes.,200,0,1,ConfrontBondage()
-200,0,0,BondageNotConfronted,"I'm so sorry.  I love ropes,|could you tie me up?","You're pathetic, soon you will lick my boots.|Now give me my ropes. (She takes the ropes.)",300,0,-2,GiveRope()
-200,0,0,,Here are your ropes. |Hide them better.,Good!  Now leave me alone.|(She takes the rope and turns around.),300,1,0,GiveRope()
-200,0,0,,Let's talk some more.,Mmmh.  Fine.|What were we talking about?,200,0,0,StopRope()
-200,0,2,,(Strip and tie her.)|(1 minute),(You pin her again and tie her wrist behind her back.|She trashes and kicks you but finally submits.),220,0,0,Tie()
-200,0,4,,You know you will submit.|(Strip and tie.) (1 minute),(She reluctantly removes her uniform|and gives you her wrist to tie them.),220,0,0,TieSub()
-200,0,0,,"If you want them,|come and fight for them.",,40,-2,0,Fight()
-220,0,0,,(Turn her.),Fuck!  What are you doing now?|(You force her to turn around.),230,0,0,
-220,0,0,,(Untie her.)|(1 minute),"(You untie her arms while she swears at you.|Once untied, she pushes you away in anger.)",200,0,0,Untie()
-220,0,0,,(Tickle her.)|(1 minute),I said I'm not ticklish!|(She makes an angry look at you.),220,0,0,Tickle()
-220,1,0,,(Kiss her.)|(1 minute),(She blankly stares at you after|the kiss and remain speechless.),220,0,0,
-220,0,0,AmandaInBondage,(Make her hug Amanda.)|(1 minute),(Both girls are forced to hug and rub each other.)|Fuck!  What kind of pervert are you?,240,-1,0,
-220,0,0,,These ropes fit lovingly|on your curvy body.,Oh!  Mmmmh...  Thanks...  I guess.,220,0,0,
-220,0,0,,"If I let you go, can I tie|you up later? (1 minute)",That sounds fair.  We have a deal.|(You untie her and shake her hand.),310,1,1,Untie()
-220,0,0,,"If I let you go, will you|tie me later? (1 minute)",Oh yeah!  Revenge will be sweet.|(You untie her and shake her hand.),310,1,-2,Untie()
-230,0,0,,(Turn her.),(You turn her back while|she stares at you furiously.),220,0,0,
-230,0,0,,(Untie her.)|(1 minute),"(You untie her arms while she swears at you.|Once untied, she pushes you away in anger.)",200,0,0,Untie()
-230,0,0,,(Tickle her.)|(1 minute),I said I'm not ticklish!|(She makes an angry look at you.),230,0,0,Tickle()
-230,0,0,,(Spank her.)|(1 minute),(You spank her in front of the other students.)|Ha!  That's the best you can do?,230,0,0,
-230,0,0,,"By looking at your panties,|you are enjoying this.",Stop looking down there you pervert!,230,0,0,PantiesRemark()
-230,0,0,,"If I let you go, can I tie|you up later? (1 minute)",That sounds fair.  We have a deal.|(You untie her and shake her hand.),310,1,1,Untie()
-230,0,0,,"If I let you go, will you|tie me later? (1 minute)",Oh yeah!  Revenge will be sweet.|(You untie her and shake her hand.),310,1,-2,Untie()
-240,0,0,,(Separate them.),Finally!  That was a stupid idea!,220,0,0,
-240,0,0,,(Force them to kiss.)|(1 minute),"(You force them to kiss, Sidney looks furious.)|Amanda, if you use your tongue I will cut it.",250,0,0,KissAmanda()
-240,0,0,,You two make a nice|bondage couple.,(They both stare at you.),240,0,0,
-250,0,0,,(Separate them.),Finally!  That was a stupid idea!,220,0,0,
-250,0,0,,(Stop the kisses.),Admit it!  I'm better than that stupid blond.|(She tries to intimidate Amanda who looks away.),240,0,0,
-250,0,0,,Love is in the air!,You will fly in the air when I get out.,250,0,0,
-250,2,0,,Can I also get a kiss?,"Mmmmmh, sure, why not?|(She turns around and kiss you.)",250,0,0,
-300,-2,0,,Bitch!  Do you|want to fight?,,40,-1,0,Fight()
+0,0,0,,Yo sólo quería|presentarme.,"Mmmh, hola, soy Sidney.|(Se vuelve y mira fijamente a la otra chica)",10,0,0,
+0,0,0,,"Chica, siempre eres tan|maleducada con los extraños?","Creo que no, lo siento, soy Sidney.|(Se vuelve y mira fijamente a la otra chica)",10,0,1,
+0,0,0,,"Por favor, no te enfades|conmigo, soy nueva.","Nueva y patética, no aguantarás ni un día.|(Se vuelve y mira fijamente a la otra chica)",10,-1,-1,
+0,0,0,,"Pareces muy fuerte,|Encantada de conocerte.","¡Sí! Soy la más dura del colegio,|Me llamo Sidney.|(Se vuelve y mira fijamente a la otra chica)",10,1,0,
+0,0,0,,¡Vaya actitud de mierda!,Mejor te callas si no quieres que te rompa la nariz.|(Se vuelve y mira fijamente a la otra chica),10,-2,0,
+0,0,0,AmandaInBondage,"Sip, las friquis sabrán|que aquí mandamos nosotras.","¡Joder si!  soy Sidney, encantada de conocerte.",20,2,0,
+0,0,0,AmandaInBondage,"Si no quieres acabar como|ella, obedéceme.","(Baja la mirada y permanece callada unos segundos.)|Si, Mientras castigues a esa friqui por mi está bien.",20,0,2,
+10,0,0,,¿Algo va mal?,"Si, es esa jodida morena y|su estúpida amiga  lo que está mal.",20,0,0,
+10,0,0,,¿Por qué miras así|a esa chica?,Eso a ti no te importa.,20,0,0,
+10,0,0,,¡Deja de mirarle!,¡Eh! ¡No me des órdenes!,20,-1,1,
+20,0,0,,Pareces muy enfadada.,¿Y a ti por qué te importa?,30,0,0,
+20,0,0,,Pareces odiar mucho|a esa friqui.,"¡Oh, demonios, si!  Es una puta pesada.|Algún día me vengaré.",30,1,0,
+20,0,0,,Eres realmente apasionada|. Me gusta.,¡Sip!  Ahora deja que me prepare para la clase.,40,1,0,
+20,0,0,,Tienes un verdadero|problema de actitud.,¡Cállate!|(Se da la vuelta y te ignora),40,-1,0,
+20,1,0,,¿Necesitas que te ayude a|crearle problemas a esa chica?,¡Oh demonios si! Tengo cuerdas en mi mochila. |Le cogeremos después de clase.,40,1,0,
+30,0,0,,Eres realmente apasionada|. Me gusta.,¡Sip!  Ahora deja que me prepare para la clase.,40,1,0,
+30,0,0,,Tienes un verdadero|problema de actitud.,¡Cállate!|(Se da la vuelta y te ignora.),40,-1,0,
+30,1,0,,¿Necesitas que te ayude a|crearle problemas a esa chica?,¡Oh demonios si! Tengo cuerdas en mi mochila.| Le cogeremos después de clase..,40,1,0,
+40,-2,0,,¡Puta!¿Quieres pelea?,,40,-1,0,Fight()
+100,0,0,,¿Por qué llevas|cuerdas en la mochila?,Eso no te importa.|(cierra la mochila.),20,-1,0,
+100,0,0,,¿Vas de escalada|después del cole?,¡Si!  ¡Ahora dame eso!|(Cierra la mochila.),20,-1,0,
+100,0,0,,¿Estás planeando |secuestrar a alguien?,"¿mhhh, por qué lo preguntas?",110,0,-1,
+100,0,0,,¿Así que eres una chica traviesa|y te gusta que te aten?,¿Sabes algo de bondage?,110,0,1,
+110,0,0,,¿Qué estás planeando?|Me interesa.,Hablaremos después de clase.|(Cierra la mochila.),20,1,0,
+110,0,0,,No me interesa.,¡Bueno! No me importa.|(Cierra la mochila.),20,0,0,
+110,0,0,,¡Estó esta mal!|Se lo diré a la profesora.,,40,-2,0,Fight()
+200,0,0,BondageNotConfronted,Las cuerdas estaban colgando|fuera de la mochila.,¡Mentirosa! Devuélveme mis cuerdas.,200,0,0,ConfrontBondage()
+200,0,0,BondageNotConfronted,"Si llevas cuerdas, significa|que quieres que te aten.",(Se ruboriza.)  ¡No!  ¡En absoluto!|¡Devuélmelas ya!.,200,0,1,ConfrontBondage()
+200,0,0,BondageNotConfronted,"Lo siento mucho.  Me encantan las cuerdas,|¡Me podrías atar?","Eres patética, pronto me lamerás las botas.|Ahora dámelas. (Coge las cuerdas.)",300,0,-2,GiveRope()
+200,0,0,,Aquí están tus cuerdas. |Escóndelas mejor.,¡Bien!  Ahora déjame sóla.|(Coge las cuerdas y se da la vuelta.),300,1,0,GiveRope()
+200,0,0,,Hablemos un poco más.,Mmmh.  Bien.|¿De qué estábamos hablando?,200,0,0,StopRope()
+200,0,2,,(Desnúdale y átale.)|(1 minuto),"(Le agarras de nuevo y le atas las muecas a la espalda.|Se resiste con uñas y dientes, pero al final se rinde.)",220,0,0,Tie()
+200,0,4,,Sabes que al final te rendirás.|(desnúdale y átale.) (1 minuto),(Se quita el uniforme con dudas|y te ofrece sus muñecas para que se las ates.),220,0,0,TieSub()
+200,0,0,,"Si las quieres,|ven y pelea.",,40,-2,0,Fight()
+220,0,0,,(Dale la vuelta.),¡Joder! ¿Qué haces ahora?|(Le fuerzas a que se de la vuelta.),230,0,0,
+220,0,0,,(desátale.)|(1 minute),"(Le desatas los brazos mientras ella te insulta.|Una vez libre, te empuja con furia.)",200,0,0,Untie()
+220,0,0,,(Hazle cosquillas)|(1 minuto),¡Te dije que no tengo cosquillas!|(Te echa una mirada furiosa.),220,0,0,Tickle()
+220,1,0,,(Bésale)|(1 minuto),(Te mira perpleja después|del beso y se queda callada.),220,0,0,
+220,0,0,AmandaInBondage,(Haz que abrace a Amanda.)|(1 minuto),(Fuerza a las dos chicas a abrazarse y frotarse.)|¡Joder!  ¿Qué clase de pervertida eres?,240,-1,0,
+220,0,0,,Estas cuerdas se ajustan genial|a tu cuerpazo.,¡Oh!  Mmmmh...  Gracias... creo.,220,0,0,
+220,0,0,,"Si te libero, ¿puedo|atarte después? (1 minuto)",Parece justo.  Trato hecho.|(Le desatas y le estrechas la mano.),310,1,1,Untie()
+220,0,0,,"Si te libero, ¿Puedes|atarme más tarde? (1 minuto)","¡Oh, sip!  Mi venganza será dulce.|(Le desatas y le estrechas la mano.)",310,1,-2,Untie()
+230,0,0,,(Dale la vuelta),(Le das la vuelta mientras|te mira enfurecida.),220,0,0,
+230,0,0,,(Desátale)|(1 minuto),"(Le desatas mientras te insulta.|una vez libre, te empuja con rabia.)",200,0,0,Untie()
+230,0,0,,(Hazle cosquillas.)|(1 minuto),¡Dije que no tengo cosquillas!|(Te mira enfadada.),230,0,0,Tickle()
+230,0,0,,(Azótale.)|(1 minuto),(Le azotas delante del resto de las alumnas.)|¡Ja!  ¿eso es lo mejor que sabes hacer?,230,0,0,
+230,0,0,,"Mirando tus bragas,|estás disfrutando.",¡Deja de mirar ahí pervertida!,230,0,0,PantiesRemark()
+230,0,0,,"Si te libero, ¿puedo|atarte después? (1 minuto)", "Parece justo. Trato hecho.|(Le desatas y le estrechas la mano.)",310,1,1,Untie()
+230,0,0,,"Si te libero, ¿Puedes|atarme más tarde? (1 minuto)","¡Oh, sip!  Mi venganza será dulce.|(Le desatas y le estrechas la mano.)",310,1,-2,Untie()
+240,0,0,,(Sepárales),¡Por fin!  ¡Esto ha sido una idea estúpida!,220,0,0,
+240,0,0,,(Fuérzales a besarse.)|(1 minuto),"(Les fuerzas a besarse, Sidney parece furiosa.)|Amanda, si usas la lengua te la corto.",250,0,0,KissAmanda()
+240,0,0,,Haceis una pareja|de bondage preciosa.,(Te miran fijamente.),240,0,0,
+250,0,0,,(Separales.),¡Por fin!  ¡Esto ha sido una idea estúpida!,220,0,0,
+250,0,0,,(Para los besos.),¡Admítelo! Soy mejor que esa estúpida.|(Trata de intimidar a Amanda que mira a otro lado.),240,0,0,
+250,0,0,,¡El amor está en el aire!,¡Tu sí que vas a volar cuando me suelte.!,250,0,0,
+250,2,0,,¿Puedes besarme a mi también?,"Mmmh, claro ¿Por qué no?|(Se da la vuelta y te besa.)",250,0,0,
+300,-2,0,,¡Puta!  ¿Quieres pelea?,,40,-1,0,Fight()
