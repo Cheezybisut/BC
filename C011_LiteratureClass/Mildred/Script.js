@@ -64,8 +64,8 @@ function C011_LiteratureClass_Mildred_StartQuiz(QuizChapter, Opponent) {
 
 	// If the player has read the chapter, the answer generates at 3 seconds per letter, if the book was read twice, it's 2 seconds
 	var AnswerGenSpeed = 0;
-	if (GameLogQuery("C009_Library", "", "ReadChapter" + QuizChapter)) AnswerGenSpeed = 3000;
-	if (GameLogQuery("C009_Library", "", "ReadTwice")) AnswerGenSpeed = 2000;
+	if (GameLogQuery("C009_Library", "", "ReadChapter" + QuizChapter)) AnswerGenSpeed = 2500;
+	if (GameLogQuery("C009_Library", "", "ReadTwice")) AnswerGenSpeed = 1500;
 
 	// Loads the quiz
 	if (Opponent == "Sidney") QuizLoad("Player", C011_LiteratureClass_Mildred_QuizPlayerStatus, "Sidney", C011_LiteratureClass_Mildred_QuizSidneyStatus, "Mildred", "Clothed", "Easy", AnswerGenSpeed, 1, "Classroom", "MonteCristoChapter" + QuizChapter, "C011_LiteratureClass_Mildred_EndQuiz");
@@ -262,7 +262,7 @@ function C011_LiteratureClass_Mildred_SwitchSidney() {
 
 // Chapter 11 - Mildred takes back focus
 function C011_LiteratureClass_Mildred_SwitchMildred() {
-	ActorLoad("Sidney", "");
+	ActorLoad("Mildred", "");
 	LeaveIcon = "";
 }
 
@@ -273,17 +273,20 @@ function C011_LiteratureClass_Mildred_CheckForWinner() {
 		ActorChangeAttitude(-1, -1);
 		C011_LiteratureClass_Mildred_CurrentStage = 200;
 		OverridenIntroText = GetText("ShameForDefeat");
-	}
+		GameLogSpecificAdd(CurrentChapter, "", "LostVersusSidney");
+	} else GameLogSpecificAdd(CurrentChapter, "", "WonVersusSidney");
 }
 
 // Chapter 11 - Checks who's the winner between Mildred and the player
 function C011_LiteratureClass_Mildred_CheckForWinnerMildred() {
 	OverridenIntroImage = "";
 	if (C011_LiteratureClass_Mildred_PlayerVictoryCount >= C011_LiteratureClass_Mildred_MildredVictoryCount) {
-		ActorChangeAttitude(1, 2);
+		GameLogSpecificAdd(CurrentChapter, "", "WonVersusMildred");
+		ActorChangeAttitude(1, 1);
 		C011_LiteratureClass_Mildred_CurrentStage = 150;
 		OverridenIntroText = GetText("MildredShameForDefeat");
 	} else {
+		GameLogSpecificAdd(CurrentChapter, "", "LostVersusMildred");
 		if (C011_LiteratureClass_Mildred_QuizMildredStatus != "Clothed")
 			OverridenIntroText = GetText("MildredFreedBySidney");
 	}
@@ -309,4 +312,36 @@ function C011_LiteratureClass_Mildred_WaitTest() {
 // Chapter 11 - Ends the chapter
 function C011_LiteratureClass_Mildred_EndChapter() {
 	SetScene(CurrentChapter, "Outro");
+}
+
+// Chapter 11 - Frees both the player and Mildred
+function C011_LiteratureClass_Mildred_FreeBoth() {
+	CurrentActor = "Mildred";
+	ActorRemoveInventory("Cuffs");
+	CurrentActor = "";
+	PlayerReleaseBondage();
+}
+
+// Chapter 11 - Takes Mildred items
+function C011_LiteratureClass_Mildred_TakeItems() {
+	GameLogSpecificAdd(CurrentChapter, "", "ClassLeader");
+	PlayerAddInventory("Cuffs", 2);
+	PlayerAddInventory("CuffsKey", 1);
+	PlayerAddInventory("BallGag", 1);
+	PlayerAddInventory("Crop", 1);
+}
+
+// Chapter 11 - Ends as a strict leader
+function C011_LiteratureClass_Mildred_StrictLeader() {
+	GameLogSpecificAdd(CurrentChapter, "", "StrictLeader");
+}
+
+// Chapter 11 - Ends as a fair leader
+function C011_LiteratureClass_Mildred_FairLeader() {
+	GameLogSpecificAdd(CurrentChapter, "", "FairLeader");
+}
+
+// Chapter 11 - Ends as an easy leader
+function C011_LiteratureClass_Mildred_EasyLeader() {
+	GameLogSpecificAdd(CurrentChapter, "", "EasyLeader");
 }
