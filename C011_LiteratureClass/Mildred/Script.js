@@ -68,8 +68,8 @@ function C011_LiteratureClass_Mildred_StartQuiz(QuizChapter, Opponent) {
 	if (GameLogQuery("C009_Library", "", "ReadTwice")) AnswerGenSpeed = 1500;
 
 	// Loads the quiz
-	if (Opponent == "Sidney") QuizLoad("Player", C011_LiteratureClass_Mildred_QuizPlayerStatus, "Sidney", C011_LiteratureClass_Mildred_QuizSidneyStatus, "Mildred", "Clothed", "Easy", AnswerGenSpeed, 1, "Classroom", "MonteCristoChapter" + QuizChapter, "C011_LiteratureClass_Mildred_EndQuiz");
-	else QuizLoad("Player", C011_LiteratureClass_Mildred_QuizPlayerStatus, "Mildred", C011_LiteratureClass_Mildred_QuizMildredStatus, "Sidney", "Clothed", "Hard", AnswerGenSpeed, 1, "Classroom", "MonteCristoChapter" + QuizChapter, "C011_LiteratureClass_Mildred_EndQuizMildred");
+	if (Opponent == "Sidney") QuizLoad("Player", C011_LiteratureClass_Mildred_QuizPlayerStatus, "Sidney", C011_LiteratureClass_Mildred_QuizSidneyStatus, "Mildred", "Clothed", "Easy", AnswerGenSpeed, 5, "Classroom", "MonteCristoChapter" + QuizChapter, "C011_LiteratureClass_Mildred_EndQuiz");
+	else QuizLoad("Player", C011_LiteratureClass_Mildred_QuizPlayerStatus, "Mildred", C011_LiteratureClass_Mildred_QuizMildredStatus, "Sidney", "Clothed", "Hard", AnswerGenSpeed, 5, "Classroom", "MonteCristoChapter" + QuizChapter, "C011_LiteratureClass_Mildred_EndQuizMildred");
 
 }
 
@@ -333,15 +333,21 @@ function C011_LiteratureClass_Mildred_TakeItems() {
 
 // Chapter 11 - Ends as a strict leader
 function C011_LiteratureClass_Mildred_StrictLeader() {
+	ActorSpecificChangeAttitude("Sidney", 0, 2);
+	ActorSpecificChangeAttitude("Natalie", 0, 2);
 	GameLogSpecificAdd(CurrentChapter, "", "StrictLeader");
 }
 
 // Chapter 11 - Ends as a fair leader
 function C011_LiteratureClass_Mildred_FairLeader() {
+	ActorSpecificChangeAttitude("Sidney", 1, 1);
+	ActorSpecificChangeAttitude("Natalie", 1, 1);
 	GameLogSpecificAdd(CurrentChapter, "", "FairLeader");
 }
 
 // Chapter 11 - Ends as an easy leader
 function C011_LiteratureClass_Mildred_EasyLeader() {
+	ActorSpecificChangeAttitude("Sidney", 2, 0);
+	ActorSpecificChangeAttitude("Natalie", 2, 0);
 	GameLogSpecificAdd(CurrentChapter, "", "EasyLeader");
 }
