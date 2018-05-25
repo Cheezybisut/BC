@@ -1,12 +1,100 @@
 Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
-0,0,0,,You're my slave now.,"(She tries to escape in vain as you take her across|the room and lock a collar on her, chained to the wall.",10,0,0,CanLeave()
-0,0,0,,We are going to|have some fun.,(She snorts and tries to resit you hoplessly.|You lock the collar on her ensuring your fun.,10,0,0,CanLeave()
+0,0,0,,You're my slave now.,"(She tries to escape in vain as you take her across|the room and lock a collar on her, chained to the wall.)",10,0,0,CanLeave()
+0,0,0,,We are going to|have some fun.,(She snorts and tries to resit you hoplessly.|You lock the collar on her ensuring your fun.),10,0,0,CanLeave()
 0,0,0,,I'm her to save|you from them.,"(She calms down as you take here away, but then|struggles again as you lock the collar on her.)",10,0,0,CanLeave()
-10,0,0,,(Remove her gag.),"(You remove the gag and she immediately blurts out.)|Get me out of this collar before Jenna returns, please!",20,0,0,RemoveGag()
-20,0,0,,Talk to her.,Can you at least untie my legs.|I can barely stay up like this.,20,0,0,
-21,,,,,If you untie me I could help,,,,
-21,,,,,,,,,
-21,,,,,"The cute good girl style is for my boyfriend,|knowing it hides a minx underneith teases him.",,,,
-21,,,,Does he tie|you up?,"No, but he lets me practice Kinbaku on him from time|to time, if I wear something cute and tease him.",,,,
-21,,,,,,,,,
-21,,,,,"A previous boyfriend was into tying me up,|but I don't enjoy being tied up.",,,,
+5,0,0,,Could you|help me?,(She giggles and shakes her head.),5,0,0,HelpMe()
+5,0,0,Common_PlayerGagged,(Show her your bondage.),(She giggles and shakes her head.),5,0,0,HelpMe()
+9,0,0,,Talk to her.,,20,0,0,
+9,0,0,,Actually would|you restrain me?,"Fine, you might as well be restrained, for all the|use you are. (She uses some of your items on you.)",5,0,-1,RandomBondage()
+9,0,0,Common_PlayerGagged,(Remove your gag.),,9,0,0,RemoveYourGag()
+10,0,0,TwinGagged,(Remove her gag.),"(You remove the gag and she immediately blurts out.)|Get me out of this collar before Jenna returns, please!",10,0,0,RemoveGag()
+10,0,0,!TwinGagged,Talk to her.,"Come on, you've had some fun, can you find a way to|unlock these manacles now, before Jenna gets back.",20,0,0,LucyCheck()
+10,0,0,,(Play with her.),"(You eye her up, woundering what to do with her.)",200,0,0,
+10,0,0,TwinRestrained,(Free her arms.),(Once her arms are free she quickly|removes all the bondage she can.),10,0,0,AlmostFreed()
+10,0,0,TiedLegs,(Untie her legs.),"(You remove the rope from her legs,|allowing her to stay up more easily.)",10,0,0,UntieLegs()
+10,0,0,!SkirtRemoved,(Remove her skirt.),"(You pull down her skirt,|revealing skimpy lacy underwear.)",10,-1,0,RemoveSkirt()
+10,0,0,!UniformRemoved,(Remove her uniform.),(You can not remove her uniform|with her arms in bondage.),10,0,0,RemoveUniform()
+10,0,0,!TwinRestrained,(Lock her arms|in the Manacles.),(You force her arms behind her|and lock them into the manacles.),10,0,1,ManacleArms()
+10,0,0,!TiedLegs,(Lock her legs|in the Manacles.),(You make her kneel down and|lock her legs into the manacles.),10,0,1,ManacleLegs()
+15,0,0,,(Tie her|asymmetrically.),"(You manage to tie her up.)|Oww, why do you have to tie me up like this?",10,,,TieUp(1)
+15,0,0,,(Tie her elbows|together.),"(You manage to tie her up.)|Oww, why do you have to tie me up like this?",10,,,TieUp(2)
+15,0,0,,(Tie her arms|behind her.),(You manage to tie her up.)|I suppose this is better than how I was tied up earlier.,10,,,TieUp(3)
+20,0,0,,(Adjust her|bondage.),"(You eye her up, woundering what to do with her.)",10,0,0,
+20,0,0,,(Play with her.),"(You eye her up, woundering what to do with her.)",200,0,0,
+20,0,0,,Could you help|restrain me?,There isn't much I can do like this.,20,0,0,RestrainMe()
+20,0,0,Jenna,What's up between|you and Jenna?,"It's not me, it's with Heather.  She tricked Jenna last|week and rumour is Jenna still has the scars.",30,0,0,JennaDone()
+20,0,0,Compliment,You look adorable|like that.,,40,0,0,ComplimentDone()
+20,0,0,YouEnjoyIt,Are you|enjoying this?,"No, I didn't join this club to be bound and gagged.",50,0,0,YouEnjoyItDone()
+20,0,0,Boyfriend,So your boyfirend|is into bondage?,"Not the current one, it was the last one who|tought me a lot of Kinbaku the hard way.",60,0,0,BoyfriendDone()
+20,0,0,TiedLegs,That bondage suits you.,Could you at least untie my legs please.|I can barely stay up like this.,20,0,0,BondageComplimentDone()
+20,,,,,,,,,
+21,0,0,HasArmbinder,I need help with|this armbinder.,"Okay.  (She takes the armbinder, helps slide your arms|into it and securely tightens it.)  How is it?",22,0,-1,PlayerArmbinder()
+21,0,0,HasRope,Could you tie me up?,"Okay.  (You remove your uniform and she starts tying|you up.)  There you go, nice and tight.",22,0,-1,PlayerRope()
+21,0,0,,You can use any|of my items.,Okay.  (She picks some of your items|and uses them on you.)  How is that?,22,0,-1,RandomBondage()
+21,0,0,,I was just kidding.,Could you stop fooling around and help|find a way to unlock these damn manacles.,20,-1,0,NoKidding()
+22,0,0,,"Oww, that's|too tight.","Sorry, but you did ask.",20,0,-1,FurtherBondage()
+22,0,0,,This is great.,I'm glad you like it.,20,1,-1,FurtherBondage()
+22,0,0,,"Excellent, you will|make a good maid.",What! You won't keep me like this will you.,20,-1,1,FurtherBondage()
+22,0,0,,(Spin around.),(She giggles as you show off your new bondage.),20,0,0,FurtherBondage()
+22,0,0,,(Curtsey.),Maybe you should be the one chained to the|wall and be my play thing instead.,20,1,-1,FurtherBondage()
+22,0,0,,Can you release me now?,Already?  You've barely been bound 5 seconds.|You might as well try it for a bit longer.,20,0,-1,FurtherBondage()
+22,0,0,Common_PlayerGagged,@Thhng nhh,"You're welcome, I think.",5,1,0,FurtherBondage()
+22,0,0,Common_PlayerGagged,@Ghn nhh rmlmhfm|mm nhw?,Already?  You've barely been bound 5 seconds.|You might as well try it for a bit longer.,5,0,-1,FurtherBondage()
+23,0,0,,(Wait quietly.),"(She takes a vibrating egg and inserts it in your|vagina, then locks a chastity belt on you.)",24,0,0,EggAndBelt()
+23,0,0,,"Wait, do you thing|you're doing?","(She takes a vibrating egg and inserts it in your|vagina, then locks a chastity belt on you.)",24,-1,0,EggAndBelt()
+23,0,0,Common_PlayerGagged,"@Whnt, dh nhh thnng|nhh'rm dhnng?","(She takes a vibrating egg and inserts it in your|vagina, then locks a chastity belt on you.)",24,-1,0,EggAndBelt()
+24,0,0,,What did you|do that for?,Because it's about the only thing I can do now.,5,0,0,CanLeave()
+24,0,0,Common_PlayerGagged,@Whht dnd nhh|dh thht fhr?,Because it's about the only thing I can do now.,5,0,0,CanLeave()
+24,0,0,,Remove that right now.,"Sorry, that isn't so easily done.",5,0,1,CanLeave()
+24,0,0,Common_PlayerGagged,@Rmmhvm thht rnght nhw.,"Sorry, that isn't so easily done.",5,0,1,CanLeave()
+24,0,0,,(Curtsey.),Maybe you should be the one chained to the|wall and be my play thing instead.,5,1,-1,CanLeave()
+24,0,0,,Thank you mistress.,I'm not your mistress.|I'm sure there are others that would love you as their pet.,5,0,-1,CanLeave()
+24,0,0,Common_PlayerGagged,@Thhng nhh mnftrmff.,I'm not your mistress.|I'm sure there are others that would love you as their pet.,5,0,-1,CanLeave()
+24,0,0,,(Get away from her.),,5,0,0,Leave()
+30,,,,What did Heather do?,"We don't know, but I think Heather had Jenna|tied up with no one else about.",31,0,0,
+30,,,,I bet Jenna|deserved it.,"Maybe. Jenna can be very tough, but even so|to be tied up with no one else about.",31,0,1,
+30,,,,,,,,,
+31,,,,So Jenna will take|it out on you?,,,,,
+,,,,,,,,,
+,,,,,,,,,
+40,,,,To Do,To Do,,,,
+50,,,,To Do,To Do,,,,
+60,,,,To Do,To Do,,,,
+31,,,,,,,,,
+31,,,,,"The cute good girl style is for my boyfriend,|knowing it hides a minx underneith teases him.",,,,
+31,,,,Does he tie|you up?,"No, but he lets me practice Kinbaku on him from time|to time, if I wear something cute and tease him.",,,,
+31,,,,,,,,,
+31,,,,,"A previous boyfriend was into tying me up,|but I don't enjoy being tied up.",,,,
+31,,,,,,,,,
+31,,,,,,,,,
+100,,,,(Adjust her|bondage.),"(You eye her up, woundering what to do with her.)",10,0,0,
+100,,,,(Play with her.),"(You eye her up, woundering what to do with her.)",300,0,0,
+100,,,,Could you help|restrain me?,There isn't much I can do like this.,20,0,0,RestrainMe()
+100,0,0,Jenna,What's up between|you and Jenna?,It was nothing really. She though I was Lucy and I just|asked to try a new Kinbaku technique on her.,110,0,0,JennaDone()
+100,0,0,Compliment,You look adorable|like that.,,120,0,0,ComplimentDone()
+100,0,0,YouEnjoyIt,Are you|enjoying this?,No way,130,0,0,YouEnjoyItDone()
+100,,,,,,,,,
+100,0,0,TiedLegs,That bondage suits you.,Could you at least untie my legs please.|I can barely stay up like this.,100,0,0,BondageComplimentDone()
+100,,,,,,,,,
+110,,,,To Do,To Do,100,,,
+120,,,,To Do,To Do,100,,,
+130,,,,To Do,To Do,100,,,
+200,0,0,,(Adjust her|bondage.),"(You eye her up, woundering what to do with her.)",10,0,0,
+200,0,0,!TwinGagged,Talk to her.,"Come on, you've had some fun, can you find a way to|unlock these manacles now, before Jenna gets back.",20,0,0,LucyCheck()
+200,,,,,,,,,
+200,,,,,,200,,,
+300,0,0,,"Yes, help me out of this.",(She removes your bondage.),20,0,0,HelpPlayer()
+300,0,0,,No its not that.,"Oh, what do you want my help for then?",310,0,0,
+300,0,0,Common_PlayerGagged,(Nod your head.),(She removes your bondage.),20,0,0,HelpPlayer()
+300,0,0,Common_PlayerGagged,(Shake your head.),"Oh, what do you want my help for then?",310,0,0,
+310,0,0,,I've got an itch|that needs rubbing.,Where is it? Oh no I'm not into that stuff with girls.|I have a botfriend you know.,5,-1,0,
+310,0,0,Common_PlayerGagged,(Glace down at|your crotch.),What is it? Oh no I'm not into that stuff with girls.|I have a botfriend you know.,5,-1,0,
+400,0,0,,To Do,To Do,400,0,0,
+5,,,,Load in bondage,- For remembering layout only -,5,,,
+9,,,,? in bondage,- For remembering layout only -,9,,,
+10,,,,adjust bondage,- For remembering layout only -,10,,,
+20,,,,Talk with Lucy or unknown,- For remembering layout only -,20,,,
+100,,,,Talk with Heather,- For remembering layout only -,100,,,
+200,,,,Play with her,- For remembering layout only -,200,,,
+300,,,,Help when bound,- For remembering layout only -,300,,,
+400,,,,Heather punishing player,- For remembering layout only -,400,,,

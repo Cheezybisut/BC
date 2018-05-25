@@ -12,7 +12,8 @@ var C101_KinbakuClub_Slaves_JennaDone = false; // false if Jenna hasn't already 
 var C101_KinbakuClub_Slaves_JennaWillGag = false; // jenna will gag a noise player if she leaves them
 var C101_KinbakuClub_Slaves_WaitingDone = false;
 var C101_KinbakuClub_Slaves_SelfShackle = false; // true if player shackles herself.
-var C101_KinbakuClub_Slaves_EricaShackle = false; // true if player is shackled by erica.
+var C101_KinbakuClub_Slaves_EricaShackle = false; // true if player is shackled by Erica.
+var C101_KinbakuClub_Slaves_AmeliaShackle = false; // true if player is shackled by Ameilia.
 var C101_KinbakuClub_Slaves_AllShackle = false; // true if player is shackled by the whole club.
 var C101_KinbakuClub_Slaves_ButErica = false; // option if player is told the whole club knows about the shackles.
 var C101_KinbakuClub_Slaves_ChasteGagged = false;
@@ -86,11 +87,11 @@ function C101_KinbakuClub_Slaves_Load() {
 	// Bag stage starts at 0
 	if (C101_KinbakuClub_Slaves_CurrentStage <= 100) {
 		C101_KinbakuClub_Slaves_CurrentStage = 0;
-		ActorLoad("", "ClubRoom4");
+		LeaveScreen = "ClubRoom4";
 		LeaveIcon = "";
 	}
 
-	// Player when shackled by erica
+	// Player when shackled by Erica
 	if (C101_KinbakuClub_Slaves_CurrentStage == 115) {
 		ActorLoad("Erica", "ClubRoom4");
 		PlayerLockInventory("Manacles");
@@ -98,9 +99,17 @@ function C101_KinbakuClub_Slaves_Load() {
 		C101_KinbakuClub_Slaves_EricaShackle = true;
 	}
 
+	// Player when shackled by Amelia
+	if (C101_KinbakuClub_Slaves_CurrentStage == 116) {
+		LeaveScreen = "ClubRoom4";
+		PlayerLockInventory("Manacles");
+		LeaveIcon = "";
+		C101_KinbakuClub_Slaves_AmeliaShackle = true;
+	}
+
 	// Player when a slave
 	if (C101_KinbakuClub_Slaves_CurrentStage == 120) {
-		ActorLoad("", "ClubRoom4");
+		LeaveScreen = "ClubRoom4";
 		LeaveIcon = "Leave";
 	}
 
@@ -258,6 +267,7 @@ function C101_KinbakuClub_Slaves_Click() {
 	// Regular and inventory interactions
 	ClickInteraction(C101_KinbakuClub_Slaves_CurrentStage);
 	var ClickInv = GetClickedInventory();
+	if (C101_KinbakuClub_Slaves_CurrentStage == 120) InventoryClick(GetClickedInventory(), "C101_KinbakuClub", "Slaves");
 	
 	if ((C101_KinbakuClub_Slaves_CurrentStage == 100) || (C101_KinbakuClub_Slaves_CurrentStage == 110)) {
 		if ((ClickInv == "BallGag") && !PlayerHasLockedInventory("BallGag")) {
@@ -350,8 +360,8 @@ function C101_KinbakuClub_Slaves_FullManacle() {
 	C101_KinbakuClub_Slaves_ManacleWarning = true;
 }
 
-// Chapter 101 - Slaves - Erica leave player manacled
-function C101_KinbakuClub_Slaves_EricaLeaves() {
+// Chapter 101 - Slaves - The actor leaves player manacled
+function C101_KinbakuClub_Slaves_ActorLeaves() {
 	LeaveIcon = "Leave";
 }
 
@@ -412,6 +422,14 @@ function C101_KinbakuClub_Slaves_ClaimSelf() {
 // Chapter 101 - Slaves - Player claims Erica shackled her
 function C101_KinbakuClub_Slaves_ClaimErica() {
 	if (!C101_KinbakuClub_Slaves_EricaShackle) {
+		OverridenIntroText = GetText("LieToJenna");
+		ActorChangeAttitude(-1, 0);
+	}
+}
+
+// Chapter 101 - Slaves - Player claims Amelia shackled her
+function C101_KinbakuClub_Slaves_ClaimAmelia() {
+	if (!C101_KinbakuClub_Slaves_AmeliaShackle) {
 		OverridenIntroText = GetText("LieToJenna");
 		ActorChangeAttitude(-1, 0);
 	}

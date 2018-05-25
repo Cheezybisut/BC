@@ -129,7 +129,8 @@ function DrawPosNegValue(Value, X, Y) {
 function DrawActorStats(Left, Top) {
 	
 	// Draw the actor name and icon
-	DrawText(CurrentActor, Left - 200, Top + 17, "black");
+	if (ActorGetValue(ActorHideName)) DrawText("Unknown", Left - 200, Top + 17, "black");
+	else DrawText(CurrentActor, Left - 200, Top + 17, "black");
 	DrawImage("Icons/Heart.png", Left - 110, Top);
 	DrawImage("Icons/Submission.png", Left - 10, Top);
 	DrawImage("Icons/Orgasm.png", Left + 90, Top);

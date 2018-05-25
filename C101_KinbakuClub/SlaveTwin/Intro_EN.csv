@@ -1,7 +1,23 @@
 Stage,LoveReq,SubReq,VarReq,IntroText,Image
-0,0,0,,(You grab the nearest one. She struggles as you drag|here away before Amelia and Charlotte can react.),KidnapTwin.jpg
-10,0,0,,She is all of a quiver and struggling in panic.,TwinRope.jpg
-20,0,0,,Please you have got to help me.,TwinRope.jpg
-30,,,,,
-40,,,,,
-50,,,,,
+0,0,0,,(She struggles as you grab and drag|her away before Amelia and Charlotte can react.),KidnapTwin.jpg
+5,0,0,,(She notices your own bondage and giggles.),TwinBackground.jpg
+9,0,0,,Don't try using anything on me.,TwinBackground.jpg
+10,0,0,,(She is all of a quiver and struggling in panic.),TwinBackground.jpg
+15,0,0,,,TwinBackground.jpg
+20,0,0,,Please you have got to help me.,TwinBackground.jpg
+21,0,0,,,TwinBackground.jpg
+22,0,0,,,TwinBackground.jpg
+23,0,0,,,TwinBackground.jpg
+24,0,0,,,TwinBackground.jpg
+30,0,0,,,TwinBackground.jpg
+40,0,0,,,TwinBackground.jpg
+50,0,0,,,TwinBackground.jpg
+60,0,0,,,TwinBackground.jpg
+100,0,0,,,TwinBackground.jpg
+110,0,0,,,
+120,0,0,,,
+130,0,0,,,
+200,0,0,,,TwinBackground.jpg
+300,0,0,,,
+310,0,0,,,
+400,0,0,,,
