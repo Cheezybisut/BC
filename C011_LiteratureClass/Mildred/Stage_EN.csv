@@ -113,6 +113,8 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 230,0,0,,(Stay silent.),(She nods and picks new students for the test.),300,0,0,MildredLeave()
 240,0,0,,@Uuugn nuhm!,(She shakes her head from left to right|and picks new students for the test.),300,0,0,MildredLeave()
 240,0,0,,(Stay silent.),(She nods and picks new students for the test.),300,0,0,MildredLeave()
+250,0,0,,@Uuugn nuhm!,(She shakes her head from left to right|and picks new students for the test.),300,0,0,MildredLeave()
+250,0,0,,(Stay silent.),(She nods and picks new students for the test.),300,0,0,MildredLeave()
 300,0,0,,(Watch the tests.),"(Two by two, many girls are|called to the front of the class.)",310,0,0,WaitTest()
 310,0,0,,(Watch the tests.),(Some of them do really|well on the literature test.),320,0,0,WaitTest()
 320,0,0,,(Watch the tests.),(And some of them get in trouble.),330,0,0,WaitTest()
