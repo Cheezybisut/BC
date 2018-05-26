@@ -2,8 +2,13 @@ Tag,Content
 Easy,Easy
 Normal,Normal
 Hard,Hard
-StartsIn,Starts in
+FirstQuestionIn,First question in
+NextQuestionIn,Next question in
 Difficulty,Difficulty:
-Perfect,Perfect!  Click on any participant to continue.
-Victory,You won!  Click on any participant to continue.
-Defeat,You failed!  Click on any participant to continue.
+Opponent,Opponent:
+Perfect,Perfect!  Click|anywhere to continue.
+Victory,You won!  Click|anywhere to continue.
+Defeat,You lost!  Click|anywhere to continue.
+Explanation,Give the correct answer|before your opponent.
+GoodAnswer,Correct!
+BadAnswer,Wrong!
