@@ -9,12 +9,20 @@ var C101_KinbakuClub_SlaveTwin_Barefoot = false;
 var C101_KinbakuClub_SlaveTwin_TiedAsymmetric = false;
 var C101_KinbakuClub_SlaveTwin_TiedElbowsTouching = false;
 var C101_KinbakuClub_SlaveTwin_Blushing = false;
+var C101_KinbakuClub_SlaveTwin_SkirtPullDone = false;		// true after first time trying to remove skirt
 var C101_KinbakuClub_SlaveTwin_SkirtRemoved = false;
 var C101_KinbakuClub_SlaveTwin_UniformRemoved = false;
 var C101_KinbakuClub_SlaveTwin_Blinded = false;
 var C101_KinbakuClub_SlaveTwin_PlayerIsTooSubmissive = false;
-var C101_KinbakuClub_SlaveTwin_HasArmbinder = false;
-var C101_KinbakuClub_SlaveTwin_HasRope = false;
+var C101_KinbakuClub_SlaveTwin_PlayerHasArmbinder = false;
+var C101_KinbakuClub_SlaveTwin_PlayerHasRope = false;
+var C101_KinbakuClub_SlaveTwin_Jenna = true;				// false after talking about Jenna
+var C101_KinbakuClub_SlaveTwin_Compliment = true;			// false after complimenting the twin
+var C101_KinbakuClub_SlaveTwin_YouEnjoyIt = true;			// false after asking if she enjoys it
+var C101_KinbakuClub_SlaveTwin_Underwear = false;			// true after exposing underwear and false after commenting on it
+var C101_KinbakuClub_SlaveTwin_BoyfriendAlreadyMentioned = false; // used to prevent repeating boyfriend bondage conversation.
+var C101_KinbakuClub_SlaveTwin_Boyfriend = false;			// true after she mentions him and false after talking about her boyfriend
+var C101_KinbakuClub_SlaveTwin_BondageCompliment = true;	// false after saying the bondage suits the twin
 
 // Calculates the scene parameters
 function C101_KinbakuClub_SlaveTwin_CalcParams() {
@@ -24,8 +32,8 @@ function C101_KinbakuClub_SlaveTwin_CalcParams() {
 	C101_KinbakuClub_SlaveTwin_UniformRemoved = ActorGetValue(ActorCloth) == "Underwear";
 	C101_KinbakuClub_SlaveTwin_Blinded = ActorHasInventory("Blindfold");
 	C101_KinbakuClub_SlaveTwin_PlayerIsTooSubmissive = ActorGetValue(ActorSubmission) < -2;
-	C101_KinbakuClub_SlaveTwin_HasArmbinder = PlayerHasInventory("Armbinder");
-	C101_KinbakuClub_SlaveTwin_HasRope = PlayerHasInventory("Rope")
+	C101_KinbakuClub_SlaveTwin_PlayerHasArmbinder = PlayerHasInventory("Armbinder");
+	C101_KinbakuClub_SlaveTwin_PlayerHasRope = PlayerHasInventory("Rope")
 }
 
 // Chapter 101 - SlaveTwin Load
@@ -53,7 +61,8 @@ function C101_KinbakuClub_SlaveTwin_Load() {
 	}
 
 	if (C101_KinbakuClub_SlaveTwin_CurrentStage == 15) C101_KinbakuClub_SlaveTwin_CurrentStage = 10;
-	if (C101_KinbakuClub_SlaveTwin_CurrentStage >= 21) C101_KinbakuClub_SlaveTwin_CurrentStage = 10;
+	if (C101_KinbakuClub_SlaveTwin_CurrentStage >= 21) C101_KinbakuClub_SlaveTwin_CurrentStage = 20;
+	if (C101_KinbakuClub_SlaveTwin_CurrentStage == 20) LucyCheck();
 	if (Common_PlayerRestrained) {
 		C101_KinbakuClub_SlaveTwin_CurrentStage = 5;
 		if (ActorHasInventory("Blindfold")) C101_KinbakuClub_SlaveTwin_CurrentStage = 6;
@@ -70,7 +79,7 @@ function C101_KinbakuClub_SlaveTwin_Run() {
 
 	
 	// Build image when twin is locked in manacle collar
-	if (C101_KinbakuClub_SlaveTwin_CurrentStage >= 5 && C101_KinbakuClub_SlaveTwin_CurrentStage <= 60) {
+	if (C101_KinbakuClub_SlaveTwin_CurrentStage >= 5 && C101_KinbakuClub_SlaveTwin_CurrentStage <= 390) {
 
 		if (!C101_KinbakuClub_SlaveTwin_Kneeling) {
 			// Legs
@@ -108,7 +117,7 @@ function C101_KinbakuClub_SlaveTwin_Run() {
 		}
 
 		if (C101_KinbakuClub_SlaveTwin_Kneeling) {
-			OverridenIntroImage = "TwinKneelingBackground.jpg";
+			// OverridenIntroImage = "TwinKneelingBackground.jpg";
 		}
 	}
 }
@@ -120,7 +129,7 @@ function C101_KinbakuClub_SlaveTwin_Click() {
 	ClickInteraction(C101_KinbakuClub_SlaveTwin_CurrentStage);
 	var ClickInv = GetClickedInventory();
 	
-	if (C101_KinbakuClub_SlaveTwin_CurrentStage >= 10 && C101_KinbakuClub_SlaveTwin_CurrentStage <= 30 && (ActorIsRestrained() || !C101_KinbakuClub_SlaveTwin_PlayerIsTooSubmissive)) {
+	if (C101_KinbakuClub_SlaveTwin_CurrentStage >= 10 && C101_KinbakuClub_SlaveTwin_CurrentStage <= 390 && (ActorIsRestrained() || !C101_KinbakuClub_SlaveTwin_PlayerIsTooSubmissive)) {
 		
 		//Cuffs key removes all gags and ropes
 		if ((ClickInv == "CuffsKey") && ActorHasInventory("Cuffs")) {
@@ -170,8 +179,6 @@ function C101_KinbakuClub_SlaveTwin_Click() {
 			}
 		}
 
-		
-
 		// Twin will remove any items if she can
 		if (ActorIsGagged() && !ActorIsRestrained()) {
 			ActorUngag()
@@ -196,7 +203,7 @@ function C101_KinbakuClub_SlaveTwin_CanLeave() {
 	LeaveIcon = "Leave";
 }
 
-// Chapter 101 - SlaveTwin - 
+// Chapter 101 - SlaveTwin - When player is too submissive to use items
 function C101_KinbakuClub_SlaveTwin_SubmissivePlayer() {
 	OverridenIntroText = GetText("TooSubmissive");
 	C101_KinbakuClub_SlaveTwin_CurrentStage = 9;
@@ -209,11 +216,14 @@ function C101_KinbakuClub_SlaveTwin_HelpMe() {
 		if (ActorIsGagged()) OverridenIntroText = GetText("UnableToHelp");
 		if (!ActorIsGagged() && ActorIsRestrained()) OverridenIntroText = GetText("SorryNoHelp");
 		if (!ActorIsRestrained()) {
-			OverridenIntroText = GetText("WillHelp");
-			C101_KinbakuClub_SlaveTwin_CurrentStage = 50;
+			if (PlayerHasLockedInventory("Manacles")) OverridenIntroText = GetText("ManaclesNoHelp");
+			else {
+				OverridenIntroText = GetText("WillHelp");
+				C101_KinbakuClub_SlaveTwin_CurrentStage = 50;
+			}
 		}
 	}
-	if (C101_KinbakuClub_SlaveTwin_KidnappedTwin == "Heather" && ActorGetValue(ActorSubmission) <= 5 && !ActorIsRestrained() && !C101_KinbakuClub_SlaveTwin_Kneeling) {
+	if (C101_KinbakuClub_SlaveTwin_KidnappedTwin == "Heather" && ActorGetValue(ActorSubmission) <= 5 && !ActorIsRestrained() && !C101_KinbakuClub_SlaveTwin_Kneeling && !PlayerHasLockedInventory("Manacles")) {
 		C101_KinbakuClub_SlaveTwin_CurrentStage = 55;
 		OverridenIntroText = GetText("HeatherRevenge");
 		ActorChangeAttitude(0, -1);
@@ -239,6 +249,11 @@ function C101_KinbakuClub_SlaveTwin_RemoveYourGag() {
 // Chapter 101 - SlaveTwin - remove the current slaves gag
 function C101_KinbakuClub_SlaveTwin_RemoveGag() {
 	ActorUngag();
+}
+
+// Chapter 101 - SlaveTwin - Stage changes if player knows she is talking to Heather
+function C101_KinbakuClub_SlaveTwin_LucyCheck() {
+	if (ActorGetValue(ActorName) == "Heather" && ActorGetValue(ActorHideName) == false) C101_KinbakuClub_SlaveTwin_CurrentStage = 100;
 }
 
 // Chapter 101 - SlaveTwin - Free twins arms and she will remove everything else appart from the manacels
@@ -270,8 +285,13 @@ function C101_KinbakuClub_SlaveTwin_RemoveSkirt() {
 	if (ActorIsRestrained()) {
 		C101_KinbakuClub_SlaveTwin_SkirtRemoved = true;
 		C101_KinbakuClub_SlaveTwin_Blushing = true;
+		C101_KinbakuClub_SlaveTwin_Underwear = true;
 		ActorChangeAttitude(0, 1);
 	} else OverridenIntroText = GetText("NoSkirtRemove");
+	if (!C101_KinbakuClub_SlaveTwin_SkirtPullDone) {
+		C101_KinbakuClub_SlaveTwin_SkirtPullDone = true;
+		ActorChangeAttitude(-1, 0);
+	}
 }
 
 // Chapter 101 - SlaveTwin - Player tries to remove her uniform
@@ -279,7 +299,12 @@ function C101_KinbakuClub_SlaveTwin_RemoveUniform() {
 	if (!ActorIsRestrained()) {
 		if (ActorGetValue(ActorSubmission) >= 5) {
 			ActorSetCloth("Underwear");
-			C101_KinbakuClub_SlaveTwin_SkirtRemoved = true;
+			if (!C101_KinbakuClub_SlaveTwin_SkirtRemoved) {
+				C101_KinbakuClub_SlaveTwin_Underwear = true;
+				C101_KinbakuClub_SlaveTwin_SkirtRemoved = true;
+				ActorChangeAttitude(0, 1);
+			}
+			ActorChangeAttitude(0, 1);
 			C101_KinbakuClub_SlaveTwin_Barefoot = true;
 			C101_KinbakuClub_SlaveTwin_Blushing = true;
 			OverridenIntroText = GetText("RemovingUniform");
@@ -323,6 +348,42 @@ function C101_KinbakuClub_SlaveTwin_RestrainMe() {
 		C101_KinbakuClub_SlaveTwin_CurrentStage = 21;
 	}
 }
+
+// Chapter 101 - SlaveTwin - Player has talked about Jenna
+function C101_KinbakuClub_SlaveTwin_JennaDone() {
+	C101_KinbakuClub_SlaveTwin_Jenna = false;
+}
+
+// Chapter 101 - SlaveTwin - Player has complimented the twin
+function C101_KinbakuClub_SlaveTwin_ComplimentDone() {
+	C101_KinbakuClub_SlaveTwin_Compliment = false;
+}
+
+// Chapter 101 - SlaveTwin - Player has asked if the twin enjoys this
+function C101_KinbakuClub_SlaveTwin_YouEnjoyItDone() {
+	C101_KinbakuClub_SlaveTwin_YouEnjoyIt = false;
+}
+
+// Chapter 101 - SlaveTwin - Player has talked the twin's underwear
+function C101_KinbakuClub_SlaveTwin_UnderwearDone() {
+	C101_KinbakuClub_SlaveTwin_Underwear = false;
+	if (!C101_KinbakuClub_SlaveTwin_BoyfriendAlreadyMentioned) {
+		C101_KinbakuClub_SlaveTwin_Boyfriend = true;
+		C101_KinbakuClub_SlaveTwin_BoyfriendAlreadyMentioned = true;
+	}
+}
+
+// Chapter 101 - SlaveTwin - Player has talked about the twin's boyfriend
+function C101_KinbakuClub_SlaveTwin_BoyfriendDone() {
+	C101_KinbakuClub_SlaveTwin_Boyfriend = false;
+}
+
+// Chapter 101 - SlaveTwin - Player has talked about the twin's boyfriend
+function C101_KinbakuClub_SlaveTwin_BondageComplimentDone() {
+	if (C101_KinbakuClub_SlaveTwin_BondageCompliment) ActorChangeAttitude(0, 1)
+	C101_KinbakuClub_SlaveTwin_BondageCompliment = false;
+}
+
 
 // Chapter 101 - SlaveTwin - Twin helps player into armbinder
 function C101_KinbakuClub_SlaveTwin_PlayerArmbinder() {
@@ -371,6 +432,23 @@ function C101_KinbakuClub_SlaveTwin_EggAndBelt() {
 function C101_KinbakuClub_SlaveTwin_Leave() {
 	SetScene(LeaveChapter, LeaveScreen);
 }
+
+// Chapter 101 - SlaveTwin - Twin mentions her boyfriend
+function C101_KinbakuClub_SlaveTwin_MentionedBoyfriend() {
+	if (!C101_KinbakuClub_SlaveTwin_BoyfriendAlreadyMentioned) {
+		C101_KinbakuClub_SlaveTwin_Boyfriend = true;
+		C101_KinbakuClub_SlaveTwin_BoyfriendAlreadyMentioned = true;
+	}
+}
+
+// Chapter 101 - SlaveTwin - Lucy could tell you more about her last boyfriend
+function C101_KinbakuClub_SlaveTwin_CanTellMore() {
+	if (C101_KinbakuClub_SlaveTwin_KidnappedTwin == "Lucy" && (ActorGetValue(ActorLove) + (ActorGetValue(ActorSubmission) / 2)) >= 10) {
+		OverridenIntroText = GetText("WillTellMore");
+		C101_KinbakuClub_SlaveTwin_CurrentStage = 75;
+	}
+}
+
 
 // Chapter 101 - SlaveTwin - The Twin helps
 function C101_KinbakuClub_SlaveTwin_HelpPlayer() {

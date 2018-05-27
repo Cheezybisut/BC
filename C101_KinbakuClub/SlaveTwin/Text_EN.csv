@@ -22,7 +22,9 @@ NoUniformRemove,Hey stop that. (She fends you off and|prevents you removing her 
 RemovingUniform,(Reluctantly she lets you remove her uniform.)
 UnableToHelp,"(She shrugs, looking down at her own bondage."
 SorryNoHelp,"Sorry, I'm not much use like this either."
+ManaclesNoHelp,"Sorry, looks like we are both|stuck in these manacles now."
 WillHelp,"Okay then, you want help to escape that bondage?"
+WillTellMore,"Right, you have to promise not to|tell anyone else about this though."
 NoKeys,"Sorry, I don't have any keys for locks."
 NoKeysRemoveGag,I don't have any keys for locks.|But I can at least help with that gag.
 HeatherRevenge,Actually I have a better idea.|(She pulls you over here knee and spanks you.)

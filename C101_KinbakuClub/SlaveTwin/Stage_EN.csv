@@ -12,24 +12,25 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 10,0,0,,(Play with her.),"(You eye her up, woundering what to do with her.)",200,0,0,
 10,0,0,TwinRestrained,(Free her arms.),(Once her arms are free she quickly|removes all the bondage she can.),10,0,0,AlmostFreed()
 10,0,0,TiedLegs,(Untie her legs.),"(You remove the rope from her legs,|allowing her to stay up more easily.)",10,0,0,UntieLegs()
-10,0,0,!SkirtRemoved,(Remove her skirt.),"(You pull down her skirt,|revealing skimpy lacy underwear.)",10,-1,0,RemoveSkirt()
+10,0,0,!SkirtRemoved,(Remove her skirt.),"(You pull down her skirt,|revealing skimpy lacy underwear.)",10,0,0,RemoveSkirt()
 10,0,0,!UniformRemoved,(Remove her uniform.),(You can not remove her uniform|with her arms in bondage.),10,0,0,RemoveUniform()
 10,0,0,!TwinRestrained,(Lock her arms|in the Manacles.),(You force her arms behind her|and lock them into the manacles.),10,0,1,ManacleArms()
 10,0,0,!TiedLegs,(Lock her legs|in the Manacles.),(You make her kneel down and|lock her legs into the manacles.),10,0,1,ManacleLegs()
-15,0,0,,(Tie her|asymmetrically.),"(You manage to tie her up.)|Oww, why do you have to tie me up like this?",10,,,TieUp(1)
-15,0,0,,(Tie her elbows|together.),"(You manage to tie her up.)|Oww, why do you have to tie me up like this?",10,,,TieUp(2)
-15,0,0,,(Tie her arms|behind her.),(You manage to tie her up.)|I suppose this is better than how I was tied up earlier.,10,,,TieUp(3)
+15,0,0,,(Tie her|asymmetrically.),"(You manage to tie her up.)|Oww, why do you have to tie me up like this?",10,0,0,TieUp(1)
+15,0,0,,(Tie her elbows|together.),"(You manage to tie her up.)|Oww, why do you have to tie me up like this?",10,0,0,TieUp(2)
+15,0,0,,(Tie her arms|behind her.),(You manage to tie her up.)|I suppose this is better than how I was tied up earlier.,10,0,0,TieUp(3)
 20,0,0,,(Adjust her|bondage.),"(You eye her up, woundering what to do with her.)",10,0,0,
 20,0,0,,(Play with her.),"(You eye her up, woundering what to do with her.)",200,0,0,
 20,0,0,,Could you help|restrain me?,There isn't much I can do like this.,20,0,0,RestrainMe()
 20,0,0,Jenna,What's up between|you and Jenna?,"It's not me, it's with Heather.  She tricked Jenna last|week and rumour is Jenna still has the scars.",30,0,0,JennaDone()
-20,0,0,Compliment,You look adorable|like that.,,40,0,0,ComplimentDone()
+20,0,0,Compliment,You look adorable|like that.,"That doesn't mean much in a room full of girls.|Wait, why are you looking at me like that?",40,0,0,ComplimentDone()
 20,0,0,YouEnjoyIt,Are you|enjoying this?,"No, I didn't join this club to be bound and gagged.",50,0,0,YouEnjoyItDone()
-20,0,0,Boyfriend,So your boyfirend|is into bondage?,"Not the current one, it was the last one who|tought me a lot of Kinbaku the hard way.",60,0,0,BoyfriendDone()
+20,0,0,Underwear,"Nice underwear, the|girls must love you.",What! No. I have a boyfriend.,60,0,0,UnderwearDone()
+20,0,0,Boyfriend,So your boyfirend|is into bondage?,"Not the current one, it was the last one who|tought me a lot of Kinbaku the hard way.",70,0,0,BoyfriendDone()
 20,0,0,TiedLegs,That bondage suits you.,Could you at least untie my legs please.|I can barely stay up like this.,20,0,0,BondageComplimentDone()
-20,,,,,,,,,
-21,0,0,HasArmbinder,I need help with|this armbinder.,"Okay.  (She takes the armbinder, helps slide your arms|into it and securely tightens it.)  How is it?",22,0,-1,PlayerArmbinder()
-21,0,0,HasRope,Could you tie me up?,"Okay.  (You remove your uniform and she starts tying|you up.)  There you go, nice and tight.",22,0,-1,PlayerRope()
+20,0,0,!TiedLegs,That bondage suits you.,"No it doesn't, its embarissing.|Could you please find a way to let me go now.",20,0,0,BondageComplimentDone()
+21,0,0,PlayerHasArmbinder,I need help with|this armbinder.,"Okay.  (She takes the armbinder, helps slide your arms|into it and securely tightens it.)  How is it?",22,0,-1,PlayerArmbinder()
+21,0,0,PlayerHasRope,Could you tie me up?,"Okay.  (You remove your uniform and she starts tying|you up.)  There you go, nice and tight.",22,0,-1,PlayerRope()
 21,0,0,,You can use any|of my items.,Okay.  (She picks some of your items|and uses them on you.)  How is that?,22,0,-1,RandomBondage()
 21,0,0,,I was just kidding.,Could you stop fooling around and help|find a way to unlock these damn manacles.,20,-1,0,NoKidding()
 22,0,0,,"Oww, that's|too tight.","Sorry, but you did ask.",20,0,-1,FurtherBondage()
@@ -51,38 +52,89 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 24,0,0,,Thank you mistress.,I'm not your mistress.|I'm sure there are others that would love you as their pet.,5,0,-1,CanLeave()
 24,0,0,Common_PlayerGagged,@Thhng nhh mnftrmff.,I'm not your mistress.|I'm sure there are others that would love you as their pet.,5,0,-1,CanLeave()
 24,0,0,,(Get away from her.),,5,0,0,Leave()
-30,,,,What did Heather do?,"We don't know, but I think Heather had Jenna|tied up with no one else about.",31,0,0,
-30,,,,I bet Jenna|deserved it.,"Maybe. Jenna can be very tough, but even so|to be tied up with no one else about.",31,0,1,
-30,,,,,,,,,
-31,,,,So Jenna will take|it out on you?,,,,,
-,,,,,,,,,
-,,,,,,,,,
-40,,,,To Do,To Do,,,,
-50,,,,To Do,To Do,,,,
-60,,,,To Do,To Do,,,,
-31,,,,,,,,,
-31,,,,,"The cute good girl style is for my boyfriend,|knowing it hides a minx underneith teases him.",,,,
-31,,,,Does he tie|you up?,"No, but he lets me practice Kinbaku on him from time|to time, if I wear something cute and tease him.",,,,
-31,,,,,,,,,
-31,,,,,"A previous boyfriend was into tying me up,|but I don't enjoy being tied up.",,,,
-31,,,,,,,,,
-31,,,,,,,,,
-100,,,,(Adjust her|bondage.),"(You eye her up, woundering what to do with her.)",10,0,0,
-100,,,,(Play with her.),"(You eye her up, woundering what to do with her.)",300,0,0,
+30,0,0,,What did Heather do?,"We don't know, but I think Heather had Jenna|tied up with no one else about.",31,0,0,
+30,0,0,,I bet Jenna|deserved it.,"Maybe. Jenna can be very tough, but even so|to be tied up with no one else about.",31,0,1,
+31,0,0,,So Jenna will take|it out on you?,"Most of the club can't tell us apppart,|Jenna might think I'm Heather.",32,0,0,
+31,0,0,,Maybe Jenna should|punish you.,But I'm Lucy and it was Heather that did it to her.,32,-1,1,
+31,0,0,,I could tell her|it wasn't you.,"That might help, but I don't|think she will take any chances.",32,1,0,
+32,0,0,,Maybe you are heather|and you deserve it.,"No please you have got to believe me, I am Lucy.",33,-1,1,
+32,0,0,,Can you prove|you are Lucy.,"Not easily, Heather is very good at impersonating me.|She even wears the same underwear.",33,0,0,
+32,0,0,,We should|expose Heather.,"That isn't easy, she would only reveal herself when|it's too late for you to do anything about it.",33,1,0,
+33,0,0,,I'll get that key.,"Oh thank you, please hurry.",20,1,0,
+33,0,0,,I'll let Jenna|decide your fate.,"No please, you've got help me escape.",20,0,1,
+33,0,0,,Jenna won't touch|my slave.,"You don't unsderstand.  Loocked in these manacles|makes me Jenna's slave, unless you have a key.",20,-1,1,
+33,0,0,,I'll make Heather confess.,"That would be great.  Wait, you do know its my|sister that needs to confess, not me?",20,1,1,
+40,0,0,,"Come on, you're a catch.","Well I suppose my boyfriend adores me,|but not really in bondage.",41,1,0,MentionedBoyfriend()
+40,0,0,,Can't you take|a compliment?,"If thats a compliment, it's not very flattering|unless it came from my boyfriend.",41,0,0,MentionedBoyfriend()
+40,0,1,,Don't deny your|feelings to me.,"What, no all my feelings are for my boyfriend.",41,0,1,MentionedBoyfriend()
+40,0,0,,"It's nothing,|I.. er.. just....","Forget it, have a boyfriend.",20,0,-1,MentionedBoyfriend()
+41,0,0,,Don't you have any|feelings for girls?,Not those sort of feelings.,20,0,0,
+41,0,0,,You are helpless for|me right now.,"Helpless maybe, but I don't share whatever|feelings you seem to have.",20,-1,1,
+41,0,0,,I suppose he|prefers you gagged.,No we just have a normal relationship.,20,-1,0,
+41,0,0,,He would adore|you right now.,I don't realy know about that.,20,1,1,
+50,0,0,,So why did you join?,"I happen to know a bit about rope techniques,|so Jenna twisted my arm into joining.",51,0,0,
+50,0,0,,You like tying|girls up then?,"Not realy, no. Jenna persuaded me to join,|to pass on some techniques I knew.",51,0,0,
+50,0,0,,You wouldn't stay|if your didn't.,"No, it's no like that.|I just come to help others with techniques.",51,0,1,
+51,0,0,,"You help do, letting|us practice on you.","I was only supposed to be telling others,|not being the model as well.",20,0,1,
+51,0,0,,You could|demonstrate on me.,"Not now. Even with my hands free,|its kind of awkward chained on this short leash.",52,0,-1,
+51,0,0,,Would you teach me|some new techniques?,"Yes, if you can get me out of these damn manacles.",52,1,0,
+52,0,0,,You can demonstrate|like that.,"No please, its realy is awkward tying with some|methods if you can't move around freely.",20,0,-1,
+52,0,0,,"If I free you,|you will teach me.","Yes, anything, if you can unlock these chains now.",20,0,1,
+52,0,0,,I had better|free you then.,"Yes, then I will help you.",20,1,0,
+60,0,0,,You come to an all|girls college in them.,My boyfriend is at a co-ed college.|I like to keep his mind focused on me all day.,20,0,0,
+60,0,0,,Well I like|you in them.,"Umm, thanks. It's rather embarrassing|being exposed like this though.",20,1,1,
+60,0,0,,He must be into sluts.,"NO I'm no slut. They are sexy,|but they were meant for his eyes only.",20,-1,1,
+70,0,0,,Does your current|boyfriend tie you up?,"No, but he lets me practice Kinbaku on him from time|to time, if I wear something cute and tease him.",71,0,0,
+70,0,0,,A lot? You must|have enjoyed it.,"Not realy. I did it for him,|but it got out of hand.",73,0,0,
+71,0,0,,So you do enjoy it.,"Well maybe a little, it's good to wear the trousers,|even if I'm actually wearing a skirt at the time.",20,1,0,
+71,0,0,,You could tease me|wearing something cute.,"You're not my boyfriend,|but I would bind and gag you to shut you up.",20,0,-1,
+73,0,0,,What happened,I don't want to talk about it.,74,0,0,
+73,0,0,,Did you start enjoying|it too much?,"No, although that might have been better.|I don't want to talk about it.",74,-1,0,
+74,0,0,,"Okay, I won't|make you tell.","Thanks, so would you please find|a way to free me instead?",20,1,0,
+74,0,0,,Aww please. I'll|let you tie me up.,"No, but I could bind and gag|you to stop you pestering me.",20,0,-1,CanTellMore()
+74,0,0,,Don't make me tease|it out of you.,"Stop that please, I realy don't|want to talk about it with you.",20,-1,-1,CanTellMore()
+74,3,0,,"It's okay, you|can talk to a friend.","Sorry, we arn't that closer friends and|realy I don't what this becoming gossip.",20,1,0,CanTellMore()
+75,0,0,,"I promise,|I won't tell a sole.",Okay then. (She takes a deep breath)|Heather pretended to me and flirted with him.,76,0,0,
+75,0,0,,I won't promise anything.,Then you don't need to know anything either.,20,0,0,
+75,0,0,!TwinRestrained,I will pinky promise.,"(She laughs at you, before shaking little fingers.)|Heather pretended to me and flirted with him.",76,1,-1,
+75,0,0,,Hurry up and dish|the dirt already.,Forget it. All everyone seems to care about is gossip.,20,-1,0,
+76,0,0,,"No, thats not on.|What did he think.","He just though it was me and I was realy up for it.|He stripped her, tied her up and started undressing.",77,1,0,
+76,0,0,,I thought twins would|be used to that.,"Yes, but he though she was me and realy up for it.|He stripped her, tied her up and started undressing.",77,0,0,
+76,0,0,,You should have been|with him instead.,"You can't be around someone the entire time.|He stripped Heather, tied her up and started undressing.",77,-1,0,
+77,0,0,,She wanted kinky sex|with your boyfriend?,"No, she was just fooling around, but he gagged her|with her own panties and ignored her screams.",78,0,0,
+77,0,0,,That should|server her right.,"She might be a pain, but she didn't deserve gagging|her with her own panties and him ignoring real screams.",78,-1,1,
+77,0,0,,How did he|tie her up?,"He had ball tied her to expose her, if that matters?|He then pantie gagged when she started screaming.",78,-1,0,
+78,0,0,,"Oh my, he raped|your sister.",Thankfully not.|I heard the commotion and walk in just in time.,79,0,0,
+78,0,0,,Did he do that|with you as well?,"We might have tried a few things from a kinky Kama|Sutra,  but never anything like that. I walk in just in time.",79,0,-1,
+78,0,0,,That sound like fun.,Maybe if that's your thing. It certaionly wasn't|Heather's.  I heard the commotion and walk in just in time.,79,-1,-1,
+79,0,0,,So you dumped him.,I should have reported him as well. Heather was|clearly terrified and he though it was okay to carry on.,80,0,0,
+79,0,0,,Did he know|you have a twin?,Yes. I suspect he even knew it was Heather he was|about too...    I should have reported him.,80,0,0,
+79,0,0,,It's a good thing|you were there.,I suppose so. He just laugh it off until I threatened|to report him. I probably should have done.,80,1,0,
+79,0,0,,You could|have joined her.,"That's not funny. Come to think of it, he picked up|more rope as I walked in. I should have reported him.",80,-2,0,
+80,0,0,,Is Heather|okay now?,"Heather is still Heather, but at least|she doesn't interfere with my boyfriends now.",20,1,0,
+80,0,0,,Are you okay?,"Yes, I am now.|I supose Heather inadvertently saved me from him.",20,1,0,
+80,0,0,,OMG that is dynamite.,Arrgh you thoughtless cow. Tell anyone about|this and I will rip your throat out.,20,-10,-1,
+80,0,0,,I'm here now.|We can report him.,"Thank you. I'm not sure though, I need time to think.",20,1,0,
+100,0,0,,(Adjust her|bondage.),"(You eye her up, woundering what to do with her.)",10,0,0,
+100,0,0,,(Play with her.),"(You eye her up, woundering what to do with her.)",200,0,0,
 100,,,,Could you help|restrain me?,There isn't much I can do like this.,20,0,0,RestrainMe()
 100,0,0,Jenna,What's up between|you and Jenna?,It was nothing really. She though I was Lucy and I just|asked to try a new Kinbaku technique on her.,110,0,0,JennaDone()
 100,0,0,Compliment,You look adorable|like that.,,120,0,0,ComplimentDone()
 100,0,0,YouEnjoyIt,Are you|enjoying this?,No way,130,0,0,YouEnjoyItDone()
-100,,,,,,,,,
+100,,,,,,100,,,
 100,0,0,TiedLegs,That bondage suits you.,Could you at least untie my legs please.|I can barely stay up like this.,100,0,0,BondageComplimentDone()
-100,,,,,,,,,
+100,,,,,,100,,,
 110,,,,To Do,To Do,100,,,
 120,,,,To Do,To Do,100,,,
 130,,,,To Do,To Do,100,,,
 200,0,0,,(Adjust her|bondage.),"(You eye her up, woundering what to do with her.)",10,0,0,
 200,0,0,!TwinGagged,Talk to her.,"Come on, you've had some fun, can you find a way to|unlock these manacles now, before Jenna gets back.",20,0,0,LucyCheck()
-200,,,,,,,,,
-200,,,,,,200,,,
+200,,,NeitherGagged,(Kiss her.),"(She pushes you away.)|Hey, your not my type.",200,,,Kiss()
+200,,,,(Tickle her.),(She pushes your hands away.)|Leave me alone.,200,,,Tickle()
+200,,,,(Spank her.),(She pushes your hands away.)|Leave me alone.,200,,,Spank()
+200,,,UniformRemoved,(Play with her breasts.),(She pushes you away.)|I'm not a lesbian.,200,,,PlayBreasts()
+200,,,SkirtRemoved,(Masturbate her.),(She pushes you away.)|I'm not a lesbian.,200,,,Masturbate()
+210,,,,Pretend I'm your boyfriend.,(She looks at you doubtfully.),200,,,
 300,0,0,,"Yes, help me out of this.",(She removes your bondage.),20,0,0,HelpPlayer()
 300,0,0,,No its not that.,"Oh, what do you want my help for then?",310,0,0,
 300,0,0,Common_PlayerGagged,(Nod your head.),(She removes your bondage.),20,0,0,HelpPlayer()
