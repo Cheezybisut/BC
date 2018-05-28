@@ -1,0 +1,4 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,@Get to sleep.|(End the day.),Are you sure you want to sleep?|This will end the day and the game.,10,0,0,
+10,0,0,,"@Yes, get to sleep.|(End the day.)",,10,0,0,EndChapter()
+10,0,0,,"@No, stay awake.|(Continue.)",You seem to have some energy left.,0,0,0,

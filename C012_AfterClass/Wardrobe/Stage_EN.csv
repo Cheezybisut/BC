@@ -1,0 +1,4 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,@School uniform.,,0,0,0,"Change(""Clothed"")"
+0,0,0,!Common_PlayerChaste,@Underwear.,,0,0,0,"Change(""Underwear"")"
+0,0,0,,@Get naked.,,0,0,0,"Change(""Naked"")"
