@@ -237,27 +237,27 @@ function C011_LiteratureClass_Mildred_EndQuizMildred(Victory) {
 	
 		// If the player was already hit, she gets hit again (chastity version)
 		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "RedButt_Cuffs_Chastity") { 
-			OverridenIntroText = GetText("TestPlayerCropAgain");
+			OverridenIntroText = GetText("TestPlayerCropAgainMildred");
 			OverridenIntroImage = "TestPlayerRedButtChastity.jpg";
 		}
 		
 		// If the player was already hit, she gets hit again
 		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "RedButt_Cuffs") { 
-			OverridenIntroText = GetText("TestPlayerCropAgain");
+			OverridenIntroText = GetText("TestPlayerCropAgainMildred");
 			OverridenIntroImage = "TestPlayerRedButt.jpg";
 		}
 
 		// If the player was stripped, she gets hit (chastity version)
 		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "NoSkirt_Cuffs_Chastity") { 
 			C011_LiteratureClass_Mildred_QuizPlayerStatus = "RedButt_Cuffs_Chastity";
-			OverridenIntroText = GetText("TestPlayerCrop");
+			OverridenIntroText = GetText("TestPlayerCropMildred");
 			OverridenIntroImage = "TestPlayerRedButtChastity.jpg";
 		}
 		
 		// If the player was stripped, she gets hit
 		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "NoSkirt_Cuffs") { 
 			C011_LiteratureClass_Mildred_QuizPlayerStatus = "RedButt_Cuffs";
-			OverridenIntroText = GetText("TestPlayerCrop");
+			OverridenIntroText = GetText("TestPlayerCropMildred");
 			OverridenIntroImage = "TestPlayerRedButt.jpg";
 		}
 
@@ -265,12 +265,12 @@ function C011_LiteratureClass_Mildred_EndQuizMildred(Victory) {
 		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "Clothed_Cuffs") { 
 			if (Common_PlayerChaste) { 
 				C011_LiteratureClass_Mildred_QuizPlayerStatus = "NoSkirt_Cuffs_Chastity";
-				OverridenIntroText = GetText("TestPlayerNoSkirtChastity"); 
-				OverridenIntroImage = "TestPlayerNoSkirtChastity.jpg"; 
+				OverridenIntroText = GetText("TestPlayerNoSkirtMildredChastity"); 
+				OverridenIntroImage = "TestPlayerNoSkirtChastity.jpg";
 			}
 			else { 
 				C011_LiteratureClass_Mildred_QuizPlayerStatus = "NoSkirt_Cuffs";
-				OverridenIntroText = GetText("TestPlayerNoSkirt"); 
+				OverridenIntroText = GetText("TestPlayerNoSkirtMildred"); 
 				OverridenIntroImage = "TestPlayerNoSkirt.jpg"; 
 			}
 		}
@@ -279,7 +279,7 @@ function C011_LiteratureClass_Mildred_EndQuizMildred(Victory) {
 		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "Clothed") {
 			PlayerLockInventory("Cuffs");
 			C011_LiteratureClass_Mildred_QuizPlayerStatus = "Clothed_Cuffs";
-			OverridenIntroText = GetText("TestPlayerCuffs");
+			OverridenIntroText = GetText("TestPlayerCuffsMildred");
 			OverridenIntroImage = "TestPlayerCuffs.jpg";
 		}
 

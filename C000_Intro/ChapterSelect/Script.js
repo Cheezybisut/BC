@@ -6,6 +6,7 @@ var C000_Intro_ChapterSelect_CreditActors = ["Player", "Amanda", "Sarah", "Sidne
 var C000_Intro_ChapterSelect_ThankYouCount = 999999;
 var C000_Intro_ChapterSelect_ThankYouList = ["Christian", "Overlord", "Bryce", "Xepherio", "Designated", "Ilsyra", "Jyeoh", "Winterisbest", "Michal", "David"];
 var C000_Intro_ChapterSelect_ThankYouCurrent = -1;
+var C000_Intro_ChapterSelect_CreditTextColor = "black";
 
 // Chapter Select Load
 function C000_Intro_ChapterSelect_Load() {
@@ -35,12 +36,12 @@ function C000_Intro_ChapterSelect_DrawCredits() {
 				C000_Intro_ChapterSelect_CreditPosition = 0;
 				return;
 			} else {
-				if (Cred.substr(0, 10) == "CreditType") DrawText(GetText(Cred), 800, Y, "black");
+				if (Cred.substr(0, 10) == "CreditType") DrawText(GetText(Cred), 800, Y, C000_Intro_ChapterSelect_CreditTextColor);
 				else {
-					if (Cred.indexOf("|") == -1) DrawText(Cred, 800, Y, "black");
+					if (Cred.indexOf("|") == -1) DrawText(Cred, 800, Y, C000_Intro_ChapterSelect_CreditTextColor);
 					else {
-						DrawText(Cred.substring(0, Cred.indexOf("|")), 700, Y, "black");
-						DrawText(Cred.substring(Cred.indexOf("|") + 1, 1000), 900, Y, "black");
+						DrawText(Cred.substring(0, Cred.indexOf("|")), 700, Y, C000_Intro_ChapterSelect_CreditTextColor);
+						DrawText(Cred.substring(Cred.indexOf("|") + 1, 1000), 900, Y, C000_Intro_ChapterSelect_CreditTextColor);
 					}
 				}
 			}

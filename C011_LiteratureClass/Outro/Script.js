@@ -35,9 +35,8 @@ function C011_LiteratureClass_Outro_Run() {
 
 	// Shows the text
 	DrawText(GetText("Outro1"), 400, 150, "White");
-	if (TextPhase >= 1) DrawText(GetText(C011_LiteratureClass_Outro_Type), 400, 250, "White");
-	if (TextPhase >= 2) DrawText(GetText("Outro2"), 400, 350, "White");
-	if (TextPhase >= 3) DrawText(GetText("Outro3"), 400, 450, "White");
+	if (TextPhase >= 1) DrawText(GetText(C011_LiteratureClass_Outro_Type), 400, 300, "White");
+	if (TextPhase >= 2) DrawText(GetText("Outro2"), 400, 450, "White");
 
 }
 
@@ -46,6 +45,6 @@ function C011_LiteratureClass_Outro_Click() {
 
 	// Jump to the next animation
 	TextPhase++;
-	if (TextPhase >= 4) SaveMenu("C101_KinbakuClub", "Intro");
+	if (TextPhase >= 3) SaveMenu("C012_AfterClass", "Intro");
 
 }
