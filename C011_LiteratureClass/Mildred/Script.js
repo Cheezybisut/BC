@@ -68,8 +68,8 @@ function C011_LiteratureClass_Mildred_StartQuiz(QuizChapter, Opponent) {
 	if (GameLogQuery("C009_Library", "", "ReadTwice")) AnswerGenSpeed = 1500;
 
 	// Loads the quiz
-	if (Opponent == "Sidney") QuizLoad("Player", C011_LiteratureClass_Mildred_QuizPlayerStatus, "Sidney", C011_LiteratureClass_Mildred_QuizSidneyStatus, "Mildred", "Clothed", "Easy", AnswerGenSpeed, 5, "Classroom", "MonteCristoChapter" + QuizChapter, "C011_LiteratureClass_Mildred_EndQuiz");
-	else QuizLoad("Player", C011_LiteratureClass_Mildred_QuizPlayerStatus, "Mildred", C011_LiteratureClass_Mildred_QuizMildredStatus, "Sidney", "Clothed", "Hard", AnswerGenSpeed, 5, "Classroom", "MonteCristoChapter" + QuizChapter, "C011_LiteratureClass_Mildred_EndQuizMildred");
+	if (Opponent == "Sidney") QuizLoad("Player", C011_LiteratureClass_Mildred_QuizPlayerStatus, "Sidney", C011_LiteratureClass_Mildred_QuizSidneyStatus, "Mildred", "Clothed", "Easy", AnswerGenSpeed, 3, "Classroom", "MonteCristoChapter" + QuizChapter, "C011_LiteratureClass_Mildred_EndQuiz");
+	else QuizLoad("Player", C011_LiteratureClass_Mildred_QuizPlayerStatus, "Mildred", C011_LiteratureClass_Mildred_QuizMildredStatus, "Sidney", "Clothed", "Hard", AnswerGenSpeed, 3, "Classroom", "MonteCristoChapter" + QuizChapter, "C011_LiteratureClass_Mildred_EndQuizMildred");
 
 }
 

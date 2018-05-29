@@ -51,7 +51,8 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 50,0,0,,(Look at your shoes.),COMMON_PLAYERNAME and Sidney!|Step forward and face back to each other.,60,0,0,
 50,0,0,Common_PlayerRestrained,(Tug on the cuffs.),COMMON_PLAYERNAME and Sidney!|Step forward and face back to each other.,60,0,0,
 50,0,0,!Common_PlayerRestrained,(Check your phone.),COMMON_PLAYERNAME and Sidney!|Step forward and face back to each other.,60,-1,0,
-60,0,0,,(Step forward.),"The test will be five quizzes of five questions on|chapters one to five from ""The Count of Monte Cristo"".",70,0,0,
+60,0,0,,(Step forward.),"The test will be five quizzes of five questions on|chapters one to five from ""The Count of Monte Cristo"".",65,0,0,
+65,0,0,,(Listen.),The first student to give three good answers wins|and the other will be punished.  Are you ready?,70,0,0,
 70,0,0,,(Start the test|for chapter 1.),,71,0,0,StartTest()
 71,0,0,,(Start the test|for chapter 2.),,72,0,0,StartTest()
 72,0,0,,(Start the test|for chapter 3.),,73,0,0,StartTest()
@@ -92,8 +93,8 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 150,0,0,,I was lucky.,"No, you have real talent.|This is very humiliating.",160,0,-1,
 150,0,0,,That was quite|a challenge.,"Yes, and you've won it.|This is very humiliating.",160,1,0,
 150,0,0,,You're horrible|at literature.,I guess you're correct.|This is very humiliating.,160,-1,0,
-160,0,0,,"Get out, I will|finish the class.","(Sidney unlocks and Mildred walks out|in shame, leaving her stuff behind.)",400,-1,1,FreeBoth()
-160,0,0,,You can take a break.|I'll do the tests.,"(Sidney unlocks and Mildred walks out|in shame, leaving her stuff behind.)",400,0,1,FreeBoth()
+160,0,0,,"Get out, I will|finish the class.",(Sidney unlocks and Mildred quits in shame.|She leaves you her items and her blazer.),400,-1,1,FreeBoth()
+160,0,0,,You can take a break.|I'll do the tests.,(Sidney unlocks and Mildred quits in shame.|She leaves you her items and her blazer.),400,0,1,FreeBoth()
 160,0,0,,"It's alright, you can|resume the tests.",(She nods while Sidney unlocks.  She starts|the tests again and regains her confidence.),300,1,0,FreeBoth()
 160,0,0,,"Yes, enough|humiliation.",(She nods while Sidney unlocks.  She starts|the tests again and regains her confidence.),300,0,0,FreeBoth()
 200,0,0,,Sidney was lucky.,Maybe she was lucky or maybe|you didn't studied hard enough.,210,0,0,
@@ -123,7 +124,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 350,0,0,Common_PlayerRestrained,(Watch the tests.),(Your last class will end in cuffs.),360,0,0,WaitTest()
 350,0,0,!Common_PlayerRestrained,(Watch the tests.),(Your last class will end|with lots of whipping.),360,0,0,WaitTest()
 360,0,0,,(Wait until 16:30.),,360,0,0,EndChapter()
-400,0,0,,(Take her items.),(You search in Mildred stuff and|find some very interesting items.),410,0,0,TakeItems()
+400,0,0,,(Take her items.),(You wear the teacher blazer and pick|every items that Mildred left behind.),410,0,0,TakeItems()
 410,0,0,,(Lead the tests.),"(Using the crop, you start leading|the literature tests yourself.)",420,0,0,WaitTest()
 420,0,0,,(Lead the tests.),(Some students do well.),430,0,0,WaitTest()
 430,0,0,,(Lead the tests.),(Some students fail.),440,0,0,WaitTest()

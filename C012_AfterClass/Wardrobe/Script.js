@@ -1,10 +1,27 @@
 var C012_AfterClass_Wardrobe_CurrentStage = 0;
+var C012_AfterClass_Wardrobe_CostumeHeroine = false;
+var C012_AfterClass_Wardrobe_CostumeVillain = false;
+var C012_AfterClass_Wardrobe_CostumeDamsel = false;
+var C012_AfterClass_Wardrobe_CostumeTennis = false;
+var C012_AfterClass_Wardrobe_CostumeJudo = false;
+var C012_AfterClass_Wardrobe_CostumeTeacher = false;
 
 // Chapter 12 After Class - Wardrobe Load
 function C012_AfterClass_Wardrobe_Load() {
+	
+	// Loads the scene to search in the wardrobe
 	LeaveIcon = "Leave";
 	LeaveScreen = "Dorm";
 	LoadInteractions();
+	
+	// Sets which costume are available based on what happened in the day
+	C012_AfterClass_Wardrobe_CostumeHeroine = GameLogQuery("C008_DramaClass", "Player", "RoleHeroine");
+	C012_AfterClass_Wardrobe_CostumeVillain = GameLogQuery("C008_DramaClass", "Player", "RoleVillain");
+	C012_AfterClass_Wardrobe_CostumeDamsel = GameLogQuery("C008_DramaClass", "Player", "RoleDamsel");
+	C012_AfterClass_Wardrobe_CostumeTennis = GameLogQuery("C007_LunchBreak", "Jennifer", "Lunch");
+	C012_AfterClass_Wardrobe_CostumeJudo = GameLogQuery("C005_GymClass", "Jennifer", "Judo");
+	C012_AfterClass_Wardrobe_CostumeTeacher = GameLogQuery("C011_LiteratureClass", "Player", "ClassLeader");
+	
 }
 
 // Chapter 12 After Class - Wardrobe Run

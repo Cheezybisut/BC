@@ -14,6 +14,7 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 48,0,0,,,SidneyCuffed.jpg
 50,0,0,,,MildredAngry.jpg
 60,0,0,,,MildredTeach.jpg
+65,0,0,,,MildredTeach.jpg
 70,0,0,,,MildredAngry.jpg
 71,0,0,,,MildredAngry.jpg
 72,0,0,,,MildredAngry.jpg
@@ -51,5 +52,5 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 420,0,0,,,LeadTest3.jpg
 430,0,0,,,LeadTest4.jpg
 440,0,0,,,LeadTest5.jpg
-450,0,0,,,LeadTest1.jpg
-460,0,0,,,LeadTest2.jpg
+450,0,0,,,LeadTest6.jpg
+460,0,0,,,LeadTest6.jpg
