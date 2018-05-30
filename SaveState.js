@@ -1,4 +1,4 @@
-var SaveGameVersion = "10B";
+var SaveGameVersion = "12A";
 var SaveChapter = "";
 var SaveScreen = "";
 var SaveMaxSlot = 9;

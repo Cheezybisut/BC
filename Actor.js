@@ -130,6 +130,14 @@ function ActorSpecificAddBondage(SpecificActor) {
 		}
 }
 
+// Returns the number of times that all actors were tied up during any chapter
+function ActorGetTotalBondageCount() {
+	var total = 0;
+	for (var A = 0; A < Actor.length; A++)
+		total = total + Actor[A][ActorBondageCount];
+	return total;
+}
+
 // Remove inventory from the current actor
 function ActorRemoveInventory(RemInventory) {
 
