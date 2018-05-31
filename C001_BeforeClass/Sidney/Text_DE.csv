@@ -55,5 +55,5 @@ Du zwingst sie, sich umzudrehen.),230,0,0,
 250,0,0,,(Trenne sie.),Endlich!  Das war eine scheiß idee!,220,0,0,
 250,0,0,,(Stopp die Küsse.),Gibs zu!  Ich bin besser als die Blonde.|(Sie versucht Amanda einzuschüchtern, die wegschaut.),240,0,0,
 250,0,0,,Love is in the air!,Du wirst in die Luft fliegen, wenn ich rauskomme.,250,0,0,
-250,2,0,,Kann ich auch ein Kuss bekommen?,"Mmmmmh, sicher, arum nicht?|(Sie dreht sich zu dir um dich zu küssen.)",250,0,0,
-300,-2,0,,Schlampe!  Suchst du ein Kampf?,,40,-1,0,Fight()
+250,2,0,,Kann ich auch ein Kuss bekommen?,"Mmmmmh, sicher, warum nicht?|(Sie dreht sich zu dir um dich zu küssen.)",250,0,0,
+300,-2,0,,Du Nutte!  Suchst du ein Kampf?,,40,-1,0,Fight()
