@@ -1,0 +1,7 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,KnowKinbakuClub,@Kinbaku Club,,0,0,0,LaunchKinbaku()
+0,0,0,KnowBondageClub,@Bondage Club,"Sorry, the Bondage Club isn't available yet.|It will be available in a future version.",0,0,0,
+0,0,0,,@Amanda,"Sorry, Amanda isn't available in this version.|She will be available in a future release.",0,0,0,
+0,0,0,,@Sarah,"Sorry, Sarah isn't available in this version.|She will be available in a future release.",0,0,0,
+0,0,0,,@Sidney,"Sorry, Sidney isn't available in this version.|She will be available in a future release.",0,0,0,
+0,0,0,,@Jennifer,"Sorry, Jennifer isn't available in this version.|She will be available in a future release.",0,0,0,
