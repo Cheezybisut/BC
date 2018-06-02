@@ -60,6 +60,7 @@ var Common_PlayerNotBlinded = true;
 var Common_PlayerClothed = true;
 var Common_PlayerUnderwear = false;
 var Common_PlayerNaked = false;
+var Common_PlayerCloth = "";
 var Common_PlayerCostume = "";
 var Common_PlayerPose = "";
 var Common_ClubStatus = "";

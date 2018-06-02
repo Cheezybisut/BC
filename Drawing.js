@@ -436,7 +436,7 @@ function DrawGetPlayerImageName(IncludePose) {
 
 // Draw the regular player image (600x600) (can zoom if an X and Y are provided)
 function DrawPlayerImage(X, Y) {
-	if ((Common_PlayerCostume == "Tennis") || (Common_PlayerCostume == "Judo") || (Common_PlayerCostume == "Teacher")) {
+	if ((Common_PlayerCostume == "Tennis") || (Common_PlayerCostume == "Judo") || (Common_PlayerCostume == "Teacher") || (Common_PlayerCostume == "BlackDress")) {
 		DrawRect(600, 0, 1200, 600, "White");
 		DrawTransparentPlayerImage(600, 0, 1);
 	} else {
