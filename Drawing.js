@@ -409,7 +409,7 @@ function DrawGetPlayerImageName(IncludePose) {
 
 	// Third part is the collar, which only shows for certain clothes
 	var ImageCollar = "";
-	if ((ImageCloth == "Underwear") || (ImageCloth == "Naked") || (ImageCloth == "ChastityBelt") || (ImageCloth == "Damsel") || (ImageCloth == "Tennis") || (ImageCloth == "Judo")) {
+	if ((ImageCloth == "Underwear") || (ImageCloth == "Naked") || (ImageCloth == "ChastityBelt") || (ImageCloth == "Damsel") || (ImageCloth == "Tennis") || (ImageCloth == "Judo") || (ImageCloth == "RedBikini")) {
 		if (PlayerHasLockedInventory("Collar")) ImageCollar = "_Collar";
 		else ImageCollar = "_NoCollar";
 	}
@@ -436,7 +436,7 @@ function DrawGetPlayerImageName(IncludePose) {
 
 // Draw the regular player image (600x600) (can zoom if an X and Y are provided)
 function DrawPlayerImage(X, Y) {
-	if ((Common_PlayerCostume == "Tennis") || (Common_PlayerCostume == "Judo") || (Common_PlayerCostume == "Teacher") || (Common_PlayerCostume == "BlackDress")) {
+	if ((Common_PlayerCostume == "Tennis") || (Common_PlayerCostume == "Judo") || (Common_PlayerCostume == "Teacher") || (Common_PlayerCostume == "BlackDress") || (Common_PlayerCostume == "WhiteLingerie") || (Common_PlayerCostume == "RedBikini")) {
 		DrawRect(600, 0, 1200, 600, "White");
 		DrawTransparentPlayerImage(600, 0, 1);
 	} else {
