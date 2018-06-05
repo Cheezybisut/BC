@@ -79,6 +79,7 @@ function C101_KinbakuClub_Slaves_CalcParams() {
 	C101_KinbakuClub_Slaves_PlayerVeryArousedGagged = C101_KinbakuClub_Slaves_PlayerVeryAroused && Common_PlayerGagged;
 	C101_KinbakuClub_Slaves_PlayerVeryAroused = (C101_KinbakuClub_Slaves_PlayerArousal > 400);
 	C101_KinbakuClub_Slaves_NotGaggedForIt = C101_KinbakuClub_Slaves_NotGaggingForIt && Common_PlayerGagged;
+	if (PlayerHasLockedInventory("Manacles")) PlayerClothes("Underwear");
 }
 
 // Chapter 101 - Slaves Load

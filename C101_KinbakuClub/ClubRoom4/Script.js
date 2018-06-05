@@ -66,7 +66,42 @@ function C101_KinbakuClub_ClubRoom4_Run() {
 		}
 
 		if (C101_KinbakuClub_SlaveTwin_Kneeling) {
+			// Legs
+			var TwinLegs = "Shoes";
+			if (C101_KinbakuClub_SlaveTwin_UniformRemoved) TwinLegs = "BareFeet";
+			DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinKneelingLegs" + TwinLegs + ".png", 690, 420);
 
+			// Chastity belt
+			if (ActorSpecificHasInventory(C101_KinbakuClub_SlaveTwin_KidnappedTwin, "ChastityBelt")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinKneelingChastityBelt.png", 705, 430);
+
+			// Torso
+			var TwinTorso = "Uniform";
+			if (ActorSpecificGetValue(C101_KinbakuClub_SlaveTwin_KidnappedTwin, ActorCloth) == "Underwear") TwinTorso = "Underwear";
+			if (!ActorSpecificIsRestrained(C101_KinbakuClub_SlaveTwin_KidnappedTwin)) TwinTorso = TwinTorso + "NoBondage";
+			if (ActorSpecificHasInventory(C101_KinbakuClub_SlaveTwin_KidnappedTwin, "Rope")) {
+				if (C101_KinbakuClub_SlaveTwin_TiedAsymmetric) TwinTorso = TwinTorso + "AsymmetricTie";
+				if (C101_KinbakuClub_SlaveTwin_TiedElbowsTouching) TwinTorso = TwinTorso + "ElbowTie";
+				if (!C101_KinbakuClub_SlaveTwin_TiedAsymmetric && !C101_KinbakuClub_SlaveTwin_TiedElbowsTouching) TwinTorso = TwinTorso + "BoxTie";
+			}
+			if (ActorSpecificHasInventory(C101_KinbakuClub_SlaveTwin_KidnappedTwin, "Cuffs")) TwinTorso = TwinTorso + "Cuffs";
+			if (ActorSpecificHasInventory(C101_KinbakuClub_SlaveTwin_KidnappedTwin, "Armbinder")) TwinTorso = TwinTorso + "Armbinder";
+			if (ActorSpecificHasInventory(C101_KinbakuClub_SlaveTwin_KidnappedTwin, "Manacles")) TwinTorso = TwinTorso + "Manacles";
+			DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinKneeling" + TwinTorso + ".png", 677, 180);
+
+			// Extras
+			if (ActorSpecificGetValue(C101_KinbakuClub_SlaveTwin_KidnappedTwin, ActorCloth) == "Underwear" && ActorSpecificHasInventory(C101_KinbakuClub_SlaveTwin_KidnappedTwin, "ChastityBelt") && !ActorSpecificHasInventory(C101_KinbakuClub_SlaveTwin_KidnappedTwin, "Rope")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinKneelingChastityBelt.png", 705, 430);
+			if (C101_KinbakuClub_SlaveTwin_Blushing) DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinKneelingBlush.png", 734, 291);
+			if (ActorSpecificHasInventory(C101_KinbakuClub_SlaveTwin_KidnappedTwin, "Blindfold")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinKneelingBlindfold.png", 730, 277);
+			if (ActorSpecificHasInventory(C101_KinbakuClub_SlaveTwin_KidnappedTwin, "BallGag")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinKneelingBallGag.png", 734, 259);
+			if (ActorSpecificHasInventory(C101_KinbakuClub_SlaveTwin_KidnappedTwin, "ClothGag")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinKneelingClothGag.png", 732, 296);
+			if (ActorSpecificHasInventory(C101_KinbakuClub_SlaveTwin_KidnappedTwin, "TapeGag")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinKneelingTapeGag.png", 744, 302);
+			if (!C101_KinbakuClub_SlaveTwin_SkirtRemoved) {
+				if (C101_KinbakuClub_SlaveTwin_SkirtPullDown) DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinKneelingSkirtPulledDown.png", 691, 510);
+				if (!C101_KinbakuClub_SlaveTwin_SkirtPullDown) {
+					if (ActorSpecificGetValue(C101_KinbakuClub_SlaveTwin_KidnappedTwin, ActorCloth) == "Underwear") DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinKneelingSkirtUnderwear.png", 695, 416);
+					else DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinKneelingSkirt.png", 695, 416);
+				}
+			}
 		}
 	}
 

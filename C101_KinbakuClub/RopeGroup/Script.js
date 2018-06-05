@@ -198,6 +198,12 @@ function C101_KinbakuClub_RopeGroup_FreeRightTwin() {
 	C101_KinbakuClub_RopeGroup_RightTwinReleased = true;
 }
 
+// Chapter 101 - RopeGroup - 
+function C101_KinbakuClub_RopeGroup_WouldYourSister() {
+	if (ActorGetValue(ActorName) == "Lucy") OverridenIntroText = GetText("WouldYourSisterNod");
+	if (ActorGetValue(ActorName) == "Heather") OverridenIntroText = GetText("WouldYourSisterShake");
+}
+
 // Chapter 101 - RopeGroup - Released twin common
 function C101_KinbakuClub_RopeGroup_RightTwin() {
 	OverridenIntroImage = "RightTwin.jpg";
@@ -211,4 +217,10 @@ function C101_KinbakuClub_RopeGroup_RightTwin() {
 // Chapter 101 - RopeGroup - Finish talking to twin on the right
 function C101_KinbakuClub_RopeGroup_CancelOverride() {
 	OverridenIntroImage = "";
+}
+
+
+
+// Chapter 101 - RopeGroup - 
+function C101_KinbakuClub_RopeGroup_template() {
 }
