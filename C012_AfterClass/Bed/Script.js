@@ -2,6 +2,7 @@ var C012_AfterClass_Bed_CurrentStage = 0;
 var C012_AfterClass_Bed_PleasureUp = 0;
 var C012_AfterClass_Bed_PleasureDown = 0;
 var C012_AfterClass_Bed_NextPossibleOrgasmTime = 0;
+var C012_AfterClass_Bed_MasturbationRequired = 0;
 
 // Chapter 12 After Class - Bed Load
 function C012_AfterClass_Bed_Load() {
@@ -11,6 +12,8 @@ function C012_AfterClass_Bed_Load() {
 	C012_AfterClass_Bed_CurrentStage = 0;
 	C012_AfterClass_Bed_PleasureUp = 0;
 	C012_AfterClass_Bed_PleasureDown = 0;
+	if (PlayerHasLockedInventory("VibratingEgg")) C012_AfterClass_Bed_MasturbationRequired = 2;
+	else C012_AfterClass_Bed_MasturbationRequired = 3;
 }
 
 // Chapter 12 After Class - Bed Run
@@ -59,7 +62,7 @@ function C012_AfterClass_Bed_MasturbateDown() {
 		if (Common_PlayerChaste) OverridenIntroText = GetText("Chaste");
 		else {
 			C012_AfterClass_Bed_PleasureDown++;
-			if ((C012_AfterClass_Bed_PleasureUp > 2) && (C012_AfterClass_Bed_PleasureDown > 2)) {
+			if ((C012_AfterClass_Bed_PleasureUp >= C012_AfterClass_Bed_MasturbationRequired) && (C012_AfterClass_Bed_PleasureDown >= C012_AfterClass_Bed_MasturbationRequired)) {
 				C012_AfterClass_Bed_CurrentStage = 110;
 				OverridenIntroText = GetText("GettingClose");
 			}
