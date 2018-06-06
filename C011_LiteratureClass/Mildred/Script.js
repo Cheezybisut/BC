@@ -9,6 +9,7 @@ var C011_LiteratureClass_Mildred_TestChapter = 1;
 var C011_LiteratureClass_Mildred_PlayerVictoryCount = 0;
 var C011_LiteratureClass_Mildred_SidneyVictoryCount = 0;
 var C011_LiteratureClass_Mildred_MildredVictoryCount = 0;
+var C011_LiteratureClass_Mildred_LosingTest = false;
 
 // Chapter 11 - Mildred Load
 function C011_LiteratureClass_Mildred_Load() {
@@ -187,6 +188,9 @@ function C011_LiteratureClass_Mildred_EndQuiz(Victory) {
 		}
 	
 	}
+
+	// Flag to tell that player is currently losing the test
+	C011_LiteratureClass_Mildred_LosingTest = (C011_LiteratureClass_Mildred_PlayerVictoryCount < C011_LiteratureClass_Mildred_SidneyVictoryCount);
 
 }
 
@@ -411,4 +415,11 @@ function C011_LiteratureClass_Mildred_EasyLeader() {
 	ActorSpecificChangeAttitude("Sidney", 2, 0);
 	ActorSpecificChangeAttitude("Natalie", 2, 0);
 	GameLogSpecificAdd(CurrentChapter, "", "EasyLeader");
+}
+
+// Chapter 11 - Give up the test before it ends (only available if the player is losing)
+function C011_LiteratureClass_Mildred_GiveUpTest() {
+	GameLogSpecificAdd(CurrentChapter, "", "GiveUpVersusSidney");
+	GameLogSpecificAdd(CurrentChapter, "", "LostVersusSidney");
+	OverridenIntroImage = "";
 }

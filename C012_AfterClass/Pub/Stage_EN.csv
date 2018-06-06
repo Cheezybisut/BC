@@ -1,0 +1,4 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,SidneyAvail,Sidney,,100,0,0,SidneyStart()
+0,0,0,,Wait for a while,You wait for a little while and|check the crowd at the pub.,0,0,0,Wait()
+0,0,0,,Leave the pub,,0,0,0,Leave()

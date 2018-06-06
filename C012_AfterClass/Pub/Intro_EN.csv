@@ -1,0 +1,4 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,EmptyPub,The pub is pretty empty at this hour.|Nobody from the college is around.,Pub.jpg
+0,0,0,!EmptyPub,Students gather at the pub after school.|Who would you like to meet?,Pub.jpg
+100,0,0,,,PubActor.jpg

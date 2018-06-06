@@ -55,8 +55,11 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 65,0,0,,(Listen.),The first student to give three good answers wins|and the other will be punished.  Are you ready?,70,0,0,
 70,0,0,,(Start the test|for chapter 1.),,71,0,0,StartTest()
 71,0,0,,(Start the test|for chapter 2.),,72,0,0,StartTest()
+71,0,0,LosingTest,Miss Mildred.  I give up.|I haven't read the book.,You should be ashamed of yourself little miss.|Return to your seat and study harder next time.,210,-2,-2,GiveUpTest()
 72,0,0,,(Start the test|for chapter 3.),,73,0,0,StartTest()
+72,0,0,LosingTest,Miss Mildred.  I give up.|I haven't read the book.,You should be ashamed of yourself little miss.|Return to your seat and study harder next time.,210,-2,-2,GiveUpTest()
 73,0,0,,(Start the test|for chapter 4.),,74,0,0,StartTest()
+73,0,0,LosingTest,Miss Mildred.  I give up.|I haven't read the book.,You should be ashamed of yourself little miss.|Return to your seat and study harder next time.,210,-2,-2,GiveUpTest()
 74,0,0,,(Start the test|for chapter 5.),,75,0,0,StartTest()
 75,0,0,,The test is over?,"Yes, congratulations on your victory.",100,0,0,CheckForWinner()
 75,0,0,,That was a fun test.,"Indeed, congratulations on your victory.",100,1,0,CheckForWinner()
