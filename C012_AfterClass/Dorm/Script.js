@@ -6,6 +6,10 @@ function C012_AfterClass_Dorm_Load() {
 	Common_BondageAllowed = true;
 	Common_SelfBondageAllowed = true;
 	
+	// Resets the other locations from the Dorm
+	C012_AfterClass_Pub_CurrentStage = 0;
+	C012_AfterClass_Roommates_CurrentStage = 0;
+	
 }
 
 // Chapter 12 - After Class Dorm Run

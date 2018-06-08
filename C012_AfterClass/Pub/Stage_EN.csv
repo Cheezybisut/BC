@@ -1,4 +1,19 @@
 Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
-0,0,0,SidneyAvail,Sidney,,100,0,0,SidneyStart()
-0,0,0,,Wait for a while,You wait for a little while and|check the crowd at the pub.,0,0,0,Wait()
-0,0,0,,Leave the pub,,0,0,0,Leave()
+0,0,0,SidneyAvail,Meet Sidney.,,0,0,0,SidneyStart()
+0,0,0,,Wait for a while.,You wait for a little while and|check the crowd at the pub.,0,0,0,Wait()
+0,0,0,,Leave the pub.,,0,0,0,Leave()
+100,0,0,Common_PlayerChaste,I have the same problem.|I'll find a way out.,Fine!  But find a solution quick.|This belt is driving me insane.,101,1,0,
+100,0,8,,"Calm down girl, this belt|will come off when I decide.",(She bows her head.)  Very well Miss.|But know that this is drving me insane.,101,0,1,
+100,8,0,,This is only to tease|you a little sweetie.,(She blushes.)  Tease me for what?|You know that this is driving me insane?,101,1,0,
+100,0,0,,I have no idea|how to unlock it.,Don't mess with shit you don't understand!|You know that this is driving me insane?,101,0,-1,
+100,0,0,,You'd better learn|to live with it.,Fuck you then!  I'll find a way out.|You know that this is driving me insane?,101,-1,0,
+100,0,0,,I have some tools|for it at the dorm.,Great!  Maybe it could work.|This belt is driving me insane.,101,1,0,
+100,0,0,,You'll find a way|to remove it.,I guess.  But it better be soon.|This belt is driving me insane.,101,0,0,
+101,0,0,,It will help you|with self-control.,I don't need self-control!|(She punches the table.),102,0,1,
+101,0,8,,This is part of|your training.,Training?  What the fuck?|(She punches the table.),102,0,1,
+101,0,0,,It's a very short drive.|You're already insane.,You're not funny COMMON_PLAYERNAME!|(She punches the table.),102,-1,0,
+101,0,0,,"Yeah, it must|be frustrating.",Fuck yeah it's frustrating!|(She punches the table.),102,0,0,
+102,0,0,,Don't get mad.,You don't want to...  (She pauses.)  Oh fuck!|(She checks around and ducks behind the counter.),102,0,0,
+102,0,0,,Don't hurt me!,You're pathetic girl.  (She pauses.)  Oh fuck!|(She checks around and ducks behind the counter.),200,0,-1,SidneyDuck()
+102,0,0,,You want to fight?,Let's fight then!  (She pauses.)  Oh fuck!|(She checks around and ducks behind the counter.),200,0,1,SidneyDuck()
+102,0,0,,Nice!  That was|quite a punch.,Damn right girl!  (She pauses.)  Oh fuck!|(She checks around and ducks behind the counter.),200,1,-1,SidneyDuck()

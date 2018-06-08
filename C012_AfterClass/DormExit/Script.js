@@ -42,7 +42,7 @@ function C012_AfterClass_DormExit_LaunchKinbaku() {
 // Chapter 12 After Class - Launch the Roommates Dorm
 function C012_AfterClass_DormExit_LaunchRoommatesDorm() {
 	if (!Common_PlayerRestrained && !Common_PlayerGagged) {
-		if (Common_PlayerClothed && ((Common_PlayerCostume == "") || (Common_PlayerCostume == "BlackDress") || (Common_PlayerCostume == "RedBikini") || (Common_PlayerCostume == "Tennis"))) {
+		if (Common_PlayerClothed && ((Common_PlayerCostume == "") || (Common_PlayerCostume == "BlackDress"))) {
 			CurrentTime = CurrentTime + 110000;
 			SetScene(CurrentChapter, "Roommates");
 		} else OverridenIntroText = GetText("RegularClothesFirst");
@@ -56,5 +56,15 @@ function C012_AfterClass_DormExit_LaunchPub() {
 			CurrentTime = CurrentTime + 290000;
 			SetScene(CurrentChapter, "Pub");
 		} else OverridenIntroText = GetText("RegularClothesFirst");
+	} else OverridenIntroText = GetText("UnrestrainFirst");
+}
+
+// Chapter 12 After Class - Launch the pool
+function C012_AfterClass_DormExit_LaunchPool() {
+	if (!Common_PlayerRestrained && !Common_PlayerGagged) {
+		if (Common_PlayerClothed && (Common_PlayerCostume == "RedBikini")) {
+			CurrentTime = CurrentTime + 290000;
+			SetScene(CurrentChapter, "Pool");
+		} else OverridenIntroText = GetText("SwimsuitFirst");
 	} else OverridenIntroText = GetText("UnrestrainFirst");
 }
