@@ -1,4 +1,4 @@
-var SaveGameVersion = "10B";
+var SaveGameVersion = "12A";
 var SaveChapter = "";
 var SaveScreen = "";
 var SaveMaxSlot = 9;
@@ -15,7 +15,7 @@ function SaveStateGetSummary(SlotNumber) {
 
 	// Fetch the data
 	var SN = SlotNumber.toString();	
-	var Summary = GetText("NoSaveOnSlot") + " " + SN;
+	var Summary = "@" + GetText("NoSaveOnSlot") + " " + SN;
 	if (localStorage.getItem("SaveGameVersion" + SN))
 		if (localStorage.getItem("SaveGameVersion" + SN) == SaveGameVersion) {
 			var SaveStatePlayerName = localStorage.getItem("Common_PlayerName" + SN);
@@ -23,7 +23,7 @@ function SaveStateGetSummary(SlotNumber) {
 			var SaveStateDateTime = localStorage.getItem("SaveGameDateTime" + SN);
 			while (SaveStateChapter.substr(0, 1) == "0")
 				SaveStateChapter = SaveStateChapter.substr(1, 100);
-			Summary = SaveStatePlayerName.substr(0, 10) + " - " + GetText("Chapter") + " " + SaveStateChapter + "|" + SaveStateDateTime;
+			Summary = "@" + SaveStatePlayerName.substr(0, 10) + " - " + GetText("Chapter") + " " + SaveStateChapter + "|" + SaveStateDateTime;
 		}
 		
 	// Returns the summary
@@ -36,13 +36,13 @@ function SaveStateSlotSummary() {
 
 	// If the current stage is loaded
 	if ((CurrentStage != null) && (CurrentText != null))
-		if (CurrentStage[1][StageInteractionText] == "Slot 1") {
+		if (CurrentStage[1][StageInteractionText] == "@Slot 1") {
 
 			// For each save slots, we load the summary
-			var Slot = 1;	
-			while (Slot <= SaveMaxSlot) {		
+			var Slot = 1;
+			while (Slot <= SaveMaxSlot) {
 				CurrentStage[Slot][StageInteractionText] = SaveStateGetSummary(Slot);
-				Slot++;		
+				Slot++;
 			}
 	
 		}
@@ -61,6 +61,7 @@ function SaveState(SlotNumber) {
 	localStorage.setItem("Common_PlayerName" + SN, Common_PlayerName);
 	localStorage.setItem("Common_PlayerOwner" + SN, Common_PlayerOwner);
 	localStorage.setItem("Common_PlayerLover" + SN, Common_PlayerLover);
+	localStorage.setItem("Common_PlayerCloth" + SN, Common_PlayerCloth);	
 	localStorage.setItem("PlayerInventory" + SN, JSON.stringify(PlayerInventory));
 	localStorage.setItem("PlayerLockedInventory" + SN, JSON.stringify(PlayerLockedInventory));
 	localStorage.setItem("PlayerSkill" + SN, JSON.stringify(PlayerSkill));
@@ -70,7 +71,7 @@ function SaveState(SlotNumber) {
 	localStorage.setItem("Common_ClubStatus" + SN, Common_ClubStatus);
 
 	// Reload the summaries
-	CurrentStage[1][StageInteractionText] = "Slot 1";
+	CurrentStage[1][StageInteractionText] = "@Slot 1";
 	SaveStateSlotSummary();
 
 }
@@ -96,6 +97,15 @@ function LoadState(SlotNumber) {
 			PlayerSkill = JSON.parse(localStorage.getItem("PlayerSkill" + SN));
 			CurrentTime = parseFloat(localStorage.getItem("CurrentTime" + SN));			
 			Common_ClubStatus = localStorage.getItem("Common_ClubStatus" + SN);
+
+			// You can start with different clothes on chapter 12
+			if (CurrentChapter == "C012_AfterClass") {
+				Common_PlayerCloth = localStorage.getItem("Common_PlayerCloth" + SN);
+				if (Common_PlayerCloth == null) Common_PlayerCloth = "Clothed";	
+				PlayerClothes(Common_PlayerCloth);
+			}
+
+			// Starts the game
 			LoadRestrainStatus();
 			SetScene(CurrentChapter, CurrentScreen);
 

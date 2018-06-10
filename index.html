@@ -108,6 +108,20 @@
 <script src="C010_Revenge/SidneyJennifer/Script.js"></script>
 <script src="C010_Revenge/EarlyEnding/Script.js"></script>
 <script src="C010_Revenge/Outro/Script.js"></script>
+<script src="C011_LiteratureClass/Intro/Script.js"></script>
+<script src="C011_LiteratureClass/SelectDesk/Script.js"></script>
+<script src="C011_LiteratureClass/MildredIntro/Script.js"></script>
+<script src="C011_LiteratureClass/Mildred/Script.js"></script>
+<script src="C011_LiteratureClass/Outro/Script.js"></script>
+<script src="C012_AfterClass/Intro/Script.js"></script>
+<script src="C012_AfterClass/Dorm/Script.js"></script>
+<script src="C012_AfterClass/Wardrobe/Script.js"></script>
+<script src="C012_AfterClass/Bed/Script.js"></script>
+<script src="C012_AfterClass/DormExit/Script.js"></script>
+<script src="C012_AfterClass/Roommates/Script.js"></script>
+<script src="C012_AfterClass/Pub/Script.js"></script>
+<script src="C012_AfterClass/Pool/Script.js"></script>
+<script src="C012_AfterClass/Outro/Script.js"></script>
 <script src="C101_KinbakuClub/Intro/Script.js"></script>
 <script src="C101_KinbakuClub/JennaIntro/Script.js"></script>
 <script src="C101_KinbakuClub/Discipline/Script.js"></script>
@@ -149,11 +163,12 @@
 <script src="C999_Common/Fights/Fight.js"></script>
 <script src="C999_Common/Fights/DoubleFight.js"></script>
 <script src="C999_Common/Races/Race.js"></script>
+<script src="C999_Common/Quiz/Quiz.js"></script>
 <script>
 
 // When the code is loaded, start on "Chapter 0" to select a chapter and loads the default language
 window.onload = function() {
-	CheatAllow = true; // Set cheat mode
+	CheatAllow = false; // Set cheat mode
 	MainCanvas = document.getElementById("MainCanvas").getContext("2d");
 	if (localStorage.getItem("CurrentLanguageTag")) CurrentLanguageTag = localStorage.getItem("CurrentLanguageTag");
 	IsMobile = DetectMobile();

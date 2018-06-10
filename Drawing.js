@@ -50,9 +50,25 @@ function DrawImageZoom(Source, SX, SY, SWidth, SHeight, X, Y, Width, Height) {
 	MainCanvas.drawImage(DrawGetImage(Source), SX, SY, Math.round(SWidth), Math.round(SHeight), X, Y, Width, Height);
 }
 
+// Draw a zoomed image from a source to the canvas and mirrors it from left to right
+function DrawImageZoomMirror(Source, SX, SY, SWidth, SHeight, X, Y, Width, Height) {
+	MainCanvas.save();
+    MainCanvas.scale(-1, 1);
+	MainCanvas.drawImage(DrawGetImage(Source), X * -1, Y, Width * -1, Height);
+    MainCanvas.restore();
+}
+
 // Draw an image from a source to the canvas
 function DrawImage(Source, X, Y) {
 	MainCanvas.drawImage(DrawGetImage(Source), X, Y);
+}
+
+// Draw an image from a source to the canvas
+function DrawImageMirror(Source, X, Y) {
+	MainCanvas.save();
+    MainCanvas.scale(-1, 1);
+	MainCanvas.drawImage(DrawGetImage(Source), X * -1, Y);
+    MainCanvas.restore();
 }
 
 // Draw a text in the canvas
@@ -394,7 +410,7 @@ function DrawGetPlayerImageName(IncludePose) {
 
 	// Third part is the collar, which only shows for certain clothes
 	var ImageCollar = "";
-	if ((ImageCloth == "Underwear") || (ImageCloth == "Naked") || (ImageCloth == "ChastityBelt") || (ImageCloth == "Damsel")) {
+	if ((ImageCloth == "Underwear") || (ImageCloth == "Naked") || (ImageCloth == "ChastityBelt") || (ImageCloth == "Damsel") || (ImageCloth == "Tennis") || (ImageCloth == "Judo") || (ImageCloth == "RedBikini")) {
 		if (PlayerHasLockedInventory("Collar")) ImageCollar = "_Collar";
 		else ImageCollar = "_NoCollar";
 	}
@@ -421,8 +437,13 @@ function DrawGetPlayerImageName(IncludePose) {
 
 // Draw the regular player image (600x600) (can zoom if an X and Y are provided)
 function DrawPlayerImage(X, Y) {
-	if ((X == 0) && (Y == 0)) DrawImage("C999_Common/Player/" + DrawGetPlayerImageName(false) + ".jpg", 600, 0);
-	else DrawImageZoom("C999_Common/Player/" + DrawGetPlayerImageName(false) + ".jpg", X, Y, 600, 600, 600, 0, 1200, 1200);
+	if ((Common_PlayerCostume == "Tennis") || (Common_PlayerCostume == "Judo") || (Common_PlayerCostume == "Teacher") || (Common_PlayerCostume == "BlackDress") || (Common_PlayerCostume == "WhiteLingerie") || (Common_PlayerCostume == "RedBikini")) {
+		DrawRect(600, 0, 1200, 600, "White");
+		DrawTransparentPlayerImage(600, 0, 1);
+	} else {
+		if ((X == 0) && (Y == 0)) DrawImage("C999_Common/Player/" + DrawGetPlayerImageName(false) + ".jpg", 600, 0);
+		else DrawImageZoom("C999_Common/Player/" + DrawGetPlayerImageName(false) + ".jpg", X, Y, 600, 600, 600, 0, 1200, 1200);
+	}	
 }
 
 // Draw the transparent player image (600x900) with a zoom if required

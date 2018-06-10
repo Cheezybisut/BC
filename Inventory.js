@@ -9,6 +9,7 @@ var PlayerInventoryTab = 0;
 function PlayerClothes(NewCloth) {
 	if ((NewCloth != "Clothed") && (NewCloth != "Underwear") && (NewCloth != "Naked")) Common_PlayerCostume = NewCloth;
 	else Common_PlayerCostume = "";	
+	Common_PlayerCloth = NewCloth;
 	Common_PlayerUnderwear = (NewCloth == "Underwear");
 	Common_PlayerNaked = (NewCloth == "Naked");
 	Common_PlayerClothed = (!Common_PlayerUnderwear && !Common_PlayerNaked);
@@ -46,7 +47,7 @@ function PlayerLockInventory(NewInventory) {
 	LoadRestrainStatus();
 	
 	// If there's rope/armbinder and a costume, we strip the player
-	if (((NewInventory == "Rope") || (NewInventory == "Armbinder")) && (Common_PlayerCostume != "")) PlayerClothes("Underwear");
+	if (((NewInventory == "Rope") || (NewInventory == "Armbinder")) && (Common_PlayerCostume != "") && (Common_PlayerCostume != "BlackDress") && (Common_PlayerCostume != "WhiteLingerie") && (Common_PlayerCostume != "RedBikini")) PlayerClothes("Underwear");
 
 }
 
