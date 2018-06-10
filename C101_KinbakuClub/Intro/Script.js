@@ -1,8 +1,8 @@
 // Chapter 101 - Kinbaku Club Load
 function C101_KinbakuClub_Intro_Load() {
 
-	// Time is always 13:00 on the intro, no timer
-	StopTimer(17.00 * 60 * 60 * 1000);
+	// Time is always 16:45 on the intro, no timer
+	StopTimer(16.75 * 60 * 60 * 1000);
 	
 }
 
