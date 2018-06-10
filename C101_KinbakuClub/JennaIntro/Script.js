@@ -22,12 +22,12 @@ function C101_KinbakuClub_JennaIntro_Load() {
 
 	// Previous club experiance
 	if (C101_KinbakuClub_JennaIntro_FirstLoad) {
-		if (Common_ClubStatus == "ClubMentioned") C101_KinbakuClub_JennaIntro_Natalie = true;
-		if (Common_ClubStatus == "ClubLunchVisited") {
-		C101_KinbakuClub_JennaIntro_CurrentStage = 0;
-		C101_KinbakuClub_JennaIntro_NotAsked = true;
-		C101_KinbakuClub_JennaIntro_Concerned = true;
-		C101_KinbakuClub_JennaIntro_Chloe = true;
+		if (GameLogQuery("", "", "KinbakuClubInfo")) C101_KinbakuClub_JennaIntro_Natalie = true;
+		if (GameLogQuery("C007_LunchBreak", "Natalie", "Lunch")) {
+			C101_KinbakuClub_JennaIntro_CurrentStage = 0;
+			C101_KinbakuClub_JennaIntro_NotAsked = true;
+			C101_KinbakuClub_JennaIntro_Concerned = true;
+			C101_KinbakuClub_JennaIntro_Chloe = true;
 		}
 		if (GameLogQuery("C007_LunchBreak", "Natalie", "Stranded")) C101_KinbakuClub_JennaIntro_CurrentStage = 100;
 		C101_KinbakuClub_JennaIntro_FirstLoad = false;
