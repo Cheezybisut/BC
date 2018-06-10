@@ -42,7 +42,7 @@ function C012_AfterClass_DormExit_LaunchKinbaku() {
 // Chapter 12 After Class - Launch the Roommates Dorm
 function C012_AfterClass_DormExit_LaunchRoommatesDorm() {
 	if (!Common_PlayerRestrained && !Common_PlayerGagged) {
-		if (Common_PlayerClothed && ((Common_PlayerCostume == "") || (Common_PlayerCostume == "BlackDress"))) {
+		if (Common_PlayerClothed && ((Common_PlayerCostume == "") || (Common_PlayerCostume == "BlackDress") || (Common_PlayerCostume == "Teacher"))) {
 			CurrentTime = CurrentTime + 110000;
 			SetScene(CurrentChapter, "Roommates");
 		} else OverridenIntroText = GetText("RegularClothesFirst");
@@ -52,7 +52,7 @@ function C012_AfterClass_DormExit_LaunchRoommatesDorm() {
 // Chapter 12 After Class - Launch the Pub
 function C012_AfterClass_DormExit_LaunchPub() {
 	if (!Common_PlayerRestrained && !Common_PlayerGagged) {
-		if (Common_PlayerClothed && ((Common_PlayerCostume == "") || (Common_PlayerCostume == "BlackDress"))) {
+		if (Common_PlayerClothed && ((Common_PlayerCostume == "") || (Common_PlayerCostume == "BlackDress") || (Common_PlayerCostume == "Teacher"))) {
 			CurrentTime = CurrentTime + 290000;
 			SetScene(CurrentChapter, "Pub");
 		} else OverridenIntroText = GetText("RegularClothesFirst");

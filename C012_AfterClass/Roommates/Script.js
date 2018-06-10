@@ -55,8 +55,3 @@ function C012_AfterClass_Roommates_Leave() {
 // Chapter 12 After Class - Wait for a while and recalculate who's in the roommates
 function C012_AfterClass_Roommates_Knock() {
 }
-
-// Chapter 12 After Class - Meets Sidney
-function C012_AfterClass_Roommates_SidneyStart() {
-	
-}

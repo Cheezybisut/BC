@@ -69,7 +69,7 @@ function C012_AfterClass_Pub_Wait() {
 	C012_AfterClass_Pub_WhoInIsPub();
 }
 
-// Chapter 12 After Class - Meets Sidney
+// Chapter 12 After Class - Meet Sidney
 function C012_AfterClass_Pub_SidneyStart() {
 
 	// Load Sidney data
@@ -147,4 +147,15 @@ function C012_AfterClass_Pub_SidneyStart() {
 	ActorSetPose("Neutral");
 	C012_AfterClass_Pub_CurrentStage = 190;
 
+}
+
+// Chapter 12 After Class - Leave Sidney
+function C012_AfterClass_Pub_SidneyEnd() {
+	C012_AfterClass_Pub_WhoInIsPub();
+	CurrentActor = "";
+}
+
+// Chapter 12 After Class - When Sidney ducks to hide
+function C012_AfterClass_Pub_SetPose(NewPose) {
+	ActorSetPose(NewPose);
 }
