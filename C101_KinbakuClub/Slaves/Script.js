@@ -449,6 +449,7 @@ function C101_KinbakuClub_Slaves_JennaLeaves() {
 		C101_KinbakuClub_Slaves_NewMistress = false;
 	}
 	else {
+		if (!PlayerHasLockedInventory("Manacles")) PlayerClothes("");
 		ActorLoad("", "ClubRoom4");
 		LeaveIcon = "Leave";
 	}

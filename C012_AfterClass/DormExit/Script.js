@@ -36,7 +36,8 @@ function C012_AfterClass_DormExit_LaunchKinbaku() {
 			if (CurrentTime > (18  * 60 * 60 * 1000)) OverridenIntroText = GetText("ClubHasFinished");
 			else {
 				CurrentTime = CurrentTime + 290000;
-				SetScene("C101_KinbakuClub", "Intro");
+				if (C101_KinbakuClub_JennaIntro_CurrentStage == 80) SetScene("C101_KinbakuClub", "ClubRoom1");
+				else SetScene("C101_KinbakuClub", "Intro");
 			}
 		} else OverridenIntroText = GetText("SchoolClothesFirst");
 	} else OverridenIntroText = GetText("UnrestrainFirst");

@@ -5,6 +5,7 @@ function C101_KinbakuClub_Intro_Load() {
 	if (CurrentTime < (16.75 * 60 * 60 * 1000))	StopTimer(16.75 * 60 * 60 * 1000);
 	else StopTimer(CurrentTime);
 	
+	GameLogAdd("KinbakuClubInfo");
 }
 
 // Chapter 101 - Drama Class Run
