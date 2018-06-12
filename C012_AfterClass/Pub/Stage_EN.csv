@@ -41,3 +41,40 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 122,0,0,,Binge drinking is|dangerous for you.,You're a loser.  (She pauses.)  Oh fuck!|(She checks around and ducks behind the counter.),200,-1,0,"SetPose(""Duck"")"
 122,0,0,,I'll drink to that!,Cheers!  (She pauses.)  Oh fuck!|(She checks around and ducks behind the counter.),200,1,0,"SetPose(""Duck"")"
 122,0,0,,That's a way to|spend an evening.,The best way.  (She pauses.)  Oh fuck!|(She checks around and ducks behind the counter.),200,0,0,"SetPose(""Duck"")"
+130,0,0,,I came here|to relax.,Good idea.  School is so boring.|We need some time to enjoy life.,131,0,0,
+130,0,0,,I came here to drink.|Go get me a beer.,Great idea!  (She comes back with two beers.)|This is so much better than our boring college.,131,1,1,
+130,0,0,,I got lost and|ended up here.,You got lost?  That's pretty silly.|At least you're out of our boring classes.,131,0,-1,"SetPose(""Neutral"")"
+130,0,0,,I came here to drink.|Get me some red wine.,Ok.  (She comes back with wine and a beer.)|This is so much better than our boring college.,131,0,1,
+131,0,0,,You're boring!,(She gives you an angry look.)|You look tense.  Wanna smoke?,132,-1,0,
+131,0,0,,"Yeah, it was|a long day.",Fuck yeah.  We have to forget it.|Do you want to smoke with me?,132,0,0,
+131,0,0,,It's never boring|when you're around.,You're sweet Miss COMMON_PLAYERNAME.|Do you want to smoke with me?,132,1,0,
+132,0,0,,You should quit|smoking girl.,I've heard that so...  (She pauses.)  Oh fuck!|(She checks around and ducks behind the counter.),200,-1,1,"SetPose(""Duck"")"
+132,0,0,,Smoking makes|me nauseous.,That's pretty lame.  (She pauses.)  Oh fuck!|(She checks around and ducks behind the counter.),200,0,-1,"SetPose(""Duck"")"
+132,0,0,,Maybe later.,That's fine for...  (She pauses.)  Oh fuck!|(She checks around and ducks behind the counter.),200,0,0,"SetPose(""Duck"")"
+132,0,0,,Yes!  Let's go|for a smoke.,Perfect!  Let me...  (She pauses.)  Oh fuck!|(She checks around and ducks behind the counter.),200,1,0,"SetPose(""Duck"")"
+140,0,0,,I'm here to kick|your fucking ass.,Oh yeah?  Let's go outside|and I will break your bones.,141,-1,1,"SetPose(""Angry"")"
+140,0,0,,What's your problem?,You're my fucking problem!|Let's go out and I will crush you.,141,0,0,
+140,0,0,,Are you still|angry at me?,Fuck yeah I'm still angry!|Let's go out and I will crush you.,141,0,-1,
+140,0,0,,Can we talk?,(She stares at you.)|What do you want?,142,0,0,
+140,0,0,,Calm down girl.,(She stares at you.)|What do you want?,142,0,1,
+140,0,0,,I came to make peace|and offer you a beer.,(She takes the beer and calms down.)|Alright.  Tell me what you want.,142,1,0,"SetPose(""Neutral"")"
+141,0,0,,Wait!  This is|going too far.,Too late sucker...  (She pauses.)  Oh fuck!|(She checks around and ducks behind the counter.),200,0,-1,"SetPose(""Duck"")"
+141,0,0,,How about some|arm wrestling?,That could work...  (She pauses.)  Oh fuck!|(She checks around and ducks behind the counter.),200,0,0,"SetPose(""Duck"")"
+141,0,0,,Let's fight|right here!,You got it girl!  (She pauses.)  Oh fuck!|(She checks around and ducks behind the counter.),200,0,1,"SetPose(""Duck"")"
+142,0,0,,Maybe we could help|each other in school.,Maybe we could...  (She pauses.)  Oh fuck!|(She checks around and ducks behind the counter.),200,1,0,"SetPose(""Duck"")"
+142,0,0,,I need protection.,It will cost ya...  (She pauses.)  Oh fuck!|(She checks around and ducks behind the counter.),200,0,-1,"SetPose(""Duck"")"
+142,0,0,,I want your advice|on something.,Ask away sucker...  (She pauses.)  Oh fuck!|(She checks around and ducks behind the counter.),200,0,0,"SetPose(""Duck"")"
+150,0,0,,Thanks my friend!|So how are you?,I'm not drunk.  I'm not great.,152,1,0,
+150,0,0,,Are you getting|drunk here?,"Yep, slowly but surely.",152,0,0,
+150,0,0,,How's the beer?,"Pretty shitty, but it's cheap.|Perfect to get drunk.",152,0,0,
+150,0,0,,So you drink alone?,Why do you care?  I can|get drunk any way I want.,152,-1,1,
+150,0,0,,You look cute|in these shorts.,"Thanks, you're also very pretty.",151,1,0,
+150,0,0,,Hey sexy!|Nice legs.,Well thank you.|You look great also.,151,0,1,
+150,0,0,,I will buy|the beer.,Good girl!  (She laughs.)|It's time to get drunk.,152,0,-1,
+151,0,0,,(Blush.)  You really|think I'm pretty?,Sure you do.  (She pauses.)  Oh fuck!|(She checks around and ducks behind the counter.),200,0,-1,"SetPose(""Duck"")"
+151,0,0,,"Yep, I'm the|cutest around.",What?  You're not...  (She pauses.)  Oh fuck!|(She checks around and ducks behind the counter.),200,-1,0,"SetPose(""Duck"")"
+151,0,0,,We will have a|good evening.,"Yeah, it should be...  (She pauses.)  Oh fuck!|(She checks around and ducks behind the counter.)",200,0,0,"SetPose(""Duck"")"
+152,0,0,,You should not get|wasted all the time.,Are you my mom?  (She pauses.)  Oh fuck!|(She checks around and ducks behind the counter.),200,0,1,"SetPose(""Duck"")"
+152,0,0,,Binge drinking is|dangerous for you.,You're a loser.  (She pauses.)  Oh fuck!|(She checks around and ducks behind the counter.),200,-1,0,"SetPose(""Duck"")"
+152,0,0,,I'll drink to that!,Cheers!  (She pauses.)  Oh fuck!|(She checks around and ducks behind the counter.),200,1,0,"SetPose(""Duck"")"
+152,0,0,,That's a way to|spend an evening.,The best way.  (She pauses.)  Oh fuck!|(She checks around and ducks behind the counter.),200,0,0,"SetPose(""Duck"")"
