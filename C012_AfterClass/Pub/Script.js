@@ -3,6 +3,7 @@ var C012_AfterClass_Pub_SidneyAvail = false;
 var C012_AfterClass_Pub_EmptyPub = true;
 var C012_AfterClass_Pub_IntroText = "";
 var C012_AfterClass_Pub_CurrentActor = "";
+var C012_AfterClass_Pub_HasSeduction = false;
 
 // Calculates who's in the pub depending on the time of the day
 function C012_AfterClass_Pub_WhoInIsPub() {
@@ -20,6 +21,7 @@ function C012_AfterClass_Pub_Load() {
 	LoadInteractions();
 	Common_BondageAllowed = false;
 	Common_SelfBondageAllowed = false;
+	C012_AfterClass_Pub_HasSeduction = (PlayerGetSkillLevel("Seduction") >= 1);
 
 	// If we must put the previous text or previous actor back
 	if (C012_AfterClass_Pub_IntroText != "") { OverridenIntroText = C012_AfterClass_Pub_IntroText; C012_AfterClass_Pub_IntroText = ""; }
@@ -37,7 +39,7 @@ function C012_AfterClass_Pub_Run() {
 	BuildInteraction(C012_AfterClass_Pub_CurrentStage);
 	if (CurrentActor != "") {
 		DrawActor(CurrentActor, 600, 0, 1);
-		DrawImage(CurrentChapter + "/" + CurrentScreen + "/PubCounter.jpg", 600, 500);
+		if (C012_AfterClass_Pub_CurrentStage < 210) DrawImage(CurrentChapter + "/" + CurrentScreen + "/PubCounter.jpg", 600, 500);
 	}
 }
 
@@ -124,7 +126,6 @@ function C012_AfterClass_Pub_SidneyStart() {
 
 	// If the player was class leader in chapter 11
 	if (GameLogQuery("C011_LiteratureClass", "", "ClassLeader")) {
-		ActorSetPose("Neutral");
 		C012_AfterClass_Pub_CurrentStage = 160;
 		return;
 	}
@@ -138,13 +139,11 @@ function C012_AfterClass_Pub_SidneyStart() {
 
 	// If the player went to detention in chapter 3
 	if (GameLogQuery("C001_BeforeClass", "", "FightVictory") || GameLogQuery("C001_BeforeClass", "", "FightDefeat") || GameLogQuery("C001_BeforeClass", "", "PublicBondage")) {
-		ActorSetPose("Neutral");
 		C012_AfterClass_Pub_CurrentStage = 180;
 		return;
 	}
 	
 	// No special feelings and conversation
-	ActorSetPose("Neutral");
 	C012_AfterClass_Pub_CurrentStage = 190;
 
 }
@@ -158,4 +157,22 @@ function C012_AfterClass_Pub_SidneyEnd() {
 // Chapter 12 After Class - When Sidney ducks to hide
 function C012_AfterClass_Pub_SetPose(NewPose) {
 	ActorSetPose(NewPose);
+}
+
+// Chapter 12 After Class - When the player meets Sidney pusher
+function C012_AfterClass_Pub_MeetPusher() {
+	CurrentActor = "";
+}
+
+// Chapter 12 After Class - When the player leaves with Sidney
+function C012_AfterClass_Pub_LeaveWithSidney() {
+	CurrentTime = CurrentTime + 290000;
+	GameLogAdd("EnterDormFromPub");
+	ActorSetPose("Exhausted");
+}
+
+// Chapter 12 After Class - When the player leaves with Sidney
+function C012_AfterClass_Pub_BackToDorm() {
+	ActorSetPose("");
+	SetScene(CurrentChapter, "Dorm");
 }
