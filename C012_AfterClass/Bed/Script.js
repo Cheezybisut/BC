@@ -40,11 +40,13 @@ function C012_AfterClass_Bed_EndChapter() {
 // Chapter 12 After Class - Gets in bed to masturbate
 function C012_AfterClass_Bed_StartMasturbate() {
 	if (!Common_PlayerRestrained) {
-		if (Common_PlayerNaked) OverridenIntroText = GetText("LayNaked");
-		else OverridenIntroText = GetText("StripNaked");
-		PlayerClothes("Naked");
-		C012_AfterClass_Bed_CurrentStage = 100;
-		CurrentTime = CurrentTime + 50000;
+		if (C012_AfterClass_Dorm_Guest.length == 0) {
+			if (Common_PlayerNaked) OverridenIntroText = GetText("LayNaked");
+			else OverridenIntroText = GetText("StripNaked");
+			PlayerClothes("Naked");
+			C012_AfterClass_Bed_CurrentStage = 100;
+			CurrentTime = CurrentTime + 50000;			
+		} else OverridenIntroText = GetText("CannotMasturbateWithGuest");
 	}
 }
 

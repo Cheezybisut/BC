@@ -133,13 +133,64 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 203,0,0,,She's dangerous?,Not really.  But she has the best|weed around and I still want some.,203,0,0,
 203,0,0,,So what will|you do now?,I'll duck until she leaves.,203,0,0,
 203,0,0,,I could go|talk with her.,You would do that?|That would be great.,204,0,0,
+203,0,0,,I will fix this|situation for you.,Thanks COMMON_PLAYERNAME.|That would be awesome.,204,0,0,
 203,0,0,,You're hopeless.|(Leave Sidney.),You leave Sidney with her problems.,0,-1,0,SidneyEnd()
 203,0,0,,We can hide|at my place.,It's too risky to get out.|She might see me run.,203,0,0,
-203,10,0,,Sweetie.  I will|cover your escape.,Very well!  I'm ready when you are.,205,1,0,
+203,10,0,,Sweetie.  Together|we can run for it..,Very well!  I'm ready when you are.,205,1,0,
 203,0,10,,"When I say ""go"".|You run with me.",Yes Miss!  I'm ready when you are.,205,0,1,
-204,0,0,,Stay here Sidney.|(Meet the pusher.),"(You walk and meet Sidney's pusher.)|Hey there, do you need something?",210,1,0,MeetPusher()
+203,1,-10,,Miss Sidney.  I will|cover your escape.,Ok girl!  I'm ready when you are.,205,0,-1,
+204,0,0,,Stay here Sidney.|(Meet the pusher.),"(You walk and meet Sidney's pusher.)|Hey there, do you need something?",210,1,0,"SetActor("""")"
 204,0,0,,It might not|be a good idea.,"Yeah, keep quiet and she'll go away.",203,0,0,
-205,0,0,,(Run with Sidney.),(You both run away and head back to your|dorm while Sidney tries to catch her breath.),300,0,0,LeaveWithSidney()
+205,0,0,,(Run with Sidney.),(You both run away and head back to your|dorm while Sidney tries to catch her breath.),300,0,0,"LeaveWithSidney(""Exhausted"")"
+210,0,0,,"Yes, I'm here to|talk about Sidney.",What's going on with her?,211,0,0,
+210,0,0,,You know Sidney?,Yes.  What's going on with her?,211,0,0,
+210,0,0,,I'm here for Sidney.,Ok.  What's going on with her?,211,0,0,
+211,0,0,,She owe you money?,Yes she does.  And she was|supposed to pay me last week.,212,0,0,
+211,0,0,,I've heard she has a|special dept with you.,Yes she does.  And she was|supposed to pay me last week.,212,0,0,
+212,0,0,,I came here to|settle her dept.,(She gives you a curious look.)|So you will pay me now?,213,0,0,
+212,0,0,!SidneyBelted,I know a trick|to make her pay.,Great!  And what's your trick?,216,0,0,
+212,0,0,,Forget the dept or|I'll break your legs.,(She gasps.)  Fine!  The dept is erased.  But tell|her she'll never get anything from me again.,219,0,0,"GameLog(""DebtIntimidate"")"
+213,0,0,,I'll give you half now.|(Give her half the dept.),Alright.  But tell her she needs|to pay the balance next week.,219,0,0,"GameLog(""DebtPayHalf"")"
+213,0,0,,I'll pay everything now.|(Give her the full dept.),(She takes the money and sighs.)|Why are you so kind with her?,214,0,0,"GameLog(""DebtPayFull"")"
+213,0,0,,I'll pay you double.|(Give her double the dept.),(She takes the money and smiles.)|Why are you so kind with her?,214,0,0,"GameLog(""DebtPayDouble"")"
+213,0,0,,No.  You forget the debt|and I won't beat you up.,(She gasps.)  Fine!  The dept is erased.  But tell|her she'll never get anything from me again.,219,0,0,"GameLog(""DebtIntimidate"")"
+214,0,0,,She's my submissive.,Keep her out of trouble then.|(She gives you a chasity belt.),215,0,0,GetChastityBelt()
+214,0,0,,She's my bitch.,Keep her out of trouble then.|(She gives you a chasity belt.),215,0,0,GetChastityBelt()
+214,0,0,,She's my Mistress.,Tell her she's very lucky.,219,0,0,
+214,0,0,,She's my good friend.,Tell her she has a wonderful friend.,219,0,0,
+214,0,0,,She's my girlfriend.,Tell her she's very lucky.,219,0,0,
+214,0,0,,That's how I am.|(Leave her.),(You walk back to Sidney with a grin.)|What happened?  What did she say?,220,0,0,"SetActor(""Sidney"")"
+214,0,0,,Never mind.|(Leave her.),(You walk back to Sidney with a grin.)|What happened?  What did she say?,220,0,0,"SetActor(""Sidney"")"
+215,0,0,,Thanks!|(Leave her.),(You walk back to Sidney with a grin.)|What happened?  What did she say?,220,0,0,"SetActor(""Sidney"")"
+216,0,0,,We can beat her up.,That wouldn't be good for business.,216,0,0,
+216,0,0,,We can steal|from her room.,That's not my style.,216,0,0,
+216,0,0,,I can lock her in a|belt until she pays.,In a chastity belt?  That's a great idea!|I'm sure she would pay very quickly.,217,0,0,
+216,0,0,,I'll lock her ass|in a chastity belt.,That's a great idea Miss!|I'm sure she would pay up.,217,0,0,
+217,0,0,,Exactly!  You'll|be paid soon.,Great!  Tell her to pay|up before going insane.,219,0,0,"GameLog(""DebtChastityBelt"")"
+217,0,0,,Do you have|such a belt?,(She blushes.)  I do.  Take it.|(She gives you a chastity belt.),215,0,0,GetChastityBelt()
+219,0,0,,I will.|(Leave her.),(You walk back to Sidney with a grin.)|What happened?  What did she say?,220,0,0,"SetActor(""Sidney"")"
+219,0,0,,Yes Miss.|(Leave her.),(You walk back to Sidney with a grin.)|What happened?  What did she say?,220,0,0,"SetActor(""Sidney"")"
+219,0,0,,Get lost.|(Leave her.),(You walk back to Sidney with a grin.)|What happened?  What did she say?,220,0,0,"SetActor(""Sidney"")"
+220,0,0,,Your dept is erased.,Fuck yeah!|I owe you big.,222,2,0,"SetPose("""")"
+220,0,0,,You can pay|her next week.,That's a relief!|I owe you big.,222,1,0,"SetPose("""")"
+220,0,0,,She won't sell|you weed anymore.,No way!  You idiot!  You blew it!,221,-2,0,"SetPose(""Angry"")"
+221,0,0,,I've tried my best.,And you failed like a fucking loser!|(She walks away from the pub in anger.),0,0,0,SidneyEnd()
+221,0,0,,I'm sorry Sidney.,You're fucking pathetic!  Hopeless.|(She walks away from the pub in anger.),0,0,-1,SidneyEnd()
+221,0,0,,Stoping weed will|be good for you.,Fuck you COMMON_PLAYERNAME!|(She walks away from the pub in anger.),0,-1,1,SidneyEnd()
+222,0,0,ChastityBeltDeal,There's something|special in the deal.,Something special?|What the hell?,223,0,1,"SetPose(""Shy"")"
+222,0,0,ChastityBeltDeal,You'll need to wear|something though.,Wear something?|What the hell?,223,0,1,"SetPose(""Shy"")"
+222,0,0,,Don't mention it.,You're so fucking generous.|So what will you do tonight?,224,1,0,
+222,0,0,,You can repay|me somehow.,Fair enough.  So what will you do tonight?,224,0,0,
+222,0,0,,You'll pay me double.,Damn it!  I knew there was a catch.|Fine!  (She walks away in anger.),0,-2,1,SidneyEnd()
+223,0,0,,Come to my room.|I'll explain everything.,Ok.  Do we go right now?,225,0,0,
+223,0,0,,Don't worry|about it now.,Alright.  So what will you do tonight?,224,0,0,
+224,0,0,,I'll relax here with you.|(Spend time with Sidney.),(You spend some time chatting|and drinking with Sidney.),224,0,0,WaitWithSidney()
+224,0,0,,Would you like to|see my dorm room?,"And leave the pub?|No, maybe later.",224,0,0,
+224,10,0,,"Cutie, do you want|to see my place?",(She blushes.)  Well sure.|Do we go right now?,225,1,0,"SetPose(""Shy"")"
+224,0,10,,Get up!  We're|going to my room.,(She steps up.)  Alright.|We are leaving now?,225,0,1,"SetPose(""Shy"")"
+224,1,-10,,Miss Sidney.  I have|food for you at my dorm.,Food?  Let's move then!|Are you ready to go?,225,0,-1,"SetPose(""Point"")"
+224,0,0,,I must go.  See ya!|(Back to your dorm.),,224,0,0,Leave()
+225,0,0,,Let's go Sidney!|(Back to your dorm.),(You both walk back to your dorm.)|Nice spot.  You don't mind having me here?,320,0,0,"LeaveWithSidney("""")"
 300,0,0,,We made it!,"Yeah, I hope she didn't|see me run away.",310,0,0,
 300,0,0,,That was thrilling.,Fuck yeah!  I hope she|didn't see me run away.,310,1,0,
 300,0,0,,You don't run|fast enough.,(She breathes heavily and coughs.)|As long as she didn't see me.,310,-1,0,
@@ -150,5 +201,5 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 320,0,0,,Don't make a mess.,(She frowns.)  I won't be there for|long anyway.  I'll leave around twenty.,330,-1,0,
 320,0,0,,You can spend|the night here.,"That won't be needed.  I won't be|here for long, I'll leave around twenty.",330,0,0,
 320,0,0,,Make yourself at|home my friend.,Thanks a lot!  I won't be there for|too long.  I'll leave around twenty.,330,1,0,
-320,0,0,,Mi casa es su casa.,"I don't speak Italian.  I won't be|here for long, I'll leave around twenty.",330,0,0,
+320,0,0,,Mi casa es su casa.,"I don't speak Japanese.  I won't be|here for long, I'll leave around twenty.",330,0,0,
 330,0,0,,Very well Sidney.|(Back to your room.),,330,0,0,BackToDorm()

@@ -4,6 +4,9 @@ var C012_AfterClass_Pub_EmptyPub = true;
 var C012_AfterClass_Pub_IntroText = "";
 var C012_AfterClass_Pub_CurrentActor = "";
 var C012_AfterClass_Pub_HasSeduction = false;
+var C012_AfterClass_Pub_SidneyBelted = false;
+var C012_AfterClass_Pub_ChastityBeltDeal = false;
+var C012_AfterClass_Pub_WaitTimeWithSidney = 0;
 
 // Calculates who's in the pub depending on the time of the day
 function C012_AfterClass_Pub_WhoInIsPub() {
@@ -22,6 +25,7 @@ function C012_AfterClass_Pub_Load() {
 	Common_BondageAllowed = false;
 	Common_SelfBondageAllowed = false;
 	C012_AfterClass_Pub_HasSeduction = (PlayerGetSkillLevel("Seduction") >= 1);
+	C012_AfterClass_Pub_SidneyBelted = (ActorHasInventory("ChastityBelt"));
 
 	// If we must put the previous text or previous actor back
 	if (C012_AfterClass_Pub_IntroText != "") { OverridenIntroText = C012_AfterClass_Pub_IntroText; C012_AfterClass_Pub_IntroText = ""; }
@@ -40,7 +44,9 @@ function C012_AfterClass_Pub_Run() {
 	if (CurrentActor != "") {
 		DrawActor(CurrentActor, 600, 0, 1);
 		if (C012_AfterClass_Pub_CurrentStage < 210) DrawImage(CurrentChapter + "/" + CurrentScreen + "/PubCounter.jpg", 600, 500);
+		if ((C012_AfterClass_Pub_CurrentStage >= 220) && (C012_AfterClass_Pub_CurrentStage <= 229)) DrawImage(CurrentChapter + "/" + CurrentScreen + "/PubCounter.jpg", 600, 500);
 	}
+	if ((C012_AfterClass_Pub_CurrentStage >= 210) && (C012_AfterClass_Pub_CurrentStage <= 219)) DrawImage(CurrentChapter + "/" + CurrentScreen + "/Pusher.png", 600, 0);
 }
 
 // Chapter 12 After Class - Pub Click
@@ -160,19 +166,45 @@ function C012_AfterClass_Pub_SetPose(NewPose) {
 }
 
 // Chapter 12 After Class - When the player meets Sidney pusher
-function C012_AfterClass_Pub_MeetPusher() {
-	CurrentActor = "";
+function C012_AfterClass_Pub_SetActor(NewActor) {
+	CurrentActor = NewActor;
 }
 
 // Chapter 12 After Class - When the player leaves with Sidney
-function C012_AfterClass_Pub_LeaveWithSidney() {
+function C012_AfterClass_Pub_LeaveWithSidney(NewPose) {
 	CurrentTime = CurrentTime + 290000;
 	GameLogAdd("EnterDormFromPub");
-	ActorSetPose("Exhausted");
+	ActorSetPose(NewPose);
 }
 
 // Chapter 12 After Class - When the player leaves with Sidney
 function C012_AfterClass_Pub_BackToDorm() {
 	ActorSetPose("");
 	SetScene(CurrentChapter, "Dorm");
+}
+
+// Chapter 12 After Class - Logs an event
+function C012_AfterClass_Pub_GameLog(NewLog) {
+	GameLogSpecificAdd(CurrentChapter, CurrentActor, NewLog);
+	if ((NewLog == "DebtChastityBelt") && !C012_AfterClass_Pub_SidneyBelted) C012_AfterClass_Pub_ChastityBeltDeal = true;
+}
+
+// Chapter 12 After Class - The pusher can give a chastity belt to the player
+function C012_AfterClass_Pub_GetChastityBelt() {
+	PlayerAddInventory("ChastityBelt", 1);
+	GameLogSpecificAdd(CurrentChapter, CurrentActor, "DebtChastityBelt");
+	if (!C012_AfterClass_Pub_SidneyBelted) C012_AfterClass_Pub_ChastityBeltDeal = true;
+}
+
+// Chapter 12 After Class - Spend some time with Sidney (can raise relationship)
+function C012_AfterClass_Pub_WaitWithSidney() {
+	CurrentTime = CurrentTime + 290000;
+	C012_AfterClass_Pub_WaitTimeWithSidney++;
+	if (C012_AfterClass_Pub_WaitTimeWithSidney == 4) ActorChangeAttitude(1, 0);
+	if (C012_AfterClass_Pub_WaitTimeWithSidney == 10) ActorChangeAttitude(1, 0);
+	if (CurrentTime >= 19 * 60 * 60 * 1000) {
+		C012_AfterClass_Pub_SidneyEnd();
+		OverridenIntroText = GetText("SidneyLeavesOnTime");
+		C012_AfterClass_Pub_CurrentStage = 0;
+	}
 }
