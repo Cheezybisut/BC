@@ -11,6 +11,7 @@ var ActorLastBondageChapter = 6;
 var ActorCloth = 7;
 var ActorPose = 8;
 var ActorHideName = 9;
+var ActorOwner = 10;
 
 // Make sure the current actor is loaded (create it if not)
 function ActorLoad(ActorToLoad, ActorLeaveScreen) {
@@ -19,13 +20,18 @@ function ActorLoad(ActorToLoad, ActorLeaveScreen) {
 	LeaveIcon = "Leave";
 	LeaveScreen = ActorLeaveScreen;
 
-	// Load the actor if it's not already loaded
+	// Sets if the actor is the player lover, submissive or Mistress
 	CurrentActor = ActorToLoad;
+	Common_ActorIsLover = (CurrentActor == Common_PlayerLover);
+	Common_ActorIsOwner = (CurrentActor == Common_PlayerOwner);
+	Common_ActorIsOwned = (ActorGetValue(ActorOwner) == "Player");
+
+	// Load the actor if it's not already loaded
 	for (var L = 0; L < Actor.length; L++)
 		if (Actor[L][ActorName] == ActorToLoad)
 			return;
-	Actor[Actor.length] = [ActorToLoad, 0, 0, [], 0, 0, "", "Clothed", "", false];
-	
+	Actor[Actor.length] = [ActorToLoad, 0, 0, [], 0, 0, "", "Clothed", "", false, ""];
+
 }
 
 // Return a value from the current actor data

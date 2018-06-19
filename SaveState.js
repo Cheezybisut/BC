@@ -88,7 +88,7 @@ function LoadState(SlotNumber) {
 			CurrentScreen = localStorage.getItem("CurrentScreen" + SN);
 			Common_PlayerName = localStorage.getItem("Common_PlayerName" + SN);
 			Common_PlayerOwner = localStorage.getItem("Common_PlayerOwner" + SN);
-			Common_PlayerOwner = localStorage.getItem("Common_PlayerLover" + SN);
+			Common_PlayerLover = localStorage.getItem("Common_PlayerLover" + SN);
 			PlayerInventory = JSON.parse(localStorage.getItem("PlayerInventory" + SN));
 			PlayerLockedInventory = JSON.parse(localStorage.getItem("PlayerLockedInventory" + SN));
 			Actor = JSON.parse(localStorage.getItem("Actor" + SN));

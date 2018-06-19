@@ -63,6 +63,9 @@ var Common_PlayerNaked = false;
 var Common_PlayerCloth = "";
 var Common_PlayerCostume = "";
 var Common_PlayerPose = "";
+var Common_ActorIsLover = false;
+var Common_ActorIsOwner = false;
+var Common_ActorIsOwned = false;
 var Common_Number = "";
 
 // Returns the current date and time in a yyyy-mm-dd hh:mm:ss format
@@ -202,7 +205,10 @@ function SetScene(Chapter, Screen) {
 	LeaveIcon = "";
 	LeaveScreen = "";
 	LeaveChapter = Chapter;
-	
+	Common_ActorIsLover = false;
+	Common_ActorIsOwner = false;
+	Common_ActorIsOwned = false;
+
 	// Load the screen code
 	DynamicFunction(CurrentChapter + "_" + CurrentScreen + "_Load()");
 	

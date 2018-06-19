@@ -45,7 +45,7 @@ function C999_Common_Collar_SelfCollar() {
 
 // Chapter Common - Self Uncollar
 function C999_Common_Collar_SelfUncollar() {
-	if (C999_Common_Collar_LockedOn) {
+	if ((C999_Common_Collar_LockedOn) || (Common_PlayerOwner != "")) {
 		OverridenIntroText = GetText("LockedCollar");
 		C999_Common_Collar_CurrentStage = 10;
 	}

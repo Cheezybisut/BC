@@ -1,2 +1,41 @@
 Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
-0,0,0,,TO DO,TO DO,0,0,0,
+0,5,0,,Would you like to|make love with me?,"No, I don't feel like it.|Let's do something else.",0,0,0,TestLove()
+0,0,5,!Common_ActorIsOwned,"Girl, you need|my protection.",I don't need protection from anyone.|(You need +20 submission to collar Sidney.),0,0,0,TestDomme()
+0,0,-5,!Common_ActorIsOwner,Miss Sidney.|I admire you.,"Don't talk like that, you sound like a loser.|(You need -20 submission to submit to Sidney.)",0,0,0,TestSub()
+100,0,0,,TO DO,TO DO,0,0,0,
+200,0,0,,TO DO,TO DO,0,0,0,
+300,0,0,,I know!  I'm sorry.,(She sighs.)  They only way you won't get|killed is if I take you under my wing.,310,0,0,
+300,0,0,,School can be harsh.,(She sighs.)  They only way you won't get|killed is if I take you under my wing.,310,0,0,
+300,0,0,,Can you help me?,(She sighs.)  They only way you won't get|killed is if I take you under my wing.,310,0,0,
+310,0,0,,Under your wing?,"Yeah, if you're willing to submit to me.|I will protect you from now on.",320,0,0,
+310,0,0,,You will protect me?,"Yeah, if you're willing to submit to me.|I will protect you from now on.",320,0,0,
+310,0,0,,"Miss, are you sure?","Yeah, if you're willing to submit to me.|I will protect you from now on.",320,0,0,
+320,0,0,,I need to think first.|(Don't submit now.),"Sure, take your fucking time.",0,0,0,
+320,0,0,!Common_ActorIsLover,I will submit Miss.|(Submit to Sidney.),"Good, you'll be my bitch then.|So bitch, get naked right now.",0,0,0,TestSubmit()
+320,0,0,Common_ActorIsLover,I will submit Miss.|(Submit to Sidney.),"You'll be my lover and my bitch then.|So my sexy bitch, get naked right now.",0,0,0,TestSubmit()
+330,0,0,,Yes Miss.|(Strip naked.),(You strip down for Sidney and she smiles.)|Very good little bitch.  Now get on your knees.,340,0,0,PlayerStrip()
+330,0,0,,Why should I strip?,Cause you're my bitch|and you're going to strip.,330,0,0,
+330,0,0,,Stop!  This is|going too far.,Fine.  But I won't protect you.,0,0,0,
+340,0,0,,Yes Miss Sidney.|(Get on your knees.),"Just like a bitch, you will|wear a collar for me.",350,0,0,KneelForSidney()
+340,0,0,,My pleasure.|(Get on your knees.),"Just like a bitch, you will|wear a collar for me.",350,0,0,KneelForSidney()
+340,0,0,,Stop!  This is|going too far.,Fine.  But I won't protect you.,0,0,0,
+350,0,0,,I understand.,"This fucking collar will tell everyone|to backup, that you're my property.",360,0,0,
+350,0,0,,Very well.,"This fucking collar will tell everyone|to backup, that you're my property.",360,0,0,
+350,0,0,,Stop!  This is|going too far.,Fine.  But I won't protect you.,0,0,0,
+360,0,0,,Your property Miss?,"Yep, my own personal bitch.  And this|collar will be fucking locked on you.",370,0,0,
+360,0,0,,This will protect me?,I will protect you bitch.  And this|collar will be fucking locked on you.,370,0,0,
+360,0,0,,Stop!  This is|going too far.,Fine.  But I won't protect you.,0,0,0,
+370,0,0,,(Bow your head.),"Now say ""I'm your bitch"" and you'll be mine.|(She shows you a black collar and a padlock.)",380,0,0,
+370,0,0,,That's alright.,"Now say ""I'm your bitch"" and you'll be mine.|(She shows you a black collar and a padlock.)",380,0,0,
+370,0,0,,Stop!  This is|going too far.,Fine.  But I won't protect you.,0,0,0,
+380,0,0,!Common_ActorIsLover,I'm your bitch.,"Damn right!  (She fastens the collar and locks it.)|From now on, you can call me ""Mistress"".",390,0,-3,PlayerCollared()
+380,0,0,Common_ActorIsLover,I'm your bitch.,"Damn right!  (She fastens the collar and locks it.)|From now on my love, you can call me ""Mistress"".",390,0,-3,PlayerCollared()
+380,0,0,,Stop!  This is|going too far.,Fine.  But I won't protect you.,0,0,0,
+390,0,0,,I'm so happy!,That's pretty fucking awesome.|I'll protect you but never betray me.,395,1,0,
+390,0,0,,I know I'm|in good hands.,"You are, and that's fucking awesome.|I'll protect you but never betray me.",395,1,0,
+390,0,0,,I don't feel|very good.,You'll get used to it.  Now remember.|I'll protect you but never betray me.,395,-1,0,
+390,0,0,,(Stay silent and|look at her feet.),That's pretty fucking awesome.|I'll protect you but never betray me.,395,0,-1,
+390,0,0,,Is the collar supposed|to be that tight?,Don't complain or I'll punish you.|I'll protect you but never betray me.,395,0,1,
+395,0,0,,I will never|betray you Mistress.,Very good my sexy little bitch.|Now stand up and let's do something fun.,0,0,-1,PlayerStandUp()
+395,0,0,,Ok Sidney.,That's MISTRESS for you!  (She slaps you.)|Now stand up and let's do something fun.,0,-1,0,PlayerStandUp()
+395,0,0,,Very good.,Now stand up and let's do something fun.,0,0,0,PlayerStandUp()

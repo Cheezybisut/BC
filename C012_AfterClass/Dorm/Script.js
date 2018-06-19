@@ -6,6 +6,11 @@ function C012_AfterClass_Dorm_Load() {
 	
 	// Set the timer limits
 	StartTimer(24 * 60 * 60 * 1000, "C012_AfterClass", "Outro");
+	ActorSpecificSetPose("Amanda", "");
+	ActorSpecificSetPose("Sarah", "");
+	ActorSpecificSetPose("Sidney", "");
+	ActorSpecificSetPose("Jennifer", "");
+	Common_PlayerPose = "";
 	Common_BondageAllowed = true;
 	Common_SelfBondageAllowed = true;
 	
