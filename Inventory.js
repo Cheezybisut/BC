@@ -143,9 +143,9 @@ function PlayerHasInventory(QueryInventory) {
 	
 }
 
-// Restrains the player randomly from her inventory
-function PlayerRandomBondage() {
-	
+// Pick a random restrain and applies it on the player
+function PlayerRandomRestrain() {
+
 	// Selects the restrain type
 	var R = "";
 	if (!Common_PlayerRestrained) {
@@ -157,6 +157,14 @@ function PlayerRandomBondage() {
 		if (RT.length > 0) R = RT[Math.floor(Math.random() * RT.length)];
 	}
 
+	// Applies it on the player
+	if (R != "") { PlayerRemoveInventory(R, 1); PlayerLockInventory(R); }
+
+}
+
+// Pick a random gag and applies it on the player
+function PlayerRandomGag() {
+
 	// Selects the gag type
 	var G = "";
 	if (!Common_PlayerGagged) {
@@ -167,10 +175,15 @@ function PlayerRandomBondage() {
 		if (GT.length > 0) G = GT[Math.floor(Math.random() * GT.length)];
 	}
 
-	// Applies them on the player
-	if (R != "") { PlayerRemoveInventory(R, 1); PlayerLockInventory(R); }
+	// Applies it on the player
 	if (G != "") { PlayerRemoveInventory(G, 1); PlayerLockInventory(G); }
+	
+}
 
+// Restrains the player randomly from her own inventory
+function PlayerRandomBondage() {
+	PlayerRandomRestrain();
+	PlayerRandomGag();
 }
 
 // Release the player from bondage and restore it's inventory

@@ -1,6 +1,13 @@
 var C012_AfterClass_Dorm_Guest = [];
 var C012_AfterClass_Dorm_PlayerPos = 0;
 
+// Set the guest list in the dorm
+function C012_AfterClass_Dorm_CalGuest() {
+	C012_AfterClass_Dorm_Guest = [];
+	if (GameLogQuery(CurrentChapter, "Sidney", "EnterDormFromPub") && (CurrentTime <= 20 * 60 * 60 * 1000)) C012_AfterClass_Dorm_Guest.push("Sidney");
+	C012_AfterClass_Dorm_PlayerPos = 600 - C012_AfterClass_Dorm_Guest.length * 100;
+}
+
 // Chapter 12 - After Class Dorm Load
 function C012_AfterClass_Dorm_Load() {
 	
@@ -17,12 +24,8 @@ function C012_AfterClass_Dorm_Load() {
 	// Resets the other locations from the Dorm
 	C012_AfterClass_Pub_CurrentStage = 0;
 	C012_AfterClass_Roommates_CurrentStage = 0;
-	
-	// Set the guest list in the dorm
-	C012_AfterClass_Dorm_Guest = [];
-	if (GameLogQuery(CurrentChapter, "Sidney", "EnterDormFromPub") && (CurrentTime <= 20 * 60 * 60 * 1000)) C012_AfterClass_Dorm_Guest.push("Sidney");
-	C012_AfterClass_Dorm_PlayerPos = 600 - C012_AfterClass_Dorm_Guest.length * 100;
-
+	C012_AfterClass_Sidney_CurrentStage = 0;
+	C012_AfterClass_Dorm_CalGuest();
 }
 
 // Chapter 12 - After Class Dorm Run
@@ -44,6 +47,13 @@ function C012_AfterClass_Dorm_Run() {
 	if ((MouseX >= 1050) && (MouseX < 1200) && (MouseY >= 0) && (MouseY <= 600)) DrawImage(CurrentChapter + "/" + CurrentScreen + "/Exit_Active.png", 1075, 0);
 	else DrawImage(CurrentChapter + "/" + CurrentScreen + "/Exit_Inactive.png", 1075, 0);
 	
+	if ((C012_AfterClass_Dorm_Guest.indexOf("Sidney") >= 0) && (CurrentTime >= 20 * 60 * 60 * 1000) && !ActorSpecificIsRestrained("Sidney")) {
+		C012_AfterClass_Dorm_CalGuest();
+		C012_AfterClass_Sidney_CurrentStage = 400;
+		SetScene(CurrentChapter, "Sidney");
+	}
+		
+	
 }
 
 // Chapter 12 - After Class Dorm Click
@@ -55,7 +65,7 @@ function C012_AfterClass_Dorm_Click() {
 	// Opens the other screens of the dorm
 	if ((MouseX >= 0) && (MouseX < 150) && (MouseY >= 0) && (MouseY <= 600)) SetScene(CurrentChapter, "Wardrobe");
 	if ((MouseX >= 150) && (MouseX < 300) && (MouseY >= 0) && (MouseY <= 600)) SetScene(CurrentChapter, "Bed");
-	if ((MouseX >= 900) && (MouseX < 1050) && (MouseY >= 0) && (MouseY <= 600)) SaveMenu("C012_AfterClass", "Dorm");
+	if ((MouseX >= 900) && (MouseX < 1050) && (MouseY >= 0) && (MouseY <= 600)) SaveMenu(CurrentChapter, "Dorm");
 	if ((MouseX >= 1050) && (MouseX < 1200) && (MouseY >= 0) && (MouseY <= 600)) SetScene(CurrentChapter, "DormExit");
 
 	// Loads the player or other actors
