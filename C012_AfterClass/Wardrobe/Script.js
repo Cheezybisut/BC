@@ -21,7 +21,7 @@ function C012_AfterClass_Wardrobe_Load() {
 	C012_AfterClass_Wardrobe_CostumeTennis = GameLogQuery("C007_LunchBreak", "Jennifer", "Lunch");
 	C012_AfterClass_Wardrobe_CostumeJudo = GameLogQuery("C005_GymClass", "Jennifer", "Judo");
 	C012_AfterClass_Wardrobe_CostumeTeacher = GameLogQuery("C011_LiteratureClass", "Player", "ClassLeader");
-	
+
 }
 
 // Chapter 12 After Class - Wardrobe Run
@@ -37,11 +37,30 @@ function C012_AfterClass_Wardrobe_Click() {
 
 }
 
-// Chapter 12 After Class - When the player changes clothes (cannot be done if restrained)
+// Chapter 12 After Class - When the player changes clothes
 function C012_AfterClass_Wardrobe_Change(NewCloth) {
-	if (!Common_PlayerRestrained) {
-		PlayerClothes(NewCloth);
-		SetScene(CurrentChapter, "Dorm");
-		CurrentTime = CurrentTime + 50000;
-	} else OverridenIntroText = GetText("CannotChange");	
+	
+	// Cannot select the same clothes
+	if (NewCloth != Common_PlayerCloth) {
+
+		// Cannot be done if restrained
+		if (!Common_PlayerRestrained) {
+			
+			// Changing might be blocked by the player Mistress, if so we jump to a very angry Owner
+			if (GameLogQuery(CurrentChapter, "", "EventBlockChanging") && (C012_AfterClass_Dorm_Guest.indexOf(Common_PlayerOwner) >= 0)) {
+				CurrentTime = CurrentTime + 50000;
+				C012_AfterClass_Sidney_CurrentStage = 3800;
+				SetScene(CurrentChapter, Common_PlayerOwner);
+				ActorSetPose("Angry");
+				LeaveIcon = "";
+			} else {
+				PlayerClothes(NewCloth);
+				SetScene(CurrentChapter, "Dorm");
+				CurrentTime = CurrentTime + 50000;
+			}
+			
+		} else OverridenIntroText = GetText("CannotChange");
+	
+	} else OverridenIntroText = GetText("AlreadyWearingThat");
+
 }

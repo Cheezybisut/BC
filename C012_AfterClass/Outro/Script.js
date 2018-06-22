@@ -1,7 +1,10 @@
+var C012_AfterClass_Outro_Bondage = false;
+
 // Chapter 12 - After Class Outro Load
 function C012_AfterClass_Outro_Load() {
 	
 	// Time is always 16:30:00 in the outro, reset the poses if needed
+	C012_AfterClass_Outro_Bondage = Common_PlayerRestrained;
 	StopTimer(24 * 60 * 60 * 1000);
 	PlayerReleaseBondage();
 	PlayerClothes("Clothed");
@@ -25,7 +28,8 @@ function C012_AfterClass_Outro_Run() {
 	}
 
 	// Shows the text
-	DrawText(GetText("Outro1"), x, 100, "White");
+	if (C012_AfterClass_Outro_Bondage) DrawText(GetText("Outro1Bondage"), x, 100, "White");
+	else DrawText(GetText("Outro1"), x, 100, "White");
 	if (TextPhase >= 1) DrawText(GetText("Outro2"), x, 200, "White");
 	if (TextPhase >= 2) DrawText(GetText("Outro3"), x, 300, "White");
 	if (TextPhase >= 3) DrawText(GetText("Outro4"), x, 400, "White");

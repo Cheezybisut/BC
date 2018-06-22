@@ -1,5 +1,6 @@
 Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 0,0,0,Common_ActorIsOwner,What's on your|mind Mistress?,Not much my little bitch.|(She checks her cell phone.),0,0,0,RandomSidneyDommeEvent()
+0,0,0,Common_ActorIsOwner,"Mistress, it's ok if|I change clothes?",Sure bitch.  Wear what you want.,0,0,0,IsChangingBlocked()
 0,5,0,,Would you like to|make love with me?,"No, I don't feel like it.|Let's do something else.",0,0,0,TestLove()
 0,0,5,!Common_ActorIsOwned,"Girl, you need|my protection.",I don't need protection from anyone.|(You need +20 submission to collar Sidney.),0,0,0,TestDomme()
 0,0,-5,!Common_ActorIsOwner,Miss Sidney.|I admire you.,"Don't talk like that, you sound like a loser.|(You need -20 submission to submit to Sidney.)",0,0,0,TestSub()
@@ -54,19 +55,27 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 400,0,0,,(Bow your head.),Good girl.  (She leaves your dorm.),410,0,-1,
 3000,0,0,,Yes Mistress.|(Strip naked.),Good girl.  (You change for Sidney.),3090,0,0,"ForceChangePlayer(""Naked"")"
 3000,0,0,,(Nod slowly.)|(Strip naked.),Good girl.  (You change for Sidney.),3090,0,0,"ForceChangePlayer(""Naked"")"
-3000,0,0,,I don't want|to do that.,"Fine, shut up then.|(She checks her phone.)",3091,0,0,TestPunish()
+3000,0,0,,I don't want|to do that.,"Fine, shut up then.|(She checks her phone.)",3092,0,0,TestPunish()
 3010,0,0,,Yes Mistress.|(Get in your undies.),Good girl.  (You change for Sidney.),3090,0,0,"ForceChangePlayer(""Underwear"")"
 3010,0,0,,(Nod slowly.)|(Get in your undies.),Good girl.  (You change for Sidney.),3090,0,0,"ForceChangePlayer(""Underwear"")"
-3010,0,0,,I don't want|to do that.,"Fine, shut up then.|(She checks her phone.)",3091,0,0,TestPunish()
+3010,0,0,,I don't want|to do that.,"Fine, shut up then.|(She checks her phone.)",3092,0,0,TestPunish()
 3020,0,0,,Yes Mistress.|(Wear your uniform.),Good girl.  (You change for Sidney.),3090,0,0,"ForceChangePlayer(""Clothed"")"
 3020,0,0,,(Nod slowly.)|(Wear your uniform.),Good girl.  (You change for Sidney.),3090,0,0,"ForceChangePlayer(""Clothed"")"
-3020,0,0,,I don't want|to do that.,"Fine, shut up then.|(She checks her phone.)",3091,0,0,TestPunish()
+3020,0,0,,I don't want|to do that.,"Fine, shut up then.|(She checks her phone.)",3092,0,0,TestPunish()
 3030,0,0,,Yes Mistress.|(Wear your bikini.),Good girl.  (You change for Sidney.),3090,0,0,"ForceChangePlayer(""RedBikini"")"
 3030,0,0,,(Nod slowly.)|(Wear your bikini.),Good girl.  (You change for Sidney.),3090,0,0,"ForceChangePlayer(""RedBikini"")"
-3030,0,0,,I don't want|to do that.,"Fine, shut up then.|(She checks her phone.)",3091,0,0,TestPunish()
-3090,0,0,,Do I look fine?,You're ok.  Now shut up for a second.|(She gets back on her phone to text.),3091,0,0,AllowLeave()
-3090,0,0,,Are you happy?,I can't complain.  Now shut up for a second.|(She gets back on her phone to text.),3091,0,0,AllowLeave()
-3090,0,0,,(Bow your head.),It's kind of great to have a bitch.|(She gets back on her phone to text.),3091,0,0,AllowLeave()
+3030,0,0,,I don't want|to do that.,"Fine, shut up then.|(She checks her phone.)",3092,0,0,TestPunish()
+3040,0,0,,Yes Mistress.|(Wear your lingerie.),Good girl.  (You change for Sidney.),3090,0,0,"ForceChangePlayer(""WhiteLingerie"")"
+3040,0,0,,(Nod slowly.)|(Wear your lingerie.),Good girl.  (You change for Sidney.),3090,0,0,"ForceChangePlayer(""WhiteLingerie"")"
+3040,0,0,,I don't want|to do that.,"Fine, shut up then.|(She checks her phone.)",3092,0,0,TestPunish()
+3090,0,0,,Do I look fine?,You're ok.  Now shut up for a second.|(She gets back on her phone to text.),3092,0,0,TestBlockChanging()
+3090,0,0,,Are you happy?,I can't complain.  Now shut up for a second.|(She gets back on her phone to text.),3092,0,0,TestBlockChanging()
+3090,0,0,,(Bow your head.),It's kind of great to have a bitch.|(She gets back on her phone to text.),3092,0,0,TestBlockChanging()
+3091,0,0,,I cannot change?|For how long?,Until I say otherwise.  Now shut up.|(She checks her phone and laughs.),3092,0,0,AllowLeave()
+3091,0,0,,(Nod slowly.),Stay like that until I say otherwise.|(She checks her phone and laughs.),3092,0,0,AllowLeave()
+3091,0,0,Common_PlayerGagged,@Eehp oheem!,Stay like that until I say otherwise.|(She checks her phone and laughs.),3092,0,0,AllowLeave()
+3091,0,0,,(Sulk.),"My bitch, my rules.  You stay like that until|I say otherwise.  (She checks her phone again.)",3092,0,0,AllowLeave()
+3091,0,0,,That's unfair!,"My bitch, my rules.  You stay like that until|I say otherwise.  (She checks her phone again.)",3092,0,0,AllowLeave()
 3100,0,0,,Yes Mistress.|(Show her your items.),(She checks your items|and use them on you.),3190,0,0,"ForceRandomBondage(""Full"")"
 3100,0,0,,I don't want|to do that.,"Fine, shut up then.|(She checks her phone.)",3191,0,0,TestPunish()
 3110,0,0,,Yes Mistress.|(Show her your items.),(She checks your items|and use a restrain on you.),3190,0,0,"ForceRandomBondage(""Restrain"")"
@@ -100,7 +109,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 3210,0,0,,Yes Mistress.|I'm ok with it.,That's good my little bitch.|(She slaps you on your breast.),3211,0,0,"DoActivity(""Spank"", 0, 0)"
 3210,0,0,,Not really.,You'll have to learn to love it my little bitch.|(She slaps you pretty hard on your breast.),3211,0,0,"DoActivity(""Spank"", -1, 0)"
 3210,0,0,,"Oh yes, I'm|a pain slut.",That's fucking great my little bitch.|(She slaps you hard on your breast.),3211,0,0,"DoActivity(""Spank"", 1, 0)"
-3210,0,0,,I don't want|to be spanked.,"Fine, shut up then.|(She checks her phone.)",3291,0,0,TestPunish()
+3210,0,0,,I don't want|to be slapped.,"Fine, shut up then.|(She checks her phone.)",3291,0,0,TestPunish()
 3210,0,0,,(Nod happily.),That's fucking great my little bitch.|(She slaps you hard on your breast.),3211,0,0,"DoActivity(""Spank"", 1, 0)"
 3210,0,0,,(Nod slowly.),That's good my little bitch.|(She slaps you on your breast.),3211,0,0,"DoActivity(""Spank"", 0, 0)"
 3210,0,0,,(Shake your head no.),You'll have to learn to love it my little bitch.|(She slaps you pretty hard on your breast.),3211,0,0,"DoActivity(""Spank"", -1, 0)"
@@ -127,7 +136,43 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 3221,0,0,,(Take deep breaths.),"Always remember, this is mine.|(She stares at you and masturbates you.)",3221,0,0,"DoActivity(""Masturbate"", 0, 3222)"
 3221,0,0,,Stop it now!,Fuck you then little bitch!|(She lets you go and checks her phone.),3291,0,0,TestPunish()
 3221,0,0,,(Grumble and|try to resist.),Fuck you then little bitch!|(She lets you go and checks her phone.),3291,0,0,TestPunish()
-3222,0,0,,TO DO ,TO DO,3291,0,0,AllowLeave()
+3222,0,0,,Oh yes Mistress.|I need to cum.,Well you're not going to cum now.|You understand that I'm in control?,3290,0,0,BegForOrgasm(true)
+3222,0,0,,(Nod and beg|for an orgasm.),Well you're not going to cum now.|You understand that I'm in control?,3290,0,0,BegForOrgasm(true)
+3222,0,0,,No!  Please!|I'm ok Mistress.,Alright little bitch.  But you do|understand that this pussy is mine?,3290,0,0,BegForOrgasm(false)
+3222,0,0,,(Shake your head no.),Alright little bitch.  But you do|understand that this pussy is mine?,3290,0,0,BegForOrgasm(false)
+3223,0,0,,Oh wow!  That|was awesome.,"You're a great slut, but that's enough.|(She quickly picks her phone to text.)",3291,1,0,AllowLeave()
+3223,0,0,,(Tremble and try|to recuperate.),"That's enough bitch, rest for a while.|(She quickly picks her phone to text.)",3291,0,0,AllowLeave()
+3223,0,0,,Fuck Sidney.|I needed that.,That's MISTRESS!  (She slaps you on|the face and gets back to her phone.),3291,-1,1,AllowLeave()
+3223,0,0,Common_PlayerGagged,@UUUUUMPH!,"That's enough bitch, keep quiet.|(She picks her phone to text.)",3291,0,0,AllowLeave()
+3223,0,0,,(Cuddle against|your Mistress.),You're a good bitch but give me some air.|(She quickly picks her phone to text.),3291,1,-1,AllowLeave()
+3223,0,0,,(Blush red.),Don't be shy of what you are little slut.|(She quickly picks her phone to text.),3291,0,-1,AllowLeave()
+3223,0,0,,That was rape!,Shut the fuck up!  (She slaps you on|the face and gets back to her phone.),3291,-1,0,AllowLeave()
 3290,0,0,,Yes Mistress.,I love having my own little bitch.|(She gets back on her phone to text.),3291,0,0,AllowLeave()
 3290,0,0,,(Nod and take|your breath.),It's kind of great to have a bitch.|(She gets back on her phone to text.),3291,0,0,AllowLeave()
 3290,0,0,,I understand.,I love having my own little bitch.|(She gets back on her phone to text.),3291,0,0,AllowLeave()
+3800,0,0,,(Look surprised.),Don't act like you don't know.|You're not allowed to change!,3801,0,0,
+3800,0,0,,I was changing.,You're not allowed to change!,3801,0,0,
+3800,0,0,,(Bow your head.),You're not allowed to change!,3801,0,0,
+3800,0,0,,What do you|mean Mistress?,Don't act like you don't know.|You're not allowed to change!,3801,0,0,
+3801,0,0,,I wanted to be|pretty for you.,Fucking bitch!  I'll teach you to|follow the rules!. I'll punish you.,3900,0,0,
+3801,0,0,,I thought you|were kidding.,Fucking bitch!  I'll teach you to|follow the rules!. I'll punish you.,3900,0,0,
+3801,0,0,,I'm sorry Mistress.,Fucking bitch!  I'll teach you to|follow the rules!. I'll punish you.,3900,0,0,
+3801,0,0,,(Stay silent.),Fucking bitch!  I'll teach you to|follow the rules!. I'll punish you.,3900,0,0,
+3801,0,0,,(Look remorseful.),Fucking bitch!  I'll teach you to|follow the rules!. I'll punish you.,3900,0,0,
+3900,0,0,,Punished?|For real?,That's fucking real.  Get naked!,3901,-1,0,ReleaseBeforePunish()
+3900,0,0,,Yes Mistress.,I'll teach you.  Get naked!,3901,-1,-1,ReleaseBeforePunish()
+3900,0,0,,Punished?|Alright!,Stupid bitch.  Get naked!,3901,-1,-1,ReleaseBeforePunish()
+3900,0,0,,(Nod slowly.),I'll teach you.  Get naked!,3901,-1,0,ReleaseBeforePunish()
+3900,0,0,,You can't do that!,Shut the fuck up and get naked.,3901,-1,1,ReleaseBeforePunish()
+3900,0,0,,(Shake your head no.),Stop resisting and get naked.,3901,-1,1,ReleaseBeforePunish()
+3901,0,0,,"Alright, fine.|(Strip naked.)","(You slowly strip while she grins.)|Very good, your punishment can begin.",3903,0,0,"ForceChangePlayer(""Naked"")"
+3901,0,0,,(Nod politely.)|(Strip naked.),"(You slowly strip while she grins.)|Very good, your punishment can begin.",3903,0,0,"ForceChangePlayer(""Naked"")"
+3901,0,0,,My pleasure.|(Strip naked.),"(You slowly strip while she grins.)|Very good, your punishment can begin.",3903,0,-1,"ForceChangePlayer(""Naked"")"
+3901,0,0,,(Shake your head no.),(She slaps your face pretty hard.)|Bitch!  I said GET NAKED!,3902,-1,1,
+3901,0,0,,I won't strip!,(She slaps your face pretty hard.)|Bitch!  I said GET NAKED!,3902,-1,1,
+3902,0,0,,"Alright, fine.|(Strip naked.)","(You slowly strip while she grins.)|Very good, your punishment can begin.",3903,0,0,"ForceChangePlayer(""Naked"")"
+3902,0,0,,(Nod politely.)|(Strip naked.),"(You slowly strip while she grins.)|Very good, your punishment can begin.",3903,0,0,"ForceChangePlayer(""Naked"")"
+3903,0,0,,Uh oh.,,3903,0,0,StartPunishment()
+3903,0,0,,(Take deep breaths.),,3903,0,0,StartPunishment()
+3903,0,0,,(Make puppy eyes.),,3903,0,0,StartPunishment()
+3903,0,0,,Yes Mistress.,,3903,0,0,StartPunishment()

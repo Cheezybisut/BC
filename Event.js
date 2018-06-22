@@ -1,13 +1,27 @@
-var EventLastRandomType = -1;
+var EventLastRandomType = "";
 var EventActivityCurrent = "";
 var EventActivityCount = 0;
 var EventActivityMaxCount = 0;
+var EventList = ["Naked", "Underwear", "SchoolUniform", "RedBikini", "WhiteLingerie", "FullBondage", "Restrain", "Gag", "Release", "ConfiscateKeys", "Tickle", "Spank", "Masturbate"];
+
+// Returns TRUE if the event is accepted
+function EventRandomChance(EventChanceModifier) {
+
+	// Odds are 50% by default and we can add a modifier based on love/sub levels
+	var EventChance = Math.floor(Math.random() * 100);
+	if (EventChanceModifier == "Love") EventChance = EventChance + ActorGetValue(ActorLove);
+	if (EventChanceModifier == "Hate") EventChance = EventChance - ActorGetValue(ActorLove);
+	if (EventChanceModifier == "Dom") EventChance = EventChance + ActorGetValue(ActorSubmission);
+	if (EventChanceModifier == "Sub") EventChance = EventChance - ActorGetValue(ActorSubmission);
+	return (EventChance >= 50);
+
+}
 
 // Apply a submissive event on the player
 function EventPlayerSubmissive(EventType) {
 	OverridenIntroText = "";
 	LeaveIcon = "";
-	return EventType;
+	return parseInt(EventType);
 }
 
 // Draws a submissive event for the player at random (Launch from a Mistress Actor)
@@ -20,21 +34,28 @@ function EventRandomPlayerSubmissive() {
 		// Draw an event type at random, make sure it doesn't repeat
 		var EventType = EventLastRandomType;
 		while (EventType == EventLastRandomType)
-			EventType = Math.floor(Math.random() * 12);
+			EventType = EventList[Math.floor(Math.random() * EventList.length)];
+		
+		// If the event is valid for that actor
+		var EventStage = GetText("Event" + EventType);
+		if (IsNumeric(EventStage)) {
 
-		// Most event have requirements to work
-		if ((EventType == 0) && !Common_PlayerRestrained && !Common_PlayerNaked) Result = EventPlayerSubmissive(3000); // Naked
-		if ((EventType == 1) && !Common_PlayerRestrained && !Common_PlayerUnderwear && !Common_PlayerChaste) Result = EventPlayerSubmissive(3010); // Underwear {
-		if ((EventType == 2) && !Common_PlayerRestrained && (!Common_PlayerClothed || (Common_PlayerCostume != ""))) Result = EventPlayerSubmissive(3020); // School uniform
-		if ((EventType == 3) && !Common_PlayerRestrained && (Common_PlayerCostume != "RedBikini") && !Common_PlayerChaste) Result = EventPlayerSubmissive(3030); // Red Bikini
-		if ((EventType == 4) && !Common_PlayerRestrained && !Common_PlayerGagged) Result = EventPlayerSubmissive(3100); // Full bondage
-		if ((EventType == 5) && !Common_PlayerRestrained) Result = EventPlayerSubmissive(3110); // Restrain bondage
-		if ((EventType == 6) && !Common_PlayerGagged) Result = EventPlayerSubmissive(3120); // Gag bondage
-		if ((EventType == 7) && Common_PlayerRestrained) { Result = EventPlayerSubmissive(3130); PlayerReleaseBondage(); } // Release from bondage
-		if ((EventType == 8) && PlayerHasInventory("CuffsKey")) Result = EventPlayerSubmissive(3140); // Confiscate cuff keys
-		if (EventType == 9) Result = EventPlayerSubmissive(3200); // Tickle
-		if (EventType == 10) Result = EventPlayerSubmissive(3210); // Spank
-		if ((EventType == 11) && !Common_PlayerChaste) Result = EventPlayerSubmissive(3220); // Masturbate
+			// Most event have requirements to work
+			if ((EventType == "Naked") && !Common_PlayerRestrained && !Common_PlayerNaked) Result = EventPlayerSubmissive(EventStage);
+			if ((EventType == "Underwear") && !Common_PlayerRestrained && !Common_PlayerUnderwear && !Common_PlayerChaste) Result = EventPlayerSubmissive(EventStage);
+			if ((EventType == "SchoolUniform") && !Common_PlayerRestrained && (!Common_PlayerClothed || (Common_PlayerCostume != ""))) Result = EventPlayerSubmissive(EventStage);
+			if ((EventType == "RedBikini") && !Common_PlayerRestrained && (Common_PlayerCostume != "RedBikini") && !Common_PlayerChaste) Result = EventPlayerSubmissive(EventStage);
+			if ((EventType == "WhiteLingerie") && !Common_PlayerRestrained && (Common_PlayerCostume != "WhiteLingerie") && !Common_PlayerChaste) Result = EventPlayerSubmissive(EventStage);
+			if ((EventType == "FullBondage") && !Common_PlayerRestrained && !Common_PlayerGagged) Result = EventPlayerSubmissive(EventStage);
+			if ((EventType == "Restrain") && !Common_PlayerRestrained) Result = EventPlayerSubmissive(EventStage);
+			if ((EventType == "Gag") && !Common_PlayerGagged) Result = EventPlayerSubmissive(EventStage);
+			if ((EventType == "Release") && Common_PlayerRestrained) { Result = EventPlayerSubmissive(EventStage); PlayerReleaseBondage(); }
+			if ((EventType == "ConfiscateKeys") && PlayerHasInventory("CuffsKey")) Result = EventPlayerSubmissive(EventStage);
+			if (EventType == "Tickle") Result = EventPlayerSubmissive(EventStage);
+			if (EventType == "Spank") Result = EventPlayerSubmissive(EventStage);
+			if ((EventType == "Masturbate") && !Common_PlayerChaste) Result = EventPlayerSubmissive(EventStage);
+		
+		}
 
 	}
 

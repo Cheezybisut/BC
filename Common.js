@@ -68,6 +68,11 @@ var Common_ActorIsOwner = false;
 var Common_ActorIsOwned = false;
 var Common_Number = "";
 
+// Returns TRUE if the variable is a number
+function IsNumeric(n) {
+	return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
 // Returns the current date and time in a yyyy-mm-dd hh:mm:ss format
 function GetFormatDate() {
 	var d = new Date();

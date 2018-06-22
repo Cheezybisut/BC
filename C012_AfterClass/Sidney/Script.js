@@ -1,6 +1,5 @@
 var C012_AfterClass_Sidney_CurrentStage = 0;
 var C012_AfterClass_Sidney_IntroText = "";
-var C012_AfterClass_Sidney_NextEventTime = 0;
 
 // In her shorts, Sidney can have many poses when she talks
 function C012_AfterClass_Sidney_SetPose() {
@@ -30,7 +29,7 @@ function C012_AfterClass_Sidney_Load() {
 	} else {
 
 		// Makes sure the next random event can be triggered
-		if ((C012_AfterClass_Sidney_NextEventTime <= CurrentTime) && Common_ActorIsOwner)
+		if (!GameLogQuery(CurrentChapter, CurrentActor, "EventGeneric") && Common_ActorIsOwner)
 			if (Math.floor(Math.random() * 10) == 0)
 				C012_AfterClass_Sidney_RandomSidneyDommeEvent();
 
@@ -42,7 +41,7 @@ function C012_AfterClass_Sidney_Load() {
 function C012_AfterClass_Sidney_Run() {
 	BuildInteraction(C012_AfterClass_Sidney_CurrentStage);
 	if (C012_AfterClass_Sidney_CurrentStage != 410) {
-		if ((C012_AfterClass_Sidney_CurrentStage == 3090) || (C012_AfterClass_Sidney_CurrentStage == 3091)) {
+		if (((C012_AfterClass_Sidney_CurrentStage >= 3090) && (C012_AfterClass_Sidney_CurrentStage <= 3099)) || ((C012_AfterClass_Sidney_CurrentStage >= 3901) && (C012_AfterClass_Sidney_CurrentStage <= 3999))) {
 			DrawActor("Player", 475, 0, 1);
 			DrawActor(CurrentActor, 750, 0, 1);
 		} else {
@@ -164,10 +163,10 @@ function C012_AfterClass_Sidney_PlayerStandUp() {
 function C012_AfterClass_Sidney_RandomSidneyDommeEvent() {
 	
 	// Makes sure the next random event can be triggered
-	if (C012_AfterClass_Sidney_NextEventTime <= CurrentTime) {
+	if (!GameLogQuery(CurrentChapter, CurrentActor, "EventGeneric")) {
 
 		// 1 event per 15 minutes maximum, the event is random and drawn from the Mistress pool
-		C012_AfterClass_Sidney_NextEventTime = CurrentTime + 900000;
+		GameLogAddTimer("EventGeneric", CurrentTime + 300000 + Math.floor(Math.random() * 600000));
 		C012_AfterClass_Sidney_CurrentStage = EventRandomPlayerSubmissive();
 
 	}
@@ -180,7 +179,7 @@ function C012_AfterClass_Sidney_RandomSidneyDommeEvent() {
 // Chapter 12 After Class - As a Domme, Sidney can force the player to change
 function C012_AfterClass_Sidney_ForceChangePlayer(NewCloth) {
 	PlayerClothes(NewCloth);
-	ActorSetPose("Happy");
+	if (C012_AfterClass_Sidney_CurrentStage < 3900) ActorSetPose("Happy");
 	CurrentTime = CurrentTime + 50000;
 }
 
@@ -195,15 +194,14 @@ function C012_AfterClass_Sidney_ForceRandomBondage(BondageType) {
 function C012_AfterClass_Sidney_TestUnbind() {
 
 	// Before the next event time, she will always refuse
-	if (C012_AfterClass_Sidney_NextEventTime <= CurrentTime) {
+	if (!GameLogQuery(CurrentChapter, CurrentActor, "EventGeneric")) {
 		
-		// The more love, the higher the chances, 50% at zero
-		var UnbindChance = Math.floor(Math.random() * 100) + ActorGetValue(ActorLove);
-		if (UnbindChance >= 50) {
+		// Check if the event succeeds randomly
+		if (EventRandomChance("Love")) {
 			OverridenIntroText = GetText("ReleasePlayer");
 			PlayerReleaseBondage();
 			CurrentTime = CurrentTime + 50000;
-		} else C012_AfterClass_Sidney_NextEventTime = CurrentTime + 900000;
+		} else GameLogAddTimer("EventGeneric", CurrentTime + 300000 + Math.floor(Math.random() * 600000));
 		
 	}
 	
@@ -219,8 +217,17 @@ function C012_AfterClass_Sidney_DoActivity(ActivityType, Enjoyment, BonusStage) 
 
 // Chapter 12 After Class - When the player disobey, she can get punished
 function C012_AfterClass_Sidney_TestPunish() {
-	ActorSetPose("CheckCellPhone");
-	LeaveIcon = "Leave";
+
+	// The more love, the less chances the player will be punished
+	if (EventRandomChance("Love")) {
+		ActorSetPose("CheckCellPhone");
+		LeaveIcon = "Leave";
+	} else {
+		ActorSetPose("Angry");
+		OverridenIntroText = "";
+		C012_AfterClass_Sidney_CurrentStage = 3900;
+	}
+
 }
 
 // Chapter 12 After Class - Allows the player to leave the scene
@@ -232,9 +239,8 @@ function C012_AfterClass_Sidney_AllowLeave() {
 // Chapter 12 After Class - The player can beg Sidney to be released before she exits
 function C012_AfterClass_Sidney_TestReleaseBeforeExit() {
 
-	// The more love, the higher the chances, 50% at zero
-	var UnbindChance = Math.floor(Math.random() * 100) + ActorGetValue(ActorLove);
-	if (UnbindChance >= 50) {
+	// Check if the event succeeds randomly
+	if (EventRandomChance("Love")) {
 		OverridenIntroText = GetText("ReleaseBeforeExit");
 		PlayerReleaseBondage();
 		CurrentTime = CurrentTime + 50000;
@@ -247,4 +253,56 @@ function C012_AfterClass_Sidney_ConfiscateKeys() {
 	PlayerRemoveInventory("CuffsKey", 99);
 	ActorSetPose("CheckCellPhone");
 	LeaveIcon = "Leave";
+}
+
+// Chapter 12 After Class - Sidney can confiscate the player keys
+function C012_AfterClass_Sidney_BegForOrgasm(Begged) {
+	
+	// If the player begs for it, Sidney will do it randomly based on love, if not it's based on hate
+	if (EventRandomChance(Begged ? "Love" : "Hate")) {
+		ActorAddOrgasm();
+		EventLogEnd();
+		OverridenIntroText = GetText(Begged ? "MasturbatePlayerOrgasm" : "MasturbatePlayerOrgasmForced");
+		C012_AfterClass_Sidney_CurrentStage = 3223;
+	}
+
+}
+
+// Chapter 12 After Class - Sidney will tell the player if she can change clothes or not
+function C012_AfterClass_Sidney_IsChangingBlocked() {
+	if (GameLogQuery(CurrentChapter, CurrentActor, "EventBlockChanging"))
+		OverridenIntroText = GetText("ChangingIsBlocked");
+}
+
+// Chapter 12 After Class - Sidney will tell the player if she can change clothes or not
+function C012_AfterClass_Sidney_TestBlockChanging() {
+	
+	// The less love, the higher the chances Sidney will block changing
+	if (EventRandomChance("Hate")) {
+		OverridenIntroText = "";
+		GameLogAddTimer("EventBlockChanging", CurrentTime + 1000000 + Math.floor(Math.random() * 10000000));
+		C012_AfterClass_Sidney_CurrentStage = 3091;
+	} else C012_AfterClass_Sidney_AllowLeave();
+
+}
+
+// Chapter 12 After Class - Sidney will tell the player if she can change clothes or not
+function C012_AfterClass_Sidney_ReleaseBeforePunish() {
+	ActorSetPose("ReadyToPunish");
+	if (Common_PlayerRestrained || Common_PlayerGagged) {
+		OverridenIntroText = GetText("ReleaseBeforePunish");
+		PlayerReleaseBondage();
+		CurrentTime = CurrentTime + 50000;
+	}
+}
+
+// Chapter 12 After Class - Set Sidney Pose
+function C012_AfterClass_Sidney_ActorSetPose(NewPose) {
+	ActorSetPose(NewPose);
+}
+
+// Chapter 12 After Class - Starts the punishment
+function C012_AfterClass_Sidney_StartPunishment() {
+	C012_AfterClass_Sidney_CurrentStage = 3999;
+	C012_AfterClass_Sidney_AllowLeave();
 }

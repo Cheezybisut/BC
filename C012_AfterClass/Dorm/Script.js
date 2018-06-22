@@ -1,8 +1,20 @@
 var C012_AfterClass_Dorm_Guest = [];
 var C012_AfterClass_Dorm_PlayerPos = 0;
 
+// Check if we must stop the scene for leaving guests
+function C012_AfterClass_Dorm_LeavingGuest() {
+
+	// Sidney will leave at 20:00
+	if ((C012_AfterClass_Dorm_Guest.indexOf("Sidney") >= 0) && (CurrentTime >= 20 * 60 * 60 * 1000) && !ActorSpecificIsRestrained("Sidney")) {
+		C012_AfterClass_Sidney_CurrentStage = 400;
+		SetScene(CurrentChapter, "Sidney");
+	}
+
+}
+
 // Set the guest list in the dorm
 function C012_AfterClass_Dorm_CalGuest() {
+	C012_AfterClass_Dorm_LeavingGuest();
 	C012_AfterClass_Dorm_Guest = [];
 	if (GameLogQuery(CurrentChapter, "Sidney", "EnterDormFromPub") && (CurrentTime <= 20 * 60 * 60 * 1000)) C012_AfterClass_Dorm_Guest.push("Sidney");
 	C012_AfterClass_Dorm_PlayerPos = 600 - C012_AfterClass_Dorm_Guest.length * 100;
@@ -31,6 +43,9 @@ function C012_AfterClass_Dorm_Load() {
 // Chapter 12 - After Class Dorm Run
 function C012_AfterClass_Dorm_Run() {
 	
+	// Check if we must stop the scene for leaving guests
+	C012_AfterClass_Dorm_LeavingGuest();
+	
 	// Draw the background and the actors
 	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
 	DrawTransparentPlayerImage(C012_AfterClass_Dorm_PlayerPos - 210, 0, 0.6667);
@@ -46,13 +61,6 @@ function C012_AfterClass_Dorm_Run() {
 	else DrawImage(CurrentChapter + "/" + CurrentScreen + "/Save_Inactive.png", 925, 0);
 	if ((MouseX >= 1050) && (MouseX < 1200) && (MouseY >= 0) && (MouseY <= 600)) DrawImage(CurrentChapter + "/" + CurrentScreen + "/Exit_Active.png", 1075, 0);
 	else DrawImage(CurrentChapter + "/" + CurrentScreen + "/Exit_Inactive.png", 1075, 0);
-	
-	if ((C012_AfterClass_Dorm_Guest.indexOf("Sidney") >= 0) && (CurrentTime >= 20 * 60 * 60 * 1000) && !ActorSpecificIsRestrained("Sidney")) {
-		C012_AfterClass_Dorm_CalGuest();
-		C012_AfterClass_Sidney_CurrentStage = 400;
-		SetScene(CurrentChapter, "Sidney");
-	}
-		
 	
 }
 
