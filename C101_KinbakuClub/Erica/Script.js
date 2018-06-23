@@ -249,9 +249,7 @@ function C101_KinbakuClub_Erica_PlayerSlaved() {
 	C101_KinbakuClub_Erica_PlayerIsSlave = true;
 	CurrentTime = CurrentTime + 180000;
 	PlayerClothes("Underwear");
-	PlayerUnlockInventory("Cuffs");
-	PlayerUnlockInventory("BallGag");
-	PlayerUnlockInventory("TapeGag");
+	PlayerReleaseBondage();
 	PlayerLockInventory("Rope");
 	PlayerLockInventory("ClothGag");
 	PlayerLockInventory("Collar");

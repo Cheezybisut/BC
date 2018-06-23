@@ -40,13 +40,19 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 360,0,0,,,Charlotte.jpg
 400,0,0,,,LeftTwin.jpg
 410,0,0,,,LeftTwin.jpg
+440,0,0,,,LeftTwin.jpg
 450,0,0,,,RightTwin.jpg
 460,0,0,,,Tickling.jpg
 465,0,0,,,TicklingTears.jpg
 470,0,0,,,RightTwin.jpg
+490,0,0,,,RightTwin.jpg
 500,0,0,,,Amelia.jpg
 600,0,0,,,RopeGroupBG.jpg
-700,0,0,,,RopeGroupBG.jpg
-710,0,0,,,RopeGroupBG.jpg
-720,0,0,,,RopeGroupBG.jpg
-730,0,0,,,RopeGroupBG.jpg
+700,0,0,,Thanks for untying me.,TwinsBackground.jpg
+710,0,0,,I've had enough of being tied up.|Can I tie you up now?,TwinsBackground.jpg
+720,0,0,,,TwinTyingPlayer.jpg
+730,0,0,,,PlayerHogtied.jpg
+740,0,0,,,PlayerHogtiedGagged.jpg
+750,0,0,,,WhisperingTwin.jpg
+760,0,0,,,
+770,0,0,,,
