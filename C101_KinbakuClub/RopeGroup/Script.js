@@ -27,7 +27,9 @@ var C101_KinbakuClub_RopeGroup_RightTwinToldNaughty = false;
 var C101_KinbakuClub_RopeGroup_LeftTwinToldTighter = false;
 var C101_KinbakuClub_RopeGroup_RightTwinToldTighter = false;
 var C101_KinbakuClub_RopeGroup_KeptTickling = false;
-
+var C101_KinbakuClub_RopeGroup_ATwinStillTied = false;
+var C101_KinbakuClub_RopeGroup_StruggleCount = 0;					//Count of how of actions before twin whispers in players ear.
+var C101_KinbakuClub_RopeGroup_ComplimentDone = false;
 
 //Stage layout
 //0		- Intro -
@@ -46,6 +48,7 @@ var C101_KinbakuClub_RopeGroup_KeptTickling = false;
 function C101_KinbakuClub_RopeGroup_CalcParams() {
 	C101_KinbakuClub_RopeGroup_Kidnapper = C101_KinbakuClub_Slaves_ReadyForSlaves;
 	C101_KinbakuClub_RopeGroup_TwoTiedTwins = (!C101_KinbakuClub_RopeGroup_LeftTwinKidnapped && !C101_KinbakuClub_RopeGroup_RightTwinKidnapped && !C101_KinbakuClub_RopeGroup_LeftTwinReleased && !C101_KinbakuClub_RopeGroup_RightTwinReleased);
+	C101_KinbakuClub_RopeGroup_ATwinStillTied = (!C101_KinbakuClub_RopeGroup_RightTwinKidnapped && !C101_KinbakuClub_RopeGroup_RightTwinReleased) || (!C101_KinbakuClub_RopeGroup_LeftTwinKidnapped && !C101_KinbakuClub_RopeGroup_LeftTwinReleased);
 }
 
 
@@ -55,6 +58,10 @@ function C101_KinbakuClub_RopeGroup_Load() {
 	// After intro player has a choice each time she goes to the group, until a twin is released
 	if (C101_KinbakuClub_RopeGroup_CurrentStage > 100 && C101_KinbakuClub_RopeGroup_CurrentStage < 700) {
 		C101_KinbakuClub_RopeGroup_CurrentStage = 100;
+	}
+	if (C101_KinbakuClub_RopeGroup_CurrentStage >= 700) {
+		if (C101_KinbakuClub_RopeGroup_LeftTwinReleased) ActorLoad(C101_KinbakuClub_RopeGroup_LeftTwin, "ClubRoom1");
+		if (C101_KinbakuClub_RopeGroup_RightTwinReleased) ActorLoad(C101_KinbakuClub_RopeGroup_RightTwin, "ClubRoom1");
 	}
 
 	// Load the scene parameters
@@ -102,7 +109,15 @@ function C101_KinbakuClub_RopeGroup_Run() {
 		DrawImage(CurrentChapter + "/" + CurrentScreen + "/RopeGroupCharlotte.jpg", 818, 0);
 		if (!C101_KinbakuClub_RopeGroup_LeftTwinReleased && !C101_KinbakuClub_RopeGroup_LeftTwinKidnapped) DrawImage(CurrentChapter + "/" + CurrentScreen + "/RopeGroupTwinLeftStart.png", 985, 98);
 		if (!C101_KinbakuClub_RopeGroup_RightTwinReleased && !C101_KinbakuClub_RopeGroup_RightTwinKidnapped) DrawImage(CurrentChapter + "/" + CurrentScreen + "/RopeGroupTwinRightStart.png", 847, 110);
-	}	
+	}
+
+	// Twins image after releasing one of them
+	if (C101_KinbakuClub_RopeGroup_CurrentStage >= 700 && C101_KinbakuClub_RopeGroup_CurrentStage <= 710) {
+		if (!C101_KinbakuClub_RopeGroup_LeftTwinKidnapped && !C101_KinbakuClub_RopeGroup_LeftTwinReleased) DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinLeftStillTied.png", 600, 167);
+		if (C101_KinbakuClub_RopeGroup_CurrentStage == 700) DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinJustReleased.png", 750, 5);
+		if (C101_KinbakuClub_RopeGroup_CurrentStage == 710) DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinReleased.png", 750, 5);
+		if (!C101_KinbakuClub_RopeGroup_RightTwinKidnapped && !C101_KinbakuClub_RopeGroup_RightTwinReleased) DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinRightStillTied.png", 930, 230);
+	}
 }
 
 // Chapter 101 - RopeGroup Click
@@ -177,6 +192,11 @@ function C101_KinbakuClub_RopeGroup_CanLeave() {
 	LeaveIcon = "Leave";
 }
 
+// Chapter 101 - RopeGroup - Player can leave again.
+function C101_KinbakuClub_RopeGroup_NoLeave() {
+	LeaveIcon = "";
+}
+
 // Chapter 101 - RopeGroup - Player threatens amelia to try stopping her.
 function C101_KinbakuClub_RopeGroup_TryStopMe() {
 	if (ActorGetValue(ActorSubmission) <= 0) {
@@ -236,7 +256,7 @@ function C101_KinbakuClub_RopeGroup_NotTieMe() {
 	if (ActorGetValue(ActorSubmission) <= -3) {
 		OverridenIntroText = GetText("ForceTied");
 		C101_KinbakuClub_RopeGroup_AmeliaTies();
-		ActorChangeAttitude(0, -1)
+		ActorChangeAttitude(0, -1);
 		C101_KinbakuClub_RopeGroup_CurrentStage = 500;
 	}
 }
@@ -286,7 +306,7 @@ function C101_KinbakuClub_RopeGroup_Charlotte360Done() {
 // Chapter 101 - RopeGroup - Grabs the selected twin
 function C101_KinbakuClub_RopeGroup_Kidnap() {
 	if (C101_KinbakuClub_RopeGroup_LeftTwinKidnapped || C101_KinbakuClub_RopeGroup_RightTwinKidnapped) {
-		C101_KinbakuClub_RopeGroup_LoadAmelia()
+		C101_KinbakuClub_RopeGroup_LoadAmelia();
 		LeaveIcon = "";
 		if (C101_KinbakuClub_RopeGroup_PersistantKidnapper) {
 			C101_KinbakuClub_RopeGroup_CurrentStage = 120;
@@ -305,6 +325,9 @@ function C101_KinbakuClub_RopeGroup_Kidnap() {
 
 // Chapter 101 - RopeGroup - Release the twin on the right
 function C101_KinbakuClub_RopeGroup_ReleaseTwin() {
+	if (C101_KinbakuClub_RopeGroup_CurrentStage == 400) C101_KinbakuClub_RopeGroup_LeftTwinReleased = true;
+	else C101_KinbakuClub_RopeGroup_RightTwinReleased = true;
+	C101_KinbakuClub_RopeGroup_CurrentStage = 700;
 }
 
 // Chapter 101 - RopeGroup - Trick to tell twins appart
@@ -315,35 +338,69 @@ function C101_KinbakuClub_RopeGroup_WouldYourSister() {
 
 // Chapter 101 - RopeGroup - Player tells bound twin she is naught and should be punished
 function C101_KinbakuClub_RopeGroup_NaughtyLeft() {
-	if (!C101_KinbakuClub_RopeGroup_LeftTwinToldNaughty) ActorSpecificChangeAttitude(C101_KinbakuClub_RopeGroup_LeftTwin, -1, 1)
+	if (!C101_KinbakuClub_RopeGroup_LeftTwinToldNaughty) ActorSpecificChangeAttitude(C101_KinbakuClub_RopeGroup_LeftTwin, -1, 1);
 	C101_KinbakuClub_RopeGroup_LeftTwinToldNaughty = true;
 }
 
 // Chapter 101 - RopeGroup - Player tells bound twin she is naught and should be punished
 function C101_KinbakuClub_RopeGroup_NaughtyRight() {
-	if (!C101_KinbakuClub_RopeGroup_RightTwinToldNaughty) ActorSpecificChangeAttitude(C101_KinbakuClub_RopeGroup_RightTwin, -1, 1)
+	if (!C101_KinbakuClub_RopeGroup_RightTwinToldNaughty) ActorSpecificChangeAttitude(C101_KinbakuClub_RopeGroup_RightTwin, -1, 1);
 	C101_KinbakuClub_RopeGroup_RightTwinToldNaughty = true;
 }
 
 // Chapter 101 - RopeGroup - Player tells bound twin her ropes should be made even tighter
 function C101_KinbakuClub_RopeGroup_TighterLeft() {
-	if (!C101_KinbakuClub_RopeGroup_LeftTwinToldTighter) ActorSpecificChangeAttitude(C101_KinbakuClub_RopeGroup_LeftTwin, 0, 1)
+	if (!C101_KinbakuClub_RopeGroup_LeftTwinToldTighter) ActorSpecificChangeAttitude(C101_KinbakuClub_RopeGroup_LeftTwin, 0, 1);
 	C101_KinbakuClub_RopeGroup_LeftTwinToldTighter = true;
 }
 
 // Chapter 101 - RopeGroup - Player tells bound twin her ropes should be made even tighter
 function C101_KinbakuClub_RopeGroup_TighterRight() {
-	if (!C101_KinbakuClub_RopeGroup_RightTwinToldTighter) ActorSpecificChangeAttitude(C101_KinbakuClub_RopeGroup_RightTwin, 0, 1)
+	if (!C101_KinbakuClub_RopeGroup_RightTwinToldTighter) ActorSpecificChangeAttitude(C101_KinbakuClub_RopeGroup_RightTwin, 0, 1);
 	C101_KinbakuClub_RopeGroup_RightTwinToldTighter = true;
 }
 
 // Chapter 101 - RopeGroup - Player continues tickling the twin once she is crying.
 function C101_KinbakuClub_RopeGroup_CharlotteDislike() {
 	if (!C101_KinbakuClub_RopeGroup_KeptTickling) {
-		ActorSpecificChangeAttitude("Charlotte", -1, 0)
-		ActorSpecificChangeAttitude(C101_KinbakuClub_RopeGroup_RightTwin, -1, 1)
+		ActorSpecificChangeAttitude("Charlotte", -1, 0);
+		ActorSpecificChangeAttitude(C101_KinbakuClub_RopeGroup_RightTwin, -1, 1);
 	}
 	C101_KinbakuClub_RopeGroup_KeptTickling = true;
+}
+
+// Chapter 101 - RopeGroup - Player gets tied up
+function C101_KinbakuClub_RopeGroup_PlayerTied() {
+	if (!PlayerHasLockedInventory("Rope")) {
+		PlayerLockInventory("Rope");
+		C101_KinbakuClub_RopeGroup_NoLeave();
+	}
+	CurrentTime = CurrentTime + 60000;
+}
+
+// Chapter 101 - RopeGroup - Player is ball gagged
+function C101_KinbakuClub_RopeGroup_PlayerBallGagged() {
+	PlayerRemoveInventory("BallGag", 1);
+	PlayerLockInventory("BallGag");
+	CurrentTime = CurrentTime + 60000;
+}
+
+// Chapter 101 - RopeGroup - Player struggles bound and gagged, twin will then whisper in her ear.
+function C101_KinbakuClub_RopeGroup_HelplessStruggles() {
+	if (C101_KinbakuClub_RopeGroup_StruggleCount > 3) {
+		C101_KinbakuClub_RopeGroup_CurrentStage = 750;
+		if (ActorGetValue(ActorName) == "Heather") OverridenIntroText = GetText("RevealHeather");
+		else OverridenIntroText = GetText("RevealLucy");
+		C101_KinbakuClub_RopeGroup_RevealTwins();
+	}
+	C101_KinbakuClub_RopeGroup_StruggleCount++;
+}
+
+// Chapter 101 - RopeGroup - Player thanks twin for hogtie
+function C101_KinbakuClub_RopeGroup_HelplessThankYou() {
+	if (!C101_KinbakuClub_RopeGroup_ComplimentDone) ActorChangeAttitude(1, 0)
+	C101_KinbakuClub_RopeGroup_ComplimentDone = true;
+	C101_KinbakuClub_RopeGroup_HelplessStruggles();
 }
 
 // Chapter 101 - RopeGroup - 

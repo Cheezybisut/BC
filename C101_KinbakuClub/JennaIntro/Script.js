@@ -37,6 +37,7 @@ function C101_KinbakuClub_JennaIntro_Load() {
 	if (C101_KinbakuClub_JennaIntro_CurrentStage == 80) LeaveIcon = "Leave";
 	else LeaveIcon = "";
 
+	GameLogAdd("KinbakuClubInfo");
 }
 
 // Chapter 101 - Jenna Run

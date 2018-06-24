@@ -27,6 +27,7 @@ function C101_KinbakuClub_ClubRoom1_Run() {
 	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Amelia.png", 690, 120);
 	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Charlotte.png", 883, 103);
 	if (!C101_KinbakuClub_RopeGroup_LeftTwinReleased && !C101_KinbakuClub_RopeGroup_LeftTwinKidnapped) DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinLeftStart.png", 945, 160);
+	if (C101_KinbakuClub_RopeGroup_LeftTwinReleased || C101_KinbakuClub_RopeGroup_RightTwinReleased) DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinReleased.png", 925, 68);
 	if (!C101_KinbakuClub_RopeGroup_RightTwinReleased && !C101_KinbakuClub_RopeGroup_RightTwinKidnapped) DrawImage(CurrentChapter + "/" + CurrentScreen + "/TwinRightStart.png", 800, 155);
 }
 

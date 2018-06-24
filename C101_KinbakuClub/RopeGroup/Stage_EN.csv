@@ -121,8 +121,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 400,0,0,,That's an innovative|rope tie.,"(Amelia says.) Yes Lucy demonstrated it on Natalie|last week.  Not classic Kinbaku, put pretty painful.",400,,,
 400,0,0,,(Interrogate her.),,410,,,
 400,0,0,Kidnapper,(Kidnap her.),,400,,,Kidnap()
-401,0,0,,(Release her.),(You release her). Thank you.|I'm sick of Heather masquerading as me. I'm lucy.,700,,,ReleaseTwin()
-400,0,0,,(Release her.),To do.,400,,,
+400,0,0,,(Release her.),(Amelia speaks up as you reach for a knot.)|Are you sure that is Lucy?,440,0,0,
 400,0,0,,(Go back to the|rest of the grounp.),(Amelia was telling Charlotte about Kinbaku.),100,0,0,
 410,0,0,,Are you Lucy?,(She nods her head.),410,,,
 410,0,0,,Are you Heather?,(She shakes her head.),410,,,
@@ -132,13 +131,14 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 410,0,0,,I think you should be|tied up even tighter.,(She whimpers and shakes her head.|She is already aching from her arms tied like that.),410,,,Tighter()
 410,0,0,,(Reconsider your|options.),(What do you do now?),400,,,
 410,0,0,,(Go back to the|rest of the grounp.),(Amelia was telling Charlotte about Kinbaku.),100,0,0,
+440,0,0,,"Yes, I'm sure|which one this is.",(You release her). Thank you.|I'm sick of Heather masquerading as me. I'm lucy.,400,0,0,ReleaseTwin()
+440,0,0,,"No, I'm not sure.",(You leave her tied up and reconsider your options.),400,0,0,
 450,0,0,,You're lucky to be|tied so tightly.,(Amelia says.) You could be just as lucky.,450,,,
 450,0,0,,(Tickle her.),(You pin her by sitting on her lap and start tickling|the exposed armpit. She giggles helplessly.),460,,,
 450,0,0,,Thats an intriguing rope tie.,(Amelia says.) Yes Lucy showed us that a while ago.|Asymmetric tying is supposedly common with Kinbaku.,450,,,
 450,0,0,,(Interrogate her.),,470,,,
 450,0,0,Kidnapper,(Kidnap her.),,450,,,Kidnap()
-451,0,0,,(Release her.),(You release her). Thank you.|I'm sick of Heather masquerading as me. I'm lucy.,700,,,ReleaseTwin()
-450,0,0,,(Release her.),To do.,450,,,
+450,0,0,,(Release her.),(Amelia speaks up as you reach for a knot.)|Are you sure that is Lucy?,490,0,0,
 450,0,0,,(Go back to the|rest of the grounp.),(Amelia was telling Charlotte about Kinbaku.),100,0,0,
 460,0,0,,(Stop tickling her.),"(You stand up, letting her recover.)",450,,,
 460,0,0,,(Keep tickling her.),"(As you you tickle her more intensly she breaks down|in tears of laughter, pleading for you to stop.)",465,,,
@@ -153,15 +153,33 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 470,0,0,,I think you should be|tied up even tighter.,(She whimpers and shakes her head.|She is already aching from her arms tied like that.),470,,,Tighter()
 470,0,0,,(Reconsider your|options.),(What do you do now?),450,,,
 470,0,0,,(Go back to the|rest of the grounp.),(Amelia was telling Charlotte about Kinbaku.),100,,,
+490,0,0,,"Yes, I'm sure|which one this is.",(You release her). Thank you.|I'm sick of Heather masquerading as me. I'm lucy.,450,0,0,ReleaseTwin()
+490,0,0,,"No, I'm not sure.",(You leave her tied up and reconsider your options.),450,0,0,
 500,0,0,,To Do.,To do.,500,,,
 600,0,0,,Can I tie you up now.,,,,,
 600,0,0,,Can you tie me up again plaese.,,,1,-1,
 600,0,0,,(Go back to the|rest of the grounp.),(Amelia is telling Charlotte about Kinbaku.),100,0,0,
 700,0,0,,"So Lucy, shall we tie|up your captors now.","That is easier said than done with Amelia. I know a lot|of Kinbaku, would like to be tied up instead?",710,1,1,
-700,0,0,,You must be aching|after that.,"Yes, I need to stretch my arms. Can I tie you up now to work some life back into them?",710,1,0,
+700,0,0,,You must be aching|after that.,"Yes, I need to stretch my arms.|Can I tie you up now to work some life back into them?",710,1,0,
 710,0,0,,"No, you're not|tying me up.","Aww please, I have an neat idea I want to try.",710,0,0,
 710,0,0,,Tie up Amelia or|Charlotte instead.,"No, I really want to try out a new idea on you.",710,0,0,
-710,0,0,,"Okay, but make it quick.","We'll see, you might enjoy this.  (She starts with a|box tie, helps you lie down and ties your ankles.)",720,0,0,
-720,0,0,,Come on this is|nothing special.,Just a moment.  (She ties a crotch rope going around|your arms and then hogtied to your ankles.),730,0,1,
-720,0,0,,I can't move|away like this.,Thats the idea.  (She ties a crotch rope going around|your arms and then hogtied to your ankles.),730,0,-1,
-730,0,0,,(Try struggle in|this bondage.),(As you kick your legs it yanks the crotch rope deep into you.),740,0,-1,
+710,0,0,ATwinStillTied,You're just going to leave|your sister like that?,"She can hold that pose a bit longer.|Come on, you could keep her compnay.",710,0,0,
+710,0,0,,"Okay, but make it quick.","We'll see, you might enjoy this.  (She starts with a|box tie, helps you lie down and ties your legs.)",720,0,1,PlayerTied()
+710,0,0,,"Sure, show me|what you can do.","Thanks, you might enjoy this.  (She starts with a|box tie, helps you lie down and ties your legs.)",720,1,0,PlayerTied()
+710,0,0,,I'm not sure I want|to be tied up.,"Relax, you might enjoy this.  (She starts with a|box tie, helps you lie down and ties your legs.)",720,0,-1,PlayerTied()
+720,0,0,,Come on this is|nothing special.,"Just a moment.  (She ties a crotch rope, brings it|up around your arms and hogties you with it.)",730,0,1,PlayerTied()
+720,0,0,,Could you make this|a more restrictive?,"Certainly.  (She ties a crotch rope, brings it|up around your arms and hogties you with it.)",730,1,-1,PlayerTied()
+720,0,0,,Well I can't just|walk away like this.,"Thats the idea.  (She ties a crotch rope, brings it|up around your arms and hogties you with it.)",730,0,-1,PlayerTied()
+730,0,0,,(Reach for a knot.),"(You reach up behind your back to find a knot, but|that pulls the crotch rope, digging it deeper into you.",730,0,0,
+730,0,0,,(Try struggle in|this bondage.),"(As you kick your legs, they yank on the crotch|rope, making it cut deep into your pussy.)",730,0,0,
+730,0,0,,Thats enough. You|can let me go now.,"Just a momment we are almost done.|(She straps a gag on you, cutting your protests short.)",740,0,-1,PlayerBallGagged()
+730,0,0,,This is great.,"Yes, but something is missing.  (She securely|straps a gag in your mouth.)  That's better.",740,1,-1,PlayerBallGagged()
+730,0,0,,I want to see you|tied like this now.,"Those that 'want', don't get. Learn some manners,|like asking ""May I have a gag please?"". Yes you may.",740,0,0,PlayerBallGagged()
+740,0,0,,(Reach for a knot.),"(You reach up behind your back to find a knot, but|that pulls the crotch rope, digging it deeper into you.)",740,0,0,HelplessStruggles()
+740,0,0,,(Try struggling in|this bondage.),"(As you kick your legs, they yank on the crotch|rope, making it cut deep into your pussy.)",740,0,-1,HelplessStruggles()
+740,0,0,,@Bhnhnh.,"Calm down, this isn't too bad if you dont struggle.|You can mange to hold this position for a bit longer.",740,0,0,HelplessStruggles()
+740,0,0,,(Spit the gag out.),"(You try in vain to get the ball out of your mouth.)|Don't worry, that's not the same gag I was drooling over.",740,0,0,HelplessStruggles()
+740,0,0,,(Chew on the gag.),"Hmmm, maybe I should find you a bigger ball gag or|maybe pack something else into you mouth first.",740,0,0,HelplessStruggles()
+740,0,0,,"@Thhtf mnhhgh,|lmt mm gh nhw.",What is that? I can't quite make out what|you're saying with your mouth full.,740,0,0,HelplessStruggles()
+740,0,0,,"@Thhng nhh, thnf|hhgtnm Hmf hwfhmm.",You're welcome. I though you would enjoy it.,740,0,0,HelplessThankYou()
+740,0,0,,(Tug on the|crotch rope.),(You can't help softly moaning with pleasure|and pain as you tease yourself.),740,0,0,HelplessStruggles()
