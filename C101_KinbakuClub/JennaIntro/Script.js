@@ -73,6 +73,7 @@ function C101_KinbakuClub_JennaIntro_ShortCut() {
 	PlayerAddInventory("ChastityBelt", 4);
 	PlayerAddInventory("Armbinder", 4);
 	PlayerAddInventory("Blindfold", 4);
+	PlayerAddInventory("ButtPlug", 4);
 	C101_KinbakuClub_JennaIntro_Done()
 	SetScene(CurrentChapter, "ClubRoom1")
 	PlayerAddSkill("Arts", 1);

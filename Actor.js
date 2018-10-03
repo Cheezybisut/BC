@@ -322,6 +322,15 @@ function ActorApplyRestrain(RestrainName) {
 			} else return;
 		}
 
+		// Anal items (cannot be used if the actor is chaste) (only available in the Kinbaku club for now)
+		if ((RestrainName == "ChastityBelt") || (RestrainName == "ButtPlug")) {
+			if (!ActorIsChaste()) {
+				PlayerRemoveInventory(RestrainName, 1);
+				ActorAddInventory(RestrainName);
+				CurrentTime = CurrentTime + 60000;
+			} else return;
+		}
+
 		// Cuffs key
 		if (RestrainName == "CuffsKey") {
 			if (ActorHasInventory("Cuffs")) {
@@ -350,21 +359,23 @@ function ActorSpecificHasInventory(QueryActor, QueryInventory) {
 
 }
 
-// Clear all inventory from an actor (expect the egg, chastitybelt and collar)
+// Clear all inventory from an actor (expect the egg, plug, chastitybelt and collar)
 function ActorSpecificClearInventory(QueryActor, Recover) {	
 	for (var A = 0; A < Actor.length; A++)
 		if (Actor[A][ActorName] == QueryActor) {
 			var HadEgg = ActorSpecificHasInventory(QueryActor, "VibratingEgg");
+			var HadPlug = ActorSpecificHasInventory(QueryActor, "ButtPlug");
 			var HadCollar = ActorSpecificHasInventory(QueryActor, "Collar");
 			var HadBelt = ActorSpecificHasInventory(QueryActor, "ChastityBelt");
 			while (Actor[A][ActorInventory].length > 0) {
-				if ((Actor[A][ActorInventory][0] != "VibratingEgg") && (Actor[A][ActorInventory][0] != "TwoRopes") && (Actor[A][ActorInventory][0] != "Collar") && (Actor[A][ActorInventory][0] != "ChastityBelt") && (Actor[A][ActorInventory][0] != "TapeGag") && Recover)
+				if ((Actor[A][ActorInventory][0] != "VibratingEgg") && (Actor[A][ActorInventory][0] != "ButtPlug") && (Actor[A][ActorInventory][0] != "TwoRopes") && (Actor[A][ActorInventory][0] != "Collar") && (Actor[A][ActorInventory][0] != "ChastityBelt") && (Actor[A][ActorInventory][0] != "TapeGag") && Recover)
 					PlayerAddInventory(Actor[A][ActorInventory][0], 1);
 				if ((Actor[A][ActorInventory][0] == "TwoRopes") && Recover)
 					PlayerAddInventory("Rope", 1);
 				Actor[A][ActorInventory].splice(0, 1);
 			}
 			if (HadEgg) Actor[A][ActorInventory].push("VibratingEgg");
+			if (HadPlug) Actor[A][ActorInventory].push("ButtPlug");
 			if (HadCollar) Actor[A][ActorInventory].push("Collar");
 			if (HadBelt) Actor[A][ActorInventory].push("ChastityBelt");
 		}

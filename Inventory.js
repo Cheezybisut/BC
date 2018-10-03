@@ -62,15 +62,17 @@ function PlayerUnlockInventory(UnlockedInventory) {
 
 }
 
-// Remove all items from the locked inventory except the egg, collar and chastity belt
+// Remove all items from the locked inventory except the egg, plug, collar and chastity belt
 function PlayerUnlockAllInventory(UnlockedInventory) {
 	var HadCollar = PlayerHasLockedInventory("Collar");
 	var HadEgg = PlayerHasLockedInventory("VibratingEgg");
+	var HadPlug = PlayerHasLockedInventory("ButtPlug");
 	var HadBelt = PlayerHasLockedInventory("ChastityBelt");
 	while (PlayerLockedInventory.length > 0)
 		PlayerLockedInventory.splice(0, 1);
 	if (HadCollar) PlayerLockInventory("Collar");
 	if (HadEgg) PlayerLockInventory("VibratingEgg");
+	if (HadPlug) PlayerLockInventory("ButtPlug");
 	if (HadBelt) PlayerLockInventory("ChastityBelt");
 	LoadRestrainStatus();
 }
